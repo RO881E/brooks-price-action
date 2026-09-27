@@ -1,0 +1,73 @@
+name: Website und Academy veröffentlichen
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - academy/**
+      - index.html
+      - pdfs/**
+      - .github/workflows/deploy-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Prüfen und bauen
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v5
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: academy/package-lock.json
+
+      - name: Abhängigkeiten installieren
+        run: npm ci --prefix academy
+
+      - name: Academy testen
+        run: npm test --prefix academy
+
+      - name: Academy für Unterverzeichnis bauen
+        run: npm run build --prefix academy -- --base=./
+
+      - name: Veröffentlichungsordner zusammenstellen
+        run: |
+          mkdir -p _site/academy
+          cp index.html _site/index.html
+          cp -R pdfs _site/pdfs
+          cp -R academy/dist/. _site/academy/
+          touch _site/.nojekyll
+
+      - name: GitHub Pages konfigurieren
+        uses: actions/configure-pages@v5
+
+      - name: Website-Paket hochladen
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    name: Veröffentlichen
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages bereitstellen
+        id: deployment
+        uses: actions/deploy-pages@v4
