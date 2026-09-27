@@ -153,10 +153,44 @@ test.describe('desktop content traversal', () => {
 });
 
 test('is usable in a narrow mobile viewport', { tag: '@mobile' }, async ({ page }) => {
+  const completedLessonIds = publishedLessons.map((lesson) => lesson.id);
+  await page.addInitScript((lessonIds) => {
+    localStorage.setItem(
+      'wqt-academy-progress-v1',
+      JSON.stringify({
+        version: 1,
+        completedLessonIds: lessonIds,
+        answers: {},
+        lastLessonId: lessonIds.at(-1) ?? null,
+        legacyReadChapters: [],
+        legacyTrendRangeBest: 0,
+        updatedAt: new Date().toISOString(),
+      }),
+    );
+  }, completedLessonIds);
+
   await page.goto('/');
-  await expect(page.getByRole('navigation', { name: 'Mobile Navigation' })).toBeVisible();
-  await page.getByRole('button', { name: 'Glossar' }).last().click();
+  const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
+  await expect(mobileNavigation).toBeVisible();
+  await mobileNavigation.getByRole('button', { name: 'Glossar' }).click();
   await expect(page.getByRole('heading', { name: 'Price-Action-Glossar' })).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+    ),
+  ).toBe(false);
+
+  await mobileNavigation.getByRole('button', { name: 'Buchmodus' }).click();
+  await page
+    .getByRole('button', {
+      name: 'Die Falle vor der Trendwiederaufnahme: Abgeschlossen',
+      exact: true,
+    })
+    .click();
+  await page.getByRole('button', { name: 'Weiter' }).click();
+  await expect(
+    page.getByRole('img', { name: 'Der Fehlausbruch fängt die falsche Seite' }),
+  ).toBeVisible();
   const hasHorizontalOverflow = await page.evaluate(
     () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
   );
