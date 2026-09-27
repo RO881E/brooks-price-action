@@ -26,7 +26,13 @@ export type ChartScenarioId =
   | 'bar-close-trap'
   | 'bar-anatomy'
   | 'high-low-count'
-  | 'high-low-failure';
+  | 'high-low-failure'
+  | 'price-action-spectrum'
+  | 'market-inertia'
+  | 'bear-range-resumption'
+  | 'two-leg-labels'
+  | 'failed-open-breakout'
+  | 'midday-false-breakout';
 
 export type LessonStep =
   | {
