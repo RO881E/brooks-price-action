@@ -1,4 +1,5 @@
 import type { Course, Lesson } from '../content/types';
+import { lessonAccessState } from '../features/courseAccess';
 
 export function ChapterView({
   course,
@@ -10,17 +11,6 @@ export function ChapterView({
   onOpenLesson: (lesson: Lesson) => void;
 }) {
   const completed = new Set(completedLessonIds);
-  const publishedLessons = course.units.flatMap((unit) =>
-    unit.lessons.filter((lesson) => lesson.status === 'published'),
-  );
-  const unlockedLessonIds = new Set(
-    publishedLessons
-      .filter(
-        (lesson, index) =>
-          index === 0 || completed.has(lesson.id) || completed.has(publishedLessons[index - 1].id),
-      )
-      .map((lesson) => lesson.id),
-  );
 
   return (
     <div className="page-shell chapter-page">
@@ -45,8 +35,9 @@ export function ChapterView({
                 <span>{unit.description}</span>
                 <div className="chapter-lessons">
                   {published.map((lesson) => {
-                    const isUnlocked = unlockedLessonIds.has(lesson.id);
-                    const isComplete = completed.has(lesson.id);
+                    const state = lessonAccessState(course, lesson, completed);
+                    const isUnlocked = state === 'available' || state === 'complete';
+                    const isComplete = state === 'complete';
 
                     return (
                       <button

@@ -1564,6 +1564,178 @@ button:disabled {
   fill: var(--gold);
 }
 
+.chart-panel {
+  fill: rgba(255, 255, 255, 0.74);
+  stroke: #d8d9d4;
+  stroke-width: 1.25;
+}
+
+.chart-panel.bull {
+  fill: rgba(50, 131, 102, 0.055);
+  stroke: rgba(50, 131, 102, 0.28);
+}
+
+.chart-panel.bear,
+.chart-panel.warning {
+  fill: rgba(177, 77, 71, 0.05);
+  stroke: rgba(177, 77, 71, 0.25);
+}
+
+.chart-panel-title {
+  fill: var(--navy-800);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.chart-panel-title.bull,
+.chart-region-label.bull {
+  fill: #26745b;
+}
+
+.chart-panel-title.bear,
+.chart-region-label.bear {
+  fill: #9a403b;
+}
+
+.chart-region-label.gold {
+  fill: #9a6c20;
+}
+
+.auction-core {
+  fill: var(--navy-800);
+  stroke: var(--gold);
+  stroke-width: 3;
+}
+
+.auction-core-title {
+  fill: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.chart-small.inverse {
+  fill: rgba(255, 255, 255, 0.76);
+}
+
+.chart-small.strong {
+  fill: var(--navy-800);
+  font-weight: 700;
+}
+
+.chart-price-line {
+  fill: none;
+  stroke: #26745b;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-price-line.noisy {
+  stroke: #9a403b;
+  stroke-width: 3;
+}
+
+.indicator-line {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.chart-focus {
+  fill: #fff;
+  stroke: var(--gold-dark);
+  stroke-width: 4;
+}
+
+.chart-news-badge {
+  fill: var(--navy-800);
+}
+
+.chart-news-text {
+  fill: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.chart-zone {
+  fill: rgba(187, 135, 52, 0.12);
+  stroke: rgba(154, 108, 32, 0.6);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+
+.risk-spine {
+  stroke: #9ca2a8;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.risk-point {
+  fill: #fff;
+  stroke-width: 5;
+}
+
+.risk-point.entry { stroke: var(--navy-800); }
+.risk-point.stop { stroke: #a5423d; }
+.risk-point.target { stroke: #26745b; }
+
+.risk-bracket {
+  fill: none;
+  stroke-width: 2;
+}
+
+.risk-bracket.stop { stroke: #a5423d; }
+.risk-bracket.target { stroke: #26745b; }
+
+.chart-pill {
+  fill: rgba(187, 135, 52, 0.09);
+  stroke: rgba(187, 135, 52, 0.34);
+  stroke-width: 1;
+}
+
+.martingale-bar {
+  fill: #d1ae6d;
+  stroke: #9a6c20;
+  stroke-width: 1;
+}
+
+.martingale-bar.danger {
+  fill: #b14d47;
+  stroke: #8a3631;
+}
+
+.trend-channel,
+.structure-line {
+  fill: none;
+  stroke: #26745b;
+  stroke-width: 2;
+  stroke-dasharray: 8 6;
+}
+
+.trend-channel.soft {
+  opacity: 0.42;
+}
+
+.structure-line.bear {
+  stroke: #a5423d;
+}
+
+.structure-line.bull {
+  stroke: #26745b;
+}
+
+.breakout-line {
+  stroke: #9a6c20;
+  stroke-width: 2;
+  stroke-dasharray: 7 6;
+}
+
 .chart-caption {
   margin: 12px 4px 0;
   color: var(--ink-soft);

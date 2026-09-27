@@ -3,6 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
+  workers: 1,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
   reporter: 'list',
@@ -12,7 +13,7 @@ export default defineConfig({
     launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
       ? {
           executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,
-          args: ['--single-process', '--no-zygote', '--disable-setuid-sandbox'],
+          args: ['--no-sandbox', '--disable-setuid-sandbox'],
         }
       : undefined,
   },
@@ -22,7 +23,15 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
   },
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'mobile', use: { ...devices['Pixel 7'] } },
+    {
+      name: 'chromium',
+      grepInvert: /@mobile/,
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'mobile',
+      grepInvert: /@desktop/,
+      use: { ...devices['Pixel 7'] },
+    },
   ],
 });
