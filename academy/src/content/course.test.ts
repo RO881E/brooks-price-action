@@ -2,13 +2,14 @@ import { describe, expect, it } from 'vitest';
 import { brooksTrendsCourse, publishedLessons } from './course';
 
 describe('Brooks course model', () => {
-  it('keeps introduction, part introduction and chapter 1 in source order', () => {
+  it('keeps introduction, part introduction and chapters 1–2 in source order', () => {
     expect(brooksTrendsCourse.units.map((unit) => unit.id)).toEqual([
       'brooks-trends.introduction',
       'brooks-trends.part-01-introduction',
       'brooks-trends.chapter-01',
+      'brooks-trends.chapter-02',
     ]);
-    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3]);
+    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4]);
   });
 
   it('publishes the complete source-mapped introduction as 22 micro-lessons', () => {
@@ -83,6 +84,33 @@ describe('Brooks course model', () => {
     );
     expect(chapterOne.lessons.at(-1)?.title).toBe(
       'Die Falle vor der Trendwiederaufnahme',
+    );
+  });
+
+  it('publishes chapter 2 as twenty source-ordered micro-lessons', () => {
+    const chapterTwo = brooksTrendsCourse.units[3];
+
+    expect(chapterTwo.estimatedLessonCount).toBe(20);
+    expect(chapterTwo.lessons).toHaveLength(20);
+    expect(
+      chapterTwo.lessons.every((lesson) => lesson.status === 'published'),
+    ).toBe(true);
+    expect(
+      chapterTwo.lessons.every(
+        (lesson) => (lesson.sourceAnchors?.length ?? 0) >= 3,
+      ),
+    ).toBe(true);
+    expect(chapterTwo.lessons.at(0)?.title).toBe(
+      'Trendbar oder Ein-Bar-Range',
+    );
+    expect(chapterTwo.lessons.at(5)?.title).toBe(
+      'Follow-through entscheidet den Spike',
+    );
+    expect(chapterTwo.lessons.at(11)?.title).toBe(
+      'Dojis können gemeinsam trenden',
+    );
+    expect(chapterTwo.lessons.at(-1)?.title).toBe(
+      'Chartfall 2.6: Vom Trend in die Trading Range',
     );
   });
 

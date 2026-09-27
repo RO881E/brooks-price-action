@@ -1,4 +1,5 @@
 import type { ChartScenarioId } from '../content/types';
+import { ChapterTwoChart } from './ChapterTwoCharts';
 
 interface Candle {
   open: number;
@@ -87,6 +88,46 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Der Markt eröffnet oberhalb des Vortageshochs, fällt unter die Grenze zurück und entwickelt einen Abwärtstrend vom Open.',
   'midday-false-breakout':
     'Nach einem frühen Abwärtstrend und langer enger Range scheitert ein kleiner Aufwärtsausbruch vor der bärischen Wiederaufnahme.',
+  'bar-control-spectrum':
+    'Vier Bars zeigen abnehmende Schlusskontrolle vom großen Trendkörper bis zur Ein-Bar-Range.',
+  'two-sided-trend-bar':
+    'Vier professionelle Motive treffen rund um Hoch und Tief desselben bullischen Trendbars aufeinander.',
+  'relative-doji':
+    'Ein Intraday-Future und ein langfristiger Aktienchart zeigen relativ kleine Körper trotz verschiedener absoluter Preisabstände.',
+  'trend-bar-four-roles':
+    'Ein bullischer Trendbar wird gleichzeitig als Spike, Breakout, funktionale Lücke und Klimax betrachtet.',
+  'vacuum-vs-follow-through':
+    'Zwei identische Aufwärtsspikes enden entweder in scharfer Zurückweisung oder anhaltender Akzeptanz.',
+  'follow-through-decision':
+    'Ein bearischer Gegen-Spike im Bullenmarkt erhält links Verkaufsanschluss und scheitert rechts an einem Bullenschluss.',
+  'human-vs-tick-speed':
+    'Ein einzelner Fünf-Minuten-Bar wird einer kaum manuell verarbeitbaren Folge vieler Tickbewegungen gegenübergestellt.',
+  'climax-vs-reversal':
+    'Auf einen Kaufklimax und eine Pause folgen wahlweise Trendfortsetzung oder der notwendige bearische Gegen-Breakout.',
+  'ideal-trend-bar':
+    'Ein moderater hochwertiger Trendbar wird mit einer späten extremen und sofort zurückgewiesenen Kerze verglichen.',
+  'cumulative-pressure':
+    'In einem fallenden Kanal häufen sich untere Tails und bullische Körper, bevor der Kaufdruck den Kanal bricht.',
+  'strong-weak-range':
+    'Starke Teilnehmer handeln an den Rändern einer Range, während schwache Teilnehmer Hochs und Tiefs verspätet verfolgen.',
+  'trending-dojis':
+    'Vier Dojis mit steigenden Hochs, Tiefs und Schlusskursen bilden gemeinsam eine bullische Sequenz.',
+  'late-buy-climax':
+    'Nach einem reifen Bullenlauf folgen ein außergewöhnlicher Kaufklimax, ein bearischer Gegen-Spike und zweiseitiger Handel.',
+  'contextual-doji':
+    'Derselbe kleine Körper wirkt in ruhiger Umgebung wie ein Trendbar und zwischen großen Bars wie eine Pause.',
+  'multiframe-doji-reversal':
+    'Vier steigende kleine Bars werden auf einer größeren Zeitebene zu einem bullischen Reversal-Bar verdichtet.',
+  'bear-day-context':
+    'Ein Bärentag zeigt Gap, Gegenversuch, Fortsetzung, Kanalüberschuss und den späteren Test des Tiefs.',
+  'failed-bull-breakout':
+    'Ein großer bullischer Ausbruch und sein zweiter Verteidigungsversuch scheitern vor mehreren Abwärtsbeinen.',
+  'quiet-collapse':
+    'Nach einer langen ruhigen Range erzeugen zwei kaum überlappende Bear-Bars einen starken Fortsetzungsspike mit Risikoplan.',
+  'exhaustion-bear-spike':
+    'Zunehmend große Bear-Bars erreichen Unterstützung, worauf Short-Gewinnmitnahmen und neue Longs eine Rally antreiben.',
+  'trend-to-range-pressure':
+    'Wiederholt zurückgewiesene Swing-Tiefs führen vom Bärentrend über eine Range zur Rally und späterem Verkaufsdruck.',
 };
 
 function yScale(value: number, min: number, max: number): number {
@@ -1327,6 +1368,7 @@ export function LearningChart({ scenario, title }: LearningChartProps) {
         {scenario === 'two-leg-labels' ? <TwoLegLabels /> : null}
         {scenario === 'failed-open-breakout' ? <FailedOpenBreakout /> : null}
         {scenario === 'midday-false-breakout' ? <MiddayFalseBreakout /> : null}
+        <ChapterTwoChart scenario={scenario} />
       </svg>
     </div>
   );
