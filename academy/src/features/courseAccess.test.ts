@@ -53,6 +53,31 @@ describe('course access', () => {
     ).toBe(partIntroduction.lessons[0]);
   });
 
+  it('opens chapter 1 after Part I and unlocks its lessons in order', () => {
+    const completedEarlierUnits = [
+      ...introduction.lessons.map((lesson) => lesson.id),
+      ...partIntroduction.lessons.map((lesson) => lesson.id),
+    ];
+
+    expect(
+      lessonAccessState(
+        brooksTrendsCourse,
+        chapterOne.lessons[0],
+        completedEarlierUnits,
+      ),
+    ).toBe('available');
+    expect(
+      lessonAccessState(
+        brooksTrendsCourse,
+        chapterOne.lessons[1],
+        completedEarlierUnits,
+      ),
+    ).toBe('locked');
+    expect(nextAvailableLesson(brooksTrendsCourse, completedEarlierUnits)).toBe(
+      chapterOne.lessons[0],
+    );
+  });
+
   it('does not skip a planned gap within a unit', () => {
     const syntheticCourse: Course = {
       id: 'test',
