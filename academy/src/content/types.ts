@@ -32,7 +32,27 @@ export type ChartScenarioId =
   | 'bear-range-resumption'
   | 'two-leg-labels'
   | 'failed-open-breakout'
-  | 'midday-false-breakout';
+  | 'midday-false-breakout'
+  | 'bar-control-spectrum'
+  | 'two-sided-trend-bar'
+  | 'relative-doji'
+  | 'trend-bar-four-roles'
+  | 'vacuum-vs-follow-through'
+  | 'follow-through-decision'
+  | 'human-vs-tick-speed'
+  | 'climax-vs-reversal'
+  | 'ideal-trend-bar'
+  | 'cumulative-pressure'
+  | 'strong-weak-range'
+  | 'trending-dojis'
+  | 'late-buy-climax'
+  | 'contextual-doji'
+  | 'multiframe-doji-reversal'
+  | 'bear-day-context'
+  | 'failed-bull-breakout'
+  | 'quiet-collapse'
+  | 'exhaustion-bear-spike'
+  | 'trend-to-range-pressure';
 
 export type LessonStep =
   | {

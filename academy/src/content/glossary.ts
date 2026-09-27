@@ -258,4 +258,53 @@ export const glossaryEntries: GlossaryEntry[] = [
       'Fortsetzung einer zuvor etablierten Trendrichtung nach einer deutlichen Pause, einem Pullback oder einer Trading Range.',
     firstUnit: 'Kapitel 1',
   },
+  {
+    term: 'Ein-Bar-Range',
+    aliases: ['One-Bar Trading Range', 'Non-Trend-Bar'],
+    definition:
+      'Bar mit geringem Nettofortschritt vom Open zum Close, in dem beide Seiten handeln konnten; praktisch meist als Doji eingeordnet.',
+    firstUnit: 'Kapitel 2',
+  },
+  {
+    term: 'Klimax',
+    aliases: ['Climax', 'Buy Climax', 'Sell Climax'],
+    definition:
+      'Schnelle, weit gelaufene Bewegung in eine Richtung. Sie endet mit der ersten Pause, bedeutet aber ohne Gegen-Breakout noch keine bestätigte Umkehr.',
+    firstUnit: 'Kapitel 2',
+  },
+  {
+    term: 'Vakuumeffekt',
+    aliases: ['Vacuum Effect', 'Buy Vacuum', 'Sell Vacuum'],
+    definition:
+      'Beschleunigung, die teilweise entsteht, weil eine Gegenseite bis zu einem erwarteten Ziel kaum handelt und erst dort wieder aggressiv auftritt.',
+    firstUnit: 'Kapitel 2',
+  },
+  {
+    term: 'Kaufdruck',
+    aliases: ['Buying Pressure'],
+    definition:
+      'Kumulative bullische Evidenz aus Körpern, Schlusskursen, Tails und Reaktionen an Tiefs, die eine Rally oder einen Regimewechsel wahrscheinlicher macht.',
+    firstUnit: 'Kapitel 2',
+  },
+  {
+    term: 'Verkaufsdruck',
+    aliases: ['Selling Pressure'],
+    definition:
+      'Kumulative bearische Evidenz aus Körpern, Schlusskursen, Tails und Reaktionen an Hochs, die einen Rückgang oder Regimewechsel wahrscheinlicher macht.',
+    firstUnit: 'Kapitel 2',
+  },
+  {
+    term: 'Trendkanal-Überschuss',
+    aliases: ['Trend Channel Line Overshoot', 'Overshoot'],
+    definition:
+      'Kurzzeitige Beschleunigung über eine Trendkanallinie hinaus. Ihr Scheitern kann auf einen reifen, nachlassenden Trend hinweisen.',
+    firstUnit: 'Kapitel 2',
+  },
+  {
+    term: 'Moving-Average-Gap-Bar',
+    aliases: ['MA Gap Bar', 'Durchschnittslücken-Bar'],
+    definition:
+      'Bar in einem Trend, dessen Hoch oder Tief den gleitenden Durchschnitt nicht erreicht und damit eine sichtbare Lücke zur Durchschnittslinie lässt.',
+    firstUnit: 'Kapitel 2',
+  },
 ];

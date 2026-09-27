@@ -1,6 +1,7 @@
 import { introductionLessons } from './courses/brooks-trends/introduction';
 import { partOneLessons } from './courses/brooks-trends/part-01';
 import { chapterOneLessons } from './courses/brooks-trends/chapter-01';
+import { chapterTwoLessons } from './courses/brooks-trends/chapter-02';
 import type { Course } from './types';
 
 export const brooksTrendsCourse: Course = {
@@ -44,6 +45,17 @@ export const brooksTrendsCourse: Course = {
         'Extremzustände, Marktträgheit, zweibeinige Bewegungen und Trendwiederaufnahme am zentralen Chartfall.',
       estimatedLessonCount: 8,
       lessons: chapterOneLessons,
+    },
+    {
+      id: 'brooks-trends.chapter-02',
+      order: 4,
+      kind: 'chapter',
+      label: 'Kapitel 2',
+      title: 'Trendbars, Dojis und Klimaxe',
+      description:
+        'Kontrolle im einzelnen Bar, Follow-through, kumulativer Druck, Klimaxlogik und alle sechs Chartfälle in der Reihenfolge des Buches.',
+      estimatedLessonCount: 20,
+      lessons: chapterTwoLessons,
     },
   ],
 };
