@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { publishedLessons } from '../src/content/course';
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -91,12 +91,12 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
 });
 
 test.describe('desktop content traversal', () => {
-  test('opens every introduction lesson and renders every learning step', { tag: '@desktop' }, async ({ page }) => {
+  test('opens every published lesson and renders every learning step', { tag: '@desktop' }, async ({ page }) => {
+    test.setTimeout(90_000);
 
-    const introduction = brooksTrendsCourse.units[0];
-    const completedLessonIds = introduction.lessons.map((lesson) => lesson.id);
+    const completedLessonIds = publishedLessons.map((lesson) => lesson.id);
     const answers = Object.fromEntries(
-      introduction.lessons.flatMap((lesson) =>
+      publishedLessons.flatMap((lesson) =>
         lesson.steps
           .filter((step) => step.type === 'question')
           .map((step) => [step.id, step.correctOptionId]),
@@ -128,7 +128,7 @@ test.describe('desktop content traversal', () => {
       .getByRole('button', { name: 'Buchmodus' })
       .click();
 
-    for (const lesson of introduction.lessons) {
+    for (const lesson of publishedLessons) {
       await page
         .getByRole('button', { name: `${lesson.title}: Abgeschlossen`, exact: true })
         .click();
