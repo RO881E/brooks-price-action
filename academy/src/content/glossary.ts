@@ -118,4 +118,102 @@ export const glossaryEntries: GlossaryEntry[] = [
       'Langfristiger Durchschnitt aus Trefferwahrscheinlichkeit, Gewinnhöhe, Verlusthöhe und Kosten einer wiederholbaren Entscheidung.',
     firstUnit: 'Einleitung',
   },
+  {
+    term: 'Tick',
+    aliases: ['Mindestpreisänderung', 'Transaktionstick'],
+    definition:
+      'Je nach Zusammenhang entweder die kleinste zulässige Preisänderung eines Instruments oder ein einzelner ausgeführter Handel im Datenstrom.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Trendbar',
+    aliases: ['Trend-Bar'],
+    definition:
+      'Bar mit relativ großem Körper, dessen Eröffnung und Schluss nahe gegenüberliegenden Enden liegen und der dadurch gerichteten Druck zeigt.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'OCO-Order',
+    aliases: ['One Cancels the Other', 'OCO'],
+    definition:
+      'Verknüpfte Orders, bei denen die Ausführung einer Order die jeweils andere automatisch löscht, etwa Ziel und Schutzstop.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Edge',
+    aliases: ['statistischer Vorteil', 'Handelsvorteil'],
+    definition:
+      'Wiederholbarer Vorteil, bei dem Wahrscheinlichkeit, Gewinn, Verlust und Kosten zusammen einen positiven Erwartungswert ergeben.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Hochfrequenzhandel',
+    aliases: ['HFT', 'High-Frequency Trading'],
+    definition:
+      'Automatisierter Handel mit sehr schneller Datenverarbeitung, vielen Orders und meist kleinen Vorteilen pro Ausführung.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Latenz',
+    aliases: ['Latency', 'Verzögerung'],
+    definition:
+      'Zeit zwischen Datenereignis, Verarbeitung, Orderübermittlung und Bestätigung der Ausführung.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Liquidität',
+    aliases: ['Marktliquidität'],
+    definition:
+      'Verfügbarkeit handelbarer Gegenseite zu Preisen, die auch bei einer Order möglichst wenig ungünstig weglaufen.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Markttiefe',
+    aliases: ['DOM', 'Depth of Market', 'Orderbuch'],
+    definition:
+      'Momentaufnahme sichtbarer Limit-Orders auf mehreren Preisstufen; sie kann sich durch neue, geänderte oder stornierte Orders sofort verändern.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Slippage',
+    aliases: ['Ausführungsabweichung'],
+    definition:
+      'Differenz zwischen erwartetem und tatsächlich erhaltenem Ausführungspreis, besonders relevant bei geringer Liquidität oder hoher Geschwindigkeit.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Mean Reversion',
+    aliases: ['Mittelwertrückkehr', 'Regression zum Mittel'],
+    definition:
+      'Tendenz eines außergewöhnlich weit vom üblichen Bereich entfernten Zustands, später wieder in Richtung normalerer Werte zurückzukehren.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'ABC-Korrektur',
+    aliases: ['ABC-Pullback', 'zweibeinige Korrektur'],
+    definition:
+      'Pullback mit erstem Gegenbein A, Zwischenreaktion B und zweitem Gegenbein C; die Struktur kann anschließend den übergeordneten Trend fortsetzen.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Runner',
+    aliases: ['Restposition'],
+    definition:
+      'Nach einem Teilgewinn verbleibender Positionsanteil, der an einer möglicherweise größeren Bewegung teilnehmen soll.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Fibonacci-Retracement',
+    aliases: ['Fibonacci-Rücklauf'],
+    definition:
+      'Prozentuale Näherung für die Tiefe eines Rücklaufs. Im Kurs dient sie nur als Zusatzkontext und nicht als eigenständige Eintrittsgarantie.',
+    firstUnit: 'Teil I',
+  },
+  {
+    term: 'Elliott-Wave-Theorie',
+    aliases: ['Elliott Wave', 'Wellenzählung'],
+    definition:
+      'Ansatz, Kursbewegungen als wiederkehrende Wellenfolgen zu zählen; für kurzfristige Entscheidungen sind konkurrierende Zählungen häufig erst im Nachhinein eindeutig.',
+    firstUnit: 'Teil I',
+  },
 ];
