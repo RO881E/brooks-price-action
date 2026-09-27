@@ -23,10 +23,24 @@ describe('course access', () => {
     ).toBe('available');
   });
 
-  it('keeps later units locked while an earlier source unit is not released', () => {
+  it('opens Part I after the introduction and keeps chapter 1 behind it', () => {
     const completedIntroduction = introduction.lessons.map((lesson) => lesson.id);
 
-    expect(partIntroduction.lessons.every((lesson) => lesson.status === 'planned')).toBe(true);
+    expect(partIntroduction.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
+    expect(
+      lessonAccessState(
+        brooksTrendsCourse,
+        partIntroduction.lessons[0],
+        completedIntroduction,
+      ),
+    ).toBe('available');
+    expect(
+      lessonAccessState(
+        brooksTrendsCourse,
+        partIntroduction.lessons[1],
+        completedIntroduction,
+      ),
+    ).toBe('locked');
     expect(
       lessonAccessState(
         brooksTrendsCourse,
@@ -36,7 +50,7 @@ describe('course access', () => {
     ).toBe('locked');
     expect(
       nextAvailableLesson(brooksTrendsCourse, completedIntroduction),
-    ).toBeUndefined();
+    ).toBe(partIntroduction.lessons[0]);
   });
 
   it('does not skip a planned gap within a unit', () => {

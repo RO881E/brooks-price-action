@@ -47,6 +47,28 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Ein Spektrum von ausgeglichener Wahrscheinlichkeit bis zu stärkerer bullischer oder bärischer Evidenz.',
   'trend-range-transition':
     'Eine Kerzenfolge beginnt als Aufwärtstrend, geht in eine überlappende Range über und bricht anschließend nach oben aus.',
+  'order-flow-cycle':
+    'Ein Kreislauf zeigt, wie neue Positionen, erzwungene Ausstiege und Gewinnmitnahmen dieselbe Preisbewegung nacheinander verstärken.',
+  'trend-range-choice':
+    'Zwei Chartfelder vergleichen einen bestätigten Trend mit einem kurzen Ausbruch am Rand einer Trading Range.',
+  'breakout-outcomes':
+    'Zwei Ausbrüche über dieselbe Grenze: einer erhält Anschluss, der andere fällt sofort in die alte Range zurück.',
+  'pattern-evolution':
+    'Eine kleine Flag-Struktur wächst durch Rücklauf zu einer größeren, noch offenen Formation.',
+  'tick-auction':
+    'Eine vereinfachte Orderleiter zeigt, wie aggressive Käufer das aktuelle Angebot verbrauchen und den nächsten Preis handeln.',
+  'institutional-wave':
+    'Ein großer institutioneller Kaufauftrag wird in mehrere Teilausführungen entlang eines steigenden Marktes zerlegt.',
+  'hft-small-edge':
+    'Kurze Ergebnisserien schwanken stark, während sich eine kleine positive Erwartung über viele Versuche stabilisiert.',
+  'latency-race':
+    'Datenfeed, Algorithmus und Börse reagieren zuerst; der manuelle Trader beurteilt danach die sichtbare Struktur.',
+  'liquidity-crowding':
+    'Immer mehr gleichgerichtete Systeme konkurrieren um eine begrenzte Gegenseite und verschlechtern dadurch ihre Ausführung.',
+  'inertia-excess':
+    'Eine Trendbewegung setzt sich fort, überdehnt sich und kehrt erst nach sichtbarem Kontrollverlust zum Mittel zurück.',
+  'bar-close-trap':
+    'Ein laufender bullischer Reversal-Bar wird in den letzten Sekunden verkauft und schließt als starker bearischer Bar.',
   'bar-anatomy':
     'Ein einzelner Bar mit Beschriftung seiner vier Preispunkte und der beiden Tails.',
   'high-low-count':
@@ -342,6 +364,327 @@ const highLowFailureCandles: Candle[] = [
   { open: 40, high: 42, low: 31, close: 33 },
 ];
 
+function OrderFlowCycle() {
+  const stages = [
+    { x: 48, title: 'Neue Shorts', detail: 'verkaufen den Bruch', tone: 'bear' },
+    { x: 228, title: 'Long-Exits', detail: 'werden zu Verkäufen', tone: 'bear' },
+    { x: 408, title: 'Gewinnmitnahme', detail: 'Shorts kaufen zurück', tone: 'bull' },
+    { x: 588, title: 'Neue Longs', detail: 'verstärken den Anstieg', tone: 'bull' },
+  ];
+
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="36" textAnchor="middle">
+        Positionen wechseln ihre Orderrichtung
+      </text>
+      {stages.map((stage, index) => (
+        <g key={stage.title} transform={`translate(${stage.x} 92)`}>
+          <rect className={`chart-panel ${stage.tone}`} width="124" height="112" rx="16" />
+          <circle className={stage.tone === 'bull' ? 'risk-point target' : 'risk-point stop'} cx="62" cy="31" r="12" />
+          <text className={`chart-panel-title ${stage.tone}`} x="62" y="64" textAnchor="middle">
+            {stage.title}
+          </text>
+          <text className="chart-small" x="62" y="84" textAnchor="middle">
+            {stage.detail}
+          </text>
+          {index < stages.length - 1 ? (
+            <path
+              className={index < 2 ? 'chart-arrow sell' : 'chart-arrow buy'}
+              d="M124 56 C142 56 146 56 162 56"
+            />
+          ) : null}
+        </g>
+      ))}
+      <path className="structure-line bear" d="M92 250 L330 286" />
+      <path className="structure-line bull" d="M430 286 L668 238" />
+      <text className="chart-region-label bear" x="92" y="240">Abwärtsdruck</text>
+      <text className="chart-region-label bull" x="668" y="230" textAnchor="end">Aufwärtsdruck</text>
+      <text className="chart-small" x="380" y="314" textAnchor="middle">
+        Derselbe Trader kann wenige Minuten später die Gegenseite stellen
+      </text>
+    </>
+  );
+}
+
+function TrendRangeChoice() {
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">
+        Der Ort des neuen Hochs verändert seine Bedeutung
+      </text>
+      <g transform="translate(34 62)">
+        <rect className="chart-panel bull" width="330" height="224" rx="18" />
+        <text className="chart-panel-title bull" x="165" y="28" textAnchor="middle">Trend · Akzeptanz höher</text>
+        <polyline className="chart-price-line" points="24,180 68,154 98,165 138,123 171,136 214,91 248,104 300,52" />
+        <line className="breakout-line" x1="32" x2="300" y1="111" y2="111" />
+        <text className="chart-small" x="42" y="104">altes Hoch</text>
+        <text className="chart-region-label bull" x="298" y="44" textAnchor="end">Fortsetzung</text>
+      </g>
+      <g transform="translate(396 62)">
+        <rect className="chart-panel warning" width="330" height="224" rx="18" />
+        <text className="chart-panel-title bear" x="165" y="28" textAnchor="middle">Range · Ausbruch scheitert</text>
+        <rect className="chart-range" x="28" y="72" width="274" height="112" rx="12" />
+        <polyline className="chart-price-line noisy" points="32,158 72,94 116,156 158,88 204,151 248,62 276,87 300,143" />
+        <line className="breakout-line" x1="28" x2="302" y1="72" y2="72" />
+        <text className="chart-small" x="40" y="66">Range-Hoch</text>
+        <text className="chart-region-label bear" x="300" y="160" textAnchor="end">Rückkehr</text>
+      </g>
+      <text className="chart-small" x="380" y="316" textAnchor="middle">
+        Trend: Breakout kaufen prüfen · Range: Fehlausbruch und Rückkehr prüfen
+      </text>
+    </>
+  );
+}
+
+function BreakoutOutcomes() {
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">
+        Die Folgebewegung beurteilt den Grenzbruch
+      </text>
+      <g transform="translate(32 62)">
+        <rect className="chart-panel bull" width="334" height="226" rx="18" />
+        <text className="chart-panel-title bull" x="167" y="28" textAnchor="middle">Akzeptierter Ausbruch</text>
+        <line className="breakout-line" x1="26" x2="308" y1="142" y2="142" />
+        <polyline className="chart-price-line" points="28,181 68,158 106,174 143,149 172,112 204,81 232,100 266,67 306,49" />
+        <text className="chart-small" x="32" y="134">Grenze</text>
+        <text className="chart-region-label bull" x="304" y="42" textAnchor="end">höhere Tiefs</text>
+      </g>
+      <g transform="translate(394 62)">
+        <rect className="chart-panel warning" width="334" height="226" rx="18" />
+        <text className="chart-panel-title bear" x="167" y="28" textAnchor="middle">Gescheiterter Ausbruch</text>
+        <line className="breakout-line" x1="26" x2="308" y1="142" y2="142" />
+        <polyline className="chart-price-line noisy" points="28,181 70,160 108,174 146,151 178,104 207,82 230,96 250,151 278,174 306,190" />
+        <text className="chart-small" x="32" y="134">Grenze</text>
+        <text className="chart-region-label bear" x="304" y="206" textAnchor="end">zurück in der Range</text>
+      </g>
+      <text className="chart-small" x="380" y="316" textAnchor="middle">
+        Gleicher erster Bruch · gegensätzliche Information danach
+      </text>
+    </>
+  );
+}
+
+function PatternEvolution() {
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">
+        Ein Setup wird Teil der nächstgrößeren Struktur
+      </text>
+      <rect className="chart-range" x="222" y="101" width="146" height="74" rx="12" />
+      <rect className="chart-zone" x="196" y="78" width="356" height="148" rx="16" />
+      <polyline className="chart-price-line" points="54,252 104,211 152,168 202,112 240,137 278,116 316,148 356,109 392,82 430,126 470,167 508,142 548,190 590,158 640,119 704,83" />
+      <text className="chart-region-label" x="294" y="94" textAnchor="middle">kleiner Flag</text>
+      <text className="chart-region-label gold" x="374" y="244" textAnchor="middle">größere Struktur</text>
+      <circle className="chart-focus" cx="392" cy="82" r="7" />
+      <text className="chart-small" x="410" y="70">kleines Ziel erreicht</text>
+      <text className="chart-region-label bull" x="700" y="74" textAnchor="end">späterer Ausbruch</text>
+      <text className="chart-small" x="380" y="305" textAnchor="middle">
+        Kurzfristig funktioniert · übergeordnet bleibt die Auflösung noch offen
+      </text>
+    </>
+  );
+}
+
+function TickAuction() {
+  const rows = [
+    { price: '5001,00', ask: 58, bid: 0 },
+    { price: '5000,75', ask: 34, bid: 0 },
+    { price: '5000,50', ask: 12, bid: 0 },
+    { price: '5000,25', ask: 0, bid: 42 },
+    { price: '5000,00', ask: 0, bid: 67 },
+  ];
+
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="30" textAnchor="middle">Vereinfachte Orderleiter</text>
+      <text className="chart-panel-title bear" x="230" y="58" textAnchor="middle">ASK · Angebot</text>
+      <text className="chart-panel-title bull" x="530" y="58" textAnchor="middle">BID · Nachfrage</text>
+      {rows.map((row, index) => {
+        const y = 77 + index * 43;
+        return (
+          <g key={row.price}>
+            <rect className="chart-panel" x="315" y={y} width="130" height="32" rx="8" />
+            <text className="chart-panel-title" x="380" y={y + 21} textAnchor="middle">{row.price}</text>
+            {row.ask ? <rect x={305 - row.ask * 2.2} y={y + 5} width={row.ask * 2.2} height="22" rx="5" fill="rgba(177,77,71,.34)" /> : null}
+            {row.ask ? <text className="chart-small" x={294 - row.ask * 2.2} y={y + 20} textAnchor="end">{row.ask}</text> : null}
+            {row.bid ? <rect x="455" y={y + 5} width={row.bid * 2.2} height="22" rx="5" fill="rgba(50,131,102,.34)" /> : null}
+            {row.bid ? <text className="chart-small" x={466 + row.bid * 2.2} y={y + 20}>{row.bid}</text> : null}
+          </g>
+        );
+      })}
+      <path className="chart-arrow buy" d="M265 175 C286 152 300 134 313 116" />
+      <text className="chart-action buy" x="92" y="183">aggressive Käufe verbrauchen das Ask</text>
+      <text className="chart-small" x="380" y="312" textAnchor="middle">Sichtbare Größen können sich jederzeit ändern oder verschwinden</text>
+    </>
+  );
+}
+
+function InstitutionalWave() {
+  const fills = [
+    { x: 124, y: 242, label: '1' },
+    { x: 216, y: 203, label: '2' },
+    { x: 312, y: 182, label: '3' },
+    { x: 408, y: 139, label: '4' },
+    { x: 506, y: 115, label: '5' },
+    { x: 612, y: 73, label: '6' },
+  ];
+
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">Ein Bedarf · mehrere Ausführungen</text>
+      <polyline className="chart-price-line" points="70,269 124,242 169,259 216,203 264,218 312,182 356,196 408,139 458,159 506,115 554,132 612,73 692,52" />
+      {fills.map((fill) => (
+        <g key={fill.label}>
+          <circle className="probability-marker" cx={fill.x} cy={fill.y} r="13" />
+          <text className="probability-marker-text" x={fill.x} y={fill.y + 5} textAnchor="middle">{fill.label}</text>
+        </g>
+      ))}
+      <path className="trend-channel soft" d="M74 286 L695 70" />
+      <text className="chart-region-label bull" x="688" y="38" textAnchor="end">Auftrag wird weiter gefüllt</text>
+      <g transform="translate(225 280)">
+        <rect className="chart-pill" width="310" height="32" rx="16" />
+        <text className="chart-small strong" x="155" y="21" textAnchor="middle">Rückläufe nutzen · höhere Preise notfalls akzeptieren</text>
+      </g>
+    </>
+  );
+}
+
+function HftSmallEdge() {
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">Gleiche kleine Edge · andere Stichprobengröße</text>
+      <g transform="translate(34 64)">
+        <rect className="chart-panel warning" width="330" height="220" rx="18" />
+        <text className="chart-panel-title bear" x="165" y="28" textAnchor="middle">10 Versuche · starkes Rauschen</text>
+        <line className="chart-guide" x1="24" x2="306" y1="176" y2="176" />
+        <polyline className="chart-price-line noisy" points="25,176 56,141 87,190 118,154 149,116 180,167 211,128 242,174 273,119 305,137" />
+        <text className="chart-small" x="165" y="205" textAnchor="middle">kurze Verlust- und Gewinnserien dominieren</text>
+      </g>
+      <g transform="translate(396 64)">
+        <rect className="chart-panel bull" width="330" height="220" rx="18" />
+        <text className="chart-panel-title bull" x="165" y="28" textAnchor="middle">Viele Versuche · Edge wird sichtbar</text>
+        <line className="chart-guide" x1="24" x2="306" y1="176" y2="176" />
+        <polyline className="chart-price-line" points="25,181 47,169 68,174 90,154 111,160 132,143 154,149 175,127 197,135 218,112 240,119 262,92 283,99 305,70" />
+        <path className="trend-channel soft" d="M25 184 L305 73" />
+        <text className="chart-small" x="165" y="205" textAnchor="middle">Verteilung nähert sich der Erwartung</text>
+      </g>
+      <text className="chart-small" x="380" y="315" textAnchor="middle">Kosten können die kleine Brutto-Edge trotzdem vollständig aufzehren</text>
+    </>
+  );
+}
+
+function LatencyRace() {
+  const nodes = [
+    { x: 30, title: 'Datenfeed', detail: 'Zahl erscheint' },
+    { x: 210, title: 'Algorithmus', detail: 'vergleicht & entscheidet' },
+    { x: 390, title: 'Börse', detail: 'Order wird ausgeführt' },
+    { x: 570, title: 'Chart', detail: 'Reaktion wird sichtbar' },
+  ];
+
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">Maschinen handeln zuerst · du liest die Folge</text>
+      {nodes.map((node, index) => (
+        <g key={node.title} transform={`translate(${node.x} 78)`}>
+          <rect className={index === 3 ? 'chart-panel bull' : 'chart-panel'} width="160" height="92" rx="16" />
+          <text className="chart-panel-title" x="80" y="36" textAnchor="middle">{node.title}</text>
+          <text className="chart-small" x="80" y="61" textAnchor="middle">{node.detail}</text>
+          {index < nodes.length - 1 ? <path className="chart-arrow buy" d="M160 46 L176 46" /> : null}
+        </g>
+      ))}
+      <g transform="translate(200 221)">
+        <rect className="chart-panel warning" width="360" height="66" rx="18" />
+        <text className="chart-panel-title bear" x="180" y="28" textAnchor="middle">Manueller Trader</text>
+        <text className="chart-small" x="180" y="48" textAnchor="middle">wartet auf Akzeptanz, Pullback oder Fehlschlag</text>
+      </g>
+      <path className="chart-arrow sell" d="M650 174 C620 211 584 237 562 246" />
+      <text className="chart-small" x="380" y="315" textAnchor="middle">Der spätere Einstieg tauscht Geschwindigkeit gegen bessere Lesbarkeit</text>
+    </>
+  );
+}
+
+function LiquidityCrowding() {
+  const systems = [
+    { x: 48, y: 75, label: 'System A' },
+    { x: 48, y: 183, label: 'System B' },
+    { x: 568, y: 75, label: 'System C' },
+    { x: 568, y: 183, label: 'System D' },
+  ];
+
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">Viele Signale treffen auf begrenzte Gegenseite</text>
+      {systems.map((system) => (
+        <g key={system.label} transform={`translate(${system.x} ${system.y})`}>
+          <rect className="chart-panel" width="144" height="62" rx="14" />
+          <text className="chart-panel-title" x="72" y="37" textAnchor="middle">{system.label}</text>
+        </g>
+      ))}
+      <circle className="auction-core" cx="380" cy="160" r="67" />
+      <text className="auction-core-title" x="380" y="151" textAnchor="middle">LIQUIDITÄT</text>
+      <text className="chart-small inverse" x="380" y="174" textAnchor="middle">begrenzte Gegenseite</text>
+      <text className="chart-small inverse" x="380" y="193" textAnchor="middle">schlechtere Fills</text>
+      <path className="chart-arrow buy" d="M192 106 C252 110 285 130 318 145" />
+      <path className="chart-arrow buy" d="M192 214 C252 210 285 189 318 176" />
+      <path className="chart-arrow sell" d="M568 106 C508 110 475 130 442 145" />
+      <path className="chart-arrow sell" d="M568 214 C508 210 475 189 442 176" />
+      <g transform="translate(190 274)">
+        <rect className="chart-pill" width="380" height="34" rx="17" />
+        <text className="chart-small strong" x="190" y="22" textAnchor="middle">Mehr Konkurrenz → weniger Edge pro Ausführung</text>
+      </g>
+    </>
+  );
+}
+
+function InertiaExcess() {
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="30" textAnchor="middle">Trendträgheit endet nicht beim ersten Extremwert</text>
+      <path className="indicator-line" d="M52 250 C180 228 292 193 404 154 C520 114 612 91 710 77" />
+      <polyline className="chart-price-line" points="54,263 102,234 145,241 193,198 232,205 280,158 323,166 370,112 418,90 463,58 508,74 548,43 586,62 620,108 654,137 704,159" />
+      <line className="chart-guide" x1="556" x2="556" y1="36" y2="278" />
+      <text className="chart-region-label bull" x="104" y="216">Fortsetzung</text>
+      <text className="chart-region-label gold" x="548" y="30" textAnchor="end">Überdehnung</text>
+      <text className="chart-region-label bear" x="704" y="179" textAnchor="end">Kontrollverlust</text>
+      <path className="chart-arrow sell" d="M592 77 C620 92 646 112 670 137" />
+      <text className="chart-small" x="380" y="307" textAnchor="middle">Goldene Linie = gleitender Mittelbereich · nicht automatisch ein Entry</text>
+    </>
+  );
+}
+
+function BarCloseTrap() {
+  const panels = [
+    { x: 60, title: '30 Sek. offen', openY: 166, closeY: 92, highY: 70, lowY: 190, tone: 'bull' },
+    { x: 290, title: '5 Sek. offen', openY: 166, closeY: 137, highY: 68, lowY: 191, tone: 'bull' },
+    { x: 520, title: 'geschlossen', openY: 166, closeY: 205, highY: 68, lowY: 218, tone: 'bear' },
+  ];
+
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="32" textAnchor="middle">Ein laufender Bar ist noch kein Signal</text>
+      {panels.map((panel, index) => {
+        const bodyY = Math.min(panel.openY, panel.closeY);
+        const bodyHeight = Math.max(4, Math.abs(panel.openY - panel.closeY));
+        return (
+          <g key={panel.title} transform={`translate(${panel.x} 58)`}>
+            <rect className={index === 2 ? 'chart-panel warning' : 'chart-panel'} width="180" height="220" rx="18" />
+            <text className={`chart-panel-title ${panel.tone}`} x="90" y="28" textAnchor="middle">{panel.title}</text>
+            <line className={`candle-wick ${panel.tone} hero`} x1="90" x2="90" y1={panel.highY} y2={panel.lowY} />
+            <rect className={`candle-body ${panel.tone} hero`} x="60" y={bodyY} width="60" height={bodyHeight} rx="5" />
+            <text className="chart-small" x="90" y="204" textAnchor="middle">
+              {index === 0 ? 'wirkt stark bullisch' : index === 1 ? 'Käufer verlieren' : 'schließt bearisch'}
+            </text>
+          </g>
+        );
+      })}
+      <path className="chart-arrow sell" d="M240 168 L280 168" />
+      <path className="chart-arrow sell" d="M470 168 L510 168" />
+      <text className="chart-small" x="380" y="311" textAnchor="middle">Erst der fertige Schlusskurs fixiert Körper und Tails</text>
+    </>
+  );
+}
+
 function InstitutionalFlow() {
   return (
     <>
@@ -603,6 +946,17 @@ export function LearningChart({ scenario, title }: LearningChartProps) {
         {scenario === 'reversal-bars' ? <ReversalBars /> : null}
         {scenario === 'reversal-strength' ? <ReversalStrength /> : null}
         {scenario === 'probability-spectrum' ? <ProbabilitySpectrum /> : null}
+        {scenario === 'order-flow-cycle' ? <OrderFlowCycle /> : null}
+        {scenario === 'trend-range-choice' ? <TrendRangeChoice /> : null}
+        {scenario === 'breakout-outcomes' ? <BreakoutOutcomes /> : null}
+        {scenario === 'pattern-evolution' ? <PatternEvolution /> : null}
+        {scenario === 'tick-auction' ? <TickAuction /> : null}
+        {scenario === 'institutional-wave' ? <InstitutionalWave /> : null}
+        {scenario === 'hft-small-edge' ? <HftSmallEdge /> : null}
+        {scenario === 'latency-race' ? <LatencyRace /> : null}
+        {scenario === 'liquidity-crowding' ? <LiquidityCrowding /> : null}
+        {scenario === 'inertia-excess' ? <InertiaExcess /> : null}
+        {scenario === 'bar-close-trap' ? <BarCloseTrap /> : null}
         {scenario === 'trend-range-transition' ? (
           <>
             <CandleSeries

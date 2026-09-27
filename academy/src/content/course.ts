@@ -1,4 +1,5 @@
 import { introductionLessons } from './courses/brooks-trends/introduction';
+import { partOneLessons } from './courses/brooks-trends/part-01';
 import type { Course, Lesson } from './types';
 
 const planned = (
@@ -132,30 +133,11 @@ export const brooksTrendsCourse: Course = {
       order: 2,
       kind: 'part-introduction',
       label: 'Teil I · Price Action',
-      title: 'High-Frequency Trading einordnen',
+      title: 'Price Action als Entscheidungsmodell',
       description:
-        'Was automatisierter Hochgeschwindigkeitshandel verändert – und was ein diskretionärer Chartleser daraus ableiten kann.',
-      estimatedLessonCount: 3,
-      lessons: [
-        planned(
-          'brooks-trends.part-01-introduction.hft-01',
-          'Was Hochfrequenzhandel tatsächlich tut',
-          'Geschwindigkeit, kleine Vorteile und viele Wiederholungen ohne Mythos einordnen.',
-          'Teil I – Price Action · High-Frequency Trading',
-        ),
-        planned(
-          'brooks-trends.part-01-introduction.hft-02',
-          'Liquidität, Geschwindigkeit und Wettbewerb',
-          'Warum Programme gleichzeitig Liquidität bereitstellen, nehmen und um knappe Vorteile konkurrieren.',
-          'Teil I – Price Action · High-Frequency Trading',
-        ),
-        planned(
-          'brooks-trends.part-01-introduction.hft-03',
-          'Was davon für deinen Chart relevant bleibt',
-          'Welche Konsequenzen ein diskretionärer Trader ziehen kann, ohne selbst um Mikrosekunden zu kämpfen.',
-          'Teil I – Price Action · High-Frequency Trading',
-        ),
-      ],
+        'Vom einzelnen Tick über Trend- und Range-Entscheidungen bis zu institutioneller Ausführung, HFT, Pullback-Zählung und einer konkreten Trainingsmethode.',
+      estimatedLessonCount: 24,
+      lessons: partOneLessons,
     },
     {
       id: 'brooks-trends.chapter-01',
