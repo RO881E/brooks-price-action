@@ -7,6 +7,8 @@ describe('course access', () => {
   const introduction = brooksTrendsCourse.units[0];
   const partIntroduction = brooksTrendsCourse.units[1];
   const chapterOne = brooksTrendsCourse.units[2];
+  const chapterTwo = brooksTrendsCourse.units[3];
+  const chapterThree = brooksTrendsCourse.units[4];
 
   it('unlocks published lessons one by one inside a complete source unit', () => {
     expect(
@@ -76,6 +78,33 @@ describe('course access', () => {
     expect(nextAvailableLesson(brooksTrendsCourse, completedEarlierUnits)).toBe(
       chapterOne.lessons[0],
     );
+  });
+
+  it('keeps chapter 3 behind the complete chapter 2', () => {
+    const completedThroughChapterOne = [
+      ...introduction.lessons,
+      ...partIntroduction.lessons,
+      ...chapterOne.lessons,
+    ].map((lesson) => lesson.id);
+    const completedThroughChapterTwo = [
+      ...completedThroughChapterOne,
+      ...chapterTwo.lessons.map((lesson) => lesson.id),
+    ];
+
+    expect(
+      lessonAccessState(
+        brooksTrendsCourse,
+        chapterThree.lessons[0],
+        completedThroughChapterOne,
+      ),
+    ).toBe('locked');
+    expect(
+      lessonAccessState(
+        brooksTrendsCourse,
+        chapterThree.lessons[0],
+        completedThroughChapterTwo,
+      ),
+    ).toBe('available');
   });
 
   it('does not skip a planned gap within a unit', () => {

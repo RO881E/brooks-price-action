@@ -52,7 +52,21 @@ export type ChartScenarioId =
   | 'failed-bull-breakout'
   | 'quiet-collapse'
   | 'exhaustion-bear-spike'
-  | 'trend-to-range-pressure';
+  | 'trend-to-range-pressure'
+  | 'breakout-spike-channel'
+  | 'channel-shallowing'
+  | 'channel-to-range-cycle'
+  | 'channel-counter-flag'
+  | 'test-area-decision'
+  | 'behavior-reversal'
+  | 'reversal-inertia'
+  | 'reversal-multiframe-map'
+  | 'failed-low-breakout'
+  | 'repeated-high-test'
+  | 'spike-to-overlap'
+  | 'breakeven-defense'
+  | 'breakout-gap-always-in'
+  | 'spike-channel-playbook';
 
 export type LessonStep =
   | {

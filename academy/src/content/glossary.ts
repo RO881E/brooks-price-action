@@ -307,4 +307,67 @@ export const glossaryEntries: GlossaryEntry[] = [
       'Bar in einem Trend, dessen Hoch oder Tief den gleitenden Durchschnitt nicht erreicht und damit eine sichtbare Lücke zur Durchschnittslinie lässt.',
     firstUnit: 'Kapitel 2',
   },
+  {
+    term: 'Spike',
+    aliases: ['Impuls', 'schneller Breakout'],
+    definition:
+      'Schnelle, gerichtete Kursbewegung mit wenig zweiseitigem Handel, die den Markt aus einem alten Bereich in ein neues Preisgebiet verschiebt.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Trendkanal',
+    aliases: ['Channel', 'Kanal'],
+    definition:
+      'Gerichtete, von zwei ungefähren Begrenzungen eingerahmte Bewegung mit Pullbacks und mehr Überlappung als in einem Spike.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Test',
+    aliases: ['Retest', 'Prüfung einer Preiszone'],
+    definition:
+      'Rückkehr in die Nähe einer relevanten Referenz, an der Akzeptanz oder Zurückweisung anhand der anschließenden Kursreaktion beurteilt wird.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Breakout-Pullback',
+    aliases: ['Ausbruchsrücklauf', 'Retest nach Breakout'],
+    definition:
+      'Rücklauf nach einem Ausbruch, der prüft, ob die zuvor überwundene Grenze auf ihrer neuen Seite als Unterstützung oder Widerstand hält.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Always-in',
+    aliases: ['Always-in long', 'Always-in short'],
+    definition:
+      'Arbeitseinschätzung, welche Seite aktuell die stärkere Gesamtevidenz besitzt, falls ein Trader fortlaufend nur Long oder Short wählen müsste.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Doppeltop',
+    aliases: ['Double Top', 'DT'],
+    definition:
+      'Zwei Hochtests in derselben ungefähren Widerstandszone; entscheidend ist die Zurückweisung, nicht die exakte Gleichheit der Hochs.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Doppeltief',
+    aliases: ['Double Bottom', 'DB'],
+    definition:
+      'Zwei Tieftests in derselben ungefähren Unterstützungszone; die Stärke der Reaktion wiegt schwerer als eine perfekte geometrische Form.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Wedge',
+    aliases: ['Keil', 'drei Schübe'],
+    definition:
+      'Struktur aus meist drei gerichteten Schüben, deren abnehmende Effizienz eine Korrektur oder Umkehr begünstigen kann, aber nicht garantiert.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Final Flag',
+    aliases: ['letzte Flag', 'Final-Flag-Reversal'],
+    definition:
+      'Späte Pause oder kleine Fortsetzungsstruktur in einem reifen Move, deren Ausbruch scheitern und eine Gegenbewegung einleiten kann.',
+    firstUnit: 'Kapitel 3',
+  },
 ];
