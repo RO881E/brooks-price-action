@@ -25,7 +25,7 @@ describe('Brooks course model', () => {
     }
   });
 
-  it('places strength and bar counting before the Part I HFT source unit', () => {
+  it('places the complete introduction before the complete Part I source unit', () => {
     const introduction = brooksTrendsCourse.units[0];
     const partIntroduction = brooksTrendsCourse.units[1];
 
@@ -46,10 +46,23 @@ describe('Brooks course model', () => {
         (lesson) => lesson.title === 'High 1 und High 2 richtig zählen',
       ),
     );
-    expect(partIntroduction.title).toContain('High-Frequency Trading');
+    expect(partIntroduction.title).toContain('Price Action');
+    expect(partIntroduction.estimatedLessonCount).toBe(24);
+    expect(partIntroduction.lessons).toHaveLength(24);
     expect(
-      partIntroduction.lessons.every((lesson) => lesson.status === 'planned'),
+      partIntroduction.lessons.every((lesson) => lesson.status === 'published'),
     ).toBe(true);
+    expect(
+      partIntroduction.lessons.every(
+        (lesson) => (lesson.sourceAnchors?.length ?? 0) >= 3,
+      ),
+    ).toBe(true);
+    expect(partIntroduction.lessons.at(0)?.title).toBe(
+      'Price Action beginnt beim kleinsten Schritt',
+    );
+    expect(partIntroduction.lessons.at(-1)?.title).toBe(
+      'So trainierst du Price Action wirklich',
+    );
   });
 
   it('uses globally unique stable IDs', () => {
