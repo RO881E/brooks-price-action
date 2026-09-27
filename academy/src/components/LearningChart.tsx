@@ -75,6 +75,18 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Eine Aufwärtsstruktur mit einem zweibeinigen Pullback und markierten High-1- und High-2-Versuchen.',
   'high-low-failure':
     'Vier Aufwärtsversuche innerhalb eines Pullbacks verlieren nacheinander an Wirkung; der letzte Fehlschlag kippt die Erwartung.',
+  'price-action-spectrum':
+    'Vier Felder ordnen Marktverhalten vom extrem gerichteten Trend bis zur extrem engen Trading Range ein.',
+  'market-inertia':
+    'Ein Gegenversuch im Trend und ein Ausbruchsversuch in der Range scheitern jeweils am bestehenden Marktregime.',
+  'bear-range-resumption':
+    'Ein starker Abwärtstrend pausiert in einer engen Range, weist einen kleinen Aufwärtsausbruch zurück und setzt sich kräftig fort.',
+  'two-leg-labels':
+    'Drei Felder beschriften dieselbe zweibeinige Bewegung als ABC-Korrektur, Elliott-Wellen und AB=CD-Move.',
+  'failed-open-breakout':
+    'Der Markt eröffnet oberhalb des Vortageshochs, fällt unter die Grenze zurück und entwickelt einen Abwärtstrend vom Open.',
+  'midday-false-breakout':
+    'Nach einem frühen Abwärtstrend und langer enger Range scheitert ein kleiner Aufwärtsausbruch vor der bärischen Wiederaufnahme.',
 };
 
 function yScale(value: number, min: number, max: number): number {
@@ -362,6 +374,41 @@ const highLowFailureCandles: Candle[] = [
   { open: 44, high: 50, low: 41, close: 49, label: 'H4' },
   { open: 49, high: 50, low: 38, close: 40 },
   { open: 40, high: 42, low: 31, close: 33 },
+];
+
+const bearRangeResumptionCandles: Candle[] = [
+  { open: 74, high: 76, low: 65, close: 67 },
+  { open: 67, high: 69, low: 59, close: 61 },
+  { open: 61, high: 63, low: 52, close: 54 },
+  { open: 54, high: 57, low: 46, close: 48 },
+  { open: 48, high: 51, low: 41, close: 43 },
+  { open: 43, high: 46, low: 41, close: 44 },
+  { open: 44, high: 46, low: 42, close: 43 },
+  { open: 43, high: 45, low: 41.5, close: 44 },
+  { open: 44, high: 45.5, low: 42.5, close: 43 },
+  { open: 43, high: 45, low: 41.8, close: 44.2 },
+  { open: 44.2, high: 45.2, low: 42.8, close: 43.8 },
+  { open: 43.8, high: 46.2, low: 42.5, close: 43.5 },
+  { open: 43.5, high: 44, low: 35, close: 36 },
+  { open: 36, high: 37, low: 28, close: 30 },
+  { open: 30, high: 32, low: 22, close: 24 },
+  { open: 24, high: 26, low: 15, close: 17 },
+  { open: 17, high: 19, low: 10, close: 12 },
+];
+
+const failedOpenCandles: Candle[] = [
+  { open: 40, high: 45, low: 38, close: 43 },
+  { open: 43, high: 48, low: 42, close: 46 },
+  { open: 46, high: 50, low: 44, close: 48 },
+  { open: 53, high: 56, low: 48, close: 49 },
+  { open: 49, high: 50, low: 42, close: 44 },
+  { open: 44, high: 46, low: 37, close: 39 },
+  { open: 39, high: 41, low: 33, close: 35 },
+  { open: 35, high: 38, low: 30, close: 32 },
+  { open: 32, high: 36, low: 29, close: 34 },
+  { open: 34, high: 35, low: 26, close: 28 },
+  { open: 28, high: 31, low: 22, close: 24 },
+  { open: 24, high: 27, low: 18, close: 20 },
 ];
 
 function OrderFlowCycle() {
@@ -921,6 +968,308 @@ function HighLowFailure() {
   );
 }
 
+function PriceActionSpectrum() {
+  const panels = [
+    {
+      x: 20,
+      title: 'Extremtrend',
+      detail: 'kaum Rücklauf',
+      tone: 'bull',
+      line: '18,174 48,143 76,116 106,83 136,54',
+      noisy: false,
+    },
+    {
+      x: 205,
+      title: 'Breiter Kanal',
+      detail: 'tiefe Pullbacks',
+      tone: 'bull',
+      line: '18,170 52,112 82,148 113,82 143,111',
+      noisy: false,
+    },
+    {
+      x: 390,
+      title: 'Trading Range',
+      detail: 'beide Seiten aktiv',
+      tone: 'warning',
+      line: '18,142 48,82 79,151 109,76 141,145',
+      noisy: true,
+    },
+    {
+      x: 575,
+      title: 'Enge Range',
+      detail: 'sofortige Rückkehr',
+      tone: 'warning',
+      line: '18,118 44,105 70,121 96,107 122,119 145,110',
+      noisy: true,
+    },
+  ];
+
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">
+        Richtung nimmt ab · Überlappung und Zweiseitigkeit nehmen zu
+      </text>
+      {panels.map((panel) => (
+        <g key={panel.title} transform={`translate(${panel.x} 62)`}>
+          <rect className={`chart-panel ${panel.tone}`} width="165" height="202" rx="16" />
+          <text className="chart-panel-title" x="82.5" y="27" textAnchor="middle">
+            {panel.title}
+          </text>
+          <line className="chart-guide" x1="17" x2="148" y1="72" y2="72" />
+          <line className="chart-guide" x1="17" x2="148" y1="126" y2="126" />
+          <polyline
+            className={panel.noisy ? 'chart-price-line noisy' : 'chart-price-line'}
+            points={panel.line}
+          />
+          <text className="chart-small" x="82.5" y="188" textAnchor="middle">
+            {panel.detail}
+          </text>
+        </g>
+      ))}
+      <text className="chart-region-label bull" x="22" y="304">
+        mehr Dringlichkeit
+      </text>
+      <line className="breakout-line" x1="137" x2="620" y1="300" y2="300" />
+      <text className="chart-region-label bear" x="738" y="304" textAnchor="end">
+        mehr Balance
+      </text>
+    </>
+  );
+}
+
+function MarketInertia() {
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">
+        Das bestehende Regime bleibt die Ausgangshypothese
+      </text>
+      <g transform="translate(30 62)">
+        <rect className="chart-panel bull" width="338" height="226" rx="18" />
+        <text className="chart-panel-title bull" x="169" y="28" textAnchor="middle">
+          Trend · Umkehrversuch scheitert
+        </text>
+        <polyline
+          className="chart-price-line"
+          points="24,188 67,157 102,127 139,94 177,129 207,143 240,103 274,75 312,43"
+        />
+        <circle className="chart-focus" cx="207" cy="143" r="6" />
+        <text className="chart-small" x="196" y="169" textAnchor="middle">
+          Gegenbewegung
+        </text>
+        <text className="chart-region-label bull" x="308" y="64" textAnchor="end">
+          Fortsetzung
+        </text>
+      </g>
+      <g transform="translate(392 62)">
+        <rect className="chart-panel warning" width="338" height="226" rx="18" />
+        <text className="chart-panel-title bear" x="169" y="28" textAnchor="middle">
+          Range · Ausbruchsversuch scheitert
+        </text>
+        <rect className="chart-range" x="25" y="75" width="286" height="106" rx="12" />
+        <line className="breakout-line" x1="25" x2="311" y1="75" y2="75" />
+        <polyline
+          className="chart-price-line noisy"
+          points="29,154 68,100 107,160 146,92 184,155 222,60 250,92 280,132 309,166"
+        />
+        <circle className="chart-focus" cx="222" cy="60" r="6" />
+        <text className="chart-small" x="214" y="48" textAnchor="middle">
+          kein Anschluss
+        </text>
+        <text className="chart-region-label bear" x="306" y="194" textAnchor="end">
+          zurück in Balance
+        </text>
+      </g>
+      <text className="chart-small" x="380" y="316" textAnchor="middle">
+        Erst Follow-through und Akzeptanz rechtfertigen einen Regimewechsel
+      </text>
+    </>
+  );
+}
+
+function BearRangeResumption() {
+  const markers = [
+    { x: 224, y: 190, label: '1' },
+    { x: 497, y: 128, label: '2' },
+    { x: 692, y: 278, label: '3' },
+  ];
+
+  return (
+    <>
+      <CandleSeries
+        candles={bearRangeResumptionCandles}
+        range={{ from: 5, to: 10, label: 'extrem enge Range' }}
+        annotations={false}
+      />
+      <text className="chart-region-label bear" x="72" y="58">
+        starker Bärentrend
+      </text>
+      <text className="chart-region-label bear" x="706" y="302" textAnchor="end">
+        außergewöhnlich starke Fortsetzung
+      </text>
+      <path className="chart-arrow sell" d="M500 143 C522 155 532 173 542 203" />
+      <text className="chart-small" x="516" y="118" textAnchor="middle">
+        minimaler Ausbruch
+      </text>
+      {markers.map((marker) => (
+        <g key={marker.label}>
+          <circle className="chart-marker" cx={marker.x} cy={marker.y} r="13" />
+          <text
+            className="chart-marker-text"
+            x={marker.x}
+            y={marker.y + 4}
+            textAnchor="middle"
+          >
+            {marker.label}
+          </text>
+        </g>
+      ))}
+    </>
+  );
+}
+
+function TwoLegLabels() {
+  const panels = [
+    {
+      x: 32,
+      title: 'ABC-Pullback',
+      footer: 'Korrektur im Trend',
+      labels: [
+        { x: 77, y: 158, pointY: 138, label: 'A' },
+        { x: 127, y: 78, pointY: 92, label: 'B' },
+        { x: 192, y: 205, pointY: 184, label: 'C' },
+      ],
+    },
+    {
+      x: 270,
+      title: 'Elliott 1–2–3',
+      footer: 'Schub · Pullback · Schub',
+      labels: [
+        { x: 77, y: 158, pointY: 138, label: '1' },
+        { x: 127, y: 78, pointY: 92, label: '2' },
+        { x: 192, y: 205, pointY: 184, label: '3' },
+      ],
+    },
+    {
+      x: 508,
+      title: 'AB=CD',
+      footer: 'Bein AB ≈ Bein CD',
+      labels: [
+        { x: 22, y: 39, pointY: 48, label: 'A' },
+        { x: 77, y: 158, pointY: 138, label: 'B' },
+        { x: 127, y: 78, pointY: 92, label: 'C' },
+        { x: 192, y: 205, pointY: 184, label: 'D' },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="34" textAnchor="middle">
+        Gleiche Geometrie · andere Fachsprache
+      </text>
+      {panels.map((panel) => (
+        <g key={panel.title} transform={`translate(${panel.x} 62)`}>
+          <rect className="chart-panel" width="220" height="226" rx="18" />
+          <text className="chart-panel-title" x="110" y="28" textAnchor="middle">
+            {panel.title}
+          </text>
+          <polyline
+            className="chart-price-line noisy"
+            points="22,48 77,138 127,92 192,184"
+          />
+          {panel.labels.map((label) => (
+            <g key={`${panel.title}-${label.label}`}>
+              <circle
+                className="chart-focus"
+                cx={label.x}
+                cy={label.pointY}
+                r="4"
+              />
+              <text className="chart-region-label gold" x={label.x} y={label.y} textAnchor="middle">
+                {label.label}
+              </text>
+            </g>
+          ))}
+          <text className="chart-small" x="110" y="214" textAnchor="middle">
+            {panel.footer}
+          </text>
+        </g>
+      ))}
+      <text className="chart-small" x="380" y="316" textAnchor="middle">
+        Das Label ändert die Interpretation – nicht die sichtbare Bewegung
+      </text>
+    </>
+  );
+}
+
+function FailedOpenBreakout() {
+  return (
+    <>
+      <CandleSeries candles={failedOpenCandles} annotations={false} />
+      <line className="breakout-line" x1="48" x2="712" y1="81" y2="81" />
+      <line className="chart-guide" x1="214" x2="214" y1="36" y2="294" />
+      <rect className="chart-zone" x="219" y="40" width="66" height="76" rx="12" />
+      <text className="chart-region-label" x="120" y="58" textAnchor="middle">
+        Vortag
+      </text>
+      <text className="chart-region-label" x="235" y="306" textAnchor="middle">
+        Eröffnung
+      </text>
+      <text className="chart-small" x="54" y="74">
+        Vortageshoch
+      </text>
+      <text className="chart-region-label gold" x="251" y="32" textAnchor="middle">
+        Gap darüber
+      </text>
+      <path className="chart-arrow sell" d="M276 96 C302 115 326 133 356 151" />
+      <text className="chart-region-label bear" x="368" y="145">
+        keine Akzeptanz
+      </text>
+      <text className="chart-region-label bear" x="700" y="282" textAnchor="end">
+        Trend from the Open
+      </text>
+    </>
+  );
+}
+
+function MiddayFalseBreakout() {
+  return (
+    <>
+      <text className="chart-kicker" x="380" y="30" textAnchor="middle">
+        Vollständige Sequenz statt isoliertem Uhrzeit-Signal
+      </text>
+      <line className="chart-guide" x1="224" x2="224" y1="45" y2="286" />
+      <line className="chart-guide" x1="516" x2="516" y1="45" y2="286" />
+      <rect className="chart-range" x="228" y="139" width="284" height="61" rx="13" />
+      <line className="breakout-line" x1="228" x2="566" y1="139" y2="139" />
+      <polyline
+        className="chart-price-line noisy"
+        points="54,62 94,95 132,87 172,131 215,169 250,158 286,184 322,162 358,183 394,159 430,179 468,156 500,171 530,112 554,152 578,192 614,221 650,250 706,282"
+      />
+      <text className="chart-region-label bear" x="72" y="52">
+        1 · Trend vom Open
+      </text>
+      <text className="chart-region-label gold" x="370" y="126" textAnchor="middle">
+        2 · mehrstündige enge Range
+      </text>
+      <circle className="chart-focus" cx="530" cy="112" r="7" />
+      <text className="chart-region-label bear" x="548" y="91">
+        3 · Fehlausbruch
+      </text>
+      <path className="chart-arrow sell" d="M548 125 C566 148 582 172 594 197" />
+      <text className="chart-region-label bear" x="704" y="302" textAnchor="end">
+        4 · Wiederaufnahme bis zum Schluss
+      </text>
+      <g transform="translate(247 45)">
+        <rect className="chart-pill" width="266" height="32" rx="16" />
+        <text className="chart-small strong" x="133" y="21" textAnchor="middle">
+          historischer Fall: ca. 11–12 Uhr PST
+        </text>
+      </g>
+    </>
+  );
+}
+
 export function LearningChart({ scenario, title }: LearningChartProps) {
   return (
     <div className="learning-chart">
@@ -972,6 +1321,12 @@ export function LearningChart({ scenario, title }: LearningChartProps) {
           <CandleSeries candles={highLowCandles} />
         ) : null}
         {scenario === 'high-low-failure' ? <HighLowFailure /> : null}
+        {scenario === 'price-action-spectrum' ? <PriceActionSpectrum /> : null}
+        {scenario === 'market-inertia' ? <MarketInertia /> : null}
+        {scenario === 'bear-range-resumption' ? <BearRangeResumption /> : null}
+        {scenario === 'two-leg-labels' ? <TwoLegLabels /> : null}
+        {scenario === 'failed-open-breakout' ? <FailedOpenBreakout /> : null}
+        {scenario === 'midday-false-breakout' ? <MiddayFalseBreakout /> : null}
       </svg>
     </div>
   );
