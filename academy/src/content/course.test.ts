@@ -65,6 +65,27 @@ describe('Brooks course model', () => {
     );
   });
 
+  it('publishes chapter 1 as eight source-ordered micro-lessons', () => {
+    const chapterOne = brooksTrendsCourse.units[2];
+
+    expect(chapterOne.estimatedLessonCount).toBe(8);
+    expect(chapterOne.lessons).toHaveLength(8);
+    expect(
+      chapterOne.lessons.every((lesson) => lesson.status === 'published'),
+    ).toBe(true);
+    expect(
+      chapterOne.lessons.every(
+        (lesson) => (lesson.sourceAnchors?.length ?? 0) >= 3,
+      ),
+    ).toBe(true);
+    expect(chapterOne.lessons.at(0)?.title).toBe(
+      'Ein Spektrum, keine zwei Schubladen',
+    );
+    expect(chapterOne.lessons.at(-1)?.title).toBe(
+      'Die Falle vor der Trendwiederaufnahme',
+    );
+  });
+
   it('uses globally unique stable IDs', () => {
     const ids = [
       brooksTrendsCourse.id,
