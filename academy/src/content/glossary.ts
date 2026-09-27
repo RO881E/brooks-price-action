@@ -216,4 +216,46 @@ export const glossaryEntries: GlossaryEntry[] = [
       'Ansatz, Kursbewegungen als wiederkehrende Wellenfolgen zu zählen; für kurzfristige Entscheidungen sind konkurrierende Zählungen häufig erst im Nachhinein eindeutig.',
     firstUnit: 'Teil I',
   },
+  {
+    term: 'Marktträgheit',
+    aliases: ['Inertia', 'Trägheit'],
+    definition:
+      'Tendenz des Marktes, sein aktuelles Verhalten zunächst fortzusetzen: Trends widerstehen frühen Umkehrversuchen, Ranges weisen viele Ausbruchsversuche zurück.',
+    firstUnit: 'Kapitel 1',
+  },
+  {
+    term: 'Leg',
+    aliases: ['Bein', 'Push', 'Schub'],
+    definition:
+      'Gerichteter Abschnitt einer Kursbewegung. Mehrere Legs können zusammen einen Trend, Pullback oder eine Range-Struktur bilden.',
+    firstUnit: 'Kapitel 1',
+  },
+  {
+    term: 'Measured Move',
+    aliases: ['gemessene Bewegung', 'Measured-Move-Ziel'],
+    definition:
+      'Projektion, bei der die Länge eines ersten Kursbeins als Näherung für ein späteres Bein verwendet wird; sie beschreibt ein mögliches Ziel, keine garantierte Umkehr.',
+    firstUnit: 'Kapitel 1',
+  },
+  {
+    term: 'Fehlausbruch',
+    aliases: ['False Breakout', 'gescheiterter Ausbruch'],
+    definition:
+      'Bruch über oder unter eine relevante Grenze, der keine Akzeptanz erhält und schnell in den vorherigen Bereich zurückkehrt.',
+    firstUnit: 'Kapitel 1',
+  },
+  {
+    term: 'Trend from the Open',
+    aliases: ['Trend-vom-Open-Tag'],
+    definition:
+      'Tagesstruktur, bei der sich die dominante Richtung bereits kurz nach der Eröffnung etabliert und den weiteren Handel wesentlich prägt.',
+    firstUnit: 'Kapitel 1',
+  },
+  {
+    term: 'Trend Resumption',
+    aliases: ['Trendwiederaufnahme', 'Trend-Resumption-Tag'],
+    definition:
+      'Fortsetzung einer zuvor etablierten Trendrichtung nach einer deutlichen Pause, einem Pullback oder einer Trading Range.',
+    firstUnit: 'Kapitel 1',
+  },
 ];
