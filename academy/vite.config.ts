@@ -1,0 +1,15 @@
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  base: './',
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts',
+    exclude: ['tests/**', 'node_modules/**', 'dist/**'],
+    coverage: {
+      reporter: ['text', 'html'],
+    },
+  },
+});
