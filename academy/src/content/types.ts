@@ -1,9 +1,21 @@
 export type ChartScenarioId =
   | 'auction-balance'
+  | 'institutional-flow'
+  | 'fractal-timeframes'
+  | 'indicator-lag'
+  | 'news-reaction'
+  | 'timeframe-discipline'
+  | 'risk-reward'
+  | 'martingale-growth'
+  | 'trend-strength'
+  | 'breakout-strength'
+  | 'reversal-bars'
+  | 'reversal-strength'
   | 'probability-spectrum'
   | 'trend-range-transition'
   | 'bar-anatomy'
-  | 'high-low-count';
+  | 'high-low-count'
+  | 'high-low-failure';
 
 export type LessonStep =
   | {
@@ -58,6 +70,7 @@ export interface Lesson {
   durationMinutes: number;
   xp: number;
   sourceUnit: string;
+  sourceAnchors?: string[];
   status: 'published' | 'planned';
   steps: LessonStep[];
 }

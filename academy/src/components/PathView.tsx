@@ -1,4 +1,9 @@
 import type { Course, Lesson } from '../content/types';
+import {
+  lessonAccessState,
+  nextAvailableLesson,
+  type LessonAccessState,
+} from '../features/courseAccess';
 import type { AcademyProgress } from '../features/progress';
 
 interface PathViewProps {
@@ -8,9 +13,7 @@ interface PathViewProps {
   onOpenLesson: (lesson: Lesson) => void;
 }
 
-type LessonState = 'complete' | 'available' | 'locked' | 'planned';
-
-const statusLabels: Record<LessonState, string> = {
+const statusLabels: Record<LessonAccessState, string> = {
   complete: 'Abgeschlossen',
   available: 'Jetzt lernen',
   locked: 'Noch gesperrt',
@@ -28,18 +31,10 @@ export function PathView({
   );
   const completed = new Set(progress.completedLessonIds);
 
-  const lessonState = (lesson: Lesson): LessonState => {
-    if (lesson.status === 'planned') return 'planned';
-    if (completed.has(lesson.id)) return 'complete';
+  const lessonState = (lesson: Lesson) =>
+    lessonAccessState(course, lesson, completed);
 
-    const position = published.findIndex((candidate) => candidate.id === lesson.id);
-    if (position === 0 || completed.has(published[position - 1]?.id)) {
-      return 'available';
-    }
-    return 'locked';
-  };
-
-  const nextLesson = published.find((lesson) => lessonState(lesson) === 'available');
+  const nextLesson = nextAvailableLesson(course, completed);
   const completedCount = published.filter((lesson) => completed.has(lesson.id)).length;
 
   return (

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { brooksTrendsCourse } from '../src/content/course';
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -46,18 +47,20 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
   await page.goto('/');
   await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ }).click();
 
-  await expect(page.getByRole('heading', { name: 'Preis entsteht nur, wenn zwei Seiten handeln' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Nicht Kerzen auswendig lernen, sondern Entscheidungen lesen' })).toBeVisible();
   await page.getByRole('button', { name: 'Weiter' }).click();
   await expect(page.getByRole('heading', { name: 'Eine Auktion hinter jedem Bar' })).toBeVisible();
   await page.getByRole('button', { name: 'Weiter' }).click();
+  await expect(page.getByRole('heading', { name: 'Beschreibung vor Erklärung' })).toBeVisible();
+  await page.getByRole('button', { name: 'Weiter' }).click();
 
-  await page.getByRole('radio', { name: /Die schwache Kursreaktion/ }).click();
+  await page.getByRole('radio', { name: /Die schwache Reaktion/ }).click();
   await expect(page.getByText('Richtig eingeordnet.')).toBeVisible();
   await page.getByRole('button', { name: 'Weiter' }).click();
   await page.getByRole('button', { name: 'Lektion abschließen' }).click();
 
   await expect(page.getByRole('button', { name: /Der Chart ist das Ergebnis: Abgeschlossen/ })).toBeVisible();
-  await expect(page.getByRole('button', { name: /Wahrscheinlichkeit statt Gewissheit: Jetzt lernen/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Institutionen, Programme und dein einzelner Stop: Jetzt lernen/ })).toBeVisible();
 
   const valuesBeforeReload = await page.evaluate(() => ({
     legacy: localStorage.getItem('brooks-progress'),
@@ -73,7 +76,7 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
     ? mobileNavigation
     : page.getByRole('navigation', { name: 'Hauptnavigation' });
   await navigation.getByRole('button', { name: 'Üben' }).click();
-  await expect(page.getByRole('heading', { name: 'Was zählt für deine Entscheidung?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Welche Aussage bleibt am belastbarsten?' })).toBeVisible();
 
   const valuesAfterReload = await page.evaluate(() => ({
     legacy: localStorage.getItem('brooks-progress'),
@@ -87,8 +90,69 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
   expect(valuesAfterReload.academy).toContain('brooks-trends.introduction.lesson-01');
 });
 
-test('is usable in a narrow mobile viewport', async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== 'mobile', 'mobile project only');
+test.describe('desktop content traversal', () => {
+  test('opens every introduction lesson and renders every learning step', { tag: '@desktop' }, async ({ page }) => {
+
+    const introduction = brooksTrendsCourse.units[0];
+    const completedLessonIds = introduction.lessons.map((lesson) => lesson.id);
+    const answers = Object.fromEntries(
+      introduction.lessons.flatMap((lesson) =>
+        lesson.steps
+          .filter((step) => step.type === 'question')
+          .map((step) => [step.id, step.correctOptionId]),
+      ),
+    );
+
+    await page.addInitScript(
+      ({ lessonIds, savedAnswers }) => {
+        localStorage.setItem(
+          'wqt-academy-progress-v1',
+          JSON.stringify({
+            version: 1,
+            completedLessonIds: lessonIds,
+            answers: savedAnswers,
+            lastLessonId: lessonIds.at(-1) ?? null,
+            legacyReadChapters: [],
+            legacyTrendRangeBest: 0,
+            updatedAt: new Date().toISOString(),
+          }),
+        );
+      },
+      { lessonIds: completedLessonIds, savedAnswers: answers },
+    );
+
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto('/');
+    await page.getByRole('navigation', { name: 'Hauptnavigation' })
+      .getByRole('button', { name: 'Buchmodus' })
+      .click();
+
+    for (const lesson of introduction.lessons) {
+      await page
+        .getByRole('button', { name: `${lesson.title}: Abgeschlossen`, exact: true })
+        .click();
+
+      for (const [index, step] of lesson.steps.entries()) {
+        await expect(
+          page.getByRole('heading', { name: step.title, level: 1 }),
+        ).toBeVisible();
+        if (step.type === 'diagram') {
+          await expect(page.getByRole('img', { name: step.title })).toBeVisible();
+        }
+        if (index < lesson.steps.length - 1) {
+          await page.getByRole('button', { name: 'Weiter' }).click();
+        }
+      }
+
+      await page.getByRole('button', { name: 'Lektion schließen' }).click();
+    }
+
+    expect(errors).toEqual([]);
+  });
+});
+
+test('is usable in a narrow mobile viewport', { tag: '@mobile' }, async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('navigation', { name: 'Mobile Navigation' })).toBeVisible();
   await page.getByRole('button', { name: 'Glossar' }).last().click();

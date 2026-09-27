@@ -11,6 +11,47 @@ describe('Brooks course model', () => {
     expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3]);
   });
 
+  it('publishes the complete source-mapped introduction as 22 micro-lessons', () => {
+    const introduction = brooksTrendsCourse.units[0];
+
+    expect(introduction.estimatedLessonCount).toBe(22);
+    expect(introduction.lessons).toHaveLength(22);
+    expect(
+      introduction.lessons.every((lesson) => lesson.status === 'published'),
+    ).toBe(true);
+
+    for (const lesson of introduction.lessons) {
+      expect(lesson.sourceAnchors?.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('places strength and bar counting before the Part I HFT source unit', () => {
+    const introduction = brooksTrendsCourse.units[0];
+    const partIntroduction = brooksTrendsCourse.units[1];
+
+    expect(introduction.lessons.map((lesson) => lesson.title)).toEqual(
+      expect.arrayContaining([
+        'Stärke eines Trends lesen',
+        'Stärke eines Breakouts lesen',
+        'High 1 und High 2 richtig zählen',
+        'Low 1 bis Low 4 spiegeln die Logik',
+      ]),
+    );
+    expect(
+      introduction.lessons.findIndex(
+        (lesson) => lesson.title === 'Stärke eines Trends lesen',
+      ),
+    ).toBeLessThan(
+      introduction.lessons.findIndex(
+        (lesson) => lesson.title === 'High 1 und High 2 richtig zählen',
+      ),
+    );
+    expect(partIntroduction.title).toContain('High-Frequency Trading');
+    expect(
+      partIntroduction.lessons.every((lesson) => lesson.status === 'planned'),
+    ).toBe(true);
+  });
+
   it('uses globally unique stable IDs', () => {
     const ids = [
       brooksTrendsCourse.id,
