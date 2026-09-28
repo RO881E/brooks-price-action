@@ -4,12 +4,18 @@ import {
   nextAvailableLesson,
   type LessonAccessState,
 } from '../features/courseAccess';
+import type { ResumeTarget } from '../features/navigation';
 import type { AcademyProgress } from '../features/progress';
 
 interface PathViewProps {
   course: Course;
   progress: AcademyProgress;
   percent: number;
+  /** Begonnene Lektion für „Weiterlernen“, falls vorhanden. */
+  resume?: ResumeTarget;
+  /** Hinweis nach einem ungültigen oder veralteten Link. */
+  notice?: string | null;
+  onDismissNotice?: () => void;
   onOpenLesson: (lesson: Lesson) => void;
 }
 
@@ -24,6 +30,9 @@ export function PathView({
   course,
   progress,
   percent,
+  resume,
+  notice,
+  onDismissNotice,
   onOpenLesson,
 }: PathViewProps) {
   const published = course.units.flatMap((unit) =>
@@ -34,12 +43,28 @@ export function PathView({
   const lessonState = (lesson: Lesson) =>
     lessonAccessState(course, lesson, completed);
 
+  const statusLabel = (lesson: Lesson, state: LessonAccessState) =>
+    resume && resume.lesson.id === lesson.id
+      ? `Begonnen · Schritt ${resume.stepIndex + 1} von ${lesson.steps.length}`
+      : statusLabels[state];
+
   const nextLesson = nextAvailableLesson(course, completed);
   const completedCount = published.filter((lesson) => completed.has(lesson.id)).length;
 
   return (
     <div className="path-layout">
       <div className="path-column">
+        {notice ? (
+          <div className="route-notice" role="status">
+            <p>{notice}</p>
+            {onDismissNotice ? (
+              <button type="button" onClick={onDismissNotice} aria-label="Hinweis schließen">
+                ×
+              </button>
+            ) : null}
+          </div>
+        ) : null}
+
         <section className="course-hero">
           <div>
             <p className="eyebrow">{course.eyebrow}</p>
@@ -64,10 +89,25 @@ export function PathView({
           <p>{course.sourceOrderNotice}</p>
         </div>
 
-        {nextLesson ? (
+        {resume ? (
+          <section className="mobile-next-card resume">
+            <div>
+              <p className="eyebrow">Begonnene Lektion</p>
+              <h2>{resume.lesson.title}</h2>
+              <span>Schritt {resume.stepIndex + 1} von {resume.lesson.steps.length}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => onOpenLesson(resume.lesson)}
+              aria-label={`${resume.lesson.title} weiterlernen`}
+            >
+              ▶
+            </button>
+          </section>
+        ) : nextLesson ? (
           <section className="mobile-next-card">
             <div>
-              <p className="eyebrow">Nächster Schritt</p>
+              <p className="eyebrow">Nächste Lektion</p>
               <h2>{nextLesson.title}</h2>
               <span>{nextLesson.durationMinutes} Min · {nextLesson.xp} XP</span>
             </div>
@@ -111,7 +151,7 @@ export function PathView({
                           type="button"
                           disabled={!interactive}
                           onClick={() => interactive && onOpenLesson(lesson)}
-                          aria-label={`${lesson.title}: ${statusLabels[state]}`}
+                          aria-label={`${lesson.title}: ${statusLabel(lesson, state)}`}
                         >
                           <span className="node-icon" aria-hidden="true">
                             {state === 'complete'
@@ -123,7 +163,7 @@ export function PathView({
                                   : '◆'}
                           </span>
                           <span className="node-copy">
-                            <small>{statusLabels[state]}</small>
+                            <small>{statusLabel(lesson, state)}</small>
                             <strong>{lesson.title}</strong>
                             <span>{lesson.summary}</span>
                             {lesson.status === 'published' ? (
@@ -153,17 +193,33 @@ export function PathView({
 
       <aside className="path-rail">
         <section className="rail-card continue-card">
-          <p className="eyebrow">Nächster Schritt</p>
-          {nextLesson ? (
+          {resume ? (
             <>
+              <p className="eyebrow">Begonnene Lektion</p>
+              <h2>{resume.lesson.title}</h2>
+              <p>
+                Du warst bei Schritt {resume.stepIndex + 1} von {resume.lesson.steps.length}.
+              </p>
+              <button
+                className="primary-button full"
+                type="button"
+                onClick={() => onOpenLesson(resume.lesson)}
+              >
+                Weiterlernen
+              </button>
+            </>
+          ) : nextLesson ? (
+            <>
+              <p className="eyebrow">Nächste Lektion</p>
               <h2>{nextLesson.title}</h2>
               <p>{nextLesson.summary}</p>
               <button className="primary-button full" type="button" onClick={() => onOpenLesson(nextLesson)}>
-                Weiterlernen
+                Nächste Lektion starten
               </button>
             </>
           ) : (
             <>
+              <p className="eyebrow">Nächster Schritt</p>
               <h2>Pilot abgeschlossen</h2>
               <p>Alle aktuell veröffentlichten Lektionen sind erledigt.</p>
             </>

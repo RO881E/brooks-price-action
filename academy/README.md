@@ -11,8 +11,21 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 - Übungsmodus für bereits abgeschlossene Lektionen
 - durchsuchbares Glossar
 - lokaler Lernfortschritt unter `wqt-academy-progress-v1`
+- reload-feste Hash-URLs für alle Ansichten und Lektionen, zum Beispiel `#/glossary` oder
+  `#/lesson/<lesson-id>?step=3`; Browser-Zurück und -Vorwärts funktionieren
+- exaktes Fortsetzen: begonnene Lektionen öffnen sich über „Weiterlernen“ am zuletzt
+  gültigen Schritt, abgeschlossene Lektionen bewusst von vorn
 - lesender Kompatibilitätscheck für `brooks-progress` und `brooks-tr-best`
 - responsive Navigation für Desktop und Mobilgeräte
+
+## Gespeicherte Daten
+
+Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
+seit F-01 `version: 2` und enthält zusätzlich `lessonPositions` (letzter Schritt je begonnener
+Lektion). Ältere v1-Datensätze werden beim Laden verlustfrei migriert, unbekannte Zusatzfelder
+bleiben erhalten. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
+`wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur
+gelesen, nie verändert.
 
 Der Inhalt ist bewusst als Pilot markiert. Die veröffentlichten Lektionen demonstrieren das
 Format; geplante Einträge bilden die Quellenreihenfolge ab, ohne Vollständigkeit vorzutäuschen.

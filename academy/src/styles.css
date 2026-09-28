@@ -491,6 +491,37 @@ button:disabled {
   margin: 0;
 }
 
+.route-notice {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 4px 18px;
+  padding: 12px 14px;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.route-notice p {
+  margin: 0;
+  min-width: 0;
+}
+
+.route-notice button {
+  flex: none;
+  padding: 0 4px;
+  color: var(--ink-soft);
+  font-size: 18px;
+  line-height: 1;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
 .mobile-next-card {
   display: none;
 }
