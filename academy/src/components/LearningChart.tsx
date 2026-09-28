@@ -158,6 +158,28 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Ein großer Bull-Bar schafft eine funktionale Breakout-Lücke; spätere schwache Abwärtsversuche ändern den bullischen Always-in-Zustand nicht.',
   'spike-channel-playbook':
     'Der vollständige Zyklus führt vom Tief-Fehlausbruch über Spike und Keilkanal in einen zweibeinigen Kanalbodentest mit offenen Folgepfaden.',
+  'channel-two-sided-orders':
+    'Spike, Kanal und Orderwechsel zeigen, wie Überlappung, Tails, Gewinnmitnahmen und gestaffelte Gegenpositionen den Handel zweiseitiger machen.',
+  'channel-start-magnet':
+    'Ein reifer Kanal läuft zum Bereich seines ersten Pullbacks zurück, wo Short-Eindeckungen und neue Käufer zusammentreffen.',
+  'channel-breakout-paths':
+    'Drei Felder vergleichen den typischen Rücklauf zum Kanalbeginn, eine seitliche Fortsetzungsflag und eine seltene echte Beschleunigung.',
+  'range-dual-role':
+    'Dieselbe Trading Range dient links als Fortsetzungsflag und rechts als Ausgangspunkt einer bestätigten Umkehr.',
+  'test-reference-layers':
+    'Mehrere Referenzebenen wie Trendlinie, Swing, Entry, Signal-Bar und Vortageskurs verdichten sich zu einer Testzone.',
+  'every-swing-test-map':
+    'Die nummerierten Swingpunkte des Chartfalls werden mit den früheren Entscheidungen verbunden, die sie jeweils erneut prüfen.',
+  'bar-nine-defense':
+    'Bar 9 testet Unterstützung und bleibt knapp über dem Long-Einstand, bevor die bullische Reaktion einsetzt.',
+  'bar-three-breakout-gap':
+    'Ein großer bullischer Trendbar erzeugt funktionale Distanz zwischen seinem Tief und dem Hoch des vorherigen Bars.',
+  'channel-positioning-cycle':
+    'Bullen reduzieren im reifen Kanal Positionen, während Bären staffeln und beim Rücklauf zum Kanalbeginn eindecken.',
+  'wedge-pushes':
+    'Zwei Dreierfolgen markieren nachlassende Effizienz am Tagestief und später innerhalb eines Pullbacks im Bullenregime.',
+  'nested-flags-map':
+    'Ein Kursabschnitt wird gleichzeitig als Doppeltop-Bear-Flag, Doppeltief-Bull-Flag, Dreieck und Final Flag gelesen.',
   'setup-direction':
     'Dasselbe Pullback-Tief zeigt einen Long-Einstieg mit dem Bullenmarkt und einen deutlich anspruchsvolleren Short-Einstieg gegen den Trend.',
   'bar-role-lifecycle':

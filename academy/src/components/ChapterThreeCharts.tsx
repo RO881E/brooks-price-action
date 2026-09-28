@@ -1,4 +1,33 @@
 import type { ChartScenarioId } from '../content/types';
+import { ChapterThreeExpansionChart } from './ChapterThreeExpansionCharts';
+
+const chapterThreeScenarios = new Set<ChartScenarioId>([
+  'breakout-spike-channel',
+  'channel-shallowing',
+  'channel-to-range-cycle',
+  'channel-counter-flag',
+  'test-area-decision',
+  'behavior-reversal',
+  'reversal-inertia',
+  'reversal-multiframe-map',
+  'failed-low-breakout',
+  'repeated-high-test',
+  'spike-to-overlap',
+  'breakeven-defense',
+  'breakout-gap-always-in',
+  'spike-channel-playbook',
+  'channel-two-sided-orders',
+  'channel-start-magnet',
+  'channel-breakout-paths',
+  'range-dual-role',
+  'test-reference-layers',
+  'every-swing-test-map',
+  'bar-nine-defense',
+  'bar-three-breakout-gap',
+  'channel-positioning-cycle',
+  'wedge-pushes',
+  'nested-flags-map',
+]);
 
 interface CandleGlyphProps {
   x: number;
@@ -507,7 +536,7 @@ function SpikeChannelPlaybook() {
   );
 }
 
-export function ChapterThreeChart({ scenario }: { scenario: ChartScenarioId }) {
+function ChapterThreeChartContent({ scenario }: { scenario: ChartScenarioId }) {
   if (scenario === 'breakout-spike-channel') return <BreakoutSpikeChannel />;
   if (scenario === 'channel-shallowing') return <ChannelShallowing />;
   if (scenario === 'channel-to-range-cycle') return <ChannelToRangeCycle />;
@@ -522,5 +551,15 @@ export function ChapterThreeChart({ scenario }: { scenario: ChartScenarioId }) {
   if (scenario === 'breakeven-defense') return <BreakevenDefense />;
   if (scenario === 'breakout-gap-always-in') return <BreakoutGapAlwaysIn />;
   if (scenario === 'spike-channel-playbook') return <SpikeChannelPlaybook />;
-  return null;
+  return <ChapterThreeExpansionChart scenario={scenario} />;
+}
+
+export function ChapterThreeChart({ scenario }: { scenario: ChartScenarioId }) {
+  if (!chapterThreeScenarios.has(scenario)) return null;
+
+  return (
+    <g className="chapter-three-chart">
+      <ChapterThreeChartContent scenario={scenario} />
+    </g>
+  );
 }

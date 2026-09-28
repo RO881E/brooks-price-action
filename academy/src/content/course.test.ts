@@ -116,11 +116,11 @@ describe('Brooks course model', () => {
     );
   });
 
-  it('publishes chapter 3 as fourteen source-ordered micro-lessons', () => {
+  it('publishes chapter 3 as twenty-five source-ordered micro-lessons', () => {
     const chapterThree = brooksTrendsCourse.units[4];
 
-    expect(chapterThree.estimatedLessonCount).toBe(14);
-    expect(chapterThree.lessons).toHaveLength(14);
+    expect(chapterThree.estimatedLessonCount).toBe(25);
+    expect(chapterThree.lessons).toHaveLength(25);
     expect(
       chapterThree.lessons.every((lesson) => lesson.status === 'published'),
     ).toBe(true);
@@ -132,11 +132,20 @@ describe('Brooks course model', () => {
     expect(chapterThree.lessons.at(0)?.title).toBe(
       'Ein Breakout beginnt als Kontrollwechsel',
     );
-    expect(chapterThree.lessons.at(4)?.title).toBe(
-      'Ein Test prüft einen Bereich, keinen perfekten Tick',
+    expect(chapterThree.lessons.at(2)?.title).toBe(
+      'Im Kanal wird der Handel schrittweise zweiseitig',
     );
     expect(chapterThree.lessons.at(8)?.title).toBe(
-      'Chartfall 3.1: Der gescheiterte Tiefausbruch',
+      'Testzonen entstehen aus mehreren Erinnerungsebenen',
+    );
+    expect(chapterThree.lessons.at(13)?.title).toBe(
+      'Chartfall 3.1: Jeder Swing testet eine alte Entscheidung',
+    );
+    expect(chapterThree.lessons.at(18)?.title).toBe(
+      'Chartfall 3.1: Bar 9 verteidigt den Long-Einstand',
+    );
+    expect(chapterThree.lessons.at(23)?.title).toBe(
+      'Chartfall 3.1: Mehrere Flags liegen ineinander',
     );
     expect(chapterThree.lessons.at(-1)?.title).toBe(
       'Chartfall 3.1: Der komplette Spike-and-Channel-Plan',
@@ -147,8 +156,8 @@ describe('Brooks course model', () => {
         .filter((step) => step.type === 'diagram')
         .map((step) => step.scenario),
     );
-    expect(diagramScenarios).toHaveLength(14);
-    expect(new Set(diagramScenarios).size).toBe(14);
+    expect(diagramScenarios).toHaveLength(25);
+    expect(new Set(diagramScenarios).size).toBe(25);
   });
 
   it('publishes chapter 4 as twenty-five source-ordered micro-lessons', () => {
@@ -190,7 +199,7 @@ describe('Brooks course model', () => {
     );
     expect(diagramScenarios).toHaveLength(25);
     expect(new Set(diagramScenarios).size).toBe(25);
-    expect(publishedLessons).toHaveLength(113);
+    expect(publishedLessons).toHaveLength(124);
   });
 
   it('uses globally unique stable IDs', () => {

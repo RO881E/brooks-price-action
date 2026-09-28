@@ -67,7 +67,7 @@ export const brooksTrendsCourse: Course = {
       title: 'Breakouts, Ranges, Tests und Umkehrbewegungen',
       description:
         'Vom Breakout über Spike-and-Channel und Testzonen bis zur Umkehrlogik – einschließlich des vollständigen Chartfalls 3.1.',
-      estimatedLessonCount: 14,
+      estimatedLessonCount: 25,
       lessons: chapterThreeLessons,
     },
     {
