@@ -1,4 +1,10 @@
-import { isDayKey, MAX_REVIEW_STAGE, type DayKey, type ReviewCard } from './reviewScheduler';
+import {
+  isDayKey,
+  localDayKey,
+  MAX_REVIEW_STAGE,
+  type DayKey,
+  type ReviewCard,
+} from './reviewScheduler';
 
 export const LEGACY_PROGRESS_KEY = 'brooks-progress';
 export const LEGACY_TREND_RANGE_BEST_KEY = 'brooks-tr-best';
@@ -10,7 +16,10 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 4;
+export const ACADEMY_PROGRESS_VERSION = 5;
+
+/** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
+export const MAX_ACTIVITY_DAYS = 400;
 
 export interface LessonPosition {
   /** Nullbasierter Index des zuletzt geöffneten gültigen Schritts. */
@@ -77,6 +86,11 @@ export interface AcademyProgress {
   /** Wiederholungsplan je Frage (seit F-03). */
   reviewCards: Record<string, ReviewCard>;
   reviewSession: ReviewSession | null;
+  /**
+   * Lokale Kalendertage mit echter Lernaktivität – Lektionsabschluss oder
+   * beantwortete Wiederholung (seit F-04), aufsteigend sortiert.
+   */
+  activityDays: DayKey[];
   lastLessonId: string | null;
   /** Begonnene, noch nicht abgeschlossene Lektionen mit ihrem letzten Schritt. */
   lessonPositions: Record<string, LessonPosition>;
@@ -105,6 +119,7 @@ export function createEmptyProgress(): AcademyProgress {
     lessonResults: {},
     reviewCards: {},
     reviewSession: null,
+    activityDays: [],
     lastLessonId: null,
     lessonPositions: {},
     legacyReadChapters: [],
@@ -147,6 +162,7 @@ const KNOWN_FIELDS = new Set([
   'lessonResults',
   'reviewCards',
   'reviewSession',
+  'activityDays',
   'lastLessonId',
   'lessonPositions',
   'legacyReadChapters',
@@ -303,11 +319,49 @@ function normalizeReviewSession(value: unknown): ReviewSession | null {
   };
 }
 
+function normalizeActivityDays(days: Iterable<unknown>): DayKey[] {
+  const unique = new Set<DayKey>();
+  for (const day of days) if (isDayKey(day)) unique.add(day);
+  return [...unique].sort().slice(-MAX_ACTIVITY_DAYS);
+}
+
+function isoToLocalDay(value: string | null | undefined): DayKey | null {
+  if (!value) return null;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? null : localDayKey(date);
+}
+
+/**
+ * Lerntage, die sich aus bereits gespeicherten Zeitstempeln belegen lassen:
+ * Lektionsabschlüsse (seit F-02) und letzte Wiederholungen (seit F-03).
+ */
+function recordedActivityDays(
+  lessonResults: Record<string, LessonResult>,
+  reviewCards: Record<string, ReviewCard>,
+): DayKey[] {
+  const days: Array<DayKey | null> = [];
+  for (const result of Object.values(lessonResults)) {
+    days.push(isoToLocalDay(result.firstCompletedAt), isoToLocalDay(result.lastCompletedAt));
+  }
+  for (const card of Object.values(reviewCards)) days.push(card.lastReviewedDay);
+  return days.filter((day): day is DayKey => day !== null);
+}
+
+/** Vermerkt einen Tag mit echter Lernaktivität. */
+export function recordActivity(progress: AcademyProgress, day: DayKey): AcademyProgress {
+  if (!isDayKey(day) || progress.activityDays.includes(day)) return progress;
+  return {
+    ...progress,
+    activityDays: normalizeActivityDays([...progress.activityDays, day]),
+  };
+}
+
 /**
  * Überführt einen gespeicherten Datensatz beliebiger bekannter Version in das
  * aktuelle Modell. v1 besitzt noch keine Lektionspositionen, v1 und v2 noch
  * keine Versuchs- und Abschlussdaten, v1–v3 noch keinen Wiederholungsplan;
- * diese starten leer. Vorhandene Antworten
+ * diese starten leer. Lerntage werden bei älteren Ständen aus vorhandenen
+ * Zeitstempeln abgeleitet, nie geschätzt. Vorhandene Antworten
  * bleiben unverändert in `answers` und werden nicht in Versuche umgedeutet.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
@@ -316,6 +370,8 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
   if (typeof value.version !== 'number' || value.version < 1) return null;
 
   const best = value.legacyTrendRangeBest;
+  const lessonResults = normalizeLessonResults(value.lessonResults);
+  const reviewCards = normalizeReviewCards(value.reviewCards);
 
   return {
     version: ACADEMY_PROGRESS_VERSION,
@@ -328,9 +384,13 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
         )
       : {},
     questionResults: normalizeQuestionResults(value.questionResults),
-    lessonResults: normalizeLessonResults(value.lessonResults),
-    reviewCards: normalizeReviewCards(value.reviewCards),
+    lessonResults,
+    reviewCards,
     reviewSession: normalizeReviewSession(value.reviewSession),
+    activityDays: normalizeActivityDays([
+      ...(Array.isArray(value.activityDays) ? value.activityDays : []),
+      ...recordedActivityDays(lessonResults, reviewCards),
+    ]),
     lastLessonId:
       typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     lessonPositions: normalizePositions(value.lessonPositions),
@@ -422,7 +482,7 @@ export function completeLesson(
         xpAwarded: Number.isFinite(xp) && xp > 0 ? xp : 0,
       };
 
-  return {
+  const next: AcademyProgress = {
     ...progress,
     completedLessonIds: alreadyCompleted
       ? progress.completedLessonIds
@@ -431,6 +491,8 @@ export function completeLesson(
     lessonPositions: openPositions,
     lessonResults: { ...progress.lessonResults, [lessonId]: result },
   };
+  const day = isoToLocalDay(now);
+  return day ? recordActivity(next, day) : next;
 }
 
 /**

@@ -5,6 +5,7 @@ import { LessonPlayer } from './components/LessonPlayer';
 import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
 import { PracticeView } from './components/PracticeView';
+import { ProgressView } from './components/ProgressView';
 import { brooksTrendsCourse, publishedLessonIds } from './content/course';
 import { glossaryEntries } from './content/glossary';
 import type { Lesson } from './content/types';
@@ -34,12 +35,14 @@ import {
   saveProgress,
   type ReviewMode,
 } from './features/progress';
+import { progressOverview, type NextAction } from './features/progressStats';
 import { localDayKey, seededRandom } from './features/reviewScheduler';
 import {
   advanceSession,
   answerReview,
   buildSession,
   endSession,
+  isSessionFinished,
   reviewPool,
   sanitizeSession,
   startSession,
@@ -67,6 +70,7 @@ const navigation: Array<{ id: View; label: string; icon: string }> = [
   { id: 'path', label: 'Lernpfad', icon: '⌁' },
   { id: 'chapters', label: 'Buchmodus', icon: '▤' },
   { id: 'practice', label: 'Üben', icon: '◇' },
+  { id: 'progress', label: 'Fortschritt', icon: '◎' },
   { id: 'glossary', label: 'Glossar', icon: 'Aa' },
 ];
 
@@ -191,6 +195,17 @@ export default function App() {
     setNotice(null);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const runNextAction = (action: NextAction) => {
+    if (action.kind === 'review') {
+      // Eine laufende Runde wird fortgesetzt, nicht ersetzt.
+      const running = progress.reviewSession && !isSessionFinished(progress.reviewSession);
+      if (!running) startReview('due');
+      chooseView('practice');
+    } else {
+      openLesson(action.lesson);
+    }
   };
 
   const openLesson = (lesson: Lesson) => {
@@ -376,6 +391,14 @@ export default function App() {
                 window.scrollTo({ top: 0 });
               }}
               onEnd={() => setProgress(endSession)}
+            />
+          ) : null}
+          {view === 'progress' ? (
+            <ProgressView
+              course={brooksTrendsCourse}
+              overview={progressOverview(brooksTrendsCourse, progress, today)}
+              today={today}
+              onAction={runNextAction}
             />
           ) : null}
           {view === 'glossary' ? <GlossaryView entries={glossaryEntries} /> : null}

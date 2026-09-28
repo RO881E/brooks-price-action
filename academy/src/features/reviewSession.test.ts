@@ -250,6 +250,7 @@ describe('running a session', () => {
 
     progress = answerReview(progress, q('q1'), 'b', TODAY);
     expect(progress.reviewCards.q1).toMatchObject({ stage: 0, dueDay: '2026-09-29', lapses: 1 });
+    expect(progress.activityDays).toContain(TODAY);
 
     // Erneutes Absenden (z. B. doppelter Klick oder Reload) zählt nicht doppelt.
     expect(answerReview(progress, q('q1'), 'a', TODAY)).toBe(progress);

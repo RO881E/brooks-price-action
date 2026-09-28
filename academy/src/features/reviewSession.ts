@@ -1,6 +1,11 @@
 import type { Course, CourseUnit, Lesson } from '../content/types';
 import { questionView, type QuestionStep } from './lessonResults';
-import type { AcademyProgress, ReviewMode, ReviewSession } from './progress';
+import {
+  recordActivity,
+  type AcademyProgress,
+  type ReviewMode,
+  type ReviewSession,
+} from './progress';
 import {
   addDays,
   isDue,
@@ -216,7 +221,7 @@ export function answerReview(
 
   const correct = optionId === question.correctOptionId;
 
-  return {
+  return recordActivity({
     ...progress,
     reviewCards: {
       ...progress.reviewCards,
@@ -226,7 +231,7 @@ export function answerReview(
       ...session,
       answers: { ...session.answers, [question.id]: optionId },
     },
-  };
+  }, today);
 }
 
 /** Weiter zur nächsten Frage – erst, wenn die aktuelle beantwortet ist. */
