@@ -256,7 +256,7 @@ test.describe('F-01 resume and stable URLs', () => {
     const stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
-    expect(stored.version).toBe(6);
+    expect(stored.version).toBe(7);
     expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
@@ -335,7 +335,7 @@ test.describe('F-01 resume and stable URLs', () => {
       legacy: localStorage.getItem('brooks-progress'),
       best: localStorage.getItem('brooks-tr-best'),
     }));
-    expect(stored.academy.version).toBe(6);
+    expect(stored.academy.version).toBe(7);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
@@ -407,7 +407,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(6);
+    expect(stored.version).toBe(7);
     expect(stored.completedLessonIds).toEqual([lessonId]);
     expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
     expect(stored.questionResults['intro-01-question']).toMatchObject({
@@ -615,7 +615,7 @@ test.describe('F-03 smart review queue', () => {
     await expect(page.getByText('Für heute ist nichts mehr fällig.')).toBeVisible();
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(6);
+    expect(stored.version).toBe(7);
     for (const question of questions) {
       expect(stored.reviewCards[question.id]).toMatchObject({
         stage: 0,
@@ -1112,5 +1112,143 @@ test.describe('F-06 global search', () => {
     await page.getByRole('button', { name: 'Suche schließen' }).click();
     await expect(dialog(page)).toBeHidden();
     await expect(page.getByRole('button', { name: 'Suchen' })).toBeFocused();
+  });
+});
+
+test.describe('F-07 bookmarks and notes', () => {
+  const [lessonOne] = publishedLessons;
+  const secondStep = lessonOne.steps[1];
+
+  const openSaved = async (page: import('@playwright/test').Page) => {
+    const menu = page.getByRole('button', { name: 'Menü öffnen' });
+    if (await menu.isVisible()) await menu.click();
+    await page.getByRole('navigation', { name: 'Hauptnavigation' }).getByRole('button', { name: 'Gespeichert' }).click();
+    await expect(page.getByRole('heading', { name: 'Gespeichert', level: 1 })).toBeVisible();
+  };
+
+  const openPanel = async (page: import('@playwright/test').Page) => {
+    const summary = page.getByText('Notiz & Lesezeichen');
+    const details = page.locator('details.lesson-notes');
+    if (!(await details.evaluate((node) => (node as HTMLDetailsElement).open))) await summary.click();
+  };
+
+  const noteField = (page: import('@playwright/test').Page) =>
+    page.getByRole('textbox', { name: /Deine Notiz zu Schritt/ });
+
+  test('bookmarks a lesson and a step and jumps back from the overview', async ({ page }) => {
+    await page.goto(`/#/lesson/${lessonOne.id}?step=2`);
+    await expect(page.getByRole('heading', { name: secondStep.title, level: 1 })).toBeVisible();
+
+    // Tastatur: Bereich per Enter öffnen, Umschalter per Leertaste.
+    await page.locator('details.lesson-notes > summary').focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('details.lesson-notes')).toHaveAttribute('open', '');
+    const stepToggle = page.getByRole('button', { name: 'Schritt merken' });
+    await stepToggle.focus();
+    await page.keyboard.press('Space');
+    await expect(stepToggle).toHaveAttribute('aria-pressed', 'true');
+    await page.getByRole('button', { name: 'Lektion merken' }).click();
+    await expect(page.getByRole('button', { name: 'Lektion merken' })).toHaveAttribute('aria-pressed', 'true');
+
+    await page.getByRole('button', { name: 'Lektion schließen' }).click();
+    await openSaved(page);
+    const items = page.locator('.saved-list').first().locator('li');
+    await expect(items).toHaveCount(2);
+    await expect(items.first()).toContainText(lessonOne.title);
+    await expect(items.nth(1)).toContainText(secondStep.title);
+    await expect(items.first()).toContainText('Lektion · Einleitung');
+    await expect(items.nth(1)).toContainText(`Schritt 2 · ${lessonOne.title}`);
+
+    await page.getByRole('button', { name: `${secondStep.title} öffnen` }).click();
+    await expect(page).toHaveURL(new RegExp(`#/lesson/${lessonOne.id}\\?step=2$`));
+    await expect(page.getByRole('heading', { name: secondStep.title, level: 1 })).toBeVisible();
+
+    // Zurück in die Übersicht, Lesezeichen entfernen und rückgängig machen.
+    await page.goBack();
+    await expect(page.getByRole('heading', { name: 'Gespeichert', level: 1 })).toBeVisible();
+    await page.getByRole('button', { name: `Lesezeichen „${secondStep.title}“ entfernen` }).click();
+    await expect(items).toHaveCount(1);
+    await page.getByRole('button', { name: 'Rückgängig' }).click();
+    await expect(items).toHaveCount(2);
+
+    await page.reload();
+    await expect(page.locator('.saved-list').first().locator('li')).toHaveCount(2);
+  });
+
+  test('autosaves notes as plain text and keeps them after reload', async ({ page }) => {
+    const text = 'Idee: <b>fett</b> & "Zitat" ✓ Größe\nZweite Zeile';
+    await page.goto(`/#/lesson/${lessonOne.id}?step=2`);
+    await openPanel(page);
+    await expect(page.getByText('Noch keine Notiz.')).toBeVisible();
+
+    await noteField(page).fill(text);
+    await expect(page.getByText('Wird gespeichert …')).toBeVisible();
+    await expect(page.getByText(/^Gespeichert um \d\d:\d\d\.$/)).toBeVisible();
+
+    await page.reload();
+    await expect(noteField(page)).toHaveValue(text);
+    await expect(page.locator('details.lesson-notes')).toHaveAttribute('open', '');
+
+    await page.goto('/#/saved');
+    const note = page.locator('.saved-note-text');
+    await expect(note).toHaveText(text);
+    await expect(note.locator('b')).toHaveCount(0);
+
+    // Löschen mit Rückgängig, danach endgültig löschen.
+    await page.getByRole('button', { name: `Notiz zu „${secondStep.title}“ löschen` }).click();
+    await expect(page.getByText('Notiz gelöscht.')).toBeVisible();
+    await page.getByRole('button', { name: 'Rückgängig' }).click();
+    await expect(note).toHaveText(text);
+    await page.getByRole('button', { name: `Notiz zu „${secondStep.title}“ löschen` }).click();
+    await page.reload();
+    await expect(page.getByText('Noch nichts gespeichert')).toBeVisible();
+  });
+
+  test('does not lose input on fast view switches or an immediate reload', async ({ page }) => {
+    await page.goto(`/#/lesson/${lessonOne.id}?step=1`);
+    await openPanel(page);
+
+    // Sofort zum nächsten Schritt – vor Ablauf der Autosave-Pause.
+    await noteField(page).fill('Notiz Schritt 1');
+    await page.getByRole('button', { name: 'Weiter' }).click();
+    await openPanel(page);
+    await noteField(page).fill('Notiz Schritt 2');
+    await page.getByRole('button', { name: 'Lektion schließen' }).click();
+
+    await page.goto(`/#/lesson/${lessonOne.id}?step=3`);
+    await openPanel(page);
+    await noteField(page).fill('Notiz Schritt 3');
+    await page.reload();
+
+    await page.goto('/#/saved');
+    await expect(page.locator('.saved-note-text')).toHaveText([
+      'Notiz Schritt 3',
+      'Notiz Schritt 2',
+      'Notiz Schritt 1',
+    ]);
+  });
+
+  test('handles long notes, empty notes and the mobile menu', { tag: '@mobile' }, async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 780 });
+    await page.goto(`/#/lesson/${lessonOne.id}?step=1`);
+    await openPanel(page);
+    await expect(noteField(page)).toHaveAttribute('maxlength', '5000');
+
+    await noteField(page).fill('x'.repeat(5000));
+    await expect(page.getByText('5000 / 5000')).toBeVisible();
+    await expect(page.getByText(/^Gespeichert um/)).toBeVisible();
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth),
+    ).toBe(false);
+
+    await noteField(page).fill('   ');
+    await expect(page.getByText('Leere Notiz entfernt.')).toBeVisible();
+    await page.getByRole('button', { name: 'Lektion schließen' }).click();
+
+    await openSaved(page);
+    await expect(page.getByText('Noch nichts gespeichert')).toBeVisible();
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth),
+    ).toBe(false);
   });
 });

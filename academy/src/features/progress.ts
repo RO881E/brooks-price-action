@@ -16,7 +16,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 6;
+export const ACADEMY_PROGRESS_VERSION = 7;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -124,6 +124,21 @@ export interface MilestoneRecord {
   achievedDay: DayKey;
 }
 
+/** Lesezeichen auf eine Lektion (`stepId: null`) oder einen Schritt (seit F-07). */
+export interface Bookmark {
+  lessonId: string;
+  stepId: string | null;
+  createdAt: string;
+}
+
+/** Persönliche Klartextnotiz zu einem Schritt (seit F-07). */
+export interface Note {
+  lessonId: string;
+  stepId: string | null;
+  text: string;
+  updatedAt: string;
+}
+
 export interface AcademyProgress {
   version: typeof ACADEMY_PROGRESS_VERSION;
   completedLessonIds: string[];
@@ -144,6 +159,9 @@ export interface AcademyProgress {
   dailyGoal: DailyGoal;
   /** Einmalig erreichte Meilensteine; einmal vergeben, nie entfernt. */
   milestones: Partial<Record<MilestoneId, MilestoneRecord>>;
+  /** Schlüssel: `lessonId` oder `lessonId::stepId`. */
+  bookmarks: Record<string, Bookmark>;
+  notes: Record<string, Note>;
   lastLessonId: string | null;
   /** Begonnene, noch nicht abgeschlossene Lektionen mit ihrem letzten Schritt. */
   lessonPositions: Record<string, LessonPosition>;
@@ -176,6 +194,8 @@ export function createEmptyProgress(): AcademyProgress {
     dailyActivity: {},
     dailyGoal: DAILY_GOAL_OPTIONS[0],
     milestones: {},
+    bookmarks: {},
+    notes: {},
     lastLessonId: null,
     lessonPositions: {},
     legacyReadChapters: [],
@@ -222,6 +242,8 @@ const KNOWN_FIELDS = new Set([
   'dailyActivity',
   'dailyGoal',
   'milestones',
+  'bookmarks',
+  'notes',
   'lastLessonId',
   'lessonPositions',
   'legacyReadChapters',
@@ -487,6 +509,61 @@ function normalizeMilestones(value: unknown): Partial<Record<MilestoneId, Milest
   );
 }
 
+/** Höchstlänge einer Notiz in Zeichen. */
+export const MAX_NOTE_LENGTH = 5000;
+
+/** Schlüssel für Lesezeichen und Notizen: Lektion oder Lektion plus Schritt. */
+export function savedKey(lessonId: string, stepId: string | null): string {
+  return stepId ? `${lessonId}::${stepId}` : lessonId;
+}
+
+/**
+ * Klartext ohne Steuerzeichen, einheitliche Zeilenumbrüche, höchstens
+ * `MAX_NOTE_LENGTH` Zeichen. HTML bleibt reiner Text und wird nie gerendert.
+ */
+export function normalizeNoteText(value: string): string {
+  const text = value
+    .replace(/\r\n?/g, '\n')
+    .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, '');
+  return Array.from(text).slice(0, MAX_NOTE_LENGTH).join('');
+}
+
+function normalizeBookmarks(value: unknown): Record<string, Bookmark> {
+  if (!isRecord(value)) return {};
+  return Object.fromEntries(
+    Object.values(value).flatMap((entry) => {
+      if (!isRecord(entry) || typeof entry.lessonId !== 'string' || entry.lessonId === '') return [];
+      const stepId = typeof entry.stepId === 'string' && entry.stepId !== '' ? entry.stepId : null;
+      const bookmark: Bookmark = {
+        lessonId: entry.lessonId,
+        stepId,
+        createdAt: typeof entry.createdAt === 'string' ? entry.createdAt : nowIso(),
+      };
+      return [[savedKey(bookmark.lessonId, stepId), bookmark]];
+    }),
+  );
+}
+
+function normalizeNotes(value: unknown): Record<string, Note> {
+  if (!isRecord(value)) return {};
+  return Object.fromEntries(
+    Object.values(value).flatMap((entry) => {
+      if (!isRecord(entry) || typeof entry.lessonId !== 'string' || entry.lessonId === '') return [];
+      if (typeof entry.text !== 'string') return [];
+      const text = normalizeNoteText(entry.text);
+      if (text.trim() === '') return [];
+      const stepId = typeof entry.stepId === 'string' && entry.stepId !== '' ? entry.stepId : null;
+      const note: Note = {
+        lessonId: entry.lessonId,
+        stepId,
+        text,
+        updatedAt: typeof entry.updatedAt === 'string' ? entry.updatedAt : nowIso(),
+      };
+      return [[savedKey(note.lessonId, stepId), note]];
+    }),
+  );
+}
+
 /** Vermerkt einen Tag mit echter Lernaktivität in der Tagesliste. */
 export function recordActivity(progress: AcademyProgress, day: DayKey): AcademyProgress {
   if (!isDayKey(day) || progress.activityDays.includes(day)) return progress;
@@ -575,6 +652,8 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
         : normalizeDailyActivity(value.dailyActivity),
     dailyGoal: normalizeDailyGoal(value.dailyGoal),
     milestones: normalizeMilestones(value.milestones),
+    bookmarks: normalizeBookmarks(value.bookmarks),
+    notes: normalizeNotes(value.notes),
     lastLessonId:
       typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     lessonPositions: normalizePositions(value.lessonPositions),

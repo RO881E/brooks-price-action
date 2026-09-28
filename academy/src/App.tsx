@@ -7,7 +7,9 @@ import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
 import { PracticeView } from './components/PracticeView';
 import { ProgressView } from './components/ProgressView';
+import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
+import { UndoToast, type UndoAction } from './components/UndoToast';
 import { brooksTrendsCourse, publishedLessonIds } from './content/course';
 import { glossaryEntries } from './content/glossary';
 import type { Lesson } from './content/types';
@@ -42,11 +44,24 @@ import {
   progressPercent,
   recordLessonStep,
   saveProgress,
+  savedKey,
   setDailyGoal,
   type AcademyProgress,
   type ReviewMode,
 } from './features/progress';
 import { progressOverview, type NextAction } from './features/progressStats';
+import {
+  deleteNote,
+  isBookmarked,
+  noteText,
+  removeBookmark,
+  restoreBookmark,
+  restoreNote,
+  saveNote,
+  savedOverview,
+  toggleBookmark,
+  type SavedTarget,
+} from './features/savedItems';
 import { buildSearchIndex, type SearchResult } from './features/search';
 import { localDayKey, seededRandom } from './features/reviewScheduler';
 import {
@@ -89,12 +104,14 @@ function isTypingTarget(target: EventTarget | null): boolean {
   );
 }
 
-const navigation: Array<{ id: View; label: string; icon: string }> = [
-  { id: 'path', label: 'Lernpfad', icon: '⌁' },
-  { id: 'chapters', label: 'Buchmodus', icon: '▤' },
-  { id: 'practice', label: 'Üben', icon: '◇' },
-  { id: 'progress', label: 'Fortschritt', icon: '◎' },
-  { id: 'glossary', label: 'Glossar', icon: 'Aa' },
+const navigation: Array<{ id: View; label: string; icon: string; mobile: boolean }> = [
+  { id: 'path', label: 'Lernpfad', icon: '⌁', mobile: true },
+  { id: 'chapters', label: 'Buchmodus', icon: '▤', mobile: true },
+  { id: 'practice', label: 'Üben', icon: '◇', mobile: true },
+  { id: 'progress', label: 'Fortschritt', icon: '◎', mobile: true },
+  // Auf Mobilgeräten über das Menü erreichbar, damit die untere Leiste lesbar bleibt.
+  { id: 'saved', label: 'Gespeichert', icon: '★', mobile: false },
+  { id: 'glossary', label: 'Glossar', icon: 'Aa', mobile: true },
 ];
 
 export default function App() {
@@ -118,10 +135,17 @@ export default function App() {
     [],
   );
   const [celebration, setCelebration] = useState<Celebration | null>(null);
+  const [undoAction, setUndoAction] = useState<UndoAction | null>(null);
+  const dismissUndo = useCallback(() => setUndoAction(null), []);
   const [searchOpen, setSearchOpen] = useState(false);
   const searchOpener = useRef<HTMLElement | null>(null);
   const searchIndex = useMemo(() => buildSearchIndex(brooksTrendsCourse, glossaryEntries), []);
   const closeCelebration = useCallback(() => setCelebration(null), []);
+  // Neuester Stand für das sofortige Speichern beim Verlassen der Seite.
+  const progressRef = useRef(progress);
+  useEffect(() => {
+    progressRef.current = progress;
+  }, [progress]);
   const percent = useMemo(
     () => progressPercent(progress, publishedLessonIds),
     [progress],
@@ -216,6 +240,7 @@ export default function App() {
 
   const toast = (
     <>
+      {undoAction ? <UndoToast action={undoAction} onDismiss={dismissUndo} /> : null}
       {celebration ? (
         <CelebrationToast celebration={celebration} onClose={closeCelebration} />
       ) : null}
@@ -356,6 +381,33 @@ export default function App() {
     navigate({ kind: 'lesson', lessonId: result.lesson.id, step }, 'push', state);
   };
 
+  const offerUndo = (message: string, undo: () => void) =>
+    setUndoAction((current) => ({ id: (current?.id ?? 0) + 1, message, undo }));
+
+  const removeBookmarkWithUndo = (key: string) => {
+    const { removed } = removeBookmark(progress, key);
+    if (!removed) return;
+    setProgress((current) => removeBookmark(current, key).progress);
+    offerUndo('Lesezeichen entfernt.', () =>
+      setProgress((current) => restoreBookmark(current, removed)),
+    );
+  };
+
+  const deleteNoteWithUndo = (key: string) => {
+    const { removed } = deleteNote(progress, key);
+    if (!removed) return;
+    setProgress((current) => deleteNote(current, key).progress);
+    offerUndo('Notiz gelöscht.', () => setProgress((current) => restoreNote(current, removed)));
+  };
+
+  const openSavedTarget = (target: SavedTarget) => {
+    if (!target.lesson || !target.openable) return;
+    const step =
+      target.stepIndex !== null ? target.stepIndex + 1 : startStepIndex(target.lesson, progress) + 1;
+    const state: LessonHistoryState = { wqtOpenedFrom: view };
+    navigate({ kind: 'lesson', lessonId: target.lesson.id, step }, 'push', state);
+  };
+
   const closeLesson = () => {
     // Wurde die Lektion aus einer Ansicht geöffnet, führt „Schließen“ genau
     // dorthin zurück – wie der Zurück-Knopf des Browsers.
@@ -394,6 +446,22 @@ export default function App() {
             );
           }}
           onClose={closeLesson}
+          saved={{
+            isBookmarked: (stepId) => isBookmarked(progress, activeLesson.id, stepId),
+            noteText: (stepId) => noteText(progress, activeLesson.id, stepId),
+            onToggleBookmark: (stepId) =>
+              setProgress((current) => toggleBookmark(current, activeLesson.id, stepId)),
+            onCommitNote: (stepId, text) =>
+              setProgress((current) => saveNote(current, activeLesson.id, stepId, text)),
+            onCommitNoteNow: (stepId, text) => {
+              // Seite wird verlassen: sofort schreiben, der Effekt käme zu spät.
+              const next = saveNote(progressRef.current, activeLesson.id, stepId, text);
+              progressRef.current = next;
+              saveProgress(window.localStorage, next);
+              setProgress((current) => saveNote(current, activeLesson.id, stepId, text));
+            },
+            onDeleteNote: (stepId) => deleteNoteWithUndo(savedKey(activeLesson.id, stepId)),
+          }}
         />
         {toast}
       </>
@@ -560,6 +628,14 @@ export default function App() {
               onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
             />
           ) : null}
+          {view === 'saved' ? (
+            <SavedView
+              overview={savedOverview(brooksTrendsCourse, progress)}
+              onOpen={openSavedTarget}
+              onRemoveBookmark={removeBookmarkWithUndo}
+              onDeleteNote={deleteNoteWithUndo}
+            />
+          ) : null}
           {view === 'glossary' ? (
             <GlossaryView
               key={glossaryTerm ?? ''}
@@ -573,7 +649,7 @@ export default function App() {
       {toast}
 
       <nav className="mobile-bottom-nav" aria-label="Mobile Navigation">
-        {navigation.map((item) => (
+        {navigation.filter((item) => item.mobile).map((item) => (
           <button
             type="button"
             key={item.id}

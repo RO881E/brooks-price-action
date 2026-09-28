@@ -173,19 +173,19 @@ describe('academy data migration', () => {
     const storage = new MemoryStorage();
     storage.setItem(
       ACADEMY_PROGRESS_KEY,
-      JSON.stringify({ ...v1Record, futureSettings: { theme: 'dark' }, bookmarks: ['x'] }),
+      JSON.stringify({ ...v1Record, futureSettings: { theme: 'dark' }, sharedLists: ['x'] }),
     );
 
     const progress = loadProgress(storage);
     expect(progress.preservedFields).toEqual({
       futureSettings: { theme: 'dark' },
-      bookmarks: ['x'],
+      sharedLists: ['x'],
     });
 
     saveProgress(storage, progress);
     const saved = JSON.parse(storage.getItem(ACADEMY_PROGRESS_KEY) ?? '{}');
     expect(saved.futureSettings).toEqual({ theme: 'dark' });
-    expect(saved.bookmarks).toEqual(['x']);
+    expect(saved.sharedLists).toEqual(['x']);
     expect(saved.completedLessonIds).toEqual(['lesson-1', 'lesson-2']);
   });
 
