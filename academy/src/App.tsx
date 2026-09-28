@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { CelebrationToast, type Celebration } from './components/CelebrationToast';
 import { ChapterView } from './components/ChapterView';
 import { GlossaryView } from './components/GlossaryView';
@@ -7,6 +7,7 @@ import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
 import { PracticeView } from './components/PracticeView';
 import { ProgressView } from './components/ProgressView';
+import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { brooksTrendsCourse, publishedLessonIds } from './content/course';
 import { glossaryEntries } from './content/glossary';
 import type { Lesson } from './content/types';
@@ -46,6 +47,7 @@ import {
   type ReviewMode,
 } from './features/progress';
 import { progressOverview, type NextAction } from './features/progressStats';
+import { buildSearchIndex, type SearchResult } from './features/search';
 import { localDayKey, seededRandom } from './features/reviewScheduler';
 import {
   advanceSession,
@@ -73,6 +75,17 @@ function openedFromView(state: unknown): boolean {
     state &&
       typeof state === 'object' &&
       typeof (state as Partial<LessonHistoryState>).wqtOpenedFrom === 'string',
+  );
+}
+
+/** Tastenkürzel `/` nur, wenn gerade nicht in ein Feld geschrieben wird. */
+function isTypingTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false;
+  return (
+    target.isContentEditable ||
+    target instanceof HTMLInputElement ||
+    target instanceof HTMLTextAreaElement ||
+    target instanceof HTMLSelectElement
   );
 }
 
@@ -105,6 +118,9 @@ export default function App() {
     [],
   );
   const [celebration, setCelebration] = useState<Celebration | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchOpener = useRef<HTMLElement | null>(null);
+  const searchIndex = useMemo(() => buildSearchIndex(brooksTrendsCourse, glossaryEntries), []);
   const closeCelebration = useCallback(() => setCelebration(null), []);
   const percent = useMemo(
     () => progressPercent(progress, publishedLessonIds),
@@ -119,6 +135,7 @@ export default function App() {
   const activeStepIndex = resolved?.kind === 'lesson' ? resolved.stepIndex : 0;
   const resultLesson = resolved?.kind === 'lesson-result' ? resolved.lesson : null;
   const view: View = resolved?.kind === 'view' ? resolved.view : lastView;
+  const glossaryTerm = resolved?.kind === 'view' ? resolved.term : undefined;
 
   useEffect(() => {
     saveProgress(window.localStorage, progress);
@@ -169,9 +186,48 @@ export default function App() {
     }
   }, [progress, today]);
 
-  const toast = celebration ? (
-    <CelebrationToast celebration={celebration} onClose={closeCelebration} />
-  ) : null;
+  const openSearch = useCallback(() => {
+    searchOpener.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setMobileMenuOpen(false);
+    setSearchOpen(true);
+  }, []);
+
+  const closeSearch = useCallback(() => {
+    setSearchOpen(false);
+    // Fokus zurück an die Stelle, von der aus gesucht wurde.
+    window.requestAnimationFrame(() => {
+      const opener = searchOpener.current;
+      if (opener && opener.isConnected) opener.focus();
+    });
+  }, []);
+
+  // Layout-Effekt: Das Kürzel steht bereit, sobald die Oberfläche sichtbar ist.
+  useLayoutEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== '/' || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (searchOpen || isTypingTarget(event.target)) return;
+      event.preventDefault();
+      openSearch();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [openSearch, searchOpen]);
+
+  const toast = (
+    <>
+      {celebration ? (
+        <CelebrationToast celebration={celebration} onClose={closeCelebration} />
+      ) : null}
+      <SearchDialog
+        open={searchOpen}
+        index={searchIndex}
+        completedLessonIds={progress.completedLessonIds}
+        onClose={closeSearch}
+        onSelect={(result) => openSearchResult(result)}
+      />
+    </>
+  );
 
   const startReview = (mode: ReviewMode, unitId?: string) => {
     setProgress((current) =>
@@ -279,6 +335,25 @@ export default function App() {
       state,
     );
     setNotice(null);
+  };
+
+  const openSearchResult = (result: SearchResult) => {
+    setSearchOpen(false);
+    setNotice(null);
+    if (result.type === 'glossary' && result.glossaryTerm) {
+      navigate({ kind: 'view', view: 'glossary', term: result.glossaryTerm }, 'push');
+      window.scrollTo({ top: 0 });
+      return;
+    }
+    if (!result.lesson) return;
+    // Der Sprung läuft über die normale Route: Freischaltung und gültige
+    // Schritte prüft weiterhin resolveRoute.
+    const step =
+      result.type === 'step' && result.stepIndex !== undefined
+        ? result.stepIndex + 1
+        : startStepIndex(result.lesson, progress) + 1;
+    const state: LessonHistoryState = { wqtOpenedFrom: view };
+    navigate({ kind: 'lesson', lessonId: result.lesson.id, step }, 'push', state);
   };
 
   const closeLesson = () => {
@@ -420,6 +495,17 @@ export default function App() {
             <strong>{navigation.find((item) => item.id === view)?.label}</strong>
           </div>
           <div className="topbar-actions">
+            <button
+              type="button"
+              className="search-trigger"
+              onClick={openSearch}
+              aria-keyshortcuts="/"
+              aria-label="Suchen"
+            >
+              <SearchIcon />
+              <span className="search-trigger-label">Suchen</span>
+              <kbd aria-hidden="true">/</kbd>
+            </button>
             <span className="pilot-pill">Pilot · Buch 1</span>
             <div className="profile-chip" aria-label="Profil Robert">
               RW
@@ -474,7 +560,13 @@ export default function App() {
               onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
             />
           ) : null}
-          {view === 'glossary' ? <GlossaryView entries={glossaryEntries} /> : null}
+          {view === 'glossary' ? (
+            <GlossaryView
+              key={glossaryTerm ?? ''}
+              entries={glossaryEntries}
+              initialQuery={glossaryTerm}
+            />
+          ) : null}
         </div>
       </div>
 

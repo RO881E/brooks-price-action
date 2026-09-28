@@ -982,3 +982,135 @@ test.describe('F-05 daily goal, streak and milestones', () => {
     await expect(page.locator('.celebration')).toHaveCount(0);
   });
 });
+
+test.describe('F-06 global search', () => {
+  const [lessonOne] = publishedLessons;
+  const dialog = (page: import('@playwright/test').Page) => page.getByRole('dialog', { name: 'Suche' });
+  const input = (page: import('@playwright/test').Page) =>
+    page.getByRole('combobox', { name: 'Lektionen, Schritte und Glossar durchsuchen' });
+
+  test('opens with the keyboard, navigates with arrows and closes with Escape', async ({ page }) => {
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto('/');
+    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+
+    await page.keyboard.press('/');
+    await expect(dialog(page)).toBeVisible();
+    await expect(input(page)).toBeFocused();
+    await expect(page.getByText('Tippe, um Lektionen')).toBeVisible();
+
+    await input(page).fill('kerze');
+    const options = dialog(page).getByRole('option');
+    await expect(options.first()).toHaveAttribute('aria-selected', 'true');
+    await page.keyboard.press('ArrowDown');
+    await expect(options.nth(1)).toHaveAttribute('aria-selected', 'true');
+    await page.keyboard.press('ArrowUp');
+    await expect(options.first()).toHaveAttribute('aria-selected', 'true');
+
+    await page.keyboard.press('Escape');
+    await expect(dialog(page)).toBeHidden();
+
+    // In Eingabefeldern bleibt „/“ ein normales Zeichen.
+    await page.goto('/#/glossary');
+    const glossarySearch = page.getByRole('searchbox', { name: 'Glossar durchsuchen' });
+    await glossarySearch.fill('a/b');
+    await expect(glossarySearch).toHaveValue('a/b');
+    await expect(dialog(page)).toBeHidden();
+
+    // Eine verfügbare Lektion per Enter öffnen.
+    await page.locator('body').click({ position: { x: 5, y: 5 } });
+    await page.keyboard.press('/');
+    await input(page).fill('Der Chart ist das Ergebnis');
+    await expect(dialog(page).getByRole('option').first()).toContainText('Verfügbar');
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(new RegExp(`#/lesson/${lessonOne.id}\\?step=1$`));
+    await expect(dialog(page)).toBeHidden();
+    expect(errors).toEqual([]);
+  });
+
+  test('jumps to a step, keeps the deep link on reload and supports browser back', async ({ page }) => {
+    await page.addInitScript((id) => {
+      if (sessionStorage.getItem('seeded')) return;
+      sessionStorage.setItem('seeded', '1');
+      localStorage.setItem('wqt-academy-progress-v1', JSON.stringify({ version: 6, completedLessonIds: [id] }));
+    }, lessonOne.id);
+
+    await page.goto('/#/chapters');
+    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
+    await page.getByRole('button', { name: 'Suchen' }).click();
+    await input(page).fill('beschreibung erklarung');
+    const stepOption = dialog(page).getByRole('option', { name: /Beschreibung vor Erklärung/ });
+    await expect(stepOption).toContainText('Schritt 3');
+    await expect(stepOption).toContainText('Abgeschlossen');
+    await stepOption.click();
+
+    await expect(page.getByRole('heading', { name: 'Beschreibung vor Erklärung', level: 1 })).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`#/lesson/${lessonOne.id}\\?step=3$`));
+
+    await page.reload();
+    await expect(page.getByRole('heading', { name: 'Beschreibung vor Erklärung', level: 1 })).toBeVisible();
+
+    await page.goBack();
+    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
+    await page.goForward();
+    await expect(page.getByRole('heading', { name: 'Beschreibung vor Erklärung', level: 1 })).toBeVisible();
+  });
+
+  test('opens glossary hits as a shareable deep link', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await page.keyboard.press('/');
+    await input(page).fill('Candle');
+    await expect(dialog(page).getByRole('option').first()).toContainText('Bar');
+    await page.keyboard.press('Enter');
+
+    await expect(page).toHaveURL(/#\/glossary\?term=Bar$/);
+    await expect(page.getByRole('searchbox', { name: 'Glossar durchsuchen' })).toHaveValue('Bar');
+    await expect(page.getByRole('heading', { name: 'Bar', exact: true })).toBeVisible();
+
+    await page.goBack();
+    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+
+    await page.goto('/#/glossary?term=High%202');
+    await expect(page.getByRole('searchbox', { name: 'Glossar durchsuchen' })).toHaveValue('High 2');
+    await expect(page.getByRole('heading', { name: 'High 2' })).toBeVisible();
+  });
+
+  test('shows locked lessons only as preview', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await page.keyboard.press('/');
+    await input(page).fill('Institutionen');
+    const locked = dialog(page).getByRole('option', { name: /Institutionen, Programme/ }).first();
+    await expect(locked).toHaveAttribute('aria-disabled', 'true');
+    await expect(locked).toContainText('Gesperrt');
+    await expect(locked).toHaveAttribute('aria-selected', 'true');
+
+    // Enter auf einem gesperrten Treffer öffnet nichts, sondern erklärt.
+    await page.keyboard.press('Enter');
+    await expect(dialog(page)).toBeVisible();
+    await expect(dialog(page).getByRole('status')).toContainText('noch gesperrt');
+    await expect(page).not.toHaveURL(/#\/lesson\//);
+
+    // Auch ein direkter Link umgeht die Freischaltung nicht.
+    const lockedLesson = publishedLessons[1];
+    await page.goto(`/#/lesson/${lockedLesson.id}?step=2`);
+    await expect(page).toHaveURL(/#\/path$/);
+  });
+
+  test('works from the mobile top bar without overflow', { tag: '@mobile' }, async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 780 });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Suchen' }).click();
+    await expect(input(page)).toBeFocused();
+    await input(page).fill('doji');
+    await expect(dialog(page).getByRole('option').first()).toBeVisible();
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth),
+    ).toBe(false);
+    await page.getByRole('button', { name: 'Suche schließen' }).click();
+    await expect(dialog(page)).toBeHidden();
+    await expect(page.getByRole('button', { name: 'Suchen' })).toBeFocused();
+  });
+});

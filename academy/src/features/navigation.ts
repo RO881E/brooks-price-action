@@ -16,7 +16,12 @@ export const APP_VIEWS: readonly AppView[] = [
 ];
 
 export type AppRoute =
-  | { kind: 'view'; view: AppView }
+  | {
+      kind: 'view';
+      view: AppView;
+      /** Glossarbegriff für `#/glossary?term=…` (seit F-06). */
+      term?: string;
+    }
   | {
       kind: 'lesson';
       lessonId: string;
@@ -51,7 +56,8 @@ export function parseRoute(hash: string): AppRoute | null {
   const segments = pathPart.split('/');
 
   if (segments.length === 1 && isAppView(segments[0])) {
-    return { kind: 'view', view: segments[0] };
+    const term = segments[0] === 'glossary' ? new URLSearchParams(query).get('term')?.trim() : '';
+    return term ? { kind: 'view', view: segments[0], term } : { kind: 'view', view: segments[0] };
   }
 
   const isResult = segments.length === 3 && segments[2] === 'result';
@@ -71,7 +77,11 @@ export function parseRoute(hash: string): AppRoute | null {
 }
 
 export function formatRoute(route: AppRoute): string {
-  if (route.kind === 'view') return `#/${route.view}`;
+  if (route.kind === 'view') {
+    return route.term && route.view === 'glossary'
+      ? `#/glossary?term=${encodeURIComponent(route.term)}`
+      : `#/${route.view}`;
+  }
   const base = `#/lesson/${encodeURIComponent(route.lessonId)}`;
   if (route.kind === 'lesson-result') return `${base}/result`;
   return route.step === null ? base : `${base}?step=${route.step}`;
@@ -119,7 +129,7 @@ export function startStepIndex(lesson: Lesson, progress: AcademyProgress): numbe
 }
 
 export type ResolvedRoute =
-  | { kind: 'view'; view: AppView }
+  | { kind: 'view'; view: AppView; term?: string }
   | { kind: 'lesson'; lesson: Lesson; stepIndex: number }
   | { kind: 'lesson-result'; lesson: Lesson };
 
