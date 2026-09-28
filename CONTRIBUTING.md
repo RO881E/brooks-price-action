@@ -22,11 +22,14 @@ ebenso wie KI-Assistenten (Claude, Codex u. a.).
 
 ## Bestehendes erhalten
 
-- Bestehende `localStorage`-Schlüssel (derzeit `brooks-progress` und
-  `brooks-tr-best`) und bestehende Funktionen bleiben erhalten — nicht
-  umbenennen, entfernen oder in ihrem Verhalten ändern, sofern das nicht
-  ausdrücklich verlangt wird. Sonst gehen gespeicherte Fortschritte der
-  Nutzer verloren.
+- Bestehende `localStorage`-Schlüssel (derzeit `brooks-progress`,
+  `brooks-tr-best` und `wqt-academy-progress-v1`) und bestehende Funktionen
+  bleiben erhalten — nicht umbenennen, entfernen oder in ihrem Verhalten
+  ändern, sofern das nicht ausdrücklich verlangt wird. Sonst gehen
+  gespeicherte Fortschritte der Nutzer verloren.
+- Erweiterungen des Academy-Datenmodells benötigen eine ausdrücklich getestete
+  Migration. Alte oder beschädigte Speicherstände dürfen die Anwendung nicht
+  unbenutzbar machen.
 
 ## Was nicht ins Repository gehört
 
@@ -41,7 +44,7 @@ ebenso wie KI-Assistenten (Claude, Codex u. a.).
 - Inhalte ausschließlich eigenständig formulieren: eigene Worte, eigene
   Tabellen, eigene Diagramme.
 
-## Vollständiger Test der Website
+## Vollständiger Test der Stammwebsite
 
 Nach jeder Änderung an `index.html` die Seite im Browser öffnen und prüfen:
 
@@ -58,3 +61,29 @@ Nach jeder Änderung an `index.html` die Seite im Browser öffnen und prüfen:
 Häufigste Fehlerquelle: unmaskierte Backticks oder `${` in den
 Template-Strings von `CONTENT[...]` sowie Apostrophe in einfach
 angeführten Strings.
+
+## Vollständiger Test der React-Academy
+
+Nach Änderungen unter `academy/src/` mindestens im Verzeichnis `academy/`
+ausführen:
+
+```bash
+npm test
+npm run build
+npm run test:e2e
+```
+
+Zusätzlich prüfen:
+
+- Beim Laden und in den geänderten Abläufen entstehen keine JavaScript-Fehler.
+- Lernpfad, Buchmodus, Üben und Glossar bleiben erreichbar.
+- Betroffene Lektionen, Fragen und Fortschrittsfunktionen funktionieren vor und
+  nach einem Reload.
+- `brooks-progress`, `brooks-tr-best` und `wqt-academy-progress-v1` bleiben
+  gemäß ihrer Migrationsregeln erhalten.
+- Die geänderten Abläufe funktionieren per Tastatur und bei schmaler mobiler
+  Breite ohne horizontalen Seitenüberlauf.
+
+Wenn Chromium in der Arbeitsumgebung technisch nicht verfügbar ist, wird der
+E2E-Test im Pull Request ausdrücklich als **nicht ausgeführt** dokumentiert. Er
+darf dann nicht als bestanden bezeichnet werden.

@@ -35,3 +35,12 @@ npm run test:e2e
 
 Die End-to-End-Tests prüfen Desktop und Mobilansicht, Navigation, JavaScript-Fehler,
 Fortschrittsspeicherung und den unveränderten Erhalt der bestehenden Local-Storage-Schlüssel.
+
+## Geplanter Funktionsausbau
+
+- [Funktionsroadmap](docs/FUNCTIONALITY_ROADMAP.md)
+- [Fertige Claude-Prompts je Arbeitspaket](docs/CLAUDE_PROMPTS.md)
+
+Jedes Arbeitspaket wird auf einem eigenen Branch umgesetzt, vollständig
+getestet und als separater Pull Request eingereicht. Die Roadmap verändert
+keine Buchinhalte und bindet keine WQT-Fachbände ein.
