@@ -1,6 +1,6 @@
 # WQT Academy – Funktionsroadmap
 
-Stand: 28. September 2026, nach dem Merge von Kapitel 4.
+Stand: 28. September 2026, nach Kapitel 4 und dem Ausbau von Kapitel 3.
 
 Diese Roadmap betrifft ausschließlich die Funktionalität der React-Academy unter
 `academy/`. Neue Buchinhalte und die WQT-Fachbände sind nicht Teil dieser
@@ -23,7 +23,7 @@ dieser Roadmap nicht vorausgesetzt werden.
 Der technische Pilot besitzt bereits:
 
 - einen Lernpfad und einen Buchmodus;
-- 113 veröffentlichte Mikro-Lektionen in Quellenreihenfolge;
+- 124 veröffentlichte Mikro-Lektionen in Quellenreihenfolge;
 - Erklärungen, Schaubilder, Vergleiche, Fragen und Zusammenfassungen;
 - einen einfachen Übungsmodus für abgeschlossene Lektionen;
 - ein durchsuchbares Glossar;

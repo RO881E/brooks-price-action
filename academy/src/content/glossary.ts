@@ -441,6 +441,20 @@ export const glossaryEntries: GlossaryEntry[] = [
     firstUnit: 'Kapitel 3',
   },
   {
+    term: 'Funktionale Breakout-Lücke',
+    aliases: ['Breakout-Gap', 'Functional Gap'],
+    definition:
+      'Nicht zwingend leerer Kursraum, sondern fehlende Überlappung zwischen zwei aufeinanderfolgenden Bars. Sie zeigt Distanz und einen kräftigen Kontrollwechsel nach dem Ausbruch.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
+    term: 'Breakeven-Stop',
+    aliases: ['Einstand-Stop', 'Stop am Einstieg'],
+    definition:
+      'Schutzorder ungefähr am Einstiegspreis. Wird dieser Bereich getestet, zeigt die Reaktion, ob die ursprüngliche Positionsidee noch verteidigt wird.',
+    firstUnit: 'Kapitel 3',
+  },
+  {
     term: 'Doppeltop',
     aliases: ['Double Top', 'DT'],
     definition:

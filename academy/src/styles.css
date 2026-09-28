@@ -2265,6 +2265,19 @@ button:disabled {
     font-size: 12px;
   }
 
+  .learning-chart .chapter-three-chart .chart-kicker,
+  .learning-chart .chapter-three-chart .chart-region-label {
+    font-size: 13px;
+  }
+
+  .learning-chart .chapter-three-chart .chart-panel-title {
+    font-size: 14px;
+  }
+
+  .learning-chart .chapter-three-chart .chart-small {
+    font-size: 12px;
+  }
+
   .lesson-footer {
     min-height: 78px;
     padding: 14px 16px;
