@@ -79,7 +79,19 @@ export type ChartScenarioId =
   | 'stop-entry-lifecycle'
   | 'candle-name-reduction'
   | 'forming-bar-climax'
-  | 'signal-entry-case';
+  | 'signal-entry-case'
+  | 'continuation-setup-map'
+  | 'one-bar-reversal-setup'
+  | 'two-bar-reversal-setup'
+  | 'three-bar-reversal-setup'
+  | 'small-inside-context'
+  | 'ii-iii-compression'
+  | 'ioi-sequence'
+  | 'outside-oo-sequence'
+  | 'double-test-setup'
+  | 'failed-continuation-setup'
+  | 'shaved-structural-setups'
+  | 'figure-41-followthrough';
 
 export type LessonStep =
   | {

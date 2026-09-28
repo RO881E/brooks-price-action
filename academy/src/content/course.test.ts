@@ -151,11 +151,11 @@ describe('Brooks course model', () => {
     expect(new Set(diagramScenarios).size).toBe(14);
   });
 
-  it('publishes chapter 4 as thirteen source-ordered micro-lessons', () => {
+  it('publishes chapter 4 as twenty-five source-ordered micro-lessons', () => {
     const chapterFour = brooksTrendsCourse.units[5];
 
-    expect(chapterFour.estimatedLessonCount).toBe(13);
-    expect(chapterFour.lessons).toHaveLength(13);
+    expect(chapterFour.estimatedLessonCount).toBe(25);
+    expect(chapterFour.lessons).toHaveLength(25);
     expect(
       chapterFour.lessons.every((lesson) => lesson.status === 'published'),
     ).toBe(true);
@@ -168,13 +168,19 @@ describe('Brooks course model', () => {
       'Ein Setup ist eine Möglichkeit, noch kein Signal',
     );
     expect(chapterFour.lessons.at(5)?.title).toBe(
-      'Inside- und Outside-Sequenzen richtig lesen',
+      'Fortsetzungssignale brauchen Initiative und Anschluss',
     );
-    expect(chapterFour.lessons.at(9)?.title).toBe(
+    expect(chapterFour.lessons.at(10)?.title).toBe(
+      'ii und iii verschachteln die Kompression',
+    );
+    expect(chapterFour.lessons.at(17)?.title).toBe(
+      'Shaved Bars und Swing-Struktur ergänzen die Setups',
+    );
+    expect(chapterFour.lessons.at(20)?.title).toBe(
       'Eine nicht ausgelöste Order wird gestrichen',
     );
     expect(chapterFour.lessons.at(-1)?.title).toBe(
-      'Chartfall 4.1: Vom Setup bis zum Follow-through',
+      'Chartfall 4.1: Fill, Follow-through und die Setups 4–5',
     );
 
     const diagramScenarios = chapterFour.lessons.flatMap((lesson) =>
@@ -182,8 +188,9 @@ describe('Brooks course model', () => {
         .filter((step) => step.type === 'diagram')
         .map((step) => step.scenario),
     );
-    expect(diagramScenarios).toHaveLength(13);
-    expect(new Set(diagramScenarios).size).toBe(13);
+    expect(diagramScenarios).toHaveLength(25);
+    expect(new Set(diagramScenarios).size).toBe(25);
+    expect(publishedLessons).toHaveLength(113);
   });
 
   it('uses globally unique stable IDs', () => {

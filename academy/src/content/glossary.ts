@@ -63,6 +63,27 @@ export const glossaryEntries: GlossaryEntry[] = [
     firstUnit: 'Teil I',
   },
   {
+    term: 'Zwei-Bar-Reversal',
+    aliases: ['Two-Bar Reversal'],
+    definition:
+      'Folge aus zwei entgegengesetzten Bars, bei der der zweite Bar einen großen Teil der Bewegung des ersten zurücknimmt. Das Muster zeigt einen schnellen Kontrollwechsel, benötigt aber weiterhin einen passenden Standort und Follow-through.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Drei-Bar-Reversal',
+    aliases: ['Three-Bar Reversal'],
+    definition:
+      'Dreiteilige Umkehrfolge aus ursprünglichem Druck, sichtbarer Verlangsamung und kräftiger Gegeninitiative. Die drei Schritte machen den Wechsel der Kontrolle deutlicher als ein einzelner Reversal-Bar.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Gescheitertes Signal',
+    aliases: ['Failed Signal', 'Fehlsignal'],
+    definition:
+      'Ausgelöstes Setup, dem der erwartete Anschluss fehlt und dessen Signalbereich anschließend zurückerobert wird. Gefangene Trader können dann eine Bewegung in die Gegenrichtung beschleunigen.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
     term: 'Doji',
     aliases: ['Non-Trend-Bar'],
     definition:

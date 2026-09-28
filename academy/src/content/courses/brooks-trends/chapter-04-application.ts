@@ -2,7 +2,7 @@ import type { Lesson } from '../../types';
 
 export const chapterFourApplicationLessons = [
   {
-    id: 'brooks-trends.chapter-04.lesson-08',
+    id: 'brooks-trends.chapter-04.lesson-19',
     title: 'Der Anfängerfilter entfernt die gefährlichsten Trades',
     summary:
       'Warum Einsteiger nur Trendbars in Trade-Richtung und ausschließlich mit dem bestehenden Trend handeln sollten.',
@@ -19,7 +19,7 @@ export const chapterFourApplicationLessons = [
     status: 'published',
     steps: [
       {
-        id: 'chapter-04-08-explain',
+        id: 'chapter-04-19-explain',
         type: 'explanation',
         eyebrow: 'Sicherheitsfilter',
         title: 'Am Anfang müssen Trend, Signal und Trade dieselbe Richtung zeigen',
@@ -33,7 +33,7 @@ export const chapterFourApplicationLessons = [
           'Anfängerregel: bullischer Signal-Bar im Bullenmarkt für Long – bearischer Signal-Bar im Bärenmarkt für Short.',
       },
       {
-        id: 'chapter-04-08-diagram',
+        id: 'chapter-04-19-diagram',
         type: 'diagram',
         title: 'Der Drei-Punkte-Filter für den Einstieg',
         scenario: 'beginner-signal-filter',
@@ -47,7 +47,7 @@ export const chapterFourApplicationLessons = [
         ],
       },
       {
-        id: 'chapter-04-08-compare',
+        id: 'chapter-04-19-compare',
         type: 'comparison',
         title: 'Freigabe oder Auslassen',
         columns: [
@@ -72,7 +72,7 @@ export const chapterFourApplicationLessons = [
         ],
       },
       {
-        id: 'chapter-04-08-question',
+        id: 'chapter-04-19-question',
         type: 'question',
         title: 'Welche Kombination besteht den Filter?',
         prompt:
@@ -100,7 +100,7 @@ export const chapterFourApplicationLessons = [
         correctOptionId: 'bull-bull-long',
       },
       {
-        id: 'chapter-04-08-recap',
+        id: 'chapter-04-19-recap',
         type: 'recap',
         title: 'Ein enger Filter ist ein Vorteil',
         points: [
@@ -113,7 +113,7 @@ export const chapterFourApplicationLessons = [
     ],
   },
   {
-    id: 'brooks-trends.chapter-04.lesson-09',
+    id: 'brooks-trends.chapter-04.lesson-20',
     title: 'Trendstärke bestimmt, wie schön das Signal sein muss',
     summary:
       'Warum starke Trends schlechte Signal-Bars erlauben, Countertrend-Einstiege dagegen außergewöhnlich viel Bestätigung brauchen.',
@@ -134,7 +134,7 @@ export const chapterFourApplicationLessons = [
     status: 'published',
     steps: [
       {
-        id: 'chapter-04-09-explain',
+        id: 'chapter-04-20-explain',
         type: 'explanation',
         eyebrow: 'Beweislast',
         title: 'Mit Trägheit darf das Signal hässlich sein – gegen Trägheit nicht',
@@ -149,7 +149,7 @@ export const chapterFourApplicationLessons = [
           'Je stärker der Trend, desto weniger wichtig ist die Signal-Bar-Optik. Je stärker der Trade gegen den Trend läuft, desto wichtiger werden perfekter Kontext und ein starkes Signal.',
       },
       {
-        id: 'chapter-04-09-diagram',
+        id: 'chapter-04-20-diagram',
         type: 'diagram',
         title: 'Signalqualität und Trendstärke wirken gegeneinander',
         scenario: 'trend-signal-strength',
@@ -164,7 +164,7 @@ export const chapterFourApplicationLessons = [
         ],
       },
       {
-        id: 'chapter-04-09-compare',
+        id: 'chapter-04-20-compare',
         type: 'comparison',
         title: 'Asymmetrische Anforderungen',
         columns: [
@@ -189,7 +189,7 @@ export const chapterFourApplicationLessons = [
         ],
       },
       {
-        id: 'chapter-04-09-question',
+        id: 'chapter-04-20-question',
         type: 'question',
         title: 'Welche Umkehr besitzt genug Evidenz?',
         prompt:
@@ -217,7 +217,7 @@ export const chapterFourApplicationLessons = [
         correctOptionId: 'wait-structure',
       },
       {
-        id: 'chapter-04-09-recap',
+        id: 'chapter-04-20-recap',
         type: 'recap',
         title: 'Die Regel der Beweislast',
         points: [
@@ -231,7 +231,7 @@ export const chapterFourApplicationLessons = [
     ],
   },
   {
-    id: 'brooks-trends.chapter-04.lesson-10',
+    id: 'brooks-trends.chapter-04.lesson-21',
     title: 'Eine nicht ausgelöste Order wird gestrichen',
     summary:
       'Wie Stop-Einstiege außerhalb des Signal-Bars geplant, nach verpasster Auslösung gelöscht und gegen Ein-Tick-Fallen angepasst werden.',
@@ -250,7 +250,7 @@ export const chapterFourApplicationLessons = [
     status: 'published',
     steps: [
       {
-        id: 'chapter-04-10-explain',
+        id: 'chapter-04-21-explain',
         type: 'explanation',
         eyebrow: 'Execution',
         title: 'Eine Order ist ein zeitlich begrenzter Plan',
@@ -265,7 +265,7 @@ export const chapterFourApplicationLessons = [
           'Nicht ausgelöst heißt nicht verloren: Lösche die veraltete Order und bewerte den neuen Chart, statt einem alten Plan hinterherzulaufen.',
       },
       {
-        id: 'chapter-04-10-diagram',
+        id: 'chapter-04-21-diagram',
         type: 'diagram',
         title: 'Planen, auslösen oder löschen',
         scenario: 'stop-entry-lifecycle',
@@ -280,7 +280,7 @@ export const chapterFourApplicationLessons = [
         ],
       },
       {
-        id: 'chapter-04-10-question',
+        id: 'chapter-04-21-question',
         type: 'question',
         title: 'Was tust du mit einer alten Order?',
         prompt:
@@ -308,7 +308,7 @@ export const chapterFourApplicationLessons = [
         correctOptionId: 'cancel',
       },
       {
-        id: 'chapter-04-10-recap',
+        id: 'chapter-04-21-recap',
         type: 'recap',
         title: 'Orderpflege gehört zum Setup',
         points: [
@@ -322,7 +322,7 @@ export const chapterFourApplicationLessons = [
     ],
   },
   {
-    id: 'brooks-trends.chapter-04.lesson-11',
+    id: 'brooks-trends.chapter-04.lesson-22',
     title: 'Kerzennamen ersetzen keine Price Action',
     summary:
       'Warum Trendbar, Doji, Körper und Tail meist ausreichen und exotische Candlestick-Namen vom Marktregime ablenken können.',
@@ -341,7 +341,7 @@ export const chapterFourApplicationLessons = [
     status: 'published',
     steps: [
       {
-        id: 'chapter-04-11-explain',
+        id: 'chapter-04-22-explain',
         type: 'explanation',
         eyebrow: 'Weniger Vokabular, mehr Verständnis',
         title: 'Reduziere die Kerze auf Kontrolle, Balance und Lage',
@@ -356,7 +356,7 @@ export const chapterFourApplicationLessons = [
           'Wenn ein Kerzenname nicht erklärt, wer Kontrolle hat, wo der Bar liegt und was danach bestätigt werden muss, hilft er der Entscheidung kaum.',
       },
       {
-        id: 'chapter-04-11-diagram',
+        id: 'chapter-04-22-diagram',
         type: 'diagram',
         title: 'Viele Namen werden zu drei Fragen',
         scenario: 'candle-name-reduction',
@@ -371,7 +371,7 @@ export const chapterFourApplicationLessons = [
         ],
       },
       {
-        id: 'chapter-04-11-question',
+        id: 'chapter-04-22-question',
         type: 'question',
         title: 'Welche Frage kommt zuerst?',
         prompt:
@@ -399,7 +399,7 @@ export const chapterFourApplicationLessons = [
         correctOptionId: 'context',
       },
       {
-        id: 'chapter-04-11-recap',
+        id: 'chapter-04-22-recap',
         type: 'recap',
         title: 'Die einfache Sprache',
         points: [
@@ -413,7 +413,7 @@ export const chapterFourApplicationLessons = [
     ],
   },
   {
-    id: 'brooks-trends.chapter-04.lesson-12',
+    id: 'brooks-trends.chapter-04.lesson-23',
     title: 'Der unfertige Bar kann dein Setup verschieben',
     summary:
       'Wie späte Bar-Ausdehnung einen guten Einstieg an den falschen Ort verlegt und warum der erste Pause-Bar eine Klimaxphase beendet.',
@@ -433,7 +433,7 @@ export const chapterFourApplicationLessons = [
     status: 'published',
     steps: [
       {
-        id: 'chapter-04-12-explain',
+        id: 'chapter-04-23-explain',
         type: 'explanation',
         eyebrow: 'Bar-Schluss abwarten',
         title: 'Gute Form kann in wenigen Sekunden zu schlechter Lage werden',
@@ -448,7 +448,7 @@ export const chapterFourApplicationLessons = [
           'Entscheide mit dem abgeschlossenen Bar. Wenn späte Expansion den Einstieg verschlechtert, ist Auslassen oder ein zweiter Einstieg oft die bessere Wahl.',
       },
       {
-        id: 'chapter-04-12-diagram',
+        id: 'chapter-04-23-diagram',
         type: 'diagram',
         title: 'Späte Expansion und das Ende der Klimax',
         scenario: 'forming-bar-climax',
@@ -463,7 +463,7 @@ export const chapterFourApplicationLessons = [
         ],
       },
       {
-        id: 'chapter-04-12-compare',
+        id: 'chapter-04-23-compare',
         type: 'comparison',
         title: 'Form bleibt gut, Tradequalität kann sinken',
         columns: [
@@ -488,7 +488,7 @@ export const chapterFourApplicationLessons = [
         ],
       },
       {
-        id: 'chapter-04-12-question',
+        id: 'chapter-04-23-question',
         type: 'question',
         title: 'Was bedeutet der erste Pause-Bar?',
         prompt:
@@ -516,7 +516,7 @@ export const chapterFourApplicationLessons = [
         correctOptionId: 'climax-phase',
       },
       {
-        id: 'chapter-04-12-recap',
+        id: 'chapter-04-23-recap',
         type: 'recap',
         title: 'Timing und Phase sauber trennen',
         points: [
@@ -530,84 +530,77 @@ export const chapterFourApplicationLessons = [
     ],
   },
   {
-    id: 'brooks-trends.chapter-04.lesson-13',
-    title: 'Chartfall 4.1: Vom Setup bis zum Follow-through',
+    id: 'brooks-trends.chapter-04.lesson-24',
+    title: 'Chartfall 4.1: Warum Bar 3 ein starkes Signal braucht',
     summary:
-      'Wie Trendlinienbruch, zweibeiniger Selloff, Bar 3 als Signal-Bar sowie ii- und Breakout-Pullback-Einstiege zusammenwirken.',
-    durationMinutes: 18,
-    xp: 65,
-    sourceUnit: 'Kapitel 4 · Chartfall 4.1 · Typischer Buy-Signal-Bar',
+      'Wie Trendlinienbruch, zweibeiniger Selloff und zwei gebündelte Tests den Countertrend-Kauf über Bar 3 vorbereiten.',
+    durationMinutes: 11,
+    xp: 45,
+    sourceUnit: 'Kapitel 4 · Chartfall 4.1 · Umkehrbereich und Bar 3',
     sourceAnchors: [
       '15-Minuten-Chart mit Bruch der Bärentrendlinie',
       'Zweibeiniger Selloff zu einem Lower Low unter dem Vortagestief',
       'Erstes Bein endet in iii bei Bar 2',
       'Bar 3 als starker bullischer Reversal-Bar an zwei Testzonen',
       'Buy-Stop oberhalb von Bar 3 macht ihn nach Auslösung zum Signal-Bar',
-      'Auslösender Bar als Entry-Bar und späterer Bull-Bar als Follow-through',
       'Starkes Signal wegen Countertrend-Charakter erforderlich',
-      'Bar 4 als Entry-Bar aus ii für zweites Aufwärtsbein',
-      'Bar 5 als Entry-Bar nach Inside-Bar-Breakout-Pullback',
-      'Zwei innere Pause-Körper funktional wie ii',
     ],
     status: 'published',
     steps: [
       {
-        id: 'chapter-04-13-explain',
+        id: 'chapter-04-24-explain',
         type: 'explanation',
-        eyebrow: 'Chartfall 4.1 · Rollen im echten Ablauf',
-        title: 'Bar 3 wird erst durch den Einstieg zum Signal-Bar',
+        eyebrow: 'Chartfall 4.1 · Vorbereitung',
+        title: 'Trendlinienbruch und Lower Low schaffen noch keine fertige Umkehr',
         paragraphs: [
           'Der Fall beginnt mit einem bestehenden Bärentrend. Der Markt bricht zunächst über die fallende Trendlinie, verkauft anschließend jedoch in zwei Beinen erneut ab und erreicht ein tieferes Tief unter dem Vortagestief. Damit entsteht noch kein bestätigter Bullenmarkt, aber eine mögliche Umkehrzone.',
           'Das erste Verkaufsbein endet in einer dreifachen Inside-Kompression bei Bar 2. Nach einer Zwischenreaktion folgt das zweite Bein zum neuen Tief. Bar 3 dreht kräftig bullisch und weist gleichzeitig den Bruch des Vortagestiefs sowie den Rücktest der zuvor gebrochenen Bärentrendlinie zurück.',
-          'Solange keine Order ausgeführt ist, bleibt Bar 3 ein Setup-Bar. Ein Buy-Stop knapp über seinem Hoch wird im nächsten Bar erreicht. Erst jetzt wird Bar 3 rückblickend zum Signal-Bar und der auslösende Bar zum Entry-Bar. Zwei Bars später erscheint ein ordentlicher Bull-Trendbar als Follow-through.',
+          'Solange keine Order ausgeführt ist, bleibt Bar 3 ein Setup-Bar. Ein Buy-Stop knapp über seinem Hoch verlangt zumindest einen kleinen bullischen Fortschritt. Erst wenn diese Order im nächsten Bar erreicht wird, erhält Bar 3 rückblickend die Rolle des Signal-Bars.',
           'Der Long arbeitet gegen den vorherigen Bärentrend. Deshalb ist der starke bullische Reversal-Bar an einer mehrfach bestätigten Testzone besonders wichtig. Mit einem schwachen Signal wäre die Wahrscheinlichkeit geringer, dass aus dem Countertrend-Versuch mehr als ein kurzer Bounce wird.',
-          'Bar 4 ist später selbst ein Entry-Bar aus einem ii-Setup und zielt auf ein zweites Aufwärtsbein. Bar 5 entsteht nach einem Inside-Bar-Breakout-Pullback: Der Markt überschreitet die Kompression um Bar 2 nur knapp, zieht zurück und startet erneut. Die Körper der beiden Pause-Bars liegen jeweils innerhalb ihrer Vorgänger und funktionieren damit ähnlich wie ein ii.',
         ],
         callout:
-          'Der Chartfall verbindet alle Begriffe: Setup-Bar vor der Auslösung, Signal-Bar nach der Auslösung, Entry-Bar beim Fill und Follow-through als Bestätigung.',
+          'Bar 3 bündelt drei Dinge: Zurückweisung des Vortagestiefs, Test der gebrochenen Trendlinie und einen starken bullischen Schluss.',
       },
       {
-        id: 'chapter-04-13-diagram',
+        id: 'chapter-04-24-diagram',
         type: 'diagram',
-        title: 'Der vollständige Weg von Bar 2 bis Bar 5',
+        title: 'Der Weg vom Trendlinienbruch zum Reversal-Bar 3',
         scenario: 'signal-entry-case',
         caption:
-          'Das eigenständige Schaubild rekonstruiert die Funktionslogik des Falls: Trendlinienbruch, zweites Verkaufsbein, starkes Reversal, Entry, Follow-through und zwei spätere Kompressions-Setups.',
+          'Das Schaubild zeigt den gesamten Fall, während diese Lektion bewusst die linke Hälfte fokussiert: Trendlinienbruch, zwei Verkaufsbeine, Lower Low und die Zurückweisung durch Bar 3.',
         observations: [
           'Der Trendlinienbruch bereitet die Umkehr vor, bestätigt sie aber noch nicht.',
           'Das Lower Low unter dem Vortagestief wird von Bar 3 zurückgewiesen.',
-          'Der Buy-Stop über Bar 3 ordnet die Rollen rückwirkend zu.',
-          'Der spätere Bull-Bar liefert den benötigten Follow-through.',
-          'Bars 4 und 5 zeigen, wie ii und Breakout-Pullback weitere Einstiege strukturieren.',
+          'Der Buy-Stop über Bar 3 verlangt erste Bestätigung, bevor die Rolle Signal-Bar feststeht.',
         ],
       },
       {
-        id: 'chapter-04-13-compare',
+        id: 'chapter-04-24-compare',
         type: 'comparison',
-        title: 'Warum Bar 3 stärker sein muss als Bar 4 oder Bar 5',
+        title: 'Die Beweiskette vor dem Einstieg',
         columns: [
           {
-            title: 'Bar 3 · Countertrend',
+            title: 'Vor Bar 3',
             tone: 'warning',
             points: [
-              'vorherige Abwärtsstruktur ist noch relevant',
-              'starker Reversal-Bar an gebündelten Tests nötig',
-              'Follow-through muss den Kontrollwechsel bestätigen',
+              'Bärentrend bleibt die Ausgangsstruktur',
+              'Trendlinienbruch war nur eine Vorbereitung',
+              'zweiter Selloff schafft sogar ein Lower Low',
             ],
           },
           {
-            title: 'Bars 4–5 · Folge-Setups',
+            title: 'Bar 3',
             tone: 'positive',
             points: [
-              'erste bullische Reaktion ist bereits sichtbar',
-              'Kompression bereitet zweites Aufwärtsbein vor',
-              'Breakout-Pullback bietet neue Lage statt ursprünglicher Umkehr',
+              'Vortagestief wird zurückgewiesen',
+              'gebrochene Trendlinie wird erfolgreich getestet',
+              'starker Bull-Bar liefert die nötige Countertrend-Qualität',
             ],
           },
         ],
       },
       {
-        id: 'chapter-04-13-question',
+        id: 'chapter-04-24-question',
         type: 'question',
         title: 'Welche Rolle besitzt Bar 3 vor dem Fill?',
         prompt:
@@ -635,15 +628,15 @@ export const chapterFourApplicationLessons = [
         correctOptionId: 'setup',
       },
       {
-        id: 'chapter-04-13-recap',
+        id: 'chapter-04-24-recap',
         type: 'recap',
-        title: 'Kapitel 4 im Chart angewendet',
+        title: 'Die Umkehr wird vorbereitet, nicht erraten',
         points: [
-          'Setup-Bar ist eine Möglichkeit; die Ausführung macht ihn zum Signal-Bar.',
-          'Entry-Bar und Follow-through zeigen tatsächliche Beteiligung und Anschluss.',
-          'Countertrend-Einstiege verlangen starke Signalqualität und unterstützende Struktur.',
-          'Inside-Kompression kann weitere Aufwärtsbeine vorbereiten, ohne deren Richtung zu garantieren.',
-          'Barrollen, Muster und Orderlogik ergeben erst gemeinsam eine handelbare Geschichte.',
+          'Der Trendlinienbruch allein bestätigt noch keine Umkehr.',
+          'Der zweibeinige Selloff endet unter dem Vortagestief.',
+          'Bar 3 weist zwei wichtige Testzonen kräftig zurück.',
+          'Vor dem Fill bleibt Bar 3 ein möglicher Setup-Bar.',
+          'Die starke Signalqualität ist nötig, weil der Long gegen den vorherigen Trend arbeitet.',
         ],
       },
     ],

@@ -78,7 +78,7 @@ export const brooksTrendsCourse: Course = {
       title: 'Signal-Bars, Entry-Bars, Setups und Kerzenmuster',
       description:
         'Vom möglichen Setup über Auslösung und Follow-through bis zum vollständigen Chartfall – mit den Signalfolgen und Filtern des Buchkapitels.',
-      estimatedLessonCount: 13,
+      estimatedLessonCount: 25,
       lessons: chapterFourLessons,
     },
   ],

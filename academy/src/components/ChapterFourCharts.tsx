@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ChartScenarioId } from '../content/types';
+import { ChapterFourPatternChart } from './ChapterFourPatternCharts';
 
 interface CandleGlyphProps {
   x: number;
@@ -543,5 +544,9 @@ export function ChapterFourChart({ scenario }: { scenario: ChartScenarioId }) {
   if (scenario === 'forming-bar-climax') chart = <FormingBarClimax />;
   if (scenario === 'signal-entry-case') chart = <SignalEntryCase />;
 
-  return chart ? <g className="chapter-four-chart">{chart}</g> : null;
+  return chart ? (
+    <g className="chapter-four-chart">{chart}</g>
+  ) : (
+    <ChapterFourPatternChart scenario={scenario} />
+  );
 }

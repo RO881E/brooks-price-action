@@ -184,6 +184,30 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Ein sich vergrößernder laufender Bar verschiebt den Einstieg; daneben beendet der erste Pause-Bar eine Klimaxphase.',
   'signal-entry-case':
     'Der Chartfall verbindet Trendlinienbruch, zweites Verkaufsbein, bullischen Reversal-Bar, Entry und Follow-through mit den Bars 2 bis 5.',
+  'continuation-setup-map':
+    'Drei Felder zeigen Fortsetzung nach einer kleinen Spike-Pause, einem Kanal-Pullback und einem haltenden Breakout-Test.',
+  'one-bar-reversal-setup':
+    'Ein bullischer und ein bearisher Ein-Bar-Reversal weisen jeweils ein Extrem zurück und benötigen die Auslösung außerhalb des Bars.',
+  'two-bar-reversal-setup':
+    'Zwei spiegelbildliche Paare zeigen, wie der zweite Bar die Kontrolle des ersten Bars nahezu vollständig zurücknimmt.',
+  'three-bar-reversal-setup':
+    'Drei Bars bilden jeweils Abbremsen, Übergang und starke Gegeninitiative für eine bullische und bearishe Umkehr.',
+  'small-inside-context':
+    'Derselbe kleine Inside-Bar liegt am oberen Rand, in der Mitte und am unteren Rand eines großen Mutterbars.',
+  'ii-iii-compression':
+    'Zweifache und dreifache Inside-Kompression zeigen zunehmend verschachtelte Hochs und Tiefs ohne vorgegebene Ausbruchsrichtung.',
+  'ioi-sequence':
+    'Eine Inside-Outside-Inside-Folge wechselt von Kompression zu Expansion und zurück, während Stops auf beiden Seiten warten.',
+  'outside-oo-sequence':
+    'Ein Outside-Bar und zwei aufeinanderfolgende Outside-Bars erweitern Hoch und Tief und erhöhen den zweiseitigen Handel.',
+  'double-test-setup':
+    'Doppeltop und Doppeltief zeigen jeweils zwei Tests derselben Preiszone und die Reaktion nach dem zweiten Test.',
+  'failed-continuation-setup':
+    'Ein reifer Bullen- und Bärenmove schafft noch ein neues Extrem, erhält dort aber keinen Follow-through und kehrt zurück.',
+  'shaved-structural-setups':
+    'Drei Felder verbinden einen Bar ohne Tail, einen Limit-Einstieg im Kanal und ein Higher Low über einem alten Swing-Tief.',
+  'figure-41-followthrough':
+    'Die zweite Hälfte des Chartfalls ordnet Bar 3 als Signal, den Fill, den Follow-through sowie die Folge-Setups um Bar 4 und Bar 5.',
 };
 
 function yScale(value: number, min: number, max: number): number {

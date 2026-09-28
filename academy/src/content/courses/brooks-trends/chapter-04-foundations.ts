@@ -510,13 +510,13 @@ export const chapterFourFoundationLessons = [
     ],
   },
   {
-    id: 'brooks-trends.chapter-04.lesson-06',
-    title: 'Inside- und Outside-Sequenzen richtig lesen',
+    id: 'brooks-trends.chapter-04.lesson-17',
+    title: 'Kompression und Expansion gemeinsam lesen',
     summary:
-      'Wie i, ii, iii, ioi und oo Kompression oder Expansion darstellen, ohne selbst eine sichere Richtung vorherzusagen.',
-    durationMinutes: 15,
-    xp: 55,
-    sourceUnit: 'Kapitel 4 · Kleine Bars, Inside- und Outside-Muster',
+      'Wie i, ii, iii, ioi und oo in einer gemeinsamen Landkarte aus schrumpfenden und wachsenden Bar-Ranges zusammenhängen.',
+    durationMinutes: 9,
+    xp: 40,
+    sourceUnit: 'Kapitel 4 · Synthese der Inside- und Outside-Muster',
     sourceAnchors: [
       'Inside-Bar als kleiner Reversal- oder Pause-Bar',
       'ii- und iii-Sequenzen verschachtelter Inside-Bars',
@@ -527,22 +527,21 @@ export const chapterFourFoundationLessons = [
     status: 'published',
     steps: [
       {
-        id: 'chapter-04-06-explain',
+        id: 'chapter-04-17-explain',
         type: 'explanation',
-        eyebrow: 'Kompression und Expansion',
-        title: 'Die Buchstaben beschreiben Beziehungen, keine Prophezeiung',
+        eyebrow: 'Muster zusammenführen',
+        title: 'Alle Kürzel beschreiben nur die Veränderung der Bar-Range',
         paragraphs: [
-          'Ein Inside-Bar besitzt ein Hoch unter oder gleich dem Hoch des Vorgängers und ein Tief über oder gleich dessen Tief. Er bleibt vollständig in der vorherigen Range. Das zeigt kurzfristige Kompression: Der Markt schafft weder oben noch unten neue Distanz.',
-          'Bei einem ii liegen zwei Inside-Bars hintereinander innerhalb ihrer jeweiligen Vorgänger. Ein iii fügt einen dritten hinzu. Die Handelsspanne wird immer enger, während Orders oberhalb und unterhalb der verschachtelten Struktur warten. Das erhöht die Chance eines späteren Breakouts, legt dessen Richtung aber nicht fest.',
-          'Ein ioi verbindet Inside-Bar, Outside-Bar und erneut Inside-Bar. Der mittlere Bar erweitert beide Seiten, der letzte komprimiert wieder. Diese schnelle Abfolge von Expansion und Einengung zeigt hohe Unsicherheit und benötigt besonders viel Kontext.',
-          'Ein Outside-Bar überschreitet Hoch und Tief seines Vorgängers. Bei einem oo folgt darauf ein weiterer, noch größerer Outside-Bar. Hier wächst die Range statt zu schrumpfen. Das kann heftigen zweiseitigen Kampf, Stops auf beiden Seiten und erhöhtes Risiko bedeuten.',
-          'Auch ein kleiner Bar nahe dem Hoch oder Tief eines sehr großen Bars oder einer breiten Range kann zum Setup werden. Seine Aussage entsteht aus der Lage am Rand; derselbe Bar in der Mitte hätte deutlich weniger Wert.',
+          'Nach den einzelnen Mustern lässt sich die gemeinsame Logik klarer sehen. i, ii und iii beschreiben zunehmende Kompression. o und oo beschreiben Expansion. ioi zeigt den schnellen Wechsel zwischen beiden Zuständen.',
+          'Diese Kürzel bewerten weder Trend noch Standort. Ein ii am Ende eines Pullbacks im starken Trend besitzt einen anderen Ausgangskontext als dasselbe ii mitten in einer Trading Range. Ein oo am Range-Rand kann Zurückweisung anzeigen, im Breakout aber auch eine neue Trendphase beginnen.',
+          'Kompression bietet engere Grenzen und damit klarere Auslöser. Expansion zeigt größere Bewegung, erhöht jedoch meist Stop-Distanz und zweiseitiges Risiko. Keine der beiden Eigenschaften ist automatisch gut oder schlecht.',
+          'Die praktische Reihenfolge bleibt immer gleich: Range-Beziehung benennen, Trend und Lage bestimmen, Ausbruchsseite beobachten und Follow-through verlangen.',
         ],
         callout:
-          'Inside bedeutet Kompression, Outside bedeutet Expansion. Die Richtung liefert erst der Kontext plus erfolgreicher Ausbruch.',
+          'Die Kürzel sind eine Kurzschrift für Range-Beziehungen. Die Trade-Idee entsteht erst aus Kontext, Auslösung und Anschluss.',
       },
       {
-        id: 'chapter-04-06-diagram',
+        id: 'chapter-04-17-diagram',
         type: 'diagram',
         title: 'i, ii, iii, ioi und oo auf einen Blick',
         scenario: 'inside-outside-sequences',
@@ -557,7 +556,7 @@ export const chapterFourFoundationLessons = [
         ],
       },
       {
-        id: 'chapter-04-06-question',
+        id: 'chapter-04-17-question',
         type: 'question',
         title: 'Was weißt du bei einem ii sicher?',
         prompt:
@@ -585,7 +584,7 @@ export const chapterFourFoundationLessons = [
         correctOptionId: 'compression',
       },
       {
-        id: 'chapter-04-06-recap',
+        id: 'chapter-04-17-recap',
         type: 'recap',
         title: 'Beziehungen lesen',
         points: [
@@ -599,17 +598,14 @@ export const chapterFourFoundationLessons = [
     ],
   },
   {
-    id: 'brooks-trends.chapter-04.lesson-07',
-    title: 'Auch Fehlschläge und unschöne Bars werden Setups',
+    id: 'brooks-trends.chapter-04.lesson-18',
+    title: 'Shaved Bars und Swing-Struktur ergänzen die Setups',
     summary:
-      'Wie gescheiterte Umkehr- und Fortsetzungsversuche, shaved Bars, Trendbars und Kanalstrukturen neue Trades vorbereiten.',
-    durationMinutes: 16,
-    xp: 55,
-    sourceUnit: 'Kapitel 4 · Weitere häufige Setup-Arten',
+      'Wie Schlusskontrolle ohne Tail, gegengerichtete Trendbars, Kanal-Pullbacks sowie Higher Lows und Lower Highs gelesen werden.',
+    durationMinutes: 10,
+    xp: 40,
+    sourceUnit: 'Kapitel 4 · Shaved Bars und strukturelle Setups',
     sourceAnchors: [
-      'Doppeltop und Doppeltief als Umkehrgrundlage',
-      'Gescheiterter Reversal-Versuch einschließlich Reversal-Bar-Fehlschlag',
-      'Gescheiterter Fortsetzungsversuch in reifendem Trend',
       'Shaved Bar ohne Tail an Hoch oder Tief',
       'Trendbar als Gegensignal im passenden Kontext',
       'Pause oder Pullback in der Spike-Phase',
@@ -619,36 +615,35 @@ export const chapterFourFoundationLessons = [
     status: 'published',
     steps: [
       {
-        id: 'chapter-04-07-explain',
+        id: 'chapter-04-18-explain',
         type: 'explanation',
-        eyebrow: 'Kontext schlägt Schönheit',
-        title: 'Ein gescheitertes Signal kann das bessere Gegensignal sein',
+        eyebrow: 'Weitere Setup-Bausteine',
+        title: 'Schlusskontrolle und Swing-Struktur ergänzen die Muster',
         paragraphs: [
-          'Doppeltops und Doppeltiefs testen, ob ein bekannter Rand erneut zurückgewiesen wird. Ähnlich wichtig ist der Fehlschlag eines Reversal-Bars: Wenn ein vermeintlich starkes Umkehrsignal ausgelöst wird, aber sofort scheitert, sitzen neue Trader auf der falschen Seite. Ihre Ausstiege können den Move in Gegenrichtung verstärken.',
-          'Auch Fortsetzungsversuche können kippen. Wenn ein Bärentrend reif und bodenverdächtig wirkt, kann ein gescheiterter Low-1-Verkauf ein Long-Setup vorbereiten. Spiegelbildlich kann ein gescheiterter High-1-Kauf in einem überdehnten Bullenmarkt Verkäufer anziehen. Der Fehlschlag ist wichtiger als das ursprüngliche Etikett.',
-          'Ein shaved Bar besitzt an einem Ende keinen sichtbaren Tail und zeigt dort bis zum Schluss klare Kontrolle. Doch selbst ein Bull-Trendbar kann im Rallyabschnitt eines starken Bärenmarktes oder am oberen Range-Rand ein Short-Setup sein. Ein Bear-Trendbar kann entsprechend im Pullback eines starken Bullenmarktes oder am unteren Range-Rand ein Kaufsetup bilden.',
+          'Ein shaved Bar besitzt an mindestens einem Ende keinen sichtbaren Tail. Bei einem bullischen Bar ohne oberen Tail fällt der Schluss mit dem Hoch zusammen; bei einem bearischen Bar ohne unteren Tail liegt der Schluss am Tief. Das zeigt klare Schlusskontrolle, bleibt aber ohne Kontext nur eine Bar-Eigenschaft.',
+          'Selbst ein Bull-Trendbar kann im Rallyabschnitt eines starken Bärenmarktes oder am oberen Range-Rand ein Short-Setup sein. Ein Bear-Trendbar kann entsprechend im Pullback eines starken Bullenmarktes oder am unteren Range-Rand ein Kaufsetup bilden. Lage und übergeordnete Kontrolle können die Barfarbe überwiegen.',
           'In der Spike-Phase kann fast jede kleine Pause oder jeder Pullback eine Fortsetzungschance sein. In einem Kanal handeln erfahrene Teilnehmer oft limitbasiert: im Aufwärtskanal am oder unter dem vorherigen Bar kaufen, im Abwärtskanal am oder über dem vorherigen Bar verkaufen. Diese Logik lebt von kleinen Rückläufen innerhalb der dominanten Richtung.',
           'Strukturell einfache Referenzen bleiben ebenfalls wertvoll: Ein höheres Tief im Bullenmarkt und ein tieferes Hoch im Bärenmarkt zeigen, dass der Trend nach einem Pullback wieder Kontrolle übernehmen könnte.',
         ],
         callout:
-          'Fehlschlag, Lage und Trendstruktur können aus einer „falschen“ Kerzenfarbe ein starkes Setup machen.',
+          'Bar-Schluss, Trendlage und Swing-Struktur beantworten verschiedene Fragen und sollten gemeinsam gelesen werden.',
       },
       {
-        id: 'chapter-04-07-diagram',
+        id: 'chapter-04-18-diagram',
         type: 'diagram',
-        title: 'Vier Wege, wie Kontext den Bar neu bewertet',
-        scenario: 'contextual-failure-setups',
+        title: 'Drei zusätzliche Setup-Bausteine',
+        scenario: 'shaved-structural-setups',
         caption:
-          'Fehlgeschlagenes Reversal, falsche Fortsetzung, gegengerichteter Trendbar am Range-Rand und Higher-Low-Fortsetzung zeigen vier verschiedene Setup-Mechanismen.',
+          'Shaved Bar, limitbasierter Kanal-Pullback und Higher Low zeigen Schlusskontrolle, Ausführung im Trend und strukturelle Trendwiederaufnahme.',
         observations: [
-          'Der Reversal-Fehlschlag fängt die zuerst eingestiegene Seite.',
-          'Die misslungene Trendfortsetzung kann einen reifen Move beenden.',
-          'Ein Trendbar am falschen Ort kann gerade wegen seiner späten Aggressivität scheitern.',
-          'Higher Low oder Lower High verbindet Pullback-Ende und Trendwiederaufnahme.',
+          'Beim shaved Bar reicht der Körper bis an mindestens ein Extrem.',
+          'Im Kanal können erfahrene Trader kleine Rückläufe per Limit handeln.',
+          'Ein Higher Low hält über dem alten Swing-Tief und stützt den Bullenmarkt.',
+          'Im Bärenmarkt gilt dieselbe Struktur spiegelbildlich als Lower High.',
         ],
       },
       {
-        id: 'chapter-04-07-compare',
+        id: 'chapter-04-18-compare',
         type: 'comparison',
         title: 'Form allein und Form im Kontext',
         columns: [
@@ -673,7 +668,7 @@ export const chapterFourFoundationLessons = [
         ],
       },
       {
-        id: 'chapter-04-07-question',
+        id: 'chapter-04-18-question',
         type: 'question',
         title: 'Wann kann ein Bear-Bar ein Long-Setup sein?',
         prompt:
@@ -701,14 +696,13 @@ export const chapterFourFoundationLessons = [
         correctOptionId: 'context-long',
       },
       {
-        id: 'chapter-04-07-recap',
+        id: 'chapter-04-18-recap',
         type: 'recap',
         title: 'Die erweiterten Setup-Familien',
         points: [
-          'Doppeltops und Doppeltiefs prüfen bekannte Ränder.',
-          'Gescheiterte Signale können kraftvolle Gegensignale erzeugen.',
           'Shaved Bars zeigen klare Schlusskontrolle, bleiben aber kontextabhängig.',
           'Trendbars dürfen am falschen Ort gegen ihre eigene Farbe gehandelt werden.',
+          'Kanaltrader können Pullbacks limitbasiert in Trendrichtung nutzen.',
           'Pause, Pullback, Higher Low und Lower High strukturieren With-trend-Einstiege.',
         ],
       },
