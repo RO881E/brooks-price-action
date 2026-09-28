@@ -16,6 +16,9 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 - wählbares Tagesziel (Lernaktivitäten oder XP), Serie aus echten Lerntagen, Wochenansicht und
   fünf einmalige Meilensteine mit dezenter Meldung (ohne Animation bei `prefers-reduced-motion`)
 - durchsuchbares Glossar, auch als Link `#/glossary?term=<Begriff>`
+- Lesezeichen für Lektionen und Schritte, persönliche Klartextnotizen je Schritt mit Autosave
+  und die Übersicht „Gespeichert“ (`#/saved`) mit Sprung zur Fundstelle und „Rückgängig“ beim
+  Löschen
 - globale Suche (Schaltfläche „Suchen“ oder Taste `/`) über Lektionsname, Zusammenfassung,
   Quelle, Schrittüberschrift, Glossarbegriff und Alias; Umlaute und Groß-/Kleinschreibung
   werden gleich behandelt, gesperrte Lektionen erscheinen nur als Vorschau
@@ -35,7 +38,7 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-05 `version: 6`:
+seit F-07 `version: 7`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -54,8 +57,10 @@ seit F-05 `version: 6`:
   gutgeschriebene XP
 - `dailyGoal` (seit F-05): gewähltes Tagesziel
 - `milestones` (seit F-05): einmalig erhaltene Meilensteine mit Tag
+- `bookmarks` und `notes` (seit F-07): Lesezeichen und Klartextnotizen (höchstens 5000 Zeichen)
+  je Lektion bzw. Schritt, Schlüssel `lessonId` oder `lessonId::stepId`
 
-Ältere Datensätze (v1–v5) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+Ältere Datensätze (v1–v6) werden beim Laden verlustfrei migriert; der Wiederholungsplan
 startet leer. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
 `wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur

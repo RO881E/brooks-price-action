@@ -6,6 +6,7 @@ import {
   type QuestionView,
 } from '../features/lessonResults';
 import { LearningChart } from './LearningChart';
+import { NotesPanel } from './NotesPanel';
 
 interface LessonPlayerProps {
   lesson: Lesson;
@@ -18,6 +19,15 @@ interface LessonPlayerProps {
   onReveal: (question: QuestionStepData) => void;
   onComplete: () => void;
   onClose: () => void;
+  /** Lesezeichen und Notizen (seit F-07). */
+  saved?: {
+    isBookmarked: (stepId: string | null) => boolean;
+    noteText: (stepId: string) => string;
+    onToggleBookmark: (stepId: string | null) => void;
+    onCommitNote: (stepId: string, text: string) => void;
+    onCommitNoteNow: (stepId: string, text: string) => void;
+    onDeleteNote: (stepId: string) => void;
+  };
 }
 
 function ExplanationStep({ step }: { step: Extract<LessonStep, { type: 'explanation' }> }) {
@@ -222,6 +232,7 @@ export function LessonPlayer({
   onReveal,
   onComplete,
   onClose,
+  saved,
 }: LessonPlayerProps) {
   const step = lesson.steps[stepIndex];
   const isLast = stepIndex === lesson.steps.length - 1;
@@ -268,6 +279,22 @@ export function LessonPlayer({
           />
         ) : null}
         {step.type === 'recap' ? <RecapStep step={step} /> : null}
+
+        {saved ? (
+          <NotesPanel
+            key={`notes-${step.id}`}
+            stepNumber={stepIndex + 1}
+            stepTitle={step.title}
+            lessonBookmarked={saved.isBookmarked(null)}
+            stepBookmarked={saved.isBookmarked(step.id)}
+            savedText={saved.noteText(step.id)}
+            onToggleLessonBookmark={() => saved.onToggleBookmark(null)}
+            onToggleStepBookmark={() => saved.onToggleBookmark(step.id)}
+            onCommit={(text) => saved.onCommitNote(step.id, text)}
+            onCommitNow={(text) => saved.onCommitNoteNow(step.id, text)}
+            onDelete={() => saved.onDeleteNote(step.id)}
+          />
+        ) : null}
       </div>
 
       <footer className="lesson-footer">
