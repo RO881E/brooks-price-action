@@ -256,7 +256,7 @@ test.describe('F-01 resume and stable URLs', () => {
     const stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
-    expect(stored.version).toBe(4);
+    expect(stored.version).toBe(5);
     expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
@@ -335,7 +335,7 @@ test.describe('F-01 resume and stable URLs', () => {
       legacy: localStorage.getItem('brooks-progress'),
       best: localStorage.getItem('brooks-tr-best'),
     }));
-    expect(stored.academy.version).toBe(4);
+    expect(stored.academy.version).toBe(5);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
@@ -407,7 +407,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(4);
+    expect(stored.version).toBe(5);
     expect(stored.completedLessonIds).toEqual([lessonId]);
     expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
     expect(stored.questionResults['intro-01-question']).toMatchObject({
@@ -615,7 +615,7 @@ test.describe('F-03 smart review queue', () => {
     await expect(page.getByText('Für heute ist nichts mehr fällig.')).toBeVisible();
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(4);
+    expect(stored.version).toBe(5);
     for (const question of questions) {
       expect(stored.reviewCards[question.id]).toMatchObject({
         stage: 0,
@@ -723,5 +723,140 @@ test.describe('F-03 smart review queue', () => {
         () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
       ),
     ).toBe(false);
+  });
+});
+
+test.describe('F-04 progress dashboard', () => {
+  const [lessonOne, lessonTwo, lessonThree] = publishedLessons;
+  const questionOf = (lesson: (typeof publishedLessons)[number]) =>
+    lesson.steps.find((step) => step.type === 'question')!;
+
+  const openProgress = async (page: import('@playwright/test').Page) => {
+    const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
+    const navigation = (await mobileNavigation.isVisible())
+      ? mobileNavigation
+      : page.getByRole('navigation', { name: 'Hauptnavigation' });
+    await navigation.getByRole('button', { name: 'Fortschritt' }).click();
+    await expect(page.getByRole('heading', { name: 'Fortschritt', level: 1 })).toBeVisible();
+    await expect(page).toHaveURL(/#\/progress$/);
+  };
+
+  const seed = async (page: import('@playwright/test').Page, record: Record<string, unknown>) => {
+    await page.addInitScript((value) => {
+      if (sessionStorage.getItem('seeded')) return;
+      sessionStorage.setItem('seeded', '1');
+      localStorage.setItem('wqt-academy-progress-v1', JSON.stringify(value));
+    }, record);
+  };
+
+  const noHorizontalOverflow = (page: import('@playwright/test').Page) =>
+    page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+
+  test.beforeEach(async ({ page }) => {
+    await page.clock.setFixedTime(new Date(2026, 9, 5, 10, 0));
+  });
+
+  test('shows a clean empty state and starts the first lesson', async ({ page }) => {
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+
+    await page.goto('/');
+    await openProgress(page);
+    await expect(page.getByText('Noch keine Lerndaten')).toBeVisible();
+    // Gelesene Kapitel der alten Website bleiben sichtbar, zählen aber nicht mit.
+    await expect(page.getByText('2 gelesene Kapitel erhalten')).toBeVisible();
+
+    await page.reload();
+    await expect(page.getByRole('heading', { name: 'Fortschritt', level: 1 })).toBeVisible();
+
+    await page.getByRole('button', { name: 'Nächste Lektion starten' }).click();
+    await expect(page.getByText('1 / 5')).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`#/lesson/${lessonOne.id}\\?step=1$`));
+
+    await page.getByRole('button', { name: 'Lektion schließen' }).click();
+    await expect(page.getByRole('heading', { name: 'Fortschritt', level: 1 })).toBeVisible();
+    expect(errors).toEqual([]);
+  });
+
+  test('shows real metrics and runs the direct actions', async ({ page }) => {
+    const completedAt = new Date(2026, 9, 3, 12, 0).toISOString();
+    const q1 = questionOf(lessonOne);
+    const q2 = questionOf(lessonTwo);
+    await seed(page, {
+      version: 4,
+      completedLessonIds: [lessonOne.id, lessonTwo.id],
+      answers: { [q1.id]: q1.correctOptionId, [q2.id]: q2.correctOptionId },
+      questionResults: {
+        [q1.id]: { selectedOptionId: q1.correctOptionId, attempts: 1, firstAttemptCorrect: true, status: 'correct', wrongOptionIds: [] },
+        [q2.id]: { selectedOptionId: q2.correctOptionId, attempts: 2, firstAttemptCorrect: false, status: 'correct', wrongOptionIds: [] },
+      },
+      lessonResults: {
+        [lessonOne.id]: { firstCompletedAt: completedAt, lastCompletedAt: completedAt, xpAwarded: lessonOne.xp },
+        [lessonTwo.id]: { firstCompletedAt: completedAt, lastCompletedAt: completedAt, xpAwarded: lessonTwo.xp },
+      },
+      lessonPositions: { [lessonThree.id]: { stepIndex: 1, updatedAt: completedAt } },
+    });
+
+    await page.goto('/#/progress');
+    const tile = (label: string) => page.locator('.progress-tile').filter({ hasText: label });
+    await expect(tile('Abgeschlossene Lektionen')).toContainText(`2 / ${publishedLessons.length}`);
+    await expect(tile('Verdiente XP')).toContainText(String(lessonOne.xp + lessonTwo.xp));
+    await expect(tile('Richtig im ersten Versuch')).toContainText('50 %');
+    await expect(tile('Richtig im ersten Versuch')).toContainText('1 von 2 Fragen');
+    await expect(tile('Heute fällig')).toContainText('2');
+    await expect(
+      page.getByRole('img', { name: 'An 1 der letzten 30 Tage aktiv, davon an 1 der letzten 7 Tage.' }),
+    ).toBeVisible();
+    await expect(page.locator('.unit-progress-list li').first()).toContainText('2 von 22 Lektionen');
+
+    // Hauptaktion per Tastatur: begonnene Lektion fortsetzen.
+    const resume = page.getByRole('button', { name: 'Weiterlernen' });
+    await expect(page.getByText('weiter bei Schritt 2 von')).toBeVisible();
+    await resume.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(new RegExp(`#/lesson/${lessonThree.id}\\?step=2$`));
+    await page.getByRole('button', { name: 'Lektion schließen' }).click();
+
+    // Zweite Aktion: fällige Wiederholung direkt starten.
+    await page.getByRole('button', { name: 'Fällige Wiederholung starten' }).click();
+    await expect(page).toHaveURL(/#\/practice$/);
+    await expect(page.getByText('Frage 1 / 2')).toBeVisible();
+
+    const firstReviewQuestion = await page.locator('.practice-card h2').textContent();
+    await page.getByRole('radio').first().click();
+
+    await openProgress(page);
+    // Eine laufende Runde wird über die Aktion fortgesetzt statt neu gestartet.
+    await page.getByRole('button', { name: 'Fällige Wiederholung starten' }).click();
+    await expect(page.getByText('Frage 1 / 2')).toBeVisible();
+    await expect(page.locator('.practice-card h2')).toHaveText(firstReviewQuestion ?? '');
+    await expect(page.locator('.practice-feedback')).toBeVisible();
+  });
+
+  test('shows the completed state without overflow at 360 pixels', async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 780 });
+    const completedAt = new Date(2026, 9, 5, 9, 0).toISOString();
+    await seed(page, {
+      version: 4,
+      completedLessonIds: publishedLessons.map((lesson) => lesson.id),
+      lessonResults: Object.fromEntries(
+        publishedLessons.map((lesson) => [
+          lesson.id,
+          { firstCompletedAt: completedAt, lastCompletedAt: completedAt, xpAwarded: lesson.xp },
+        ]),
+      ),
+    });
+
+    await page.goto('/#/progress');
+    await expect(page.getByRole('heading', { name: 'Alles erledigt' })).toBeVisible();
+    await expect(page.locator('.progress-tile').filter({ hasText: 'Abgeschlossene Lektionen' })).toContainText('100 %');
+    await expect(
+      page.getByRole('img', { name: 'An 1 der letzten 30 Tage aktiv, davon an 1 der letzten 7 Tage.' }),
+    ).toBeVisible();
+    expect(await noHorizontalOverflow(page)).toBe(false);
+
+    const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
+    await expect(mobileNavigation.getByRole('button', { name: 'Fortschritt' })).toHaveClass(/active/);
+    expect(await noHorizontalOverflow(page)).toBe(false);
   });
 });

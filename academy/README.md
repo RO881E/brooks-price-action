@@ -10,6 +10,9 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 - Erklärungen, eigene interaktive Schaubilder, Verständnisfragen und Zusammenfassungen
 - Review-Zentrale unter „Üben“ mit „Heute fällig“, „Fehler trainieren“, „Kapitel auswählen“
   und „Alles mischen“ (nur Fragen aus abgeschlossenen Lektionen, bis zu 10 pro Runde)
+- Fortschrittsseite (`#/progress`) mit abgeschlossenen Lektionen, Kursfortschritt, einmalig
+  verdienter XP, Erstversuch-Trefferquote, heute fälligen Wiederholungen, aktiven Lerntagen
+  der letzten 7 und 30 Tage, Fortschritt je Buchabschnitt und einer direkten nächsten Aktion
 - durchsuchbares Glossar
 - lokaler Lernfortschritt unter `wqt-academy-progress-v1`
 - reload-feste Hash-URLs für alle Ansichten und Lektionen, zum Beispiel `#/glossary` oder
@@ -27,7 +30,7 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-03 `version: 4`:
+seit F-04 `version: 5`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -39,8 +42,11 @@ seit F-03 `version: 4`:
   letztes Ergebnis, Anzahl der Wiederholungen und Fehler
 - `reviewSession` (seit F-03): die laufende Wiederholungsrunde, damit ein Reload sie nicht
   zurücksetzt
+- `activityDays` (seit F-04): lokale Kalendertage mit abgeschlossener Lektion oder
+  beantworteter Wiederholungsfrage (höchstens die letzten 400); bei älteren Ständen aus den
+  vorhandenen Abschluss- und Wiederholungsdaten abgeleitet
 
-Ältere Datensätze (v1–v3) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+Ältere Datensätze (v1–v4) werden beim Laden verlustfrei migriert; der Wiederholungsplan
 startet leer. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
 `wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur

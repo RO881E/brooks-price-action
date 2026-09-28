@@ -5,9 +5,15 @@ import type { AcademyProgress } from './progress';
 
 type AnswerData = Pick<AcademyProgress, 'answers' | 'questionResults'>;
 
-export type AppView = 'path' | 'chapters' | 'practice' | 'glossary';
+export type AppView = 'path' | 'chapters' | 'practice' | 'progress' | 'glossary';
 
-export const APP_VIEWS: readonly AppView[] = ['path', 'chapters', 'practice', 'glossary'];
+export const APP_VIEWS: readonly AppView[] = [
+  'path',
+  'chapters',
+  'practice',
+  'progress',
+  'glossary',
+];
 
 export type AppRoute =
   | { kind: 'view'; view: AppView }

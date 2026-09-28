@@ -87,6 +87,7 @@ describe('parseRoute', () => {
     expect(parseRoute('#/path')).toEqual({ kind: 'view', view: 'path' });
     expect(parseRoute('#/chapters')).toEqual({ kind: 'view', view: 'chapters' });
     expect(parseRoute('#/practice')).toEqual({ kind: 'view', view: 'practice' });
+    expect(parseRoute('#/progress')).toEqual({ kind: 'view', view: 'progress' });
     expect(parseRoute('#/glossary')).toEqual({ kind: 'view', view: 'glossary' });
   });
 

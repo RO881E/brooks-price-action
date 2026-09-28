@@ -10,6 +10,7 @@ import {
   loadProgress,
   progressPercent,
   migrateProgress,
+  recordActivity,
   recordAnswer,
   recordLessonStep,
   saveProgress,
@@ -395,5 +396,58 @@ describe('review data (v4)', () => {
       expect(progress?.reviewSession).toBeNull();
       expect(progress?.completedLessonIds).toEqual(['x']);
     }
+  });
+});
+
+describe('activity days (v5)', () => {
+  it('derives activity from existing completion and review timestamps', () => {
+    const completedAt = new Date(2026, 8, 20, 12).toISOString();
+    const replayedAt = new Date(2026, 8, 24, 12).toISOString();
+    const progress = migrateProgress({
+      version: 4,
+      lessonResults: {
+        a: { firstCompletedAt: completedAt, lastCompletedAt: replayedAt, xpAwarded: 10 },
+        legacy: { firstCompletedAt: null, lastCompletedAt: 'kaputt', xpAwarded: 10 },
+      },
+      reviewCards: {
+        q1: {
+          stage: 0,
+          dueDay: '2026-09-27',
+          lastReviewedDay: '2026-09-26',
+          lastResult: 'correct',
+          reviews: 1,
+          lapses: 0,
+        },
+      },
+    });
+
+    expect(progress?.version).toBe(ACADEMY_PROGRESS_VERSION);
+    expect(progress?.activityDays).toEqual(['2026-09-20', '2026-09-24', '2026-09-26']);
+  });
+
+  it('starts empty for old records without timestamps', () => {
+    expect(migrateProgress({ version: 1, completedLessonIds: ['a'] })?.activityDays).toEqual([]);
+  });
+
+  it('keeps stored days, drops invalid ones and deduplicates', () => {
+    const progress = migrateProgress({
+      version: 5,
+      activityDays: ['2026-10-02', '2026-10-01', '2026-10-02', '2026-02-30', 7, 'heute'],
+    });
+    expect(progress?.activityDays).toEqual(['2026-10-01', '2026-10-02']);
+  });
+
+  it('records each day once and keeps only the most recent days', () => {
+    let progress = recordActivity(createEmptyProgress(), '2026-10-05');
+    expect(recordActivity(progress, '2026-10-05')).toBe(progress);
+    expect(recordActivity(progress, 'nope')).toBe(progress);
+
+    const many = Array.from({ length: 450 }, (_, index) => {
+      const date = new Date(2025, 0, 1 + index);
+      return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    });
+    progress = migrateProgress({ version: 5, activityDays: many })!;
+    expect(progress.activityDays).toHaveLength(400);
+    expect(progress.activityDays.at(-1)).toBe(many.at(-1));
   });
 });
