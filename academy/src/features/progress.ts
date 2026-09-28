@@ -1,3 +1,5 @@
+import { isDayKey, MAX_REVIEW_STAGE, type DayKey, type ReviewCard } from './reviewScheduler';
+
 export const LEGACY_PROGRESS_KEY = 'brooks-progress';
 export const LEGACY_TREND_RANGE_BEST_KEY = 'brooks-tr-best';
 /**
@@ -8,7 +10,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 3;
+export const ACADEMY_PROGRESS_VERSION = 4;
 
 export interface LessonPosition {
   /** Nullbasierter Index des zuletzt geöffneten gültigen Schritts. */
@@ -47,6 +49,24 @@ export interface LessonResult {
   xpAwarded: number;
 }
 
+export type ReviewMode = 'due' | 'mistakes' | 'unit' | 'mixed';
+
+export const REVIEW_MODES: readonly ReviewMode[] = ['due', 'mistakes', 'unit', 'mixed'];
+
+/** Laufende Wiederholungsrunde; übersteht einen Reload. */
+export interface ReviewSession {
+  mode: ReviewMode;
+  /** Gewähltes Kapitel bei `mode: 'unit'`, sonst `null`. */
+  unitId: string | null;
+  /** Feste Reihenfolge der Fragen dieser Runde. */
+  questionIds: string[];
+  /** Aktuelle Frage; gleich der Länge, wenn die Runde beendet ist. */
+  index: number;
+  /** In dieser Runde gewählte Antwort je Frage. */
+  answers: Record<string, string>;
+  startedDay: DayKey;
+}
+
 export interface AcademyProgress {
   version: typeof ACADEMY_PROGRESS_VERSION;
   completedLessonIds: string[];
@@ -54,6 +74,9 @@ export interface AcademyProgress {
   answers: Record<string, string>;
   questionResults: Record<string, QuestionResult>;
   lessonResults: Record<string, LessonResult>;
+  /** Wiederholungsplan je Frage (seit F-03). */
+  reviewCards: Record<string, ReviewCard>;
+  reviewSession: ReviewSession | null;
   lastLessonId: string | null;
   /** Begonnene, noch nicht abgeschlossene Lektionen mit ihrem letzten Schritt. */
   lessonPositions: Record<string, LessonPosition>;
@@ -80,6 +103,8 @@ export function createEmptyProgress(): AcademyProgress {
     answers: {},
     questionResults: {},
     lessonResults: {},
+    reviewCards: {},
+    reviewSession: null,
     lastLessonId: null,
     lessonPositions: {},
     legacyReadChapters: [],
@@ -120,6 +145,8 @@ const KNOWN_FIELDS = new Set([
   'answers',
   'questionResults',
   'lessonResults',
+  'reviewCards',
+  'reviewSession',
   'lastLessonId',
   'lessonPositions',
   'legacyReadChapters',
@@ -218,10 +245,69 @@ function normalizeLessonResults(value: unknown): Record<string, LessonResult> {
   );
 }
 
+function isCount(value: unknown): value is number {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0;
+}
+
+function normalizeReviewCards(value: unknown): Record<string, ReviewCard> {
+  if (!isRecord(value)) return {};
+
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([questionId, card]) => {
+      if (!isRecord(card)) return [];
+      const { stage, dueDay, lastReviewedDay, lastResult, reviews, lapses } = card;
+      if (!isCount(stage) || stage > MAX_REVIEW_STAGE) return [];
+      if (!isDayKey(dueDay) || !isDayKey(lastReviewedDay)) return [];
+      if (lastResult !== 'correct' && lastResult !== 'wrong') return [];
+      return [
+        [
+          questionId,
+          {
+            stage,
+            dueDay,
+            lastReviewedDay,
+            lastResult,
+            reviews: isCount(reviews) ? reviews : 0,
+            lapses: isCount(lapses) ? lapses : 0,
+          },
+        ],
+      ];
+    }),
+  );
+}
+
+function normalizeReviewSession(value: unknown): ReviewSession | null {
+  if (!isRecord(value)) return null;
+  const { mode, unitId, index, startedDay } = value;
+  if (typeof mode !== 'string' || !(REVIEW_MODES as readonly string[]).includes(mode)) {
+    return null;
+  }
+  const questionIds = stringArray(value.questionIds);
+  if (questionIds.length === 0 || !isCount(index) || index > questionIds.length) return null;
+  if (!isDayKey(startedDay)) return null;
+
+  return {
+    mode: mode as ReviewMode,
+    unitId: typeof unitId === 'string' ? unitId : null,
+    questionIds,
+    index,
+    answers: isRecord(value.answers)
+      ? Object.fromEntries(
+          Object.entries(value.answers).filter(
+            (entry): entry is [string, string] =>
+              typeof entry[1] === 'string' && questionIds.includes(entry[0]),
+          ),
+        )
+      : {},
+    startedDay,
+  };
+}
+
 /**
  * Überführt einen gespeicherten Datensatz beliebiger bekannter Version in das
  * aktuelle Modell. v1 besitzt noch keine Lektionspositionen, v1 und v2 noch
- * keine Versuchs- und Abschlussdaten; diese starten leer. Vorhandene Antworten
+ * keine Versuchs- und Abschlussdaten, v1–v3 noch keinen Wiederholungsplan;
+ * diese starten leer. Vorhandene Antworten
  * bleiben unverändert in `answers` und werden nicht in Versuche umgedeutet.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
@@ -243,6 +329,8 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
       : {},
     questionResults: normalizeQuestionResults(value.questionResults),
     lessonResults: normalizeLessonResults(value.lessonResults),
+    reviewCards: normalizeReviewCards(value.reviewCards),
+    reviewSession: normalizeReviewSession(value.reviewSession),
     lastLessonId:
       typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     lessonPositions: normalizePositions(value.lessonPositions),

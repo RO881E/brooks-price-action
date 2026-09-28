@@ -320,7 +320,9 @@ describe('attempt and completion data (v3)', () => {
     const loaded = loadProgress(storage);
 
     expect(loaded.lessonResults).toEqual(progress.lessonResults);
-    expect(JSON.parse(storage.getItem(ACADEMY_PROGRESS_KEY) ?? '{}').version).toBe(3);
+    expect(JSON.parse(storage.getItem(ACADEMY_PROGRESS_KEY) ?? '{}').version).toBe(
+      ACADEMY_PROGRESS_VERSION,
+    );
   });
 
   it('completes a lesson once and ignores negative XP', () => {
@@ -333,5 +335,65 @@ describe('attempt and completion data (v3)', () => {
       lastCompletedAt: 't2',
       xpAwarded: 0,
     });
+  });
+});
+
+describe('review data (v4)', () => {
+  it('migrates older records with an empty review plan', () => {
+    const progress = migrateProgress({ version: 3, completedLessonIds: ['lesson-1'] });
+    expect(progress?.version).toBe(ACADEMY_PROGRESS_VERSION);
+    expect(progress?.reviewCards).toEqual({});
+    expect(progress?.reviewSession).toBeNull();
+  });
+
+  it('keeps valid cards and sessions and drops invalid ones', () => {
+    const progress = migrateProgress({
+      version: 4,
+      reviewCards: {
+        ok: {
+          stage: 2,
+          dueDay: '2026-10-05',
+          lastReviewedDay: '2026-09-28',
+          lastResult: 'correct',
+          reviews: 3,
+          lapses: 1,
+        },
+        badStage: { stage: 9, dueDay: '2026-10-05', lastReviewedDay: '2026-09-28', lastResult: 'correct' },
+        badDay: { stage: 1, dueDay: '2026-02-30', lastReviewedDay: '2026-09-28', lastResult: 'wrong' },
+        badResult: { stage: 1, dueDay: '2026-10-05', lastReviewedDay: '2026-09-28', lastResult: 'meh' },
+      },
+      reviewSession: {
+        mode: 'due',
+        unitId: null,
+        questionIds: ['q1', 'q2', 3],
+        index: 1,
+        answers: { q1: 'a', stray: 'b', q2: 4 },
+        startedDay: '2026-09-28',
+      },
+    });
+
+    expect(Object.keys(progress?.reviewCards ?? {})).toEqual(['ok']);
+    expect(progress?.reviewSession).toEqual({
+      mode: 'due',
+      unitId: null,
+      questionIds: ['q1', 'q2'],
+      index: 1,
+      answers: { q1: 'a' },
+      startedDay: '2026-09-28',
+    });
+  });
+
+  it('discards unusable sessions without touching the rest', () => {
+    for (const reviewSession of [
+      { mode: 'quiz', questionIds: ['q1'], index: 0, startedDay: '2026-09-28' },
+      { mode: 'due', questionIds: [], index: 0, startedDay: '2026-09-28' },
+      { mode: 'due', questionIds: ['q1'], index: 5, startedDay: '2026-09-28' },
+      { mode: 'due', questionIds: ['q1'], index: 0, startedDay: 'morgen' },
+      'kaputt',
+    ]) {
+      const progress = migrateProgress({ version: 4, completedLessonIds: ['x'], reviewSession });
+      expect(progress?.reviewSession).toBeNull();
+      expect(progress?.completedLessonIds).toEqual(['x']);
+    }
   });
 });

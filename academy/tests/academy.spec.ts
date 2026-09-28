@@ -78,6 +78,9 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
     ? mobileNavigation
     : page.getByRole('navigation', { name: 'Hauptnavigation' });
   await navigation.getByRole('button', { name: 'Üben' }).click();
+  // Heute abgeschlossen: erst morgen fällig, aber schon in der gemischten Runde.
+  await expect(page.getByText('Für heute ist alles wiederholt.')).toBeVisible();
+  await page.getByRole('button', { name: 'Gemischte Runde' }).click();
   await expect(page.getByRole('heading', { name: 'Welche Aussage bleibt am belastbarsten?' })).toBeVisible();
 
   const valuesAfterReload = await page.evaluate(() => ({
@@ -253,7 +256,7 @@ test.describe('F-01 resume and stable URLs', () => {
     const stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
-    expect(stored.version).toBe(3);
+    expect(stored.version).toBe(4);
     expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
@@ -332,7 +335,7 @@ test.describe('F-01 resume and stable URLs', () => {
       legacy: localStorage.getItem('brooks-progress'),
       best: localStorage.getItem('brooks-tr-best'),
     }));
-    expect(stored.academy.version).toBe(3);
+    expect(stored.academy.version).toBe(4);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
@@ -404,7 +407,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(3);
+    expect(stored.version).toBe(4);
     expect(stored.completedLessonIds).toEqual([lessonId]);
     expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
     expect(stored.questionResults['intro-01-question']).toMatchObject({
@@ -532,5 +535,193 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     expect(stored.questionResults).toEqual({});
     expect(stored.lessonResults[lessonId].firstCompletedAt).toBeNull();
     expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
+  });
+});
+
+test.describe('F-03 smart review queue', () => {
+  const firstLessons = publishedLessons.slice(0, 3);
+  const questions = firstLessons.flatMap((lesson) =>
+    lesson.steps.filter(
+      (step): step is Extract<(typeof lesson.steps)[number], { type: 'question' }> =>
+        step.type === 'question',
+    ),
+  );
+  const optionLabel = (question: (typeof questions)[number], correct: boolean) =>
+    question.options.find((option) => (option.id === question.correctOptionId) === correct)!.label;
+
+  const openPractice = async (page: import('@playwright/test').Page) => {
+    const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
+    const navigation = (await mobileNavigation.isVisible())
+      ? mobileNavigation
+      : page.getByRole('navigation', { name: 'Hauptnavigation' });
+    await navigation.getByRole('button', { name: 'Üben' }).click();
+    await expect(page.getByRole('heading', { name: 'Analyse-Training' })).toBeVisible();
+  };
+
+  const seed = async (page: import('@playwright/test').Page, record: Record<string, unknown>) => {
+    await page.addInitScript((value) => {
+      if (sessionStorage.getItem('seeded')) return;
+      sessionStorage.setItem('seeded', '1');
+      localStorage.setItem('wqt-academy-progress-v1', JSON.stringify(value));
+    }, record);
+  };
+
+  const storedAcademy = (page: import('@playwright/test').Page) =>
+    page.evaluate(() => JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'));
+
+  test.beforeEach(async ({ page }) => {
+    await page.clock.setFixedTime(new Date(2026, 9, 5, 10, 0));
+  });
+
+  test('runs a due round with explanations, survives reload and plans the next review', async ({ page }) => {
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    // Abschlüsse aus einer älteren Version ohne Datum: sofort fällig.
+    await seed(page, {
+      version: 2,
+      completedLessonIds: firstLessons.map((lesson) => lesson.id),
+      answers: {},
+    });
+
+    await page.goto('/');
+    await openPractice(page);
+    await expect(page.getByText(`${questions.length} Fragen sind heute dran.`)).toBeVisible();
+    await page.getByRole('button', { name: 'Fällige Fragen üben' }).click();
+
+    for (const [index, question] of questions.entries()) {
+      await expect(page.getByText(`Frage ${index + 1} / ${questions.length}`)).toBeVisible();
+      await expect(page.getByRole('heading', { name: question.title, level: 2 })).toBeVisible();
+      await page.getByRole('radio', { name: optionLabel(question, true) }).click();
+      await expect(page.getByText('Sauber analysiert.')).toBeVisible();
+      await expect(page.getByText('Nächste Wiederholung morgen.')).toBeVisible();
+
+      if (index === 0) {
+        // Reload mitten in der Runde setzt nichts zurück und wertet nicht doppelt.
+        await page.reload();
+        await expect(page.getByText(`Frage 1 / ${questions.length}`)).toBeVisible();
+        await expect(page.getByText('Sauber analysiert.')).toBeVisible();
+      }
+
+      await page
+        .getByRole('button', {
+          name: index === questions.length - 1 ? 'Auswertung anzeigen' : 'Nächste Frage',
+        })
+        .click();
+    }
+
+    await expect(
+      page.getByRole('heading', { name: `${questions.length} von ${questions.length} richtig` }),
+    ).toBeVisible();
+    await expect(page.getByText('Für heute ist nichts mehr fällig.')).toBeVisible();
+
+    const stored = await storedAcademy(page);
+    expect(stored.version).toBe(4);
+    for (const question of questions) {
+      expect(stored.reviewCards[question.id]).toMatchObject({
+        stage: 0,
+        dueDay: '2026-10-06',
+        lastReviewedDay: '2026-10-05',
+        reviews: 1,
+      });
+    }
+
+    await page.getByRole('button', { name: 'Zur Übersicht' }).click();
+    await expect(page.getByText('Für heute ist alles wiederholt. Nächste Wiederholung morgen.')).toBeVisible();
+
+    // Am nächsten Kalendertag sind die Fragen wieder fällig.
+    await page.clock.setFixedTime(new Date(2026, 9, 6, 8, 0));
+    await page.reload();
+    await expect(page.getByText(`${questions.length} Fragen sind heute dran.`)).toBeVisible();
+    expect(errors).toEqual([]);
+  });
+
+  test('trains mistakes until they are answered correctly', async ({ page }) => {
+    const [question] = questions;
+    await seed(page, {
+      version: 3,
+      completedLessonIds: [firstLessons[0].id],
+      answers: { [question.id]: question.correctOptionId },
+      questionResults: {
+        [question.id]: {
+          selectedOptionId: question.correctOptionId,
+          attempts: 2,
+          firstAttemptCorrect: false,
+          status: 'correct',
+          wrongOptionIds: [],
+        },
+      },
+      lessonResults: {
+        [firstLessons[0].id]: {
+          firstCompletedAt: new Date(2026, 9, 5, 9, 0).toISOString(),
+          lastCompletedAt: new Date(2026, 9, 5, 9, 0).toISOString(),
+          xpAwarded: firstLessons[0].xp,
+        },
+      },
+    });
+
+    await page.goto('/#/practice');
+    await expect(page.getByText('Für heute ist alles wiederholt.')).toBeVisible();
+    await expect(page.getByText('1 Frage wartet auf einen richtigen Versuch.')).toBeVisible();
+    await page.getByRole('button', { name: 'Fehler trainieren' }).click();
+
+    await page.getByRole('radio', { name: optionLabel(question, false) }).click();
+    await expect(page.getByText('Schau auf den Kontext.')).toBeVisible();
+    await expect(page.getByText(`Richtig ist „${optionLabel(question, true)}“:`)).toBeVisible();
+    await page.getByRole('button', { name: 'Auswertung anzeigen' }).click();
+    await expect(page.getByRole('heading', { name: '0 von 1 richtig' })).toBeVisible();
+
+    await page.getByRole('button', { name: 'Fehler trainieren' }).click();
+    await page.getByRole('radio', { name: optionLabel(question, true) }).click();
+    await expect(page.getByText('Sauber analysiert.')).toBeVisible();
+    await page.getByRole('button', { name: 'Auswertung anzeigen' }).click();
+    await expect(page.getByRole('heading', { name: '1 von 1 richtig' })).toBeVisible();
+
+    await page.getByRole('button', { name: 'Zur Übersicht' }).click();
+    await expect(page.getByText('Keine offenen Fehler – stark.')).toBeVisible();
+
+    const stored = await storedAcademy(page);
+    expect(stored.reviewCards[question.id]).toMatchObject({
+      stage: 0,
+      dueDay: '2026-10-06',
+      lastResult: 'correct',
+      reviews: 2,
+      lapses: 1,
+    });
+    expect(stored.reviewSession).toBeNull();
+  });
+
+  test('shows clear empty states and allows chapter practice', async ({ page }) => {
+    await page.goto('/#/practice');
+    await expect(page.getByText('Dein Training füllt sich mit dem Lernpfad')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Fällige Fragen üben' })).toHaveCount(0);
+
+    await page.evaluate((lessonId) => {
+      const at = new Date(2026, 9, 5, 9, 0).toISOString();
+      localStorage.setItem(
+        'wqt-academy-progress-v1',
+        JSON.stringify({
+          version: 4,
+          completedLessonIds: [lessonId],
+          lessonResults: { [lessonId]: { firstCompletedAt: at, lastCompletedAt: at, xpAwarded: 30 } },
+        }),
+      );
+    }, firstLessons[0].id);
+    await page.reload();
+
+    await expect(page.getByText('Für heute ist alles wiederholt. Nächste Wiederholung morgen.')).toBeVisible();
+    await expect(page.getByText('Keine offenen Fehler – stark.')).toBeVisible();
+    await expect(page.getByRole('combobox', { name: 'Kapitel' })).toHaveValue(
+      'brooks-trends.introduction',
+    );
+    await page.getByRole('button', { name: 'Kapitel üben' }).click();
+    await expect(page.getByText('Frage 1 / 1')).toBeVisible();
+    await page.getByRole('button', { name: 'Runde beenden' }).click();
+    await expect(page.getByRole('button', { name: 'Kapitel üben' })).toBeVisible();
+
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+      ),
+    ).toBe(false);
   });
 });
