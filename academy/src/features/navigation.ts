@@ -1,6 +1,9 @@
 import type { Course, Lesson } from '../content/types';
 import { lessonAccessState } from './courseAccess';
+import { isStepResolved } from './lessonResults';
 import type { AcademyProgress } from './progress';
+
+type AnswerData = Pick<AcademyProgress, 'answers' | 'questionResults'>;
 
 export type AppView = 'path' | 'chapters' | 'practice' | 'glossary';
 
@@ -13,7 +16,8 @@ export type AppRoute =
       lessonId: string;
       /** Einsbasierter Schritt aus der URL; `null`, wenn keiner angegeben ist. */
       step: number | null;
-    };
+    }
+  | { kind: 'lesson-result'; lessonId: string };
 
 export const DEFAULT_ROUTE: AppRoute = { kind: 'view', view: 'path' };
 
@@ -44,14 +48,17 @@ export function parseRoute(hash: string): AppRoute | null {
     return { kind: 'view', view: segments[0] };
   }
 
-  if (segments.length === 2 && segments[0] === 'lesson' && segments[1] !== '') {
+  const isResult = segments.length === 3 && segments[2] === 'result';
+  if ((segments.length === 2 || isResult) && segments[0] === 'lesson' && segments[1] !== '') {
     let lessonId: string;
     try {
       lessonId = decodeURIComponent(segments[1]);
     } catch {
       return null;
     }
-    return { kind: 'lesson', lessonId, step: parseStep(query) };
+    return isResult
+      ? { kind: 'lesson-result', lessonId }
+      : { kind: 'lesson', lessonId, step: parseStep(query) };
   }
 
   return null;
@@ -60,30 +67,23 @@ export function parseRoute(hash: string): AppRoute | null {
 export function formatRoute(route: AppRoute): string {
   if (route.kind === 'view') return `#/${route.view}`;
   const base = `#/lesson/${encodeURIComponent(route.lessonId)}`;
+  if (route.kind === 'lesson-result') return `${base}/result`;
   return route.step === null ? base : `${base}?step=${route.step}`;
 }
 
 /**
  * Höchster Schritt, der ohne Überspringen einer offenen Frage erreichbar ist.
- * Entspricht der Sperre der „Weiter“-Schaltfläche im Lesson Player.
+ * Eine Frage ist erst erledigt, wenn sie richtig beantwortet oder ihre Lösung
+ * aufgedeckt wurde – wie die Sperre der „Weiter“-Schaltfläche im Lesson Player.
  */
-export function maxReachableStepIndex(
-  lesson: Lesson,
-  answers: Record<string, string>,
-): number {
-  const blocking = lesson.steps.findIndex(
-    (step) => step.type === 'question' && !answers[step.id],
-  );
+export function maxReachableStepIndex(lesson: Lesson, data: AnswerData): number {
+  const blocking = lesson.steps.findIndex((step) => !isStepResolved(step, data));
   return blocking === -1 ? lesson.steps.length - 1 : blocking;
 }
 
-export function clampStepIndex(
-  lesson: Lesson,
-  answers: Record<string, string>,
-  stepIndex: number,
-): number {
+export function clampStepIndex(lesson: Lesson, data: AnswerData, stepIndex: number): number {
   if (!Number.isInteger(stepIndex) || stepIndex < 0) return 0;
-  return Math.min(stepIndex, maxReachableStepIndex(lesson, answers));
+  return Math.min(stepIndex, maxReachableStepIndex(lesson, data));
 }
 
 export function findLesson(course: Course, lessonId: string): Lesson | undefined {
@@ -109,17 +109,19 @@ export function canOpenLesson(
 export function startStepIndex(lesson: Lesson, progress: AcademyProgress): number {
   const saved = progress.lessonPositions[lesson.id];
   if (!saved || progress.completedLessonIds.includes(lesson.id)) return 0;
-  return clampStepIndex(lesson, progress.answers, saved.stepIndex);
+  return clampStepIndex(lesson, progress, saved.stepIndex);
 }
 
 export type ResolvedRoute =
   | { kind: 'view'; view: AppView }
-  | { kind: 'lesson'; lesson: Lesson; stepIndex: number };
+  | { kind: 'lesson'; lesson: Lesson; stepIndex: number }
+  | { kind: 'lesson-result'; lesson: Lesson };
 
 /**
  * Prüft eine Route gegen Kurs und Fortschritt. Unbekannte, geplante oder
  * gesperrte Lektionen ergeben `null` – der Aufrufer fällt auf den Lernpfad
- * zurück. Ein ungültiger Schritt wird auf den letzten gültigen begrenzt.
+ * zurück. Ein ungültiger Schritt wird auf den letzten gültigen begrenzt. Die
+ * Abschlussansicht gibt es nur für bereits abgeschlossene Lektionen.
  */
 export function resolveRoute(
   route: AppRoute,
@@ -133,10 +135,16 @@ export function resolveRoute(
     return null;
   }
 
+  if (route.kind === 'lesson-result') {
+    return progress.completedLessonIds.includes(lesson.id)
+      ? { kind: 'lesson-result', lesson }
+      : null;
+  }
+
   const stepIndex =
     route.step === null
       ? startStepIndex(lesson, progress)
-      : clampStepIndex(lesson, progress.answers, route.step - 1);
+      : clampStepIndex(lesson, progress, route.step - 1);
 
   return { kind: 'lesson', lesson, stepIndex };
 }

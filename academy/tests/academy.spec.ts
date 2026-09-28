@@ -58,6 +58,8 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
   await expect(page.getByText('Richtig eingeordnet.')).toBeVisible();
   await page.getByRole('button', { name: 'Weiter' }).click();
   await page.getByRole('button', { name: 'Lektion abschließen' }).click();
+  await expect(page.getByText('Lektion abgeschlossen')).toBeVisible();
+  await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
 
   await expect(page.getByRole('button', { name: /Der Chart ist das Ergebnis: Abgeschlossen/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /Institutionen, Programme und dein einzelner Stop: Jetzt lernen/ })).toBeVisible();
@@ -251,7 +253,7 @@ test.describe('F-01 resume and stable URLs', () => {
     const stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
-    expect(stored.version).toBe(2);
+    expect(stored.version).toBe(3);
     expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
@@ -330,7 +332,7 @@ test.describe('F-01 resume and stable URLs', () => {
       legacy: localStorage.getItem('brooks-progress'),
       best: localStorage.getItem('brooks-tr-best'),
     }));
-    expect(stored.academy.version).toBe(2);
+    expect(stored.academy.version).toBe(3);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
@@ -351,5 +353,184 @@ test.describe('F-01 resume and stable URLs', () => {
       await page.evaluate(() => localStorage.getItem('wqt-academy-progress-backup')),
     ).toBe('{"version":1,"completedLess');
     expect(errors).toEqual([]);
+  });
+});
+
+test.describe('F-02 repeatable questions and lesson results', () => {
+  const lessonId = 'brooks-trends.introduction.lesson-01';
+  const lessonTitle = 'Der Chart ist das Ergebnis';
+  const correctAnswer = /Die schwache Reaktion/;
+  const wrongAnswer = /Die Nachricht war positiv/;
+
+  const openFirstQuestion = async (page: import('@playwright/test').Page) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: `${lessonTitle}: Jetzt lernen` }).click();
+    for (let step = 0; step < 3; step += 1) {
+      await page.getByRole('button', { name: 'Weiter' }).click();
+    }
+    await expect(page.getByText('4 / 5')).toBeVisible();
+  };
+
+  const finishLesson = async (page: import('@playwright/test').Page) => {
+    await page.getByRole('button', { name: 'Weiter' }).click();
+    await page.getByRole('button', { name: 'Lektion abschließen' }).click();
+    await expect(page.getByRole('heading', { name: lessonTitle, level: 1 })).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`#/lesson/${lessonId}/result$`));
+  };
+
+  const stat = (page: import('@playwright/test').Page, label: string) =>
+    page.locator('.result-stats > div').filter({ hasText: label });
+
+  const storedAcademy = (page: import('@playwright/test').Page) =>
+    page.evaluate(() => JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'));
+
+  test('correct on the first attempt shows a full result that survives reload', async ({ page }) => {
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+
+    await openFirstQuestion(page);
+    await page.getByRole('radio', { name: correctAnswer }).click();
+    await expect(page.getByText('Richtig eingeordnet.')).toBeVisible();
+    await finishLesson(page);
+
+    await expect(page.getByText('Lektion abgeschlossen')).toBeVisible();
+    await expect(stat(page, 'Beantwortete Fragen')).toContainText('1 von 1');
+    await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
+    await expect(stat(page, 'Status')).toContainText('Abgeschlossen');
+    await expect(stat(page, 'Verdiente XP')).toContainText('+30 XP');
+
+    await page.reload();
+    await expect(stat(page, 'Verdiente XP')).toContainText('+30 XP');
+    await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
+
+    const stored = await storedAcademy(page);
+    expect(stored.version).toBe(3);
+    expect(stored.completedLessonIds).toEqual([lessonId]);
+    expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
+    expect(stored.questionResults['intro-01-question']).toMatchObject({
+      attempts: 1,
+      firstAttemptCorrect: true,
+      status: 'correct',
+    });
+
+    await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
+    await expect(page.locator('.stat-card')).toContainText('30');
+    expect(errors).toEqual([]);
+  });
+
+  test('a wrong answer explains, allows a retry and does not lock the next lesson', async ({ page }) => {
+    await openFirstQuestion(page);
+    await page.getByRole('radio', { name: wrongAnswer }).click();
+
+    await expect(page.getByText('Noch nicht ganz.')).toBeVisible();
+    await expect(page.getByText('tatsächliche Auktion akzeptierte')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Weiter' })).toBeDisabled();
+    await expect(page.getByRole('radio', { name: correctAnswer })).toBeDisabled();
+
+    // Auch nach einem Reload bleibt der Stand erhalten.
+    await page.reload();
+    await expect(page.getByText('Noch nicht ganz.')).toBeVisible();
+
+    await page.getByRole('button', { name: 'Noch einmal versuchen' }).click();
+    await expect(page.getByRole('radio', { name: wrongAnswer })).toBeDisabled();
+    await expect(page.getByRole('radio', { name: correctAnswer })).toBeFocused();
+    await page.getByRole('radio', { name: correctAnswer }).click();
+    await expect(page.getByText('Richtig – im neuen Versuch.')).toBeVisible();
+    await finishLesson(page);
+
+    await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('0 %');
+    await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('0 von 1 Fragen');
+    await expect(stat(page, 'Verdiente XP')).toContainText('+30 XP');
+    await expect(page.getByText('unabhängig von der Quote freigeschaltet')).toBeVisible();
+
+    const stored = await storedAcademy(page);
+    expect(stored.questionResults['intro-01-question']).toMatchObject({
+      attempts: 2,
+      firstAttemptCorrect: false,
+      status: 'correct',
+    });
+
+    await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
+    await expect(
+      page.getByRole('button', { name: /Institutionen, Programme und dein einzelner Stop: Jetzt lernen/ }),
+    ).toBeVisible();
+  });
+
+  test('the solution can be revealed after a wrong attempt', async ({ page }) => {
+    await openFirstQuestion(page);
+    await page.getByRole('radio', { name: wrongAnswer }).click();
+    await page.getByRole('button', { name: 'Lösung anzeigen' }).click();
+
+    await expect(page.getByText(/Lösung: Die schwache Reaktion/)).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Weiter' })).toBeEnabled();
+    await finishLesson(page);
+    await expect(stat(page, 'Beantwortete Fragen')).toContainText('1 von 1');
+    await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('0 %');
+  });
+
+  test('repeating a completed lesson awards no second XP or completion', async ({ page }) => {
+    await openFirstQuestion(page);
+    await page.getByRole('radio', { name: correctAnswer }).click();
+    await finishLesson(page);
+
+    await page.getByRole('button', { name: 'Lektion wiederholen' }).click();
+    await expect(page.getByText('1 / 5')).toBeVisible();
+    for (let step = 0; step < 3; step += 1) {
+      await page.getByRole('button', { name: 'Weiter' }).click();
+    }
+    await expect(page.getByRole('radio', { name: correctAnswer })).toBeEnabled();
+    await page.getByRole('radio', { name: correctAnswer }).click();
+    await finishLesson(page);
+
+    await expect(page.getByText('Wiederholung abgeschlossen')).toBeVisible();
+    await expect(stat(page, 'Verdiente XP')).toContainText('+0 XP');
+    await expect(stat(page, 'Verdiente XP')).toContainText('bereits beim ersten Abschluss');
+
+    await page.reload();
+    await expect(stat(page, 'Verdiente XP')).toContainText('+0 XP');
+
+    const stored = await storedAcademy(page);
+    expect(stored.completedLessonIds).toEqual([lessonId]);
+    expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
+    expect(stored.questionResults['intro-01-question'].attempts).toBe(2);
+
+    await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
+    await expect(page.locator('.stat-card')).toContainText('1 /');
+    await expect(page.locator('.stat-card')).toContainText('30');
+  });
+
+  test('old answers stay visible and are not turned into attempts', async ({ page }) => {
+    await page.addInitScript((id) => {
+      if (sessionStorage.getItem('seeded')) return;
+      sessionStorage.setItem('seeded', '1');
+      localStorage.setItem(
+        'wqt-academy-progress-v1',
+        JSON.stringify({
+          version: 2,
+          completedLessonIds: [id],
+          answers: { 'intro-01-question': 'headline' },
+          lastLessonId: id,
+          lessonPositions: {},
+          legacyReadChapters: [],
+          legacyTrendRangeBest: 0,
+          updatedAt: '2026-09-01T08:00:00.000Z',
+        }),
+      );
+    }, lessonId);
+
+    await page.goto(`/#/lesson/${lessonId}?step=4`);
+    await expect(page.getByText(/Lösung: Die schwache Reaktion/)).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Weiter' })).toBeEnabled();
+    await finishLesson(page);
+
+    await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('Nicht erfasst');
+    await expect(page.getByText('keine Versuchsdaten')).toBeVisible();
+    await expect(stat(page, 'Verdiente XP')).toContainText('+0 XP');
+
+    const stored = await storedAcademy(page);
+    expect(stored.answers).toEqual({ 'intro-01-question': 'headline' });
+    expect(stored.questionResults).toEqual({});
+    expect(stored.lessonResults[lessonId].firstCompletedAt).toBeNull();
+    expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
   });
 });

@@ -15,15 +15,29 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
   `#/lesson/<lesson-id>?step=3`; Browser-Zurück und -Vorwärts funktionieren
 - exaktes Fortsetzen: begonnene Lektionen öffnen sich über „Weiterlernen“ am zuletzt
   gültigen Schritt, abgeschlossene Lektionen bewusst von vorn
+- wiederholbare Fragen: nach einer falschen Antwort erscheint die Erklärung, danach „Noch
+  einmal versuchen“ oder „Lösung anzeigen“
+- Abschlussansicht (`#/lesson/<lesson-id>/result`) mit beantworteten Fragen,
+  Erstversuch-Trefferquote, Status und tatsächlich verdienter XP; XP und Abschluss entstehen
+  je Lektion nur einmal, auch bei „Lektion wiederholen“
 - lesender Kompatibilitätscheck für `brooks-progress` und `brooks-tr-best`
 - responsive Navigation für Desktop und Mobilgeräte
 
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-01 `version: 2` und enthält zusätzlich `lessonPositions` (letzter Schritt je begonnener
-Lektion). Ältere v1-Datensätze werden beim Laden verlustfrei migriert, unbekannte Zusatzfelder
-bleiben erhalten. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
+seit F-02 `version: 3`:
+
+- `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
+- `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
+- `questionResults` (seit F-02): je Frage aktuelle Auswahl, Anzahl der Versuche, Ergebnis des
+  ersten erfassten Versuchs und Stand im aktuellen Durchgang
+- `lessonResults` (seit F-02): je Lektion erster und letzter Abschluss sowie die einmalig
+  gutgeschriebenen XP
+
+Ältere Datensätze (v1, v2) werden beim Laden verlustfrei migriert, unbekannte Zusatzfelder
+bleiben erhalten. Alte Antworten werden nicht in Versuche umgedeutet: Ihr Erstversuch gilt als
+„nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
 `wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur
 gelesen, nie verändert.
 

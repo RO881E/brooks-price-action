@@ -2,11 +2,20 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ChapterView } from './components/ChapterView';
 import { GlossaryView } from './components/GlossaryView';
 import { LessonPlayer } from './components/LessonPlayer';
+import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
 import { PracticeView } from './components/PracticeView';
 import { brooksTrendsCourse, publishedLessonIds } from './content/course';
 import { glossaryEntries } from './content/glossary';
 import type { Lesson } from './content/types';
+import {
+  lessonSummary,
+  questionView,
+  restartLesson,
+  retryQuestion,
+  revealSolution,
+  submitAnswer,
+} from './features/lessonResults';
 import {
   DEFAULT_ROUTE,
   formatRoute,
@@ -21,7 +30,6 @@ import {
   completeLesson,
   loadProgress,
   progressPercent,
-  recordAnswer,
   recordLessonStep,
   saveProgress,
 } from './features/progress';
@@ -70,6 +78,7 @@ export default function App() {
   const resume = useMemo(() => resumeTarget(brooksTrendsCourse, progress), [progress]);
   const activeLesson = resolved?.kind === 'lesson' ? resolved.lesson : null;
   const activeStepIndex = resolved?.kind === 'lesson' ? resolved.stepIndex : 0;
+  const resultLesson = resolved?.kind === 'lesson-result' ? resolved.lesson : null;
   const view: View = resolved?.kind === 'view' ? resolved.view : lastView;
 
   useEffect(() => {
@@ -179,15 +188,42 @@ export default function App() {
             window.history.state,
           )
         }
-        answers={progress.answers}
-        onAnswer={(questionId, optionId) =>
-          setProgress((current) => recordAnswer(current, questionId, optionId))
+        questionState={(question) => questionView(question, progress)}
+        onAnswer={(question, optionId) =>
+          setProgress((current) => submitAnswer(current, question, optionId))
         }
+        onRetry={(question) => setProgress((current) => retryQuestion(current, question))}
+        onReveal={(question) => setProgress((current) => revealSolution(current, question))}
         onComplete={() => {
-          setProgress((current) => completeLesson(current, activeLesson.id));
-          navigate({ kind: 'view', view: 'path' }, 'replace');
+          setProgress((current) =>
+            completeLesson(current, activeLesson.id, activeLesson.xp),
+          );
+          navigate(
+            { kind: 'lesson-result', lessonId: activeLesson.id },
+            'replace',
+            window.history.state,
+          );
         }}
         onClose={closeLesson}
+      />
+    );
+  }
+
+  if (resultLesson) {
+    return (
+      <LessonResultView
+        key={resultLesson.id}
+        lesson={resultLesson}
+        summary={lessonSummary(resultLesson, progress)}
+        onRepeat={() => {
+          setProgress((current) => restartLesson(current, resultLesson));
+          navigate(
+            { kind: 'lesson', lessonId: resultLesson.id, step: 1 },
+            'replace',
+            window.history.state,
+          );
+        }}
+        onBackToPath={() => navigate({ kind: 'view', view: 'path' }, 'replace')}
       />
     );
   }

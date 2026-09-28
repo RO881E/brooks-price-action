@@ -4,6 +4,7 @@ import {
   nextAvailableLesson,
   type LessonAccessState,
 } from '../features/courseAccess';
+import { earnedXp } from '../features/lessonResults';
 import type { ResumeTarget } from '../features/navigation';
 import type { AcademyProgress } from '../features/progress';
 
@@ -233,11 +234,7 @@ export function PathView({
           </div>
           <div>
             <span>Gesammelte XP</span>
-            <strong>
-              {published
-                .filter((lesson) => completed.has(lesson.id))
-                .reduce((sum, lesson) => sum + lesson.xp, 0)}
-            </strong>
+            <strong>{earnedXp(progress, published)}</strong>
           </div>
         </section>
 

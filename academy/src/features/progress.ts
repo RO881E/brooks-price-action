@@ -8,7 +8,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 2;
+export const ACADEMY_PROGRESS_VERSION = 3;
 
 export interface LessonPosition {
   /** Nullbasierter Index des zuletzt geöffneten gültigen Schritts. */
@@ -16,10 +16,44 @@ export interface LessonPosition {
   updatedAt: string;
 }
 
+export type QuestionStatus = 'open' | 'correct' | 'revealed';
+
+/**
+ * Versuche und Ergebnis einer Frage. Die aktuelle Auswahl liegt getrennt davon
+ * in `AcademyProgress.answers`.
+ */
+export interface QuestionResult {
+  /** Auswahl im aktuellen Durchgang; `null` vor einem (erneuten) Versuch. */
+  selectedOptionId: string | null;
+  /** Anzahl aller abgegebenen Antworten über alle Durchgänge. */
+  attempts: number;
+  /**
+   * Ergebnis des ersten erfassten Versuchs. `null`, wenn die Frage schon vor
+   * der Versuchserfassung beantwortet wurde – dieser Wert wird nie erfunden.
+   */
+  firstAttemptCorrect: boolean | null;
+  /** Stand im aktuellen Durchgang. */
+  status: QuestionStatus;
+  /** Im aktuellen Durchgang bereits falsch gewählte Optionen. */
+  wrongOptionIds: string[];
+}
+
+/** Einmaliger Abschluss einer Lektion samt gutgeschriebener XP. */
+export interface LessonResult {
+  /** `null`, wenn die Lektion schon vor der Abschlusserfassung erledigt war. */
+  firstCompletedAt: string | null;
+  lastCompletedAt: string;
+  /** Beim ersten Abschluss gutgeschriebene XP; ändert sich danach nie. */
+  xpAwarded: number;
+}
+
 export interface AcademyProgress {
   version: typeof ACADEMY_PROGRESS_VERSION;
   completedLessonIds: string[];
+  /** Zuletzt abgegebene Auswahl je Frage (seit v1 unverändert im Format). */
   answers: Record<string, string>;
+  questionResults: Record<string, QuestionResult>;
+  lessonResults: Record<string, LessonResult>;
   lastLessonId: string | null;
   /** Begonnene, noch nicht abgeschlossene Lektionen mit ihrem letzten Schritt. */
   lessonPositions: Record<string, LessonPosition>;
@@ -44,6 +78,8 @@ export function createEmptyProgress(): AcademyProgress {
     version: ACADEMY_PROGRESS_VERSION,
     completedLessonIds: [],
     answers: {},
+    questionResults: {},
+    lessonResults: {},
     lastLessonId: null,
     lessonPositions: {},
     legacyReadChapters: [],
@@ -82,6 +118,8 @@ const KNOWN_FIELDS = new Set([
   'version',
   'completedLessonIds',
   'answers',
+  'questionResults',
+  'lessonResults',
   'lastLessonId',
   'lessonPositions',
   'legacyReadChapters',
@@ -119,9 +157,72 @@ function normalizePositions(value: unknown): Record<string, LessonPosition> {
   );
 }
 
+const QUESTION_STATUSES: readonly QuestionStatus[] = ['open', 'correct', 'revealed'];
+
+function normalizeQuestionResults(value: unknown): Record<string, QuestionResult> {
+  if (!isRecord(value)) return {};
+
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([questionId, result]) => {
+      if (!isRecord(result)) return [];
+      const { selectedOptionId, attempts, firstAttemptCorrect, status } = result;
+      if (typeof attempts !== 'number' || !Number.isInteger(attempts) || attempts < 0) {
+        return [];
+      }
+      if (typeof status !== 'string' || !(QUESTION_STATUSES as readonly string[]).includes(status)) {
+        return [];
+      }
+      return [
+        [
+          questionId,
+          {
+            selectedOptionId: typeof selectedOptionId === 'string' ? selectedOptionId : null,
+            attempts,
+            firstAttemptCorrect:
+              typeof firstAttemptCorrect === 'boolean' ? firstAttemptCorrect : null,
+            status: status as QuestionStatus,
+            wrongOptionIds: stringArray(result.wrongOptionIds),
+          },
+        ],
+      ];
+    }),
+  );
+}
+
+function normalizeLessonResults(value: unknown): Record<string, LessonResult> {
+  if (!isRecord(value)) return {};
+
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([lessonId, result]) => {
+      if (!isRecord(result)) return [];
+      const { firstCompletedAt, lastCompletedAt, xpAwarded } = result;
+      if (
+        typeof xpAwarded !== 'number' ||
+        !Number.isFinite(xpAwarded) ||
+        xpAwarded < 0 ||
+        typeof lastCompletedAt !== 'string'
+      ) {
+        return [];
+      }
+      return [
+        [
+          lessonId,
+          {
+            firstCompletedAt: typeof firstCompletedAt === 'string' ? firstCompletedAt : null,
+            lastCompletedAt,
+            xpAwarded,
+          },
+        ],
+      ];
+    }),
+  );
+}
+
 /**
  * Überführt einen gespeicherten Datensatz beliebiger bekannter Version in das
- * aktuelle Modell. v1 besitzt noch keine Lektionspositionen; sie starten leer.
+ * aktuelle Modell. v1 besitzt noch keine Lektionspositionen, v1 und v2 noch
+ * keine Versuchs- und Abschlussdaten; diese starten leer. Vorhandene Antworten
+ * bleiben unverändert in `answers` und werden nicht in Versuche umgedeutet.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {
@@ -140,6 +241,8 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
           ),
         )
       : {},
+    questionResults: normalizeQuestionResults(value.questionResults),
+    lessonResults: normalizeLessonResults(value.lessonResults),
     lastLessonId:
       typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     lessonPositions: normalizePositions(value.lessonPositions),
@@ -208,19 +311,37 @@ export function saveProgress(
   return next;
 }
 
+/**
+ * Schließt eine Lektion ab. Abschluss und XP entstehen genau einmal; jeder
+ * weitere Abschluss aktualisiert nur `lastCompletedAt`. Eine bereits vor der
+ * Abschlusserfassung erledigte Lektion erhält `firstCompletedAt: null`.
+ */
 export function completeLesson(
   progress: AcademyProgress,
   lessonId: string,
+  xp: number,
+  now: string = nowIso(),
 ): AcademyProgress {
   const { [lessonId]: _finished, ...openPositions } = progress.lessonPositions;
+  const alreadyCompleted = progress.completedLessonIds.includes(lessonId);
+  const existing = progress.lessonResults[lessonId];
+
+  const result: LessonResult = existing
+    ? { ...existing, lastCompletedAt: now }
+    : {
+        firstCompletedAt: alreadyCompleted ? null : now,
+        lastCompletedAt: now,
+        xpAwarded: Number.isFinite(xp) && xp > 0 ? xp : 0,
+      };
 
   return {
     ...progress,
-    completedLessonIds: Array.from(
-      new Set([...progress.completedLessonIds, lessonId]),
-    ),
+    completedLessonIds: alreadyCompleted
+      ? progress.completedLessonIds
+      : [...progress.completedLessonIds, lessonId],
     lastLessonId: lessonId,
     lessonPositions: openPositions,
+    lessonResults: { ...progress.lessonResults, [lessonId]: result },
   };
 }
 
