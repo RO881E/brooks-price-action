@@ -1,5 +1,10 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import type { Lesson, LessonStep } from '../content/types';
+import {
+  isQuestionResolved,
+  type QuestionStep as QuestionStepData,
+  type QuestionView,
+} from '../features/lessonResults';
 import { LearningChart } from './LearningChart';
 
 interface LessonPlayerProps {
@@ -7,8 +12,10 @@ interface LessonPlayerProps {
   /** Nullbasierter, bereits validierter Schritt. */
   stepIndex: number;
   onStepChange: (stepIndex: number) => void;
-  answers: Record<string, string>;
-  onAnswer: (questionId: string, optionId: string) => void;
+  questionState: (question: QuestionStepData) => QuestionView;
+  onAnswer: (question: QuestionStepData, optionId: string) => void;
+  onRetry: (question: QuestionStepData) => void;
+  onReveal: (question: QuestionStepData) => void;
   onComplete: () => void;
   onClose: () => void;
 }
@@ -73,31 +80,53 @@ function ComparisonStep({ step }: { step: Extract<LessonStep, { type: 'compariso
 
 function QuestionStep({
   step,
-  answer,
+  state,
   onAnswer,
+  onRetry,
+  onReveal,
 }: {
-  step: Extract<LessonStep, { type: 'question' }>;
-  answer?: string;
+  step: QuestionStepData;
+  state: QuestionView;
   onAnswer: (optionId: string) => void;
+  onRetry: () => void;
+  onReveal: () => void;
 }) {
-  const answered = Boolean(answer);
+  const resolved = isQuestionResolved(state);
+  const selected = state.selectedOptionId;
+  const awaitingRetry = !resolved && selected !== null;
+  const locked = resolved || awaitingRetry;
+  const correctOption = step.options.find((option) => option.id === step.correctOptionId);
+  const selectedOption = step.options.find((option) => option.id === selected);
+  const listRef = useRef<HTMLDivElement>(null);
+  const retryPending = useRef(false);
+
+  // Nach „Noch einmal versuchen“ landet der Fokus auf der ersten freien Antwort.
+  useEffect(() => {
+    if (!retryPending.current || locked) return;
+    retryPending.current = false;
+    listRef.current?.querySelector<HTMLButtonElement>('button:not(:disabled)')?.focus();
+  }, [locked]);
 
   return (
     <article className="step-copy question-step">
       <p className="eyebrow">Aktiv anwenden</p>
       <h1>{step.title}</h1>
       <p className="question-prompt">{step.prompt}</p>
-      <div className="answer-list" role="radiogroup" aria-label={step.prompt}>
+      <div className="answer-list" role="radiogroup" aria-label={step.prompt} ref={listRef}>
         {step.options.map((option, index) => {
-          const selected = answer === option.id;
-          const correct = option.id === step.correctOptionId;
-          const stateClass = answered
-            ? correct
+          const isSelected = selected === option.id;
+          const isCorrect = option.id === step.correctOptionId;
+          const triedWrong = state.wrongOptionIds.includes(option.id);
+          const stateClass =
+            resolved && isCorrect
               ? 'correct'
-              : selected
+              : isSelected && !isCorrect
                 ? 'incorrect'
-                : 'muted'
-            : '';
+                : triedWrong
+                  ? 'tried'
+                  : locked
+                    ? 'muted'
+                    : '';
 
           return (
             <button
@@ -105,27 +134,63 @@ function QuestionStep({
               key={option.id}
               type="button"
               role="radio"
-              aria-checked={selected}
-              disabled={answered}
+              aria-checked={isSelected}
+              disabled={locked || triedWrong}
               onClick={() => onAnswer(option.id)}
             >
               <span className="answer-key">{String.fromCharCode(65 + index)}</span>
               <span>{option.label}</span>
-              {answered && correct ? <b aria-label="richtige Antwort">✓</b> : null}
-              {answered && selected && !correct ? <b aria-label="falsche Antwort">×</b> : null}
+              {resolved && isCorrect ? <b aria-label="richtige Antwort">✓</b> : null}
+              {(isSelected || triedWrong) && !isCorrect ? (
+                <b aria-label="falsche Antwort">×</b>
+              ) : null}
             </button>
           );
         })}
       </div>
-      {answer ? (
-        <div
-          className={`answer-feedback ${answer === step.correctOptionId ? 'correct' : 'incorrect'}`}
-          role="status"
-        >
+
+      {awaitingRetry && selectedOption ? (
+        <div className="answer-feedback incorrect" role="status">
+          <strong>Noch nicht ganz.</strong>
+          <p>{selectedOption.explanation}</p>
+          <div className="answer-actions">
+            <button
+              className="primary-button"
+              type="button"
+              onClick={() => {
+                retryPending.current = true;
+                onRetry();
+              }}
+            >
+              Noch einmal versuchen
+            </button>
+            <button className="secondary-button" type="button" onClick={onReveal}>
+              Lösung anzeigen
+            </button>
+          </div>
+        </div>
+      ) : null}
+
+      {state.status === 'correct' && correctOption ? (
+        <div className="answer-feedback correct" role="status">
           <strong>
-            {answer === step.correctOptionId ? 'Richtig eingeordnet.' : 'Noch nicht ganz.'}
+            {state.wrongOptionIds.length > 0 && !state.legacy
+              ? 'Richtig – im neuen Versuch.'
+              : 'Richtig eingeordnet.'}
           </strong>
-          <p>{step.options.find((option) => option.id === answer)?.explanation}</p>
+          <p>{correctOption.explanation}</p>
+        </div>
+      ) : null}
+
+      {state.status === 'revealed' && correctOption ? (
+        <div className="answer-feedback revealed" role="status">
+          <strong>Lösung: {correctOption.label}</strong>
+          <p>{correctOption.explanation}</p>
+          {selectedOption && selectedOption.id !== correctOption.id ? (
+            <p>
+              <em>Deine Wahl:</em> {selectedOption.explanation}
+            </p>
+          ) : null}
         </div>
       ) : null}
     </article>
@@ -151,15 +216,17 @@ export function LessonPlayer({
   lesson,
   stepIndex,
   onStepChange,
-  answers,
+  questionState,
   onAnswer,
+  onRetry,
+  onReveal,
   onComplete,
   onClose,
 }: LessonPlayerProps) {
   const step = lesson.steps[stepIndex];
   const isLast = stepIndex === lesson.steps.length - 1;
-  const currentAnswer = step.type === 'question' ? answers[step.id] : undefined;
-  const canContinue = step.type !== 'question' || Boolean(currentAnswer);
+  const currentQuestion = step.type === 'question' ? questionState(step) : undefined;
+  const canContinue = !currentQuestion || isQuestionResolved(currentQuestion);
   const percent = useMemo(
     () => Math.round(((stepIndex + 1) / lesson.steps.length) * 100),
     [lesson.steps.length, stepIndex],
@@ -190,11 +257,14 @@ export function LessonPlayer({
         {step.type === 'explanation' ? <ExplanationStep step={step} /> : null}
         {step.type === 'diagram' ? <DiagramStep step={step} /> : null}
         {step.type === 'comparison' ? <ComparisonStep step={step} /> : null}
-        {step.type === 'question' ? (
+        {step.type === 'question' && currentQuestion ? (
           <QuestionStep
+            key={step.id}
             step={step}
-            answer={currentAnswer}
-            onAnswer={(optionId) => onAnswer(step.id, optionId)}
+            state={currentQuestion}
+            onAnswer={(optionId) => onAnswer(step, optionId)}
+            onRetry={() => onRetry(step)}
+            onReveal={() => onReveal(step)}
           />
         ) : null}
         {step.type === 'recap' ? <RecapStep step={step} /> : null}

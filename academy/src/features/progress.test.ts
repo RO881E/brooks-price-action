@@ -74,8 +74,8 @@ describe('progress migration', () => {
 describe('progress updates', () => {
   it('deduplicates completed lessons and records answers', () => {
     let progress = createEmptyProgress();
-    progress = completeLesson(progress, 'lesson-1');
-    progress = completeLesson(progress, 'lesson-1');
+    progress = completeLesson(progress, 'lesson-1', 20);
+    progress = completeLesson(progress, 'lesson-1', 20);
     progress = recordAnswer(progress, 'question-1', 'answer-b');
 
     expect(progress.completedLessonIds).toEqual(['lesson-1']);
@@ -129,7 +129,7 @@ describe('academy data migration', () => {
     saveProgress(storage, loadProgress(storage));
     const saved = JSON.parse(storage.getItem(ACADEMY_PROGRESS_KEY) ?? '{}');
 
-    expect(saved.version).toBe(2);
+    expect(saved.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(saved.completedLessonIds).toEqual(['lesson-1', 'lesson-2']);
     expect(saved.lessonPositions).toEqual({});
     expect(saved).not.toHaveProperty('preservedFields');
@@ -243,9 +243,95 @@ describe('lesson positions', () => {
 
   it('clears the position on completion and does not track completed lessons', () => {
     let progress = recordLessonStep(createEmptyProgress(), 'lesson-1', 3);
-    progress = completeLesson(progress, 'lesson-1');
+    progress = completeLesson(progress, 'lesson-1', 20);
     expect(progress.lessonPositions).toEqual({});
 
     expect(recordLessonStep(progress, 'lesson-1', 1)).toBe(progress);
+  });
+});
+
+describe('attempt and completion data (v3)', () => {
+  it('migrates v2 records with empty results and untouched answers', () => {
+    const progress = migrateProgress({
+      version: 2,
+      completedLessonIds: ['lesson-1'],
+      answers: { 'question-1': 'b' },
+      lessonPositions: {},
+    });
+
+    expect(progress?.version).toBe(ACADEMY_PROGRESS_VERSION);
+    expect(progress?.answers).toEqual({ 'question-1': 'b' });
+    expect(progress?.questionResults).toEqual({});
+    expect(progress?.lessonResults).toEqual({});
+    expect(progress?.completedLessonIds).toEqual(['lesson-1']);
+  });
+
+  it('keeps valid results and drops invalid entries individually', () => {
+    const progress = migrateProgress({
+      version: 3,
+      questionResults: {
+        good: {
+          selectedOptionId: 'a',
+          attempts: 2,
+          firstAttemptCorrect: false,
+          status: 'correct',
+          wrongOptionIds: ['b', 4],
+        },
+        legacy: { selectedOptionId: null, attempts: 0, firstAttemptCorrect: 'x', status: 'open' },
+        badStatus: { attempts: 1, status: 'done' },
+        badAttempts: { attempts: -1, status: 'open' },
+        notObject: 3,
+      },
+      lessonResults: {
+        done: { firstCompletedAt: '2026-09-01', lastCompletedAt: '2026-09-02', xpAwarded: 30 },
+        legacyDone: { firstCompletedAt: null, lastCompletedAt: '2026-09-02', xpAwarded: 20 },
+        badXp: { lastCompletedAt: '2026-09-02', xpAwarded: -5 },
+        missingDate: { xpAwarded: 10 },
+      },
+    });
+
+    expect(progress?.questionResults).toEqual({
+      good: {
+        selectedOptionId: 'a',
+        attempts: 2,
+        firstAttemptCorrect: false,
+        status: 'correct',
+        wrongOptionIds: ['b'],
+      },
+      legacy: {
+        selectedOptionId: null,
+        attempts: 0,
+        firstAttemptCorrect: null,
+        status: 'open',
+        wrongOptionIds: [],
+      },
+    });
+    expect(progress?.lessonResults).toEqual({
+      done: { firstCompletedAt: '2026-09-01', lastCompletedAt: '2026-09-02', xpAwarded: 30 },
+      legacyDone: { firstCompletedAt: null, lastCompletedAt: '2026-09-02', xpAwarded: 20 },
+    });
+  });
+
+  it('round-trips results through storage', () => {
+    const storage = new MemoryStorage();
+    const progress = completeLesson(createEmptyProgress(), 'lesson-1', 30, '2026-09-28T10:00:00.000Z');
+
+    saveProgress(storage, progress);
+    const loaded = loadProgress(storage);
+
+    expect(loaded.lessonResults).toEqual(progress.lessonResults);
+    expect(JSON.parse(storage.getItem(ACADEMY_PROGRESS_KEY) ?? '{}').version).toBe(3);
+  });
+
+  it('completes a lesson once and ignores negative XP', () => {
+    let progress = completeLesson(createEmptyProgress(), 'lesson-1', -10, 't1');
+    progress = completeLesson(progress, 'lesson-1', 99, 't2');
+
+    expect(progress.completedLessonIds).toEqual(['lesson-1']);
+    expect(progress.lessonResults['lesson-1']).toEqual({
+      firstCompletedAt: 't1',
+      lastCompletedAt: 't2',
+      xpAwarded: 0,
+    });
   });
 });
