@@ -2,6 +2,7 @@ import { introductionLessons } from './courses/brooks-trends/introduction';
 import { partOneLessons } from './courses/brooks-trends/part-01';
 import { chapterOneLessons } from './courses/brooks-trends/chapter-01';
 import { chapterTwoLessons } from './courses/brooks-trends/chapter-02';
+import { chapterThreeLessons } from './courses/brooks-trends/chapter-03';
 import type { Course } from './types';
 
 export const brooksTrendsCourse: Course = {
@@ -56,6 +57,17 @@ export const brooksTrendsCourse: Course = {
         'Kontrolle im einzelnen Bar, Follow-through, kumulativer Druck, Klimaxlogik und alle sechs Chartfälle in der Reihenfolge des Buches.',
       estimatedLessonCount: 20,
       lessons: chapterTwoLessons,
+    },
+    {
+      id: 'brooks-trends.chapter-03',
+      order: 5,
+      kind: 'chapter',
+      label: 'Kapitel 3',
+      title: 'Breakouts, Ranges, Tests und Umkehrbewegungen',
+      description:
+        'Vom Breakout über Spike-and-Channel und Testzonen bis zur Umkehrlogik – einschließlich des vollständigen Chartfalls 3.1.',
+      estimatedLessonCount: 14,
+      lessons: chapterThreeLessons,
     },
   ],
 };

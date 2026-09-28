@@ -2,14 +2,15 @@ import { describe, expect, it } from 'vitest';
 import { brooksTrendsCourse, publishedLessons } from './course';
 
 describe('Brooks course model', () => {
-  it('keeps introduction, part introduction and chapters 1–2 in source order', () => {
+  it('keeps introduction, part introduction and chapters 1–3 in source order', () => {
     expect(brooksTrendsCourse.units.map((unit) => unit.id)).toEqual([
       'brooks-trends.introduction',
       'brooks-trends.part-01-introduction',
       'brooks-trends.chapter-01',
       'brooks-trends.chapter-02',
+      'brooks-trends.chapter-03',
     ]);
-    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4]);
+    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5]);
   });
 
   it('publishes the complete source-mapped introduction as 22 micro-lessons', () => {
@@ -112,6 +113,41 @@ describe('Brooks course model', () => {
     expect(chapterTwo.lessons.at(-1)?.title).toBe(
       'Chartfall 2.6: Vom Trend in die Trading Range',
     );
+  });
+
+  it('publishes chapter 3 as fourteen source-ordered micro-lessons', () => {
+    const chapterThree = brooksTrendsCourse.units[4];
+
+    expect(chapterThree.estimatedLessonCount).toBe(14);
+    expect(chapterThree.lessons).toHaveLength(14);
+    expect(
+      chapterThree.lessons.every((lesson) => lesson.status === 'published'),
+    ).toBe(true);
+    expect(
+      chapterThree.lessons.every(
+        (lesson) => (lesson.sourceAnchors?.length ?? 0) >= 3,
+      ),
+    ).toBe(true);
+    expect(chapterThree.lessons.at(0)?.title).toBe(
+      'Ein Breakout beginnt als Kontrollwechsel',
+    );
+    expect(chapterThree.lessons.at(4)?.title).toBe(
+      'Ein Test prüft einen Bereich, keinen perfekten Tick',
+    );
+    expect(chapterThree.lessons.at(8)?.title).toBe(
+      'Chartfall 3.1: Der gescheiterte Tiefausbruch',
+    );
+    expect(chapterThree.lessons.at(-1)?.title).toBe(
+      'Chartfall 3.1: Der komplette Spike-and-Channel-Plan',
+    );
+
+    const diagramScenarios = chapterThree.lessons.flatMap((lesson) =>
+      lesson.steps
+        .filter((step) => step.type === 'diagram')
+        .map((step) => step.scenario),
+    );
+    expect(diagramScenarios).toHaveLength(14);
+    expect(new Set(diagramScenarios).size).toBe(14);
   });
 
   it('uses globally unique stable IDs', () => {

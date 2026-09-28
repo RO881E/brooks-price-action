@@ -1,4 +1,5 @@
 import type { ChartScenarioId } from '../content/types';
+import { ChapterThreeChart } from './ChapterThreeCharts';
 import { ChapterTwoChart } from './ChapterTwoCharts';
 
 interface Candle {
@@ -128,6 +129,34 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Zunehmend große Bear-Bars erreichen Unterstützung, worauf Short-Gewinnmitnahmen und neue Longs eine Rally antreiben.',
   'trend-to-range-pressure':
     'Wiederholt zurückgewiesene Swing-Tiefs führen vom Bärentrend über eine Range zur Rally und späterem Verkaufsdruck.',
+  'breakout-spike-channel':
+    'Eine überlappende Trading Range bricht mit kräftigen Bull-Bars aus und entwickelt nach einem haltenden Pullback einen Kanal.',
+  'channel-shallowing':
+    'Ein steiler bullischer Spike geht nach dem ersten Pullback in einen flacheren und breiteren Trendkanal über.',
+  'channel-to-range-cycle':
+    'Ein bullischer Kanal sammelt Gewinnmitnahmen und Shorts, läuft zum Kanalbeginn zurück und verbreitert sich dort zur Trading Range.',
+  'channel-counter-flag':
+    'Drei Felder zeigen den häufigen Kanalrücktest, eine seitliche Trendflag und eine seltene, anschließend scheiternde Beschleunigung.',
+  'test-area-decision':
+    'Zwei Tests desselben alten Hochs enden links in Akzeptanz mit Breakout-Pullback und rechts in einer scharfen Zurückweisung.',
+  'behavior-reversal':
+    'Drei Felder vergleichen den direkten Richtungswechsel, den Übergang vom Trend zur Range und den Breakout aus einer Range.',
+  'reversal-inertia':
+    'Mehrere zunächst kleine, später größere Pullbacks werden zu einer Trading Range, aus der ein neuer Bärentrend ausbricht.',
+  'reversal-multiframe-map':
+    'Dieselbe bearische Umkehr erscheint als Monatsbar, Zwei-Bar-Wochenumkehr und detaillierte Tagessequenz aus Spike, Range und Breakout.',
+  'failed-low-breakout':
+    'Ein Bruch unter das Vortagestief scheitert und löst durch Short-Eindeckungen und neue Longs einen bullischen Spike aus.',
+  'repeated-high-test':
+    'Ein starkes bullisches Momentum testet ein altes Hoch zweimal, bricht darüber aus und prüft den Bereich anschließend als Unterstützung.',
+  'spike-to-overlap':
+    'Ein bullischer Spike wird zu einem überlappenden Kanal und läuft schließlich zum Bereich seines ersten Pullbacks zurück.',
+  'breakeven-defense':
+    'Eine Kurssequenz verbindet Doppeltief, oberen Widerstand, gleitenden Durchschnitt und knapp verteidigten Long-Einstieg.',
+  'breakout-gap-always-in':
+    'Ein großer Bull-Bar schafft eine funktionale Breakout-Lücke; spätere schwache Abwärtsversuche ändern den bullischen Always-in-Zustand nicht.',
+  'spike-channel-playbook':
+    'Der vollständige Zyklus führt vom Tief-Fehlausbruch über Spike und Keilkanal in einen zweibeinigen Kanalbodentest mit offenen Folgepfaden.',
 };
 
 function yScale(value: number, min: number, max: number): number {
@@ -1369,6 +1398,7 @@ export function LearningChart({ scenario, title }: LearningChartProps) {
         {scenario === 'failed-open-breakout' ? <FailedOpenBreakout /> : null}
         {scenario === 'midday-false-breakout' ? <MiddayFalseBreakout /> : null}
         <ChapterTwoChart scenario={scenario} />
+        <ChapterThreeChart scenario={scenario} />
       </svg>
     </div>
   );
