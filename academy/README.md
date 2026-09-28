@@ -8,7 +8,8 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 - Lernpfad mit aufeinander aufbauenden Mikro-Lektionen
 - alternative Kapitelansicht in der Reihenfolge der Buchvorlage
 - Erklärungen, eigene interaktive Schaubilder, Verständnisfragen und Zusammenfassungen
-- Übungsmodus für bereits abgeschlossene Lektionen
+- Review-Zentrale unter „Üben“ mit „Heute fällig“, „Fehler trainieren“, „Kapitel auswählen“
+  und „Alles mischen“ (nur Fragen aus abgeschlossenen Lektionen, bis zu 10 pro Runde)
 - durchsuchbares Glossar
 - lokaler Lernfortschritt unter `wqt-academy-progress-v1`
 - reload-feste Hash-URLs für alle Ansichten und Lektionen, zum Beispiel `#/glossary` oder
@@ -26,7 +27,7 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-02 `version: 3`:
+seit F-03 `version: 4`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -34,12 +35,25 @@ seit F-02 `version: 3`:
   ersten erfassten Versuchs und Stand im aktuellen Durchgang
 - `lessonResults` (seit F-02): je Lektion erster und letzter Abschluss sowie die einmalig
   gutgeschriebenen XP
+- `reviewCards` (seit F-03): Wiederholungsplan je Frage – Stufe, nächster Fälligkeitstag,
+  letztes Ergebnis, Anzahl der Wiederholungen und Fehler
+- `reviewSession` (seit F-03): die laufende Wiederholungsrunde, damit ein Reload sie nicht
+  zurücksetzt
 
-Ältere Datensätze (v1, v2) werden beim Laden verlustfrei migriert, unbekannte Zusatzfelder
-bleiben erhalten. Alte Antworten werden nicht in Versuche umgedeutet: Ihr Erstversuch gilt als
-„nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
+Ältere Datensätze (v1–v3) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+startet leer. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
+umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
 `wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur
 gelesen, nie verändert.
+
+## Wiederholungsplan
+
+Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen
+1, 3, 7, 14 und 30 Tage. Eine richtige Antwort am oder nach dem Fälligkeitstag hebt die Stufe
+an, eine falsche setzt sie zurück und macht die Frage am nächsten Tag wieder fällig. Richtige
+Antworten vor dem Fälligkeitstag ändern den Plan nicht. Neue Fragen werden am Tag nach dem
+Lektionsabschluss fällig. Gerechnet wird mit lokalen Kalendertagen, nicht mit
+24-Stunden-Abständen.
 
 Der Inhalt ist bewusst als Pilot markiert. Die veröffentlichten Lektionen demonstrieren das
 Format; geplante Einträge bilden die Quellenreihenfolge ab, ohne Vollständigkeit vorzutäuschen.

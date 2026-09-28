@@ -32,7 +32,18 @@ import {
   progressPercent,
   recordLessonStep,
   saveProgress,
+  type ReviewMode,
 } from './features/progress';
+import { localDayKey, seededRandom } from './features/reviewScheduler';
+import {
+  advanceSession,
+  answerReview,
+  buildSession,
+  endSession,
+  reviewPool,
+  sanitizeSession,
+  startSession,
+} from './features/reviewSession';
 
 type View = AppView;
 
@@ -84,6 +95,30 @@ export default function App() {
   useEffect(() => {
     saveProgress(window.localStorage, progress);
   }, [progress]);
+
+  // Eine gespeicherte Wiederholungsrunde nur mit noch vorhandenen Fragen fortsetzen.
+  useEffect(() => {
+    setProgress((current) =>
+      sanitizeSession(current, reviewPool(brooksTrendsCourse, current)),
+    );
+  }, []);
+
+  // Fälligkeit nach lokalem Kalendertag; wird bei jedem Rendern neu bestimmt.
+  const today = localDayKey(new Date());
+
+  const startReview = (mode: ReviewMode, unitId?: string) => {
+    setProgress((current) =>
+      startSession(
+        current,
+        buildSession(mode, reviewPool(brooksTrendsCourse, current), current, {
+          today,
+          unitId,
+          random: seededRandom(Date.now()),
+        }),
+      ),
+    );
+    window.scrollTo({ top: 0 });
+  };
 
   // Browser-Zurück/-Vorwärts und manuell geänderte Adressen übernehmen.
   useEffect(() => {
@@ -330,7 +365,17 @@ export default function App() {
           {view === 'practice' ? (
             <PracticeView
               course={brooksTrendsCourse}
-              completedLessonIds={progress.completedLessonIds}
+              progress={progress}
+              today={today}
+              onStart={startReview}
+              onAnswer={(question, optionId) =>
+                setProgress((current) => answerReview(current, question, optionId, today))
+              }
+              onNext={() => {
+                setProgress(advanceSession);
+                window.scrollTo({ top: 0 });
+              }}
+              onEnd={() => setProgress(endSession)}
             />
           ) : null}
           {view === 'glossary' ? <GlossaryView entries={glossaryEntries} /> : null}
