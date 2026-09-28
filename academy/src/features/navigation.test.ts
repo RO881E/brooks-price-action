@@ -114,6 +114,24 @@ describe('parseRoute', () => {
     }
   });
 
+  it('reads glossary terms only for the glossary', () => {
+    expect(parseRoute('#/glossary?term=High%202')).toEqual({
+      kind: 'view',
+      view: 'glossary',
+      term: 'High 2',
+    });
+    expect(parseRoute('#/glossary?term=')).toEqual({ kind: 'view', view: 'glossary' });
+    expect(parseRoute('#/practice?term=x')).toEqual({ kind: 'view', view: 'practice' });
+    expect(formatRoute({ kind: 'view', view: 'glossary', term: 'Größe & Bar' })).toBe(
+      '#/glossary?term=Gr%C3%B6%C3%9Fe%20%26%20Bar',
+    );
+    expect(parseRoute(formatRoute({ kind: 'view', view: 'glossary', term: 'Größe & Bar' }))).toEqual({
+      kind: 'view',
+      view: 'glossary',
+      term: 'Größe & Bar',
+    });
+  });
+
   it('reads the lesson result route', () => {
     expect(parseRoute('#/lesson/unit.lesson-01/result')).toEqual({
       kind: 'lesson-result',

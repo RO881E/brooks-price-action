@@ -15,7 +15,10 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
   der letzten 7 und 30 Tage, Fortschritt je Buchabschnitt und einer direkten nächsten Aktion
 - wählbares Tagesziel (Lernaktivitäten oder XP), Serie aus echten Lerntagen, Wochenansicht und
   fünf einmalige Meilensteine mit dezenter Meldung (ohne Animation bei `prefers-reduced-motion`)
-- durchsuchbares Glossar
+- durchsuchbares Glossar, auch als Link `#/glossary?term=<Begriff>`
+- globale Suche (Schaltfläche „Suchen“ oder Taste `/`) über Lektionsname, Zusammenfassung,
+  Quelle, Schrittüberschrift, Glossarbegriff und Alias; Umlaute und Groß-/Kleinschreibung
+  werden gleich behandelt, gesperrte Lektionen erscheinen nur als Vorschau
 - lokaler Lernfortschritt unter `wqt-academy-progress-v1`
 - reload-feste Hash-URLs für alle Ansichten und Lektionen, zum Beispiel `#/glossary` oder
   `#/lesson/<lesson-id>?step=3`; Browser-Zurück und -Vorwärts funktionieren

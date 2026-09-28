@@ -1,8 +1,15 @@
 import { useMemo, useState } from 'react';
 import type { GlossaryEntry } from '../content/glossary';
 
-export function GlossaryView({ entries }: { entries: GlossaryEntry[] }) {
-  const [query, setQuery] = useState('');
+export function GlossaryView({
+  entries,
+  initialQuery,
+}: {
+  entries: GlossaryEntry[];
+  /** Vorbelegung aus einem Such-Sprung oder Link `#/glossary?term=…`. */
+  initialQuery?: string;
+}) {
+  const [query, setQuery] = useState(initialQuery ?? '');
   const normalized = query.trim().toLocaleLowerCase('de');
   const filtered = useMemo(
     () =>
