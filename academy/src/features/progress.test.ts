@@ -9,6 +9,7 @@ import {
   LEGACY_TREND_RANGE_BEST_KEY,
   loadProgress,
   progressPercent,
+  logActivity,
   migrateProgress,
   recordActivity,
   recordAnswer,
@@ -381,6 +382,7 @@ describe('review data (v4)', () => {
       index: 1,
       answers: { q1: 'a' },
       startedDay: '2026-09-28',
+      activityRecorded: false,
     });
   });
 
@@ -449,5 +451,104 @@ describe('activity days (v5)', () => {
     progress = migrateProgress({ version: 5, activityDays: many })!;
     expect(progress.activityDays).toHaveLength(400);
     expect(progress.activityDays.at(-1)).toBe(many.at(-1));
+  });
+});
+
+describe('goals, daily activity and milestones (v6)', () => {
+  const first = new Date(2026, 9, 1, 12).toISOString();
+  const replay = new Date(2026, 9, 3, 12).toISOString();
+
+  it('derives daily counts from lesson results when upgrading', () => {
+    const progress = migrateProgress({
+      version: 5,
+      activityDays: ['2026-10-01', '2026-10-03'],
+      lessonResults: {
+        a: { firstCompletedAt: first, lastCompletedAt: replay, xpAwarded: 30 },
+        b: { firstCompletedAt: first, lastCompletedAt: first, xpAwarded: 20 },
+        old: { firstCompletedAt: null, lastCompletedAt: replay, xpAwarded: 10 },
+      },
+    });
+
+    expect(progress?.version).toBe(ACADEMY_PROGRESS_VERSION);
+    expect(progress?.dailyActivity).toEqual({
+      '2026-10-01': { lessons: 2, reviewSessions: 0, xp: 50 },
+      '2026-10-03': { lessons: 2, reviewSessions: 0, xp: 0 },
+    });
+    expect(progress?.dailyGoal).toEqual({ kind: 'activities', target: 1 });
+    expect(progress?.milestones).toEqual({});
+  });
+
+  it('never derives again once daily counts exist, so reloads do not double count', () => {
+    const storage = new MemoryStorage();
+    storage.setItem(
+      ACADEMY_PROGRESS_KEY,
+      JSON.stringify({
+        version: 5,
+        lessonResults: { a: { firstCompletedAt: first, lastCompletedAt: first, xpAwarded: 30 } },
+      }),
+    );
+
+    saveProgress(storage, loadProgress(storage));
+    saveProgress(storage, loadProgress(storage));
+
+    expect(loadProgress(storage).dailyActivity).toEqual({
+      '2026-10-01': { lessons: 1, reviewSessions: 0, xp: 30 },
+    });
+  });
+
+  it('does not derive activity days from review answers once v5 data exists', () => {
+    const progress = migrateProgress({
+      version: 5,
+      activityDays: [],
+      reviewCards: {
+        q: { stage: 0, dueDay: '2026-10-06', lastReviewedDay: '2026-10-05', lastResult: 'correct' },
+      },
+    });
+    expect(progress?.activityDays).toEqual([]);
+  });
+
+  it('keeps valid goals and milestones and drops invalid ones', () => {
+    const progress = migrateProgress({
+      version: 6,
+      dailyGoal: { kind: 'xp', target: 60 },
+      dailyActivity: { '2026-10-01': { lessons: 1, reviewSessions: -2, xp: 'viel' }, kaputt: {} },
+      milestones: {
+        'first-lesson': { achievedDay: '2026-10-01' },
+        'seven-days': { achievedDay: 'gestern' },
+        'gold-badge': { achievedDay: '2026-10-01' },
+      },
+    });
+
+    expect(progress?.dailyGoal).toEqual({ kind: 'xp', target: 60 });
+    expect(progress?.dailyActivity).toEqual({ '2026-10-01': { lessons: 1, reviewSessions: 0, xp: 0 } });
+    expect(progress?.milestones).toEqual({ 'first-lesson': { achievedDay: '2026-10-01' } });
+    expect(migrateProgress({ version: 6, dailyGoal: { kind: 'xp', target: 7 } })?.dailyGoal).toEqual({
+      kind: 'activities',
+      target: 1,
+    });
+  });
+
+  it('credits lesson XP once per lesson and counts every completion as activity', () => {
+    let progress = completeLesson(createEmptyProgress(), 'a', 30, first);
+    progress = completeLesson(progress, 'a', 30, new Date(2026, 9, 1, 18).toISOString());
+
+    expect(progress.dailyActivity['2026-10-01']).toEqual({ lessons: 2, reviewSessions: 0, xp: 30 });
+
+    // Vor der Erfassung abgeschlossene Lektion: keine neuen XP beim Wiederholen.
+    const legacy = completeLesson(
+      { ...createEmptyProgress(), completedLessonIds: ['b'] },
+      'b',
+      20,
+      first,
+    );
+    expect(legacy.dailyActivity['2026-10-01']).toEqual({ lessons: 1, reviewSessions: 0, xp: 0 });
+  });
+
+  it('ignores invalid days and negative values when logging activity', () => {
+    const progress = createEmptyProgress();
+    expect(logActivity(progress, 'morgen', { lessons: 1 })).toBe(progress);
+    expect(logActivity(progress, '2026-10-01', { lessons: -3, xp: Number.NaN }).dailyActivity).toEqual({
+      '2026-10-01': { lessons: 0, reviewSessions: 0, xp: 0 },
+    });
   });
 });

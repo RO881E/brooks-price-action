@@ -1,7 +1,8 @@
 import type { Course, CourseUnit, Lesson } from '../content/types';
 import { questionView, type QuestionStep } from './lessonResults';
+import { awardMilestone } from './goals';
 import {
-  recordActivity,
+  logActivity,
   type AcademyProgress,
   type ReviewMode,
   type ReviewSession,
@@ -153,6 +154,7 @@ export function buildSession(
     index: 0,
     answers: {},
     startedDay: options.today,
+    activityRecorded: false,
   };
 }
 
@@ -221,7 +223,7 @@ export function answerReview(
 
   const correct = optionId === question.correctOptionId;
 
-  return recordActivity({
+  return {
     ...progress,
     reviewCards: {
       ...progress.reviewCards,
@@ -231,19 +233,55 @@ export function answerReview(
       ...session,
       answers: { ...session.answers, [question.id]: optionId },
     },
-  }, today);
+  };
 }
 
-/** Weiter zur nächsten Frage – erst, wenn die aktuelle beantwortet ist. */
-export function advanceSession(progress: AcademyProgress): AcademyProgress {
+/**
+ * Zählt eine beendete Runde mit mindestens einer beantworteten Frage genau
+ * einmal als Lernaktivität. Eine vollständig fehlerfrei beantwortete Runde
+ * vergibt den Meilenstein „Fehlerfreie Runde“.
+ */
+function countFinishedSession(progress: AcademyProgress, today: DayKey): AcademyProgress {
+  const session = progress.reviewSession;
+  if (!session || session.activityRecorded) return progress;
+
+  const answered = session.questionIds.filter((id) => session.answers[id] !== undefined);
+  if (answered.length === 0) return progress;
+
+  let next = logActivity(
+    { ...progress, reviewSession: { ...session, activityRecorded: true } },
+    today,
+    { reviewSessions: 1 },
+  );
+
+  const complete = answered.length === session.questionIds.length;
+  const allCorrect =
+    complete &&
+    // Jede Frage kommt in einer Runde genau einmal vor; ihr Plan spiegelt daher
+    // die Antwort aus dieser Runde.
+    answered.every((id) => progress.reviewCards[id]?.lastResult === 'correct');
+  if (allCorrect) next = awardMilestone(next, 'perfect-review', today);
+  return next;
+}
+
+/**
+ * Weiter zur nächsten Frage – erst, wenn die aktuelle beantwortet ist. Mit der
+ * letzten Frage ist die Runde beendet und zählt als Lernaktivität.
+ */
+export function advanceSession(progress: AcademyProgress, today: DayKey): AcademyProgress {
   const session = progress.reviewSession;
   if (!session || session.index >= session.questionIds.length) return progress;
   if (session.answers[session.questionIds[session.index]] === undefined) return progress;
-  return { ...progress, reviewSession: { ...session, index: session.index + 1 } };
+  const next = { ...progress, reviewSession: { ...session, index: session.index + 1 } };
+  return next.reviewSession.index >= session.questionIds.length
+    ? countFinishedSession(next, today)
+    : next;
 }
 
-export function endSession(progress: AcademyProgress): AcademyProgress {
-  return progress.reviewSession ? { ...progress, reviewSession: null } : progress;
+/** Beendet die Runde; beantwortete Fragen zählen dabei als Lernaktivität. */
+export function endSession(progress: AcademyProgress, today: DayKey): AcademyProgress {
+  if (!progress.reviewSession) return progress;
+  return { ...countFinishedSession(progress, today), reviewSession: null };
 }
 
 export function isSessionFinished(session: ReviewSession): boolean {

@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { CelebrationToast, type Celebration } from './components/CelebrationToast';
 import { ChapterView } from './components/ChapterView';
 import { GlossaryView } from './components/GlossaryView';
 import { LessonPlayer } from './components/LessonPlayer';
@@ -9,6 +10,13 @@ import { ProgressView } from './components/ProgressView';
 import { brooksTrendsCourse, publishedLessonIds } from './content/course';
 import { glossaryEntries } from './content/glossary';
 import type { Lesson } from './content/types';
+import {
+  awardMilestones,
+  goalLabel,
+  goalOverview,
+  goalProgress,
+  newMilestones,
+} from './features/goals';
 import {
   lessonSummary,
   questionView,
@@ -33,6 +41,8 @@ import {
   progressPercent,
   recordLessonStep,
   saveProgress,
+  setDailyGoal,
+  type AcademyProgress,
   type ReviewMode,
 } from './features/progress';
 import { progressOverview, type NextAction } from './features/progressStats';
@@ -81,7 +91,21 @@ export default function App() {
   const [lastView, setLastView] = useState<View>('path');
   const [notice, setNotice] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [progress, setProgress] = useState(() => loadProgress(window.localStorage));
+  // Bereits früher erreichte Meilensteine werden beim Laden still nachgetragen.
+  const [progress, setStoredProgress] = useState(() =>
+    awardMilestones(loadProgress(window.localStorage), brooksTrendsCourse, localDayKey(new Date())),
+  );
+  // Jede Änderung prüft im selben Schritt die Meilensteine – so gibt es keinen
+  // Zwischenstand und jede Vergabe bleibt einmalig.
+  const setProgress = useCallback(
+    (update: (current: AcademyProgress) => AcademyProgress) =>
+      setStoredProgress((current) =>
+        awardMilestones(update(current), brooksTrendsCourse, localDayKey(new Date())),
+      ),
+    [],
+  );
+  const [celebration, setCelebration] = useState<Celebration | null>(null);
+  const closeCelebration = useCallback(() => setCelebration(null), []);
   const percent = useMemo(
     () => progressPercent(progress, publishedLessonIds),
     [progress],
@@ -109,6 +133,45 @@ export default function App() {
 
   // Fälligkeit nach lokalem Kalendertag; wird bei jedem Rendern neu bestimmt.
   const today = localDayKey(new Date());
+
+  // Nur echte Übergänge feiern: Reload und Zieländerungen lösen nichts aus.
+  const previousProgress = useRef(progress);
+  useEffect(() => {
+    const before = previousProgress.current;
+    previousProgress.current = progress;
+    if (before === progress) return;
+
+    const reached = newMilestones(before, progress).map(
+      (milestone) => `Meilenstein: ${milestone.title}`,
+    );
+    const goalReached =
+      before.dailyGoal === progress.dailyGoal &&
+      !goalProgress(before, today).met &&
+      goalProgress(progress, today).met;
+
+    if (goalReached || reached.length > 0) {
+      // Kommt kurz nacheinander mehr zusammen, wird die Meldung ergänzt statt ersetzt.
+      setCelebration((current) => {
+        const details = [
+          ...(current?.details ?? []),
+          ...(goalReached ? [`Heute geschafft: ${goalLabel(progress.dailyGoal)}.`] : []),
+          ...reached,
+        ];
+        return {
+          id: (current?.id ?? 0) + 1,
+          title:
+            goalReached || current?.title === 'Tagesziel erreicht'
+              ? 'Tagesziel erreicht'
+              : 'Meilenstein erreicht',
+          details: [...new Set(details)],
+        };
+      });
+    }
+  }, [progress, today]);
+
+  const toast = celebration ? (
+    <CelebrationToast celebration={celebration} onClose={closeCelebration} />
+  ) : null;
 
   const startReview = (mode: ReviewMode, unitId?: string) => {
     setProgress((current) =>
@@ -227,54 +290,60 @@ export default function App() {
 
   if (activeLesson) {
     return (
-      <LessonPlayer
-        key={activeLesson.id}
-        lesson={activeLesson}
-        stepIndex={activeStepIndex}
-        onStepChange={(stepIndex) =>
-          navigate(
-            { kind: 'lesson', lessonId: activeLesson.id, step: stepIndex + 1 },
-            'replace',
-            window.history.state,
-          )
-        }
-        questionState={(question) => questionView(question, progress)}
-        onAnswer={(question, optionId) =>
-          setProgress((current) => submitAnswer(current, question, optionId))
-        }
-        onRetry={(question) => setProgress((current) => retryQuestion(current, question))}
-        onReveal={(question) => setProgress((current) => revealSolution(current, question))}
-        onComplete={() => {
-          setProgress((current) =>
-            completeLesson(current, activeLesson.id, activeLesson.xp),
-          );
-          navigate(
-            { kind: 'lesson-result', lessonId: activeLesson.id },
-            'replace',
-            window.history.state,
-          );
-        }}
-        onClose={closeLesson}
-      />
+      <>
+        <LessonPlayer
+          key={activeLesson.id}
+          lesson={activeLesson}
+          stepIndex={activeStepIndex}
+          onStepChange={(stepIndex) =>
+            navigate(
+              { kind: 'lesson', lessonId: activeLesson.id, step: stepIndex + 1 },
+              'replace',
+              window.history.state,
+            )
+          }
+          questionState={(question) => questionView(question, progress)}
+          onAnswer={(question, optionId) =>
+            setProgress((current) => submitAnswer(current, question, optionId))
+          }
+          onRetry={(question) => setProgress((current) => retryQuestion(current, question))}
+          onReveal={(question) => setProgress((current) => revealSolution(current, question))}
+          onComplete={() => {
+            setProgress((current) =>
+              completeLesson(current, activeLesson.id, activeLesson.xp),
+            );
+            navigate(
+              { kind: 'lesson-result', lessonId: activeLesson.id },
+              'replace',
+              window.history.state,
+            );
+          }}
+          onClose={closeLesson}
+        />
+        {toast}
+      </>
     );
   }
 
   if (resultLesson) {
     return (
-      <LessonResultView
-        key={resultLesson.id}
-        lesson={resultLesson}
-        summary={lessonSummary(resultLesson, progress)}
-        onRepeat={() => {
-          setProgress((current) => restartLesson(current, resultLesson));
-          navigate(
-            { kind: 'lesson', lessonId: resultLesson.id, step: 1 },
-            'replace',
-            window.history.state,
-          );
-        }}
-        onBackToPath={() => navigate({ kind: 'view', view: 'path' }, 'replace')}
-      />
+      <>
+        <LessonResultView
+          key={resultLesson.id}
+          lesson={resultLesson}
+          summary={lessonSummary(resultLesson, progress)}
+          onRepeat={() => {
+            setProgress((current) => restartLesson(current, resultLesson));
+            navigate(
+              { kind: 'lesson', lessonId: resultLesson.id, step: 1 },
+              'replace',
+              window.history.state,
+            );
+          }}
+          onBackToPath={() => navigate({ kind: 'view', view: 'path' }, 'replace')}
+        />
+        {toast}
+      </>
     );
   }
 
@@ -367,6 +436,8 @@ export default function App() {
               resume={resume}
               notice={notice}
               onDismissNotice={() => setNotice(null)}
+              goal={goalProgress(progress, today)}
+              streak={goalOverview(progress, today).streak}
               onOpenLesson={openLesson}
             />
           ) : null}
@@ -387,23 +458,27 @@ export default function App() {
                 setProgress((current) => answerReview(current, question, optionId, today))
               }
               onNext={() => {
-                setProgress(advanceSession);
+                setProgress((current) => advanceSession(current, today));
                 window.scrollTo({ top: 0 });
               }}
-              onEnd={() => setProgress(endSession)}
+              onEnd={() => setProgress((current) => endSession(current, today))}
             />
           ) : null}
           {view === 'progress' ? (
             <ProgressView
               course={brooksTrendsCourse}
               overview={progressOverview(brooksTrendsCourse, progress, today)}
+              goals={goalOverview(progress, today)}
               today={today}
               onAction={runNextAction}
+              onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
             />
           ) : null}
           {view === 'glossary' ? <GlossaryView entries={glossaryEntries} /> : null}
         </div>
       </div>
+
+      {toast}
 
       <nav className="mobile-bottom-nav" aria-label="Mobile Navigation">
         {navigation.map((item) => (

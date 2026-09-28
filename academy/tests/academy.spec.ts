@@ -256,7 +256,7 @@ test.describe('F-01 resume and stable URLs', () => {
     const stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
-    expect(stored.version).toBe(5);
+    expect(stored.version).toBe(6);
     expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
@@ -335,7 +335,7 @@ test.describe('F-01 resume and stable URLs', () => {
       legacy: localStorage.getItem('brooks-progress'),
       best: localStorage.getItem('brooks-tr-best'),
     }));
-    expect(stored.academy.version).toBe(5);
+    expect(stored.academy.version).toBe(6);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
@@ -407,7 +407,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(5);
+    expect(stored.version).toBe(6);
     expect(stored.completedLessonIds).toEqual([lessonId]);
     expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
     expect(stored.questionResults['intro-01-question']).toMatchObject({
@@ -615,7 +615,7 @@ test.describe('F-03 smart review queue', () => {
     await expect(page.getByText('Für heute ist nichts mehr fällig.')).toBeVisible();
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(5);
+    expect(stored.version).toBe(6);
     for (const question of questions) {
       expect(stored.reviewCards[question.id]).toMatchObject({
         stage: 0,
@@ -858,5 +858,127 @@ test.describe('F-04 progress dashboard', () => {
     const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
     await expect(mobileNavigation.getByRole('button', { name: 'Fortschritt' })).toHaveClass(/active/);
     expect(await noHorizontalOverflow(page)).toBe(false);
+  });
+});
+
+test.describe('F-05 daily goal, streak and milestones', () => {
+  const [lessonOne] = publishedLessons;
+  const firstQuestion = lessonOne.steps.find((step) => step.type === 'question')!;
+  const correctLabel = firstQuestion.options.find(
+    (option) => option.id === firstQuestion.correctOptionId,
+  )!.label;
+
+  const seed = async (page: import('@playwright/test').Page, record: Record<string, unknown>) => {
+    await page.addInitScript((value) => {
+      if (sessionStorage.getItem('seeded')) return;
+      sessionStorage.setItem('seeded', '1');
+      localStorage.setItem('wqt-academy-progress-v1', JSON.stringify(value));
+    }, record);
+  };
+
+  const completeFirstLesson = async (page: import('@playwright/test').Page) => {
+    await page.getByRole('button', { name: `${lessonOne.title}: Jetzt lernen` }).click();
+    for (let step = 0; step < 3; step += 1) {
+      await page.getByRole('button', { name: 'Weiter' }).click();
+    }
+    await page.getByRole('radio', { name: correctLabel }).click();
+    await page.getByRole('button', { name: 'Weiter' }).click();
+    await page.getByRole('button', { name: 'Lektion abschließen' }).click();
+  };
+
+  const toast = (page: import('@playwright/test').Page) =>
+    page.getByRole('status').filter({ hasText: 'Tagesziel erreicht' });
+
+  test('reaching the daily goal celebrates once and shows up in week and milestones', async ({ page }) => {
+    await page.clock.setFixedTime(new Date(2026, 9, 7, 10, 0));
+    await page.goto('/');
+    await expect(page.locator('.today-card')).toContainText('0 von 1');
+
+    await completeFirstLesson(page);
+    await expect(toast(page)).toBeVisible();
+    await expect(toast(page)).toContainText('Meilenstein: Erste Lektion');
+    const animation = await page.locator('.celebration').evaluate((node) => getComputedStyle(node).animationName);
+    expect(animation).toBe('celebration-in');
+
+    // Reload der Auswertung: keine zweite Meldung, keine doppelten Werte.
+    await page.reload();
+    await expect(page.getByText('Lektion abgeschlossen')).toBeVisible();
+    await expect(page.locator('.celebration')).toHaveCount(0);
+
+    await page.goto('/#/progress');
+    const goalPanel = page.locator('.goal-panel');
+    await expect(goalPanel).toContainText('Heute: 1 von 1 Lernaktivität – geschafft.');
+    await expect(goalPanel).toContainText('Serie: 1 Tag');
+    await expect(goalPanel.getByText('2026-10-07: Ziel erreicht')).toBeAttached();
+    await expect(page.locator('.milestone-list li.achieved')).toHaveCount(1);
+    await expect(page.locator('.milestone-list li.achieved')).toContainText('Erhalten am 07.10.2026');
+
+    // Ein höheres Ziel wählen: kein Jubel, ehrliche Anzeige.
+    await page.getByRole('radio', { name: '2 Lernaktivitäten' }).check();
+    await expect(goalPanel).toContainText('Heute: 1 von 2 Lernaktivitäten.');
+    await expect(page.locator('.celebration')).toHaveCount(0);
+
+    const stored = await page.evaluate(() =>
+      JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
+    );
+    expect(stored.dailyGoal).toEqual({ kind: 'activities', target: 2 });
+    expect(stored.dailyActivity['2026-10-07']).toEqual({ lessons: 1, reviewSessions: 0, xp: lessonOne.xp });
+    expect(Object.keys(stored.milestones)).toEqual(['first-lesson']);
+  });
+
+  test('the next days keep, pause and restart the streak only through real activity', async ({ page }) => {
+    await page.clock.setFixedTime(new Date(2026, 9, 7, 9, 0));
+    await seed(page, {
+      version: 5,
+      // Ältere Abschlüsse ohne Datum: Fragen sind sofort fällig.
+      completedLessonIds: [lessonOne.id],
+      activityDays: ['2026-10-05', '2026-10-06'],
+    });
+
+    await page.goto('/#/progress');
+    const goalPanel = page.locator('.goal-panel');
+    await expect(goalPanel).toContainText('Serie: 2 Tage');
+    await expect(goalPanel).toContainText('Die Serie zählt bis gestern.');
+    await expect(goalPanel.getByText('2026-10-05: Ziel erreicht')).toBeAttached();
+    await expect(goalPanel.getByText('2026-10-07: heute noch offen')).toBeAttached();
+
+    // Nur öffnen und neu laden: nichts ändert sich.
+    await page.reload();
+    await expect(goalPanel).toContainText('Serie: 2 Tage');
+
+    // Zwei Tage ausgelassen: die Serie ruht, die längste bleibt.
+    await page.clock.setFixedTime(new Date(2026, 9, 9, 18, 0));
+    await page.reload();
+    await expect(goalPanel).toContainText('Serie: 0 Tage · Längste: 2');
+    await expect(goalPanel.getByText('2026-10-07: kein Lerntag')).toBeAttached();
+    await expect(page.getByText(/verlier|verpasst/i)).toHaveCount(0);
+
+    // Eine beendete Wiederholungsrunde ist echte Aktivität.
+    await page.getByRole('button', { name: 'Fällige Wiederholung starten' }).click();
+    await page.getByRole('radio', { name: correctLabel }).click();
+    await page.getByRole('button', { name: 'Auswertung anzeigen' }).click();
+    await expect(toast(page)).toBeVisible();
+    await expect(toast(page)).toContainText('Fehlerfreie Runde');
+
+    await page.goto('/#/progress');
+    await expect(goalPanel).toContainText('Serie: 1 Tag · Längste: 2');
+    await expect(goalPanel.getByText('2026-10-09: Ziel erreicht')).toBeAttached();
+  });
+
+  test('respects reduced motion for the celebration', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.clock.setFixedTime(new Date(2026, 9, 7, 10, 0));
+    await page.goto('/');
+    await completeFirstLesson(page);
+
+    await expect(toast(page)).toBeVisible();
+    const animations = await page.locator('.celebration').evaluate((node) => ({
+      toast: getComputedStyle(node).animationName,
+      mark: getComputedStyle(node.querySelector('.celebration-mark')!).animationName,
+    }));
+    expect(animations).toEqual({ toast: 'none', mark: 'none' });
+
+    await page.getByRole('button', { name: 'Meldung schließen' }).click();
+    await expect(page.locator('.celebration')).toHaveCount(0);
   });
 });
