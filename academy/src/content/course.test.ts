@@ -2,15 +2,16 @@ import { describe, expect, it } from 'vitest';
 import { brooksTrendsCourse, publishedLessons } from './course';
 
 describe('Brooks course model', () => {
-  it('keeps introduction, part introduction and chapters 1–3 in source order', () => {
+  it('keeps introduction, part introduction and chapters 1–4 in source order', () => {
     expect(brooksTrendsCourse.units.map((unit) => unit.id)).toEqual([
       'brooks-trends.introduction',
       'brooks-trends.part-01-introduction',
       'brooks-trends.chapter-01',
       'brooks-trends.chapter-02',
       'brooks-trends.chapter-03',
+      'brooks-trends.chapter-04',
     ]);
-    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5]);
+    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
   it('publishes the complete source-mapped introduction as 22 micro-lessons', () => {
@@ -148,6 +149,48 @@ describe('Brooks course model', () => {
     );
     expect(diagramScenarios).toHaveLength(14);
     expect(new Set(diagramScenarios).size).toBe(14);
+  });
+
+  it('publishes chapter 4 as twenty-five source-ordered micro-lessons', () => {
+    const chapterFour = brooksTrendsCourse.units[5];
+
+    expect(chapterFour.estimatedLessonCount).toBe(25);
+    expect(chapterFour.lessons).toHaveLength(25);
+    expect(
+      chapterFour.lessons.every((lesson) => lesson.status === 'published'),
+    ).toBe(true);
+    expect(
+      chapterFour.lessons.every(
+        (lesson) => (lesson.sourceAnchors?.length ?? 0) >= 3,
+      ),
+    ).toBe(true);
+    expect(chapterFour.lessons.at(0)?.title).toBe(
+      'Ein Setup ist eine Möglichkeit, noch kein Signal',
+    );
+    expect(chapterFour.lessons.at(5)?.title).toBe(
+      'Fortsetzungssignale brauchen Initiative und Anschluss',
+    );
+    expect(chapterFour.lessons.at(10)?.title).toBe(
+      'ii und iii verschachteln die Kompression',
+    );
+    expect(chapterFour.lessons.at(17)?.title).toBe(
+      'Shaved Bars und Swing-Struktur ergänzen die Setups',
+    );
+    expect(chapterFour.lessons.at(20)?.title).toBe(
+      'Eine nicht ausgelöste Order wird gestrichen',
+    );
+    expect(chapterFour.lessons.at(-1)?.title).toBe(
+      'Chartfall 4.1: Fill, Follow-through und die Setups 4–5',
+    );
+
+    const diagramScenarios = chapterFour.lessons.flatMap((lesson) =>
+      lesson.steps
+        .filter((step) => step.type === 'diagram')
+        .map((step) => step.scenario),
+    );
+    expect(diagramScenarios).toHaveLength(25);
+    expect(new Set(diagramScenarios).size).toBe(25);
+    expect(publishedLessons).toHaveLength(113);
   });
 
   it('uses globally unique stable IDs', () => {

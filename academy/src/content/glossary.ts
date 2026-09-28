@@ -63,6 +63,27 @@ export const glossaryEntries: GlossaryEntry[] = [
     firstUnit: 'Teil I',
   },
   {
+    term: 'Zwei-Bar-Reversal',
+    aliases: ['Two-Bar Reversal'],
+    definition:
+      'Folge aus zwei entgegengesetzten Bars, bei der der zweite Bar einen großen Teil der Bewegung des ersten zurücknimmt. Das Muster zeigt einen schnellen Kontrollwechsel, benötigt aber weiterhin einen passenden Standort und Follow-through.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Drei-Bar-Reversal',
+    aliases: ['Three-Bar Reversal'],
+    definition:
+      'Dreiteilige Umkehrfolge aus ursprünglichem Druck, sichtbarer Verlangsamung und kräftiger Gegeninitiative. Die drei Schritte machen den Wechsel der Kontrolle deutlicher als ein einzelner Reversal-Bar.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Gescheitertes Signal',
+    aliases: ['Failed Signal', 'Fehlsignal'],
+    definition:
+      'Ausgelöstes Setup, dem der erwartete Anschluss fehlt und dessen Signalbereich anschließend zurückerobert wird. Gefangene Trader können dann eine Bewegung in die Gegenrichtung beschleunigen.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
     term: 'Doji',
     aliases: ['Non-Trend-Bar'],
     definition:
@@ -101,7 +122,7 @@ export const glossaryEntries: GlossaryEntry[] = [
     term: 'Signal-Bar',
     aliases: ['Signalbar'],
     definition:
-      'Bar, auf dessen Struktur ein möglicher Einstieg vorbereitet wird. Er ist Teil des Setups und nicht automatisch ein Trade.',
+      'Abgeschlossener Bar, dessen Hoch oder Tief eine Entry-Order auslöst. Seine Signal-Rolle steht deshalb erst nach dem Fill fest.',
     firstUnit: 'Kapitel 4',
   },
   {
@@ -109,6 +130,83 @@ export const glossaryEntries: GlossaryEntry[] = [
     aliases: ['Einstiegsbar'],
     definition:
       'Bar, in dessen Verlauf die zuvor geplante Order ausgelöst und die Position tatsächlich eröffnet wird.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Setup',
+    aliases: ['Handelsvorbereitung'],
+    definition:
+      'Ein oder mehrere Bars, deren Kontext einen möglichen Trade mit günstigem Erwartungswert nahelegt. Ohne ausgelöste Order bleibt es nur eine Möglichkeit.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Setup-Bar',
+    aliases: ['Set-up-Bar'],
+    definition:
+      'Letzter abgeschlossener Bar eines Setups, an dessen Hoch oder Tief eine Entry-Order geplant wird. Erst die spätere Auslösung macht ihn zum Signal-Bar.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Follow-through-Bar',
+    aliases: ['Anschlussbar'],
+    definition:
+      'Bar nach dem Entry, der den neuen Kursbereich weiter in Handelsrichtung trägt und damit die ursprüngliche These bestätigt.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'With-trend',
+    aliases: ['mit dem Trend', 'Trendfolge'],
+    definition:
+      'Trade in Richtung des dominanten Trends. Die bestehende Marktträgheit senkt im Vergleich zu einem Countertrend-Trade die notwendige Beweislast.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Countertrend',
+    aliases: ['gegen den Trend', 'Gegentrend'],
+    definition:
+      'Trade gegen den dominanten Trend. Er verlangt deutlich mehr strukturelle Evidenz, weil die meisten frühen Umkehrversuche scheitern.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Inside-Bar',
+    aliases: ['i', 'Innenbar'],
+    definition:
+      'Bar, dessen Hoch unter oder auf dem vorherigen Hoch und dessen Tief über oder auf dem vorherigen Tief liegt. Er zeigt eine kleinere Ein-Bar-Range.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'ii / iii',
+    aliases: ['Double Inside Bar', 'Triple Inside Bar'],
+    definition:
+      'Folge von zwei oder drei aufeinander bezogenen Inside-Bars. Die zunehmende Kompression schafft ein Breakout-Setup, aber noch keine Richtung.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'ioi',
+    aliases: ['Inside-Outside-Inside'],
+    definition:
+      'Dreierfolge aus Inside-Bar, Outside-Bar und erneutem Inside-Bar. Sie verbindet Expansion und erneute Kompression vor einem möglichen Breakout.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Outside-Bar',
+    aliases: ['o', 'Außenbar'],
+    definition:
+      'Bar mit einem Hoch über dem vorherigen Hoch und einem Tief unter dem vorherigen Tief. Seine größere Range zeigt Expansion, aber allein keine verlässliche Richtung.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'oo',
+    aliases: ['Double Outside Bar'],
+    definition:
+      'Zwei aufeinanderfolgende Outside-Bars. Die starke zweiseitige Expansion ist besonders kontextabhängig und kann ein Breakout- oder Reversal-Setup bilden.',
+    firstUnit: 'Kapitel 4',
+  },
+  {
+    term: 'Shaved Bar',
+    aliases: ['rasierter Bar', 'Shaved Top', 'Shaved Bottom'],
+    definition:
+      'Bar ohne sichtbaren Tail an mindestens einem Ende, weil Hoch oder Tief mit Eröffnung oder Schluss zusammenfällt. Der fehlende Tail kann gerichtete Kontrolle zeigen.',
     firstUnit: 'Kapitel 4',
   },
   {

@@ -3,6 +3,7 @@ import { partOneLessons } from './courses/brooks-trends/part-01';
 import { chapterOneLessons } from './courses/brooks-trends/chapter-01';
 import { chapterTwoLessons } from './courses/brooks-trends/chapter-02';
 import { chapterThreeLessons } from './courses/brooks-trends/chapter-03';
+import { chapterFourLessons } from './courses/brooks-trends/chapter-04';
 import type { Course } from './types';
 
 export const brooksTrendsCourse: Course = {
@@ -68,6 +69,17 @@ export const brooksTrendsCourse: Course = {
         'Vom Breakout über Spike-and-Channel und Testzonen bis zur Umkehrlogik – einschließlich des vollständigen Chartfalls 3.1.',
       estimatedLessonCount: 14,
       lessons: chapterThreeLessons,
+    },
+    {
+      id: 'brooks-trends.chapter-04',
+      order: 6,
+      kind: 'chapter',
+      label: 'Kapitel 4',
+      title: 'Signal-Bars, Entry-Bars, Setups und Kerzenmuster',
+      description:
+        'Vom möglichen Setup über Auslösung und Follow-through bis zum vollständigen Chartfall – mit den Signalfolgen und Filtern des Buchkapitels.',
+      estimatedLessonCount: 25,
+      lessons: chapterFourLessons,
     },
   ],
 };

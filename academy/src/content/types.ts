@@ -66,7 +66,32 @@ export type ChartScenarioId =
   | 'spike-to-overlap'
   | 'breakeven-defense'
   | 'breakout-gap-always-in'
-  | 'spike-channel-playbook';
+  | 'spike-channel-playbook'
+  | 'setup-direction'
+  | 'bar-role-lifecycle'
+  | 'one-bar-order-map'
+  | 'contextual-imbalance'
+  | 'signal-family-map'
+  | 'inside-outside-sequences'
+  | 'contextual-failure-setups'
+  | 'beginner-signal-filter'
+  | 'trend-signal-strength'
+  | 'stop-entry-lifecycle'
+  | 'candle-name-reduction'
+  | 'forming-bar-climax'
+  | 'signal-entry-case'
+  | 'continuation-setup-map'
+  | 'one-bar-reversal-setup'
+  | 'two-bar-reversal-setup'
+  | 'three-bar-reversal-setup'
+  | 'small-inside-context'
+  | 'ii-iii-compression'
+  | 'ioi-sequence'
+  | 'outside-oo-sequence'
+  | 'double-test-setup'
+  | 'failed-continuation-setup'
+  | 'shaved-structural-setups'
+  | 'figure-41-followthrough';
 
 export type LessonStep =
   | {

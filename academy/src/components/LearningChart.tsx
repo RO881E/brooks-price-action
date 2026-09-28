@@ -1,4 +1,5 @@
 import type { ChartScenarioId } from '../content/types';
+import { ChapterFourChart } from './ChapterFourCharts';
 import { ChapterThreeChart } from './ChapterThreeCharts';
 import { ChapterTwoChart } from './ChapterTwoCharts';
 
@@ -157,6 +158,56 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Ein großer Bull-Bar schafft eine funktionale Breakout-Lücke; spätere schwache Abwärtsversuche ändern den bullischen Always-in-Zustand nicht.',
   'spike-channel-playbook':
     'Der vollständige Zyklus führt vom Tief-Fehlausbruch über Spike und Keilkanal in einen zweibeinigen Kanalbodentest mit offenen Folgepfaden.',
+  'setup-direction':
+    'Dasselbe Pullback-Tief zeigt einen Long-Einstieg mit dem Bullenmarkt und einen deutlich anspruchsvolleren Short-Einstieg gegen den Trend.',
+  'bar-role-lifecycle':
+    'Vier Bars zeigen, wie aus einem Setup erst nach Auslösung ein Signal-Bar, ein Entry-Bar und später ein Follow-through-Bar werden.',
+  'one-bar-order-map':
+    'Rund um Hoch und Tief desselben Bars stehen sich Breakout-Orders und Limit-Orders mit gegensätzlichen Erwartungen gegenüber.',
+  'contextual-imbalance':
+    'Dieselbe bullische Barform erzeugt im Pullback eines Bullenmarkts eine andere Orderbalance als mitten in einer Trading Range.',
+  'signal-family-map':
+    'Drei Kursfolgen unterscheiden Spike-Fortsetzung, echte Trendumkehr und das Ende eines Pullbacks zurück in Trendrichtung.',
+  'inside-outside-sequences':
+    'Fünf Felder zeigen Inside-Bar, ii, iii, ioi und oo als Beziehungen zwischen den jeweiligen Bar-Ranges.',
+  'contextual-failure-setups':
+    'Vier Felder zeigen gescheiterte Umkehr und Fortsetzung, einen Trendbar am Range-Rand und ein Higher Low im Trend.',
+  'beginner-signal-filter':
+    'Ein dreistufiger Filter verlangt Trendrichtung, passende Signal-Bar-Farbe und einen Einstieg in dieselbe Richtung.',
+  'trend-signal-strength':
+    'Ein schwacher With-trend-Signal-Bar wird einer Gegenbewegung mit Trendlinienbruch, Test und starkem Reversal-Bar gegenübergestellt.',
+  'stop-entry-lifecycle':
+    'Drei Felder vergleichen eine ausgelöste Stop-Order, eine zu löschende nicht erreichte Order und eine Ein-Tick-Falle.',
+  'candle-name-reduction':
+    'Viele Kerzenmusternamen werden auf die drei Fragen nach Kontrolle, Lage und Bestätigung reduziert.',
+  'forming-bar-climax':
+    'Ein sich vergrößernder laufender Bar verschiebt den Einstieg; daneben beendet der erste Pause-Bar eine Klimaxphase.',
+  'signal-entry-case':
+    'Der Chartfall verbindet Trendlinienbruch, zweites Verkaufsbein, bullischen Reversal-Bar, Entry und Follow-through mit den Bars 2 bis 5.',
+  'continuation-setup-map':
+    'Drei Felder zeigen Fortsetzung nach einer kleinen Spike-Pause, einem Kanal-Pullback und einem haltenden Breakout-Test.',
+  'one-bar-reversal-setup':
+    'Ein bullischer und ein bearisher Ein-Bar-Reversal weisen jeweils ein Extrem zurück und benötigen die Auslösung außerhalb des Bars.',
+  'two-bar-reversal-setup':
+    'Zwei spiegelbildliche Paare zeigen, wie der zweite Bar die Kontrolle des ersten Bars nahezu vollständig zurücknimmt.',
+  'three-bar-reversal-setup':
+    'Drei Bars bilden jeweils Abbremsen, Übergang und starke Gegeninitiative für eine bullische und bearishe Umkehr.',
+  'small-inside-context':
+    'Derselbe kleine Inside-Bar liegt am oberen Rand, in der Mitte und am unteren Rand eines großen Mutterbars.',
+  'ii-iii-compression':
+    'Zweifache und dreifache Inside-Kompression zeigen zunehmend verschachtelte Hochs und Tiefs ohne vorgegebene Ausbruchsrichtung.',
+  'ioi-sequence':
+    'Eine Inside-Outside-Inside-Folge wechselt von Kompression zu Expansion und zurück, während Stops auf beiden Seiten warten.',
+  'outside-oo-sequence':
+    'Ein Outside-Bar und zwei aufeinanderfolgende Outside-Bars erweitern Hoch und Tief und erhöhen den zweiseitigen Handel.',
+  'double-test-setup':
+    'Doppeltop und Doppeltief zeigen jeweils zwei Tests derselben Preiszone und die Reaktion nach dem zweiten Test.',
+  'failed-continuation-setup':
+    'Ein reifer Bullen- und Bärenmove schafft noch ein neues Extrem, erhält dort aber keinen Follow-through und kehrt zurück.',
+  'shaved-structural-setups':
+    'Drei Felder verbinden einen Bar ohne Tail, einen Limit-Einstieg im Kanal und ein Higher Low über einem alten Swing-Tief.',
+  'figure-41-followthrough':
+    'Die zweite Hälfte des Chartfalls ordnet Bar 3 als Signal, den Fill, den Follow-through sowie die Folge-Setups um Bar 4 und Bar 5.',
 };
 
 function yScale(value: number, min: number, max: number): number {
@@ -1399,6 +1450,7 @@ export function LearningChart({ scenario, title }: LearningChartProps) {
         {scenario === 'midday-false-breakout' ? <MiddayFalseBreakout /> : null}
         <ChapterTwoChart scenario={scenario} />
         <ChapterThreeChart scenario={scenario} />
+        <ChapterFourChart scenario={scenario} />
       </svg>
     </div>
   );
