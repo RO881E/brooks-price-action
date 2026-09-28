@@ -16,7 +16,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 5;
+export const ACADEMY_PROGRESS_VERSION = 6;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -74,6 +74,54 @@ export interface ReviewSession {
   /** In dieser Runde gewählte Antwort je Frage. */
   answers: Record<string, string>;
   startedDay: DayKey;
+  /** Ob die Runde bereits als Lernaktivität gezählt wurde (seit F-05). */
+  activityRecorded: boolean;
+}
+
+/** Zählwerte eines Kalendertags für Tagesziel und Wochenansicht (seit F-05). */
+export interface DailyActivity {
+  /** Abgeschlossene Lektionen, auch Wiederholungen einer Lektion. */
+  lessons: number;
+  /** Beendete Wiederholungsrunden mit mindestens einer beantworteten Frage. */
+  reviewSessions: number;
+  /** An diesem Tag tatsächlich gutgeschriebene XP. */
+  xp: number;
+}
+
+export type DailyGoalKind = 'activities' | 'xp';
+
+export interface DailyGoal {
+  kind: DailyGoalKind;
+  target: number;
+}
+
+/** Wählbare Tagesziele; das erste ist die Voreinstellung. */
+export const DAILY_GOAL_OPTIONS: readonly DailyGoal[] = [
+  { kind: 'activities', target: 1 },
+  { kind: 'activities', target: 2 },
+  { kind: 'activities', target: 3 },
+  { kind: 'xp', target: 30 },
+  { kind: 'xp', target: 60 },
+  { kind: 'xp', target: 100 },
+];
+
+export type MilestoneId =
+  | 'first-lesson'
+  | 'first-chapter'
+  | 'xp-1000'
+  | 'seven-days'
+  | 'perfect-review';
+
+export const MILESTONE_IDS: readonly MilestoneId[] = [
+  'first-lesson',
+  'first-chapter',
+  'xp-1000',
+  'seven-days',
+  'perfect-review',
+];
+
+export interface MilestoneRecord {
+  achievedDay: DayKey;
 }
 
 export interface AcademyProgress {
@@ -91,6 +139,11 @@ export interface AcademyProgress {
    * beantwortete Wiederholung (seit F-04), aufsteigend sortiert.
    */
   activityDays: DayKey[];
+  /** Zählwerte je Tag mit Lernaktivität (seit F-05). */
+  dailyActivity: Record<DayKey, DailyActivity>;
+  dailyGoal: DailyGoal;
+  /** Einmalig erreichte Meilensteine; einmal vergeben, nie entfernt. */
+  milestones: Partial<Record<MilestoneId, MilestoneRecord>>;
   lastLessonId: string | null;
   /** Begonnene, noch nicht abgeschlossene Lektionen mit ihrem letzten Schritt. */
   lessonPositions: Record<string, LessonPosition>;
@@ -120,6 +173,9 @@ export function createEmptyProgress(): AcademyProgress {
     reviewCards: {},
     reviewSession: null,
     activityDays: [],
+    dailyActivity: {},
+    dailyGoal: DAILY_GOAL_OPTIONS[0],
+    milestones: {},
     lastLessonId: null,
     lessonPositions: {},
     legacyReadChapters: [],
@@ -163,6 +219,9 @@ const KNOWN_FIELDS = new Set([
   'reviewCards',
   'reviewSession',
   'activityDays',
+  'dailyActivity',
+  'dailyGoal',
+  'milestones',
   'lastLessonId',
   'lessonPositions',
   'legacyReadChapters',
@@ -316,6 +375,7 @@ function normalizeReviewSession(value: unknown): ReviewSession | null {
         )
       : {},
     startedDay,
+    activityRecorded: value.activityRecorded === true,
   };
 }
 
@@ -325,15 +385,16 @@ function normalizeActivityDays(days: Iterable<unknown>): DayKey[] {
   return [...unique].sort().slice(-MAX_ACTIVITY_DAYS);
 }
 
-function isoToLocalDay(value: string | null | undefined): DayKey | null {
+export function isoToLocalDay(value: string | null | undefined): DayKey | null {
   if (!value) return null;
   const date = new Date(value);
   return Number.isNaN(date.getTime()) ? null : localDayKey(date);
 }
 
 /**
- * Lerntage, die sich aus bereits gespeicherten Zeitstempeln belegen lassen:
- * Lektionsabschlüsse (seit F-02) und letzte Wiederholungen (seit F-03).
+ * Lerntage, die sich bei älteren Ständen (vor v5) aus gespeicherten
+ * Zeitstempeln belegen lassen: Lektionsabschlüsse (seit F-02) und letzte
+ * Wiederholungen (seit F-03). Wird nur beim Upgrade verwendet.
  */
 function recordedActivityDays(
   lessonResults: Record<string, LessonResult>,
@@ -347,7 +408,86 @@ function recordedActivityDays(
   return days.filter((day): day is DayKey => day !== null);
 }
 
-/** Vermerkt einen Tag mit echter Lernaktivität. */
+function emptyDay(): DailyActivity {
+  return { lessons: 0, reviewSessions: 0, xp: 0 };
+}
+
+function pruneDays<T>(record: Record<DayKey, T>): Record<DayKey, T> {
+  const keys = Object.keys(record).sort();
+  if (keys.length <= MAX_ACTIVITY_DAYS) return record;
+  const keep = new Set(keys.slice(-MAX_ACTIVITY_DAYS));
+  return Object.fromEntries(Object.entries(record).filter(([day]) => keep.has(day)));
+}
+
+function normalizeDailyActivity(value: unknown): Record<DayKey, DailyActivity> {
+  if (!isRecord(value)) return {};
+  return pruneDays(
+    Object.fromEntries(
+      Object.entries(value).flatMap(([day, entry]) => {
+        if (!isDayKey(day) || !isRecord(entry)) return [];
+        const count = (field: unknown) => (isCount(field) ? field : 0);
+        return [
+          [
+            day,
+            {
+              lessons: count(entry.lessons),
+              reviewSessions: count(entry.reviewSessions),
+              xp: count(entry.xp),
+            },
+          ],
+        ];
+      }),
+    ),
+  );
+}
+
+/**
+ * Zählwerte älterer Stände (vor v6) aus den Lektionsabschlüssen: erster
+ * Abschluss mit seinen XP, ein späterer letzter Abschluss als Wiederholung.
+ * Wiederholungsrunden lassen sich nicht rekonstruieren und fehlen daher.
+ */
+function recordedDailyActivity(
+  lessonResults: Record<string, LessonResult>,
+): Record<DayKey, DailyActivity> {
+  const days: Record<DayKey, DailyActivity> = {};
+  const add = (day: DayKey | null, xp: number) => {
+    if (!day) return;
+    const entry = days[day] ?? emptyDay();
+    days[day] = { ...entry, lessons: entry.lessons + 1, xp: entry.xp + xp };
+  };
+  for (const result of Object.values(lessonResults)) {
+    add(isoToLocalDay(result.firstCompletedAt), result.xpAwarded);
+    if (result.lastCompletedAt !== result.firstCompletedAt) {
+      add(isoToLocalDay(result.lastCompletedAt), 0);
+    }
+  }
+  return pruneDays(days);
+}
+
+function normalizeDailyGoal(value: unknown): DailyGoal {
+  if (isRecord(value)) {
+    const match = DAILY_GOAL_OPTIONS.find(
+      (option) => option.kind === value.kind && option.target === value.target,
+    );
+    if (match) return match;
+  }
+  return DAILY_GOAL_OPTIONS[0];
+}
+
+function normalizeMilestones(value: unknown): Partial<Record<MilestoneId, MilestoneRecord>> {
+  if (!isRecord(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([id, record]) =>
+      (MILESTONE_IDS as readonly string[]).includes(id) &&
+      isRecord(record) &&
+      isDayKey(record.achievedDay)
+        ? [[id, { achievedDay: record.achievedDay }]]
+        : [],
+    ),
+  );
+}
+
+/** Vermerkt einen Tag mit echter Lernaktivität in der Tagesliste. */
 export function recordActivity(progress: AcademyProgress, day: DayKey): AcademyProgress {
   if (!isDayKey(day) || progress.activityDays.includes(day)) return progress;
   return {
@@ -357,11 +497,49 @@ export function recordActivity(progress: AcademyProgress, day: DayKey): AcademyP
 }
 
 /**
+ * Zählt echte Lernaktivität: Lektionsabschluss oder beendete
+ * Wiederholungsrunde. Aktualisiert Tagesliste und Zählwerte des Tages.
+ */
+export function logActivity(
+  progress: AcademyProgress,
+  day: DayKey,
+  delta: Partial<DailyActivity>,
+): AcademyProgress {
+  if (!isDayKey(day)) return progress;
+  const entry = progress.dailyActivity[day] ?? emptyDay();
+  const add = (value: number | undefined) =>
+    typeof value === 'number' && Number.isFinite(value) && value > 0 ? value : 0;
+
+  return recordActivity(
+    {
+      ...progress,
+      dailyActivity: pruneDays({
+        ...progress.dailyActivity,
+        [day]: {
+          lessons: entry.lessons + add(delta.lessons),
+          reviewSessions: entry.reviewSessions + add(delta.reviewSessions),
+          xp: entry.xp + add(delta.xp),
+        },
+      }),
+    },
+    day,
+  );
+}
+
+export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): AcademyProgress {
+  const match = DAILY_GOAL_OPTIONS.find(
+    (option) => option.kind === goal.kind && option.target === goal.target,
+  );
+  if (!match || match === progress.dailyGoal) return progress;
+  return { ...progress, dailyGoal: match };
+}
+
+/**
  * Überführt einen gespeicherten Datensatz beliebiger bekannter Version in das
  * aktuelle Modell. v1 besitzt noch keine Lektionspositionen, v1 und v2 noch
  * keine Versuchs- und Abschlussdaten, v1–v3 noch keinen Wiederholungsplan;
- * diese starten leer. Lerntage werden bei älteren Ständen aus vorhandenen
- * Zeitstempeln abgeleitet, nie geschätzt. Vorhandene Antworten
+ * diese starten leer. Lerntage (vor v5) und Tageszählwerte (vor v6) werden
+ * einmalig aus vorhandenen Zeitstempeln abgeleitet, nie geschätzt. Vorhandene Antworten
  * bleiben unverändert in `answers` und werden nicht in Versuche umgedeutet.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
@@ -387,10 +565,16 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     lessonResults,
     reviewCards,
     reviewSession: normalizeReviewSession(value.reviewSession),
-    activityDays: normalizeActivityDays([
-      ...(Array.isArray(value.activityDays) ? value.activityDays : []),
-      ...recordedActivityDays(lessonResults, reviewCards),
-    ]),
+    // Nur beim Upgrade ableiten: Seit v5 wird Aktivität direkt erfasst.
+    activityDays: Array.isArray(value.activityDays)
+      ? normalizeActivityDays(value.activityDays)
+      : normalizeActivityDays(recordedActivityDays(lessonResults, reviewCards)),
+    dailyActivity:
+      value.dailyActivity === undefined
+        ? recordedDailyActivity(lessonResults)
+        : normalizeDailyActivity(value.dailyActivity),
+    dailyGoal: normalizeDailyGoal(value.dailyGoal),
+    milestones: normalizeMilestones(value.milestones),
     lastLessonId:
       typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     lessonPositions: normalizePositions(value.lessonPositions),
@@ -492,7 +676,9 @@ export function completeLesson(
     lessonResults: { ...progress.lessonResults, [lessonId]: result },
   };
   const day = isoToLocalDay(now);
-  return day ? recordActivity(next, day) : next;
+  return day
+    ? logActivity(next, day, { lessons: 1, xp: existing || alreadyCompleted ? 0 : result.xpAwarded })
+    : next;
 }
 
 /**

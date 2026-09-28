@@ -4,6 +4,7 @@ import {
   nextAvailableLesson,
   type LessonAccessState,
 } from '../features/courseAccess';
+import { goalLabel, type GoalProgress, type StreakStats } from '../features/goals';
 import { earnedXp } from '../features/lessonResults';
 import type { ResumeTarget } from '../features/navigation';
 import type { AcademyProgress } from '../features/progress';
@@ -17,6 +18,9 @@ interface PathViewProps {
   /** Hinweis nach einem ungültigen oder veralteten Link. */
   notice?: string | null;
   onDismissNotice?: () => void;
+  /** Tagesziel und Serie für die Karte „Heute“. */
+  goal?: GoalProgress;
+  streak?: StreakStats;
   onOpenLesson: (lesson: Lesson) => void;
 }
 
@@ -34,6 +38,8 @@ export function PathView({
   resume,
   notice,
   onDismissNotice,
+  goal,
+  streak,
   onOpenLesson,
 }: PathViewProps) {
   const published = course.units.flatMap((unit) =>
@@ -226,6 +232,24 @@ export function PathView({
             </>
           )}
         </section>
+
+        {goal && streak ? (
+          <section className="rail-card today-card" aria-labelledby="today-card-heading">
+            <p className="eyebrow" id="today-card-heading">
+              Heute
+            </p>
+            <p>
+              Tagesziel {goalLabel(goal.goal)}:{' '}
+              <strong>{goal.met ? 'erreicht' : `${goal.value} von ${goal.goal.target}`}</strong>
+            </p>
+            <div className="stat-meter" aria-hidden="true">
+              <span style={{ width: `${goal.percent}%` }} />
+            </div>
+            <small>
+              Serie: {streak.current} {streak.current === 1 ? 'Tag' : 'Tage'}
+            </small>
+          </section>
+        ) : null}
 
         <section className="rail-card stat-card">
           <div>

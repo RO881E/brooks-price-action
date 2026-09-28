@@ -246,20 +246,21 @@ describe('running a session', () => {
     expect(answerReview(progress, q('q2'), 'a', TODAY)).toBe(progress);
     expect(answerReview(progress, q('q1'), 'zzz', TODAY)).toBe(progress);
     // Weiter erst nach einer Antwort.
-    expect(advanceSession(progress)).toBe(progress);
+    expect(advanceSession(progress, TODAY)).toBe(progress);
 
     progress = answerReview(progress, q('q1'), 'b', TODAY);
     expect(progress.reviewCards.q1).toMatchObject({ stage: 0, dueDay: '2026-09-29', lapses: 1 });
-    expect(progress.activityDays).toContain(TODAY);
+    // Eine einzelne Antwort ist noch keine beendete Runde.
+    expect(progress.activityDays).not.toContain(TODAY);
 
     // Erneutes Absenden (z. B. doppelter Klick oder Reload) zählt nicht doppelt.
     expect(answerReview(progress, q('q1'), 'a', TODAY)).toBe(progress);
 
-    progress = advanceSession(progress);
+    progress = advanceSession(progress, TODAY);
     progress = answerReview(progress, q('q2'), 'a', TODAY);
-    progress = advanceSession(progress);
+    progress = advanceSession(progress, TODAY);
     expect(isSessionFinished(progress.reviewSession!)).toBe(true);
-    expect(advanceSession(progress)).toBe(progress);
+    expect(advanceSession(progress, TODAY)).toBe(progress);
 
     const summary = sessionSummary(progress.reviewSession!, items);
     expect(summary).toMatchObject({ total: 2, answered: 2, correct: 1 });
@@ -268,7 +269,7 @@ describe('running a session', () => {
       ['q2', true],
     ]);
 
-    expect(endSession(progress).reviewSession).toBeNull();
+    expect(endSession(progress, TODAY).reviewSession).toBeNull();
   });
 
   it('continues a stored session after reload with the same state', () => {
@@ -284,7 +285,7 @@ describe('running a session', () => {
   it('drops questions that are no longer available and discards empty sessions', () => {
     let { progress } = start();
     progress = answerReview(progress, q('q1'), 'a', TODAY);
-    progress = advanceSession(progress);
+    progress = advanceSession(progress, TODAY);
 
     const onlyQ2 = reviewPool(course, progress).filter((item) => item.question.id === 'q2');
     expect(sanitizeSession(progress, onlyQ2).reviewSession).toMatchObject({
@@ -314,5 +315,47 @@ describe('overview', () => {
       ['u1', 2],
       ['u2', 2],
     ]);
+  });
+});
+
+describe('finished sessions as learning activity', () => {
+  const run = (answers: Array<'a' | 'b'>) => {
+    let progress = completed(['l1']);
+    const items = reviewPool(course, progress);
+    progress = startSession(
+      progress,
+      buildSession('due', items, progress, { today: TODAY, random: seededRandom(1) }),
+    );
+    for (const [index, answer] of answers.entries()) {
+      progress = answerReview(progress, q(`q${index + 1}`), answer, TODAY);
+      progress = advanceSession(progress, TODAY);
+    }
+    return progress;
+  };
+
+  it('counts a finished round once, also when it is closed afterwards', () => {
+    let progress = run(['a', 'b']);
+    expect(isSessionFinished(progress.reviewSession!)).toBe(true);
+    expect(progress.dailyActivity[TODAY]).toEqual({ lessons: 0, reviewSessions: 1, xp: 0 });
+    expect(progress.activityDays).toContain(TODAY);
+
+    progress = endSession(progress, TODAY);
+    expect(progress.dailyActivity[TODAY].reviewSessions).toBe(1);
+    expect(progress.reviewSession).toBeNull();
+  });
+
+  it('counts a round ended early with answers, but not one without answers', () => {
+    const early = endSession(run(['a']), TODAY);
+    expect(early.dailyActivity[TODAY]?.reviewSessions).toBe(1);
+
+    const untouched = endSession(run([]), TODAY);
+    expect(untouched.dailyActivity[TODAY]).toBeUndefined();
+    expect(untouched.activityDays).not.toContain(TODAY);
+  });
+
+  it('awards the perfect round only for a complete round without mistakes', () => {
+    expect(run(['a', 'a']).milestones['perfect-review']).toEqual({ achievedDay: TODAY });
+    expect(run(['a', 'b']).milestones['perfect-review']).toBeUndefined();
+    expect(endSession(run(['a']), TODAY).milestones['perfect-review']).toBeUndefined();
   });
 });
