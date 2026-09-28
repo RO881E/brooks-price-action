@@ -1,9 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import type { Lesson, LessonStep } from '../content/types';
 import { LearningChart } from './LearningChart';
 
 interface LessonPlayerProps {
   lesson: Lesson;
+  /** Nullbasierter, bereits validierter Schritt. */
+  stepIndex: number;
+  onStepChange: (stepIndex: number) => void;
   answers: Record<string, string>;
   onAnswer: (questionId: string, optionId: string) => void;
   onComplete: () => void;
@@ -146,12 +149,13 @@ function RecapStep({ step }: { step: Extract<LessonStep, { type: 'recap' }> }) {
 
 export function LessonPlayer({
   lesson,
+  stepIndex,
+  onStepChange,
   answers,
   onAnswer,
   onComplete,
   onClose,
 }: LessonPlayerProps) {
-  const [stepIndex, setStepIndex] = useState(0);
   const step = lesson.steps[stepIndex];
   const isLast = stepIndex === lesson.steps.length - 1;
   const currentAnswer = step.type === 'question' ? answers[step.id] : undefined;
@@ -200,7 +204,7 @@ export function LessonPlayer({
         <button
           className="secondary-button"
           type="button"
-          onClick={() => setStepIndex((index) => Math.max(0, index - 1))}
+          onClick={() => onStepChange(Math.max(0, stepIndex - 1))}
           disabled={stepIndex === 0}
         >
           Zurück
@@ -211,7 +215,7 @@ export function LessonPlayer({
           disabled={!canContinue}
           onClick={() => {
             if (isLast) onComplete();
-            else setStepIndex((index) => index + 1);
+            else onStepChange(stepIndex + 1);
           }}
         >
           {isLast ? 'Lektion abschließen' : 'Weiter'}
