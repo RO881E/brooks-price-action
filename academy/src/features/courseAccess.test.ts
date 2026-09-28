@@ -9,6 +9,7 @@ describe('course access', () => {
   const chapterOne = brooksTrendsCourse.units[2];
   const chapterTwo = brooksTrendsCourse.units[3];
   const chapterThree = brooksTrendsCourse.units[4];
+  const chapterFour = brooksTrendsCourse.units[5];
 
   it('unlocks published lessons one by one inside a complete source unit', () => {
     expect(
@@ -103,6 +104,34 @@ describe('course access', () => {
         brooksTrendsCourse,
         chapterThree.lessons[0],
         completedThroughChapterTwo,
+      ),
+    ).toBe('available');
+  });
+
+  it('keeps chapter 4 behind the complete chapter 3', () => {
+    const completedThroughChapterTwo = [
+      ...introduction.lessons,
+      ...partIntroduction.lessons,
+      ...chapterOne.lessons,
+      ...chapterTwo.lessons,
+    ].map((lesson) => lesson.id);
+    const completedThroughChapterThree = [
+      ...completedThroughChapterTwo,
+      ...chapterThree.lessons.map((lesson) => lesson.id),
+    ];
+
+    expect(
+      lessonAccessState(
+        brooksTrendsCourse,
+        chapterFour.lessons[0],
+        completedThroughChapterTwo,
+      ),
+    ).toBe('locked');
+    expect(
+      lessonAccessState(
+        brooksTrendsCourse,
+        chapterFour.lessons[0],
+        completedThroughChapterThree,
       ),
     ).toBe('available');
   });

@@ -1,4 +1,5 @@
 import type { ChartScenarioId } from '../content/types';
+import { ChapterFourChart } from './ChapterFourCharts';
 import { ChapterThreeChart } from './ChapterThreeCharts';
 import { ChapterTwoChart } from './ChapterTwoCharts';
 
@@ -157,6 +158,32 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Ein großer Bull-Bar schafft eine funktionale Breakout-Lücke; spätere schwache Abwärtsversuche ändern den bullischen Always-in-Zustand nicht.',
   'spike-channel-playbook':
     'Der vollständige Zyklus führt vom Tief-Fehlausbruch über Spike und Keilkanal in einen zweibeinigen Kanalbodentest mit offenen Folgepfaden.',
+  'setup-direction':
+    'Dasselbe Pullback-Tief zeigt einen Long-Einstieg mit dem Bullenmarkt und einen deutlich anspruchsvolleren Short-Einstieg gegen den Trend.',
+  'bar-role-lifecycle':
+    'Vier Bars zeigen, wie aus einem Setup erst nach Auslösung ein Signal-Bar, ein Entry-Bar und später ein Follow-through-Bar werden.',
+  'one-bar-order-map':
+    'Rund um Hoch und Tief desselben Bars stehen sich Breakout-Orders und Limit-Orders mit gegensätzlichen Erwartungen gegenüber.',
+  'contextual-imbalance':
+    'Dieselbe bullische Barform erzeugt im Pullback eines Bullenmarkts eine andere Orderbalance als mitten in einer Trading Range.',
+  'signal-family-map':
+    'Drei Kursfolgen unterscheiden Spike-Fortsetzung, echte Trendumkehr und das Ende eines Pullbacks zurück in Trendrichtung.',
+  'inside-outside-sequences':
+    'Fünf Felder zeigen Inside-Bar, ii, iii, ioi und oo als Beziehungen zwischen den jeweiligen Bar-Ranges.',
+  'contextual-failure-setups':
+    'Vier Felder zeigen gescheiterte Umkehr und Fortsetzung, einen Trendbar am Range-Rand und ein Higher Low im Trend.',
+  'beginner-signal-filter':
+    'Ein dreistufiger Filter verlangt Trendrichtung, passende Signal-Bar-Farbe und einen Einstieg in dieselbe Richtung.',
+  'trend-signal-strength':
+    'Ein schwacher With-trend-Signal-Bar wird einer Gegenbewegung mit Trendlinienbruch, Test und starkem Reversal-Bar gegenübergestellt.',
+  'stop-entry-lifecycle':
+    'Drei Felder vergleichen eine ausgelöste Stop-Order, eine zu löschende nicht erreichte Order und eine Ein-Tick-Falle.',
+  'candle-name-reduction':
+    'Viele Kerzenmusternamen werden auf die drei Fragen nach Kontrolle, Lage und Bestätigung reduziert.',
+  'forming-bar-climax':
+    'Ein sich vergrößernder laufender Bar verschiebt den Einstieg; daneben beendet der erste Pause-Bar eine Klimaxphase.',
+  'signal-entry-case':
+    'Der Chartfall verbindet Trendlinienbruch, zweites Verkaufsbein, bullischen Reversal-Bar, Entry und Follow-through mit den Bars 2 bis 5.',
 };
 
 function yScale(value: number, min: number, max: number): number {
@@ -1399,6 +1426,7 @@ export function LearningChart({ scenario, title }: LearningChartProps) {
         {scenario === 'midday-false-breakout' ? <MiddayFalseBreakout /> : null}
         <ChapterTwoChart scenario={scenario} />
         <ChapterThreeChart scenario={scenario} />
+        <ChapterFourChart scenario={scenario} />
       </svg>
     </div>
   );

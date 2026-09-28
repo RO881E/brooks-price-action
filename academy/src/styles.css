@@ -2252,6 +2252,19 @@ button:disabled {
     font-size: 15px;
   }
 
+  .learning-chart .chapter-four-chart .chart-kicker,
+  .learning-chart .chapter-four-chart .chart-region-label {
+    font-size: 13px;
+  }
+
+  .learning-chart .chapter-four-chart .chart-panel-title {
+    font-size: 14px;
+  }
+
+  .learning-chart .chapter-four-chart .chart-small {
+    font-size: 12px;
+  }
+
   .lesson-footer {
     min-height: 78px;
     padding: 14px 16px;

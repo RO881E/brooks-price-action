@@ -66,7 +66,20 @@ export type ChartScenarioId =
   | 'spike-to-overlap'
   | 'breakeven-defense'
   | 'breakout-gap-always-in'
-  | 'spike-channel-playbook';
+  | 'spike-channel-playbook'
+  | 'setup-direction'
+  | 'bar-role-lifecycle'
+  | 'one-bar-order-map'
+  | 'contextual-imbalance'
+  | 'signal-family-map'
+  | 'inside-outside-sequences'
+  | 'contextual-failure-setups'
+  | 'beginner-signal-filter'
+  | 'trend-signal-strength'
+  | 'stop-entry-lifecycle'
+  | 'candle-name-reduction'
+  | 'forming-bar-climax'
+  | 'signal-entry-case';
 
 export type LessonStep =
   | {
