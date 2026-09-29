@@ -90,7 +90,7 @@ export function TodayPanel({ plan, onLesson, onReview, onPractice, onTrain, onRe
       </div>
       <div className="today-grid">
         {plan.reading ? (
-          <article className="today-card" data-mode="read" aria-labelledby={`${ids}-read`}>
+          <article className="today-tile" data-mode="read" aria-labelledby={`${ids}-read`}>
             <h3 id={`${ids}-read`}>Lesen</h3>
             <p>{plan.reading.resume ? 'Zuletzt gelesen' : 'Nächster Abschnitt'}: {plan.reading.unit.label} · {plan.reading.unit.title}</p>
             <button type="button" className="secondary-button" onClick={() => onRead(plan.reading!.unit, plan.reading!.lesson)}>
@@ -98,10 +98,10 @@ export function TodayPanel({ plan, onLesson, onReview, onPractice, onTrain, onRe
             </button>
           </article>
         ) : null}
-        <div className="today-card today-study" data-mode="practice">
+        <div className="today-tile today-study" data-mode="practice">
           <StudyEntry onChoose={onStudy} />
         </div>
-        <article className="today-card" data-mode="review" aria-labelledby={`${ids}-review`}>
+        <article className="today-tile" data-mode="review" aria-labelledby={`${ids}-review`}>
           <h3 id={`${ids}-review`}>Wiederholen</h3>
           <p>{plan.dueCount > 0 ? (plan.dueCount === 1 ? '1 Frage ist heute fällig.' : `${plan.dueCount} Fragen sind heute fällig.`) : 'Heute ist nichts fällig.'}</p>
           <button type="button" className="secondary-button" onClick={onPractice}>

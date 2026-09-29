@@ -6281,7 +6281,7 @@ button:disabled {
   gap: 12px;
 }
 
-.today-card {
+.today-tile {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -6293,21 +6293,21 @@ button:disabled {
   background: var(--paper);
 }
 
-.today-card h3 {
+.today-tile h3 {
   margin: 0;
   color: var(--mode-ink, var(--ink));
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
 }
 
-.today-card p {
+.today-tile p {
   margin: 0;
   color: #444b54;
   font-size: 13px;
   line-height: 1.5;
 }
 
-.today-card button {
+.today-tile button {
   margin-top: auto;
   align-self: flex-start;
   max-width: 100%;
@@ -6380,4 +6380,27 @@ button:disabled {
 .unit-section[data-station='locked'] > .unit-header,
 .unit-section[data-station='planned'] > .unit-header {
   box-shadow: inset 5px 0 0 var(--line-strong);
+}
+
+/* Abschlussansicht: mehrere Wege (Weiter, Zurück, Wiederholen) brechen auf schmalen Geräten um. */
+.lesson-result .lesson-footer {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.lesson-result .lesson-footer .primary-button,
+.lesson-result .lesson-footer .secondary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+@media (max-width: 680px) {
+  .lesson-result .lesson-footer {
+    padding-inline: 16px;
+  }
+
+  .lesson-result .lesson-footer .primary-button,
+  .lesson-result .lesson-footer .secondary-button {
+    flex: 1 1 100%;
+  }
 }
