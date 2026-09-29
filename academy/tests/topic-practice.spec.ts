@@ -110,7 +110,7 @@ test.describe('F-27 Nach Thema üben', () => {
     await page.goto('/#/practice');
     const breakout = card(page, 'Ausbruch, Follow-through und Test');
     await expect(breakout.getByRole('button', { name: 'Fall: Eine überlappende Spanne' })).toBeVisible();
-    await expect(breakout.getByText(/noch gesperrt\)/)).toBeVisible();
+    await expect(breakout.locator('.topic-facts')).toContainText(/\+ \d+ noch gesperrt\)/);
     await expect(breakout.getByRole('button', { name: /Fall: Eine enge Zone/ })).toHaveCount(0);
     await breakout.getByRole('button', { name: 'Fall: Eine überlappende Spanne' }).click();
     await expect(page).toHaveURL(/#\/train\/bar-case\.chapter-01\.range-high-test/);
@@ -120,7 +120,7 @@ test.describe('F-27 Nach Thema üben', () => {
     await seed(page, published('brooks-trends.chapter-01').map((lesson) => lesson.id));
     await page.goto('/#/practice');
     const topic = card(page, reversal.title);
-    await topic.getByText('Lehrstellen zu diesem Thema').click();
+    await topic.locator('summary').click();
     await expect(topic.getByText('(noch gesperrt)').first()).toBeVisible();
     const locked = reversal.teaching.map((ref) => lessonOf.get(ref.lessonId)!).find((lesson) => lesson.id.includes('chapter-05.lesson-01'))!;
     await expect(topic.getByRole('button', { name: `Lektion öffnen: ${locked.title}` })).toHaveCount(0);

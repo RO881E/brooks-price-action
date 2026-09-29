@@ -482,6 +482,24 @@ test('Fehlerbericht offline erstellen (F-28)', async ({ page, context }) => {
   expect(errors).toEqual([]);
 });
 
+test('Nach Thema üben offline: Themenliste und Lernlink (F-27)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  await firstVisit(page);
+  await page.getByRole('button', { name: 'Einführung schließen' }).click();
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.goto(`${origin}/academy/#/practice`);
+  const section = page.getByRole('region', { name: 'Nach Thema üben' });
+  await expect(section).toBeVisible();
+  await expect(section.getByRole('article').first()).toBeVisible();
+  await expect(section.getByRole('button', { name: /Runde starten/ })).toHaveCount(0);
+  await section.getByRole('button', { name: /^(Lektion starten|Weiter im Lernpfad):/ }).first().click();
+  await expect(page).toHaveURL(/#\/lesson\//);
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
 test('Einführung und Hilfe offline (F-18)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   await firstVisit(page);

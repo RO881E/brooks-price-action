@@ -275,6 +275,31 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Nach Thema üben (F-27)
+
+Unter **Üben → Nach Thema üben** listet die Academy die Brooks-Themen der redaktionellen
+Themenkarte (`src/content/topicMap.ts`, C-03) mit dem, was heute zugänglich ist: Fragen
+aus bereits abgeschlossenen Lektionen (davon fällig), freigegebene Trainerfälle und die
+Lehrstellen mit Quellenanker samt Zugangsstatus. „Runde starten“ nutzt die **vorhandene
+Wiederholung** – ein Themenfilter erzeugt keine neuen Frage-IDs oder Kopien von Versuchen;
+Fälligkeit, Erstversuch, XP und Trainerzustand bleiben in ihren bestehenden Mechanismen
+(`src/features/topicPractice.ts`).
+
+- **Auswahl der Runde:** bis zu 10 Fragen, erst fällige (am längsten überfällige zuerst), dann
+  noch nie wiederholte, dann die am längsten nicht geübten; innerhalb jeder Gruppe reihum über
+  die Kapitel verteilt. Deterministisch, ohne Zufall, ohne Doppelte – auch bei mehrfach
+  zugeordneten Fragen.
+- **Zugang:** Nur Fragen aus abgeschlossenen Lektionen und nicht gesperrte Fälle werden
+  angeboten; gesperrte Fälle erscheinen nur als Zahl. Ein Thema ohne zugängliches Material
+  erklärt den Grund und bietet die passende Lektion bzw. „Weiter im Lernpfad“ an.
+- **Auswertung:** Die Auswertung nennt konkret „N von M richtig“ und zeigt unter „Nachlesen“
+  zu falsch beantworteten Fragen die Lehrstelle mit Quellenanker (aus der Themenkarte) und
+  den Weg zur Lektion. Keine Beherrschungsquote und keine Handelsversprechen.
+- **Datenmodell v15:** Die laufende Wiederholungsrunde kann ein optionales `topicId`
+  tragen (nur Beschriftung „Thema: …“). Fehlt das Thema später in der Karte, bleibt die
+  Runde spielbar; Lernergebnisse bleiben erhalten. Die laufende Runde ist nicht Teil der
+  Sicherung; ältere Stände und Sicherungen laden unverändert.
+
 ## Freiwilliger Fehlerbericht (F-28)
 
 Unter **Hilfe → Fehler melden** kann man einen Fehler beschreiben („Was ist passiert?“ als
