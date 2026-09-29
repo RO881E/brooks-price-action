@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { brooksTrendsCourse, publishedLessons } from './course';
 
 describe('Brooks course model', () => {
-  it('keeps introduction, part introduction and chapters 1–7 in source order', () => {
+  it('keeps introduction, part introduction and chapters 1–8 in source order', () => {
     expect(brooksTrendsCourse.units.map((unit) => unit.id)).toEqual([
       'brooks-trends.introduction',
       'brooks-trends.part-01-introduction',
@@ -13,8 +13,9 @@ describe('Brooks course model', () => {
       'brooks-trends.chapter-05',
       'brooks-trends.chapter-06',
       'brooks-trends.chapter-07',
+      'brooks-trends.chapter-08',
     ]);
-    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });
 
   it('publishes the complete source-mapped introduction as 22 micro-lessons', () => {
@@ -259,7 +260,6 @@ describe('Brooks course model', () => {
     const chapterSeven = brooksTrendsCourse.units[8];
     expect(chapterSeven.estimatedLessonCount).toBe(24);
     expect(chapterSeven.lessons).toHaveLength(24);
-    expect(publishedLessons).toHaveLength(213);
     expect(chapterSeven.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
     expect(chapterSeven.lessons.at(0)?.title).toBe('Ein Outside-Bar umfasst seinen Vorgänger');
     expect(chapterSeven.lessons.at(11)?.sourceUnit).toContain('Chartfall 7.1');
@@ -280,6 +280,28 @@ describe('Brooks course model', () => {
     expect(new Set(scenarios).size).toBe(24);
     for (const [index, lesson] of chapterSeven.lessons.entries()) {
       expect(lesson.id).toBe(`brooks-trends.chapter-07.lesson-${String(index + 1).padStart(2, '0')}`);
+      expect(lesson.sourceAnchors).toHaveLength(3);
+      expect(lesson.steps.map((step) => step.type)).toEqual(['explanation', 'diagram', 'question', 'recap']);
+      expect(lesson.steps.find((step) => step.type === 'explanation')?.paragraphs).toHaveLength(3);
+      expect(lesson.steps.find((step) => step.type === 'diagram')?.observations).toHaveLength(3);
+    }
+  });
+
+  it('publishes chapter 8 with its full argument and chart discussion', () => {
+    const chapterEight = brooksTrendsCourse.units[9];
+    expect(chapterEight.estimatedLessonCount).toBe(12);
+    expect(chapterEight.lessons).toHaveLength(12);
+    expect(publishedLessons).toHaveLength(225);
+    expect(chapterEight.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
+    expect(chapterEight.lessons.at(0)?.title).toBe('Der fast fertige Bar kann noch kippen');
+    expect(chapterEight.lessons.at(7)?.sourceUnit).toContain('Chartfall 8.1');
+    expect(chapterEight.lessons.at(-1)?.sourceUnit).toContain('Chartfall 8.1');
+    const scenarios = chapterEight.lessons.flatMap((lesson) =>
+      lesson.steps.filter((step) => step.type === 'diagram').map((step) => step.scenario),
+    );
+    expect(new Set(scenarios).size).toBe(12);
+    for (const [index, lesson] of chapterEight.lessons.entries()) {
+      expect(lesson.id).toBe(`brooks-trends.chapter-08.lesson-${String(index + 1).padStart(2, '0')}`);
       expect(lesson.sourceAnchors).toHaveLength(3);
       expect(lesson.steps.map((step) => step.type)).toEqual(['explanation', 'diagram', 'question', 'recap']);
       expect(lesson.steps.find((step) => step.type === 'explanation')?.paragraphs).toHaveLength(3);
