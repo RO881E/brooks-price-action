@@ -18,12 +18,14 @@ import {
 } from './backup';
 import {
   ACADEMY_PROGRESS_KEY,
+  ACADEMY_PROGRESS_VERSION,
   completeLesson,
   createEmptyProgress,
   LEGACY_PROGRESS_KEY,
   LEGACY_TREND_RANGE_BEST_KEY,
   loadProgress,
   logActivity,
+  recordReaderPosition,
   MAX_NOTE_LENGTH,
   saveProgress,
   setDailyGoal,
@@ -110,7 +112,7 @@ describe('export', () => {
       formatVersion: 1,
       app: 'WQT Academy',
       exportedAt: '2026-09-29T08:00:00.000Z',
-      dataVersion: 8,
+      dataVersion: ACADEMY_PROGRESS_VERSION,
     });
     expect(Object.keys(backup.data).sort()).toEqual([...BACKUP_FIELDS].sort());
     const text = serializeBackup(backup);
@@ -396,5 +398,67 @@ describe('preview', () => {
 
     const olderNote = saveNote(incoming, 'lesson-1', 'step-a', 'Ältere Fassung', at('2026-09-01'));
     expect(previewImport(local, olderNote, 'x').merge).toMatchObject({ updatedNotes: 0, keptLocalNotes: 1 });
+  });
+});
+
+describe('Lesestellen im Buchleser (F-13, v9)', () => {
+  const withPosition = (progress: AcademyProgress, lessonId: string, stepId: string | null, at: string) =>
+    recordReaderPosition(progress, 'brooks-trends.chapter-01', lessonId, stepId, at);
+
+  it('sichert und liest die Lesestellen mit', () => {
+    const progress = withPosition(createEmptyProgress(), 'lesson-a', 'step-2', '2026-09-29T08:00:00.000Z');
+    const result = parseBackup(serializeBackup(createBackup(progress)));
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.imported.readerPositions).toEqual(progress.readerPositions);
+    }
+  });
+
+  it('nimmt Sicherungen aus v8 ohne Lesestellen weiterhin an', () => {
+    const text = backupText(createEmptyProgress(), (backup) => {
+      backup.dataVersion = 8;
+      delete (backup.data as Record<string, unknown>).readerPositions;
+    });
+    const result = parseBackup(text);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.imported.readerPositions).toEqual({});
+  });
+
+  it('verlangt das Feld ab v9 und prüft jeden Eintrag streng', () => {
+    expectRejected(
+      backupText(createEmptyProgress(), (backup) => {
+        delete (backup.data as Record<string, unknown>).readerPositions;
+      }),
+      /Pflichtfeld fehlt: „readerPositions“/,
+    );
+    const broken = (entry: unknown) =>
+      backupText(createEmptyProgress(), (backup) => {
+        (backup.data as Record<string, unknown>).readerPositions = { 'brooks-trends.chapter-01': entry };
+      });
+    expectRejected(broken({ lessonId: '', stepId: null, updatedAt: '2026-09-29T08:00:00.000Z' }), /readerPositions/);
+    expectRejected(broken({ lessonId: 'a', stepId: 3, updatedAt: '2026-09-29T08:00:00.000Z' }), /readerPositions/);
+    expectRejected(broken({ lessonId: 'a', stepId: null }), /readerPositions/);
+    expectRejected(broken({ lessonId: 'a', stepId: null, updatedAt: 'gestern', extra: 1 }), /readerPositions/);
+  });
+
+  it('führt zusammen: die zuletzt gesetzte Lesestelle je Einheit gewinnt', () => {
+    const older = withPosition(createEmptyProgress(), 'lesson-a', null, '2026-09-01T08:00:00.000Z');
+    const newer = withPosition(createEmptyProgress(), 'lesson-b', 'step-1', '2026-09-20T08:00:00.000Z');
+    const other = recordReaderPosition(createEmptyProgress(), 'brooks-trends.chapter-02', 'lesson-x', null, '2026-09-02T08:00:00.000Z');
+    expect(mergeProgress(older, newer).readerPositions['brooks-trends.chapter-01'].lessonId).toBe('lesson-b');
+    expect(mergeProgress(newer, older).readerPositions['brooks-trends.chapter-01'].lessonId).toBe('lesson-b');
+    const merged = mergeProgress(older, other);
+    expect(Object.keys(merged.readerPositions).sort()).toEqual(['brooks-trends.chapter-01', 'brooks-trends.chapter-02']);
+    // Derselbe Import zweimal ändert nichts.
+    expect(mergeProgress(merged, merged).readerPositions).toEqual(merged.readerPositions);
+  });
+
+  it('ersetzt beim vollständigen Import und leert beim Zurücksetzen', () => {
+    const local = withPosition(createEmptyProgress(), 'lesson-a', null, '2026-09-01T08:00:00.000Z');
+    expect(replaceProgress(local, createEmptyProgress()).readerPositions).toEqual({});
+    const storage = new MemoryStorage();
+    saveProgress(storage, local);
+    resetAcademyData(storage);
+    expect(loadProgress(storage).readerPositions).toEqual({});
   });
 });

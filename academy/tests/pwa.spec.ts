@@ -286,6 +286,37 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
   expect(errors).toEqual([]);
 });
 
+test('Buchleser offline: Kapitel lesen und Lesestelle halten (F-13)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  const intro = brooksTrendsCourse.units[0];
+  const [first, second] = intro.lessons;
+  await page.addInitScript((id) => {
+    if (localStorage.getItem('wqt-academy-progress-v1')) return;
+    localStorage.setItem(
+      'wqt-academy-progress-v1',
+      JSON.stringify({ version: 2, completedLessonIds: [id], answers: {} }),
+    );
+  }, first.id);
+  await firstVisit(page);
+
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.goto(`${origin}/academy/#/read/${intro.id}`);
+  await expect(page.getByRole('heading', { name: second.title, level: 2 })).toBeVisible();
+  for (const step of second.steps) {
+    await expect(page.getByRole('heading', { name: step.title, level: 3 })).toBeVisible();
+  }
+  await expect
+    .poll(() =>
+      page.evaluate(() => JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}').readerPositions),
+    )
+    .toMatchObject({ [intro.id]: { lessonId: second.id } });
+
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
 test('kündigt ein Update an, aktiviert es erst nach Zustimmung und räumt alte Caches auf @desktop', async ({ page }) => {
   const errors = trackConsoleErrors(page);
   const version = builtVersion();
@@ -340,8 +371,10 @@ test('Update-Banner: „Jetzt aktualisieren“ lädt die neue Version @desktop',
   await firstVisit(page);
   publishNewVersion('banner');
   await checkForUpdate(page);
+  // Auf das Laden der neuen Seite warten – nicht auf den Zustand der alten.
+  const reloaded = page.waitForEvent('load');
   await page.getByRole('button', { name: 'Jetzt aktualisieren' }).click();
-  await page.waitForLoadState('load');
+  await reloaded;
   await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
   await expect.poll(async () => (await cacheState(page)).names).toEqual([`wqt-academy-${version}-banner`]);
   await expect(page.getByText('Neue Version verfügbar')).toHaveCount(0);
