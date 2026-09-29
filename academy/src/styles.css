@@ -6597,3 +6597,54 @@ button:disabled {
 .badge-grid li.earned .badge-copy em {
   color: var(--progress-ink);
 }
+
+/* Bessere Übungsroutine (P08) */
+.review-count {
+  color: var(--mode-ink, var(--ink));
+  font-family: 'Manrope', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.review-alternative {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.review-reread {
+  margin-top: 8px;
+}
+
+.review-reread small {
+  color: var(--ink-soft);
+}
+
+.study-card .study-why {
+  color: var(--mode-ink, var(--ink-soft));
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.previous-round {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--train-base);
+  border-radius: 12px;
+  background: var(--canvas);
+}
+
+.previous-round h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.previous-round p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.previous-round .previous-summary {
+  font-weight: 700;
+}

@@ -5,7 +5,7 @@ import { buildReplay, type ReplayProblem, type ReplayStep } from '../features/ca
 import type { AcademyProgress } from '../features/progress';
 import { CaseChart } from './CaseChart';
 import { CaseTable } from './CaseTable';
-import { OwnReasoning, VERDICT_LABELS } from './TrainerView';
+import { CONFIDENCE_LABELS, OwnReasoning, VERDICT_LABELS } from './TrainerView';
 
 const PROBLEM_TEXT: Record<ReplayProblem, string> = {
   'unknown-case': 'Diesen Trainingsfall gibt es nicht (mehr). Ein Rückblick ist deshalb nicht möglich.',
@@ -100,6 +100,28 @@ export function ReplayView({ course, progress, caseId, sessionId, onRetrain, onO
   );
 }
 
+/** Vergleich mit der vorherigen Runde: nur Fakten (Wahl, Sicherheit, eigene Worte) – keine Bewertung. */
+function PreviousRound({ previous, current }: { previous: NonNullable<ReplayStep['previous']>; current: ReplayStep }) {
+  const ids = useId();
+  const before = TRADE_DECISION_LABELS[previous.answer.decision];
+  const now = TRADE_DECISION_LABELS[current.answer.decision];
+  return (
+    <section className="previous-round" aria-labelledby={`${ids}-title`}>
+      <h3 id={`${ids}-title`}>Vorherige Runde vom {dateLabel(previous.completedAt)}</h3>
+      <p className="previous-summary">
+        {previous.decisionChanged
+          ? `Deine Wahl hat sich geändert: von ${before} zu ${now}.`
+          : `Deine Wahl war dieselbe: ${now}.`}
+        {previous.confidenceChanged && previous.reasoning?.confidence && current.reasoning?.confidence
+          ? ` Sicherheit: von „${CONFIDENCE_LABELS[previous.reasoning.confidence]}“ zu „${CONFIDENCE_LABELS[current.reasoning.confidence]}“.`
+          : ''}
+      </p>
+      <p className="previous-choice">Damals gewählt: {before}</p>
+      <OwnReasoning reasoning={previous.reasoning} />
+    </section>
+  );
+}
+
 function ReplaySteps({
   course,
   steps,
@@ -187,6 +209,7 @@ function ReplaySteps({
         </ul>
         <h3>Deine damalige Einschätzung</h3>
         <OwnReasoning reasoning={step.reasoning} />
+        {step.previous ? <PreviousRound previous={step.previous} current={step} /> : null}
 
         {revealed ? (
           <>
