@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { brooksTrendsCourse, publishedLessons } from './course';
 
 describe('Brooks course model', () => {
-  it('keeps introduction, part introduction and chapters 1–4 in source order', () => {
+  it('keeps introduction, part introduction and chapters 1–5 in source order', () => {
     expect(brooksTrendsCourse.units.map((unit) => unit.id)).toEqual([
       'brooks-trends.introduction',
       'brooks-trends.part-01-introduction',
@@ -10,8 +10,9 @@ describe('Brooks course model', () => {
       'brooks-trends.chapter-02',
       'brooks-trends.chapter-03',
       'brooks-trends.chapter-04',
+      'brooks-trends.chapter-05',
     ]);
-    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6, 7]);
   });
 
   it('publishes the complete source-mapped introduction as 22 micro-lessons', () => {
@@ -199,7 +200,31 @@ describe('Brooks course model', () => {
     );
     expect(diagramScenarios).toHaveLength(25);
     expect(new Set(diagramScenarios).size).toBe(25);
-    expect(publishedLessons).toHaveLength(124);
+    expect(publishedLessons).toHaveLength(149);
+  });
+
+  it('publishes chapter 5 with 25 source-ordered lessons and distinct charts', () => {
+    const chapterFive = brooksTrendsCourse.units[6];
+
+    expect(chapterFive.estimatedLessonCount).toBe(25);
+    expect(chapterFive.lessons).toHaveLength(25);
+    expect(chapterFive.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
+    expect(chapterFive.lessons.every((lesson) => (lesson.sourceAnchors?.length ?? 0) >= 3)).toBe(true);
+    expect(chapterFive.lessons.at(0)?.title).toBe('Eine Reversal-Bar ist ein Versuch, keine Trendwende');
+    expect(chapterFive.lessons.at(17)?.title).toContain('Chartfall 5.1');
+    expect(chapterFive.lessons.at(19)?.title).toContain('Chartfall 5.2');
+    expect(chapterFive.lessons.at(21)?.title).toContain('Chartfall 5.3');
+    expect(chapterFive.lessons.at(-1)?.title).toBe('Drei Reversal-Bars, drei Entscheidungen');
+
+    const scenarios = chapterFive.lessons.flatMap((lesson) =>
+      lesson.steps.filter((step) => step.type === 'diagram').map((step) => step.scenario),
+    );
+    expect(scenarios).toHaveLength(25);
+    expect(new Set(scenarios).size).toBe(25);
+    for (const lesson of chapterFive.lessons) {
+      expect(lesson.steps.filter((step) => step.type === 'question')).toHaveLength(1);
+      expect(lesson.steps.find((step) => step.type === 'explanation')?.paragraphs.length).toBeGreaterThanOrEqual(3);
+    }
   });
 
   it('uses globally unique stable IDs', () => {

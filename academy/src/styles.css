@@ -3618,15 +3618,19 @@ button:disabled {
   }
 
   .learning-chart .chapter-four-chart .chart-kicker,
-  .learning-chart .chapter-four-chart .chart-region-label {
+  .learning-chart .chapter-four-chart .chart-region-label,
+  .learning-chart .chapter-five-chart .chart-kicker,
+  .learning-chart .chapter-five-chart .chart-region-label {
     font-size: 13px;
   }
 
-  .learning-chart .chapter-four-chart .chart-panel-title {
+  .learning-chart .chapter-four-chart .chart-panel-title,
+  .learning-chart .chapter-five-chart .chart-panel-title {
     font-size: 14px;
   }
 
-  .learning-chart .chapter-four-chart .chart-small {
+  .learning-chart .chapter-four-chart .chart-small,
+  .learning-chart .chapter-five-chart .chart-small {
     font-size: 12px;
   }
 

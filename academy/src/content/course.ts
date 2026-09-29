@@ -4,6 +4,7 @@ import { chapterOneLessons } from './courses/brooks-trends/chapter-01';
 import { chapterTwoLessons } from './courses/brooks-trends/chapter-02';
 import { chapterThreeLessons } from './courses/brooks-trends/chapter-03';
 import { chapterFourLessons } from './courses/brooks-trends/chapter-04';
+import { chapterFiveLessons } from './courses/brooks-trends/chapter-05';
 import type { Course } from './types';
 
 export const brooksTrendsCourse: Course = {
@@ -80,6 +81,17 @@ export const brooksTrendsCourse: Course = {
         'Vom möglichen Setup über Auslösung und Follow-through bis zum vollständigen Chartfall – mit den Signalfolgen und Filtern des Buchkapitels.',
       estimatedLessonCount: 25,
       lessons: chapterFourLessons,
+    },
+    {
+      id: 'brooks-trends.chapter-05',
+      order: 7,
+      kind: 'chapter',
+      label: 'Kapitel 5',
+      title: 'Reversal-Bars im Chartkontext',
+      description:
+        'Bullische und bärische Reversal-Bars, Mit-Trend- und Gegentrend-Setups, Überlappung und Warnzeichen – mit den drei Chartfällen 5.1 bis 5.3.',
+      estimatedLessonCount: 25,
+      lessons: chapterFiveLessons,
     },
   ],
 };

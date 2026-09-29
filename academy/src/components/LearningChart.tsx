@@ -1,5 +1,6 @@
 import type { ChartScenarioId } from '../content/types';
 import { ChapterFourChart } from './ChapterFourCharts';
+import { ChapterFiveChart, chapterFiveDescriptions } from './ChapterFiveCharts';
 import { ChapterThreeChart } from './ChapterThreeCharts';
 import { ChapterTwoChart } from './ChapterTwoCharts';
 
@@ -230,6 +231,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
     'Drei Felder verbinden einen Bar ohne Tail, einen Limit-Einstieg im Kanal und ein Higher Low über einem alten Swing-Tief.',
   'figure-41-followthrough':
     'Die zweite Hälfte des Chartfalls ordnet Bar 3 als Signal, den Fill, den Follow-through sowie die Folge-Setups um Bar 4 und Bar 5.',
+  ...chapterFiveDescriptions,
 };
 
 function yScale(value: number, min: number, max: number): number {
@@ -1473,6 +1475,7 @@ export function LearningChart({ scenario, title }: LearningChartProps) {
         <ChapterTwoChart scenario={scenario} />
         <ChapterThreeChart scenario={scenario} />
         <ChapterFourChart scenario={scenario} />
+        <ChapterFiveChart scenario={scenario} />
       </svg>
     </div>
   );

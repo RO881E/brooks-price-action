@@ -1,3 +1,30 @@
+export type ChapterFiveScenarioId =
+  | 'reversal-meaning'
+  | 'bull-reversal-anatomy'
+  | 'bear-reversal-anatomy'
+  | 'reversal-many-closes'
+  | 'reversal-entry-chain'
+  | 'reversal-with-trend'
+  | 'reversal-break-retest'
+  | 'reversal-second-test'
+  | 'reversal-overlap-range'
+  | 'reversal-midpoint-overlap'
+  | 'reversal-large-doji'
+  | 'reversal-wrong-end-tail'
+  | 'reversal-small-bar'
+  | 'reversal-forming-trap'
+  | 'reversal-tail-context'
+  | 'reversal-timeframe-zoom'
+  | 'reversal-daily-compression'
+  | 'reversal-case-51-overlap'
+  | 'reversal-case-51-failure'
+  | 'reversal-case-52-break'
+  | 'reversal-case-52-inside'
+  | 'reversal-case-53-unconventional'
+  | 'reversal-case-53-doji-entry'
+  | 'reversal-case-53-flag'
+  | 'reversal-three-decisions';
+
 export type ChartScenarioId =
   | 'auction-balance'
   | 'institutional-flow'
@@ -102,7 +129,8 @@ export type ChartScenarioId =
   | 'double-test-setup'
   | 'failed-continuation-setup'
   | 'shaved-structural-setups'
-  | 'figure-41-followthrough';
+  | 'figure-41-followthrough'
+  | ChapterFiveScenarioId;
 
 export type LessonStep =
   | {
