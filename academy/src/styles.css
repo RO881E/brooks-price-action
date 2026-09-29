@@ -6648,3 +6648,199 @@ button:disabled {
 .previous-round .previous-summary {
   font-weight: 700;
 }
+
+/* Charts zum Entdecken (P09) */
+.bar-display {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-bottom: 10px;
+}
+
+.bar-display .bar-display-toggle {
+  margin-bottom: 0;
+}
+
+.bar-display .bar-display-toggle button {
+  min-height: 44px;
+}
+
+.bar-display-hint {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+/* Diagramm-Fokus: größere Bedienziele auf Touch-Geräten, Werkzeugleiste in Daumenreichweite. */
+@media (pointer: coarse), (max-width: 640px) {
+  .chart-focus-toolbar button {
+    min-width: 52px;
+    min-height: 52px;
+  }
+
+  .chart-focus-level {
+    min-width: 72px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chart-focus-toolbar {
+    position: sticky;
+    bottom: 0;
+    z-index: 3;
+    justify-content: center;
+    padding: 8px 0;
+    border-top: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.96);
+  }
+}
+
+.observation-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.observation-controls button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 14px;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.observation-controls button[aria-pressed='true'] {
+  color: #fff;
+  background: var(--read-ink);
+  border-color: var(--read-ink);
+}
+
+.observation-controls button:disabled {
+  color: var(--ink-soft);
+  background: var(--canvas);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.observation-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.chart-focus-text ol.stepping li.dim {
+  color: var(--ink-soft);
+}
+
+.chart-focus-text ol.stepping li.current {
+  margin-left: -8px;
+  padding: 4px 8px;
+  border-left: 4px solid var(--read-base);
+  border-radius: 6px;
+  background: var(--read-soft);
+  font-weight: 700;
+}
+
+.case-compare {
+  margin-top: 34px;
+}
+
+.case-compare h2 {
+  margin: 0 0 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+}
+
+.compare-note {
+  max-width: 720px;
+  margin: 0 0 14px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.compare-pickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.compare-pickers label {
+  display: grid;
+  gap: 4px;
+  min-width: min(100%, 240px);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.compare-pickers select {
+  min-height: 44px;
+  padding: 0 10px;
+  font: inherit;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--paper);
+}
+
+.compare-differences {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: #444b54;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.compare-sides {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.compare-side {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--train-base);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.compare-side h3 {
+  margin: 4px 0 6px;
+  color: var(--train-ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+}
+
+.compare-points {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.compare-points p {
+  margin: 4px 0;
+}
+
+.compare-cues {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+  .compare-sides {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

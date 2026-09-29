@@ -20,6 +20,7 @@ import { CaseTrainingList } from './CaseTraining';
 import { mistakeOverview } from '../features/mistakeInsights';
 import { MistakeOverviewView } from './MistakeOverviewView';
 import { TopicPractice } from './TopicPractice';
+import { CaseCompare } from './CaseCompare';
 import { TransferEntry } from './TransferEntry';
 import { findTopic, topicSources } from '../features/topicPractice';
 
@@ -159,6 +160,7 @@ export function PracticeView({
         />
       ) : null}
       {onTrain && !session ? <CaseTrainingList entries={cases} onTrain={onTrain} /> : null}
+      {onTrain && !session ? <CaseCompare course={course} progress={progress} /> : null}
     </div>
   );
 }

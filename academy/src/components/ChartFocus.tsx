@@ -222,6 +222,10 @@ function ChartFocusDialog({
 
   const description = chartDescription(scenario);
   const zoomed = !isInitialView(view);
+  // Beobachtungen auf Wunsch einzeln durchgehen (P09): dieselben Sätze der Lektion, nur nacheinander
+  // hervorgehoben. Es entsteht kein neuer fachlicher Satz und keine Zuordnung zu Chart-Stellen.
+  const [stepping, setStepping] = useState(false);
+  const [observation, setObservation] = useState(0);
 
   return (
     <dialog
@@ -327,9 +331,50 @@ function ChartFocusDialog({
           {observations.length > 0 ? (
             <>
               <h3>Beobachtungen</h3>
-              <ol>
-                {observations.map((observation) => (
-                  <li key={observation}>{observation}</li>
+              <div className="observation-controls">
+                <button
+                  type="button"
+                  aria-pressed={stepping}
+                  onClick={() => {
+                    setStepping((current) => !current);
+                    setObservation(0);
+                  }}
+                >
+                  {stepping ? 'Alle Beobachtungen zeigen' : 'Einzeln durchgehen'}
+                </button>
+                {stepping ? (
+                  <span className="observation-stepper">
+                    <button
+                      type="button"
+                      aria-label="Vorherige Beobachtung"
+                      disabled={observation === 0}
+                      onClick={() => setObservation((current) => Math.max(0, current - 1))}
+                    >
+                      ←
+                    </button>
+                    <span role="status" aria-live="polite">
+                      Beobachtung {observation + 1} von {observations.length}
+                    </span>
+                    <button
+                      type="button"
+                      aria-label="Nächste Beobachtung"
+                      disabled={observation === observations.length - 1}
+                      onClick={() => setObservation((current) => Math.min(observations.length - 1, current + 1))}
+                    >
+                      →
+                    </button>
+                  </span>
+                ) : null}
+              </div>
+              <ol className={stepping ? 'stepping' : undefined}>
+                {observations.map((text, index) => (
+                  <li
+                    key={text}
+                    className={stepping ? (index === observation ? 'current' : 'dim') : undefined}
+                    aria-current={stepping && index === observation ? 'true' : undefined}
+                  >
+                    {text}
+                  </li>
                 ))}
               </ol>
             </>

@@ -277,6 +277,25 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Charts zum Entdecken (P09)
+
+- **Diagramm-Fokus mobil:** Zoom-, Verschiebe- und Reset-Knöpfe sind auf Touch-Geräten mindestens
+  52 px groß, die Zoomstufe steht sichtbar in der Werkzeugleiste, die sich am unteren Rand in
+  Daumenreichweite hält. Escape, Tastatur, Zwei-Finger-Zoom und die Rückgabe des Fokus bleiben wie
+  bisher.
+- **Beobachtungen einzeln:** Im Fokus lassen sich die vorhandenen Beobachtungen der Lektion mit
+  „Einzeln durchgehen“ nacheinander hervorheben (Vorherige/Nächste). Es entsteht **kein neuer
+  Satz** und keine Zuordnung zu Stellen im Chart; die Liste enthält weiter genau die Sätze der
+  Lektion.
+- **Zwei Fälle vergleichen (Üben):** Gegenüberstellung von Kontext (Chart und Ausgangslage), bester
+  Wahl und Begründung – nur für bereits **abgeschlossene**, zugängliche Trainerfälle, damit nichts
+  aus ungespielten Fällen verraten wird. Transferfälle (C-02) sind nie dabei; der Vergleich
+  schreibt nichts.
+- **Chart und Tabelle:** Der Umschalter erklärt sichtbar, dass die Tabelle genau die Bars des Charts
+  als Text zeigt; beide Darstellungen erhalten denselben freigegebenen Barbestand (kein späterer
+  Wert im DOM). Die Wahl bleibt beim Wechsel zwischen Trainer und Rückblick erhalten – nur im
+  Arbeitsspeicher, nicht gespeichert.
+
 ## Übungsroutine (P08)
 
 - **Übungs-Einstieg:** Die vier Wege unter „Üben“ (fällig, Fehler, Kapitel, Mix) zeigen ihre reale
