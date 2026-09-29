@@ -1,4 +1,4 @@
-import type { Course, CourseUnit, Lesson } from '../content/types';
+import type { CourseOutline, UnitOutline, LessonOutline } from '../content/types';
 import { lessonAccessState } from './courseAccess';
 import {
   normalizeNoteText,
@@ -112,8 +112,8 @@ export function restoreNote(progress: AcademyProgress, note: Note): AcademyProgr
 
 export interface SavedTarget {
   key: string;
-  lesson: Lesson | null;
-  unit: CourseUnit | null;
+  lesson: LessonOutline | null;
+  unit: UnitOutline | null;
   /** Nullbasierter Schritt oder `null` für die ganze Lektion. */
   stepIndex: number | null;
   title: string;
@@ -131,7 +131,7 @@ export interface SavedNote extends SavedTarget {
 }
 
 function resolveTarget(
-  course: Course,
+  course: CourseOutline,
   progress: AcademyProgress,
   key: string,
   lessonId: string,
@@ -188,7 +188,7 @@ export interface SavedOverview {
 }
 
 /** Lesezeichen und Notizen, neueste zuerst, mit aufgelöster Fundstelle. */
-export function savedOverview(course: Course, progress: AcademyProgress): SavedOverview {
+export function savedOverview(course: CourseOutline, progress: AcademyProgress): SavedOverview {
   return {
     bookmarks: Object.entries(progress.bookmarks)
       .sort(([, a], [, b]) => b.createdAt.localeCompare(a.createdAt))

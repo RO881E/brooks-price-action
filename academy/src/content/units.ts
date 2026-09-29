@@ -1,0 +1,121 @@
+import type { Course, CourseUnit, Lesson } from './types';
+
+/**
+ * Einzige Liste der Kurseinheiten in Buchreihenfolge (F-12). Jede Einheit lädt
+ * ihre vollständigen Lektionen als eigenen Chunk. Die sofort verfügbare
+ * Gliederung (`virtual:wqt-course-outline`, siehe `build/courseOutlinePlugin.ts`)
+ * wird beim Build aus genau diesen Loadern erzeugt – eine zweite, von Hand
+ * gepflegte Liste gibt es nicht.
+ */
+export interface UnitDefinition extends Omit<CourseUnit, 'lessons'> {
+  load: () => Promise<Lesson[]>;
+}
+
+export const courseInfo: Omit<Course, 'units'> = {
+  id: 'brooks-trends',
+  eyebrow: 'Buch 1 von 3 · Price Action',
+  title: 'Trading Price Action Trends',
+  subtitle:
+    'Lerne, Kursbewegungen als fortlaufende Auktion zu lesen – vom einzelnen Bar bis zum vollständigen Trendtag.',
+  sourceOrderNotice:
+    'Der Lernpfad folgt der Reihenfolge des Buches. Kleine Lektionen ersetzen keine Inhalte, sondern machen sie schrittweise zugänglich.',
+};
+
+export const unitDefinitions: UnitDefinition[] = [
+  {
+    id: 'brooks-trends.introduction',
+    order: 1,
+    kind: 'introduction',
+    label: 'Einleitung',
+    title: 'Wie Price Action gedacht wird',
+    description:
+      'Marktlogik, Wahrscheinlichkeit, Disziplin, Stärkezeichen und die grundlegende High-/Low-Zählung in der Reihenfolge der Quelle.',
+    estimatedLessonCount: 22,
+    load: () =>
+      import('./courses/brooks-trends/introduction').then((module) => module.introductionLessons),
+  },
+  {
+    id: 'brooks-trends.part-01-introduction',
+    order: 2,
+    kind: 'part-introduction',
+    label: 'Teil I · Price Action',
+    title: 'Price Action als Entscheidungsmodell',
+    description:
+      'Vom einzelnen Tick über Trend- und Range-Entscheidungen bis zu institutioneller Ausführung, HFT, Pullback-Zählung und einer konkreten Trainingsmethode.',
+    estimatedLessonCount: 24,
+    load: () =>
+      import('./courses/brooks-trends/part-01').then((module) => module.partOneLessons),
+  },
+  {
+    id: 'brooks-trends.chapter-01',
+    order: 3,
+    kind: 'chapter',
+    label: 'Kapitel 1',
+    title: 'Das Spektrum von Trend bis Range',
+    description:
+      'Extremzustände, Marktträgheit, zweibeinige Bewegungen und Trendwiederaufnahme am zentralen Chartfall.',
+    estimatedLessonCount: 8,
+    load: () =>
+      import('./courses/brooks-trends/chapter-01').then((module) => module.chapterOneLessons),
+  },
+  {
+    id: 'brooks-trends.chapter-02',
+    order: 4,
+    kind: 'chapter',
+    label: 'Kapitel 2',
+    title: 'Trendbars, Dojis und Klimaxe',
+    description:
+      'Kontrolle im einzelnen Bar, Follow-through, kumulativer Druck, Klimaxlogik und alle sechs Chartfälle in der Reihenfolge des Buches.',
+    estimatedLessonCount: 20,
+    load: () =>
+      import('./courses/brooks-trends/chapter-02').then((module) => module.chapterTwoLessons),
+  },
+  {
+    id: 'brooks-trends.chapter-03',
+    order: 5,
+    kind: 'chapter',
+    label: 'Kapitel 3',
+    title: 'Breakouts, Ranges, Tests und Umkehrbewegungen',
+    description:
+      'Vom Breakout über Spike-and-Channel und Testzonen bis zur Umkehrlogik – einschließlich des vollständigen Chartfalls 3.1.',
+    estimatedLessonCount: 25,
+    load: () =>
+      import('./courses/brooks-trends/chapter-03').then((module) => module.chapterThreeLessons),
+  },
+  {
+    id: 'brooks-trends.chapter-04',
+    order: 6,
+    kind: 'chapter',
+    label: 'Kapitel 4',
+    title: 'Signal-Bars, Entry-Bars, Setups und Kerzenmuster',
+    description:
+      'Vom möglichen Setup über Auslösung und Follow-through bis zum vollständigen Chartfall – mit den Signalfolgen und Filtern des Buchkapitels.',
+    estimatedLessonCount: 25,
+    load: () =>
+      import('./courses/brooks-trends/chapter-04').then((module) => module.chapterFourLessons),
+  },
+  {
+    id: 'brooks-trends.chapter-05',
+    order: 7,
+    kind: 'chapter',
+    label: 'Kapitel 5',
+    title: 'Reversal-Bars im Chartkontext',
+    description:
+      'Bullische und bärische Reversal-Bars, Mit-Trend- und Gegentrend-Setups, Überlappung und Warnzeichen – mit den drei Chartfällen 5.1 bis 5.3.',
+    estimatedLessonCount: 25,
+    load: () =>
+      import('./courses/brooks-trends/chapter-05').then((module) => module.chapterFiveLessons),
+  },
+  {
+    id: 'brooks-trends.chapter-06',
+    order: 8,
+    kind: 'chapter',
+    label: 'Kapitel 6',
+    title: 'Weitere Signal-Bars und ihre Marktrolle',
+    description:
+      'Starke Trendbars, Zwei- und Drei-Bar-Umkehr, Inside-/Outside-Bars, Mikro-Doppel, Fehlsignale und alle 19 Chartfälle des Buchkapitels.',
+    estimatedLessonCount: 40,
+    load: () =>
+      import('./courses/brooks-trends/chapter-06').then((module) => module.chapterSixLessons),
+  },
+];

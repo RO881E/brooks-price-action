@@ -1,11 +1,11 @@
-import type { Course } from '../content/types';
+import type { CourseOutline } from '../content/types';
 import { goalLabel, type GoalOverview, type WeekDayStatus } from '../features/goals';
 import { DAILY_GOAL_OPTIONS, type DailyGoal } from '../features/progress';
 import type { NextAction, ProgressOverview } from '../features/progressStats';
 import type { DayKey } from '../features/reviewScheduler';
 
 interface ProgressViewProps {
-  course: Course;
+  course: CourseOutline;
   overview: ProgressOverview;
   goals: GoalOverview;
   today: DayKey;

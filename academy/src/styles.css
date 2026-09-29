@@ -4119,3 +4119,47 @@ button:disabled {
     width: 100%;
   }
 }
+
+/* F-12: Nachladen von Kursinhalten */
+.content-load {
+  margin: 24px 0;
+  padding: 16px 18px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--canvas);
+  /* Kurze Ladevorgänge sollen nicht aufblitzen. */
+  animation: content-load-reveal 0s linear 250ms both;
+}
+
+.content-load.error {
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  border-color: #e3b8b3;
+  background: var(--red-soft);
+  animation: none;
+}
+
+.content-load.error p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.content-load-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+@keyframes content-load-reveal {
+  from {
+    visibility: hidden;
+  }
+
+  to {
+    visibility: visible;
+  }
+}

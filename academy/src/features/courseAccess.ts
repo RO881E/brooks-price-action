@@ -1,8 +1,8 @@
-import type { Course, CourseUnit, Lesson } from '../content/types';
+import type { CourseOutline, UnitOutline, LessonOutline } from '../content/types';
 
 export type LessonAccessState = 'complete' | 'available' | 'locked' | 'planned';
 
-function unitIsFullyReleased(unit: CourseUnit): boolean {
+function unitIsFullyReleased(unit: UnitOutline): boolean {
   const publishedCount = unit.lessons.filter(
     (lesson) => lesson.status === 'published',
   ).length;
@@ -10,7 +10,7 @@ function unitIsFullyReleased(unit: CourseUnit): boolean {
   return publishedCount >= unit.estimatedLessonCount;
 }
 
-function unitIsComplete(unit: CourseUnit, completed: Set<string>): boolean {
+function unitIsComplete(unit: UnitOutline, completed: Set<string>): boolean {
   return (
     unitIsFullyReleased(unit) &&
     unit.lessons.every(
@@ -20,8 +20,8 @@ function unitIsComplete(unit: CourseUnit, completed: Set<string>): boolean {
 }
 
 export function lessonAccessState(
-  course: Course,
-  lesson: Lesson,
+  course: CourseOutline,
+  lesson: LessonOutline,
   completedLessonIds: Iterable<string>,
 ): LessonAccessState {
   if (lesson.status === 'planned') return 'planned';
@@ -56,9 +56,9 @@ export function lessonAccessState(
 }
 
 export function nextAvailableLesson(
-  course: Course,
+  course: CourseOutline,
   completedLessonIds: Iterable<string>,
-): Lesson | undefined {
+): LessonOutline | undefined {
   return course.units
     .flatMap((unit) => unit.lessons)
     .find(

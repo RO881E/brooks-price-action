@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { Course } from '../content/types';
+import { loadedQuestion, useLessonContent } from '../content/catalog';
+import type { CourseOutline } from '../content/types';
 import type { QuestionStep } from '../features/lessonResults';
 import type { AcademyProgress, ReviewMode, ReviewSession } from '../features/progress';
 import {
@@ -13,6 +14,7 @@ import {
 } from '../features/reviewSession';
 import { daysBetween, REVIEW_INTERVALS, type DayKey } from '../features/reviewScheduler';
 import { moveAnswerFocus } from './answerKeys';
+import { ContentLoadState } from './ContentLoadState';
 
 const modeLabels: Record<ReviewMode, string> = {
   due: 'Heute fällig',
@@ -35,7 +37,7 @@ export function relativeDayLabel(day: DayKey, today: DayKey): string {
 }
 
 interface PracticeViewProps {
-  course: Course;
+  course: CourseOutline;
   progress: AcademyProgress;
   today: DayKey;
   onStart: (mode: ReviewMode, unitId?: string) => void;
@@ -109,7 +111,7 @@ function ReviewStart({
   today,
   onStart,
 }: {
-  course: Course;
+  course: CourseOutline;
   items: ReviewItem[];
   progress: AcademyProgress;
   today: DayKey;
@@ -246,6 +248,16 @@ function SessionQuestion({
 }) {
   const item = currentSessionItem(session, items);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  // Alle Kapitel der Runde vorab laden, damit die Runde ohne Wartezeit läuft.
+  const sessionLessonIds = useMemo(
+    () =>
+      session.questionIds.flatMap((questionId) => {
+        const lessonId = items.find((candidate) => candidate.question.id === questionId)?.lesson.id;
+        return lessonId ? [lessonId] : [];
+      }),
+    [session.questionIds, items],
+  );
+  const content = useLessonContent(sessionLessonIds);
 
   const nextButton = useRef<HTMLButtonElement>(null);
   const answeredHere = useRef(false);
@@ -264,7 +276,28 @@ function SessionQuestion({
 
   if (!item) return null;
 
-  const { question } = item;
+  // Antworttexte kommen aus dem geladenen Kapitel (F-12).
+  const question = loadedQuestion(item.lesson.id, item.question.id);
+  if (!question) {
+    return (
+      <article className="practice-card">
+        <span className="question-number">
+          Frage {session.index + 1} / {session.questionIds.length} · {item.lesson.title}
+        </span>
+        <h2 tabIndex={-1} ref={headingRef}>
+          {item.question.title}
+        </h2>
+        <ContentLoadState
+          status={content.status}
+          what="Die Frage"
+          onRetry={content.retry}
+          onBack={onEnd}
+          backLabel="Runde beenden"
+        />
+      </article>
+    );
+  }
+
   const answer = session.answers[question.id];
   const answered = answer !== undefined;
   const correct = answer === question.correctOptionId;
@@ -399,7 +432,7 @@ function SessionResult({
   onStart,
   onEnd,
 }: {
-  course: Course;
+  course: CourseOutline;
   session: ReviewSession;
   items: ReviewItem[];
   progress: AcademyProgress;

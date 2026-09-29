@@ -1,26 +1,19 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
+import { courseOutlinePlugin } from './build/courseOutlinePlugin.ts';
 import { serviceWorkerPlugin } from './pwa/serviceWorkerPlugin.ts';
 
 export default defineConfig({
   base: './',
-  plugins: [react(), serviceWorkerPlugin()],
+  plugins: [react(), courseOutlinePlugin(), serviceWorkerPlugin()],
   build: {
     rolldownOptions: {
       output: {
-        // Eigene Chunks für React und die Kursinhalte: Sie ändern sich selten
-        // gemeinsam, laden parallel und bleiben einzeln unter der Warnschwelle.
-        // Die Schaubilder lädt der Lesson Player zusätzlich erst bei Bedarf.
+        // React als eigener, selten wechselnder Chunk. Die Kursinhalte teilt
+        // `src/content/units.ts` per dynamischem Import in je einen Chunk pro
+        // Einheit (F-12); die Schaubilder lädt der Lesson Player bei Bedarf.
         codeSplitting: {
-          groups: [
-            { name: 'react', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/ },
-            // Buchreihenfolge bleibt unverändert – nur die Auslieferung ist geteilt.
-            {
-              name: 'course-basics',
-              test: /src[\\/]content[\\/]courses[\\/][^\\/]+[\\/](introduction|part-01)/,
-            },
-            { name: 'course-chapters', test: /src[\\/]content[\\/]/ },
-          ],
+          groups: [{ name: 'react', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/ }],
         },
       },
     },

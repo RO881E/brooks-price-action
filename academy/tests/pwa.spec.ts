@@ -4,6 +4,7 @@ import { createServer, type Server } from 'node:http';
 import type { AddressInfo, Socket } from 'node:net';
 import { extname, join, normalize } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
+import { brooksTrendsCourse, publishedLessons } from '../src/content/course';
 
 /*
  * F-09: Diese Tests prüfen den echten Produktions-Build. Er wird mit relativem
@@ -248,6 +249,40 @@ test('Lernpfad, Lektion, Glossar und Fortschritt funktionieren offline', async (
   serverState.down = false;
   await context.setOffline(false);
 
+  expect(errors).toEqual([]);
+});
+
+test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  // Alles abgeschlossen: jede Lektion ist frei; online wird kein Kapitel geöffnet.
+  await page.addInitScript((ids) => {
+    if (localStorage.getItem('wqt-academy-progress-v1')) return;
+    localStorage.setItem(
+      'wqt-academy-progress-v1',
+      JSON.stringify({ version: 2, completedLessonIds: ids, answers: {} }),
+    );
+  }, publishedLessons.map((lesson) => lesson.id));
+  await firstVisit(page);
+
+  // Jede Einheit liegt als eigener Chunk im Vorab-Cache.
+  const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-01|chapter-0\d)-.*\.js$/.test(path));
+  expect(chunks).toHaveLength(brooksTrendsCourse.units.length);
+
+  serverState.down = true;
+  await context.setOffline(true);
+  for (const unit of [brooksTrendsCourse.units.at(-1)!, brooksTrendsCourse.units[3]]) {
+    const lesson = unit.lessons[0];
+    await page.goto(`${origin}/academy/#/lesson/${lesson.id}?step=1`);
+    await expect(page.getByRole('heading', { name: lesson.steps[0].title, level: 1 })).toBeVisible();
+  }
+  // Suche über alle Kapitel funktioniert offline aus der Gliederung.
+  await page.goto(`${origin}/academy/#/path`);
+  await page.keyboard.press('/');
+  await page.keyboard.type(brooksTrendsCourse.units[5].lessons[1].title);
+  await expect(page.getByRole('option').first()).toBeVisible();
+
+  serverState.down = false;
+  await context.setOffline(false);
   expect(errors).toEqual([]);
 });
 

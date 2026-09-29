@@ -1,4 +1,4 @@
-import type { Course } from '../content/types';
+import type { CourseOutline } from '../content/types';
 import { earnedXp } from './lessonResults';
 import type { AcademyProgress, DailyGoal, MilestoneId } from './progress';
 import { addDays, daysBetween, type DayKey } from './reviewScheduler';
@@ -157,7 +157,7 @@ export function awardMilestone(
   return { ...progress, milestones: { ...progress.milestones, [id]: { achievedDay: today } } };
 }
 
-function hasCompleteUnit(course: Course, progress: AcademyProgress): boolean {
+function hasCompleteUnit(course: CourseOutline, progress: AcademyProgress): boolean {
   const completed = new Set(progress.completedLessonIds);
   return course.units.some((unit) => {
     const published = unit.lessons.filter((lesson) => lesson.status === 'published');
@@ -176,7 +176,7 @@ function hasCompleteUnit(course: Course, progress: AcademyProgress): boolean {
  */
 export function awardMilestones(
   progress: AcademyProgress,
-  course: Course,
+  course: CourseOutline,
   today: DayKey,
 ): AcademyProgress {
   const published = course.units.flatMap((unit) =>

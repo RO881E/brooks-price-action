@@ -10,6 +10,7 @@ import {
 import { AppStatusBanner } from './components/AppStatusBanner';
 import { CelebrationToast, type Celebration } from './components/CelebrationToast';
 import { ChapterView } from './components/ChapterView';
+import { LessonLoading } from './components/ContentLoadState';
 import { GlossaryView } from './components/GlossaryView';
 import { LessonPlayer } from './components/LessonPlayer';
 import { LessonResultView } from './components/LessonResultView';
@@ -20,9 +21,15 @@ import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { SettingsView } from './components/SettingsView';
 import { UndoToast, type UndoAction } from './components/UndoToast';
-import { brooksTrendsCourse, publishedLessonIds } from './content/course';
+import {
+  catalog,
+  courseOutline,
+  publishedLessonIds,
+  unitIdOfLesson,
+  useLessonContent,
+} from './content/catalog';
 import { glossaryEntries } from './content/glossary';
-import type { Lesson } from './content/types';
+import type { LessonOutline } from './content/types';
 import {
   applyImport,
   backupFileName,
@@ -32,6 +39,7 @@ import {
   type ImportMode,
   type MergeOptions,
 } from './features/backup';
+import { nextAvailableLesson } from './features/courseAccess';
 import { downloadTextFile } from './features/download';
 import {
   awardMilestones,
@@ -148,14 +156,14 @@ export default function App() {
   const menuButton = useRef<HTMLButtonElement>(null);
   // Bereits früher erreichte Meilensteine werden beim Laden still nachgetragen.
   const [progress, setStoredProgress] = useState(() =>
-    awardMilestones(loadProgress(window.localStorage), brooksTrendsCourse, localDayKey(new Date())),
+    awardMilestones(loadProgress(window.localStorage), courseOutline, localDayKey(new Date())),
   );
   // Jede Änderung prüft im selben Schritt die Meilensteine – so gibt es keinen
   // Zwischenstand und jede Vergabe bleibt einmalig.
   const setProgress = useCallback(
     (update: (current: AcademyProgress) => AcademyProgress) =>
       setStoredProgress((current) =>
-        awardMilestones(update(current), brooksTrendsCourse, localDayKey(new Date())),
+        awardMilestones(update(current), courseOutline, localDayKey(new Date())),
       ),
     [],
   );
@@ -164,7 +172,7 @@ export default function App() {
   const dismissUndo = useCallback(() => setUndoAction(null), []);
   const [searchOpen, setSearchOpen] = useState(false);
   const searchOpener = useRef<HTMLElement | null>(null);
-  const searchIndex = useMemo(() => buildSearchIndex(brooksTrendsCourse, glossaryEntries), []);
+  const searchIndex = useMemo(() => buildSearchIndex(courseOutline, glossaryEntries), []);
   const closeCelebration = useCallback(() => setCelebration(null), []);
   const appStatus = useSyncExternalStore(pwa.subscribe, pwa.getSnapshot);
   // Neuester Stand für das sofortige Speichern beim Verlassen der Seite.
@@ -177,13 +185,33 @@ export default function App() {
     [progress],
   );
   const resolved = useMemo(
-    () => (route ? resolveRoute(route, brooksTrendsCourse, progress) : null),
+    () => (route ? resolveRoute(route, courseOutline, progress) : null),
     [route, progress],
   );
-  const resume = useMemo(() => resumeTarget(brooksTrendsCourse, progress), [progress]);
+  const resume = useMemo(() => resumeTarget(courseOutline, progress), [progress]);
   const activeLesson = resolved?.kind === 'lesson' ? resolved.lesson : null;
   const activeStepIndex = resolved?.kind === 'lesson' ? resolved.stepIndex : 0;
   const resultLesson = resolved?.kind === 'lesson-result' ? resolved.lesson : null;
+  // Die Lektion selbst lädt kapitelweise nach (F-12); Route und Freischaltung
+  // sind bereits anhand der Gliederung geprüft.
+  const activeContent = useLessonContent(activeLesson ? [activeLesson.id] : []);
+  const activeLessonContent = activeLesson ? catalog.lesson(activeLesson.id) : undefined;
+
+  // Das Kapitel der nächsten Lektion im Leerlauf vorladen – so öffnet sie ohne
+  // Wartezeit. Offline liefert es der Service Worker ohnehin aus dem Cache.
+  const upcomingLessonId =
+    resume?.lesson.id ?? nextAvailableLesson(courseOutline, progress.completedLessonIds)?.id;
+  useEffect(() => {
+    const unitId = upcomingLessonId ? unitIdOfLesson(upcomingLessonId) : undefined;
+    if (!unitId) return undefined;
+    const prefetch = () => catalog.ensureUnits([unitId]);
+    if (typeof window.requestIdleCallback === 'function') {
+      const handle = window.requestIdleCallback(prefetch, { timeout: 3000 });
+      return () => window.cancelIdleCallback(handle);
+    }
+    const timer = window.setTimeout(prefetch, 1500);
+    return () => window.clearTimeout(timer);
+  }, [upcomingLessonId]);
   const view: View = resolved?.kind === 'view' ? resolved.view : lastView;
   const glossaryTerm = resolved?.kind === 'view' ? resolved.term : undefined;
 
@@ -194,7 +222,7 @@ export default function App() {
   // Eine gespeicherte Wiederholungsrunde nur mit noch vorhandenen Fragen fortsetzen.
   useEffect(() => {
     setProgress((current) =>
-      sanitizeSession(current, reviewPool(brooksTrendsCourse, current)),
+      sanitizeSession(current, reviewPool(courseOutline, current)),
     );
   }, []);
 
@@ -346,7 +374,7 @@ export default function App() {
     setProgress((current) =>
       startSession(
         current,
-        buildSession(mode, reviewPool(brooksTrendsCourse, current), current, {
+        buildSession(mode, reviewPool(courseOutline, current), current, {
           today,
           unitId,
           random: seededRandom(Date.now()),
@@ -440,7 +468,7 @@ export default function App() {
     }
   };
 
-  const openLesson = (lesson: Lesson) => {
+  const openLesson = (lesson: LessonOutline) => {
     const state: LessonHistoryState = { wqtOpenedFrom: view };
     navigate(
       { kind: 'lesson', lessonId: lesson.id, step: startStepIndex(lesson, progress) + 1 },
@@ -523,12 +551,26 @@ export default function App() {
     else navigate({ kind: 'view', view: lastView }, 'push');
   };
 
-  if (activeLesson) {
+  if (activeLesson && !activeLessonContent) {
+    return (
+      <>
+        <LessonLoading
+          lesson={activeLesson}
+          status={activeContent.status}
+          onRetry={activeContent.retry}
+          onClose={closeLesson}
+        />
+        {toast}
+      </>
+    );
+  }
+
+  if (activeLesson && activeLessonContent) {
     return (
       <>
         <LessonPlayer
           key={activeLesson.id}
-          lesson={activeLesson}
+          lesson={activeLessonContent}
           stepIndex={activeStepIndex}
           onStepChange={(stepIndex) =>
             navigate(
@@ -696,7 +738,7 @@ export default function App() {
         <div className="view-container">
           {view === 'path' ? (
             <PathView
-              course={brooksTrendsCourse}
+              course={courseOutline}
               progress={progress}
               percent={percent}
               resume={resume}
@@ -709,14 +751,14 @@ export default function App() {
           ) : null}
           {view === 'chapters' ? (
             <ChapterView
-              course={brooksTrendsCourse}
+              course={courseOutline}
               completedLessonIds={progress.completedLessonIds}
               onOpenLesson={openLesson}
             />
           ) : null}
           {view === 'practice' ? (
             <PracticeView
-              course={brooksTrendsCourse}
+              course={courseOutline}
               progress={progress}
               today={today}
               onStart={startReview}
@@ -732,8 +774,8 @@ export default function App() {
           ) : null}
           {view === 'progress' ? (
             <ProgressView
-              course={brooksTrendsCourse}
-              overview={progressOverview(brooksTrendsCourse, progress, today)}
+              course={courseOutline}
+              overview={progressOverview(courseOutline, progress, today)}
               goals={goalOverview(progress, today)}
               today={today}
               onAction={runNextAction}
@@ -742,7 +784,7 @@ export default function App() {
           ) : null}
           {view === 'saved' ? (
             <SavedView
-              overview={savedOverview(brooksTrendsCourse, progress)}
+              overview={savedOverview(courseOutline, progress)}
               onOpen={openSavedTarget}
               onRemoveBookmark={removeBookmarkWithUndo}
               onDeleteNote={deleteNoteWithUndo}
