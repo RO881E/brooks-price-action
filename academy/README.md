@@ -236,6 +236,16 @@ Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/t
   Versuch behält seine eigene Fassung (`sessionId`); beim Zusammenführen einer Sicherung wird
   nichts überschrieben. Die Einstellungen weisen darauf hin, dass Notizen und Begründungen im
   Klartext in der Sicherung stehen.
+- **Rückblick (F-25):** Abgeschlossene Runden lassen sich Schritt für Schritt nachvollziehen –
+  über „Diese Runde nachvollziehen“ in der Auswertung oder „Rückblick“ in der Liste
+  „Abgeschlossene Runden nachvollziehen“ auf der Fallseite (`#/train/<Fall-ID>/review/<Runden-ID>`).
+  Je Entscheidung zuerst die damals sichtbaren Bars, die eigene Wahl samt Hinweisen und die
+  damalige Begründung (F-24), dann auf Wunsch „Auflösung zeigen“: Einordnung aller Optionen,
+  übersehene Hinweise mit Lektionslink und die Folgebars; ein Schrittindex führt durch die Runde.
+  „Erneut trainieren“ startet einen getrennten neuen Durchlauf (eine laufende Runde wird nicht
+  ersetzt). Der Rückblick liest nur abgeschlossene Runden mit Einzelantworten und schreibt
+  nichts. Für laufende oder unbekannte Runden, unbekannte Fälle, Runden aus älteren Versionen
+  ohne Einzelantworten und geänderte Fälle erscheint eine klare Meldung statt einer Rekonstruktion.
 - **Chart oder Tabelle (F-26):** Über „Chart“/„Tabelle“ lassen sich die sichtbaren Bars auch als
   Datentabelle lesen (Bar, Eröffnung, Hoch, Tief, Schluss, Richtung, ggf. Beschriftung; relative
   Lernwerte, keine echten Kurse) samt kurzem Text zum aktuellen Entscheidungspunkt. Beide

@@ -4486,6 +4486,74 @@ button:disabled {
   list-style: none;
 }
 
+/* Rückblick (F-25) */
+.replay {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .replay {
+    grid-template-columns: 240px minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.replay-index ol {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.replay-index button {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.replay-index button[aria-current='step'] {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.replay-nav {
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.replay-runs {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.replay-runs li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.replay-runs small {
+  color: var(--ink-soft);
+}
+
 /* Eigene Begründung (F-24) */
 .trainer-own {
   display: grid;

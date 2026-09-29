@@ -52,6 +52,12 @@ export type AppRoute =
       /** Bar-für-Bar-Trainer (seit F-15): `#/train/<case-id>`. */
       kind: 'train';
       caseId: string;
+    }
+  | {
+      /** Rückblick auf eine abgeschlossene Runde (seit F-25): `#/train/<case-id>/review/<session-id>`. */
+      kind: 'replay';
+      caseId: string;
+      sessionId: string;
     };
 
 export const DEFAULT_ROUTE: AppRoute = { kind: 'view', view: 'path' };
@@ -95,6 +101,14 @@ export function parseRoute(hash: string): AppRoute | null {
     return { kind: 'read', unitId, lessonId, step: lessonId ? parseStep(query) : null };
   }
 
+  if (segments.length === 4 && segments[0] === 'train' && segments[2] === 'review' && segments[1] && segments[3]) {
+    try {
+      return { kind: 'replay', caseId: decodeURIComponent(segments[1]), sessionId: decodeURIComponent(segments[3]) };
+    } catch {
+      return null;
+    }
+  }
+
   if (segments.length === 2 && segments[0] === 'train' && segments[1] !== '') {
     try {
       return { kind: 'train', caseId: decodeURIComponent(segments[1]) };
@@ -126,6 +140,9 @@ export function formatRoute(route: AppRoute): string {
       : `#/${route.view}`;
   }
   if (route.kind === 'train') return `#/train/${encodeURIComponent(route.caseId)}`;
+  if (route.kind === 'replay') {
+    return `#/train/${encodeURIComponent(route.caseId)}/review/${encodeURIComponent(route.sessionId)}`;
+  }
   if (route.kind === 'read') {
     const base = `#/read/${encodeURIComponent(route.unitId)}`;
     if (!route.lessonId) return base;
@@ -183,7 +200,9 @@ export type ResolvedRoute =
   | { kind: 'lesson'; lesson: LessonOutline; stepIndex: number }
   | { kind: 'lesson-result'; lesson: LessonOutline }
   | { kind: 'read'; reader: ResolvedReader }
-  | { kind: 'train'; barCase: BarCase };
+  | { kind: 'train'; barCase: BarCase }
+  // Die Prüfung der Runde (abgeschlossen, passend) übernimmt `buildReplay` – mit klarer Meldung.
+  | { kind: 'replay'; caseId: string; sessionId: string };
 
 /**
  * Prüft eine Route gegen Kurs und Fortschritt. Unbekannte, geplante oder
@@ -202,6 +221,7 @@ export function resolveRoute(
     const barCase = findPublishedCase(route.caseId);
     return barCase && caseAvailable(course, progress, barCase) ? { kind: 'train', barCase } : null;
   }
+  if (route.kind === 'replay') return route;
   if (route.kind === 'read') {
     const reader = resolveReader(course, progress, route.unitId, route.lessonId, route.step);
     return reader ? { kind: 'read', reader } : null;

@@ -22,6 +22,7 @@ import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { SettingsView } from './components/SettingsView';
 import { TrainerView } from './components/TrainerView';
+import { ReplayView } from './components/ReplayView';
 import { FirstUseWelcome, GuideDialog, type GuideFacts } from './components/FirstUseGuide';
 import { UndoToast, type UndoAction } from './components/UndoToast';
 import {
@@ -47,6 +48,7 @@ import {
   caseEntries,
   casesForLesson,
   discardCaseRun,
+  findPublishedCase,
   publishedCases,
   setReasoningDraft,
   updateCaseRun,
@@ -234,6 +236,7 @@ export default function App() {
   }, [upcomingLessonId]);
   const reading = resolved?.kind === 'read' ? resolved.reader : null;
   const training = resolved?.kind === 'train' ? resolved.barCase : null;
+  const replaying = resolved?.kind === 'replay' ? resolved : null;
   // Der Buchleser gehört zur Ansicht „Buchmodus“, der Trainer zu „Üben“
   // (Navigation bleibt markiert).
   const view: View =
@@ -241,7 +244,7 @@ export default function App() {
       ? resolved.view
       : reading
         ? 'chapters'
-        : training
+        : training || replaying
           ? 'practice'
           : lastView;
   // Hinweis, wenn ein Leser-Link auf einen nicht lesbaren Abschnitt zeigte –
@@ -921,6 +924,10 @@ export default function App() {
               onUpdate={(session) => setProgress((current) => updateCaseRun(current, training, session))}
               onDiscard={() => setProgress((current) => discardCaseRun(current, training.id))}
               onReasoning={(draft) => setProgress((current) => setReasoningDraft(current, training.id, draft))}
+              onReplay={(sessionId) => {
+                navigate({ kind: 'replay', caseId: training.id, sessionId }, 'push');
+                scrollToTop();
+              }}
               onOpenLesson={openLesson}
               onBack={() => chooseView('practice')}
             />
@@ -933,7 +940,26 @@ export default function App() {
               onReadUnit={openReader}
             />
           ) : null}
-          {view === 'practice' && !training ? (
+          {replaying ? (
+            <ReplayView
+              key={`${replaying.caseId}/${replaying.sessionId}`}
+              course={courseOutline}
+              progress={progress}
+              caseId={replaying.caseId}
+              sessionId={replaying.sessionId}
+              onRetrain={(caseId) => {
+                // Getrennter neuer Durchlauf; eine laufende Runde wird nicht ersetzt.
+                const barCase = findPublishedCase(caseId);
+                if (barCase && !progress.caseSessions[caseId]) {
+                  setProgress((current) => beginCaseRun(current, barCase));
+                }
+                openTraining(caseId);
+              }}
+              onOpenLesson={openLesson}
+              onBack={() => chooseView('practice')}
+            />
+          ) : null}
+          {view === 'practice' && !training && !replaying ? (
             <PracticeView
               course={courseOutline}
               progress={progress}

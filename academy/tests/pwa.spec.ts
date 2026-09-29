@@ -400,6 +400,50 @@ test('Bar-für-Bar-Trainer offline: Runde spielen und nach Neustart fortsetzen (
   expect(errors).toEqual([]);
 });
 
+test('Rückblick auf eine abgeschlossene Runde offline (F-25)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  const barCase = barCases.find((item) => item.status === 'approved')!;
+  const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+  const ids = brooksTrendsCourse.units
+    .slice(0, unitIndex + 1)
+    .flatMap((unit) => unit.lessons)
+    .filter((lesson) => lesson.status === 'published')
+    .map((lesson) => lesson.id);
+  const answers = Object.fromEntries(
+    barCase.decisions.map((decision) => [decision.id, { decision: 'wait', cueIds: [decision.cues[0].id] }]),
+  );
+  await page.addInitScript(
+    ({ completed, caseId, runAnswers }) => {
+      if (localStorage.getItem('wqt-academy-progress-v1')) return;
+      localStorage.setItem(
+        'wqt-academy-progress-v1',
+        JSON.stringify({
+          version: 14,
+          completedLessonIds: completed,
+          answers: {},
+          guideSeenAt: '2026-09-29T08:00:00.000Z',
+          caseRuns: {
+            [caseId]: [
+              { sessionId: 'run-offline', completedAt: '2026-09-29T09:00:00.000Z', best: 0, defensible: 0, mistake: 0, missedCues: 0, answers: runAnswers },
+            ],
+          },
+        }),
+      );
+    },
+    { completed: ids, caseId: barCase.id, runAnswers: answers },
+  );
+  await firstVisit(page);
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.goto(`${origin}/academy/#/train/${barCase.id}/review/run-offline`);
+  await expect(page.getByRole('heading', { name: barCase.title, level: 1 })).toBeVisible();
+  await page.getByRole('button', { name: 'Auflösung zeigen' }).click();
+  await expect(page.getByText(barCase.decisions[0].explanation)).toBeVisible();
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
 test('Einführung und Hilfe offline (F-18)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   await firstVisit(page);

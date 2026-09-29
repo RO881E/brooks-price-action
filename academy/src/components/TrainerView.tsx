@@ -13,6 +13,7 @@ import {
   type CaseSession,
   type DecisionResult,
 } from '../features/barTrainer';
+import { completedRuns } from '../features/caseReplay';
 import { activeSession, lastCaseRun } from '../features/caseTraining';
 import {
   MAX_REASONING_LENGTH,
@@ -47,6 +48,8 @@ interface TrainerViewProps {
   onBack: () => void;
   /** Entwurf der eigenen Begründung am offenen Punkt (F-24). */
   onReasoning?: (draft: { text: string; confidence: ReasoningConfidence | null }) => void;
+  /** Rückblick auf eine abgeschlossene Runde öffnen (F-25). */
+  onReplay?: (sessionId: string) => void;
 }
 
 export const CONFIDENCE_LABELS: Record<ReasoningConfidence, string> = {
@@ -96,6 +99,7 @@ export function TrainerView({
   onOpenLesson,
   onBack,
   onReasoning = () => {},
+  onReplay,
 }: TrainerViewProps) {
   const stored = progress.caseSessions[barCase.id];
   const session = activeSession(progress, barCase);
@@ -175,6 +179,14 @@ export function TrainerView({
           reasoning={reasoning}
           reasoningDraft={stored?.reasoningDraft}
           onReasoning={onReasoning}
+          onReplay={
+            onReplay && !session && finished
+              ? () => {
+                  const run = lastCaseRun(progress, barCase.id);
+                  if (run) onReplay(run.sessionId);
+                }
+              : undefined
+          }
         />
       ) : (
         <StartPanel
@@ -182,6 +194,7 @@ export function TrainerView({
           progress={progress}
           broken={Boolean(stored && !session)}
           onBegin={begin}
+          onReplay={onReplay}
         />
       )}
 
@@ -223,11 +236,13 @@ function StartPanel({
   progress,
   broken,
   onBegin,
+  onReplay,
 }: {
   barCase: BarCase;
   progress: AcademyProgress;
   broken: boolean;
   onBegin: () => void;
+  onReplay?: (sessionId: string) => void;
 }) {
   const last = lastCaseRun(progress, barCase.id);
   const runs = progress.caseRuns[barCase.id]?.length ?? 0;
@@ -260,6 +275,35 @@ function StartPanel({
       <button type="button" className="primary-button" onClick={onBegin}>
         {runs ? 'Neue Runde starten' : 'Runde starten'}
       </button>
+      {onReplay && runs ? (
+        <>
+          <h3>Abgeschlossene Runden nachvollziehen</h3>
+          <ul className="replay-runs">
+            {completedRuns(progress, barCase.id)
+              .slice(0, 5)
+              .map(({ run, replayable }, index) => (
+                <li key={run.sessionId}>
+                  <span>
+                    {index === 0 ? 'Letzte Runde' : `Runde vom ${new Date(run.completedAt).toLocaleDateString('de-DE')}`}
+                    : {countsText(run)}
+                  </span>
+                  {replayable ? (
+                    <button
+                      type="button"
+                      className="link-button"
+                      onClick={() => onReplay(run.sessionId)}
+                      aria-label={`Rückblick: ${index === 0 ? 'letzte Runde' : `Runde vom ${new Date(run.completedAt).toLocaleDateString('de-DE')}`}`}
+                    >
+                      Rückblick
+                    </button>
+                  ) : (
+                    <small>ältere Runde ohne Einzelantworten</small>
+                  )}
+                </li>
+              ))}
+          </ul>
+        </>
+      ) : null}
     </section>
   );
 }
@@ -285,6 +329,7 @@ interface RunProps {
   reasoning: Record<string, CaseReasoning>;
   reasoningDraft: CaseReasoning | undefined;
   onReasoning: NonNullable<TrainerViewProps['onReasoning']>;
+  onReplay?: () => void;
 }
 
 function RunView({
@@ -302,6 +347,7 @@ function RunView({
   reasoning,
   reasoningDraft,
   onReasoning,
+  onReplay,
 }: RunProps) {
   const view = publicView(barCase, session);
   const focusTarget = useRef<HTMLHeadingElement>(null);
@@ -430,6 +476,7 @@ function RunView({
           reasoning={reasoning}
           onOpenLesson={onOpenLesson}
           onRestart={onRestart}
+          onReplay={onReplay}
           onBack={onBack}
         />
       ) : null}
@@ -672,6 +719,7 @@ function Summary({
   onOpenLesson,
   onRestart,
   onBack,
+  onReplay,
 }: {
   headingRef: React.RefObject<HTMLHeadingElement | null>;
   course: CourseOutline;
@@ -681,6 +729,7 @@ function Summary({
   onOpenLesson: (lesson: LessonOutline) => void;
   onRestart: () => void;
   onBack: () => void;
+  onReplay?: () => void;
 }) {
   const summary = caseSummary(barCase, session);
   const missed = summary.results.flatMap((result) =>
@@ -737,6 +786,11 @@ function Summary({
         <button type="button" className="primary-button" onClick={onRestart}>
           Neue Runde
         </button>
+        {onReplay ? (
+          <button type="button" className="secondary-button" onClick={onReplay}>
+            Diese Runde nachvollziehen
+          </button>
+        ) : null}
         <button type="button" className="secondary-button" onClick={onBack}>
           Zur Fallauswahl
         </button>
