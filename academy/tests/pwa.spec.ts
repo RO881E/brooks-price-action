@@ -454,9 +454,15 @@ test('Einführung und Hilfe offline (F-18)', async ({ page, context }) => {
   await expect(welcome).toBeVisible();
   await welcome.getByRole('button', { name: 'Einführung schließen' }).click();
   await expect(welcome).toHaveCount(0);
-  // Der Offline-Hinweis liegt (seit F-09) über der Kopfzeile; er lässt sich schließen.
-  const offlineOk = page.locator('.app-status').getByRole('button', { name: 'OK' });
-  if (await offlineOk.isVisible()) await offlineOk.click();
+  // Der Offline-Hinweis liegt unter der Kopfzeile: Menü, Suche und Hilfe bleiben bedienbar.
+  const banner = page.locator('.app-status');
+  await expect(banner).toBeVisible();
+  const topbar = page.locator('.app-topbar');
+  const bannerBox = (await banner.boundingBox())!;
+  const topbarBox = (await topbar.boundingBox())!;
+  expect(bannerBox.y).toBeGreaterThanOrEqual(topbarBox.y + topbarBox.height);
+  await page.getByRole('button', { name: 'Suchen' }).first().click();
+  await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Hilfe', exact: true }).click();
   await expect(page.getByRole('dialog', { name: 'So lernst du in der WQT Academy' })).toBeVisible();
   serverState.down = false;
