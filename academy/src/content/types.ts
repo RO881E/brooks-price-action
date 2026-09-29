@@ -42,6 +42,22 @@ export const CHAPTER_SIX_SCENARIOS = [
 
 export type ChapterSixScenarioId = (typeof CHAPTER_SIX_SCENARIOS)[number];
 
+export const CHAPTER_SEVEN_SCENARIOS = [
+  'c07-boundaries', 'c07-three-roles', 'c07-breakout-risk',
+  'c07-prior-signal', 'c07-second-entry', 'c07-range-middle',
+  'c07-ioi-context', 'c07-trend-outside', 'c07-leg-origin',
+  'c07-trapped-orders', 'c07-wait',
+  'c07-figure-71-trend', 'c07-figure-71-range',
+  'c07-figure-72-failed-ioi', 'c07-figure-72-upper-edge',
+  'c07-figure-72-later-bottom',
+  'c07-figure-73-open', 'c07-figure-73-higher-low',
+  'c07-figure-73-oo', 'c07-figure-73-day-type',
+  'c07-figure-74-bull-entry', 'c07-figure-74-bear-trap',
+  'c07-figure-74-second-signal', 'c07-figure-74-failed-highs',
+] as const;
+
+export type ChapterSevenScenarioId = (typeof CHAPTER_SEVEN_SCENARIOS)[number];
+
 export type ChartScenarioId =
   | 'auction-balance'
   | 'institutional-flow'
@@ -148,7 +164,8 @@ export type ChartScenarioId =
   | 'shaved-structural-setups'
   | 'figure-41-followthrough'
   | ChapterFiveScenarioId
-  | ChapterSixScenarioId;
+  | ChapterSixScenarioId
+  | ChapterSevenScenarioId;
 
 export type LessonStep =
   | {

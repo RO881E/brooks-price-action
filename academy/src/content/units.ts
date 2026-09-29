@@ -118,4 +118,16 @@ export const unitDefinitions: UnitDefinition[] = [
     load: () =>
       import('./courses/brooks-trends/chapter-06').then((module) => module.chapterSixLessons),
   },
+  {
+    id: 'brooks-trends.chapter-07',
+    order: 9,
+    kind: 'chapter',
+    label: 'Kapitel 7',
+    title: 'Outside Bars im Chartkontext',
+    description:
+      'Outside-Bars als Breakout, Umkehr oder Falle lesen – mit den vier Chartfällen 7.1 bis 7.4 in Buchreihenfolge.',
+    estimatedLessonCount: 24,
+    load: () =>
+      import('./courses/brooks-trends/chapter-07').then((module) => module.chapterSevenLessons),
+  },
 ];
