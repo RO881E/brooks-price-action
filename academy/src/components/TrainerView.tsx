@@ -22,11 +22,9 @@ import {
   type ReasoningConfidence,
 } from '../features/progress';
 import type { AcademyProgress } from '../features/progress';
+import { BarDisplayToggle, useBarDisplay, type BarDisplay } from './BarDisplayToggle';
 import { CaseChart } from './CaseChart';
 import { CaseTable } from './CaseTable';
-
-/** Darstellung der sichtbaren Bars (F-26); nicht gespeichert. */
-export type BarDisplay = 'chart' | 'table';
 
 export const VERDICT_LABELS: Record<OptionVerdict, string> = {
   best: 'Beste Wahl',
@@ -108,7 +106,7 @@ export function TrainerView({
   const [finished, setFinished] = useState<CaseSession | null>(null);
   const [confirm, setConfirm] = useState<'restart' | 'discard' | null>(null);
   // Chart oder Tabelle – bleibt über Entscheidungen und neue Runden erhalten, nicht über Reload.
-  const [display, setDisplay] = useState<BarDisplay>('chart');
+  const [display, setDisplay] = useBarDisplay();
   // „Fortgesetzt“ nur, wenn beim Öffnen schon eine begonnene Runde vorlag.
   const [resumed, setResumed] = useState(() =>
     Boolean(
@@ -388,14 +386,7 @@ function RunView({
         ) : null}
       </div>
 
-      <div className="bar-display-toggle" role="group" aria-label="Darstellung der Bars">
-        <button type="button" aria-pressed={display === 'chart'} onClick={() => onDisplay('chart')}>
-          Chart
-        </button>
-        <button type="button" aria-pressed={display === 'table'} onClick={() => onDisplay('table')}>
-          Tabelle
-        </button>
-      </div>
+      <BarDisplayToggle display={display} onChange={onDisplay} />
       {/* Chart und Tabelle erhalten dieselben, vom Trainer freigegebenen Bars (`publicView().bars`). */}
       {display === 'chart' ? (
         <CaseChart

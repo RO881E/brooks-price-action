@@ -3,6 +3,7 @@ import { TRADE_DECISION_LABELS } from '../content/barCaseTypes';
 import type { CourseOutline, LessonOutline } from '../content/types';
 import { buildReplay, type ReplayProblem, type ReplayStep } from '../features/caseReplay';
 import type { AcademyProgress } from '../features/progress';
+import { BarDisplayToggle, useBarDisplay } from './BarDisplayToggle';
 import { CaseChart } from './CaseChart';
 import { CaseTable } from './CaseTable';
 import { CONFIDENCE_LABELS, OwnReasoning, VERDICT_LABELS } from './TrainerView';
@@ -134,7 +135,7 @@ function ReplaySteps({
   const ids = useId();
   const [current, setCurrent] = useState(0);
   const [shown, setShown] = useState<Set<number>>(() => new Set());
-  const [display, setDisplay] = useState<'chart' | 'table'>('chart');
+  const [display, setDisplay] = useBarDisplay();
   const stepHeading = useRef<HTMLHeadingElement>(null);
   const resolution = useRef<HTMLHeadingElement>(null);
   const moved = useRef(false);
@@ -184,14 +185,7 @@ function ReplaySteps({
         <h2 id={`${ids}-step`} ref={stepHeading} tabIndex={-1}>
           Entscheidung {current + 1} von {steps.length}
         </h2>
-        <div className="bar-display-toggle" role="group" aria-label="Darstellung der Bars">
-          <button type="button" aria-pressed={display === 'chart'} onClick={() => setDisplay('chart')}>
-            Chart
-          </button>
-          <button type="button" aria-pressed={display === 'table'} onClick={() => setDisplay('table')}>
-            Tabelle
-          </button>
-        </div>
+        <BarDisplayToggle display={display} onChange={setDisplay} />
         <h3>Damals sichtbar</h3>
         {bars(step.barsBefore, undefined, `Entscheidungspunkt ${current + 1}: nach Bar ${step.barsBefore.length}.`)}
         <p className="trainer-prompt">{step.decision.prompt}</p>
