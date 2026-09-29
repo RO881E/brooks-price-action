@@ -105,9 +105,11 @@ seit F-24 `version: 14`:
 - `caseSessions[…].reasoningDraft`/`reasoning` und `caseRuns[…][].reasoning` (seit F-24, v14):
   eigene Begründung `{ text, confidence }` – Klartext bis 500 Zeichen, Sicherheit `unsure`,
   `fairly`, `sure` oder `null`; je Fall, Entscheidungs-ID und Versuch (`sessionId`)
+- `reviewSession.topicId` (seit F-27, v15): optionale Beschriftung einer Themenrunde; nicht Teil der
+  Sicherung (laufende Runden werden nicht gesichert).
 - `guideSeenAt` (seit F-18, v13): Zeitpunkt, zu dem die Einführung geschlossen wurde, sonst `null`
 
-Ältere Datensätze (v1–v13) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+Ältere Datensätze (v1–v14) werden beim Laden verlustfrei migriert; der Wiederholungsplan
 startet leer, ebenso die Lesestellen (vor v9) und die Trainerrunden (vor v11); Leseoptionen
 beginnen vor v10 bei „Standard“, unbekannte Stufen werden einzeln zu „Standard“. Defekte
 Trainerrunden oder -sitzungen entfallen einzeln. Defekte Lesestellen (ohne Einheit oder Lektion)
