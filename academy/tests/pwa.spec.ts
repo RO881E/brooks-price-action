@@ -176,7 +176,7 @@ test('registriert den Service Worker unter relativem Pfad ohne Konsolenfehler @d
     expect.arrayContaining(['index.html', 'manifest.webmanifest', 'icons/icon-192.png']),
   );
   // Auch nachgeladene Chunks (Schaubilder) gehören zur App-Shell.
-  expect(builtPrecache().some((path) => /^assets\/LearningChart-.*\.js$/.test(path))).toBe(true);
+  expect(builtPrecache().some((path) => /^assets\/ChartFocus-.*\.js$/.test(path))).toBe(true);
 
   const manifest = await page.evaluate(async () => {
     const link = document.querySelector<HTMLLinkElement>('link[rel="manifest"]')!;

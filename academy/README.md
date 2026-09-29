@@ -46,6 +46,12 @@ schematischer Chartfälle zu den Lernpunkten von 5.1 bis 5.3. Die Schaubilder
   je Lektion nur einmal, auch bei „Lektion wiederholen“
 - lesender Kompatibilitätscheck für `brooks-progress` und `brooks-tr-best`
 - responsive Navigation für Desktop und Mobilgeräte
+- Diagramm-Fokus: „Vergrößern“ unter jedem Schaubild öffnet einen Dialog mit Titel,
+  Bildbeschreibung, Einordnung und Beobachtungen; Zoom (100–400 %) über Tasten, Mausrad oder
+  zwei Finger, Verschieben durch Ziehen oder Pfeil-Tasten, „Zurücksetzen“ und „Schließen“.
+  Gezoomt wird über die SVG-`viewBox`, daher bleibt das Diagramm scharf. Escape schließt, der
+  Fokus kehrt zu „Vergrößern“ zurück, Lektionsstand und Scrollposition bleiben erhalten; jedes
+  Öffnen beginnt mit der ganzen Ansicht
 - installierbare Offline-App: Web-App-Manifest, eigene Icons und ein Service Worker; nach
   einem Online-Besuch funktionieren Lernpfad, Lektionen, Glossar und Fortschritt ohne
   Verbindung, neue Versionen werden angekündigt statt ungefragt geladen

@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import type { ChartScenarioId } from '../content/types';
 import { ChapterFourChart } from './ChapterFourCharts';
 import { ChapterFiveChart, chapterFiveDescriptions } from './ChapterFiveCharts';
@@ -15,10 +16,14 @@ interface Candle {
 interface LearningChartProps {
   scenario: ChartScenarioId;
   title: string;
+  /** Ausschnitt für den Diagramm-Fokus (F-11); ohne Angabe das ganze Bild. */
+  viewBox?: string;
 }
 
 const WIDTH = 760;
 const HEIGHT = 330;
+export const CHART_WIDTH = WIDTH;
+export const CHART_HEIGHT = HEIGHT;
 const PAD_X = 48;
 const PAD_Y = 36;
 
@@ -1415,16 +1420,24 @@ function MiddayFalseBreakout() {
   );
 }
 
-export function LearningChart({ scenario, title }: LearningChartProps) {
+/** Bildbeschreibung eines Schaubilds – auch sichtbar im Diagramm-Fokus (F-11). */
+export function chartDescription(scenario: ChartScenarioId): string {
+  return scenarioDescriptions[scenario];
+}
+
+export function LearningChart({ scenario, title, viewBox }: LearningChartProps) {
+  // Eindeutige IDs je Instanz: Dasselbe Schaubild kann zugleich in der
+  // Lektion und im Diagramm-Fokus stehen.
+  const id = useId();
   return (
     <div className="learning-chart">
       <svg
-        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+        viewBox={viewBox ?? `0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-labelledby={`chart-title-${scenario} chart-desc-${scenario}`}
+        aria-labelledby={`${id}-title ${id}-desc`}
       >
-        <title id={`chart-title-${scenario}`}>{title}</title>
-        <desc id={`chart-desc-${scenario}`}>{scenarioDescriptions[scenario]}</desc>
+        <title id={`${id}-title`}>{title}</title>
+        <desc id={`${id}-desc`}>{scenarioDescriptions[scenario]}</desc>
         {scenario === 'auction-balance' || scenario === 'bar-anatomy' ? (
           <AuctionBalance />
         ) : null}
