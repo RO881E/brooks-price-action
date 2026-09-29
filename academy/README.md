@@ -3,6 +3,15 @@
 Technisches Grundgerüst für den neuen, kursbasierten Lernbereich. Die bestehende Website im
 Stammverzeichnis bleibt während der Entwicklung unverändert.
 
+## Veröffentlichtes Buchmaterial
+
+Die Academy bietet eine separate Begriffsreferenz. Der lineare Lernpfad enthält
+die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 5 von
+*Trading Price Action Trends*. Kapitel 5
+enthält 25 Mikro-Lektionen zu Reversal-Bars, einschließlich eigener,
+schematischer Chartfälle zu den Lernpunkten von 5.1 bis 5.3. Die Schaubilder
+übernehmen weder Originalkurse noch Buchabbildungen.
+
 ## Was der Pilot bereits kann
 
 - Lernpfad mit aufeinander aufbauenden Mikro-Lektionen
@@ -174,8 +183,10 @@ Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
 
 ## Geplanter Funktionsausbau
 
-- [Funktionsroadmap](docs/FUNCTIONALITY_ROADMAP.md)
-- [Fertige Claude-Prompts je Arbeitspaket](docs/CLAUDE_PROMPTS.md)
+- [Funktionsroadmap Phase 2: F-11 bis F-20](docs/FUNCTIONALITY_ROADMAP_PHASE_2.md)
+- [Einzeln kopierbare Claude-Prompts für Phase 2](docs/CLAUDE_PROMPTS_PHASE_2.md)
+- [Bisherige Funktionsroadmap F-01 bis F-10](docs/FUNCTIONALITY_ROADMAP.md)
+- [Bisherige Claude-Prompts F-01 bis F-10](docs/CLAUDE_PROMPTS.md)
 - [Release-Checkliste](docs/RELEASE_CHECKLIST.md)
 
 Jedes Arbeitspaket wird auf einem eigenen Branch umgesetzt, vollständig
