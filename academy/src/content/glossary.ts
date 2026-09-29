@@ -482,4 +482,32 @@ export const glossaryEntries: GlossaryEntry[] = [
       'Späte Pause oder kleine Fortsetzungsstruktur in einem reifen Move, deren Ausbruch scheitern und eine Gegenbewegung einleiten kann.',
     firstUnit: 'Kapitel 3',
   },
+  {
+    term: 'ETF',
+    aliases: ['Exchange-Traded Fund', 'börsengehandelter Fonds'],
+    definition:
+      'Börsengehandelter Fonds mit eigener Kursreihe und eigenen Kosten. Ein Index-ETF kann die Bewegung eines verwandten Futures als zusätzlicher Chartblick ergänzen, ohne dessen Preise zu übernehmen.',
+    firstUnit: 'Kapitel 9',
+  },
+  {
+    term: 'SPY',
+    aliases: ['SPDR S&P 500 ETF'],
+    definition:
+      'S&P-500-ETF, den Brooks als ergänzenden Chart zum Emini betrachtet. Ähnliche Marktbewegung bedeutet weder identische Bars noch dieselbe Preisachse.',
+    firstUnit: 'Kapitel 9',
+  },
+  {
+    term: 'SDS',
+    aliases: ['UltraShort S&P 500'],
+    definition:
+      'Im Buch verwendeter inverser, zweifach gehebelter ETF auf den S&P-500-Bereich. Seine Gegenrichtung dient als Chart-Gegenprobe, nicht als exakte Spiegelung einzelner Emini-Bars.',
+    firstUnit: 'Kapitel 9',
+  },
+  {
+    term: 'Dreifacher Verfall',
+    aliases: ['Triple Witching'],
+    definition:
+      'Zusammenfallen mehrerer Verfallstermine im Aktien- und Indexderivatebereich. Im historischen Buchfall ist eine SPY-Preisanpassung an einem solchen Tag für den Vergleich der Eröffnungslücken wichtig.',
+    firstUnit: 'Kapitel 9',
+  },
 ];
