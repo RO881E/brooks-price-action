@@ -95,6 +95,22 @@ und keine gefährlichen Schlüssel wie `__proto__`. Eine abgelehnte Datei änder
 - **Zurücksetzen** löscht nur `wqt-academy-progress-v1`. `brooks-progress` und `brooks-tr-best`
   bleiben unangetastet.
 
+## Barrierefreiheit und Leistung
+
+- Tastatur: Pfeiltasten wandern durch Antworten, Enter/Leertaste wählt. Nach einer Antwort
+  springt der Fokus zu „Noch einmal versuchen“ bzw. „Weiter“, bei einer offenen Frage direkt
+  zur ersten Antwort, beim Öffnen einer Lektion zur Schrittüberschrift. Das mobile Menü
+  meldet `aria-expanded`, schließt mit Escape und ist geschlossen nicht fokussierbar.
+- Screenreader: Schrittwechsel, Antwort-Rückmeldungen und Speicherstände laufen über
+  Live-Regions; richtig/falsch haben Symbol und Text, nicht nur Farbe; die aktive Ansicht trägt
+  `aria-current="page"`.
+- Fehlergrenzen: Ein Renderfehler zeigt statt einer leeren Seite „Hier ist etwas
+  schiefgelaufen.“ mit „Zum Lernpfad“ und „Seite neu laden“. Kann ein Schaubild nicht geladen
+  werden, bleibt der Schritt lesbar und bietet „Seite neu laden“ an.
+- Code-Splitting: React, Kursinhalte (Einleitung/Teil 1 und Kapitel) und App-Code liegen in
+  eigenen Chunks; die Schaubilder werden erst im ersten Diagramm-Schritt geladen und vom
+  Service Worker trotzdem für offline vorgehalten.
+
 ## Offline-App und Updates
 
 - `public/manifest.webmanifest` beschreibt Name, Farben und Icons; `start_url` und `scope`
@@ -147,6 +163,11 @@ npm run test:e2e
 
 Die End-to-End-Tests prüfen Desktop und Mobilansicht, Navigation, JavaScript-Fehler,
 Fortschrittsspeicherung und den unveränderten Erhalt der bestehenden Local-Storage-Schlüssel.
+`tests/release.spec.ts` ist die Release-Suite (F-10): Hauptansichten mit axe-Prüfung nach
+WCAG 2.2 A/AA, keine Überbreite bei 360 px, ein vollständiger Lernabschnitt nur mit der
+Tastatur, Review, Suche, Lesezeichen/Notiz und Export/Import per Tastatur sowie der Hinweis bei
+einem nicht ladbaren Schaubild. Vor jedem Release gilt die
+[Release-Checkliste](docs/RELEASE_CHECKLIST.md).
 `tests/pwa.spec.ts` baut zusätzlich den Produktions-Build nach `.wqt-playwright-tmp/`, liefert
 ihn unter `/academy/` aus und prüft Registrierung, Offline-Betrieb, Updates, fehlgeschlagene
 Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
@@ -155,6 +176,7 @@ Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
 
 - [Funktionsroadmap](docs/FUNCTIONALITY_ROADMAP.md)
 - [Fertige Claude-Prompts je Arbeitspaket](docs/CLAUDE_PROMPTS.md)
+- [Release-Checkliste](docs/RELEASE_CHECKLIST.md)
 
 Jedes Arbeitspaket wird auf einem eigenen Branch umgesetzt, vollständig
 getestet und als separater Pull Request eingereicht. Die Roadmap verändert

@@ -1,13 +1,62 @@
-import { useEffect, useMemo, useRef } from 'react';
-import type { Lesson, LessonStep } from '../content/types';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef } from 'react';
+import type { ChartScenarioId, Lesson, LessonStep } from '../content/types';
 import {
   isQuestionResolved,
   type QuestionStep as QuestionStepData,
   type QuestionView,
 } from '../features/lessonResults';
 import { scrollToTop } from '../features/motion';
-import { LearningChart } from './LearningChart';
+import { moveAnswerFocus } from './answerKeys';
+import { ErrorBoundary } from './ErrorBoundary';
 import { NotesPanel } from './NotesPanel';
+
+// Die Schaubilder sind der größte Code-Block; sie werden erst beim ersten
+// Diagramm-Schritt geladen (und vom Service Worker für offline vorgehalten).
+const LearningChart = lazy(() =>
+  import('./LearningChart').then((module) => ({ default: module.LearningChart })),
+);
+
+/** Platzhalter in Schaubildgröße, damit beim Nachladen nichts springt. */
+function ChartPlaceholder() {
+  return (
+    <div className="learning-chart chart-loading" role="status">
+      <span>Schaubild wird geladen …</span>
+    </div>
+  );
+}
+
+/**
+ * Das Schaubild-Modul kam nicht an (z. B. offline ohne Service Worker). Der
+ * Browser merkt sich fehlgeschlagene Module – verlässlich hilft nur ein
+ * Neuladen. Schritt und Fortschritt bleiben erhalten (Hash-URL, Speicher).
+ */
+function ChartLoadError() {
+  return (
+    <div className="learning-chart chart-loading chart-error" role="alert">
+      <p>
+        Das Schaubild konnte nicht geladen werden. Prüfe die Verbindung – der Text dieses
+        Schritts bleibt lesbar.
+      </p>
+      <button
+        type="button"
+        className="secondary-button"
+        onClick={() => window.location.reload()}
+      >
+        Seite neu laden
+      </button>
+    </div>
+  );
+}
+
+function StepChart({ scenario, title }: { scenario: ChartScenarioId; title: string }) {
+  return (
+    <ErrorBoundary fallback={() => <ChartLoadError />}>
+      <Suspense fallback={<ChartPlaceholder />}>
+        <LearningChart scenario={scenario} title={title} />
+      </Suspense>
+    </ErrorBoundary>
+  );
+}
 
 interface LessonPlayerProps {
   lesson: Lesson;
@@ -35,7 +84,7 @@ function ExplanationStep({ step }: { step: Extract<LessonStep, { type: 'explanat
   return (
     <article className="step-copy">
       {step.eyebrow ? <p className="eyebrow">{step.eyebrow}</p> : null}
-      <h1>{step.title}</h1>
+      <h1 tabIndex={-1}>{step.title}</h1>
       {step.paragraphs.map((paragraph) => (
         <p key={paragraph}>{paragraph}</p>
       ))}
@@ -53,8 +102,8 @@ function DiagramStep({ step }: { step: Extract<LessonStep, { type: 'diagram' }> 
   return (
     <article className="step-copy diagram-step">
       <p className="eyebrow">Schaubild</p>
-      <h1>{step.title}</h1>
-      <LearningChart scenario={step.scenario} title={step.title} />
+      <h1 tabIndex={-1}>{step.title}</h1>
+      <StepChart scenario={step.scenario} title={step.title} />
       <p className="chart-caption">{step.caption}</p>
       <ul className="observation-list">
         {step.observations.map((observation, index) => (
@@ -72,7 +121,7 @@ function ComparisonStep({ step }: { step: Extract<LessonStep, { type: 'compariso
   return (
     <article className="step-copy">
       <p className="eyebrow">Vergleich</p>
-      <h1>{step.title}</h1>
+      <h1 tabIndex={-1}>{step.title}</h1>
       <div className="comparison-grid">
         {step.columns.map((column) => (
           <section className={`comparison-card ${column.tone}`} key={column.title}>
@@ -95,12 +144,15 @@ function QuestionStep({
   onAnswer,
   onRetry,
   onReveal,
+  onResolved,
 }: {
   step: QuestionStepData;
   state: QuestionView;
   onAnswer: (optionId: string) => void;
   onRetry: () => void;
   onReveal: () => void;
+  /** Fokus auf „Weiter“, sobald die Frage erledigt ist (nur nach eigener Eingabe). */
+  onResolved: () => void;
 }) {
   const resolved = isQuestionResolved(state);
   const selected = state.selectedOptionId;
@@ -109,7 +161,18 @@ function QuestionStep({
   const correctOption = step.options.find((option) => option.id === step.correctOptionId);
   const selectedOption = step.options.find((option) => option.id === selected);
   const listRef = useRef<HTMLDivElement>(null);
+  const retryButton = useRef<HTMLButtonElement>(null);
   const retryPending = useRef(false);
+  // Nur nach einer eigenen Antwort wird der Fokus verschoben – nie beim Laden.
+  const answered = useRef(false);
+
+  // Die gewählte Antwort wird gesperrt; der Fokus darf dabei nicht verloren gehen.
+  useEffect(() => {
+    if (!answered.current) return;
+    answered.current = false;
+    if (awaitingRetry) retryButton.current?.focus();
+    else if (resolved) onResolved();
+  }, [awaitingRetry, resolved, onResolved]);
 
   // Nach „Noch einmal versuchen“ landet der Fokus auf der ersten freien Antwort.
   useEffect(() => {
@@ -121,9 +184,15 @@ function QuestionStep({
   return (
     <article className="step-copy question-step">
       <p className="eyebrow">Aktiv anwenden</p>
-      <h1>{step.title}</h1>
+      <h1 tabIndex={-1}>{step.title}</h1>
       <p className="question-prompt">{step.prompt}</p>
-      <div className="answer-list" role="radiogroup" aria-label={step.prompt} ref={listRef}>
+      <div
+        className="answer-list"
+        role="radiogroup"
+        aria-label={step.prompt}
+        ref={listRef}
+        onKeyDown={moveAnswerFocus}
+      >
         {step.options.map((option, index) => {
           const isSelected = selected === option.id;
           const isCorrect = option.id === step.correctOptionId;
@@ -147,13 +216,25 @@ function QuestionStep({
               role="radio"
               aria-checked={isSelected}
               disabled={locked || triedWrong}
-              onClick={() => onAnswer(option.id)}
+              onClick={() => {
+                answered.current = true;
+                onAnswer(option.id);
+              }}
             >
               <span className="answer-key">{String.fromCharCode(65 + index)}</span>
               <span>{option.label}</span>
-              {resolved && isCorrect ? <b aria-label="richtige Antwort">✓</b> : null}
+              {/* Symbol und Text zusätzlich zur Farbe – auch für Screenreader. */}
+              {resolved && isCorrect ? (
+                <b>
+                  <span aria-hidden="true">✓</span>
+                  <span className="visually-hidden"> – richtige Antwort</span>
+                </b>
+              ) : null}
               {(isSelected || triedWrong) && !isCorrect ? (
-                <b aria-label="falsche Antwort">×</b>
+                <b>
+                  <span aria-hidden="true">×</span>
+                  <span className="visually-hidden"> – falsche Antwort</span>
+                </b>
               ) : null}
             </button>
           );
@@ -166,6 +247,7 @@ function QuestionStep({
           <p>{selectedOption.explanation}</p>
           <div className="answer-actions">
             <button
+              ref={retryButton}
               className="primary-button"
               type="button"
               onClick={() => {
@@ -175,7 +257,14 @@ function QuestionStep({
             >
               Noch einmal versuchen
             </button>
-            <button className="secondary-button" type="button" onClick={onReveal}>
+            <button
+              className="secondary-button"
+              type="button"
+              onClick={() => {
+                answered.current = true;
+                onReveal();
+              }}
+            >
               Lösung anzeigen
             </button>
           </div>
@@ -213,7 +302,7 @@ function RecapStep({ step }: { step: Extract<LessonStep, { type: 'recap' }> }) {
     <article className="step-copy recap-step">
       <div className="recap-seal" aria-hidden="true">✓</div>
       <p className="eyebrow">Zusammenfassung</p>
-      <h1>{step.title}</h1>
+      <h1 tabIndex={-1}>{step.title}</h1>
       <ul>
         {step.points.map((point) => (
           <li key={point}>{point}</li>
@@ -244,9 +333,44 @@ export function LessonPlayer({
     [lesson.steps.length, stepIndex],
   );
 
+  const stageRef = useRef<HTMLDivElement>(null);
+  const continueButton = useRef<HTMLButtonElement>(null);
+  // Wurde der Schritt über „Zurück“/„Weiter“ gewechselt? Dann führt der Fokus mit.
+  const navigated = useRef(false);
+  const focusContinue = useCallback(() => continueButton.current?.focus(), []);
+
   useEffect(() => {
     scrollToTop();
+    if (!navigated.current) return;
+    navigated.current = false;
+    const stage = stageRef.current;
+    // Offene Frage: direkt zur ersten Antwort. Sonst bleibt der Fokus auf dem
+    // Knopf – außer er ist jetzt gesperrt, dann geht er zur Schrittüberschrift.
+    const firstAnswer = stage?.querySelector<HTMLButtonElement>(
+      '.answer-list button:not(:disabled)',
+    );
+    if (firstAnswer) {
+      firstAnswer.focus();
+      return;
+    }
+    const active = document.activeElement;
+    if (!active || active === document.body || (active as HTMLButtonElement).disabled) {
+      stage?.querySelector<HTMLElement>('h1')?.focus();
+    }
   }, [stepIndex]);
+
+  // Beim Öffnen der Lektion landet der Fokus auf der Schrittüberschrift, damit
+  // Tastatur und Screenreader nicht am Seitenanfang neu beginnen müssen.
+  useEffect(() => {
+    const active = document.activeElement;
+    if (active && active !== document.body) return;
+    stageRef.current?.querySelector<HTMLElement>('h1')?.focus({ preventScroll: true });
+  }, []);
+
+  const goTo = (index: number) => {
+    navigated.current = true;
+    onStepChange(index);
+  };
 
   return (
     <main className="lesson-player">
@@ -254,17 +378,28 @@ export function LessonPlayer({
         <button className="icon-button" type="button" onClick={onClose} aria-label="Lektion schließen">
           ×
         </button>
-        <div className="lesson-progress" aria-label={`Lektionsfortschritt ${percent} Prozent`}>
+        <div
+          className="lesson-progress"
+          role="progressbar"
+          aria-label="Lektionsfortschritt"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={percent}
+          aria-valuetext={`Schritt ${stepIndex + 1} von ${lesson.steps.length}`}
+        >
           <span style={{ width: `${percent}%` }} />
         </div>
         <div className="lesson-xp">+{lesson.xp} XP</div>
       </header>
 
-      <div className="lesson-stage">
+      <div className="lesson-stage" ref={stageRef}>
         <div className="lesson-meta">
           <span>{lesson.sourceUnit}</span>
-          <span>{stepIndex + 1} / {lesson.steps.length}</span>
+          <span aria-hidden="true">{stepIndex + 1} / {lesson.steps.length}</span>
         </div>
+        <p className="visually-hidden" role="status">
+          Schritt {stepIndex + 1} von {lesson.steps.length}: {step.title}
+        </p>
 
         {step.type === 'explanation' ? <ExplanationStep step={step} /> : null}
         {step.type === 'diagram' ? <DiagramStep step={step} /> : null}
@@ -277,6 +412,7 @@ export function LessonPlayer({
             onAnswer={(optionId) => onAnswer(step, optionId)}
             onRetry={() => onRetry(step)}
             onReveal={() => onReveal(step)}
+            onResolved={focusContinue}
           />
         ) : null}
         {step.type === 'recap' ? <RecapStep step={step} /> : null}
@@ -302,18 +438,19 @@ export function LessonPlayer({
         <button
           className="secondary-button"
           type="button"
-          onClick={() => onStepChange(Math.max(0, stepIndex - 1))}
+          onClick={() => goTo(Math.max(0, stepIndex - 1))}
           disabled={stepIndex === 0}
         >
           Zurück
         </button>
         <button
+          ref={continueButton}
           className="primary-button"
           type="button"
           disabled={!canContinue}
           onClick={() => {
             if (isLast) onComplete();
-            else onStepChange(stepIndex + 1);
+            else goTo(stepIndex + 1);
           }}
         >
           {isLast ? 'Lektion abschließen' : 'Weiter'}

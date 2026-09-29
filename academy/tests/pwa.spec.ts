@@ -175,6 +175,8 @@ test('registriert den Service Worker unter relativem Pfad ohne Konsolenfehler @d
   expect(builtPrecache()).toEqual(
     expect.arrayContaining(['index.html', 'manifest.webmanifest', 'icons/icon-192.png']),
   );
+  // Auch nachgeladene Chunks (Schaubilder) gehören zur App-Shell.
+  expect(builtPrecache().some((path) => /^assets\/LearningChart-.*\.js$/.test(path))).toBe(true);
 
   const manifest = await page.evaluate(async () => {
     const link = document.querySelector<HTMLLinkElement>('link[rel="manifest"]')!;
@@ -202,7 +204,7 @@ test('registriert den Service Worker unter relativem Pfad ohne Konsolenfehler @d
   expect(errors).toEqual([]);
 });
 
-test('Lernpfad, Lektion, Glossar und Fortschritt funktionieren offline @desktop', async ({ page, context }) => {
+test('Lernpfad, Lektion, Glossar und Fortschritt funktionieren offline', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   await firstVisit(page);
 
@@ -218,6 +220,8 @@ test('Lernpfad, Lektion, Glossar und Fortschritt funktionieren offline @desktop'
 
   await expect(page.getByRole('heading', { name: 'Eine Auktion hinter jedem Bar' })).toBeVisible();
   expect(page.url()).toBe(lessonUrl);
+  // Das nachgeladene Schaubild-Modul kommt ebenfalls aus dem Cache (F-10).
+  await expect(page.locator('.learning-chart svg')).toBeVisible();
   await expect(page.getByText('Bereits geladene Inhalte bleiben nutzbar.', { exact: false })).toBeVisible();
   await page.getByRole('button', { name: 'Weiter' }).click();
   await expect(page.getByRole('heading', { name: 'Beschreibung vor Erklärung' })).toBeVisible();

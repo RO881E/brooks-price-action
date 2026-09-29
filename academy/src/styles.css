@@ -52,10 +52,20 @@ button {
   color: inherit;
 }
 
+/* Deutlich sichtbarer Fokus für alle bedienbaren Elemente (mind. 3:1 Kontrast). */
 button:focus-visible,
-input:focus-visible {
-  outline: 3px solid rgba(187, 135, 52, 0.42);
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--gold-dark);
   outline-offset: 3px;
+}
+
+/* Programmatisch fokussierte Überschriften sind keine Bedienelemente. */
+[tabindex='-1']:focus {
+  outline: none;
 }
 
 button:disabled {
@@ -739,7 +749,7 @@ button:disabled {
 
 .node-copy em {
   margin-top: 8px;
-  color: #8a8e94;
+  color: var(--ink-soft);
   font-size: 9px;
   font-style: normal;
   font-weight: 600;
@@ -1215,7 +1225,7 @@ button:disabled {
 
 .practice-options button {
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
+  grid-template-columns: 36px minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
   min-height: 56px;
@@ -1225,6 +1235,10 @@ button:disabled {
   border-radius: 13px;
   background: #fff;
   cursor: pointer;
+}
+
+.practice-options .option-mark {
+  font-size: 18px;
 }
 
 .practice-options button:hover:not(:disabled) {
@@ -2290,8 +2304,10 @@ button:disabled {
   opacity: 0;
 }
 
-.file-button:focus-within {
-  outline: 2px solid var(--gold);
+.file-button:focus-within,
+.glossary-search:focus-within,
+.search-field:focus-within {
+  outline: 3px solid var(--gold-dark);
   outline-offset: 2px;
 }
 
@@ -2540,7 +2556,8 @@ button:disabled {
 }
 
 .review-result-list small {
-  color: var(--ink-soft);
+  /* Dunkler als --ink-soft: auf den farbigen Zeilen sonst unter 4,5:1. */
+  color: #4a515c;
   font-size: 11px;
 }
 
@@ -2640,7 +2657,7 @@ button:disabled {
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 30px;
-  color: #8a8f96;
+  color: var(--ink-soft);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -2695,6 +2712,14 @@ button:disabled {
   background:
     linear-gradient(#fbfbf8, #f6f5f0),
     repeating-linear-gradient(90deg, transparent 0 39px, rgba(13, 23, 40, 0.025) 40px);
+}
+
+.chart-loading {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 760 / 330;
+  color: var(--ink-soft);
+  font-size: 13px;
 }
 
 .learning-chart svg {
@@ -3200,6 +3225,11 @@ button:disabled {
   font-weight: 800;
 }
 
+.result-stats dd.result-stat-note {
+  margin: 0;
+  font: inherit;
+}
+
 .result-stats small {
   display: block;
   margin-top: 4px;
@@ -3312,12 +3342,18 @@ button:disabled {
     position: fixed;
     left: 0;
     width: min(82vw, 290px);
+    /* Geschlossen auch für Tastatur und Screenreader unsichtbar. */
+    visibility: hidden;
     transform: translateX(-104%);
-    transition: transform 200ms ease;
+    transition:
+      transform 200ms ease,
+      visibility 0s linear 200ms;
   }
 
   .app-sidebar.open {
+    visibility: visible;
     transform: translateX(0);
+    transition: transform 200ms ease;
   }
 
   .sidebar-backdrop {
@@ -3419,7 +3455,7 @@ button:disabled {
     align-items: center;
     justify-content: center;
     gap: 3px;
-    color: #7a818b;
+    color: var(--ink-soft);
     border: 0;
     background: transparent;
   }
@@ -3798,4 +3834,66 @@ button:disabled {
   .app-status-actions {
     margin-left: auto;
   }
+}
+
+/* F-10: Fehlergrenzen */
+.chart-error {
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.chart-error p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app-crash {
+  display: grid;
+  min-height: 100vh;
+  padding: 24px 16px;
+  place-items: center;
+  background: var(--canvas);
+}
+
+.app-crash-card {
+  display: grid;
+  gap: 14px;
+  width: min(560px, 100%);
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow-md);
+}
+
+.app-crash-card h1 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.app-crash-card p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.app-crash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.app-crash-card details {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.app-crash-card code {
+  display: block;
+  margin-top: 8px;
+  overflow-wrap: anywhere;
 }

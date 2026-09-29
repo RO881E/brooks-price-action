@@ -145,6 +145,7 @@ export default function App() {
   const [lastView, setLastView] = useState<View>('path');
   const [notice, setNotice] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   // Bereits früher erreichte Meilensteine werden beim Laden still nachgetragen.
   const [progress, setStoredProgress] = useState(() =>
     awardMilestones(loadProgress(window.localStorage), brooksTrendsCourse, localDayKey(new Date())),
@@ -209,6 +210,52 @@ export default function App() {
     if (progress.settings.compact) root.dataset.density = 'compact';
     else delete root.dataset.density;
   }, [progress.settings]);
+
+  // Nach einem Ansichtswechsel (z. B. „Zurück zum Lernpfad“) nicht am
+  // Seitenanfang neu beginnen: Ist der Fokus verloren, geht er zur Überschrift.
+  const firstRoute = useRef(true);
+  useEffect(() => {
+    if (firstRoute.current) {
+      firstRoute.current = false;
+      return;
+    }
+    const frame = window.requestAnimationFrame(() => {
+      const active = document.activeElement;
+      if (active && active !== document.body) return;
+      const heading = document.querySelector<HTMLElement>('.view-container h1');
+      if (!heading) return;
+      if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [hash]);
+
+  // Mobiles Menü: Fokus hinein beim Öffnen, Escape schließt und führt zurück.
+  const menuWasOpen = useRef(false);
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      menuWasOpen.current = true;
+      const nav = document.querySelector('#app-sidebar .sidebar-nav');
+      (
+        nav?.querySelector<HTMLElement>('button[aria-current="page"]') ??
+        nav?.querySelector<HTMLElement>('button')
+      )?.focus();
+      const onKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') setMobileMenuOpen(false);
+      };
+      window.addEventListener('keydown', onKeyDown);
+      return () => window.removeEventListener('keydown', onKeyDown);
+    }
+    if (menuWasOpen.current) {
+      menuWasOpen.current = false;
+      // Nur zurückführen, wenn der Fokus sonst im geschlossenen Menü verloren ginge.
+      const active = document.activeElement;
+      if (!active || active === document.body || active.closest('#app-sidebar')) {
+        menuButton.current?.focus();
+      }
+    }
+    return undefined;
+  }, [mobileMenuOpen]);
 
   // Nur echte Übergänge feiern: Reload, Zieländerungen, Import und Reset lösen nichts aus.
   const previousProgress = useRef(progress);
@@ -553,7 +600,7 @@ export default function App() {
 
   return (
     <div className="academy-app">
-      <aside className={`app-sidebar ${mobileMenuOpen ? 'open' : ''}`}>
+      <aside id="app-sidebar" className={`app-sidebar ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="brand-lockup">
           <div className="brand-mark" aria-hidden="true">
             <span />
@@ -581,6 +628,7 @@ export default function App() {
               type="button"
               key={item.id}
               className={view === item.id ? 'active' : ''}
+              aria-current={view === item.id ? 'page' : undefined}
               onClick={() => chooseView(item.id)}
             >
               <span aria-hidden="true">{item.icon}</span>
@@ -611,9 +659,12 @@ export default function App() {
       <div className="app-main">
         <header className="app-topbar">
           <button
+            ref={menuButton}
             className="mobile-menu-button"
             type="button"
             aria-label="Menü öffnen"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="app-sidebar"
             onClick={() => setMobileMenuOpen(true)}
           >
             ☰
@@ -636,7 +687,7 @@ export default function App() {
               <kbd aria-hidden="true">/</kbd>
             </button>
             <span className="pilot-pill">Pilot · Buch 1</span>
-            <div className="profile-chip" aria-label="Profil Robert">
+            <div className="profile-chip" role="img" aria-label="Profil Robert">
               RW
             </div>
           </div>
@@ -727,6 +778,7 @@ export default function App() {
             type="button"
             key={item.id}
             className={view === item.id ? 'active' : ''}
+            aria-current={view === item.id ? 'page' : undefined}
             onClick={() => chooseView(item.id)}
           >
             <span aria-hidden="true">{item.icon}</span>
