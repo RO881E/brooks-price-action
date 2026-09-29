@@ -154,4 +154,16 @@ export const unitDefinitions: UnitDefinition[] = [
     load: () =>
       import('./courses/brooks-trends/chapter-09').then((module) => module.chapterNineLessons),
   },
+  {
+    id: 'brooks-trends.chapter-10',
+    order: 12,
+    kind: 'chapter',
+    label: 'Kapitel 10',
+    title: 'Zweite Einstiege im Kontext',
+    description:
+      'Erste und zweite Umkehrversuche, Preisfallen, Gegentrend-Momentum sowie beide Chartfälle mit der vertieften Besprechung von Abbildung 10.2.',
+    estimatedLessonCount: 23,
+    load: () =>
+      import('./courses/brooks-trends/chapter-10').then((module) => module.chapterTenLessons),
+  },
 ];

@@ -2217,6 +2217,218 @@
           ]
         }
       ]
+    },
+    {
+      "id": "brooks-trends.chapter-10",
+      "lessons": [
+        {
+          "id": "brooks-trends.chapter-10.lesson-01",
+          "steps": [
+            "chapter-10-01-explain",
+            "chapter-10-01-diagram",
+            "chapter-10-01-question",
+            "chapter-10-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-02",
+          "steps": [
+            "chapter-10-02-explain",
+            "chapter-10-02-diagram",
+            "chapter-10-02-question",
+            "chapter-10-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-03",
+          "steps": [
+            "chapter-10-03-explain",
+            "chapter-10-03-diagram",
+            "chapter-10-03-question",
+            "chapter-10-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-04",
+          "steps": [
+            "chapter-10-04-explain",
+            "chapter-10-04-diagram",
+            "chapter-10-04-question",
+            "chapter-10-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-05",
+          "steps": [
+            "chapter-10-05-explain",
+            "chapter-10-05-diagram",
+            "chapter-10-05-question",
+            "chapter-10-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-06",
+          "steps": [
+            "chapter-10-06-explain",
+            "chapter-10-06-diagram",
+            "chapter-10-06-question",
+            "chapter-10-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-07",
+          "steps": [
+            "chapter-10-07-explain",
+            "chapter-10-07-diagram",
+            "chapter-10-07-question",
+            "chapter-10-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-08",
+          "steps": [
+            "chapter-10-08-explain",
+            "chapter-10-08-diagram",
+            "chapter-10-08-question",
+            "chapter-10-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-09",
+          "steps": [
+            "chapter-10-09-explain",
+            "chapter-10-09-diagram",
+            "chapter-10-09-question",
+            "chapter-10-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-10",
+          "steps": [
+            "chapter-10-10-explain",
+            "chapter-10-10-diagram",
+            "chapter-10-10-question",
+            "chapter-10-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-11",
+          "steps": [
+            "chapter-10-11-explain",
+            "chapter-10-11-diagram",
+            "chapter-10-11-question",
+            "chapter-10-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-12",
+          "steps": [
+            "chapter-10-12-explain",
+            "chapter-10-12-diagram",
+            "chapter-10-12-question",
+            "chapter-10-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-13",
+          "steps": [
+            "chapter-10-13-explain",
+            "chapter-10-13-diagram",
+            "chapter-10-13-question",
+            "chapter-10-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-14",
+          "steps": [
+            "chapter-10-14-explain",
+            "chapter-10-14-diagram",
+            "chapter-10-14-question",
+            "chapter-10-14-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-15",
+          "steps": [
+            "chapter-10-15-explain",
+            "chapter-10-15-diagram",
+            "chapter-10-15-question",
+            "chapter-10-15-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-16",
+          "steps": [
+            "chapter-10-16-explain",
+            "chapter-10-16-diagram",
+            "chapter-10-16-question",
+            "chapter-10-16-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-17",
+          "steps": [
+            "chapter-10-17-explain",
+            "chapter-10-17-diagram",
+            "chapter-10-17-question",
+            "chapter-10-17-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-18",
+          "steps": [
+            "chapter-10-18-explain",
+            "chapter-10-18-diagram",
+            "chapter-10-18-question",
+            "chapter-10-18-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-19",
+          "steps": [
+            "chapter-10-19-explain",
+            "chapter-10-19-diagram",
+            "chapter-10-19-question",
+            "chapter-10-19-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-20",
+          "steps": [
+            "chapter-10-20-explain",
+            "chapter-10-20-diagram",
+            "chapter-10-20-question",
+            "chapter-10-20-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-21",
+          "steps": [
+            "chapter-10-21-explain",
+            "chapter-10-21-diagram",
+            "chapter-10-21-question",
+            "chapter-10-21-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-22",
+          "steps": [
+            "chapter-10-22-explain",
+            "chapter-10-22-diagram",
+            "chapter-10-22-question",
+            "chapter-10-22-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-10.lesson-23",
+          "steps": [
+            "chapter-10-23-explain",
+            "chapter-10-23-diagram",
+            "chapter-10-23-question",
+            "chapter-10-23-recap"
+          ]
+        }
+      ]
     }
   ]
 }
