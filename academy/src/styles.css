@@ -24,6 +24,31 @@
   --shadow-sm: 0 1px 2px rgba(8, 17, 31, 0.04), 0 8px 24px rgba(8, 17, 31, 0.035);
   --shadow-md: 0 16px 44px rgba(8, 17, 31, 0.1);
   --radius: 18px;
+  /* Designgrundlage (P05): Akzente je Lernmodus, Formen und Abstände. */
+  --read-ink: #1d4f91;
+  --read-base: #2f6fbd;
+  --read-soft: #e6eefb;
+  --read-glow: #8db8f0;
+  --practice-ink: #0b6b63;
+  --practice-base: #14a094;
+  --practice-soft: #dff3f0;
+  --practice-glow: #4fd1c5;
+  --review-ink: #5b3fb0;
+  --review-base: #7c5ce0;
+  --review-soft: #ece8fb;
+  --review-glow: #b7a2ff;
+  --train-ink: #a8410f;
+  --train-base: #e2662f;
+  --train-soft: #fdebe1;
+  --train-glow: #ff9a6b;
+  --progress-ink: #8a5e1e;
+  --progress-base: #bb8734;
+  --progress-soft: #f4e9d5;
+  --progress-glow: #d9b46f;
+  --radius-control: 12px;
+  --control-min: 44px;
+  --text-small: 13px;
+  --text-body: 15px;
 }
 
 * {
@@ -5836,4 +5861,196 @@ button:disabled {
 
 .bug-report .guide-actions {
   margin-top: 6px;
+}
+
+/* ==========================================================================
+   Designgrundlage (P05)
+   Helles Farbsystem mit einem Akzent je Lernmodus: Lesen (blau), Üben (türkis),
+   Wiederholen (violett), Chart trainieren (orange), Fortschritt (gold). Farbe
+   ordnet nur zusätzlich zu Beschriftung und Symbol ein – nie allein als Träger
+   von Bedeutung, und nie als Gewinn-/Verlust-Signal. Texte und Grund­flächen
+   bleiben hell/dunkel mit hohem Kontrast; Akzentflächen sind Beiwerk.
+   ========================================================================== */
+
+[data-mode='read'] {
+  --mode-ink: var(--read-ink);
+  --mode-base: var(--read-base);
+  --mode-soft: var(--read-soft);
+  --mode-glow: var(--read-glow);
+}
+
+[data-mode='practice'] {
+  --mode-ink: var(--practice-ink);
+  --mode-base: var(--practice-base);
+  --mode-soft: var(--practice-soft);
+  --mode-glow: var(--practice-glow);
+}
+
+[data-mode='review'] {
+  --mode-ink: var(--review-ink);
+  --mode-base: var(--review-base);
+  --mode-soft: var(--review-soft);
+  --mode-glow: var(--review-glow);
+}
+
+[data-mode='train'] {
+  --mode-ink: var(--train-ink);
+  --mode-base: var(--train-base);
+  --mode-soft: var(--train-soft);
+  --mode-glow: var(--train-glow);
+}
+
+[data-mode='progress'] {
+  --mode-ink: var(--progress-ink);
+  --mode-base: var(--progress-base);
+  --mode-soft: var(--progress-soft);
+  --mode-glow: var(--progress-glow);
+}
+
+[data-mode='neutral'] {
+  --mode-ink: #3b4453;
+  --mode-base: #7a8494;
+  --mode-soft: #eceef2;
+  --mode-glow: #b8c1ce;
+}
+
+/* Überschriften: Akzentbalken und Eyebrow im Farbton des Lernmodus. */
+.page-heading .eyebrow,
+.course-hero .eyebrow {
+  color: var(--mode-ink, var(--gold-dark));
+  font-size: 11px;
+}
+
+.page-heading {
+  position: relative;
+  padding-top: 26px;
+}
+
+.page-heading::before {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 46px;
+  height: 5px;
+  content: '';
+  border-radius: 999px;
+  background: var(--mode-base, var(--gold));
+}
+
+/* Navigation: farbige Symbolchips, aktiver Ort mit Balken und Beschriftung. */
+.sidebar-nav button > span {
+  width: 30px;
+  height: 30px;
+  color: var(--mode-glow, #d9b46f);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--mode-glow, #d9b46f) 16%, transparent);
+  font-size: 13px;
+}
+
+.sidebar-nav button.active {
+  border-color: color-mix(in srgb, var(--mode-glow, #d9b46f) 35%, transparent);
+  background: color-mix(in srgb, var(--mode-glow, #d9b46f) 14%, transparent);
+  box-shadow: inset 3px 0 0 var(--mode-glow, #d9b46f);
+}
+
+.sidebar-nav button.active > span {
+  color: var(--navy-950);
+  background: var(--mode-glow, #d9b46f);
+}
+
+.sidebar-nav button.active {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .mobile-bottom-nav button > span {
+    min-width: 44px;
+    padding: 3px 0;
+    border-radius: 999px;
+  }
+
+  .mobile-bottom-nav button.active {
+    color: var(--mode-ink, var(--gold-dark));
+  }
+
+  .mobile-bottom-nav button.active > span {
+    background: var(--mode-soft, var(--gold-soft));
+  }
+
+  .mobile-bottom-nav small {
+    font-size: 10px;
+  }
+}
+
+/* Gemeinsame Bausteine: Buttons ≥ 44 px, lesbare Schrift, einheitliche Form. */
+.primary-button,
+.secondary-button {
+  min-height: var(--control-min);
+  font-size: var(--text-small);
+  border-radius: var(--radius-control);
+}
+
+.secondary-button {
+  border-width: 1.5px;
+  border-color: var(--mode-base, var(--line-strong));
+  color: var(--mode-ink, inherit);
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: var(--mode-soft, #fff);
+}
+
+/* Karten: gleiche Rundung, Akzentkante im Farbton des Modus. */
+.study-card,
+.review-mode-card,
+.practice-card {
+  border-top: 4px solid var(--mode-base, var(--line));
+  border-radius: var(--radius);
+}
+
+.review-modes > .review-mode-card:nth-child(1) {
+  --mode-ink: var(--review-ink);
+  --mode-base: var(--review-base);
+  --mode-soft: var(--review-soft);
+}
+
+.review-modes > .review-mode-card:nth-child(2) {
+  --mode-ink: var(--train-ink);
+  --mode-base: var(--train-base);
+  --mode-soft: var(--train-soft);
+}
+
+.review-modes > .review-mode-card:nth-child(3) {
+  --mode-ink: var(--read-ink);
+  --mode-base: var(--read-base);
+  --mode-soft: var(--read-soft);
+}
+
+.review-modes > .review-mode-card:nth-child(4) {
+  --mode-ink: var(--practice-ink);
+  --mode-base: var(--practice-base);
+  --mode-soft: var(--practice-soft);
+}
+
+.review-mode-card h2 {
+  color: var(--mode-ink, inherit);
+}
+
+/* Leerzustände: freundlicher, mit Akzentfläche statt grauer Strichlinie allein. */
+.empty-state {
+  border-color: var(--mode-base, var(--line-strong));
+  background: color-mix(in srgb, var(--mode-soft, #fff) 45%, #fff);
+}
+
+.empty-state strong {
+  color: var(--mode-ink, var(--ink));
+  font-size: 17px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .primary-button,
+  .secondary-button,
+  .sidebar-nav button {
+    transition: transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
+  }
 }

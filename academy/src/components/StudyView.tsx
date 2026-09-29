@@ -103,7 +103,7 @@ export function StudyView({ plan, onMinutes, onReview, onLesson, onCase, onBack 
   };
 
   return (
-    <div className="page-shell study-page">
+    <div className="page-shell study-page" data-mode="practice">
       <header className="page-heading">
         <p className="eyebrow">Kurz lernen</p>
         <h1 ref={heading} tabIndex={-1}>
