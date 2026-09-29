@@ -444,6 +444,26 @@ test('Rückblick auf eine abgeschlossene Runde offline (F-25)', async ({ page, c
   expect(errors).toEqual([]);
 });
 
+test('Kurz lernen offline: Vorschläge, Überspringen und Lektion öffnen (F-23)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  await firstVisit(page);
+  await page.getByRole('button', { name: 'Einführung schließen' }).click();
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.getByRole('region', { name: 'Kurz lernen' }).getByRole('button', { name: '≈ 10 Minuten' }).click();
+  await expect(page.getByRole('heading', { name: 'Für etwa 10 Minuten', level: 1 })).toBeVisible();
+  const card = page.locator('.study-card').first();
+  const title = (await card.locator('h2').textContent())!;
+  await page.getByRole('button', { name: `Überspringen: ${title}` }).click();
+  await page.getByRole('button', { name: `Zurückholen: ${title}` }).click();
+  await card.getByRole('button', { name: 'Lektion starten' }).click();
+  await expect(page).toHaveURL(/#\/lesson\//);
+  await expect(page.getByRole('button', { name: 'Weiter' })).toBeVisible();
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
 test('Einführung und Hilfe offline (F-18)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   await firstVisit(page);

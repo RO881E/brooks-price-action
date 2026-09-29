@@ -23,6 +23,8 @@ import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { SettingsView } from './components/SettingsView';
 import { TrainerView } from './components/TrainerView';
 import { ReplayView } from './components/ReplayView';
+import { StudyEntry, StudyView } from './components/StudyView';
+import { planStudySession } from './features/studySession';
 import { FirstUseWelcome, GuideDialog, type GuideFacts } from './components/FirstUseGuide';
 import { UndoToast, type UndoAction } from './components/UndoToast';
 import {
@@ -237,6 +239,7 @@ export default function App() {
   const reading = resolved?.kind === 'read' ? resolved.reader : null;
   const training = resolved?.kind === 'train' ? resolved.barCase : null;
   const replaying = resolved?.kind === 'replay' ? resolved : null;
+  const studying = resolved?.kind === 'study' ? resolved : null;
   // Der Buchleser gehört zur Ansicht „Buchmodus“, der Trainer zu „Üben“
   // (Navigation bleibt markiert).
   const view: View =
@@ -246,7 +249,9 @@ export default function App() {
         ? 'chapters'
         : training || replaying
           ? 'practice'
-          : lastView;
+          : studying
+            ? 'path'
+            : lastView;
   // Hinweis, wenn ein Leser-Link auf einen nicht lesbaren Abschnitt zeigte –
   // bleibt stehen, obwohl die Adresse danach auf die echte Stelle zeigt.
   const [readerFallbackUnit, setReaderFallbackUnit] = useState<string | null>(null);
@@ -859,7 +864,26 @@ export default function App() {
         </header>
 
         <div className="view-container">
-          {view === 'path' && shouldShowFirstUseGuide(progress) ? (
+          {studying ? (
+            <StudyView
+              key={studying.minutes}
+              plan={planStudySession(courseOutline, progress, today, studying.minutes)}
+              onMinutes={(minutes) => navigate({ kind: 'study', minutes }, 'replace')}
+              onReview={(questionIds) => {
+                // Neue Runde aus den vorgeschlagenen Fragen – oder die laufende fortsetzen.
+                if (questionIds) {
+                  setProgress((current) =>
+                    startSession(current, buildQuestionSession(questionIds, reviewPool(courseOutline, current), today)),
+                  );
+                }
+                chooseView('practice');
+              }}
+              onLesson={openLesson}
+              onCase={openTraining}
+              onBack={() => chooseView('path')}
+            />
+          ) : null}
+          {view === 'path' && !studying && shouldShowFirstUseGuide(progress) ? (
             <FirstUseWelcome
               facts={guideFacts}
               onStart={(lesson) => {
@@ -872,7 +896,15 @@ export default function App() {
               }}
             />
           ) : null}
-          {view === 'path' ? (
+          {view === 'path' && !studying && !shouldShowFirstUseGuide(progress) ? (
+            <StudyEntry
+              onChoose={(minutes) => {
+                navigate({ kind: 'study', minutes }, 'push');
+                scrollToTop();
+              }}
+            />
+          ) : null}
+          {view === 'path' && !studying ? (
             <PathView
               course={courseOutline}
               progress={progress}
