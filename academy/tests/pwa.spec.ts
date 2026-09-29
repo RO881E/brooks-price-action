@@ -317,6 +317,27 @@ test('Buchleser offline: Kapitel lesen und Lesestelle halten (F-13)', async ({ p
   expect(errors).toEqual([]);
 });
 
+test('Begriffe am Lernort offline: Panel und Glossar-Link (F-21)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  const intro = brooksTrendsCourse.units[0];
+  const [first] = intro.lessons;
+  await firstVisit(page);
+
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.goto(`${origin}/academy/#/read/${intro.id}`);
+  await expect(page.getByRole('heading', { name: first.title, level: 2 })).toBeVisible();
+  await page.getByRole('button', { name: 'Price Action', exact: true }).click();
+  const panel = page.getByRole('region', { name: 'Price Action', exact: true });
+  await expect(panel).toBeVisible();
+  await panel.getByRole('link', { name: 'Im Glossar öffnen' }).click();
+  await expect(page.getByRole('heading', { name: 'Price Action', level: 2, exact: true })).toBeVisible();
+
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
 test('kündigt ein Update an, aktiviert es erst nach Zustimmung und räumt alte Caches auf @desktop', async ({ page }) => {
   const errors = trackConsoleErrors(page);
   const version = builtVersion();

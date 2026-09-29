@@ -154,6 +154,20 @@ describe('Strukturprüfung: gezielt defekte Inhalte', () => {
   });
 });
 
+describe('Strukturprüfung: Begriffe am Lernort', () => {
+  it('meldet defekte Zuordnungen mit Schritt, Begriff und Lektion', () => {
+    const report = checkContent({
+      ...realInput(),
+      termLinkIssues: [{ lessonId: firstLesson.id, stepId: 'intro-01-explain', term: 'X', message: 'Kein Glossareintrag „X“.' }],
+    });
+    expect(find(report.issues, 'begriff-am-lernort', 'intro-01-explain → X')).toMatchObject({
+      severity: 'error',
+      area: 'term-link',
+      lessonId: firstLesson.id,
+    });
+  });
+});
+
 describe('Strukturprüfung: bekannte veröffentlichte IDs', () => {
   it('gelöschte oder umbenannte Lektion', () => {
     const report = withCourse((course) => {
