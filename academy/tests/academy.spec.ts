@@ -1041,7 +1041,7 @@ test.describe('F-06 global search', () => {
 
     await page.goto('/#/chapters');
     await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
-    await page.getByRole('button', { name: 'Suchen' }).click();
+    await page.getByRole('button', { name: 'Suchen', exact: true }).click();
     await input(page).fill('beschreibung erklarung');
     const stepOption = dialog(page).getByRole('option', { name: /Beschreibung vor Erklärung/ });
     await expect(stepOption).toContainText('Schritt 3');
@@ -1105,7 +1105,7 @@ test.describe('F-06 global search', () => {
   test('works from the mobile top bar without overflow', { tag: '@mobile' }, async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 780 });
     await page.goto('/');
-    await page.getByRole('button', { name: 'Suchen' }).click();
+    await page.getByRole('button', { name: 'Suchen', exact: true }).click();
     await expect(input(page)).toBeFocused();
     await input(page).fill('doji');
     await expect(dialog(page).getByRole('option').first()).toBeVisible();
@@ -1114,7 +1114,7 @@ test.describe('F-06 global search', () => {
     ).toBe(false);
     await page.getByRole('button', { name: 'Suche schließen' }).click();
     await expect(dialog(page)).toBeHidden();
-    await expect(page.getByRole('button', { name: 'Suchen' })).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Suchen', exact: true })).toBeFocused();
   });
 });
 

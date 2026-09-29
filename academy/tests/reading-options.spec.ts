@@ -61,9 +61,14 @@ test.describe('F-22 Leseoptionen', () => {
     await expect(sizes.getByRole('radio', { name: 'Sehr groß' })).toBeChecked();
     await page.getByRole('group', { name: 'Zeilenabstand' }).getByRole('radio', { name: 'Weit', exact: true }).check();
 
+    // Warten, bis beide Optionen wirken (unter Last kann das einen Frame dauern).
+    await expect
+      .poll(async () => {
+        const style = await paragraphStyle(page);
+        return style.size > base.size * 1.2 && style.leading / style.size > (base.leading / base.size) * 1.08;
+      })
+      .toBe(true);
     const larger = await paragraphStyle(page);
-    expect(larger.size).toBeGreaterThan(base.size * 1.2);
-    expect(larger.leading / larger.size).toBeGreaterThan((base.leading / base.size) * 1.08);
     await expect(page.locator('.reading-options summary')).toContainText('Schrift Sehr groß, Zeilenabstand Weit');
 
     await page.reload();

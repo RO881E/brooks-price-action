@@ -4646,6 +4646,7 @@ button:disabled {
 
 .trainer-notice {
   padding: 10px 14px;
+  color: var(--ink);
   border-radius: 12px;
   background: var(--gold-soft);
 }
@@ -4684,10 +4685,14 @@ button:disabled {
   font-family: 'Manrope', sans-serif;
 }
 
-.case-training > p {
+.case-training > p:not(.trainer-notice) {
   margin: 0 0 16px;
   color: var(--ink-soft);
   line-height: 1.6;
+}
+
+.case-training > .trainer-notice {
+  margin: 0 0 16px;
 }
 
 .case-list {
