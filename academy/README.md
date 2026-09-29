@@ -183,8 +183,10 @@ Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
 
 ## Geplanter Funktionsausbau
 
-- [Funktionsroadmap](docs/FUNCTIONALITY_ROADMAP.md)
-- [Fertige Claude-Prompts je Arbeitspaket](docs/CLAUDE_PROMPTS.md)
+- [Funktionsroadmap Phase 2: F-11 bis F-20](docs/FUNCTIONALITY_ROADMAP_PHASE_2.md)
+- [Einzeln kopierbare Claude-Prompts für Phase 2](docs/CLAUDE_PROMPTS_PHASE_2.md)
+- [Bisherige Funktionsroadmap F-01 bis F-10](docs/FUNCTIONALITY_ROADMAP.md)
+- [Bisherige Claude-Prompts F-01 bis F-10](docs/CLAUDE_PROMPTS.md)
 - [Release-Checkliste](docs/RELEASE_CHECKLIST.md)
 
 Jedes Arbeitspaket wird auf einem eigenen Branch umgesetzt, vollständig
