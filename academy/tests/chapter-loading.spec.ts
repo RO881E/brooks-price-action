@@ -9,17 +9,17 @@ import type { Lesson } from '../src/content/types';
  * Anfrage ist – so lässt sich genau sehen, welche Einheit geladen wird.
  */
 
-const UNIT_FILES: Record<string, string> = {
-  'brooks-trends.introduction': 'introduction',
-  'brooks-trends.part-01-introduction': 'part-01',
-  'brooks-trends.chapter-01': 'chapter-01',
-  'brooks-trends.chapter-02': 'chapter-02',
-  'brooks-trends.chapter-03': 'chapter-03',
-  'brooks-trends.chapter-04': 'chapter-04',
-  'brooks-trends.chapter-05': 'chapter-05',
-  'brooks-trends.chapter-06': 'chapter-06',
-  'brooks-trends.chapter-07': 'chapter-07',
-};
+/**
+ * Einstiegsdatei je Einheit, abgeleitet aus der ID (wie in `src/content/units.ts`):
+ * `brooks-trends.chapter-08` → `chapter-08`, `brooks-trends.part-01-introduction` → `part-01`.
+ * Abgeleitet statt aufgezählt, damit neue Kapitel diesen Test nicht still brechen.
+ */
+const UNIT_FILES: Record<string, string> = Object.fromEntries(
+  brooksTrendsCourse.units.map((unit) => {
+    const name = unit.id.replace(/^brooks-trends\./, '');
+    return [unit.id, name === 'introduction' ? name : name.replace(/-introduction$/, '')];
+  }),
+);
 
 const unitOf = (lesson: Lesson) =>
   brooksTrendsCourse.units.find((unit) => unit.lessons.some((item) => item.id === lesson.id))!;
@@ -32,7 +32,7 @@ const deepLesson = chapterThree.lessons[2];
 function trackUnits(page: Page) {
   const requested = new Set<string>();
   page.on('request', (request) => {
-    const match = /\/src\/content\/courses\/brooks-trends\/(introduction|part-01|chapter-\d\d)[\w-]*\.ts/.exec(
+    const match = /\/src\/content\/courses\/brooks-trends\/(introduction|part-\d\d|chapter-\d\d)[\w-]*\.ts/.exec(
       request.url(),
     );
     if (match) requested.add(match[1]);
