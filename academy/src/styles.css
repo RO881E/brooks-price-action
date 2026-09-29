@@ -4769,6 +4769,173 @@ button:disabled {
   list-style: none;
 }
 
+/* Was ich noch verwechsle (F-16) */
+.mistake-overview {
+  margin-top: 36px;
+}
+
+.mistake-overview > h2 {
+  margin: 0 0 6px;
+  font-family: 'Manrope', sans-serif;
+}
+
+.mistake-intro {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.mistake-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 14px;
+}
+
+.mistake-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.mistake-filter label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 6px 14px 6px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.mistake-filter label:has(input:checked) {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+  font-weight: 700;
+}
+
+.mistake-filter input {
+  accent-color: var(--gold-dark);
+}
+
+.mistake-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mistake-card {
+  display: grid;
+  gap: 10px;
+  padding: 16px clamp(14px, 3vw, 22px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow-wrap: break-word;
+}
+
+.mistake-card h3,
+.mistake-card p {
+  margin: 0;
+}
+
+.mistake-card h3 {
+  font-size: 16px;
+}
+
+.mistake-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.mistake-card-head .eyebrow {
+  margin: 0;
+}
+
+.mistake-state {
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.mistake-state.open {
+  color: var(--red);
+  background: var(--red-soft);
+}
+
+.mistake-state.later-correct {
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.mistake-prompt {
+  line-height: 1.55;
+}
+
+.mistake-facts,
+.mistake-cues,
+.mistake-notes {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.mistake-cues {
+  gap: 10px;
+}
+
+.mistake-cues li {
+  display: grid;
+  gap: 2px;
+}
+
+.mistake-subhead {
+  font-weight: 700;
+}
+
+.mistake-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.mistake-actions .primary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.mistake-more {
+  margin-top: 12px;
+}
+
+.mistake-empty,
+.mistake-locked {
+  color: var(--ink);
+}
+
+.mistake-notes {
+  margin-top: 14px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
 /* Leseoptionen im Buchmodus (F-22). „Standard“ lässt die bisherigen Maße
    unverändert; größere Stufen skalieren in rem, damit Browser-Schrift und
    -Zoom weiter wirken. Nur Lesetext, Bedienelemente bleiben gleich. */

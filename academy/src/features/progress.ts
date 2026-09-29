@@ -17,7 +17,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 11;
+export const ACADEMY_PROGRESS_VERSION = 12;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -174,6 +174,31 @@ export interface CaseRun {
   mistake: number;
   /** Übersehene relevante Hinweise. */
   missedCues: number;
+  /**
+   * Abgegebene Antworten je Entscheidungspunkt (seit F-16, v12). Fehlt bei
+   * Runden aus v11 – deren Einzelantworten gelten als „nicht erfasst“.
+   */
+  answers?: Record<string, CaseRunAnswer>;
+}
+
+/** Eine abgegebene Trainerentscheidung (seit F-16). */
+export interface CaseRunAnswer {
+  decision: 'long' | 'short' | 'wait';
+  cueIds: string[];
+}
+
+const CASE_DECISIONS = ['long', 'short', 'wait'];
+
+function normalizeRunAnswers(value: unknown): Record<string, CaseRunAnswer> | undefined {
+  if (!isRecord(value)) return undefined;
+  const entries = Object.entries(value).flatMap(([decisionId, answer]) => {
+    if (!isReaderId(decisionId) || !isRecord(answer)) return [];
+    if (!CASE_DECISIONS.includes(answer.decision as string) || !Array.isArray(answer.cueIds)) return [];
+    const cueIds = answer.cueIds.filter(isReaderId);
+    if (cueIds.length !== answer.cueIds.length) return [];
+    return [[decisionId, { decision: answer.decision as CaseRunAnswer['decision'], cueIds }] as const];
+  });
+  return entries.length === Object.keys(value).length ? Object.fromEntries(entries) : undefined;
 }
 
 /** Höchstens so viele abgeschlossene Runden je Fall werden aufbewahrt (die jüngsten). */
@@ -427,14 +452,10 @@ export function normalizeCaseRuns(value: unknown): Record<string, CaseRun[]> {
     Object.entries(value).flatMap(([caseId, runs]) => {
       if (!isReaderId(caseId) || !Array.isArray(runs)) return [];
       const valid = tidyCaseRuns(
-        runs.filter(isCaseRun).map(({ sessionId, completedAt, best, defensible, mistake, missedCues }) => ({
-          sessionId,
-          completedAt,
-          best,
-          defensible,
-          mistake,
-          missedCues,
-        })),
+        runs.filter(isCaseRun).map(({ sessionId, completedAt, best, defensible, mistake, missedCues, answers }) => {
+          const valid = normalizeRunAnswers(answers);
+          return { sessionId, completedAt, best, defensible, mistake, missedCues, ...(valid ? { answers: valid } : {}) };
+        }),
       );
       return valid.length ? [[caseId, valid]] : [];
     }),
@@ -840,7 +861,8 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * bleiben unverändert in `answers` und werden nicht in Versuche umgedeutet.
  * Vor v9 gibt es keine Lesestellen im Buchleser; sie beginnen leer.
  * Vor v10 gibt es keine Leseoptionen; sie beginnen bei „Standard“.
- * Vor v11 gibt es keine Trainerrunden; beide Felder beginnen leer.
+ * Vor v11 gibt es keine Trainerrunden; beide Felder beginnen leer. Runden aus
+ * v11 haben noch keine Einzelantworten (seit v12); sie bleiben ohne `answers`.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {

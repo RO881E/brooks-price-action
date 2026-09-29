@@ -627,3 +627,28 @@ describe('Trainerrunden (F-15, v11)', () => {
     expect(reset.caseSessions).toEqual({});
   });
 });
+
+describe('Einzelantworten je Trainerrunde (F-16, v12)', () => {
+  const base = { sessionId: 'run-a', completedAt: '2026-09-29T08:00:00.000Z', best: 1, defensible: 0, mistake: 0, missedCues: 0 };
+  const withRun = (runEntry: Record<string, unknown>) =>
+    backupText(createEmptyProgress(), (backup) => {
+      (backup.data as Record<string, unknown>).caseRuns = { 'bar-case.x': [runEntry] };
+    });
+
+  it('sichert Antworten und liest sie wieder ein; Runden ohne Antworten bleiben gültig', () => {
+    const answers = { 'decision-1': { decision: 'wait', cueIds: ['cue-a'] } };
+    const withAnswers = parseBackup(withRun({ ...base, answers }));
+    expect(withAnswers.ok).toBe(true);
+    if (withAnswers.ok) expect(withAnswers.imported.caseRuns['bar-case.x'][0].answers).toEqual(answers);
+    const without = parseBackup(withRun(base));
+    expect(without.ok).toBe(true);
+    if (without.ok) expect(without.imported.caseRuns['bar-case.x'][0].answers).toBeUndefined();
+  });
+
+  it('prüft Antworten streng', () => {
+    expectRejected(withRun({ ...base, answers: { d: { decision: 'kaufen', cueIds: [] } } }), /Antworten ungültig/);
+    expectRejected(withRun({ ...base, answers: { d: { decision: 'wait', cueIds: [1] } } }), /Antworten ungültig/);
+    expectRejected(withRun({ ...base, answers: { d: { decision: 'wait', cueIds: [], extra: 1 } } }), /Antworten ungültig/);
+    expectRejected(withRun({ ...base, answers: 'x' }), /Antworten ungültig/);
+  });
+});

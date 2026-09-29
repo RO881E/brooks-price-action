@@ -68,7 +68,7 @@ Chartfälle und der vertieften Besprechung von Abbildung 10.2.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-15 `version: 11`:
+seit F-16 `version: 12`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -100,9 +100,10 @@ seit F-15 `version: 11`:
   Zustand der Engine und wird beim Öffnen gegen den Fall geprüft
 - `caseRuns` (seit F-15, v11): abgeschlossene Runden je Fall – `{ sessionId, completedAt, best,
   defensible, mistake, missedCues }`, eindeutig je `sessionId`, höchstens die jüngsten 50;
-  Runden vergeben keine XP
+  Runden vergeben keine XP; seit F-16 (v12) zusätzlich `answers` – je Entscheidungspunkt
+  `{ decision, cueIds }`. Runden aus v11 haben kein `answers` und gelten dort als „nicht erfasst“.
 
-Ältere Datensätze (v1–v10) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+Ältere Datensätze (v1–v11) werden beim Laden verlustfrei migriert; der Wiederholungsplan
 startet leer, ebenso die Lesestellen (vor v9) und die Trainerrunden (vor v11); Leseoptionen
 beginnen vor v10 bei „Standard“, unbekannte Stufen werden einzeln zu „Standard“. Defekte
 Trainerrunden oder -sitzungen entfallen einzeln. Defekte Lesestellen (ohne Einheit oder Lektion)
@@ -230,6 +231,28 @@ Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/t
   beginnen“ und „Runde abbrechen“ verlangen eine Bestätigung; abgebrochene Runden werden nicht
   gezählt. Passt eine gespeicherte Runde nicht mehr zum Fall (geänderter Content), wird sie
   nicht repariert, sondern ausdrücklich neu begonnen.
+
+## Was ich noch verwechsle (F-16)
+
+Unter **Üben** listet „Was ich noch verwechsle“ erfasste Fehler – sachlich, ohne Diagnose oder
+Prozentwert. Die Berechnung liegt in reinen Funktionen (`src/features/mistakeInsights.ts`):
+
+- **Fragen** (nur aus abgeschlossenen Lektionen): erster Versuch in der Lektion (richtig, falsch
+  oder „nicht erfasst“ bei älteren Ständen), aufgedeckte Lösung, falsche Antworten in der
+  Wiederholung („1 von 2 Antworten falsch“), zuletzt falsch gewählte Antwort und die Zahl der
+  erfassten falschen Antworten. Ein unbekannter Erstversuch zählt nie als Fehler.
+- **Trainerfälle** je Entscheidungspunkt aus den gespeicherten Einzelantworten: zuletzt gewählte
+  Entscheidung mit Einordnung, dabei übersehene Hinweise (redaktionelle C-01-Hinweise mit
+  Erklärung und Lektionslink) und „in N von M Runden mit Fehler“. Ein Fehler ist die Einordnung
+  „Nicht tragfähig“ oder ein übersehener relevanter Hinweis.
+- **Stand:** „Zuletzt falsch“ oder „Später richtig“ (letztes Wiederholungsergebnis bzw.
+  Lektionsstand; bei Fällen die letzte erfasste Runde). Filter „Noch offen“/„Alle“; sortiert nach
+  offen, Häufigkeit, Fragen vor Fällen, Buchreihenfolge.
+- **Erneut üben:** Bei Fragen eine Wiederholungsrunde mit genau dieser Frage (bzw. „Offene Fragen
+  üben“), bei Fällen der Trainer. Lektionslinks und Übungen nur für zugängliche Inhalte;
+  gesperrte Fälle sind als gesperrt benannt.
+- Hinweise nennen ältere Antworten ohne Erstversuch, Runden ohne Einzelantworten (v11) und
+  Runden zu nicht mehr angebotenen Fällen – gezählt, nicht gedeutet.
 
 ## Leseoptionen im Buchmodus (F-22)
 
