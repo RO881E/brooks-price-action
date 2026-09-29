@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 import { brooksTrendsCourse } from '../src/content/course';
 
 /*
@@ -75,7 +76,7 @@ test.describe('F-22 Leseoptionen', () => {
     await expect(page.getByRole('heading', { name: second.title, level: 2 })).toBeVisible();
     await expect.poll(() => paragraphStyle(page)).toEqual(larger);
     let data = await stored(page);
-    expect(data.version).toBe(11);
+    expect(data.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(data.readingOptions).toEqual({ size: 'larger', spacing: 'relaxed' });
     // Andere Einstellungen, Abschluss und Lesestelle bleiben unberührt.
     expect(data.settings).toEqual({ motion: 'reduce', compact: false });

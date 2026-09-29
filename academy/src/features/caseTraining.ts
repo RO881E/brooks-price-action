@@ -171,6 +171,13 @@ export function updateCaseRun(
     defensible: summary.counts.defensible,
     mistake: summary.counts.mistake,
     missedCues: summary.missedCues,
+    // Einzelantworten für die Fehlerübersicht (F-16).
+    answers: Object.fromEntries(
+      Object.entries(session.answers).map(([decisionId, answer]) => [
+        decisionId,
+        { decision: answer.decision, cueIds: [...answer.cueIds] },
+      ]),
+    ),
   };
   const { [barCase.id]: _finished, ...caseSessions } = progress.caseSessions;
   const previous = progress.caseRuns[barCase.id] ?? [];

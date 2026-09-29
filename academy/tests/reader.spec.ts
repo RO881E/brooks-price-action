@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Locator, type Page } from '@playwright/test';
+import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 import { brooksTrendsCourse } from '../src/content/course';
 import type { Lesson } from '../src/content/types';
 
@@ -96,7 +97,7 @@ test.describe('F-13 Buchleser', () => {
     await expect(page.getByText('1 von 22 Abschnitten abgeschlossen')).toBeVisible();
 
     const data = await stored(page);
-    expect(data.version).toBe(11);
+    expect(data.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(data.completedLessonIds).toEqual([first.id]);
     expect(data.lessonResults[first.id].xpAwarded).toBe(first.xp);
     expect(data.questionResults[question.id]).toMatchObject({ firstAttemptCorrect: false, status: 'correct' });

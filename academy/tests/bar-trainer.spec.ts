@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 import { barCases } from '../src/content/barCases';
 import { TRADE_DECISION_LABELS, type BarCase, type TradeDecision } from '../src/content/barCaseTypes';
 import { brooksTrendsCourse } from '../src/content/course';
@@ -129,10 +130,13 @@ test.describe('F-15 Bar-für-Bar-Trainer', () => {
     await expect(page.getByRole('heading', { name: 'Zum Nacharbeiten' })).toBeVisible();
 
     const data = await stored(page);
-    expect(data.version).toBe(11);
+    expect(data.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(data.caseSessions).toEqual({});
     expect(data.caseRuns[barCase.id]).toHaveLength(1);
     expect(data.caseRuns[barCase.id][0].sessionId).toMatch(/^run-/);
+    // Seit F-16 (v12) mit Einzelantworten für die Fehlerübersicht.
+    expect(Object.keys(data.caseRuns[barCase.id][0].answers)).toEqual(barCase.decisions.map((decision) => decision.id));
+    expect(data.caseRuns[barCase.id][0].answers[barCase.decisions[0].id].decision).toBe('wait');
     // Keine XP, kein Lektionsabschluss durch den Trainer.
     expect(data.completedLessonIds).toEqual(unlockIds);
     expect(data.lessonResults ?? {}).toEqual({});

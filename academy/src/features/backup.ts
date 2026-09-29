@@ -183,6 +183,20 @@ const POSITION_KEYS = ['stepIndex', 'updatedAt'];
 const READER_POSITION_KEYS = ['lessonId', 'stepId', 'updatedAt'];
 const CASE_RUN_KEYS = ['sessionId', 'completedAt', 'best', 'defensible', 'mistake', 'missedCues'];
 
+function validRunAnswers(value: unknown): boolean {
+  if (!isRecord(value)) return false;
+  return Object.entries(value).every(
+    ([decisionId, answer]) =>
+      isId(decisionId) &&
+      isRecord(answer) &&
+      hasExactKeys(answer, ['decision', 'cueIds']) &&
+      (answer.decision === 'long' || answer.decision === 'short' || answer.decision === 'wait') &&
+      Array.isArray(answer.cueIds) &&
+      answer.cueIds.length <= 50 &&
+      answer.cueIds.every(isId),
+  );
+}
+
 const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
   completedLessonIds(value, errors) {
     if (!Array.isArray(value) || value.length > MAX_COLLECTION_ENTRIES || !value.every(isId)) {
@@ -295,7 +309,11 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
       if (runs.length > MAX_CASE_RUNS) return 'zu viele Runden';
       const ids = new Set<string>();
       for (const run of runs) {
-        if (!isRecord(run) || !hasExactKeys(run, CASE_RUN_KEYS)) return 'Runde unvollständig';
+        if (!isRecord(run)) return 'Runde unvollständig';
+        // `answers` gibt es seit v12; Runden aus v11 haben es nicht.
+        const keys = 'answers' in run ? [...CASE_RUN_KEYS, 'answers'] : CASE_RUN_KEYS;
+        if (!hasExactKeys(run, keys)) return 'Runde unvollständig';
+        if ('answers' in run && !validRunAnswers(run.answers)) return 'Antworten ungültig';
         if (!isId(run.sessionId) || ids.has(run.sessionId)) return 'Runden-ID ungültig oder doppelt';
         ids.add(run.sessionId);
         if (!isIsoDate(run.completedAt)) return 'Datum ungültig';

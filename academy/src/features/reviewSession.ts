@@ -159,6 +159,29 @@ export function buildSession(
   };
 }
 
+/**
+ * Runde aus ausgewählten Fragen, z. B. „Erneut üben“ in der Fehlerübersicht
+ * (F-16). Nur wiederholbare Fragen; `null`, wenn keine übrig bleibt.
+ */
+export function buildQuestionSession(
+  questionIds: readonly string[],
+  items: ReviewItem[],
+  today: DayKey,
+): ReviewSession | null {
+  const available = new Set(items.map((item) => item.question.id));
+  const selected = [...new Set(questionIds)].filter((id) => available.has(id)).slice(0, REVIEW_SESSION_SIZE);
+  if (selected.length === 0) return null;
+  return {
+    mode: 'mistakes',
+    unitId: null,
+    questionIds: selected,
+    index: 0,
+    answers: {},
+    startedDay: today,
+    activityRecorded: false,
+  };
+}
+
 export function startSession(
   progress: AcademyProgress,
   session: ReviewSession | null,

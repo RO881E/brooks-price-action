@@ -103,6 +103,7 @@ import { localDayKey, seededRandom } from './features/reviewScheduler';
 import {
   advanceSession,
   answerReview,
+  buildQuestionSession,
   buildSession,
   endSession,
   isSessionFinished,
@@ -889,6 +890,16 @@ export default function App() {
               }}
               onEnd={() => setProgress((current) => endSession(current, today))}
               onTrain={openTraining}
+              onOpenLesson={openLesson}
+              onPracticeQuestions={(questionIds) => {
+                setProgress((current) =>
+                  startSession(
+                    current,
+                    buildQuestionSession(questionIds, reviewPool(courseOutline, current), today),
+                  ),
+                );
+                window.scrollTo({ top: 0 });
+              }}
             />
           ) : null}
           {view === 'progress' ? (

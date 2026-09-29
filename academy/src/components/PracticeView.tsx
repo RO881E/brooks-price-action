@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { loadedQuestion, useLessonContent } from '../content/catalog';
-import type { CourseOutline } from '../content/types';
+import type { CourseOutline, LessonOutline } from '../content/types';
 import type { QuestionStep } from '../features/lessonResults';
 import type { AcademyProgress, ReviewMode, ReviewSession } from '../features/progress';
 import {
@@ -17,6 +17,8 @@ import { moveAnswerFocus } from './answerKeys';
 import { ContentLoadState } from './ContentLoadState';
 import { caseEntries } from '../features/caseTraining';
 import { CaseTrainingList } from './CaseTraining';
+import { mistakeOverview } from '../features/mistakeInsights';
+import { MistakeOverviewView } from './MistakeOverviewView';
 
 const modeLabels: Record<ReviewMode, string> = {
   due: 'Heute fällig',
@@ -48,6 +50,9 @@ interface PracticeViewProps {
   onEnd: () => void;
   /** Bar-für-Bar-Fall öffnen (F-15). */
   onTrain?: (caseId: string) => void;
+  /** Fehlerübersicht (F-16): Lektion öffnen und ausgewählte Fragen üben. */
+  onOpenLesson?: (lesson: LessonOutline) => void;
+  onPracticeQuestions?: (questionIds: string[]) => void;
 }
 
 export function PracticeView({
@@ -59,10 +64,13 @@ export function PracticeView({
   onNext,
   onEnd,
   onTrain,
+  onOpenLesson,
+  onPracticeQuestions,
 }: PracticeViewProps) {
   const items = useMemo(() => reviewPool(course, progress), [course, progress]);
   const session = progress.reviewSession;
   const cases = useMemo(() => caseEntries(course, progress), [course, progress]);
+  const mistakes = useMemo(() => mistakeOverview(course, progress), [course, progress]);
 
   return (
     <div className="page-shell practice-page">
@@ -107,6 +115,16 @@ export function PracticeView({
         />
       )}
 
+      {onTrain && onOpenLesson && onPracticeQuestions && !session ? (
+        <MistakeOverviewView
+          course={course}
+          progress={progress}
+          overview={mistakes}
+          onOpenLesson={onOpenLesson}
+          onPracticeQuestions={onPracticeQuestions}
+          onTrain={onTrain}
+        />
+      ) : null}
       {onTrain && !session ? <CaseTrainingList entries={cases} onTrain={onTrain} /> : null}
     </div>
   );

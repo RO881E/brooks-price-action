@@ -18,7 +18,7 @@ import {
   publishedCases,
   updateCaseRun,
 } from './caseTraining';
-import { completeLesson, createEmptyProgress, MAX_CASE_RUNS, migrateProgress, type AcademyProgress } from './progress';
+import { ACADEMY_PROGRESS_VERSION, completeLesson, createEmptyProgress, MAX_CASE_RUNS, migrateProgress, type AcademyProgress } from './progress';
 
 const course = toCourseOutline(brooksTrendsCourse);
 const allLessons = course.units.flatMap((unit) => unit.lessons);
@@ -118,6 +118,7 @@ describe('Bar-für-Bar-Trainer: Runden speichern', () => {
         completedAt: at(5),
         ...expected.counts,
         missedCues: expected.missedCues,
+        answers: finished.answers,
       },
     ]);
     expect(expected.counts.best + expected.counts.defensible + expected.counts.mistake).toBe(approvedFixture.decisions.length);
@@ -182,7 +183,7 @@ describe('Datenmodell v11: Trainerrunden', () => {
       answers: { q: 'o' },
       readingOptions: { size: 'large', spacing: 'standard' },
     })!;
-    expect(migrated.version).toBe(11);
+    expect(migrated.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(migrated.caseSessions).toEqual({});
     expect(migrated.caseRuns).toEqual({});
     expect(migrated.readingOptions).toEqual({ size: 'large', spacing: 'standard' });
