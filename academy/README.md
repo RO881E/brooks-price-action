@@ -181,6 +181,17 @@ fehlt nur `readerPositions`, das leer ergänzt wird. Eine abgelehnte Datei ände
 - Registriert wird nur im Produktions-Build (`import.meta.env.PROD`); `npm run dev` bleibt ohne
   Service Worker. Ohne Verbindung erscheint ein schließbarer Offline-Hinweis.
 
+## Bar-für-Bar-Fälle (Vertrag und Engine)
+
+Für den späteren Bar-für-Bar-Trainer (F-15) gibt es seit F-14 einen typisierten Datenvertrag
+(`src/content/barCaseTypes.ts`), eine strenge Prüfung (`src/features/barCaseValidation.ts`)
+und eine reine Engine ohne Oberfläche (`src/features/barTrainer.ts`): Sichtbarkeit der Bars,
+Auswahl von Long/Short/Abwarten mit Begründung über Hinweise, Reveal, Übergänge, Auswertung,
+eine „öffentliche Sicht“ ohne vorzeitige Lösungen und das Fortsetzen nach Reload. Die Registry
+`src/content/barCases.ts` ist bewusst leer; kuratierte Fälle liefert ein eigener Content-PR.
+Die Vorgaben dafür stehen in [docs/BAR_CASE_CONTRACT.md](docs/BAR_CASE_CONTRACT.md). Technische
+Testfälle liegen nur in `src/test/fixtures/`.
+
 ## Wiederholungsplan
 
 Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen
