@@ -55,9 +55,16 @@ export const BACKUP_FIELDS = [
   'settings',
   'lastLessonId',
   'lessonPositions',
+  'readerPositions',
 ] as const;
 
 export type BackupField = (typeof BACKUP_FIELDS)[number];
+
+/**
+ * Felder, die es erst ab einer bestimmten Datenversion gibt. Ältere
+ * Sicherungen ohne sie bleiben gültig; die Migration ergänzt leere Werte.
+ */
+const FIELD_SINCE: Partial<Record<BackupField, number>> = { readerPositions: 9 };
 export type BackupData = Pick<AcademyProgress, BackupField>;
 
 export interface AcademyBackup {
@@ -166,6 +173,7 @@ const DAILY_KEYS = ['lessons', 'reviewSessions', 'xp'];
 const BOOKMARK_KEYS = ['lessonId', 'stepId', 'createdAt'];
 const NOTE_KEYS = ['lessonId', 'stepId', 'text', 'updatedAt'];
 const POSITION_KEYS = ['stepIndex', 'updatedAt'];
+const READER_POSITION_KEYS = ['lessonId', 'stepId', 'updatedAt'];
 
 const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
   completedLessonIds(value, errors) {
@@ -274,6 +282,13 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
       return isCount(entry.stepIndex) && isIsoDate(entry.updatedAt) ? null : 'Position ungültig';
     });
   },
+  readerPositions(value, errors) {
+    checkRecord('readerPositions', value, errors, (_key, entry) => {
+      if (!isRecord(entry) || !hasExactKeys(entry, READER_POSITION_KEYS)) return 'unvollständig';
+      const stepOk = entry.stepId === null || isId(entry.stepId);
+      return isId(entry.lessonId) && stepOk && isIsoDate(entry.updatedAt) ? null : 'Lesestelle ungültig';
+    });
+  },
 };
 
 export type ParsedBackup =
@@ -344,8 +359,10 @@ export function parseBackup(text: string): ParsedBackup {
     return { ok: false, errors };
   }
   for (const field of BACKUP_FIELDS) {
-    if (!(field in data)) errors.push(`Pflichtfeld fehlt: „${field}“.`);
-    else checks[field](data[field], errors);
+    if (field in data) checks[field](data[field], errors);
+    else if (typeof dataVersion !== 'number' || dataVersion >= (FIELD_SINCE[field] ?? 0)) {
+      errors.push(`Pflichtfeld fehlt: „${field}“.`);
+    }
   }
   for (const key of Object.keys(data)) {
     if (!(BACKUP_FIELDS as readonly string[]).includes(key)) {
@@ -445,6 +462,7 @@ export interface MergeOptions {
  * - Versuchsdaten: der Datensatz mit mehr Versuchen; Antworten: lokal vor Import
  * - Wiederholungsplan: jüngerer Stand; Lektionspositionen: jüngerer Stand,
  *   entfällt für abgeschlossene Lektionen
+ * - Lesestellen im Buchleser (je Einheit): jüngerer Stand
  * - Tageszählwerte: je Feld der größere Wert – nie eine Summe, damit dieselbe
  *   Sicherung nichts doppelt zählt
  * - Notizen: neuere Fassung
@@ -488,6 +506,10 @@ export function mergeProgress(
     notes: mergeRecords(local.notes, incoming.notes, mergeNote),
     lessonPositions: Object.fromEntries(
       Object.entries(positions).filter(([lessonId]) => !completed.has(lessonId)),
+    ),
+    // Lesestelle je Einheit: die zuletzt gesetzte gewinnt.
+    readerPositions: mergeRecords(local.readerPositions, incoming.readerPositions, (a, b) =>
+      time(b.updatedAt) > time(a.updatedAt) ? b : a,
     ),
     lastLessonId: local.lastLessonId ?? incoming.lastLessonId,
     dailyGoal: options.keepLocalPreferences ? local.dailyGoal : incoming.dailyGoal,

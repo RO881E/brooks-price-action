@@ -1,6 +1,7 @@
 import type { CourseOutline, LessonOutline } from '../content/types';
 import { lessonAccessState } from './courseAccess';
 import { isStepResolved } from './lessonResults';
+import { resolveReader, type ResolvedReader } from './reader';
 import type { AcademyProgress } from './progress';
 
 type AnswerData = Pick<AcademyProgress, 'answers' | 'questionResults'>;
@@ -37,7 +38,14 @@ export type AppRoute =
       /** Einsbasierter Schritt aus der URL; `null`, wenn keiner angegeben ist. */
       step: number | null;
     }
-  | { kind: 'lesson-result'; lessonId: string };
+  | { kind: 'lesson-result'; lessonId: string }
+  | {
+      /** Buchleser (seit F-13): `#/read/<unit-id>?lesson=<lesson-id>&step=<n>`. */
+      kind: 'read';
+      unitId: string;
+      lessonId: string | null;
+      step: number | null;
+    };
 
 export const DEFAULT_ROUTE: AppRoute = { kind: 'view', view: 'path' };
 
@@ -69,6 +77,17 @@ export function parseRoute(hash: string): AppRoute | null {
     return term ? { kind: 'view', view: segments[0], term } : { kind: 'view', view: segments[0] };
   }
 
+  if (segments.length === 2 && segments[0] === 'read' && segments[1] !== '') {
+    let unitId: string;
+    try {
+      unitId = decodeURIComponent(segments[1]);
+    } catch {
+      return null;
+    }
+    const lessonId = new URLSearchParams(query).get('lesson')?.trim() || null;
+    return { kind: 'read', unitId, lessonId, step: lessonId ? parseStep(query) : null };
+  }
+
   const isResult = segments.length === 3 && segments[2] === 'result';
   if ((segments.length === 2 || isResult) && segments[0] === 'lesson' && segments[1] !== '') {
     let lessonId: string;
@@ -90,6 +109,12 @@ export function formatRoute(route: AppRoute): string {
     return route.term && route.view === 'glossary'
       ? `#/glossary?term=${encodeURIComponent(route.term)}`
       : `#/${route.view}`;
+  }
+  if (route.kind === 'read') {
+    const base = `#/read/${encodeURIComponent(route.unitId)}`;
+    if (!route.lessonId) return base;
+    const lesson = `${base}?lesson=${encodeURIComponent(route.lessonId)}`;
+    return route.step === null ? lesson : `${lesson}&step=${route.step}`;
   }
   const base = `#/lesson/${encodeURIComponent(route.lessonId)}`;
   if (route.kind === 'lesson-result') return `${base}/result`;
@@ -140,7 +165,8 @@ export function startStepIndex(lesson: LessonOutline, progress: AcademyProgress)
 export type ResolvedRoute =
   | { kind: 'view'; view: AppView; term?: string }
   | { kind: 'lesson'; lesson: LessonOutline; stepIndex: number }
-  | { kind: 'lesson-result'; lesson: LessonOutline };
+  | { kind: 'lesson-result'; lesson: LessonOutline }
+  | { kind: 'read'; reader: ResolvedReader };
 
 /**
  * Prüft eine Route gegen Kurs und Fortschritt. Unbekannte, geplante oder
@@ -154,6 +180,10 @@ export function resolveRoute(
   progress: AcademyProgress,
 ): ResolvedRoute | null {
   if (route.kind === 'view') return route;
+  if (route.kind === 'read') {
+    const reader = resolveReader(course, progress, route.unitId, route.lessonId, route.step);
+    return reader ? { kind: 'read', reader } : null;
+  }
 
   const lesson = findLesson(course, route.lessonId);
   if (!lesson || lesson.steps.length === 0 || !canOpenLesson(course, lesson, progress)) {

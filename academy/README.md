@@ -15,7 +15,11 @@ zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Die Schaubilder
 ## Was der Pilot bereits kann
 
 - Lernpfad mit aufeinander aufbauenden Mikro-Lektionen
-- alternative Kapitelansicht in der Reihenfolge der Buchvorlage
+- Buchmodus mit Kapitelübersicht und echtem Buchleser (`#/read/<einheit>?lesson=<id>&step=<n>`):
+  „Kapitel lesen“ zeigt die veröffentlichten Abschnitte in Buchreihenfolge als zusammenhängenden
+  Text mit Schaubildern (inkl. Diagramm-Fokus), Vergleichen, Fragen und Zusammenfassung;
+  Kapitelgliederung, Lesefortschritt als Zählung, „Weiterlesen“ an der gemerkten Stelle und klare
+  Hinweise auf gesperrte Abschnitte
 - Erklärungen, eigene interaktive Schaubilder, Verständnisfragen und Zusammenfassungen
 - Review-Zentrale unter „Üben“ mit „Heute fällig“, „Fehler trainieren“, „Kapitel auswählen“
   und „Alles mischen“ (nur Fragen aus abgeschlossenen Lektionen, bis zu 10 pro Runde)
@@ -59,7 +63,7 @@ zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Die Schaubilder
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-08 `version: 8`:
+seit F-13 `version: 9`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -81,9 +85,14 @@ seit F-08 `version: 8`:
 - `bookmarks` und `notes` (seit F-07): Lesezeichen und Klartextnotizen (höchstens 5000 Zeichen)
   je Lektion bzw. Schritt, Schlüssel `lessonId` oder `lessonId::stepId`
 - `settings` (seit F-08): `motion` (`system` oder `reduce`) und `compact`
+- `readerPositions` (seit F-13, v9): Lesestelle im Buchleser je Einheit –
+  `{ lessonId, stepId, updatedAt }`, Schlüssel ist die Einheit-ID. Sie ist unabhängig vom
+  Lektionsabschluss und von `lessonPositions`.
 
-Ältere Datensätze (v1–v7) werden beim Laden verlustfrei migriert; der Wiederholungsplan
-startet leer. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
+Ältere Datensätze (v1–v8) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+startet leer, ebenso die Lesestellen (vor v9). Defekte Lesestellen (ohne Einheit oder Lektion)
+entfallen, ein ungültiger Schritt wird zum Abschnittsanfang; eine Lesestelle auf eine unbekannte
+oder gesperrte Lektion bleibt gespeichert, der Leser öffnet dann den nächsten lesbaren Abschnitt. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
 `wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur
 gelesen, nie verändert.
@@ -97,14 +106,15 @@ und unbekannte Zusatzfelder.
 
 Der Import prüft streng (`src/features/backup.ts`): höchstens 10 MB, gültiges JSON, bekanntes
 Format und keine neuere Version, alle Pflichtfelder, keine unbekannten Felder, gültige Einträge
-und keine gefährlichen Schlüssel wie `__proto__`. Eine abgelehnte Datei ändert nichts. Vor jeder
+und keine gefährlichen Schlüssel wie `__proto__`. Sicherungen aus v8 (vor dem Buchleser) bleiben gültig: Ihnen
+fehlt nur `readerPositions`, das leer ergänzt wird. Eine abgelehnte Datei ändert nichts. Vor jeder
 Änderung erscheint eine Vorschau.
 
 - **Zusammenführen** (Standard) ergänzt den Stand, ohne etwas doppelt zu zählen: Vereinigung von
   Lektionen, Lerntagen, Lesezeichen und Meilensteinen; früherer Erstabschluss samt XP;
   Datensatz mit mehr Versuchen; jüngerer Wiederholungsstand und jüngere Lektionsposition;
-  Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; Antworten lokal vor
-  Import. Tagesziel und Darstellung kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
+  Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; je Einheit die
+  zuletzt gesetzte Lesestelle; Antworten lokal vor Import. Tagesziel und Darstellung kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
 - **Vollständig ersetzen** braucht eine ausdrückliche Bestätigung; vorher wird ein Download des
   aktuellen Stands angeboten.
 - **Zurücksetzen** löscht nur `wqt-academy-progress-v1`. `brooks-progress` und `brooks-tr-best`
@@ -209,6 +219,9 @@ einem nicht ladbaren Schaubild. Vor jedem Release gilt die
 `tests/pwa.spec.ts` baut zusätzlich den Produktions-Build nach `.wqt-playwright-tmp/`, liefert
 ihn unter `/academy/` aus und prüft Registrierung, Offline-Betrieb, Updates, fehlgeschlagene
 Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
+`tests/reader.spec.ts` (F-13) prüft Lesen mit Pflichtfrage (falsch, dann richtig, per Tastatur),
+Weiterlesen, XP genau einmal, gesperrte Abschnitte und Kapitel, unbekannte IDs, Reload an der
+Lesestelle, Wechsel über den Lernpfad, Diagramm-Fokus, Export/Import und 360 px mit axe.
 `tests/chapter-loading.spec.ts` (F-12) prüft, dass der Lernpfad ohne Kapitelinhalte startet,
 Direktlinks, Zurück/Vorwärts, gesperrte und unbekannte Lektionen, Suche über noch nicht
 geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Laden.

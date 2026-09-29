@@ -16,6 +16,7 @@ import { LessonPlayer } from './components/LessonPlayer';
 import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
 import { PracticeView } from './components/PracticeView';
+import { ReaderView } from './components/ReaderView';
 import { ProgressView } from './components/ProgressView';
 import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
@@ -71,6 +72,7 @@ import {
   loadProgress,
   progressPercent,
   recordLessonStep,
+  recordReaderPosition,
   saveProgress,
   savedKey,
   setDailyGoal,
@@ -212,7 +214,13 @@ export default function App() {
     const timer = window.setTimeout(prefetch, 1500);
     return () => window.clearTimeout(timer);
   }, [upcomingLessonId]);
-  const view: View = resolved?.kind === 'view' ? resolved.view : lastView;
+  const reading = resolved?.kind === 'read' ? resolved.reader : null;
+  // Der Buchleser gehört zur Ansicht „Buchmodus“ (Navigation bleibt markiert).
+  const view: View =
+    resolved?.kind === 'view' ? resolved.view : reading ? 'chapters' : lastView;
+  // Hinweis, wenn ein Leser-Link auf einen nicht lesbaren Abschnitt zeigte –
+  // bleibt stehen, obwohl die Adresse danach auf die echte Stelle zeigt.
+  const [readerFallbackUnit, setReaderFallbackUnit] = useState<string | null>(null);
   const glossaryTerm = resolved?.kind === 'view' ? resolved.term : undefined;
 
   useEffect(() => {
@@ -416,6 +424,21 @@ export default function App() {
       setLastView(resolved.view);
       return;
     }
+    if (resolved?.kind === 'read' && window.location.hash === hash) {
+      const { reader } = resolved;
+      if (reader.fellBack) setReaderFallbackUnit(reader.unit.id);
+      const canonicalRead = formatRoute({
+        kind: 'read',
+        unitId: reader.unit.id,
+        lessonId: reader.section?.lesson.id ?? null,
+        step: reader.section && reader.stepIndex !== null ? reader.stepIndex + 1 : null,
+      });
+      if (canonicalRead !== hash) {
+        window.history.replaceState(window.history.state, '', canonicalRead);
+        setHash(canonicalRead);
+      }
+      return;
+    }
     if (resolved?.kind !== 'lesson' || window.location.hash !== hash) return;
 
     const canonical = formatRoute({
@@ -455,6 +478,38 @@ export default function App() {
     setNotice(null);
     setMobileMenuOpen(false);
     scrollToTop();
+  };
+
+  // Buchleser (F-13): aus dem Buchmodus öffnen (neuer Verlaufseintrag),
+  // innerhalb eines Kapitels blättern (ersetzt den Eintrag).
+  const openReader = (unitId: string, lessonId?: string) => {
+    setReaderFallbackUnit(null);
+    setNotice(null);
+    navigate({ kind: 'read', unitId, lessonId: lessonId ?? null, step: null }, 'push');
+  };
+
+  const openReaderSection = (unitId: string, lessonId: string) => {
+    setReaderFallbackUnit(null);
+    navigate({ kind: 'read', unitId, lessonId, step: null }, 'replace');
+  };
+
+  const recordReading = (
+    unitId: string,
+    lessonId: string,
+    stepId: string | null,
+    stepIndex: number | null,
+  ) => {
+    setProgress((current) => recordReaderPosition(current, unitId, lessonId, stepId));
+    // Die Adresse zeigt die Lesestelle – ein Reload landet genau dort.
+    const next: AppRoute = {
+      kind: 'read',
+      unitId,
+      lessonId,
+      step: stepIndex === null ? null : stepIndex + 1,
+    };
+    if (window.location.hash !== formatRoute(next)) {
+      navigate(next, 'replace', window.history.state);
+    }
   };
 
   const runNextAction = (action: NextAction) => {
@@ -749,11 +804,39 @@ export default function App() {
               onOpenLesson={openLesson}
             />
           ) : null}
-          {view === 'chapters' ? (
+          {reading ? (
+            <ReaderView
+              course={courseOutline}
+              reader={
+                readerFallbackUnit === reading.unit.id ? { ...reading, fellBack: true } : reading
+              }
+              progress={progress}
+              onOpenSection={(lessonId) => openReaderSection(reading.unit.id, lessonId)}
+              onOpenUnit={openReader}
+              onPosition={(lessonId, stepId, stepIndex) =>
+                recordReading(reading.unit.id, lessonId, stepId, stepIndex)
+              }
+              onAnswer={(question, optionId) =>
+                setProgress((current) => submitAnswer(current, question, optionId))
+              }
+              onRetry={(question) => setProgress((current) => retryQuestion(current, question))}
+              onReveal={(question) => setProgress((current) => revealSolution(current, question))}
+              onCompleteSection={(lesson) =>
+                setProgress((current) =>
+                  current.completedLessonIds.includes(lesson.id)
+                    ? current
+                    : completeLesson(current, lesson.id, lesson.xp),
+                )
+              }
+              onBackToChapters={() => chooseView('chapters')}
+            />
+          ) : null}
+          {view === 'chapters' && !reading ? (
             <ChapterView
               course={courseOutline}
-              completedLessonIds={progress.completedLessonIds}
+              progress={progress}
               onOpenLesson={openLesson}
+              onReadUnit={openReader}
             />
           ) : null}
           {view === 'practice' ? (
