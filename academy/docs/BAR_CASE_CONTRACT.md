@@ -116,3 +116,13 @@ Gekürzt:
   sourceAnchors: ['Technischer Anker (Test)'],
 }
 ```
+
+## Transferpool (C-02)
+
+Ungesehene Transferfälle für die spätere Transferprüfung (F-17) liegen in
+`src/content/barCases/c02.ts` und werden als `transferCases` registriert – **nie**
+in `barCases`. So erscheint ein C-02-Fall nicht im gewöhnlichen Trainer,
+der Fehlerübersicht, dem Kurzlernen oder dem Rückblick. Fall-IDs tragen `c02`
+(`bar-case.c02.<einheit>.<thema>`) und sind disjunkt zu C-01. Vertrags- und
+Inhaltsprüfung laufen über `allBarCases` (beide Pools). Fallmatrix und
+Review-Notiz: [`C02_FALLMATRIX.md`](C02_FALLMATRIX.md).

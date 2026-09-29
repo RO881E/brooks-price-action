@@ -11,7 +11,7 @@ import {
 import known from '../../build/published-ids.json';
 import { chartDescription, chartScenarioIds } from '../components/LearningChart';
 import { validateBarCases } from '../features/barCaseValidation';
-import { barCases } from './barCases';
+import { allBarCases } from './barCases';
 import { brooksTrendsCourse } from './course';
 import { glossaryEntries } from './glossary';
 import type { ChartScenarioId, Course, LessonStep } from './types';
@@ -23,7 +23,7 @@ function realInput(): ContentCheckInput {
     glossary: glossaryEntries,
     scenarioIds: chartScenarioIds(),
     describe: (scenario) => chartDescription(scenario as ChartScenarioId),
-    caseIssues: validateBarCases(barCases, brooksTrendsCourse),
+    caseIssues: validateBarCases(allBarCases, brooksTrendsCourse),
     known: known as KnownIds,
   };
 }
