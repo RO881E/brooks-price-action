@@ -41,6 +41,9 @@ jobs:
       - name: Academy testen
         run: npm test --prefix academy
 
+      - name: Content-Struktur prüfen
+        run: npm run check:content --prefix academy
+
       - name: Academy für Unterverzeichnis bauen
         run: npm run build --prefix academy -- --base=./
 

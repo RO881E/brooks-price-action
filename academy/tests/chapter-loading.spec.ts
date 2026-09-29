@@ -18,6 +18,7 @@ const UNIT_FILES: Record<string, string> = {
   'brooks-trends.chapter-04': 'chapter-04',
   'brooks-trends.chapter-05': 'chapter-05',
   'brooks-trends.chapter-06': 'chapter-06',
+  'brooks-trends.chapter-07': 'chapter-07',
 };
 
 const unitOf = (lesson: Lesson) =>
@@ -31,7 +32,7 @@ const deepLesson = chapterThree.lessons[2];
 function trackUnits(page: Page) {
   const requested = new Set<string>();
   page.on('request', (request) => {
-    const match = /\/src\/content\/courses\/brooks-trends\/(introduction|part-01|chapter-0\d)[\w-]*\.ts/.exec(
+    const match = /\/src\/content\/courses\/brooks-trends\/(introduction|part-01|chapter-\d\d)[\w-]*\.ts/.exec(
       request.url(),
     );
     if (match) requested.add(match[1]);

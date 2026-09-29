@@ -1424,6 +1424,11 @@ function MiddayFalseBreakout() {
   );
 }
 
+/** Alle Szenarien mit Bildbeschreibung – für die Strukturprüfung (F-29). */
+export function chartScenarioIds(): ChartScenarioId[] {
+  return Object.keys(scenarioDescriptions) as ChartScenarioId[];
+}
+
 /** Bildbeschreibung eines Schaubilds – auch sichtbar im Diagramm-Fokus (F-11). */
 export function chartDescription(scenario: ChartScenarioId): string {
   return scenarioDescriptions[scenario];

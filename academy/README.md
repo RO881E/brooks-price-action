@@ -217,6 +217,7 @@ npm run dev
 ```bash
 npm test
 npm run build
+npm run check:content
 npx playwright install chromium
 npm run test:e2e
 ```
@@ -237,6 +238,42 @@ Lesestelle, Wechsel über den Lernpfad, Diagramm-Fokus, Export/Import und 360 px
 `tests/chapter-loading.spec.ts` (F-12) prüft, dass der Lernpfad ohne Kapitelinhalte startet,
 Direktlinks, Zurück/Vorwärts, gesperrte und unbekannte Lektionen, Suche über noch nicht
 geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Laden.
+
+## Struktureller Content-Check (F-29)
+
+```bash
+npm run check:content                 # prüfen; Exit-Code 1 bei Fehlern
+npm run check:content -- --accept-new # neue veröffentlichte IDs bewusst aufnehmen
+```
+
+Das Werkzeug liegt in `build/` (`contentCheck.ts`, `check-content.mjs`) und ist nicht Teil des
+Browser-Bundles. Es lädt den vollständigen Kurs, das Glossar, die Diagrammbeschreibungen und die
+Bar-für-Bar-Fälle und meldet jede Abweichung mit Regel, ID und Datei, z. B.
+`✗ [bekannte-id] brooks-trends.introduction.lesson-02 (src/content/…): …`. Die CI führt den
+Check nach den Unit-Tests aus.
+
+**Fehler:** doppelte Einheits-, Lektions-, Frage- oder Schritt-IDs und IDs mit unzulässigen
+Zeichen; Einheiten außerhalb der Buchreihenfolge (`order`); fehlende Pflichtfelder (Titel,
+Bezeichnung, Status, XP, Schrittüberschrift, Bildunterschrift) und veröffentlichte Lektionen
+ohne Schritte; ungültige Fragen
+(weniger als zwei Antworten, doppelte Antwort-IDs, fehlende Erklärung, richtige Antwort gibt es
+nicht); Diagramme mit unbekanntem Szenario oder ohne Bildbeschreibung; Glossareinträge mit
+doppeltem Begriff oder einer `firstUnit`, die keine Einheit ist; Verstöße der Bar-für-Bar-Fälle
+gegen den F-14-Vertrag; Abweichungen von `build/published-ids.json` (bekannte Einheit, Lektion
+oder Schritt gelöscht, umbenannt, umgezogen, nicht mehr veröffentlicht oder umsortiert) sowie
+neue veröffentlichte IDs, die noch nicht aufgenommen sind.
+
+**Hinweise (kein Fehler):** definierte, aber nirgends genutzte Diagrammszenarien und
+Glossar-Aliasse, die zugleich ein anderer Begriff oder Alias sind.
+
+**Nicht geprüft:** fachliche Richtigkeit und Treue zur Buchvorlage, Formulierungen,
+Rechtschreibung, Länge oder Wörtlichkeit von Texten, Bildrechte und inhaltliche Qualität der
+Bildbeschreibungen.
+
+`build/published-ids.json` ist die Liste der einmal veröffentlichten IDs, an denen Fortschritt,
+Lesezeichen und Lesestellen hängen. Neue Lektionen oder Schritte werden nur mit `--accept-new`
+ergänzt; das hängt ausschließlich an, entfernt nichts und verweigert die Aufnahme, solange
+bekannte IDs fehlen oder verschoben sind. Die Änderung der Datei ist im Diff des PRs sichtbar.
 
 ## Geplanter Funktionsausbau
 
