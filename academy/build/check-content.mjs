@@ -20,7 +20,7 @@ async function load(path) {
   return module;
 }
 
-const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { allBarCases }, { validateBarCases }, { validateStepTermLinks }, check] =
+const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { barCases, allBarCases }, { validateBarCases }, { validateStepTermLinks }, { brooksTopics }, { validateTopicMap }, check] =
   await Promise.all([
     load('src/content/course.ts'),
     load('src/content/glossary.ts'),
@@ -28,6 +28,8 @@ const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { allBarCases }, { va
     load('src/content/barCases.ts'),
     load('src/features/barCaseValidation.ts'),
     load('src/content/stepTerms.ts'),
+    load('src/content/topicMap.ts'),
+    load('src/features/topicMapValidation.ts'),
     load('build/contentCheck.ts'),
   ]);
 
@@ -39,6 +41,7 @@ const input = {
   describe: (scenario) => chart.chartDescription(scenario),
   caseIssues: validateBarCases(allBarCases, brooksTrendsCourse),
   termLinkIssues: validateStepTermLinks(brooksTrendsCourse, glossaryEntries),
+  topicIssues: validateTopicMap(brooksTopics, brooksTrendsCourse, barCases),
   known,
 };
 
@@ -63,6 +66,7 @@ function locate(issue) {
   if (issue.area === 'glossary') return 'src/content/glossary.ts';
   if (issue.area === 'case') return 'src/content/barCases.ts';
   if (issue.area === 'term-link') return 'src/content/stepTerms.ts';
+  if (issue.area === 'topic') return 'src/content/topicMap.ts';
   if (issue.area === 'known-ids' && !issue.lessonId) return 'build/published-ids.json';
   if (issue.area === 'diagram' && !issue.lessonId) return 'src/components/LearningChart.tsx';
   for (const id of [issue.id, issue.lessonId]) {

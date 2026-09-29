@@ -14,7 +14,7 @@ import type { Course } from '../src/content/types.ts';
 export type Severity = 'error' | 'warning';
 
 /** Bereich des Befunds – bestimmt die Zuordnung zu einer Datei. */
-export type IssueArea = 'course' | 'diagram' | 'glossary' | 'case' | 'term-link' | 'known-ids';
+export type IssueArea = 'course' | 'diagram' | 'glossary' | 'case' | 'term-link' | 'topic' | 'known-ids';
 
 export interface ContentIssue {
   severity: Severity;
@@ -72,6 +72,8 @@ export interface ContentCheckInput {
   caseIssues: readonly CaseIssueInput[];
   /** Befunde der Begriffszuordnung aus F-21 (`validateStepTermLinks`). */
   termLinkIssues?: readonly TermLinkIssueInput[];
+  /** Befunde der Themenkarte aus C-03 (`validateTopicMap`). */
+  topicIssues?: readonly { topicId: string; path: string; message: string }[];
   known: KnownIds;
 }
 
@@ -255,6 +257,12 @@ function checkCases(input: ContentCheckInput, issues: ContentIssue[]) {
   }
 }
 
+function checkTopics(input: ContentCheckInput, issues: ContentIssue[]) {
+  for (const issue of input.topicIssues ?? []) {
+    issues.push({ severity: 'error', area: 'topic', rule: 'themenkarte', id: issue.topicId, message: `${issue.path}: ${issue.message}` });
+  }
+}
+
 function checkTermLinks(input: ContentCheckInput, issues: ContentIssue[]) {
   for (const issue of input.termLinkIssues ?? []) {
     issues.push({
@@ -409,6 +417,7 @@ export function checkContent(input: ContentCheckInput): ContentReport {
   checkGlossary(input, issues);
   checkCases(input, issues);
   checkTermLinks(input, issues);
+  checkTopics(input, issues);
   checkKnownIds(input, issues);
   return {
     issues,
