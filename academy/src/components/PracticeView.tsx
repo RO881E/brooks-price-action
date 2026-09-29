@@ -110,6 +110,7 @@ export function PracticeView({
           onAnswer={onAnswer}
           onNext={onNext}
           onEnd={onEnd}
+          onOpenLesson={onOpenLesson}
         />
       ) : session ? (
         <SessionResult
@@ -203,6 +204,9 @@ function ReviewStart({
           <h2>{modeLabels.due}</h2>
           {overview.due > 0 ? (
             <>
+              <span className="review-count" aria-hidden="true">
+                {overview.due}
+              </span>
               <p>
                 <strong>{overview.due}</strong> {overview.due === 1 ? 'Frage ist' : 'Fragen sind'}{' '}
                 heute dran.
@@ -212,12 +216,21 @@ function ReviewStart({
               </button>
             </>
           ) : (
-            <p className="review-done" role="status">
-              Für heute ist alles wiederholt.
-              {overview.nextDueDay
-                ? ` Nächste Wiederholung ${relativeDayLabel(overview.nextDueDay, today)}.`
-                : ''}
-            </p>
+            <>
+              <span className="review-count" aria-hidden="true">
+                0
+              </span>
+              <p className="review-done" role="status">
+                Für heute ist alles wiederholt.
+                {overview.nextDueDay
+                  ? ` Nächste Wiederholung ${relativeDayLabel(overview.nextDueDay, today)}.`
+                  : ''}
+              </p>
+              <p className="review-alternative">
+                Lust auf mehr? Übe ein Kapitel oder ein Thema, oder starte unten eine gemischte Runde – das
+                verschiebt den Wiederholungsplan nicht.
+              </p>
+            </>
           )}
         </section>
 
@@ -225,6 +238,9 @@ function ReviewStart({
           <h2>{modeLabels.mistakes}</h2>
           {overview.mistakes > 0 ? (
             <>
+              <span className="review-count" aria-hidden="true">
+                {overview.mistakes}
+              </span>
               <p>
                 <strong>{overview.mistakes}</strong>{' '}
                 {overview.mistakes === 1 ? 'Frage wartet' : 'Fragen warten'} auf einen richtigen
@@ -245,6 +261,9 @@ function ReviewStart({
 
         <section className="review-mode-card">
           <h2>{modeLabels.unit}</h2>
+          <span className="review-count" aria-hidden="true">
+            {overview.units.find(({ unit }) => unit.id === selectedUnit)?.count ?? 0}
+          </span>
           <label className="review-select">
             <span>Kapitel</span>
             <select value={selectedUnit} onChange={(event) => setUnitId(event.target.value)}>
@@ -266,6 +285,9 @@ function ReviewStart({
 
         <section className="review-mode-card">
           <h2>{modeLabels.mixed}</h2>
+          <span className="review-count" aria-hidden="true">
+            {Math.min(REVIEW_SESSION_SIZE, overview.total)}
+          </span>
           <p>
             Bis zu {REVIEW_SESSION_SIZE} zufällige Fragen aus {overview.total} abgeschlossenen.
           </p>
@@ -295,6 +317,7 @@ function SessionQuestion({
   onAnswer,
   onNext,
   onEnd,
+  onOpenLesson,
 }: {
   session: ReviewSession;
   items: ReviewItem[];
@@ -303,6 +326,7 @@ function SessionQuestion({
   onAnswer: (question: QuestionStep, optionId: string) => void;
   onNext: () => void;
   onEnd: () => void;
+  onOpenLesson?: (lesson: LessonOutline) => void;
 }) {
   const item = currentSessionItem(session, items);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -454,6 +478,19 @@ function SessionQuestion({
             {!correct && solution ? (
               <p>
                 <em>Richtig ist „{solution.label}“:</em> {solution.explanation}
+              </p>
+            ) : null}
+            {!correct && onOpenLesson ? (
+              <p className="review-reread">
+                <button
+                  type="button"
+                  className="link-button"
+                  aria-label={`Erklärung nachlesen: ${item.lesson.title}`}
+                  onClick={() => onOpenLesson(item.lesson)}
+                >
+                  Erklärung in der Lektion nachlesen
+                </button>
+                <small> Danach geht es hier genau an dieser Stelle weiter; deine Antwort bleibt gezählt.</small>
               </p>
             ) : null}
             {card ? (

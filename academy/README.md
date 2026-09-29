@@ -277,6 +277,25 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Übungsroutine (P08)
+
+- **Übungs-Einstieg:** Die vier Wege unter „Üben“ (fällig, Fehler, Kapitel, Mix) zeigen ihre reale
+  Menge als große Zahl; die Fälligkeitslogik ist unverändert. Ist nichts fällig, steht dort „0“,
+  die Aussage „Für heute ist alles wiederholt“ und eine Alternative (Kapitel, Thema oder gemischte
+  Runde – das verschiebt den Wiederholungsplan nicht).
+- **Fehler konstruktiv erklären:** Erst **nach** der Abgabe einer falschen Antwort erscheint
+  „Erklärung in der Lektion nachlesen“. Die Runde bleibt gespeichert: Beim Zurückkehren (Schließen
+  der Lektion oder Browser-Zurück) geht es an derselben Stelle weiter; die Antwort ist bereits
+  gezählt und lässt sich nicht ein zweites Mal werten.
+- **Kurz lernen:** Jeder Vorschlag nennt in einem Satz, **warum** er erscheint (z. B. „Weil diese
+  5 Fragen heute fällig sind“). Der Hinweis erklärt, dass Überspringen einen Vorschlag nur in der
+  Ansicht ausblendet – Lernstand, XP und Lerntage bleiben unberührt. Es gibt weiterhin keine
+  Restzeit und keine Deadline.
+- **Vergleich im Rückblick:** Der Rückblick einer späteren Runde zeigt je Entscheidung die vorherige
+  Runde als Fakten: geänderte oder gleiche Wahl, gegebenenfalls die Sicherheit (nur, wenn in beiden
+  Runden notiert) und die damalige eigene Begründung im Wortlaut. Es gibt keine automatische
+  Bewertung des Freitextes, und eine frühere Begründung wird nie überschrieben.
+
 ## Faire, sichtbare Motivation (P07)
 
 Die Fortschrittsansicht macht den Lernweg sichtbar, ohne Druck und ohne Trading-Versprechen:

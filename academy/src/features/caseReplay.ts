@@ -36,6 +36,18 @@ export interface ReplayStep {
   barsAfter: CaseBar[];
   /** Damalige eigene Begründung (F-24), falls notiert. */
   reasoning?: CaseReasoning;
+  /** Dieselbe Entscheidung in der unmittelbar vorherigen abgeschlossenen Runde (nur Fakten, keine Bewertung). */
+  previous?: PreviousAnswer;
+}
+
+export interface PreviousAnswer {
+  completedAt: string;
+  answer: CaseAnswer;
+  reasoning?: CaseReasoning;
+  /** Andere Wahl als in dieser Runde. */
+  decisionChanged: boolean;
+  /** Angegebene Sicherheit unterscheidet sich (nur wenn in beiden Runden notiert). */
+  confidenceChanged: boolean;
 }
 
 export type Replay =
@@ -65,9 +77,26 @@ export function buildReplay(
   const decisionIds = new Set(barCase.decisions.map((decision) => decision.id));
   if (Object.keys(run.answers).some((id) => !decisionIds.has(id))) return { ok: false, problem: 'changed', barCase };
   const steps: ReplayStep[] = [];
+  const runs = progress.caseRuns[caseId] ?? [];
+  const previousRun = runs[runs.findIndex((item) => item.sessionId === sessionId) - 1];
   for (const [index, decision] of barCase.decisions.entries()) {
     const answer = run.answers[decision.id];
     if (!validAnswer(decision, answer)) return { ok: false, problem: 'changed', barCase };
+    const earlier = previousRun?.answers?.[decision.id];
+    const earlierReasoning = previousRun?.reasoning?.[decision.id];
+    const nowReasoning = run.reasoning?.[decision.id];
+    const previous: PreviousAnswer | undefined =
+      previousRun && validAnswer(decision, earlier)
+        ? {
+            completedAt: previousRun.completedAt,
+            answer: earlier,
+            ...(earlierReasoning ? { reasoning: earlierReasoning } : {}),
+            decisionChanged: earlier.decision !== answer.decision,
+            confidenceChanged: Boolean(
+              earlierReasoning?.confidence && nowReasoning?.confidence && earlierReasoning.confidence !== nowReasoning.confidence,
+            ),
+          }
+        : undefined;
     const next = barCase.decisions[index + 1];
     steps.push({
       index,
@@ -77,6 +106,7 @@ export function buildReplay(
       barsBefore: barCase.bars.slice(0, decision.afterBar + 1),
       barsAfter: barCase.bars.slice(0, next ? next.afterBar + 1 : barCase.bars.length),
       ...(run.reasoning?.[decision.id] ? { reasoning: run.reasoning[decision.id] } : {}),
+      ...(previous ? { previous } : {}),
     });
   }
   return { ok: true, barCase, run, steps };

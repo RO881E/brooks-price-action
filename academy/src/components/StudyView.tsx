@@ -52,6 +52,28 @@ function itemDetail(item: StudyItem): string {
   }
 }
 
+/** Warum genau dieser Vorschlag erscheint – aus dem echten Lernstand, ohne Rechenzauber. */
+function itemReason(item: StudyItem): string {
+  switch (item.kind) {
+    case 'review-resume':
+      return 'Weil deine Wiederholungsrunde noch offen ist.';
+    case 'review':
+      return item.totalDue > item.questionIds.length
+        ? `Weil ${item.totalDue} Fragen fällig sind – hier die ältesten zuerst.`
+        : item.questionIds.length === 1
+          ? 'Weil diese Frage heute fällig ist.'
+          : `Weil diese ${item.questionIds.length} Fragen heute fällig sind.`;
+    case 'lesson':
+      return item.resume ? 'Weil du diese Lektion begonnen hast.' : 'Weil sie die nächste freigeschaltete Lektion im Lernpfad ist.';
+    case 'case':
+      return item.resume
+        ? 'Weil deine Trainerrunde noch offen ist.'
+        : item.runs === 0
+          ? 'Weil der Fall zugänglich ist und du ihn noch nie trainiert hast.'
+          : 'Weil du diesen zugänglichen Fall am seltensten trainiert hast.';
+  }
+}
+
 function actionLabel(item: StudyItem): string {
   switch (item.kind) {
     case 'review-resume':
@@ -112,7 +134,8 @@ export function StudyView({ plan, onMinutes, onReview, onLesson, onCase, onBack 
         <p>
           Ungefährer Rahmen, kein Timer. Die Vorschläge richten sich nach deinem aktuellen Stand: erst fällige
           Wiederholungen, dann die nächste Lektion{plan.minutes === 20 ? ', dann ein Chart-Training' : ''}. Jeder
-          Schritt lässt sich überspringen.
+          Schritt lässt sich überspringen – das blendet ihn nur hier aus; Lernstand, XP und Lerntage bleiben
+          unberührt.
         </p>
         <fieldset className="mistake-filter study-minutes">
           <legend className="visually-hidden">Zeitrahmen</legend>
@@ -147,6 +170,7 @@ export function StudyView({ plan, onMinutes, onReview, onLesson, onCase, onBack 
               <article className="study-card" aria-labelledby={`${ids}-${item.key}`}>
                 <h2 id={`${ids}-${item.key}`}>{itemTitle(item)}</h2>
                 <p>{itemDetail(item)}</p>
+                <p className="study-why">{itemReason(item)}</p>
                 <div className="study-actions">
                   <button type="button" className="primary-button" onClick={() => act(item)}>
                     {actionLabel(item)}

@@ -29,7 +29,7 @@ export type StudyItem =
   | { kind: 'review-resume'; key: 'review'; remaining: number }
   | { kind: 'review'; key: 'review'; questionIds: string[]; units: UnitOutline[]; totalDue: number }
   | { kind: 'lesson'; key: string; lesson: LessonOutline; unit: UnitOutline; resume: boolean; stepIndex: number }
-  | { kind: 'case'; key: string; barCase: BarCase; unitLabel: string; resume: boolean };
+  | { kind: 'case'; key: string; barCase: BarCase; unitLabel: string; resume: boolean; runs: number };
 
 export interface StudyPlan {
   minutes: StudyMinutes;
@@ -98,6 +98,7 @@ export function planStudySession(
         barCase: pick.barCase,
         unitLabel: pick.unitLabel,
         resume: pick.state === 'in-progress',
+        runs: pick.runs,
       });
     }
   }
