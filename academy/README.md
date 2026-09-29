@@ -122,9 +122,32 @@ und keine gefährlichen Schlüssel wie `__proto__`. Eine abgelehnte Datei änder
 - Fehlergrenzen: Ein Renderfehler zeigt statt einer leeren Seite „Hier ist etwas
   schiefgelaufen.“ mit „Zum Lernpfad“ und „Seite neu laden“. Kann ein Schaubild nicht geladen
   werden, bleibt der Schritt lesbar und bietet „Seite neu laden“ an.
-- Code-Splitting: React, Kursinhalte (Einleitung/Teil 1 und Kapitel) und App-Code liegen in
-  eigenen Chunks; die Schaubilder werden erst im ersten Diagramm-Schritt geladen und vom
+- Code-Splitting: React und App-Code liegen in eigenen Chunks, jede Kurseinheit ebenfalls (siehe
+  „Kapitelweises Laden“); die Schaubilder werden erst im ersten Diagramm-Schritt geladen und vom
   Service Worker trotzdem für offline vorgehalten.
+
+## Kapitelweises Laden
+
+- `src/content/units.ts` ist die **einzige** Liste der Kurseinheiten in Buchreihenfolge. Jede
+  Einheit hat Metadaten und einen `load()`-Aufruf mit dynamischem Import; daraus entsteht je
+  Einheit ein eigener Chunk. **Neue Kapitel werden nur hier eingetragen.**
+- Das Vite-Plugin `build/courseOutlinePlugin.ts` erzeugt beim Build und im Entwicklungsserver
+  das virtuelle Modul `virtual:wqt-course-outline`: die Gliederung aller Einheiten, Lektionen
+  und Schritte (IDs, Titel, Zusammenfassung, Quelle, XP, Status, bei Fragen die richtige
+  Antwort-ID) – ohne Lehrtexte. Sie wird aus denselben Inhaltsdateien berechnet und kann nicht
+  von ihnen abweichen.
+- Lernpfad, Freischaltung, Direktlinks, Fortsetzen, Suche, Gespeichert, Fortschritt und die
+  Auswahl der Review-Fragen arbeiten sofort mit dieser Gliederung. Ungültige, gesperrte oder
+  geplante Lektionen werden deshalb ohne Ladezeit erkannt.
+- `src/content/catalog.ts` lädt die vollständigen Lektionen einer Einheit erst, wenn der Lesson
+  Player oder eine Review-Frage sie anzeigt, teilt parallele Anfragen und prüft, dass Inhalt und
+  Gliederung zusammenpassen. Das Kapitel der nächsten Lektion wird im Leerlauf vorgeladen.
+- Schlägt das Laden fehl, erscheint „Die Lektion konnte nicht geladen werden.“ mit „Erneut
+  laden“ (lädt die Seite neu, weil Browser fehlgeschlagene Module zwischenspeichern) und „Zurück
+  zur Übersicht“. Gespeicherte Daten bleiben unberührt.
+- `src/content/course.ts` setzt den vollständigen Kurs zusammen und ist nur für Tests und die
+  Build-Erzeugung da; ein Unit-Test verhindert, dass App-Code ihn importiert.
+- Offline: Der Service Worker lädt weiterhin alle Einheiten vorab (wählbare Kapitel wären F-19).
 
 ## Offline-App und Updates
 
@@ -186,6 +209,9 @@ einem nicht ladbaren Schaubild. Vor jedem Release gilt die
 `tests/pwa.spec.ts` baut zusätzlich den Produktions-Build nach `.wqt-playwright-tmp/`, liefert
 ihn unter `/academy/` aus und prüft Registrierung, Offline-Betrieb, Updates, fehlgeschlagene
 Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
+`tests/chapter-loading.spec.ts` (F-12) prüft, dass der Lernpfad ohne Kapitelinhalte startet,
+Direktlinks, Zurück/Vorwärts, gesperrte und unbekannte Lektionen, Suche über noch nicht
+geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Laden.
 
 ## Geplanter Funktionsausbau
 

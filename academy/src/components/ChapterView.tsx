@@ -1,4 +1,4 @@
-import type { Course, Lesson } from '../content/types';
+import type { CourseOutline, LessonOutline } from '../content/types';
 import { lessonAccessState } from '../features/courseAccess';
 
 export function ChapterView({
@@ -6,9 +6,9 @@ export function ChapterView({
   completedLessonIds,
   onOpenLesson,
 }: {
-  course: Course;
+  course: CourseOutline;
   completedLessonIds: string[];
-  onOpenLesson: (lesson: Lesson) => void;
+  onOpenLesson: (lesson: LessonOutline) => void;
 }) {
   const completed = new Set(completedLessonIds);
 

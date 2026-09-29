@@ -1,4 +1,9 @@
-import type { Lesson, LessonStep } from '../content/types';
+import type {
+  LessonOutline,
+  LessonStep,
+  QuestionOutline,
+  StepOutline,
+} from '../content/types';
 import type { AcademyProgress, QuestionResult, QuestionStatus } from './progress';
 
 export type QuestionStep = Extract<LessonStep, { type: 'question' }>;
@@ -19,11 +24,11 @@ export interface QuestionView {
   legacy: boolean;
 }
 
-function isQuestion(step: LessonStep): step is QuestionStep {
+function isQuestion(step: StepOutline): step is QuestionOutline {
   return step.type === 'question';
 }
 
-export function questionView(question: QuestionStep, data: AnswerData): QuestionView {
+export function questionView(question: QuestionOutline, data: AnswerData): QuestionView {
   const record = data.questionResults[question.id];
   if (record) return { ...record, legacy: false };
 
@@ -55,7 +60,7 @@ export function isQuestionResolved(view: QuestionView): boolean {
   return view.status !== 'open';
 }
 
-export function isStepResolved(step: LessonStep, data: AnswerData): boolean {
+export function isStepResolved(step: StepOutline, data: AnswerData): boolean {
   return !isQuestion(step) || isQuestionResolved(questionView(step, data));
 }
 
@@ -102,7 +107,7 @@ export function submitAnswer(
 /** Gibt die Frage nach einer falschen Antwort für einen neuen Versuch frei. */
 export function retryQuestion(
   progress: AcademyProgress,
-  question: QuestionStep,
+  question: QuestionOutline,
 ): AcademyProgress {
   const record = progress.questionResults[question.id];
   if (!record || record.status !== 'open' || record.selectedOptionId === null) {
@@ -114,7 +119,7 @@ export function retryQuestion(
 /** Deckt die Lösung auf – erst nach mindestens einem falschen Versuch. */
 export function revealSolution(
   progress: AcademyProgress,
-  question: QuestionStep,
+  question: QuestionOutline,
 ): AcademyProgress {
   const record = progress.questionResults[question.id];
   if (!record || record.status !== 'open' || record.wrongOptionIds.length === 0) {
@@ -127,7 +132,7 @@ export function revealSolution(
  * Startet einen neuen Durchgang: Fragen werden wieder offen, Versuchszahl und
  * Erstversuch bleiben erhalten. Alte Antworten in `answers` bleiben unberührt.
  */
-export function restartLesson(progress: AcademyProgress, lesson: Lesson): AcademyProgress {
+export function restartLesson(progress: AcademyProgress, lesson: LessonOutline): AcademyProgress {
   let next = progress;
 
   for (const question of lesson.steps.filter(isQuestion)) {
@@ -169,7 +174,7 @@ export interface LessonSummary {
   xpEarnedThisRun: number;
 }
 
-export function lessonSummary(lesson: Lesson, progress: AcademyProgress): LessonSummary {
+export function lessonSummary(lesson: LessonOutline, progress: AcademyProgress): LessonSummary {
   const questions = lesson.steps.filter(isQuestion);
   const views = questions.map((question) => questionView(question, progress));
   const known = views.filter((view) => view.firstAttemptCorrect !== null);
@@ -210,7 +215,7 @@ export function lessonSummary(lesson: Lesson, progress: AcademyProgress): Lesson
  * Summe der einmalig verdienten XP. Lektionen, die vor der Abschlusserfassung
  * erledigt wurden, zählen mit ihrem Lektionswert – wie bisher angezeigt.
  */
-export function earnedXp(progress: AcademyProgress, lessons: Lesson[]): number {
+export function earnedXp(progress: AcademyProgress, lessons: LessonOutline[]): number {
   const completed = new Set(progress.completedLessonIds);
   return lessons
     .filter((lesson) => completed.has(lesson.id))

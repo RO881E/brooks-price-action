@@ -1,4 +1,4 @@
-import type { Course, Lesson } from '../content/types';
+import type { CourseOutline, LessonOutline } from '../content/types';
 import {
   lessonAccessState,
   nextAvailableLesson,
@@ -10,7 +10,7 @@ import type { ResumeTarget } from '../features/navigation';
 import type { AcademyProgress } from '../features/progress';
 
 interface PathViewProps {
-  course: Course;
+  course: CourseOutline;
   progress: AcademyProgress;
   percent: number;
   /** Begonnene Lektion für „Weiterlernen“, falls vorhanden. */
@@ -21,7 +21,7 @@ interface PathViewProps {
   /** Tagesziel und Serie für die Karte „Heute“. */
   goal?: GoalProgress;
   streak?: StreakStats;
-  onOpenLesson: (lesson: Lesson) => void;
+  onOpenLesson: (lesson: LessonOutline) => void;
 }
 
 const statusLabels: Record<LessonAccessState, string> = {
@@ -47,10 +47,10 @@ export function PathView({
   );
   const completed = new Set(progress.completedLessonIds);
 
-  const lessonState = (lesson: Lesson) =>
+  const lessonState = (lesson: LessonOutline) =>
     lessonAccessState(course, lesson, completed);
 
-  const statusLabel = (lesson: Lesson, state: LessonAccessState) =>
+  const statusLabel = (lesson: LessonOutline, state: LessonAccessState) =>
     resume && resume.lesson.id === lesson.id
       ? `Begonnen · Schritt ${resume.stepIndex + 1} von ${lesson.steps.length}`
       : statusLabels[state];

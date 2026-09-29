@@ -1,4 +1,4 @@
-import type { Course, Lesson } from '../content/types';
+import type { CourseOutline, LessonOutline } from '../content/types';
 import { nextAvailableLesson } from './courseAccess';
 import { earnedXp, questionView } from './lessonResults';
 import { resumeTarget } from './navigation';
@@ -12,7 +12,7 @@ export function safePercent(part: number, total: number): number {
   return Math.min(100, Math.round((part / total) * 100));
 }
 
-function publishedLessons(course: Course): Lesson[] {
+function publishedLessons(course: CourseOutline): LessonOutline[] {
   return course.units.flatMap((unit) =>
     unit.lessons.filter((lesson) => lesson.status === 'published'),
   );
@@ -25,7 +25,7 @@ export interface LessonStats {
 }
 
 /** Abgeschlossene veröffentlichte Lektionen – veraltete IDs zählen nicht. */
-export function lessonStats(course: Course, progress: AcademyProgress): LessonStats {
+export function lessonStats(course: CourseOutline, progress: AcademyProgress): LessonStats {
   const published = publishedLessons(course);
   const completed = new Set(progress.completedLessonIds);
   const done = published.filter((lesson) => completed.has(lesson.id)).length;
@@ -43,7 +43,7 @@ export interface FirstAttemptStats {
 }
 
 /** Trefferquote im ersten Lektionsversuch über alle veröffentlichten Fragen. */
-export function firstAttemptStats(course: Course, progress: AcademyProgress): FirstAttemptStats {
+export function firstAttemptStats(course: CourseOutline, progress: AcademyProgress): FirstAttemptStats {
   let known = 0;
   let correct = 0;
   let unrecorded = 0;
@@ -103,7 +103,7 @@ export interface UnitStats {
 }
 
 /** Fortschritt je Buchabschnitt, bezogen auf die veröffentlichten Lektionen. */
-export function unitStats(course: Course, progress: AcademyProgress): UnitStats[] {
+export function unitStats(course: CourseOutline, progress: AcademyProgress): UnitStats[] {
   const completed = new Set(progress.completedLessonIds);
   return course.units.map((unit) => {
     const published = unit.lessons.filter((lesson) => lesson.status === 'published');
@@ -121,9 +121,9 @@ export function unitStats(course: Course, progress: AcademyProgress): UnitStats[
 }
 
 export type NextAction =
-  | { kind: 'resume'; lesson: Lesson; stepIndex: number }
+  | { kind: 'resume'; lesson: LessonOutline; stepIndex: number }
   | { kind: 'review'; due: number }
-  | { kind: 'lesson'; lesson: Lesson };
+  | { kind: 'lesson'; lesson: LessonOutline };
 
 /**
  * Empfohlene nächste Schritte, wichtigster zuerst: begonnene Lektion
@@ -131,7 +131,7 @@ export type NextAction =
  * ansteht.
  */
 export function nextActions(
-  course: Course,
+  course: CourseOutline,
   progress: AcademyProgress,
   today: DayKey,
 ): NextAction[] {
@@ -167,7 +167,7 @@ export interface ProgressOverview {
 }
 
 export function progressOverview(
-  course: Course,
+  course: CourseOutline,
   progress: AcademyProgress,
   today: DayKey,
 ): ProgressOverview {
