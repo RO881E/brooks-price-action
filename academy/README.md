@@ -3,15 +3,6 @@
 Technisches Grundgerüst für den neuen, kursbasierten Lernbereich. Die bestehende Website im
 Stammverzeichnis bleibt während der Entwicklung unverändert.
 
-## Veröffentlichtes Buchmaterial
-
-Die Academy bietet eine separate Begriffsreferenz. Der lineare Lernpfad enthält
-die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 5 von
-*Trading Price Action Trends*. Kapitel 5
-enthält 25 Mikro-Lektionen zu Reversal-Bars, einschließlich eigener,
-schematischer Chartfälle zu den Lernpunkten von 5.1 bis 5.3. Die Schaubilder
-übernehmen weder Originalkurse noch Buchabbildungen.
-
 ## Was der Pilot bereits kann
 
 - Lernpfad mit aufeinander aufbauenden Mikro-Lektionen
