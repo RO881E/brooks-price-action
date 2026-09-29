@@ -130,4 +130,16 @@ export const unitDefinitions: UnitDefinition[] = [
     load: () =>
       import('./courses/brooks-trends/chapter-07').then((module) => module.chapterSevenLessons),
   },
+  {
+    id: 'brooks-trends.chapter-08',
+    order: 10,
+    kind: 'chapter',
+    label: 'Kapitel 8',
+    title: 'Warum der Bar-Schluss zählt',
+    description:
+      'Vorzeitige Signale, späte Schlusswechsel, Stop-Disziplin und der Vergleich der Zeitebenen in Chartfall 8.1.',
+    estimatedLessonCount: 12,
+    load: () =>
+      import('./courses/brooks-trends/chapter-08').then((module) => module.chapterEightLessons),
+  },
 ];

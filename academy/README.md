@@ -6,11 +6,12 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 ## Veröffentlichtes Buchmaterial
 
 Die Academy bietet eine separate Begriffsreferenz. Der lineare Lernpfad enthält
-die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 7 von
+die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 8 von
 *Trading Price Action Trends*. Kapitel 5 enthält 25 Mikro-Lektionen zu
 Reversal-Bars und den Chartfällen 5.1 bis 5.3. Kapitel 6 ergänzt 40 Lektionen
 zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Kapitel 7 ergänzt
-24 Lektionen zu Outside-Bars und den Chartfällen 7.1 bis 7.4. Die Schaubilder
+24 Lektionen zu Outside-Bars und den Chartfällen 7.1 bis 7.4. Kapitel 8
+enthält 12 Lektionen zum Bar-Schluss und dem Chartfall 8.1. Die Schaubilder
 übernehmen weder Originalkurse noch Buchabbildungen.
 
 ## Was der Pilot bereits kann
