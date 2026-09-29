@@ -19,6 +19,8 @@ import { caseEntries } from '../features/caseTraining';
 import { CaseTrainingList } from './CaseTraining';
 import { mistakeOverview } from '../features/mistakeInsights';
 import { MistakeOverviewView } from './MistakeOverviewView';
+import { TopicPractice } from './TopicPractice';
+import { findTopic, topicSources } from '../features/topicPractice';
 
 const modeLabels: Record<ReviewMode, string> = {
   due: 'Heute fällig',
@@ -26,6 +28,13 @@ const modeLabels: Record<ReviewMode, string> = {
   unit: 'Kapitel auswählen',
   mixed: 'Alles mischen',
 };
+
+/** Beschriftung einer Runde: Themenrunden nennen ihr Thema, sonst der Wiederholungsmodus. */
+function roundLabel(session: ReviewSession): string {
+  if (!session.topicId) return modeLabels[session.mode];
+  const topic = findTopic(session.topicId);
+  return topic ? `Thema: ${topic.title}` : 'Nach Thema';
+}
 
 function formatDay(day: DayKey): string {
   const [year, month, date] = day.split('-');
@@ -53,6 +62,8 @@ interface PracticeViewProps {
   /** Fehlerübersicht (F-16): Lektion öffnen und ausgewählte Fragen üben. */
   onOpenLesson?: (lesson: LessonOutline) => void;
   onPracticeQuestions?: (questionIds: string[]) => void;
+  /** Themenrunde (F-27) aus der Themenkarte. */
+  onPracticeTopic?: (topicId: string, questionIds: string[]) => void;
 }
 
 export function PracticeView({
@@ -66,6 +77,7 @@ export function PracticeView({
   onTrain,
   onOpenLesson,
   onPracticeQuestions,
+  onPracticeTopic,
 }: PracticeViewProps) {
   const items = useMemo(() => reviewPool(course, progress), [course, progress]);
   const session = progress.reviewSession;
@@ -104,6 +116,7 @@ export function PracticeView({
           today={today}
           onStart={onStart}
           onEnd={onEnd}
+          onOpenLesson={onOpenLesson}
         />
       ) : (
         <ReviewStart
@@ -114,6 +127,17 @@ export function PracticeView({
           onStart={onStart}
         />
       )}
+
+      {onTrain && onOpenLesson && onPracticeTopic && !session ? (
+        <TopicPractice
+          course={course}
+          progress={progress}
+          today={today}
+          onStartTopic={onPracticeTopic}
+          onOpenLesson={onOpenLesson}
+          onTrain={onTrain}
+        />
+      ) : null}
 
       {onTrain && onOpenLesson && onPracticeQuestions && !session ? (
         <MistakeOverviewView
@@ -336,7 +360,7 @@ function SessionQuestion({
   return (
     <>
       <div className="review-session-bar">
-        <span>{modeLabels[session.mode]}</span>
+        <span>{roundLabel(session)}</span>
         <div
           className="review-progress"
           role="progressbar"
@@ -457,6 +481,7 @@ function SessionResult({
   today,
   onStart,
   onEnd,
+  onOpenLesson,
 }: {
   course: CourseOutline;
   session: ReviewSession;
@@ -465,10 +490,16 @@ function SessionResult({
   today: DayKey;
   onStart: (mode: ReviewMode, unitId?: string) => void;
   onEnd: () => void;
+  onOpenLesson?: (lesson: LessonOutline) => void;
 }) {
   const summary = sessionSummary(session, items);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const remaining = reviewOverview(course, items, progress, today);
+  // Fundstellen zu falsch beantworteten Fragen – nur, was die Themenkarte belegt.
+  const wrongSources = summary.entries.flatMap(({ item, correct }) => {
+    const [source] = correct ? [] : topicSources(item);
+    return source ? [{ item, source }] : [];
+  });
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -476,7 +507,7 @@ function SessionResult({
 
   return (
     <article className="practice-card review-result">
-      <span className="question-number">Runde abgeschlossen · {modeLabels[session.mode]}</span>
+      <span className="question-number">Runde abgeschlossen · {roundLabel(session)}</span>
       <h2 tabIndex={-1} ref={headingRef}>
         {summary.correct} von {summary.total} richtig
       </h2>
@@ -492,6 +523,32 @@ function SessionResult({
           </li>
         ))}
       </ul>
+
+      {onOpenLesson && wrongSources.length > 0 ? (
+        <section className="review-sources" aria-label="Nachlesen">
+          <h3>Nachlesen</h3>
+          <ul>
+            {wrongSources.map(({ item, source }) => (
+              <li key={item.question.id}>
+                <span>
+                  <strong>{item.question.title}</strong>
+                  <small>
+                    {source.lesson.title} · {source.anchor}
+                  </small>
+                </span>
+                <button
+                  type="button"
+                  className="link-button"
+                  aria-label={`Lektion öffnen: ${source.lesson.title}`}
+                  onClick={() => onOpenLesson(source.lesson)}
+                >
+                  Lektion öffnen
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <p className="review-done">
         {remaining.due > 0

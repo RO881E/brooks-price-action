@@ -5863,6 +5863,139 @@ button:disabled {
   margin-top: 6px;
 }
 
+/* Nach Thema üben (F-27) */
+.topic-practice {
+  margin-top: 34px;
+}
+
+.topic-practice h2 {
+  margin: 0 0 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+}
+
+.topic-intro {
+  max-width: 720px;
+  margin: 0 0 18px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.topic-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--practice-base);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+  overflow-wrap: break-word;
+}
+
+.topic-card[data-empty] {
+  border-top-color: var(--line-strong);
+}
+
+.topic-card h3 {
+  margin: 0;
+  color: var(--practice-ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+}
+
+.topic-card p {
+  margin: 0;
+  color: #444b54;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.topic-card .topic-facts {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.topic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.topic-actions button,
+.topic-card > .secondary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.topic-sources {
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.topic-sources summary {
+  min-height: 32px;
+  cursor: pointer;
+}
+
+.topic-sources ul {
+  display: grid;
+  gap: 6px;
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+.topic-sources li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+}
+
+.review-sources {
+  margin-top: 16px;
+}
+
+.review-sources h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.review-sources ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.review-sources li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+
+.review-sources small {
+  display: block;
+  color: var(--ink-soft);
+}
+
 /* ==========================================================================
    Designgrundlage (P05)
    Helles Farbsystem mit einem Akzent je Lernmodus: Lesen (blau), Üben (türkis),
