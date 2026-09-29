@@ -68,7 +68,7 @@ Chartfälle und der vertieften Besprechung von Abbildung 10.2.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-18 `version: 13`:
+seit F-24 `version: 14`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -102,9 +102,12 @@ seit F-18 `version: 13`:
   defensible, mistake, missedCues }`, eindeutig je `sessionId`, höchstens die jüngsten 50;
   Runden vergeben keine XP; seit F-16 (v12) zusätzlich `answers` – je Entscheidungspunkt
   `{ decision, cueIds }`. Runden aus v11 haben kein `answers` und gelten dort als „nicht erfasst“.
+- `caseSessions[…].reasoningDraft`/`reasoning` und `caseRuns[…][].reasoning` (seit F-24, v14):
+  eigene Begründung `{ text, confidence }` – Klartext bis 500 Zeichen, Sicherheit `unsure`,
+  `fairly`, `sure` oder `null`; je Fall, Entscheidungs-ID und Versuch (`sessionId`)
 - `guideSeenAt` (seit F-18, v13): Zeitpunkt, zu dem die Einführung geschlossen wurde, sonst `null`
 
-Ältere Datensätze (v1–v12) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+Ältere Datensätze (v1–v13) werden beim Laden verlustfrei migriert; der Wiederholungsplan
 startet leer, ebenso die Lesestellen (vor v9) und die Trainerrunden (vor v11); Leseoptionen
 beginnen vor v10 bei „Standard“, unbekannte Stufen werden einzeln zu „Standard“. Defekte
 Trainerrunden oder -sitzungen entfallen einzeln. Defekte Lesestellen (ohne Einheit oder Lektion)
@@ -225,6 +228,14 @@ Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/t
   mit Lektionslinks und die Folgebars. Die Oberfläche rendert ausschließlich `publicView()`;
   vor der Abgabe stehen weder spätere Bars noch Lösungen im DOM oder in ARIA-Texten. Gegen
   absichtliche Inspektion des gebündelten Codes schützt ein clientseitiges Angebot nicht.
+- **Eigene Begründung (F-24):** Vor der Entscheidung lässt sich optional notieren, warum man so
+  entscheidet, und wie sicher man ist (Unsicher, Eher sicher, Sicher). Der Entwurf wird sofort
+  gespeichert und übersteht Reload; bei „Entscheidung abgeben“ wird er für genau diesen Punkt
+  eingefroren – spätere Änderungen gibt es nicht. Nach der Abgabe steht die eigene Fassung als
+  Klartext neben der fachlichen Einordnung, ohne automatische Bewertung. Leer ist erlaubt. Jeder
+  Versuch behält seine eigene Fassung (`sessionId`); beim Zusammenführen einer Sicherung wird
+  nichts überschrieben. Die Einstellungen weisen darauf hin, dass Notizen und Begründungen im
+  Klartext in der Sicherung stehen.
 - **Chart oder Tabelle (F-26):** Über „Chart“/„Tabelle“ lassen sich die sichtbaren Bars auch als
   Datentabelle lesen (Bar, Eröffnung, Hoch, Tief, Schluss, Richtung, ggf. Beschriftung; relative
   Lernwerte, keine echten Kurse) samt kurzem Text zum aktuellen Entscheidungspunkt. Beide

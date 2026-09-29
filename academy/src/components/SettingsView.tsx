@@ -243,8 +243,13 @@ export function SettingsView({
         <h2 id={`${ids}-backup`}>Datensicherung</h2>
         <p className="settings-text">
           Die Sicherung enthält Lektionen, Antworten, Wiederholungsplan, Lerntage, Meilensteine,
-          Lesezeichen, Notizen, Tagesziel und Darstellung. Nicht enthalten sind eine laufende
-          Wiederholungsrunde und die Daten der bisherigen Website.
+          Lesezeichen, Notizen, abgeschlossene Trainerrunden mit deinen eigenen Begründungen,
+          Tagesziel und Darstellung. Nicht enthalten sind laufende Wiederholungs- und
+          Trainerrunden und die Daten der bisherigen Website.
+        </p>
+        <p className="settings-text settings-privacy">
+          Datenschutz: Notizen und eigene Begründungen stehen im Klartext in der Datei. Gib sie nur
+          weiter, wenn du das möchtest.
         </p>
         <div className="settings-actions">
           <button

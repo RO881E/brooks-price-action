@@ -10,7 +10,14 @@ import {
   type SessionProgress,
 } from './barTrainer';
 import { lessonAccessState } from './courseAccess';
-import { tidyCaseRuns, type AcademyProgress, type CaseRun } from './progress';
+import {
+  normalizeReasoning,
+  tidyCaseRuns,
+  type AcademyProgress,
+  type CaseRun,
+  type ReasoningConfidence,
+  type StoredCaseSession,
+} from './progress';
 
 /*
  * Bar-für-Bar-Trainer (F-15): welche Fälle angeboten werden, in welchem
@@ -155,8 +162,11 @@ export function updateCaseRun(
   session: CaseSession,
   now: string = new Date().toISOString(),
 ): AcademyProgress {
-  const stored = progress.caseSessions[barCase.id];
-  if (!stored || session.caseId !== barCase.id) return progress;
+  const previousStored = progress.caseSessions[barCase.id];
+  if (!previousStored || session.caseId !== barCase.id) return progress;
+  // Eigene Begründung (F-24): bei der Abgabe eines Punkts den Entwurf einfrieren –
+  // einmal abgegeben, überschreibt nichts diese Fassung mehr.
+  const stored = snapshotReasoning(previousStored, session);
   if (!session.finished) {
     return {
       ...progress,
@@ -178,6 +188,7 @@ export function updateCaseRun(
         { decision: answer.decision, cueIds: [...answer.cueIds] },
       ]),
     ),
+    ...(stored.reasoning ? { reasoning: stored.reasoning } : {}),
   };
   const { [barCase.id]: _finished, ...caseSessions } = progress.caseSessions;
   const previous = progress.caseRuns[barCase.id] ?? [];
@@ -186,6 +197,35 @@ export function updateCaseRun(
     caseSessions,
     caseRuns: { ...progress.caseRuns, [barCase.id]: tidyCaseRuns([...previous, run]) },
   };
+}
+
+function snapshotReasoning(stored: StoredCaseSession, session: CaseSession): StoredCaseSession {
+  const submitted = Object.keys(session.answers).filter((id) => !(id in stored.session.answers));
+  if (submitted.length === 0) return stored;
+  const { reasoningDraft, ...rest } = stored;
+  const reasoning = { ...(stored.reasoning ?? {}) };
+  for (const decisionId of submitted) {
+    if (reasoningDraft && !(decisionId in reasoning)) reasoning[decisionId] = reasoningDraft;
+  }
+  return Object.keys(reasoning).length ? { ...rest, reasoning } : rest;
+}
+
+/**
+ * Entwurf der eigenen Begründung am aktuellen, noch offenen Punkt (F-24).
+ * Nach der Abgabe (Reveal) oder ohne laufende Runde ändert sich nichts.
+ */
+export function setReasoningDraft(
+  progress: AcademyProgress,
+  caseId: string,
+  draft: { text: string; confidence: ReasoningConfidence | null },
+  now: string = new Date().toISOString(),
+): AcademyProgress {
+  const stored = progress.caseSessions[caseId];
+  if (!stored || stored.session.revealed || stored.session.finished) return progress;
+  const normalized = normalizeReasoning(draft);
+  const { reasoningDraft: _previous, ...rest } = stored;
+  const next: StoredCaseSession = normalized ? { ...rest, reasoningDraft: normalized } : rest;
+  return { ...progress, caseSessions: { ...progress.caseSessions, [caseId]: { ...next, updatedAt: now } } };
 }
 
 /** Bricht eine laufende Runde ab, ohne sie zu zählen. */

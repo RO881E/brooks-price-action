@@ -214,3 +214,84 @@ describe('Datenmodell v11: Trainerrunden', () => {
     expect(Object.keys(migrated.caseSessions)).toEqual(['ok']);
   });
 });
+
+describe('Eigene Begründung (F-24, v14)', () => {
+  const reached = completedUntil(approvedFixture.lessonIds[1]);
+  const at = (minute: number) => `2026-09-29T12:${String(minute).padStart(2, '0')}:00.000Z`;
+
+  it('speichert einen Entwurf nur am offenen Punkt und friert ihn bei der Abgabe ein', async () => {
+    const { setReasoningDraft } = await import('./caseTraining');
+    let progress = beginCaseRun(reached, approvedFixture, 'run-r', at(0));
+    progress = setReasoningDraft(progress, approvedFixture.id, { text: 'Erst Bestätigung abwarten.', confidence: 'fairly' });
+    expect(progress.caseSessions[approvedFixture.id].reasoningDraft).toEqual({ text: 'Erst Bestätigung abwarten.', confidence: 'fairly' });
+
+    let session = activeSession(progress, approvedFixture)!;
+    session = chooseDecision(session, 'wait');
+    session = toggleCue(approvedFixture, session, approvedFixture.decisions[0].cues[0].id);
+    session = submitDecision(approvedFixture, session);
+    progress = updateCaseRun(progress, approvedFixture, session, at(1));
+    const stored = progress.caseSessions[approvedFixture.id];
+    expect(stored.reasoningDraft).toBeUndefined();
+    expect(stored.reasoning).toEqual({ [approvedFixture.decisions[0].id]: { text: 'Erst Bestätigung abwarten.', confidence: 'fairly' } });
+
+    // Nach dem Reveal ändert ein späterer Entwurf die eingefrorene Fassung nicht.
+    expect(setReasoningDraft(progress, approvedFixture.id, { text: 'Nachträglich', confidence: 'sure' })).toBe(progress);
+
+    // Zweiter Punkt ohne Eingabe: leer ist erlaubt und wird nicht gespeichert.
+    session = advance(approvedFixture, session);
+    progress = updateCaseRun(progress, approvedFixture, session, at(2));
+    progress = setReasoningDraft(progress, approvedFixture.id, { text: '   ', confidence: null });
+    expect(progress.caseSessions[approvedFixture.id].reasoningDraft).toBeUndefined();
+    session = playThrough(approvedFixture, session);
+    progress = updateCaseRun(progress, approvedFixture, session, at(3));
+    const [run] = progress.caseRuns[approvedFixture.id];
+    expect(run.reasoning).toEqual({ [approvedFixture.decisions[0].id]: { text: 'Erst Bestätigung abwarten.', confidence: 'fairly' } });
+    // Keine XP, kein Abschluss.
+    expect(progress.lessonResults).toEqual(reached.lessonResults);
+  });
+
+  it('kürzt zu lange Texte, verwirft unbekannte Sicherheit und hält jeden Versuch getrennt', async () => {
+    const { setReasoningDraft } = await import('./caseTraining');
+    const long = 'x'.repeat(620);
+    let progress = beginCaseRun(reached, approvedFixture, 'run-1', at(0));
+    progress = setReasoningDraft(progress, approvedFixture.id, { text: long, confidence: 'riesig' as never });
+    expect(progress.caseSessions[approvedFixture.id].reasoningDraft).toEqual({ text: 'x'.repeat(500), confidence: null });
+    for (const confidence of ['unsure', 'fairly', 'sure'] as const) {
+      const next = setReasoningDraft(progress, approvedFixture.id, { text: '', confidence });
+      expect(next.caseSessions[approvedFixture.id].reasoningDraft).toEqual({ text: '', confidence });
+    }
+    // Versuch 1 abschließen, Versuch 2 mit anderer Begründung.
+    const first = activeSession(progress, approvedFixture)!;
+    progress = updateCaseRun(progress, approvedFixture, playThrough(approvedFixture, first), at(1));
+    progress = beginCaseRun(progress, approvedFixture, 'run-2', at(2));
+    progress = setReasoningDraft(progress, approvedFixture.id, { text: 'Zweiter Versuch', confidence: 'sure' });
+    progress = updateCaseRun(progress, approvedFixture, playThrough(approvedFixture, activeSession(progress, approvedFixture)!), at(3));
+    const runs = progress.caseRuns[approvedFixture.id];
+    const firstId = approvedFixture.decisions[0].id;
+    expect(runs.map((item) => item.reasoning?.[firstId]?.text)).toEqual(['x'.repeat(500), 'Zweiter Versuch']);
+  });
+
+  it('migriert v13 ohne Begründungen und bereinigt defekte Einträge', () => {
+    const migrated = migrateProgress({
+      version: 13,
+      caseRuns: {
+        [approvedFixture.id]: [
+          { sessionId: 'a', completedAt: at(0), best: 1, defensible: 0, mistake: 0, missedCues: 0 },
+          {
+            sessionId: 'b',
+            completedAt: at(1),
+            best: 1,
+            defensible: 0,
+            mistake: 0,
+            missedCues: 0,
+            reasoning: { d1: { text: 'ok', confidence: 'sure' }, d2: { text: 5, confidence: 'x' }, '': { text: 'x' } },
+          },
+        ],
+      },
+    })!;
+    expect(migrated.version).toBe(ACADEMY_PROGRESS_VERSION);
+    const [first, second] = migrated.caseRuns[approvedFixture.id];
+    expect(first.reasoning).toBeUndefined();
+    expect(second.reasoning).toEqual({ d1: { text: 'ok', confidence: 'sure' } });
+  });
+});

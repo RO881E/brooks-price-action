@@ -677,3 +677,36 @@ describe('Einführung gesehen (F-18, v13)', () => {
     expect(mergeProgress(createEmptyProgress(), seen).guideSeenAt).toBe('2026-09-29T08:00:00.000Z');
   });
 });
+
+describe('Eigene Trainerbegründungen (F-24, v14)', () => {
+  const base = { sessionId: 'run-a', completedAt: '2026-09-29T08:00:00.000Z', best: 1, defensible: 0, mistake: 0, missedCues: 0 };
+  const withRun = (runEntry: Record<string, unknown>) =>
+    backupText(createEmptyProgress(), (backup) => {
+      (backup.data as Record<string, unknown>).caseRuns = { 'bar-case.x': [runEntry] };
+    });
+
+  it('sichert Begründungen je Versuch und liest sie wieder ein', () => {
+    const reasoning = { 'decision-1': { text: 'Eigener <b>Grund</b>', confidence: 'unsure' } };
+    const result = parseBackup(withRun({ ...base, reasoning }));
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.imported.caseRuns['bar-case.x'][0].reasoning).toEqual(reasoning);
+  });
+
+  it('prüft Begründungen streng', () => {
+    expectRejected(withRun({ ...base, reasoning: { d: { text: 'x'.repeat(501), confidence: null } } }), /Begründung ungültig/);
+    expectRejected(withRun({ ...base, reasoning: { d: { text: 'x', confidence: 'ganz' } } }), /Begründung ungültig/);
+    expectRejected(withRun({ ...base, reasoning: { d: { text: 'x' } } }), /Begründung ungültig/);
+    expectRejected(withRun({ ...base, reasoning: 'x' }), /Begründung ungültig/);
+  });
+
+  it('Zusammenführen hält Versuche getrennt, nichts wird überschrieben', () => {
+    const run = (sessionId: string, text: string) => ({ ...base, sessionId, reasoning: { d: { text, confidence: null } } });
+    const local = { ...createEmptyProgress(), caseRuns: { 'bar-case.x': [run('run-a', 'lokal')] } };
+    const incoming = {
+      ...createEmptyProgress(),
+      caseRuns: { 'bar-case.x': [run('run-a', 'aus Datei'), { ...run('run-b', 'zweiter'), completedAt: '2026-09-29T09:00:00.000Z' }] },
+    };
+    const merged = mergeProgress(local, incoming).caseRuns['bar-case.x'];
+    expect(merged.map((item) => item.reasoning?.d.text)).toEqual(['lokal', 'zweiter']);
+  });
+});

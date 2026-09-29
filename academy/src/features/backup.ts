@@ -5,6 +5,8 @@ import {
   MAX_ACTIVITY_DAYS,
   MAX_NOTE_LENGTH,
   MAX_CASE_RUNS,
+  MAX_REASONING_LENGTH,
+  REASONING_CONFIDENCES,
   MILESTONE_IDS,
   READING_SIZES,
   READING_SPACINGS,
@@ -184,6 +186,19 @@ const POSITION_KEYS = ['stepIndex', 'updatedAt'];
 const READER_POSITION_KEYS = ['lessonId', 'stepId', 'updatedAt'];
 const CASE_RUN_KEYS = ['sessionId', 'completedAt', 'best', 'defensible', 'mistake', 'missedCues'];
 
+function validRunReasoning(value: unknown): boolean {
+  if (!isRecord(value)) return false;
+  return Object.entries(value).every(
+    ([decisionId, reasoning]) =>
+      isId(decisionId) &&
+      isRecord(reasoning) &&
+      hasExactKeys(reasoning, ['text', 'confidence']) &&
+      typeof reasoning.text === 'string' &&
+      Array.from(reasoning.text).length <= MAX_REASONING_LENGTH &&
+      (reasoning.confidence === null || (REASONING_CONFIDENCES as readonly unknown[]).includes(reasoning.confidence)),
+  );
+}
+
 function validRunAnswers(value: unknown): boolean {
   if (!isRecord(value)) return false;
   return Object.entries(value).every(
@@ -312,9 +327,11 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
       for (const run of runs) {
         if (!isRecord(run)) return 'Runde unvollständig';
         // `answers` gibt es seit v12; Runden aus v11 haben es nicht.
-        const keys = 'answers' in run ? [...CASE_RUN_KEYS, 'answers'] : CASE_RUN_KEYS;
+        // `reasoning` (eigene Begründungen) seit v14.
+        const keys = [...CASE_RUN_KEYS, ...(['answers', 'reasoning'] as const).filter((key) => key in run)];
         if (!hasExactKeys(run, keys)) return 'Runde unvollständig';
         if ('answers' in run && !validRunAnswers(run.answers)) return 'Antworten ungültig';
+        if ('reasoning' in run && !validRunReasoning(run.reasoning)) return 'Begründung ungültig';
         if (!isId(run.sessionId) || ids.has(run.sessionId)) return 'Runden-ID ungültig oder doppelt';
         ids.add(run.sessionId);
         if (!isIsoDate(run.completedAt)) return 'Datum ungültig';

@@ -17,7 +17,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 13;
+export const ACADEMY_PROGRESS_VERSION = 14;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -162,6 +162,42 @@ export interface StoredCaseSession {
   startedAt: string;
   updatedAt: string;
   session: CaseSession;
+  /**
+   * Eigene Begründung (seit F-24, v14): Entwurf zum aktuellen Punkt und die bei
+   * der Abgabe eingefrorenen Fassungen je Entscheidungs-ID.
+   */
+  reasoningDraft?: CaseReasoning;
+  reasoning?: Record<string, CaseReasoning>;
+}
+
+/** Eigene Sicherheit vor dem Reveal (F-24). */
+export type ReasoningConfidence = 'unsure' | 'fairly' | 'sure';
+export const REASONING_CONFIDENCES: readonly ReasoningConfidence[] = ['unsure', 'fairly', 'sure'];
+/** Höchstlänge der eigenen Begründung in Zeichen. */
+export const MAX_REASONING_LENGTH = 500;
+
+/** Eigene, unbewertete Begründung zu einer Trainerentscheidung (F-24). */
+export interface CaseReasoning {
+  /** Klartext, höchstens {@link MAX_REASONING_LENGTH} Zeichen; darf leer sein. */
+  text: string;
+  confidence: ReasoningConfidence | null;
+}
+
+/** Bereinigt eine Begründung; `undefined`, wenn nichts festgehalten ist. */
+export function normalizeReasoning(value: unknown): CaseReasoning | undefined {
+  if (!isRecord(value)) return undefined;
+  const text = typeof value.text === 'string' ? Array.from(value.text).slice(0, MAX_REASONING_LENGTH).join('') : '';
+  const confidence = REASONING_CONFIDENCES.find((item) => item === value.confidence) ?? null;
+  return text.trim() === '' && confidence === null ? undefined : { text, confidence };
+}
+
+function normalizeReasoningMap(value: unknown): Record<string, CaseReasoning> | undefined {
+  if (!isRecord(value)) return undefined;
+  const entries = Object.entries(value).flatMap(([decisionId, reasoning]) => {
+    const normalized = isReaderId(decisionId) ? normalizeReasoning(reasoning) : undefined;
+    return normalized ? [[decisionId, normalized] as const] : [];
+  });
+  return entries.length ? Object.fromEntries(entries) : undefined;
 }
 
 /** Abgeschlossene Trainerrunde (seit F-15, v11). Vergibt keine XP. */
@@ -179,6 +215,8 @@ export interface CaseRun {
    * Runden aus v11 – deren Einzelantworten gelten als „nicht erfasst“.
    */
   answers?: Record<string, CaseRunAnswer>;
+  /** Eigene Begründungen je Entscheidungspunkt, eingefroren vor dem Reveal (seit F-24, v14). */
+  reasoning?: Record<string, CaseReasoning>;
 }
 
 /** Eine abgegebene Trainerentscheidung (seit F-16). */
@@ -410,6 +448,10 @@ export function normalizeReaderPositions(value: unknown): Record<string, ReaderP
 }
 
 /** Laufende Trainerrunden: nur Form und Zuordnung, der Inhalt wird beim Öffnen geprüft. */
+function optional<K extends string, V>(key: K, value: V | undefined): Partial<Record<K, V>> {
+  return value === undefined ? {} : ({ [key]: value } as Record<K, V>);
+}
+
 export function normalizeCaseSessions(value: unknown): Record<string, StoredCaseSession> {
   if (!isRecord(value)) return {};
   return Object.fromEntries(
@@ -425,6 +467,8 @@ export function normalizeCaseSessions(value: unknown): Record<string, StoredCase
             startedAt,
             updatedAt: typeof entry.updatedAt === 'string' ? entry.updatedAt : startedAt,
             session: entry.session as unknown as CaseSession,
+            ...optional('reasoningDraft', normalizeReasoning(entry.reasoningDraft)),
+            ...optional('reasoning', normalizeReasoningMap(entry.reasoning)),
           },
         ],
       ];
@@ -459,9 +503,18 @@ export function normalizeCaseRuns(value: unknown): Record<string, CaseRun[]> {
     Object.entries(value).flatMap(([caseId, runs]) => {
       if (!isReaderId(caseId) || !Array.isArray(runs)) return [];
       const valid = tidyCaseRuns(
-        runs.filter(isCaseRun).map(({ sessionId, completedAt, best, defensible, mistake, missedCues, answers }) => {
+        runs.filter(isCaseRun).map(({ sessionId, completedAt, best, defensible, mistake, missedCues, answers, reasoning }) => {
           const valid = normalizeRunAnswers(answers);
-          return { sessionId, completedAt, best, defensible, mistake, missedCues, ...(valid ? { answers: valid } : {}) };
+          return {
+            sessionId,
+            completedAt,
+            best,
+            defensible,
+            mistake,
+            missedCues,
+            ...(valid ? { answers: valid } : {}),
+            ...optional('reasoning', normalizeReasoningMap(reasoning)),
+          };
         }),
       );
       return valid.length ? [[caseId, valid]] : [];
@@ -904,6 +957,7 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * v11 haben noch keine Einzelantworten (seit v12); sie bleiben ohne `answers`.
  * Vor v13 gibt es keinen Vermerk zur Einführung (`guideSeenAt: null`); wer
  * bereits Lernstand hat, sieht sie trotzdem nie automatisch.
+ * Vor v14 gibt es keine eigenen Trainerbegründungen; Runden bleiben ohne `reasoning`.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {
