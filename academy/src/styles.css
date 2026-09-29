@@ -4486,6 +4486,80 @@ button:disabled {
   list-style: none;
 }
 
+/* Eigene Begründung (F-24) */
+.trainer-own {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px !important;
+  border: 1px dashed var(--line-strong) !important;
+  border-radius: 12px;
+}
+
+.trainer-own-text {
+  display: grid;
+  gap: 6px;
+}
+
+.trainer-own textarea {
+  width: 100%;
+  min-height: 72px;
+  padding: 10px 12px;
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.5;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--paper);
+  resize: vertical;
+}
+
+.trainer-compare {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 760px) {
+  .trainer-compare {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.trainer-compare > div {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--canvas);
+}
+
+.trainer-compare h3 {
+  margin: 0;
+}
+
+.own-reasoning {
+  display: grid;
+  gap: 4px;
+}
+
+.own-reasoning-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.own-reasoning-confidence,
+.own-reasoning-empty {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.trainer-summary-list .own-reasoning {
+  margin-top: 4px;
+  padding-left: 10px;
+  border-left: 3px solid var(--line-strong);
+}
+
 /* Chart oder Tabelle (F-26) */
 .bar-display-toggle {
   display: inline-flex;

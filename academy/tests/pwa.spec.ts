@@ -380,6 +380,8 @@ test('Bar-für-Bar-Trainer offline: Runde spielen und nach Neustart fortsetzen (
   await context.setOffline(true);
   await page.goto(`${origin}/academy/#/train/${barCase.id}`);
   await page.getByRole('button', { name: 'Runde starten' }).click();
+  // F-24: eigene Begründung auch offline.
+  await page.getByRole('textbox', { name: 'Kurz: Warum entscheidest du so?' }).fill('Offline notiert');
   await page.getByRole('radio', { name: 'Abwarten', exact: true }).check();
   await page.getByRole('checkbox', { name: barCase.decisions[0].cues[0].label }).check();
   await page.getByRole('button', { name: 'Entscheidung abgeben' }).click();
@@ -387,6 +389,7 @@ test('Bar-für-Bar-Trainer offline: Runde spielen und nach Neustart fortsetzen (
   await page.reload();
   await expect(page.getByText('Fortgesetzt')).toBeVisible();
   await expect(page.getByRole('heading', { name: /^Auflösung: Abwarten/ })).toBeVisible();
+  await expect(page.locator('.trainer-compare').getByText('Offline notiert', { exact: true })).toBeVisible();
   // F-26: Tabellenansicht auch offline, mit den nach dem Reveal freigegebenen Bars.
   await page.getByRole('button', { name: 'Tabelle', exact: true }).click();
   const shown = barCase.decisions[1] ? barCase.decisions[1].afterBar + 1 : barCase.bars.length;

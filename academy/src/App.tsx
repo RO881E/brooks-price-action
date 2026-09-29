@@ -48,6 +48,7 @@ import {
   casesForLesson,
   discardCaseRun,
   publishedCases,
+  setReasoningDraft,
   updateCaseRun,
 } from './features/caseTraining';
 import { nextAvailableLesson } from './features/courseAccess';
@@ -919,6 +920,7 @@ export default function App() {
               onBegin={() => setProgress((current) => beginCaseRun(current, training))}
               onUpdate={(session) => setProgress((current) => updateCaseRun(current, training, session))}
               onDiscard={() => setProgress((current) => discardCaseRun(current, training.id))}
+              onReasoning={(draft) => setProgress((current) => setReasoningDraft(current, training.id, draft))}
               onOpenLesson={openLesson}
               onBack={() => chooseView('practice')}
             />

@@ -14,6 +14,12 @@ import {
   type DecisionResult,
 } from '../features/barTrainer';
 import { activeSession, lastCaseRun } from '../features/caseTraining';
+import {
+  MAX_REASONING_LENGTH,
+  REASONING_CONFIDENCES,
+  type CaseReasoning,
+  type ReasoningConfidence,
+} from '../features/progress';
 import type { AcademyProgress } from '../features/progress';
 import { CaseChart } from './CaseChart';
 import { CaseTable } from './CaseTable';
@@ -39,6 +45,30 @@ interface TrainerViewProps {
   onDiscard: () => void;
   onOpenLesson: (lesson: LessonOutline) => void;
   onBack: () => void;
+  /** Entwurf der eigenen Begründung am offenen Punkt (F-24). */
+  onReasoning?: (draft: { text: string; confidence: ReasoningConfidence | null }) => void;
+}
+
+export const CONFIDENCE_LABELS: Record<ReasoningConfidence, string> = {
+  unsure: 'Unsicher',
+  fairly: 'Eher sicher',
+  sure: 'Sicher',
+};
+
+/**
+ * Eigene Begründung vor der Abgabe (F-24) – als Klartext, ohne Bewertung.
+ * Auch für den Rückblick (F-25) genutzt.
+ */
+export function OwnReasoning({ reasoning }: { reasoning: CaseReasoning | undefined }) {
+  if (!reasoning) return <p className="own-reasoning-empty">Keine eigene Begründung notiert.</p>;
+  return (
+    <div className="own-reasoning">
+      {reasoning.confidence ? (
+        <p className="own-reasoning-confidence">Sicherheit: {CONFIDENCE_LABELS[reasoning.confidence]}</p>
+      ) : null}
+      {reasoning.text.trim() ? <p className="own-reasoning-text">{reasoning.text}</p> : null}
+    </div>
+  );
 }
 
 function lessonById(course: CourseOutline, lessonId: string): LessonOutline | undefined {
@@ -56,7 +86,17 @@ function lessonById(course: CourseOutline, lessonId: string): LessonOutline | un
  * weder sichtbar noch in ARIA-Texten. Jede Aktion wird sofort gespeichert; nach
  * Reload geht es exakt an derselben Stelle weiter.
  */
-export function TrainerView({ course, barCase, progress, onBegin, onUpdate, onDiscard, onOpenLesson, onBack }: TrainerViewProps) {
+export function TrainerView({
+  course,
+  barCase,
+  progress,
+  onBegin,
+  onUpdate,
+  onDiscard,
+  onOpenLesson,
+  onBack,
+  onReasoning = () => {},
+}: TrainerViewProps) {
   const stored = progress.caseSessions[barCase.id];
   const session = activeSession(progress, barCase);
   // Nach dem Abschluss ist die Runde gespeichert und nicht mehr „laufend“ –
@@ -94,6 +134,8 @@ export function TrainerView({ course, barCase, progress, onBegin, onUpdate, onDi
 
   const unit = course.units.find((item) => item.id === barCase.unitId);
   const shown = session ?? finished;
+  // Eingefrorene Begründungen: während der Runde aus der Sitzung, danach aus der gespeicherten Runde.
+  const reasoning = session ? (stored?.reasoning ?? {}) : (lastCaseRun(progress, barCase.id)?.reasoning ?? {});
 
   return (
     <div className="page-shell trainer-page">
@@ -130,6 +172,9 @@ export function TrainerView({ course, barCase, progress, onBegin, onUpdate, onDi
           onBack={onBack}
           display={display}
           onDisplay={setDisplay}
+          reasoning={reasoning}
+          reasoningDraft={stored?.reasoningDraft}
+          onReasoning={onReasoning}
         />
       ) : (
         <StartPanel
@@ -237,6 +282,9 @@ interface RunProps {
   onBack: () => void;
   display: BarDisplay;
   onDisplay: (display: BarDisplay) => void;
+  reasoning: Record<string, CaseReasoning>;
+  reasoningDraft: CaseReasoning | undefined;
+  onReasoning: NonNullable<TrainerViewProps['onReasoning']>;
 }
 
 function RunView({
@@ -251,6 +299,9 @@ function RunView({
   onBack,
   display,
   onDisplay,
+  reasoning,
+  reasoningDraft,
+  onReasoning,
 }: RunProps) {
   const view = publicView(barCase, session);
   const focusTarget = useRef<HTMLHeadingElement>(null);
@@ -352,6 +403,8 @@ function RunView({
           onToggleCue={(cueId) => onUpdate(toggleCue(barCase, session, cueId))}
           onSubmit={() => onUpdate(submitDecision(barCase, session))}
           canSubmit={canSubmit(session)}
+          draft={reasoningDraft}
+          onReasoning={onReasoning}
         />
       ) : null}
 
@@ -362,6 +415,7 @@ function RunView({
           result={current}
           last={view.progress.position === view.progress.total}
           addedBars={view.bars.length - (decidedBars ?? view.bars.length)}
+          own={reasoning[current.decision.id]}
           onOpenLesson={onOpenLesson}
           onNext={() => onUpdate(advance(barCase, session))}
         />
@@ -373,6 +427,7 @@ function RunView({
           course={course}
           barCase={barCase}
           session={session}
+          reasoning={reasoning}
           onOpenLesson={onOpenLesson}
           onRestart={onRestart}
           onBack={onBack}
@@ -389,6 +444,8 @@ function DecisionForm({
   onToggleCue,
   onSubmit,
   canSubmit: ready,
+  draft,
+  onReasoning,
 }: {
   headingRef: React.RefObject<HTMLHeadingElement | null>;
   view: ReturnType<typeof publicView>;
@@ -396,9 +453,15 @@ function DecisionForm({
   onToggleCue: (cueId: string) => void;
   onSubmit: () => void;
   canSubmit: boolean;
+  draft: CaseReasoning | undefined;
+  onReasoning: NonNullable<TrainerViewProps['onReasoning']>;
 }) {
   const ids = useId();
   const current = view.current!;
+  // Eingabe lokal führen (flüssiges Tippen), jede Änderung sofort speichern.
+  const [text, setText] = useState(draft?.text ?? '');
+  const confidence = draft?.confidence ?? null;
+  const length = Array.from(text).length;
   return (
     <form
       className="trainer-panel trainer-decision"
@@ -412,6 +475,41 @@ function DecisionForm({
         Entscheidung {view.progress.position} von {view.progress.total}
       </h2>
       <p className="trainer-prompt">{current.prompt}</p>
+
+      <fieldset className="trainer-own">
+        <legend>Deine Einschätzung (optional)</legend>
+        <label className="trainer-own-text">
+          <span>Kurz: Warum entscheidest du so?</span>
+          <textarea
+            rows={3}
+            maxLength={MAX_REASONING_LENGTH}
+            value={text}
+            aria-describedby={`${ids}-own-hint`}
+            onChange={(event) => {
+              const next = Array.from(event.target.value).slice(0, MAX_REASONING_LENGTH).join('');
+              setText(next);
+              onReasoning({ text: next, confidence });
+            }}
+          />
+        </label>
+        <p id={`${ids}-own-hint`} className="trainer-hint">
+          {length} von {MAX_REASONING_LENGTH} Zeichen. Bleibt nur auf diesem Gerät, wird nicht bewertet und
+          nach der Abgabe neben der Erklärung gezeigt.
+        </p>
+        <div className="trainer-choices" role="radiogroup" aria-label="Wie sicher bist du?">
+          {([null, ...REASONING_CONFIDENCES] as const).map((value) => (
+            <label key={value ?? 'none'}>
+              <input
+                type="radio"
+                name={`${ids}-confidence`}
+                checked={confidence === value}
+                onChange={() => onReasoning({ text, confidence: value })}
+              />
+              <span>{value ? CONFIDENCE_LABELS[value] : 'Keine Angabe'}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
       <fieldset>
         <legend>Deine Entscheidung</legend>
@@ -492,6 +590,7 @@ function Reveal({
   result,
   last,
   addedBars,
+  own,
   onOpenLesson,
   onNext,
 }: {
@@ -500,6 +599,7 @@ function Reveal({
   result: DecisionResult;
   last: boolean;
   addedBars: number;
+  own: CaseReasoning | undefined;
   onOpenLesson: (lesson: LessonOutline) => void;
   onNext: () => void;
 }) {
@@ -509,7 +609,16 @@ function Reveal({
       <h2 id={`reveal-${decision.id}`} ref={headingRef} tabIndex={-1}>
         Auflösung: {TRADE_DECISION_LABELS[answer.decision]} – {VERDICT_LABELS[evaluation.verdict]}
       </h2>
-      <p className="trainer-explanation">{decision.explanation}</p>
+      <div className="trainer-compare">
+        <div>
+          <h3>Fachliche Einordnung</h3>
+          <p className="trainer-explanation">{decision.explanation}</p>
+        </div>
+        <div>
+          <h3>Deine Einschätzung vor der Abgabe</h3>
+          <OwnReasoning reasoning={own} />
+        </div>
+      </div>
       {addedBars > 0 ? (
         <p className="trainer-added">
           {addedBars === 1 ? 'Ein weiterer Bar ist jetzt sichtbar.' : `${addedBars} weitere Bars sind jetzt sichtbar.`}
@@ -559,6 +668,7 @@ function Summary({
   course,
   barCase,
   session,
+  reasoning,
   onOpenLesson,
   onRestart,
   onBack,
@@ -567,6 +677,7 @@ function Summary({
   course: CourseOutline;
   barCase: BarCase;
   session: CaseSession;
+  reasoning: Record<string, CaseReasoning>;
   onOpenLesson: (lesson: LessonOutline) => void;
   onRestart: () => void;
   onBack: () => void;
@@ -593,6 +704,7 @@ function Summary({
               {TRADE_DECISION_LABELS[result.answer.decision]} – {VERDICT_LABELS[result.evaluation.verdict]}
             </strong>
             <p>{result.decision.prompt}</p>
+            {reasoning[result.decision.id] ? <OwnReasoning reasoning={reasoning[result.decision.id]} /> : null}
           </li>
         ))}
       </ol>
