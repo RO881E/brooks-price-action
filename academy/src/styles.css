@@ -6187,3 +6187,48 @@ button:disabled {
     transition: transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
   }
 }
+
+/* Transferprüfung (F-17) */
+.transfer-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-top: 26px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--mode-base, var(--line-strong));
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.transfer-entry h2 {
+  margin: 0 0 4px;
+  color: var(--mode-ink, var(--ink));
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+}
+
+.transfer-entry p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.transfer-case-result {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.transfer-case-result h3 small {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.transfer-case-result li p {
+  margin: 4px 0;
+}

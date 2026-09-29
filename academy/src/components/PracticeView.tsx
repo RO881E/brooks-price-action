@@ -20,6 +20,7 @@ import { CaseTrainingList } from './CaseTraining';
 import { mistakeOverview } from '../features/mistakeInsights';
 import { MistakeOverviewView } from './MistakeOverviewView';
 import { TopicPractice } from './TopicPractice';
+import { TransferEntry } from './TransferEntry';
 import { findTopic, topicSources } from '../features/topicPractice';
 
 const modeLabels: Record<ReviewMode, string> = {
@@ -64,6 +65,8 @@ interface PracticeViewProps {
   onPracticeQuestions?: (questionIds: string[]) => void;
   /** Themenrunde (F-27) aus der Themenkarte. */
   onPracticeTopic?: (topicId: string, questionIds: string[]) => void;
+  /** Transferprüfung (F-17) öffnen. */
+  onOpenTransfer?: () => void;
 }
 
 export function PracticeView({
@@ -78,6 +81,7 @@ export function PracticeView({
   onOpenLesson,
   onPracticeQuestions,
   onPracticeTopic,
+  onOpenTransfer,
 }: PracticeViewProps) {
   const items = useMemo(() => reviewPool(course, progress), [course, progress]);
   const session = progress.reviewSession;
@@ -127,6 +131,10 @@ export function PracticeView({
           onStart={onStart}
         />
       )}
+
+      {onOpenTransfer && !session ? (
+        <TransferEntry course={course} progress={progress} onOpen={onOpenTransfer} />
+      ) : null}
 
       {onTrain && onOpenLesson && onPracticeTopic && !session ? (
         <TopicPractice
