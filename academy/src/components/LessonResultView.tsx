@@ -55,9 +55,11 @@ export function LessonResultView({
               <dt>Richtig im ersten Versuch</dt>
               <dd>{rateLabel}</dd>
               {summary.firstAttemptKnown > 0 ? (
-                <small>
-                  {summary.firstAttemptCorrect} von {summary.firstAttemptKnown} Fragen
-                </small>
+                <dd className="result-stat-note">
+                  <small>
+                    {summary.firstAttemptCorrect} von {summary.firstAttemptKnown} Fragen
+                  </small>
+                </dd>
               ) : null}
             </div>
             <div>
@@ -68,10 +70,12 @@ export function LessonResultView({
               <dt>Verdiente XP</dt>
               <dd>+{summary.xpEarnedThisRun} XP</dd>
               {summary.repeated ? (
-                <small>
-                  Die {summary.xpAwarded} XP dieser Lektion wurden bereits beim ersten
-                  Abschluss gutgeschrieben.
-                </small>
+                <dd className="result-stat-note">
+                  <small>
+                    Die {summary.xpAwarded} XP dieser Lektion wurden bereits beim ersten
+                    Abschluss gutgeschrieben.
+                  </small>
+                </dd>
               ) : null}
             </div>
           </dl>

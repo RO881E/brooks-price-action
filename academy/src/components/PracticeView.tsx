@@ -12,6 +12,7 @@ import {
   type ReviewItem,
 } from '../features/reviewSession';
 import { daysBetween, REVIEW_INTERVALS, type DayKey } from '../features/reviewScheduler';
+import { moveAnswerFocus } from './answerKeys';
 
 const modeLabels: Record<ReviewMode, string> = {
   due: 'Heute fällig',
@@ -246,9 +247,20 @@ function SessionQuestion({
   const item = currentSessionItem(session, items);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
+  const nextButton = useRef<HTMLButtonElement>(null);
+  const answeredHere = useRef(false);
+
   useEffect(() => {
     headingRef.current?.focus();
   }, [session.index]);
+
+  const answeredNow = item ? session.answers[item.question.id] !== undefined : false;
+  // Die Antworten werden nach der Wahl gesperrt – der Fokus geht zu „Weiter“.
+  useEffect(() => {
+    if (!answeredNow || !answeredHere.current) return;
+    answeredHere.current = false;
+    nextButton.current?.focus();
+  }, [answeredNow]);
 
   if (!item) return null;
 
@@ -294,7 +306,12 @@ function SessionQuestion({
         </h2>
         <p>{question.prompt}</p>
 
-        <div className="practice-options" role="radiogroup" aria-label={question.prompt}>
+        <div
+          className="practice-options"
+          role="radiogroup"
+          aria-label={question.prompt}
+          onKeyDown={moveAnswerFocus}
+        >
           {question.options.map((option, optionIndex) => {
             const isCorrect = option.id === question.correctOptionId;
             const selected = answer === option.id;
@@ -314,10 +331,26 @@ function SessionQuestion({
                 className={state}
                 disabled={answered}
                 key={option.id}
-                onClick={() => onAnswer(question, option.id)}
+                onClick={() => {
+                  answeredHere.current = true;
+                  onAnswer(question, option.id);
+                }}
               >
                 <span>{String.fromCharCode(65 + optionIndex)}</span>
                 <strong>{option.label}</strong>
+                {/* Symbol und Text zusätzlich zur Farbe. */}
+                {answered && isCorrect ? (
+                  <b className="option-mark">
+                    <span aria-hidden="true">✓</span>
+                    <span className="visually-hidden"> – richtige Antwort</span>
+                  </b>
+                ) : null}
+                {answered && selected && !isCorrect ? (
+                  <b className="option-mark">
+                    <span aria-hidden="true">×</span>
+                    <span className="visually-hidden"> – falsche Antwort</span>
+                  </b>
+                ) : null}
               </button>
             );
           })}
@@ -342,7 +375,13 @@ function SessionQuestion({
 
         <div className="practice-actions">
           <span />
-          <button type="button" className="primary-button" disabled={!answered} onClick={onNext}>
+          <button
+            ref={nextButton}
+            type="button"
+            className="primary-button"
+            disabled={!answered}
+            onClick={onNext}
+          >
             {isLast ? 'Auswertung anzeigen' : 'Nächste Frage'}
           </button>
         </div>
