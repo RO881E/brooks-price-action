@@ -19,6 +19,9 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 - Lesezeichen für Lektionen und Schritte, persönliche Klartextnotizen je Schritt mit Autosave
   und die Übersicht „Gespeichert“ (`#/saved`) mit Sprung zur Fundstelle und „Rückgängig“ beim
   Löschen
+- Einstellungen (`#/settings`): Tagesziel, „Bewegung immer reduzieren“, kompakte Darstellung,
+  Datensicherung als JSON-Datei, Import mit strenger Prüfung und Vorschau sowie ein Reset, der
+  nur Academy-Daten löscht
 - globale Suche (Schaltfläche „Suchen“ oder Taste `/`) über Lektionsname, Zusammenfassung,
   Quelle, Schrittüberschrift, Glossarbegriff und Alias; Umlaute und Groß-/Kleinschreibung
   werden gleich behandelt, gesperrte Lektionen erscheinen nur als Vorschau
@@ -38,7 +41,7 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-07 `version: 7`:
+seit F-08 `version: 8`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -59,12 +62,35 @@ seit F-07 `version: 7`:
 - `milestones` (seit F-05): einmalig erhaltene Meilensteine mit Tag
 - `bookmarks` und `notes` (seit F-07): Lesezeichen und Klartextnotizen (höchstens 5000 Zeichen)
   je Lektion bzw. Schritt, Schlüssel `lessonId` oder `lessonId::stepId`
+- `settings` (seit F-08): `motion` (`system` oder `reduce`) und `compact`
 
-Ältere Datensätze (v1–v6) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+Ältere Datensätze (v1–v7) werden beim Laden verlustfrei migriert; der Wiederholungsplan
 startet leer. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
 `wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur
 gelesen, nie verändert.
+
+## Sicherung, Import und Zurücksetzen
+
+Eine Sicherung ist eine JSON-Datei mit `format: "wqt-academy-backup"`, `formatVersion: 1`,
+`exportedAt`, `dataVersion` und `data`. Sie enthält alle Lerndaten, Tagesziel und Darstellung –
+nicht aber eine laufende Wiederholungsrunde, die Kopien von `brooks-progress`/`brooks-tr-best`
+und unbekannte Zusatzfelder.
+
+Der Import prüft streng (`src/features/backup.ts`): höchstens 10 MB, gültiges JSON, bekanntes
+Format und keine neuere Version, alle Pflichtfelder, keine unbekannten Felder, gültige Einträge
+und keine gefährlichen Schlüssel wie `__proto__`. Eine abgelehnte Datei ändert nichts. Vor jeder
+Änderung erscheint eine Vorschau.
+
+- **Zusammenführen** (Standard) ergänzt den Stand, ohne etwas doppelt zu zählen: Vereinigung von
+  Lektionen, Lerntagen, Lesezeichen und Meilensteinen; früherer Erstabschluss samt XP;
+  Datensatz mit mehr Versuchen; jüngerer Wiederholungsstand und jüngere Lektionsposition;
+  Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; Antworten lokal vor
+  Import. Tagesziel und Darstellung kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
+- **Vollständig ersetzen** braucht eine ausdrückliche Bestätigung; vorher wird ein Download des
+  aktuellen Stands angeboten.
+- **Zurücksetzen** löscht nur `wqt-academy-progress-v1`. `brooks-progress` und `brooks-tr-best`
+  bleiben unangetastet.
 
 ## Wiederholungsplan
 

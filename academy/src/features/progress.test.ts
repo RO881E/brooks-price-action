@@ -15,6 +15,7 @@ import {
   recordAnswer,
   recordLessonStep,
   saveProgress,
+  updateSettings,
 } from './progress';
 
 class MemoryStorage implements Pick<Storage, 'getItem' | 'setItem'> {
@@ -550,5 +551,36 @@ describe('goals, daily activity and milestones (v6)', () => {
     expect(logActivity(progress, '2026-10-01', { lessons: -3, xp: Number.NaN }).dailyActivity).toEqual({
       '2026-10-01': { lessons: 0, reviewSessions: 0, xp: 0 },
     });
+  });
+});
+
+describe('settings (v8)', () => {
+  it('starts older records with default settings', () => {
+    const progress = migrateProgress({ version: 7, completedLessonIds: ['a'] });
+    expect(progress?.version).toBe(ACADEMY_PROGRESS_VERSION);
+    expect(progress?.settings).toEqual({ motion: 'system', compact: false });
+  });
+
+  it('keeps valid settings and falls back field by field', () => {
+    expect(migrateProgress({ version: 8, settings: { motion: 'reduce', compact: true } })?.settings).toEqual({
+      motion: 'reduce',
+      compact: true,
+    });
+    expect(migrateProgress({ version: 8, settings: { motion: 'wild', compact: 'ja' } })?.settings).toEqual({
+      motion: 'system',
+      compact: false,
+    });
+    expect(migrateProgress({ version: 8, settings: 'kaputt' })?.settings).toEqual({
+      motion: 'system',
+      compact: false,
+    });
+  });
+
+  it('updates settings and returns the same object when nothing changes', () => {
+    const progress = createEmptyProgress();
+    expect(updateSettings(progress, { motion: 'system' })).toBe(progress);
+    const reduced = updateSettings(progress, { motion: 'reduce' });
+    expect(reduced.settings).toEqual({ motion: 'reduce', compact: false });
+    expect(updateSettings(reduced, { compact: true }).settings).toEqual({ motion: 'reduce', compact: true });
   });
 });

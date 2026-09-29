@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { publishedLessons } from '../src/content/course';
 
@@ -256,7 +257,7 @@ test.describe('F-01 resume and stable URLs', () => {
     const stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
-    expect(stored.version).toBe(7);
+    expect(stored.version).toBe(8);
     expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
@@ -335,7 +336,7 @@ test.describe('F-01 resume and stable URLs', () => {
       legacy: localStorage.getItem('brooks-progress'),
       best: localStorage.getItem('brooks-tr-best'),
     }));
-    expect(stored.academy.version).toBe(7);
+    expect(stored.academy.version).toBe(8);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
@@ -407,7 +408,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(7);
+    expect(stored.version).toBe(8);
     expect(stored.completedLessonIds).toEqual([lessonId]);
     expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
     expect(stored.questionResults['intro-01-question']).toMatchObject({
@@ -615,7 +616,7 @@ test.describe('F-03 smart review queue', () => {
     await expect(page.getByText('Für heute ist nichts mehr fällig.')).toBeVisible();
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(7);
+    expect(stored.version).toBe(8);
     for (const question of questions) {
       expect(stored.reviewCards[question.id]).toMatchObject({
         stage: 0,
@@ -1247,6 +1248,275 @@ test.describe('F-07 bookmarks and notes', () => {
 
     await openSaved(page);
     await expect(page.getByText('Noch nichts gespeichert')).toBeVisible();
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth),
+    ).toBe(false);
+  });
+});
+
+test.describe('F-08 backup, import and settings', () => {
+  const [lessonOne, lessonTwo] = publishedLessons;
+  const noteStep = lessonOne.steps[1];
+  type Page = import('@playwright/test').Page;
+
+  const openSettings = async (page: Page) => {
+    const menu = page.getByRole('button', { name: 'Menü öffnen' });
+    if (await menu.isVisible()) await menu.click();
+    await page
+      .getByRole('navigation', { name: 'Hauptnavigation' })
+      .getByRole('button', { name: 'Einstellungen' })
+      .click();
+    await expect(page.getByRole('heading', { name: 'Einstellungen', level: 1 })).toBeVisible();
+  };
+
+  const rawAcademy = (page: Page) => page.evaluate(() => localStorage.getItem('wqt-academy-progress-v1'));
+  const legacyKeys = (page: Page) =>
+    page.evaluate(() => [localStorage.getItem('brooks-progress'), localStorage.getItem('brooks-tr-best')]);
+
+  /** Die gesicherten Felder eines gespeicherten Stands – ohne Zeitstempel des Speicherns. */
+  const backedUpFields = (raw: string | null) => {
+    const data = JSON.parse(raw ?? '{}');
+    return Object.fromEntries(
+      [
+        'completedLessonIds', 'answers', 'questionResults', 'lessonResults', 'reviewCards',
+        'activityDays', 'dailyActivity', 'dailyGoal', 'milestones', 'bookmarks', 'notes',
+        'settings', 'lastLessonId', 'lessonPositions',
+      ].map((field) => [field, data[field]]),
+    );
+  };
+
+  const completedAt = new Date(2026, 8, 25, 12).toISOString();
+  const richRecord = {
+    version: 7,
+    completedLessonIds: [lessonOne.id],
+    lessonResults: { [lessonOne.id]: { firstCompletedAt: completedAt, lastCompletedAt: completedAt, xpAwarded: lessonOne.xp } },
+    dailyGoal: { kind: 'xp', target: 60 },
+    bookmarks: { [lessonOne.id]: { lessonId: lessonOne.id, stepId: null, createdAt: completedAt } },
+    notes: {
+      [`${lessonOne.id}::${noteStep.id}`]: {
+        lessonId: lessonOne.id,
+        stepId: noteStep.id,
+        text: 'Meine Notiz <b>bleibt Text</b> & „Zitat“',
+        updatedAt: completedAt,
+      },
+    },
+  };
+
+  const seed = async (page: Page, record: Record<string, unknown>) => {
+    await page.addInitScript((value) => {
+      if (sessionStorage.getItem('seeded')) return;
+      sessionStorage.setItem('seeded', '1');
+      localStorage.setItem('wqt-academy-progress-v1', JSON.stringify(value));
+    }, record);
+  };
+
+  /** Eine formal gültige Sicherung mit wählbaren Daten. */
+  const backupFile = (data: Record<string, unknown>, envelope: Record<string, unknown> = {}) => ({
+    name: 'sicherung.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(
+      JSON.stringify({
+        format: 'wqt-academy-backup',
+        formatVersion: 1,
+        app: 'WQT Academy',
+        exportedAt: '2026-09-28T18:00:00.000Z',
+        dataVersion: 8,
+        data: {
+          completedLessonIds: [],
+          answers: {},
+          questionResults: {},
+          lessonResults: {},
+          reviewCards: {},
+          activityDays: [],
+          dailyActivity: {},
+          dailyGoal: { kind: 'activities', target: 1 },
+          milestones: {},
+          bookmarks: {},
+          notes: {},
+          settings: { motion: 'system', compact: false },
+          lastLessonId: null,
+          lessonPositions: {},
+          ...data,
+        },
+        ...envelope,
+      }),
+    ),
+  });
+
+  test('export → reset → import restores the tested state', async ({ page }, testInfo) => {
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await seed(page, richRecord);
+    await page.goto('/');
+    await openSettings(page);
+    await page.getByRole('checkbox', { name: /Kompakte Darstellung/ }).check();
+    const before = await rawAcademy(page);
+    expect(JSON.parse(before ?? '{}').version).toBe(8);
+
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.getByRole('button', { name: 'Sicherung herunterladen' }).click(),
+    ]);
+    expect(download.suggestedFilename()).toMatch(/^wqt-academy-sicherung-\d{4}-\d{2}-\d{2}\.json$/);
+    const file = testInfo.outputPath('sicherung.json');
+    await download.saveAs(file);
+    const backup = JSON.parse(readFileSync(file, 'utf8'));
+    expect(backup).toMatchObject({ format: 'wqt-academy-backup', formatVersion: 1, dataVersion: 8 });
+    expect(Number.isNaN(Date.parse(backup.exportedAt))).toBe(false);
+    expect(backup.data.notes[`${lessonOne.id}::${noteStep.id}`].text).toContain('<b>bleibt Text</b>');
+    expect(JSON.stringify(backup)).not.toContain('brooks-progress');
+
+    // Zurücksetzen: nur Academy-Daten, alte Website-Schlüssel bleiben.
+    const legacyBefore = await legacyKeys(page);
+    await page.getByRole('button', { name: 'Academy-Daten zurücksetzen …' }).click();
+    const finalReset = page.getByRole('button', { name: 'Endgültig zurücksetzen' });
+    await expect(finalReset).toBeDisabled();
+    await page.getByRole('checkbox', { name: 'Ich möchte alle Academy-Daten in diesem Browser löschen.' }).check();
+    await finalReset.click();
+    await expect(page.getByText('Die Academy-Daten wurden zurückgesetzt.')).toBeVisible();
+    const afterReset = JSON.parse((await rawAcademy(page)) ?? '{}');
+    expect(afterReset.completedLessonIds).toEqual([]);
+    expect(afterReset.notes).toEqual({});
+    expect(afterReset.settings).toEqual({ motion: 'system', compact: false });
+    expect(await legacyKeys(page)).toEqual(legacyBefore);
+    await expect(page.locator('html')).not.toHaveAttribute('data-density', 'compact');
+
+    // Import der Sicherung: Vorschau, dann Zusammenführen.
+    await page.getByLabel('Sicherung einspielen …').setInputFiles(file);
+    await expect(page.getByRole('heading', { name: /Vorschau: Sicherung vom/ })).toBeFocused();
+    await expect(page.getByText('+ 1 abgeschlossene Lektion')).toBeVisible();
+    await expect(page.getByText('+ 1 Notiz', { exact: true })).toBeVisible();
+    await expect(page.getByRole('checkbox', { name: /Mein Tagesziel und meine Darstellung behalten/ })).not.toBeChecked();
+    // Noch nichts verändert.
+    expect(JSON.parse((await rawAcademy(page)) ?? '{}').completedLessonIds).toEqual([]);
+
+    await page.getByRole('button', { name: 'Zusammenführen', exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'Import abgeschlossen' })).toBeVisible();
+    expect(backedUpFields(await rawAcademy(page))).toEqual(backedUpFields(before));
+    await expect(page.locator('html')).toHaveAttribute('data-density', 'compact');
+    await expect(page.locator('.celebration')).toHaveCount(0);
+
+    await page.reload();
+    expect(backedUpFields(await rawAcademy(page))).toEqual(backedUpFields(before));
+    expect(await legacyKeys(page)).toEqual(legacyBefore);
+    expect(errors).toEqual([]);
+  });
+
+  test('rejects invalid files and leaves the progress untouched', async ({ page }) => {
+    await seed(page, richRecord);
+    await page.goto('/#/settings');
+    await expect(page.getByRole('heading', { name: 'Einstellungen', level: 1 })).toBeVisible();
+    const before = await rawAcademy(page);
+    const input = page.getByLabel('Sicherung einspielen …');
+    const alert = page.getByRole('alert');
+
+    const cases: Array<[Parameters<typeof input.setInputFiles>[0], RegExp]> = [
+      [{ name: 'kaputt.json', mimeType: 'application/json', buffer: Buffer.from('{"format":"wqt-academy-backup","data":{') }, /beschädigt/],
+      [backupFile({}, { formatVersion: 2 }), /neueren Version/],
+      [backupFile({}, { dataVersion: 42 }), /neueren Version/],
+      [
+        (() => {
+          const file = backupFile({});
+          const parsed = JSON.parse(file.buffer.toString());
+          delete parsed.data.notes;
+          return { ...file, buffer: Buffer.from(JSON.stringify(parsed)) };
+        })(),
+        /Pflichtfeld fehlt: „notes“/,
+      ],
+      [backupFile({ notes: { x: { lessonId: 'x', stepId: null, text: '', updatedAt: completedAt } } }), /leerer Text/],
+      [{ name: 'riesig.json', mimeType: 'application/json', buffer: Buffer.alloc(10 * 1024 * 1024 + 10, 32) }, /größer als 10 MB/],
+      [{ name: 'fremd.json', mimeType: 'application/json', buffer: Buffer.from('{"hello":"world"}') }, /keine Sicherung/],
+    ];
+
+    for (const [file, message] of cases) {
+      await input.setInputFiles(file);
+      await expect(alert).toContainText('wurde nicht übernommen');
+      await expect(alert).toContainText('Dein aktueller Fortschritt ist unverändert.');
+      await expect(alert).toContainText(message);
+      expect(await rawAcademy(page)).toBe(before);
+    }
+
+    await alert.getByRole('button', { name: 'Schließen' }).click();
+    await expect(alert).toHaveCount(0);
+    expect(await rawAcademy(page)).toBe(before);
+  });
+
+  test('replace needs confirmation and offers a backup first', async ({ page }) => {
+    await seed(page, richRecord);
+    await page.goto('/#/settings');
+    await expect(page.getByRole('heading', { name: 'Einstellungen', level: 1 })).toBeVisible();
+
+    await page.getByLabel('Sicherung einspielen …').setInputFiles(
+      backupFile({
+        completedLessonIds: [lessonOne.id, lessonTwo.id],
+        lessonResults: {
+          [lessonOne.id]: { firstCompletedAt: completedAt, lastCompletedAt: completedAt, xpAwarded: lessonOne.xp },
+          [lessonTwo.id]: { firstCompletedAt: completedAt, lastCompletedAt: completedAt, xpAwarded: lessonTwo.xp },
+        },
+      }),
+    );
+    await page.getByRole('radio', { name: /Vollständig ersetzen/ }).check();
+    await expect(page.getByText(/danach verloren: 1 Notiz, 1 Lesezeichen/)).toBeVisible();
+    const replace = page.getByRole('button', { name: 'Stand ersetzen' });
+    await expect(replace).toBeDisabled();
+
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.getByRole('button', { name: 'Aktuellen Stand sichern' }).click(),
+    ]);
+    expect(download.suggestedFilename()).toMatch(/^wqt-academy-sicherung-/);
+    await expect(page.getByText('✓ Aktueller Stand gesichert.')).toBeVisible();
+
+    await page.getByRole('checkbox', { name: 'Ich möchte meinen aktuellen Stand durch diese Sicherung ersetzen.' }).check();
+    await replace.click();
+    await expect(page.getByText(/wurde durch die Sicherung vom .* ersetzt/)).toBeVisible();
+
+    const after = JSON.parse((await rawAcademy(page)) ?? '{}');
+    expect(after.completedLessonIds).toEqual([lessonOne.id, lessonTwo.id]);
+    expect(after.notes).toEqual({});
+    expect(after.bookmarks).toEqual({});
+    expect(after.dailyGoal).toEqual({ kind: 'activities', target: 1 });
+    expect(await legacyKeys(page)).toEqual([JSON.stringify({ 'b1-intro': true, 'b1-ch1': true }), '9']);
+  });
+
+  test('applies reduced motion, compact layout and the daily goal', async ({ page }) => {
+    await page.clock.setFixedTime(new Date(2026, 9, 7, 10, 0));
+    await page.goto('/#/settings');
+    await expect(page.getByRole('heading', { name: 'Einstellungen', level: 1 })).toBeVisible();
+
+    await page.getByRole('radio', { name: 'Bewegung immer reduzieren' }).check();
+    await page.getByRole('checkbox', { name: /Kompakte Darstellung/ }).check();
+    await page.getByRole('radio', { name: '2 Lernaktivitäten' }).check();
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduce');
+    await expect(page.locator('html')).toHaveAttribute('data-density', 'compact');
+
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduce');
+    await expect(page.getByRole('radio', { name: '2 Lernaktivitäten' })).toBeChecked();
+    const stored = JSON.parse((await rawAcademy(page)) ?? '{}');
+    expect(stored.settings).toEqual({ motion: 'reduce', compact: true });
+    expect(stored.dailyGoal).toEqual({ kind: 'activities', target: 2 });
+
+    // Die Meldung für einen neuen Meilenstein erscheint ohne Animation.
+    await page.goto(`/#/lesson/${lessonOne.id}?step=1`);
+    for (let step = 0; step < 3; step += 1) await page.getByRole('button', { name: 'Weiter' }).click();
+    const question = lessonOne.steps.find((step) => step.type === 'question')!;
+    const correct = question.options.find((option) => option.id === question.correctOptionId)!.label;
+    await page.getByRole('radio', { name: correct }).click();
+    await page.getByRole('button', { name: 'Weiter' }).click();
+    await page.getByRole('button', { name: 'Lektion abschließen' }).click();
+    const toast = page.locator('.celebration');
+    await expect(toast).toBeVisible();
+    expect(await toast.evaluate((node) => getComputedStyle(node).animationName)).toBe('none');
+
+    // Kompakt und schmal: kein seitlicher Überlauf.
+    await page.setViewportSize({ width: 360, height: 780 });
+    await page.goto('/#/path');
+    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth),
+    ).toBe(false);
+    await page.goto('/#/settings');
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth),
     ).toBe(false);

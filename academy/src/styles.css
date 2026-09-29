@@ -2200,6 +2200,190 @@ button:disabled {
   }
 }
 
+.settings-section h2 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+}
+
+.settings-text {
+  margin: 0 0 12px;
+  color: #444b54;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.settings-choices {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+}
+
+.settings-choices legend {
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.settings-choices label,
+.settings-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.settings-choices input,
+.settings-toggle input {
+  flex: none;
+  margin: 3px 0 0;
+  accent-color: var(--gold-dark);
+}
+
+.settings-choices span,
+.settings-toggle span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.settings-choices small,
+.settings-toggle small {
+  color: var(--ink-soft);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.settings-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.settings-status {
+  margin: 10px 0 0;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.file-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.file-button input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.file-button:focus-within {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.import-panel {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: #fbfaf7;
+}
+
+.import-panel h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.import-panel h3:focus {
+  outline: none;
+}
+
+/* Fokussierte Überschriften nicht unter der festen Kopfzeile verstecken. */
+.import-panel h3 {
+  scroll-margin-top: 96px;
+}
+
+.import-panel p,
+.import-panel ul {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.import-panel ul {
+  padding-left: 18px;
+}
+
+.import-error {
+  border-color: #d39b96;
+  background: var(--red-soft);
+}
+
+.import-done {
+  border-color: #89b8a6;
+  background: var(--green-soft);
+}
+
+.import-warning {
+  border-color: #e5d4b5;
+  background: #fffaf0;
+}
+
+.import-effects {
+  display: grid;
+  gap: 10px;
+}
+
+.backup-offer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.backup-offer p {
+  flex: 1 1 220px;
+}
+
+.backup-offer .settings-status {
+  margin: 0;
+}
+
+.danger-zone {
+  border-color: #e3c4c1;
+}
+
+.danger-button {
+  color: var(--red);
+}
+
+.primary-button.danger-button {
+  color: #fff;
+  background: var(--red);
+}
+
+.settings-section + .settings-section {
+  margin-top: 14px;
+}
+
 .review-modes {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3442,4 +3626,85 @@ button:disabled {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+/* Einstellung „Bewegung immer reduzieren“ – wirkt wie die Systemeinstellung. */
+:root[data-motion='reduce'] *,
+:root[data-motion='reduce'] *::before,
+:root[data-motion='reduce'] *::after {
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+:root[data-motion='reduce'] .celebration,
+:root[data-motion='reduce'] .celebration-mark {
+  animation: none;
+}
+
+/* Einstellung „Kompakte Darstellung“ – nur vertikale Abstände und Überschriften. */
+:root[data-density='compact'] .view-container {
+  padding-top: 16px;
+}
+
+:root[data-density='compact'] .course-hero {
+  min-height: 0;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+:root[data-density='compact'] .course-hero h1,
+:root[data-density='compact'] .page-heading h1 {
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+:root[data-density='compact'] .page-heading {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+}
+
+:root[data-density='compact'] .source-order-note {
+  margin-bottom: 18px;
+}
+
+:root[data-density='compact'] .learning-road {
+  gap: 14px;
+}
+
+:root[data-density='compact'] .unit-header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+:root[data-density='compact'] .lesson-nodes {
+  padding-top: 14px;
+  padding-bottom: 6px;
+}
+
+:root[data-density='compact'] .lesson-node-row {
+  margin-bottom: 8px;
+}
+
+:root[data-density='compact'] .lesson-node {
+  min-height: 72px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+:root[data-density='compact'] .lesson-stage {
+  padding-top: 20px;
+  padding-bottom: 32px;
+}
+
+:root[data-density='compact'] .step-copy h1 {
+  font-size: clamp(24px, 3.5vw, 34px);
+}
+
+:root[data-density='compact'] .rail-card,
+:root[data-density='compact'] .progress-tile,
+:root[data-density='compact'] .progress-panel,
+:root[data-density='compact'] .review-mode-card,
+:root[data-density='compact'] .practice-card {
+  padding: 14px;
 }

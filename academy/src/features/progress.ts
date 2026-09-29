@@ -16,7 +16,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 7;
+export const ACADEMY_PROGRESS_VERSION = 8;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -139,6 +139,17 @@ export interface Note {
   updatedAt: string;
 }
 
+/** Bewegung: der Systemeinstellung folgen oder immer reduzieren (seit F-08). */
+export type MotionPreference = 'system' | 'reduce';
+
+/** Darstellungseinstellungen dieses Browsers (seit F-08). */
+export interface AcademySettings {
+  motion: MotionPreference;
+  compact: boolean;
+}
+
+export const DEFAULT_SETTINGS: AcademySettings = { motion: 'system', compact: false };
+
 export interface AcademyProgress {
   version: typeof ACADEMY_PROGRESS_VERSION;
   completedLessonIds: string[];
@@ -162,6 +173,7 @@ export interface AcademyProgress {
   /** Schlüssel: `lessonId` oder `lessonId::stepId`. */
   bookmarks: Record<string, Bookmark>;
   notes: Record<string, Note>;
+  settings: AcademySettings;
   lastLessonId: string | null;
   /** Begonnene, noch nicht abgeschlossene Lektionen mit ihrem letzten Schritt. */
   lessonPositions: Record<string, LessonPosition>;
@@ -196,6 +208,7 @@ export function createEmptyProgress(): AcademyProgress {
     milestones: {},
     bookmarks: {},
     notes: {},
+    settings: DEFAULT_SETTINGS,
     lastLessonId: null,
     lessonPositions: {},
     legacyReadChapters: [],
@@ -244,6 +257,7 @@ const KNOWN_FIELDS = new Set([
   'milestones',
   'bookmarks',
   'notes',
+  'settings',
   'lastLessonId',
   'lessonPositions',
   'legacyReadChapters',
@@ -564,6 +578,25 @@ function normalizeNotes(value: unknown): Record<string, Note> {
   );
 }
 
+function normalizeSettings(value: unknown): AcademySettings {
+  if (!isRecord(value)) return DEFAULT_SETTINGS;
+  return {
+    motion: value.motion === 'reduce' ? 'reduce' : 'system',
+    compact: value.compact === true,
+  };
+}
+
+export function updateSettings(
+  progress: AcademyProgress,
+  changes: Partial<AcademySettings>,
+): AcademyProgress {
+  const next = normalizeSettings({ ...progress.settings, ...changes });
+  if (next.motion === progress.settings.motion && next.compact === progress.settings.compact) {
+    return progress;
+  }
+  return { ...progress, settings: next };
+}
+
 /** Vermerkt einen Tag mit echter Lernaktivität in der Tagesliste. */
 export function recordActivity(progress: AcademyProgress, day: DayKey): AcademyProgress {
   if (!isDayKey(day) || progress.activityDays.includes(day)) return progress;
@@ -654,6 +687,7 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     milestones: normalizeMilestones(value.milestones),
     bookmarks: normalizeBookmarks(value.bookmarks),
     notes: normalizeNotes(value.notes),
+    settings: normalizeSettings(value.settings),
     lastLessonId:
       typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     lessonPositions: normalizePositions(value.lessonPositions),
