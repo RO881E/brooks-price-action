@@ -1,10 +1,14 @@
+import { readFileSync } from 'node:fs';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 import { courseOutlinePlugin } from './build/courseOutlinePlugin.ts';
 import { serviceWorkerPlugin } from './pwa/serviceWorkerPlugin.ts';
 
+const { version } = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
+
 export default defineConfig({
   base: './',
+  define: { __APP_VERSION__: JSON.stringify(version) },
   plugins: [react(), courseOutlinePlugin(), serviceWorkerPlugin()],
   build: {
     rolldownOptions: {

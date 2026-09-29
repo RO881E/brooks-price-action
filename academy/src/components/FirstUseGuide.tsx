@@ -1,4 +1,5 @@
-import { useEffect, useId, useRef, type RefObject } from 'react';
+import { useEffect, useId, useRef, useState, type RefObject } from 'react';
+import { BugReportForm } from './BugReportForm';
 import type { LessonOutline } from '../content/types';
 
 export interface GuideFacts {
@@ -110,6 +111,7 @@ export function GuideDialog({
   const ids = useId();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
+  const [reporting, setReporting] = useState(false);
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
 
@@ -136,15 +138,31 @@ export function GuideDialog({
       }}
     >
       <div className="guide-dialog-body">
-        <GuideContent facts={facts} headingId={`${ids}-title`} headingRef={heading} />
-        <div className="guide-actions">
-          <button type="button" className="primary-button" onClick={() => onCloseRef.current()}>
-            Schließen
-          </button>
-          <button type="button" className="secondary-button" onClick={onOpenSettings}>
-            Zu den Einstellungen
-          </button>
-        </div>
+        {reporting ? (
+          <>
+            <BugReportForm headingId={`${ids}-title`} onBack={() => setReporting(false)} />
+            <div className="guide-actions">
+              <button type="button" className="secondary-button" onClick={() => onCloseRef.current()}>
+                Schließen
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <GuideContent facts={facts} headingId={`${ids}-title`} headingRef={heading} />
+            <div className="guide-actions">
+              <button type="button" className="primary-button" onClick={() => onCloseRef.current()}>
+                Schließen
+              </button>
+              <button type="button" className="secondary-button" onClick={onOpenSettings}>
+                Zu den Einstellungen
+              </button>
+              <button type="button" className="secondary-button" onClick={() => setReporting(true)}>
+                Fehler melden
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </dialog>
   );

@@ -5795,3 +5795,45 @@ button:disabled {
     break-inside: avoid;
   }
 }
+
+/* Freiwilliger Fehlerbericht (F-28) */
+.bug-report-field {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0;
+}
+
+.bug-report-field textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  resize: vertical;
+}
+
+.bug-report-field textarea[readonly] {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  background: var(--canvas);
+}
+
+.bug-report-field small,
+.bug-report-notice {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.bug-report-notice {
+  min-height: 1.4em;
+  margin: 10px 0 0;
+}
+
+.bug-report .guide-actions {
+  margin-top: 6px;
+}
