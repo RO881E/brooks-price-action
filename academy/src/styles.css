@@ -4494,6 +4494,116 @@ button:disabled {
   list-style: none;
 }
 
+/* Kurz lernen (F-23) */
+.study-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  max-width: 1080px;
+  margin: 0 auto 20px;
+  padding: 16px clamp(16px, 3vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.study-entry h2,
+.study-entry p {
+  margin: 0;
+}
+
+.study-entry h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+}
+
+.study-entry p {
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.study-entry-actions,
+.study-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.study-minutes {
+  margin-top: 14px;
+}
+
+.study-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.study-list > li::marker {
+  font-weight: 800;
+}
+
+.study-card {
+  display: grid;
+  gap: 8px;
+  padding: 16px clamp(14px, 3vw, 22px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow-wrap: break-word;
+}
+
+.study-card h2,
+.study-card p {
+  margin: 0;
+}
+
+.study-card h2 {
+  font-size: 17px;
+}
+
+.study-card p {
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.study-actions .primary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.study-skipped {
+  margin-top: 18px;
+  color: var(--ink-soft);
+}
+
+.study-skipped p {
+  margin: 0 0 6px;
+}
+
+.study-skipped ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.study-skipped li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.study-footer {
+  margin-top: 22px;
+}
+
 /* Rückblick (F-25) */
 .replay {
   display: grid;

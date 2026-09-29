@@ -54,6 +54,11 @@ export type AppRoute =
       caseId: string;
     }
   | {
+      /** Kurz lernen (seit F-23): `#/study/10` oder `#/study/20`. */
+      kind: 'study';
+      minutes: 10 | 20;
+    }
+  | {
       /** Rückblick auf eine abgeschlossene Runde (seit F-25): `#/train/<case-id>/review/<session-id>`. */
       kind: 'replay';
       caseId: string;
@@ -101,6 +106,10 @@ export function parseRoute(hash: string): AppRoute | null {
     return { kind: 'read', unitId, lessonId, step: lessonId ? parseStep(query) : null };
   }
 
+  if (segments.length === 2 && segments[0] === 'study') {
+    return segments[1] === '10' || segments[1] === '20' ? { kind: 'study', minutes: segments[1] === '10' ? 10 : 20 } : null;
+  }
+
   if (segments.length === 4 && segments[0] === 'train' && segments[2] === 'review' && segments[1] && segments[3]) {
     try {
       return { kind: 'replay', caseId: decodeURIComponent(segments[1]), sessionId: decodeURIComponent(segments[3]) };
@@ -140,6 +149,7 @@ export function formatRoute(route: AppRoute): string {
       : `#/${route.view}`;
   }
   if (route.kind === 'train') return `#/train/${encodeURIComponent(route.caseId)}`;
+  if (route.kind === 'study') return `#/study/${route.minutes}`;
   if (route.kind === 'replay') {
     return `#/train/${encodeURIComponent(route.caseId)}/review/${encodeURIComponent(route.sessionId)}`;
   }
@@ -202,7 +212,8 @@ export type ResolvedRoute =
   | { kind: 'read'; reader: ResolvedReader }
   | { kind: 'train'; barCase: BarCase }
   // Die Prüfung der Runde (abgeschlossen, passend) übernimmt `buildReplay` – mit klarer Meldung.
-  | { kind: 'replay'; caseId: string; sessionId: string };
+  | { kind: 'replay'; caseId: string; sessionId: string }
+  | { kind: 'study'; minutes: 10 | 20 };
 
 /**
  * Prüft eine Route gegen Kurs und Fortschritt. Unbekannte, geplante oder
@@ -221,7 +232,7 @@ export function resolveRoute(
     const barCase = findPublishedCase(route.caseId);
     return barCase && caseAvailable(course, progress, barCase) ? { kind: 'train', barCase } : null;
   }
-  if (route.kind === 'replay') return route;
+  if (route.kind === 'replay' || route.kind === 'study') return route;
   if (route.kind === 'read') {
     const reader = resolveReader(course, progress, route.unitId, route.lessonId, route.step);
     return reader ? { kind: 'read', reader } : null;

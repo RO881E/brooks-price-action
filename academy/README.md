@@ -275,6 +275,27 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Kurz lernen (F-23)
+
+Im Lernpfad fragt „Kurz lernen“ nach dem ungefähren Zeitrahmen (≈ 10 oder ≈ 20 Minuten) und
+öffnet `#/study/10` bzw. `#/study/20`. Die Auswahl berechnet `planStudySession` in
+`src/features/studySession.ts` rein aus dem aktuellen Lernstand, in fester Reihenfolge:
+
+1. **Wiederholung:** eine laufende Wiederholungsrunde wird fortgesetzt; sonst die ältesten
+   fälligen Fragen (Buchreihenfolge wie unter Üben), höchstens 5 bzw. 10.
+2. **Lektion:** eine begonnene, noch offene Lektion (weiter beim gespeicherten Schritt), sonst
+   die nächste freigeschaltete.
+3. **Trainerfall:** bei 20 Minuten immer, bei 10 Minuten nur, wenn sonst weniger als zwei
+   Vorschläge da sind – eine laufende Runde zuerst, dann ein noch nie trainierter, dann der am
+   seltensten trainierte freigegebene Fall.
+
+Gesperrte Lektionen und Fälle werden nie vorgeschlagen, kein Vorschlag erscheint doppelt. Es gibt
+keinen Timer und keine Restzeit. **Kein neuer gespeicherter Zustand nötig:** Der Plan ergibt sich
+jederzeit neu aus Fälligkeiten, Freischaltungen und Fortschritt; „Überspringen“ blendet einen
+Vorschlag nur in der aktuellen Ansicht aus (nach dem Neuladen ist er wieder da). Öffnen oder
+Überspringen bringt weder XP noch einen Lerntag – das vergeben allein die geöffneten Lektionen,
+Wiederholungen und Trainerrunden nach ihren bisherigen Regeln.
+
 ## Was ich noch verwechsle (F-16)
 
 Unter **Üben** listet „Was ich noch verwechsle“ erfasste Fehler – sachlich, ohne Diagnose oder
