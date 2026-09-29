@@ -1,5 +1,5 @@
 import type { GlossaryEntry } from '../content/glossary';
-import type { Course, CourseUnit, Lesson } from '../content/types';
+import type { CourseOutline, UnitOutline, LessonOutline } from '../content/types';
 import { lessonAccessState, type LessonAccessState } from './courseAccess';
 
 /* ------------------------------------------------------------------ */
@@ -50,8 +50,8 @@ interface IndexEntry {
   type: SearchResultType;
   order: number;
   fields: IndexedField[];
-  lesson?: Lesson;
-  unit?: CourseUnit;
+  lesson?: LessonOutline;
+  unit?: UnitOutline;
   /** Nullbasierter Schritt für Schritt-Treffer. */
   stepIndex?: number;
   title: string;
@@ -60,7 +60,7 @@ interface IndexEntry {
 }
 
 export interface SearchIndex {
-  course: Course;
+  course: CourseOutline;
   entries: IndexEntry[];
 }
 
@@ -78,7 +78,7 @@ function field(text: string, weight: number): IndexedField {
 }
 
 /** Baut einen kleinen Suchindex in Buchreihenfolge; Inhalte bleiben unverändert. */
-export function buildSearchIndex(course: Course, glossary: GlossaryEntry[]): SearchIndex {
+export function buildSearchIndex(course: CourseOutline, glossary: GlossaryEntry[]): SearchIndex {
   const entries: IndexEntry[] = [];
 
   for (const unit of course.units) {
@@ -147,7 +147,7 @@ export interface SearchResult {
   access: LessonAccessState | null;
   /** Nur zugängliche Treffer können geöffnet werden. */
   openable: boolean;
-  lesson?: Lesson;
+  lesson?: LessonOutline;
   stepIndex?: number;
   glossaryTerm?: string;
 }

@@ -10,19 +10,27 @@ import {
 import { AppStatusBanner } from './components/AppStatusBanner';
 import { CelebrationToast, type Celebration } from './components/CelebrationToast';
 import { ChapterView } from './components/ChapterView';
+import { LessonLoading } from './components/ContentLoadState';
 import { GlossaryView } from './components/GlossaryView';
 import { LessonPlayer } from './components/LessonPlayer';
 import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
 import { PracticeView } from './components/PracticeView';
+import { ReaderView } from './components/ReaderView';
 import { ProgressView } from './components/ProgressView';
 import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { SettingsView } from './components/SettingsView';
 import { UndoToast, type UndoAction } from './components/UndoToast';
-import { brooksTrendsCourse, publishedLessonIds } from './content/course';
+import {
+  catalog,
+  courseOutline,
+  publishedLessonIds,
+  unitIdOfLesson,
+  useLessonContent,
+} from './content/catalog';
 import { glossaryEntries } from './content/glossary';
-import type { Lesson } from './content/types';
+import type { LessonOutline } from './content/types';
 import {
   applyImport,
   backupFileName,
@@ -32,6 +40,7 @@ import {
   type ImportMode,
   type MergeOptions,
 } from './features/backup';
+import { nextAvailableLesson } from './features/courseAccess';
 import { downloadTextFile } from './features/download';
 import {
   awardMilestones,
@@ -63,6 +72,7 @@ import {
   loadProgress,
   progressPercent,
   recordLessonStep,
+  recordReaderPosition,
   saveProgress,
   savedKey,
   setDailyGoal,
@@ -148,14 +158,14 @@ export default function App() {
   const menuButton = useRef<HTMLButtonElement>(null);
   // Bereits früher erreichte Meilensteine werden beim Laden still nachgetragen.
   const [progress, setStoredProgress] = useState(() =>
-    awardMilestones(loadProgress(window.localStorage), brooksTrendsCourse, localDayKey(new Date())),
+    awardMilestones(loadProgress(window.localStorage), courseOutline, localDayKey(new Date())),
   );
   // Jede Änderung prüft im selben Schritt die Meilensteine – so gibt es keinen
   // Zwischenstand und jede Vergabe bleibt einmalig.
   const setProgress = useCallback(
     (update: (current: AcademyProgress) => AcademyProgress) =>
       setStoredProgress((current) =>
-        awardMilestones(update(current), brooksTrendsCourse, localDayKey(new Date())),
+        awardMilestones(update(current), courseOutline, localDayKey(new Date())),
       ),
     [],
   );
@@ -164,7 +174,7 @@ export default function App() {
   const dismissUndo = useCallback(() => setUndoAction(null), []);
   const [searchOpen, setSearchOpen] = useState(false);
   const searchOpener = useRef<HTMLElement | null>(null);
-  const searchIndex = useMemo(() => buildSearchIndex(brooksTrendsCourse, glossaryEntries), []);
+  const searchIndex = useMemo(() => buildSearchIndex(courseOutline, glossaryEntries), []);
   const closeCelebration = useCallback(() => setCelebration(null), []);
   const appStatus = useSyncExternalStore(pwa.subscribe, pwa.getSnapshot);
   // Neuester Stand für das sofortige Speichern beim Verlassen der Seite.
@@ -177,14 +187,40 @@ export default function App() {
     [progress],
   );
   const resolved = useMemo(
-    () => (route ? resolveRoute(route, brooksTrendsCourse, progress) : null),
+    () => (route ? resolveRoute(route, courseOutline, progress) : null),
     [route, progress],
   );
-  const resume = useMemo(() => resumeTarget(brooksTrendsCourse, progress), [progress]);
+  const resume = useMemo(() => resumeTarget(courseOutline, progress), [progress]);
   const activeLesson = resolved?.kind === 'lesson' ? resolved.lesson : null;
   const activeStepIndex = resolved?.kind === 'lesson' ? resolved.stepIndex : 0;
   const resultLesson = resolved?.kind === 'lesson-result' ? resolved.lesson : null;
-  const view: View = resolved?.kind === 'view' ? resolved.view : lastView;
+  // Die Lektion selbst lädt kapitelweise nach (F-12); Route und Freischaltung
+  // sind bereits anhand der Gliederung geprüft.
+  const activeContent = useLessonContent(activeLesson ? [activeLesson.id] : []);
+  const activeLessonContent = activeLesson ? catalog.lesson(activeLesson.id) : undefined;
+
+  // Das Kapitel der nächsten Lektion im Leerlauf vorladen – so öffnet sie ohne
+  // Wartezeit. Offline liefert es der Service Worker ohnehin aus dem Cache.
+  const upcomingLessonId =
+    resume?.lesson.id ?? nextAvailableLesson(courseOutline, progress.completedLessonIds)?.id;
+  useEffect(() => {
+    const unitId = upcomingLessonId ? unitIdOfLesson(upcomingLessonId) : undefined;
+    if (!unitId) return undefined;
+    const prefetch = () => catalog.ensureUnits([unitId]);
+    if (typeof window.requestIdleCallback === 'function') {
+      const handle = window.requestIdleCallback(prefetch, { timeout: 3000 });
+      return () => window.cancelIdleCallback(handle);
+    }
+    const timer = window.setTimeout(prefetch, 1500);
+    return () => window.clearTimeout(timer);
+  }, [upcomingLessonId]);
+  const reading = resolved?.kind === 'read' ? resolved.reader : null;
+  // Der Buchleser gehört zur Ansicht „Buchmodus“ (Navigation bleibt markiert).
+  const view: View =
+    resolved?.kind === 'view' ? resolved.view : reading ? 'chapters' : lastView;
+  // Hinweis, wenn ein Leser-Link auf einen nicht lesbaren Abschnitt zeigte –
+  // bleibt stehen, obwohl die Adresse danach auf die echte Stelle zeigt.
+  const [readerFallbackUnit, setReaderFallbackUnit] = useState<string | null>(null);
   const glossaryTerm = resolved?.kind === 'view' ? resolved.term : undefined;
 
   useEffect(() => {
@@ -194,7 +230,7 @@ export default function App() {
   // Eine gespeicherte Wiederholungsrunde nur mit noch vorhandenen Fragen fortsetzen.
   useEffect(() => {
     setProgress((current) =>
-      sanitizeSession(current, reviewPool(brooksTrendsCourse, current)),
+      sanitizeSession(current, reviewPool(courseOutline, current)),
     );
   }, []);
 
@@ -346,7 +382,7 @@ export default function App() {
     setProgress((current) =>
       startSession(
         current,
-        buildSession(mode, reviewPool(brooksTrendsCourse, current), current, {
+        buildSession(mode, reviewPool(courseOutline, current), current, {
           today,
           unitId,
           random: seededRandom(Date.now()),
@@ -386,6 +422,21 @@ export default function App() {
   useEffect(() => {
     if (resolved?.kind === 'view') {
       setLastView(resolved.view);
+      return;
+    }
+    if (resolved?.kind === 'read' && window.location.hash === hash) {
+      const { reader } = resolved;
+      if (reader.fellBack) setReaderFallbackUnit(reader.unit.id);
+      const canonicalRead = formatRoute({
+        kind: 'read',
+        unitId: reader.unit.id,
+        lessonId: reader.section?.lesson.id ?? null,
+        step: reader.section && reader.stepIndex !== null ? reader.stepIndex + 1 : null,
+      });
+      if (canonicalRead !== hash) {
+        window.history.replaceState(window.history.state, '', canonicalRead);
+        setHash(canonicalRead);
+      }
       return;
     }
     if (resolved?.kind !== 'lesson' || window.location.hash !== hash) return;
@@ -429,6 +480,38 @@ export default function App() {
     scrollToTop();
   };
 
+  // Buchleser (F-13): aus dem Buchmodus öffnen (neuer Verlaufseintrag),
+  // innerhalb eines Kapitels blättern (ersetzt den Eintrag).
+  const openReader = (unitId: string, lessonId?: string) => {
+    setReaderFallbackUnit(null);
+    setNotice(null);
+    navigate({ kind: 'read', unitId, lessonId: lessonId ?? null, step: null }, 'push');
+  };
+
+  const openReaderSection = (unitId: string, lessonId: string) => {
+    setReaderFallbackUnit(null);
+    navigate({ kind: 'read', unitId, lessonId, step: null }, 'replace');
+  };
+
+  const recordReading = (
+    unitId: string,
+    lessonId: string,
+    stepId: string | null,
+    stepIndex: number | null,
+  ) => {
+    setProgress((current) => recordReaderPosition(current, unitId, lessonId, stepId));
+    // Die Adresse zeigt die Lesestelle – ein Reload landet genau dort.
+    const next: AppRoute = {
+      kind: 'read',
+      unitId,
+      lessonId,
+      step: stepIndex === null ? null : stepIndex + 1,
+    };
+    if (window.location.hash !== formatRoute(next)) {
+      navigate(next, 'replace', window.history.state);
+    }
+  };
+
   const runNextAction = (action: NextAction) => {
     if (action.kind === 'review') {
       // Eine laufende Runde wird fortgesetzt, nicht ersetzt.
@@ -440,7 +523,7 @@ export default function App() {
     }
   };
 
-  const openLesson = (lesson: Lesson) => {
+  const openLesson = (lesson: LessonOutline) => {
     const state: LessonHistoryState = { wqtOpenedFrom: view };
     navigate(
       { kind: 'lesson', lessonId: lesson.id, step: startStepIndex(lesson, progress) + 1 },
@@ -523,12 +606,26 @@ export default function App() {
     else navigate({ kind: 'view', view: lastView }, 'push');
   };
 
-  if (activeLesson) {
+  if (activeLesson && !activeLessonContent) {
+    return (
+      <>
+        <LessonLoading
+          lesson={activeLesson}
+          status={activeContent.status}
+          onRetry={activeContent.retry}
+          onClose={closeLesson}
+        />
+        {toast}
+      </>
+    );
+  }
+
+  if (activeLesson && activeLessonContent) {
     return (
       <>
         <LessonPlayer
           key={activeLesson.id}
-          lesson={activeLesson}
+          lesson={activeLessonContent}
           stepIndex={activeStepIndex}
           onStepChange={(stepIndex) =>
             navigate(
@@ -696,7 +793,7 @@ export default function App() {
         <div className="view-container">
           {view === 'path' ? (
             <PathView
-              course={brooksTrendsCourse}
+              course={courseOutline}
               progress={progress}
               percent={percent}
               resume={resume}
@@ -707,16 +804,44 @@ export default function App() {
               onOpenLesson={openLesson}
             />
           ) : null}
-          {view === 'chapters' ? (
+          {reading ? (
+            <ReaderView
+              course={courseOutline}
+              reader={
+                readerFallbackUnit === reading.unit.id ? { ...reading, fellBack: true } : reading
+              }
+              progress={progress}
+              onOpenSection={(lessonId) => openReaderSection(reading.unit.id, lessonId)}
+              onOpenUnit={openReader}
+              onPosition={(lessonId, stepId, stepIndex) =>
+                recordReading(reading.unit.id, lessonId, stepId, stepIndex)
+              }
+              onAnswer={(question, optionId) =>
+                setProgress((current) => submitAnswer(current, question, optionId))
+              }
+              onRetry={(question) => setProgress((current) => retryQuestion(current, question))}
+              onReveal={(question) => setProgress((current) => revealSolution(current, question))}
+              onCompleteSection={(lesson) =>
+                setProgress((current) =>
+                  current.completedLessonIds.includes(lesson.id)
+                    ? current
+                    : completeLesson(current, lesson.id, lesson.xp),
+                )
+              }
+              onBackToChapters={() => chooseView('chapters')}
+            />
+          ) : null}
+          {view === 'chapters' && !reading ? (
             <ChapterView
-              course={brooksTrendsCourse}
-              completedLessonIds={progress.completedLessonIds}
+              course={courseOutline}
+              progress={progress}
               onOpenLesson={openLesson}
+              onReadUnit={openReader}
             />
           ) : null}
           {view === 'practice' ? (
             <PracticeView
-              course={brooksTrendsCourse}
+              course={courseOutline}
               progress={progress}
               today={today}
               onStart={startReview}
@@ -732,8 +857,8 @@ export default function App() {
           ) : null}
           {view === 'progress' ? (
             <ProgressView
-              course={brooksTrendsCourse}
-              overview={progressOverview(brooksTrendsCourse, progress, today)}
+              course={courseOutline}
+              overview={progressOverview(courseOutline, progress, today)}
               goals={goalOverview(progress, today)}
               today={today}
               onAction={runNextAction}
@@ -742,7 +867,7 @@ export default function App() {
           ) : null}
           {view === 'saved' ? (
             <SavedView
-              overview={savedOverview(brooksTrendsCourse, progress)}
+              overview={savedOverview(courseOutline, progress)}
               onOpen={openSavedTarget}
               onRemoveBookmark={removeBookmarkWithUndo}
               onDeleteNote={deleteNoteWithUndo}

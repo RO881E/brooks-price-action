@@ -1,6 +1,7 @@
-import type { Course, Lesson } from '../content/types';
+import type { CourseOutline, LessonOutline } from '../content/types';
 import { lessonAccessState } from './courseAccess';
 import { isStepResolved } from './lessonResults';
+import { resolveReader, type ResolvedReader } from './reader';
 import type { AcademyProgress } from './progress';
 
 type AnswerData = Pick<AcademyProgress, 'answers' | 'questionResults'>;
@@ -37,7 +38,14 @@ export type AppRoute =
       /** Einsbasierter Schritt aus der URL; `null`, wenn keiner angegeben ist. */
       step: number | null;
     }
-  | { kind: 'lesson-result'; lessonId: string };
+  | { kind: 'lesson-result'; lessonId: string }
+  | {
+      /** Buchleser (seit F-13): `#/read/<unit-id>?lesson=<lesson-id>&step=<n>`. */
+      kind: 'read';
+      unitId: string;
+      lessonId: string | null;
+      step: number | null;
+    };
 
 export const DEFAULT_ROUTE: AppRoute = { kind: 'view', view: 'path' };
 
@@ -69,6 +77,17 @@ export function parseRoute(hash: string): AppRoute | null {
     return term ? { kind: 'view', view: segments[0], term } : { kind: 'view', view: segments[0] };
   }
 
+  if (segments.length === 2 && segments[0] === 'read' && segments[1] !== '') {
+    let unitId: string;
+    try {
+      unitId = decodeURIComponent(segments[1]);
+    } catch {
+      return null;
+    }
+    const lessonId = new URLSearchParams(query).get('lesson')?.trim() || null;
+    return { kind: 'read', unitId, lessonId, step: lessonId ? parseStep(query) : null };
+  }
+
   const isResult = segments.length === 3 && segments[2] === 'result';
   if ((segments.length === 2 || isResult) && segments[0] === 'lesson' && segments[1] !== '') {
     let lessonId: string;
@@ -91,6 +110,12 @@ export function formatRoute(route: AppRoute): string {
       ? `#/glossary?term=${encodeURIComponent(route.term)}`
       : `#/${route.view}`;
   }
+  if (route.kind === 'read') {
+    const base = `#/read/${encodeURIComponent(route.unitId)}`;
+    if (!route.lessonId) return base;
+    const lesson = `${base}?lesson=${encodeURIComponent(route.lessonId)}`;
+    return route.step === null ? lesson : `${lesson}&step=${route.step}`;
+  }
   const base = `#/lesson/${encodeURIComponent(route.lessonId)}`;
   if (route.kind === 'lesson-result') return `${base}/result`;
   return route.step === null ? base : `${base}?step=${route.step}`;
@@ -99,19 +124,19 @@ export function formatRoute(route: AppRoute): string {
 /**
  * Höchster Schritt, der ohne Überspringen einer offenen Frage erreichbar ist.
  * Eine Frage ist erst erledigt, wenn sie richtig beantwortet oder ihre Lösung
- * aufgedeckt wurde – wie die Sperre der „Weiter“-Schaltfläche im Lesson Player.
+ * aufgedeckt wurde – wie die Sperre der „Weiter“-Schaltfläche im LessonOutline Player.
  */
-export function maxReachableStepIndex(lesson: Lesson, data: AnswerData): number {
+export function maxReachableStepIndex(lesson: LessonOutline, data: AnswerData): number {
   const blocking = lesson.steps.findIndex((step) => !isStepResolved(step, data));
   return blocking === -1 ? lesson.steps.length - 1 : blocking;
 }
 
-export function clampStepIndex(lesson: Lesson, data: AnswerData, stepIndex: number): number {
+export function clampStepIndex(lesson: LessonOutline, data: AnswerData, stepIndex: number): number {
   if (!Number.isInteger(stepIndex) || stepIndex < 0) return 0;
   return Math.min(stepIndex, maxReachableStepIndex(lesson, data));
 }
 
-export function findLesson(course: Course, lessonId: string): Lesson | undefined {
+export function findLesson(course: CourseOutline, lessonId: string): LessonOutline | undefined {
   return course.units
     .flatMap((unit) => unit.lessons)
     .find((lesson) => lesson.id === lessonId);
@@ -119,8 +144,8 @@ export function findLesson(course: Course, lessonId: string): Lesson | undefined
 
 /** Ob eine Lektion geöffnet werden darf (veröffentlicht und freigeschaltet). */
 export function canOpenLesson(
-  course: Course,
-  lesson: Lesson,
+  course: CourseOutline,
+  lesson: LessonOutline,
   progress: AcademyProgress,
 ): boolean {
   const state = lessonAccessState(course, lesson, progress.completedLessonIds);
@@ -131,7 +156,7 @@ export function canOpenLesson(
  * Schritt, mit dem eine Lektion beim normalen Öffnen startet: Begonnene
  * Lektionen setzen am gespeicherten Schritt fort, alle anderen starten vorn.
  */
-export function startStepIndex(lesson: Lesson, progress: AcademyProgress): number {
+export function startStepIndex(lesson: LessonOutline, progress: AcademyProgress): number {
   const saved = progress.lessonPositions[lesson.id];
   if (!saved || progress.completedLessonIds.includes(lesson.id)) return 0;
   return clampStepIndex(lesson, progress, saved.stepIndex);
@@ -139,8 +164,9 @@ export function startStepIndex(lesson: Lesson, progress: AcademyProgress): numbe
 
 export type ResolvedRoute =
   | { kind: 'view'; view: AppView; term?: string }
-  | { kind: 'lesson'; lesson: Lesson; stepIndex: number }
-  | { kind: 'lesson-result'; lesson: Lesson };
+  | { kind: 'lesson'; lesson: LessonOutline; stepIndex: number }
+  | { kind: 'lesson-result'; lesson: LessonOutline }
+  | { kind: 'read'; reader: ResolvedReader };
 
 /**
  * Prüft eine Route gegen Kurs und Fortschritt. Unbekannte, geplante oder
@@ -150,10 +176,14 @@ export type ResolvedRoute =
  */
 export function resolveRoute(
   route: AppRoute,
-  course: Course,
+  course: CourseOutline,
   progress: AcademyProgress,
 ): ResolvedRoute | null {
   if (route.kind === 'view') return route;
+  if (route.kind === 'read') {
+    const reader = resolveReader(course, progress, route.unitId, route.lessonId, route.step);
+    return reader ? { kind: 'read', reader } : null;
+  }
 
   const lesson = findLesson(course, route.lessonId);
   if (!lesson || lesson.steps.length === 0 || !canOpenLesson(course, lesson, progress)) {
@@ -175,7 +205,7 @@ export function resolveRoute(
 }
 
 export interface ResumeTarget {
-  lesson: Lesson;
+  lesson: LessonOutline;
   stepIndex: number;
 }
 
@@ -184,7 +214,7 @@ export interface ResumeTarget {
  * Grundlage für „Weiterlernen“. Ohne begonnene Lektion gibt es kein Ziel.
  */
 export function resumeTarget(
-  course: Course,
+  course: CourseOutline,
   progress: AcademyProgress,
 ): ResumeTarget | undefined {
   const candidates = Object.entries(progress.lessonPositions)

@@ -16,10 +16,21 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 8;
+export const ACADEMY_PROGRESS_VERSION = 9;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
+
+/**
+ * Lesestelle im Buchleser je Einheit (seit F-13, v9): zuletzt gelesener
+ * Abschnitt (Lektion) und Schritt. Unabhängig vom Lektionsabschluss und von
+ * `lessonPositions` des Lesson Players.
+ */
+export interface ReaderPosition {
+  lessonId: string;
+  stepId: string | null;
+  updatedAt: string;
+}
 
 export interface LessonPosition {
   /** Nullbasierter Index des zuletzt geöffneten gültigen Schritts. */
@@ -177,6 +188,8 @@ export interface AcademyProgress {
   lastLessonId: string | null;
   /** Begonnene, noch nicht abgeschlossene Lektionen mit ihrem letzten Schritt. */
   lessonPositions: Record<string, LessonPosition>;
+  /** Lesestelle im Buchleser, Schlüssel: Einheit-ID (seit F-13). */
+  readerPositions: Record<string, ReaderPosition>;
   legacyReadChapters: string[];
   legacyTrendRangeBest: number;
   updatedAt: string;
@@ -211,6 +224,7 @@ export function createEmptyProgress(): AcademyProgress {
     settings: DEFAULT_SETTINGS,
     lastLessonId: null,
     lessonPositions: {},
+    readerPositions: {},
     legacyReadChapters: [],
     legacyTrendRangeBest: 0,
     updatedAt: nowIso(),
@@ -260,6 +274,7 @@ const KNOWN_FIELDS = new Set([
   'settings',
   'lastLessonId',
   'lessonPositions',
+  'readerPositions',
   'legacyReadChapters',
   'legacyTrendRangeBest',
   'updatedAt',
@@ -273,6 +288,37 @@ function stringArray(value: unknown): string[] {
   return Array.isArray(value)
     ? value.filter((item): item is string => typeof item === 'string')
     : [];
+}
+
+const MAX_READER_ID_LENGTH = 200;
+
+function isReaderId(value: unknown): value is string {
+  return typeof value === 'string' && value !== '' && value.length <= MAX_READER_ID_LENGTH;
+}
+
+/**
+ * Lesestellen aus beliebigen, auch defekten Daten: Einträge ohne gültige
+ * Einheit oder Lektion entfallen, ein fehlender Schritt bedeutet Abschnittsanfang.
+ * Ob die Lektion noch existiert, entscheidet erst die Route – unbekannte IDs
+ * fallen dort sicher zurück, ohne die gespeicherte Stelle zu löschen.
+ */
+export function normalizeReaderPositions(value: unknown): Record<string, ReaderPosition> {
+  if (!isRecord(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([unitId, position]) => {
+      if (!isReaderId(unitId) || !isRecord(position) || !isReaderId(position.lessonId)) return [];
+      return [
+        [
+          unitId,
+          {
+            lessonId: position.lessonId,
+            stepId: isReaderId(position.stepId) ? position.stepId : null,
+            updatedAt: typeof position.updatedAt === 'string' ? position.updatedAt : nowIso(),
+          },
+        ],
+      ];
+    }),
+  );
 }
 
 function normalizePositions(value: unknown): Record<string, LessonPosition> {
@@ -651,6 +697,7 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * diese starten leer. Lerntage (vor v5) und Tageszählwerte (vor v6) werden
  * einmalig aus vorhandenen Zeitstempeln abgeleitet, nie geschätzt. Vorhandene Antworten
  * bleiben unverändert in `answers` und werden nicht in Versuche umgedeutet.
+ * Vor v9 gibt es keine Lesestellen im Buchleser; sie beginnen leer.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {
@@ -691,6 +738,8 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     lastLessonId:
       typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     lessonPositions: normalizePositions(value.lessonPositions),
+    // Seit v9; ältere Stände starten ohne Lesestelle.
+    readerPositions: normalizeReaderPositions(value.readerPositions),
     legacyReadChapters: stringArray(value.legacyReadChapters),
     legacyTrendRangeBest:
       typeof best === 'number' && Number.isFinite(best) && best > 0 ? best : 0,
@@ -812,6 +861,30 @@ export function recordLessonStep(
     lessonPositions: {
       ...progress.lessonPositions,
       [lessonId]: { stepIndex, updatedAt: nowIso() },
+    },
+  };
+}
+
+/**
+ * Merkt sich die Lesestelle einer Einheit im Buchleser. Unabhängig vom
+ * Abschluss: Auch in bereits abgeschlossenen Abschnitten bleibt die Stelle.
+ */
+export function recordReaderPosition(
+  progress: AcademyProgress,
+  unitId: string,
+  lessonId: string,
+  stepId: string | null,
+  now: string = nowIso(),
+): AcademyProgress {
+  if (!isReaderId(unitId) || !isReaderId(lessonId)) return progress;
+  const step = isReaderId(stepId) ? stepId : null;
+  const current = progress.readerPositions[unitId];
+  if (current && current.lessonId === lessonId && current.stepId === step) return progress;
+  return {
+    ...progress,
+    readerPositions: {
+      ...progress.readerPositions,
+      [unitId]: { lessonId, stepId: step, updatedAt: now },
     },
   };
 }

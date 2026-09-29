@@ -1,4 +1,4 @@
-import type { Course, CourseUnit, Lesson } from '../content/types';
+import type { CourseOutline, LessonOutline, QuestionOutline, UnitOutline } from '../content/types';
 import { questionView, type QuestionStep } from './lessonResults';
 import { awardMilestone } from './goals';
 import {
@@ -20,9 +20,10 @@ import {
 export const REVIEW_SESSION_SIZE = 10;
 
 export interface ReviewItem {
-  question: QuestionStep;
-  lesson: Lesson;
-  unit: CourseUnit;
+  /** Gliederung der Frage; Antworttexte lädt die Ansicht bei Bedarf (F-12). */
+  question: QuestionOutline;
+  lesson: LessonOutline;
+  unit: UnitOutline;
   /** Position in der Buchreihenfolge über alle Fragen. */
   order: number;
 }
@@ -32,7 +33,7 @@ export interface ReviewItem {
  * bereits abgeschlossenen Lektionen – so verrät die Wiederholung nichts aus
  * Lektionen, die noch vor dem Nutzer liegen.
  */
-export function reviewPool(course: Course, progress: AcademyProgress): ReviewItem[] {
+export function reviewPool(course: CourseOutline, progress: AcademyProgress): ReviewItem[] {
   const completed = new Set(progress.completedLessonIds);
   const items: ReviewItem[] = [];
 
@@ -321,11 +322,11 @@ export interface ReviewOverview {
   due: number;
   mistakes: number;
   nextDueDay: DayKey | null;
-  units: Array<{ unit: CourseUnit; count: number }>;
+  units: Array<{ unit: UnitOutline; count: number }>;
 }
 
 export function reviewOverview(
-  course: Course,
+  course: CourseOutline,
   items: ReviewItem[],
   progress: AcademyProgress,
   today: DayKey,

@@ -6,16 +6,21 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 ## Veröffentlichtes Buchmaterial
 
 Die Academy bietet eine separate Begriffsreferenz. Der lineare Lernpfad enthält
-die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 6 von
+die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 7 von
 *Trading Price Action Trends*. Kapitel 5 enthält 25 Mikro-Lektionen zu
 Reversal-Bars und den Chartfällen 5.1 bis 5.3. Kapitel 6 ergänzt 40 Lektionen
-zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Die Schaubilder
+zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Kapitel 7 ergänzt
+24 Lektionen zu Outside-Bars und den Chartfällen 7.1 bis 7.4. Die Schaubilder
 übernehmen weder Originalkurse noch Buchabbildungen.
 
 ## Was der Pilot bereits kann
 
 - Lernpfad mit aufeinander aufbauenden Mikro-Lektionen
-- alternative Kapitelansicht in der Reihenfolge der Buchvorlage
+- Buchmodus mit Kapitelübersicht und echtem Buchleser (`#/read/<einheit>?lesson=<id>&step=<n>`):
+  „Kapitel lesen“ zeigt die veröffentlichten Abschnitte in Buchreihenfolge als zusammenhängenden
+  Text mit Schaubildern (inkl. Diagramm-Fokus), Vergleichen, Fragen und Zusammenfassung;
+  Kapitelgliederung, Lesefortschritt als Zählung, „Weiterlesen“ an der gemerkten Stelle und klare
+  Hinweise auf gesperrte Abschnitte
 - Erklärungen, eigene interaktive Schaubilder, Verständnisfragen und Zusammenfassungen
 - Review-Zentrale unter „Üben“ mit „Heute fällig“, „Fehler trainieren“, „Kapitel auswählen“
   und „Alles mischen“ (nur Fragen aus abgeschlossenen Lektionen, bis zu 10 pro Runde)
@@ -59,7 +64,7 @@ zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Die Schaubilder
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-08 `version: 8`:
+seit F-13 `version: 9`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -81,9 +86,14 @@ seit F-08 `version: 8`:
 - `bookmarks` und `notes` (seit F-07): Lesezeichen und Klartextnotizen (höchstens 5000 Zeichen)
   je Lektion bzw. Schritt, Schlüssel `lessonId` oder `lessonId::stepId`
 - `settings` (seit F-08): `motion` (`system` oder `reduce`) und `compact`
+- `readerPositions` (seit F-13, v9): Lesestelle im Buchleser je Einheit –
+  `{ lessonId, stepId, updatedAt }`, Schlüssel ist die Einheit-ID. Sie ist unabhängig vom
+  Lektionsabschluss und von `lessonPositions`.
 
-Ältere Datensätze (v1–v7) werden beim Laden verlustfrei migriert; der Wiederholungsplan
-startet leer. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
+Ältere Datensätze (v1–v8) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+startet leer, ebenso die Lesestellen (vor v9). Defekte Lesestellen (ohne Einheit oder Lektion)
+entfallen, ein ungültiger Schritt wird zum Abschnittsanfang; eine Lesestelle auf eine unbekannte
+oder gesperrte Lektion bleibt gespeichert, der Leser öffnet dann den nächsten lesbaren Abschnitt. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
 `wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur
 gelesen, nie verändert.
@@ -97,14 +107,15 @@ und unbekannte Zusatzfelder.
 
 Der Import prüft streng (`src/features/backup.ts`): höchstens 10 MB, gültiges JSON, bekanntes
 Format und keine neuere Version, alle Pflichtfelder, keine unbekannten Felder, gültige Einträge
-und keine gefährlichen Schlüssel wie `__proto__`. Eine abgelehnte Datei ändert nichts. Vor jeder
+und keine gefährlichen Schlüssel wie `__proto__`. Sicherungen aus v8 (vor dem Buchleser) bleiben gültig: Ihnen
+fehlt nur `readerPositions`, das leer ergänzt wird. Eine abgelehnte Datei ändert nichts. Vor jeder
 Änderung erscheint eine Vorschau.
 
 - **Zusammenführen** (Standard) ergänzt den Stand, ohne etwas doppelt zu zählen: Vereinigung von
   Lektionen, Lerntagen, Lesezeichen und Meilensteinen; früherer Erstabschluss samt XP;
   Datensatz mit mehr Versuchen; jüngerer Wiederholungsstand und jüngere Lektionsposition;
-  Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; Antworten lokal vor
-  Import. Tagesziel und Darstellung kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
+  Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; je Einheit die
+  zuletzt gesetzte Lesestelle; Antworten lokal vor Import. Tagesziel und Darstellung kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
 - **Vollständig ersetzen** braucht eine ausdrückliche Bestätigung; vorher wird ein Download des
   aktuellen Stands angeboten.
 - **Zurücksetzen** löscht nur `wqt-academy-progress-v1`. `brooks-progress` und `brooks-tr-best`
@@ -122,9 +133,32 @@ und keine gefährlichen Schlüssel wie `__proto__`. Eine abgelehnte Datei änder
 - Fehlergrenzen: Ein Renderfehler zeigt statt einer leeren Seite „Hier ist etwas
   schiefgelaufen.“ mit „Zum Lernpfad“ und „Seite neu laden“. Kann ein Schaubild nicht geladen
   werden, bleibt der Schritt lesbar und bietet „Seite neu laden“ an.
-- Code-Splitting: React, Kursinhalte (Einleitung/Teil 1 und Kapitel) und App-Code liegen in
-  eigenen Chunks; die Schaubilder werden erst im ersten Diagramm-Schritt geladen und vom
+- Code-Splitting: React und App-Code liegen in eigenen Chunks, jede Kurseinheit ebenfalls (siehe
+  „Kapitelweises Laden“); die Schaubilder werden erst im ersten Diagramm-Schritt geladen und vom
   Service Worker trotzdem für offline vorgehalten.
+
+## Kapitelweises Laden
+
+- `src/content/units.ts` ist die **einzige** Liste der Kurseinheiten in Buchreihenfolge. Jede
+  Einheit hat Metadaten und einen `load()`-Aufruf mit dynamischem Import; daraus entsteht je
+  Einheit ein eigener Chunk. **Neue Kapitel werden nur hier eingetragen.**
+- Das Vite-Plugin `build/courseOutlinePlugin.ts` erzeugt beim Build und im Entwicklungsserver
+  das virtuelle Modul `virtual:wqt-course-outline`: die Gliederung aller Einheiten, Lektionen
+  und Schritte (IDs, Titel, Zusammenfassung, Quelle, XP, Status, bei Fragen die richtige
+  Antwort-ID) – ohne Lehrtexte. Sie wird aus denselben Inhaltsdateien berechnet und kann nicht
+  von ihnen abweichen.
+- Lernpfad, Freischaltung, Direktlinks, Fortsetzen, Suche, Gespeichert, Fortschritt und die
+  Auswahl der Review-Fragen arbeiten sofort mit dieser Gliederung. Ungültige, gesperrte oder
+  geplante Lektionen werden deshalb ohne Ladezeit erkannt.
+- `src/content/catalog.ts` lädt die vollständigen Lektionen einer Einheit erst, wenn der Lesson
+  Player oder eine Review-Frage sie anzeigt, teilt parallele Anfragen und prüft, dass Inhalt und
+  Gliederung zusammenpassen. Das Kapitel der nächsten Lektion wird im Leerlauf vorgeladen.
+- Schlägt das Laden fehl, erscheint „Die Lektion konnte nicht geladen werden.“ mit „Erneut
+  laden“ (lädt die Seite neu, weil Browser fehlgeschlagene Module zwischenspeichern) und „Zurück
+  zur Übersicht“. Gespeicherte Daten bleiben unberührt.
+- `src/content/course.ts` setzt den vollständigen Kurs zusammen und ist nur für Tests und die
+  Build-Erzeugung da; ein Unit-Test verhindert, dass App-Code ihn importiert.
+- Offline: Der Service Worker lädt weiterhin alle Einheiten vorab (wählbare Kapitel wären F-19).
 
 ## Offline-App und Updates
 
@@ -186,6 +220,12 @@ einem nicht ladbaren Schaubild. Vor jedem Release gilt die
 `tests/pwa.spec.ts` baut zusätzlich den Produktions-Build nach `.wqt-playwright-tmp/`, liefert
 ihn unter `/academy/` aus und prüft Registrierung, Offline-Betrieb, Updates, fehlgeschlagene
 Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
+`tests/reader.spec.ts` (F-13) prüft Lesen mit Pflichtfrage (falsch, dann richtig, per Tastatur),
+Weiterlesen, XP genau einmal, gesperrte Abschnitte und Kapitel, unbekannte IDs, Reload an der
+Lesestelle, Wechsel über den Lernpfad, Diagramm-Fokus, Export/Import und 360 px mit axe.
+`tests/chapter-loading.spec.ts` (F-12) prüft, dass der Lernpfad ohne Kapitelinhalte startet,
+Direktlinks, Zurück/Vorwärts, gesperrte und unbekannte Lektionen, Suche über noch nicht
+geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Laden.
 
 ## Geplanter Funktionsausbau
 

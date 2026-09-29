@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-import type { Lesson } from '../content/types';
+import type { LessonOutline } from '../content/types';
 import type { LessonSummary } from '../features/lessonResults';
 
 interface LessonResultViewProps {
-  lesson: Lesson;
+  lesson: LessonOutline;
   summary: LessonSummary;
   onRepeat: () => void;
   onBackToPath: () => void;

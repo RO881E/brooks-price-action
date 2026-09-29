@@ -244,3 +244,28 @@ export interface Course {
   sourceOrderNotice: string;
   units: CourseUnit[];
 }
+
+/*
+ * Gliederung des Kurses (F-12): alles, was Navigation, Freischaltung, Suche,
+ * Fortsetzen und Statistik brauchen – ohne die Lehrtexte der Schritte. Die
+ * Gliederung wird beim Build aus denselben Inhaltsdateien erzeugt und ist
+ * sofort verfügbar; die vollständigen Lektionen lädt die App kapitelweise.
+ * Vollständige Typen (`Lesson`, `Course`) erfüllen diese Typen strukturell.
+ */
+export type StepOutline =
+  | { id: string; type: Exclude<LessonStep['type'], 'question'>; title: string }
+  | { id: string; type: 'question'; title: string; correctOptionId: string };
+
+export type QuestionOutline = Extract<StepOutline, { type: 'question' }>;
+
+export interface LessonOutline extends Omit<Lesson, 'steps'> {
+  steps: StepOutline[];
+}
+
+export interface UnitOutline extends Omit<CourseUnit, 'lessons'> {
+  lessons: LessonOutline[];
+}
+
+export interface CourseOutline extends Omit<Course, 'units'> {
+  units: UnitOutline[];
+}

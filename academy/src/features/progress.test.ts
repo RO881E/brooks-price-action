@@ -14,6 +14,7 @@ import {
   recordActivity,
   recordAnswer,
   recordLessonStep,
+  recordReaderPosition,
   saveProgress,
   updateSettings,
 } from './progress';
@@ -582,5 +583,66 @@ describe('settings (v8)', () => {
     const reduced = updateSettings(progress, { motion: 'reduce' });
     expect(reduced.settings).toEqual({ motion: 'reduce', compact: false });
     expect(updateSettings(reduced, { compact: true }).settings).toEqual({ motion: 'reduce', compact: true });
+  });
+});
+
+describe('Lesestellen im Buchleser (F-13, v9)', () => {
+  it('migriert ältere Stände ohne Lesestelle auf v9 mit leerem Feld', () => {
+    const migrated = migrateProgress({ version: 8, completedLessonIds: ['a'], answers: {} });
+    expect(migrated?.version).toBe(9);
+    expect(migrated?.readerPositions).toEqual({});
+    expect(migrated?.completedLessonIds).toEqual(['a']);
+    expect(migrated?.preservedFields).toEqual({});
+  });
+
+  it('behält gültige Lesestellen und verwirft defekte Einträge', () => {
+    const migrated = migrateProgress({
+      version: 9,
+      readerPositions: {
+        'unit-ok': { lessonId: 'lesson-1', stepId: 'step-2', updatedAt: '2026-09-29T08:00:00.000Z' },
+        'unit-ohne-schritt': { lessonId: 'lesson-2', stepId: 7 },
+        'unit-ohne-lektion': { stepId: 'x' },
+        'unit-leer': { lessonId: '' },
+        'unit-kaputt': 'lesson-3',
+        '': { lessonId: 'lesson-4' },
+      },
+    });
+    expect(Object.keys(migrated!.readerPositions).sort()).toEqual(['unit-ohne-schritt', 'unit-ok']);
+    expect(migrated!.readerPositions['unit-ok']).toEqual({
+      lessonId: 'lesson-1',
+      stepId: 'step-2',
+      updatedAt: '2026-09-29T08:00:00.000Z',
+    });
+    expect(migrated!.readerPositions['unit-ohne-schritt'].stepId).toBeNull();
+    expect(typeof migrated!.readerPositions['unit-ohne-schritt'].updatedAt).toBe('string');
+    expect(migrateProgress({ version: 9, readerPositions: [1, 2] })?.readerPositions).toEqual({});
+  });
+
+  it('speichert die Lesestelle unabhängig vom Lektionsabschluss', () => {
+    const start = completeLesson(createEmptyProgress(), 'lesson-1', 30, '2026-09-29T08:00:00.000Z');
+    const read = recordReaderPosition(start, 'unit', 'lesson-1', 'step-3', '2026-09-29T09:00:00.000Z');
+    expect(read.readerPositions.unit).toEqual({
+      lessonId: 'lesson-1',
+      stepId: 'step-3',
+      updatedAt: '2026-09-29T09:00:00.000Z',
+    });
+    expect(read.completedLessonIds).toEqual(['lesson-1']);
+    expect(read.lessonPositions).toEqual(start.lessonPositions);
+    // Gleiche Stelle: unverändert (kein unnötiges Speichern).
+    expect(recordReaderPosition(read, 'unit', 'lesson-1', 'step-3')).toBe(read);
+    expect(recordReaderPosition(read, '', 'lesson-1', null)).toBe(read);
+    expect(recordReaderPosition(read, 'unit', '', null)).toBe(read);
+    expect(recordReaderPosition(read, 'unit', 'lesson-2', '').readerPositions.unit.stepId).toBeNull();
+  });
+
+  it('schreibt die Lesestelle mit und liest sie nach dem Laden wieder', () => {
+    const storage = new Map<string, string>();
+    const store = {
+      getItem: (key: string) => storage.get(key) ?? null,
+      setItem: (key: string, value: string) => void storage.set(key, value),
+    };
+    saveProgress(store, recordReaderPosition(createEmptyProgress(), 'unit', 'lesson-1', null));
+    expect(loadProgress(store).readerPositions.unit.lessonId).toBe('lesson-1');
+    expect(JSON.parse(storage.get(ACADEMY_PROGRESS_KEY)!).readerPositions.unit.lessonId).toBe('lesson-1');
   });
 });
