@@ -44,7 +44,11 @@ function trackErrors(page: Page) {
 }
 
 async function expectAccessible(page: Page, label: string) {
-  // Kontrast erst nach Ein-/Ausblendanimationen messen.
+  // Kontrast erst nach Ein-/Ausblendanimationen messen. Zwei Frames abwarten,
+  // damit auch eine gerade erst eingeblendete Meldung ihre Animation gestartet hat.
+  await page.evaluate(
+    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+  );
   await page.waitForFunction(() =>
     document
       .getAnimations()

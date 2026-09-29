@@ -147,7 +147,8 @@ test.describe('desktop content traversal', () => {
           await expect(page.getByRole('img', { name: step.title })).toBeVisible();
         }
         if (index < lesson.steps.length - 1) {
-          await page.getByRole('button', { name: 'Weiter' }).click();
+          // exakt: Diagrammtitel im Namen von „Vergrößern: …“ können „weiter“ enthalten.
+          await page.getByRole('button', { name: 'Weiter', exact: true }).click();
         }
       }
 

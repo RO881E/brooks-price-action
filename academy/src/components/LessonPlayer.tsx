@@ -1,5 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef } from 'react';
-import type { ChartScenarioId, Lesson, LessonStep } from '../content/types';
+import type { Lesson, LessonStep } from '../content/types';
 import {
   isQuestionResolved,
   type QuestionStep as QuestionStepData,
@@ -12,8 +12,9 @@ import { NotesPanel } from './NotesPanel';
 
 // Die Schaubilder sind der größte Code-Block; sie werden erst beim ersten
 // Diagramm-Schritt geladen (und vom Service Worker für offline vorgehalten).
-const LearningChart = lazy(() =>
-  import('./LearningChart').then((module) => ({ default: module.LearningChart })),
+// Zusammen mit dem Diagramm-Fokus (F-11), der dieselben Schaubilder nutzt.
+const ChartWithFocus = lazy(() =>
+  import('./ChartFocus').then((module) => ({ default: module.ChartWithFocus })),
 );
 
 /** Platzhalter in Schaubildgröße, damit beim Nachladen nichts springt. */
@@ -48,11 +49,16 @@ function ChartLoadError() {
   );
 }
 
-function StepChart({ scenario, title }: { scenario: ChartScenarioId; title: string }) {
+function StepChart({ step }: { step: Extract<LessonStep, { type: 'diagram' }> }) {
   return (
     <ErrorBoundary fallback={() => <ChartLoadError />}>
       <Suspense fallback={<ChartPlaceholder />}>
-        <LearningChart scenario={scenario} title={title} />
+        <ChartWithFocus
+          scenario={step.scenario}
+          title={step.title}
+          caption={step.caption}
+          observations={step.observations}
+        />
       </Suspense>
     </ErrorBoundary>
   );
@@ -103,7 +109,7 @@ function DiagramStep({ step }: { step: Extract<LessonStep, { type: 'diagram' }> 
     <article className="step-copy diagram-step">
       <p className="eyebrow">Schaubild</p>
       <h1 tabIndex={-1}>{step.title}</h1>
-      <StepChart scenario={step.scenario} title={step.title} />
+      <StepChart step={step} />
       <p className="chart-caption">{step.caption}</p>
       <ul className="observation-list">
         {step.observations.map((observation, index) => (
