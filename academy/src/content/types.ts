@@ -67,6 +67,15 @@ export const CHAPTER_EIGHT_SCENARIOS = [
 
 export type ChapterEightScenarioId = (typeof CHAPTER_EIGHT_SCENARIOS)[number];
 
+export const CHAPTER_NINE_SCENARIOS = [
+  'c09-view-choice', 'c09-spy-context', 'c09-inverse-view',
+  'c09-flag-or-bottom', 'c09-failed-breakout', 'c09-extra-markets',
+  'c09-adjustments', 'c09-figure-91-pair', 'c09-figure-91-inverse',
+  'c09-figure-92-gap',
+] as const;
+
+export type ChapterNineScenarioId = (typeof CHAPTER_NINE_SCENARIOS)[number];
+
 export type ChartScenarioId =
   | 'auction-balance'
   | 'institutional-flow'
@@ -175,7 +184,8 @@ export type ChartScenarioId =
   | ChapterFiveScenarioId
   | ChapterSixScenarioId
   | ChapterSevenScenarioId
-  | ChapterEightScenarioId;
+  | ChapterEightScenarioId
+  | ChapterNineScenarioId;
 
 export type LessonStep =
   | {

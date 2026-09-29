@@ -142,4 +142,16 @@ export const unitDefinitions: UnitDefinition[] = [
     load: () =>
       import('./courses/brooks-trends/chapter-08').then((module) => module.chapterEightLessons),
   },
+  {
+    id: 'brooks-trends.chapter-09',
+    order: 11,
+    kind: 'chapter',
+    label: 'Kapitel 9',
+    title: 'ETFs und inverse Charts',
+    description:
+      'Alternative Chartansichten, SPY und Emini, die SDS-Gegenprobe sowie die beiden Buchabbildungen zu Vergleich und Eröffnungslücke.',
+    estimatedLessonCount: 10,
+    load: () =>
+      import('./courses/brooks-trends/chapter-09').then((module) => module.chapterNineLessons),
+  },
 ];
