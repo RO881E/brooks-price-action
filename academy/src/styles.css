@@ -3752,7 +3752,8 @@ button:disabled {
 /* F-09: Offline- und Update-Hinweise */
 .app-status {
   position: fixed;
-  top: calc(12px + env(safe-area-inset-top));
+  /* Unter der Kopfzeile (68 px), damit Menü, Suche und Hilfe bedienbar bleiben. */
+  top: calc(76px + env(safe-area-inset-top));
   left: 50%;
   z-index: 59;
   display: flex;
@@ -3822,6 +3823,13 @@ button:disabled {
 .app-status-actions button:focus-visible {
   outline: 2px solid var(--gold-soft);
   outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  /* Mobile Kopfzeile ist 60 px hoch. */
+  .app-status {
+    top: calc(68px + env(safe-area-inset-top));
+  }
 }
 
 @media (max-width: 520px) {
