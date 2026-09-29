@@ -464,6 +464,24 @@ test('Kurz lernen offline: Vorschläge, Überspringen und Lektion öffnen (F-23)
   expect(errors).toEqual([]);
 });
 
+test('Fehlerbericht offline erstellen (F-28)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  await firstVisit(page);
+  await page.getByRole('button', { name: 'Einführung schließen' }).click();
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.getByRole('button', { name: 'Hilfe', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Fehler melden' }).click();
+  const form = page.getByRole('dialog', { name: 'Fehler melden' });
+  await form.getByLabel('Was ist passiert?').fill('Offline-Test');
+  await expect(form.getByLabel('Vorschau – genau dieser Text wird kopiert')).toHaveValue(/Verbindung: offline/);
+  await expect(form.getByRole('button', { name: 'Als Textdatei herunterladen' })).toBeEnabled();
+  serverState.down = false;
+  await context.setOffline(false);
+  await expect(form.getByLabel('Vorschau – genau dieser Text wird kopiert')).toHaveValue(/Verbindung: online/);
+  expect(errors).toEqual([]);
+});
+
 test('Einführung und Hilfe offline (F-18)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   await firstVisit(page);

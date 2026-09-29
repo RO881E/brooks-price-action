@@ -275,6 +275,22 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Freiwilliger Fehlerbericht (F-28)
+
+Unter **Hilfe → Fehler melden** kann man einen Fehler beschreiben („Was ist passiert?“ als
+Pflichtfeld, „Wie lässt es sich nachstellen?“ optional, je höchstens 2000 Zeichen). Die
+Vorschau zeigt exakt den Text, der mit „Bericht kopieren“ in die Zwischenablage kommt oder
+als `wqt-academy-fehlerbericht.txt` heruntergeladen wird. Scheitert das Kopieren (fehlende
+Berechtigung), wird die Vorschau markiert und der Download bleibt möglich.
+
+Der Bericht (`src/features/bugReport.ts`) enthält ausschließlich App-Version (aus
+`package.json`), grobe Browser-/Geräteangabe (Familie, Hauptversion, Desktop/Mobil, System),
+Online-/Offline-Status, den Bereich der App (nur das erste Routensegment, z. B. `study`) und die
+selbst geschriebenen Texte. **Nicht enthalten:** Notizen, Quizantworten, Trainerbegründungen,
+Importdateien, Speicherinhalte, Geräte-IDs, IDs oder URL-Parameter. Es gibt kein Backend, keine
+Analytics, kein Crash-SDK und keinen automatischen Versand; die App schreibt dafür nichts in den
+lokalen Speicher. Der Bericht funktioniert auch ohne jeden Lernfortschritt und offline.
+
 ## Kurz lernen (F-23)
 
 Im Lernpfad fragt „Kurz lernen“ nach dem ungefähren Zeitrahmen (≈ 10 oder ≈ 20 Minuten) und
