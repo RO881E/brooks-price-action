@@ -1,5 +1,8 @@
 import type { CourseOutline } from '../content/types';
 import { goalLabel, type GoalOverview, type WeekDayStatus } from '../features/goals';
+import type { Mission } from '../features/missions';
+import type { ProgressSummary as Summary } from '../features/progressSummary';
+import { BadgeGrid, MissionList, ProgressSummary } from './MotivationPanels';
 import { DAILY_GOAL_OPTIONS, type DailyGoal } from '../features/progress';
 import type { NextAction, ProgressOverview } from '../features/progressStats';
 import type { DayKey } from '../features/reviewScheduler';
@@ -11,6 +14,11 @@ interface ProgressViewProps {
   today: DayKey;
   onAction: (action: NextAction) => void;
   onGoalChange: (goal: DailyGoal) => void;
+  /** Zählwerte für den Überblick (P07). */
+  summary: Summary;
+  /** Freiwillige Tagesvorschläge (P07). */
+  missions: Mission[];
+  onMission: (mission: Mission) => void;
 }
 
 const weekStatusLabels: Record<WeekDayStatus, string> = {
@@ -136,40 +144,6 @@ function GoalSection({
   );
 }
 
-function MilestoneSection({ goals }: { goals: GoalOverview }) {
-  const achieved = goals.milestones.filter((milestone) => milestone.achievedDay).length;
-  return (
-    <section className="progress-panel" aria-labelledby="milestones-heading">
-      <div className="progress-panel-head">
-        <h2 id="milestones-heading">Meilensteine</h2>
-        <p>
-          <strong>{achieved}</strong> von {goals.milestones.length}
-        </p>
-      </div>
-      <ul className="milestone-list">
-        {goals.milestones.map((milestone) => (
-          <li key={milestone.id} className={milestone.achievedDay ? 'achieved' : ''}>
-            <span className="milestone-mark" aria-hidden="true">
-              {milestone.achievedDay ? '✦' : '○'}
-            </span>
-            <span>
-              <strong>{milestone.title}</strong>
-              <small>
-                {milestone.achievedDay
-                  ? `Erhalten am ${formatDay(milestone.achievedDay)}${milestone.achievedDay.slice(0, 4)}`
-                  : milestone.description}
-              </small>
-            </span>
-            <span className="visually-hidden">
-              {milestone.achievedDay ? 'erreicht' : 'noch offen'}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
 export function ProgressView({
   course,
   overview,
@@ -177,6 +151,9 @@ export function ProgressView({
   today,
   onAction,
   onGoalChange,
+  summary,
+  missions,
+  onMission,
 }: ProgressViewProps) {
   const { lessons, firstAttempt, activity } = overview;
   const [primary, ...secondary] = overview.actions;
@@ -234,7 +211,11 @@ export function ProgressView({
         )}
       </section>
 
+      <ProgressSummary overview={overview} summary={summary} goals={goals} />
+
       <GoalSection goals={goals} onGoalChange={onGoalChange} />
+
+      <MissionList missions={missions} onStart={onMission} />
 
       {overview.state === 'new' ? (
         <div className="empty-state progress-empty">
@@ -344,7 +325,7 @@ export function ProgressView({
         </>
       )}
 
-      <MilestoneSection goals={goals} />
+      <BadgeGrid goals={goals} />
 
       {overview.legacyReadChapters > 0 ? (
         <p className="progress-note">

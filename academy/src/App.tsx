@@ -27,6 +27,8 @@ import { ReplayView } from './components/ReplayView';
 import { StudyView } from './components/StudyView';
 import { TodayPanel } from './components/TodayPanel';
 import { planToday } from './features/today';
+import { dailyMissions } from './features/missions';
+import { progressSummary } from './features/progressSummary';
 import { planStudySession } from './features/studySession';
 import { FirstUseWelcome, GuideDialog, type GuideFacts } from './components/FirstUseGuide';
 import { UndoToast, type UndoAction } from './components/UndoToast';
@@ -1086,6 +1088,13 @@ export default function App() {
               today={today}
               onAction={runNextAction}
               onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
+              summary={progressSummary(progress)}
+              missions={dailyMissions(courseOutline, progress, today)}
+              onMission={(mission) => {
+                if (mission.kind === 'review') runNextAction({ kind: 'review', due: 0 });
+                else if (mission.kind === 'lesson' && mission.lesson) openLesson(mission.lesson);
+                else if (mission.kind === 'train' && mission.caseId) openTraining(mission.caseId);
+              }}
             />
           ) : null}
           {view === 'saved' ? (

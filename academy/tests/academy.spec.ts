@@ -914,8 +914,8 @@ test.describe('F-05 daily goal, streak and milestones', () => {
     await expect(goalPanel).toContainText('Heute: 1 von 1 Lernaktivität – geschafft.');
     await expect(goalPanel).toContainText('Serie: 1 Tag');
     await expect(goalPanel.getByText('2026-10-07: Ziel erreicht')).toBeAttached();
-    await expect(page.locator('.milestone-list li.achieved')).toHaveCount(1);
-    await expect(page.locator('.milestone-list li.achieved')).toContainText('Erhalten am 07.10.2026');
+    await expect(page.locator('.badge-grid li.earned')).toHaveCount(1);
+    await expect(page.locator('.badge-grid li.earned')).toContainText('Erhalten am 07.10.2026');
 
     // Ein höheres Ziel wählen: kein Jubel, ehrliche Anzeige.
     await page.getByRole('radio', { name: '2 Lernaktivitäten' }).check();

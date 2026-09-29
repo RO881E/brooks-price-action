@@ -25,6 +25,15 @@ export function CelebrationToast({
     return () => window.clearTimeout(timer);
   }, [celebration.id, onClose]);
 
+  // Escape schließt die Meldung, ohne den Fokus zu stehlen.
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
   return (
     <div className="celebration" role="status" aria-live="polite" key={celebration.id}>
       <span className="celebration-mark" aria-hidden="true">

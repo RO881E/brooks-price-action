@@ -128,22 +128,27 @@ export function weekView(progress: AcademyProgress, today: DayKey): WeekDay[] {
 export interface MilestoneDefinition {
   id: MilestoneId;
   title: string;
+  /** Erklärtes Kriterium – steht auch beim noch offenen Abzeichen. */
   description: string;
+  /** Kleines, unterscheidbares Symbol (Beiwerk; der Titel bleibt der Bedeutungsträger). */
+  symbol: string;
 }
 
 export const MILESTONES: readonly MilestoneDefinition[] = [
-  { id: 'first-lesson', title: 'Erste Lektion', description: 'Die erste Lektion abgeschlossen.' },
+  { id: 'first-lesson', title: 'Erste Lektion', description: 'Die erste Lektion abgeschlossen.', symbol: '①' },
   {
     id: 'first-chapter',
     title: 'Erster Buchabschnitt',
     description: 'Alle Lektionen eines vollständig veröffentlichten Buchabschnitts abgeschlossen.',
+    symbol: '▤',
   },
-  { id: 'xp-1000', title: '1000 XP', description: '1000 XP aus abgeschlossenen Lektionen gesammelt.' },
-  { id: 'seven-days', title: 'Sieben Lerntage', description: 'An sieben verschiedenen Tagen gelernt.' },
+  { id: 'xp-1000', title: '1000 XP', description: '1000 XP aus abgeschlossenen Lektionen gesammelt.', symbol: '✦' },
+  { id: 'seven-days', title: 'Sieben Lerntage', description: 'An sieben verschiedenen Tagen gelernt.', symbol: '⑦' },
   {
     id: 'perfect-review',
     title: 'Fehlerfreie Runde',
     description: 'Eine Wiederholungsrunde vollständig und ohne Fehler beendet.',
+    symbol: '◎',
   },
 ];
 
