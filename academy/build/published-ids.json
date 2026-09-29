@@ -1,0 +1,2014 @@
+{
+  "note": "Bekannte veröffentlichte IDs (F-29). An ihnen hängen Fortschritt, Antworten, Notizen, Lesezeichen, Lesestellen und Wiederholungen. Neue Kapitel/Lektionen/Schritte mit „npm run check:content -- --accept-new“ aufnehmen; Löschen oder Umbenennen nur bewusst von Hand und mit Migration.",
+  "units": [
+    {
+      "id": "brooks-trends.introduction",
+      "lessons": [
+        {
+          "id": "brooks-trends.introduction.lesson-01",
+          "steps": [
+            "intro-01-explain",
+            "intro-01-diagram",
+            "intro-01-comparison",
+            "intro-01-question",
+            "intro-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-04",
+          "steps": [
+            "intro-04-explain",
+            "intro-04-diagram",
+            "intro-04-comparison",
+            "intro-04-question",
+            "intro-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-05",
+          "steps": [
+            "intro-05-explain",
+            "intro-05-diagram",
+            "intro-05-comparison",
+            "intro-05-question",
+            "intro-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-06",
+          "steps": [
+            "intro-06-explain",
+            "intro-06-comparison",
+            "intro-06-question",
+            "intro-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-07",
+          "steps": [
+            "intro-07-explain",
+            "intro-07-diagram",
+            "intro-07-question",
+            "intro-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-08",
+          "steps": [
+            "intro-08-explain",
+            "intro-08-diagram",
+            "intro-08-comparison",
+            "intro-08-question",
+            "intro-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-02",
+          "steps": [
+            "intro-02-explain",
+            "intro-02-diagram",
+            "intro-02-comparison",
+            "intro-02-question",
+            "intro-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-03",
+          "steps": [
+            "intro-03-explain",
+            "intro-03-diagram",
+            "intro-03-comparison",
+            "intro-03-question",
+            "intro-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-09",
+          "steps": [
+            "intro-09-explain",
+            "intro-09-comparison",
+            "intro-09-question",
+            "intro-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-10",
+          "steps": [
+            "intro-10-explain",
+            "intro-10-diagram",
+            "intro-10-question",
+            "intro-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-11",
+          "steps": [
+            "intro-11-explain",
+            "intro-11-diagram",
+            "intro-11-question",
+            "intro-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-12",
+          "steps": [
+            "intro-12-explain",
+            "intro-12-diagram",
+            "intro-12-comparison",
+            "intro-12-question",
+            "intro-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-13",
+          "steps": [
+            "intro-13-explain",
+            "intro-13-diagram",
+            "intro-13-question",
+            "intro-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-14",
+          "steps": [
+            "intro-14-explain",
+            "intro-14-diagram",
+            "intro-14-question",
+            "intro-14-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-15",
+          "steps": [
+            "intro-15-explain",
+            "intro-15-comparison",
+            "intro-15-question",
+            "intro-15-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-16",
+          "steps": [
+            "intro-16-explain",
+            "intro-16-diagram",
+            "intro-16-structure",
+            "intro-16-pullbacks",
+            "intro-16-question",
+            "intro-16-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-17",
+          "steps": [
+            "intro-17-explain",
+            "intro-17-diagram",
+            "intro-17-impulse",
+            "intro-17-context",
+            "intro-17-question",
+            "intro-17-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-18",
+          "steps": [
+            "intro-18-explain",
+            "intro-18-diagram",
+            "intro-18-comparison",
+            "intro-18-question",
+            "intro-18-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-19",
+          "steps": [
+            "intro-19-explain",
+            "intro-19-diagram",
+            "intro-19-context",
+            "intro-19-follow",
+            "intro-19-question",
+            "intro-19-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01-introduction.lesson-01",
+          "steps": [
+            "part-01-count-explain",
+            "part-01-count-diagram",
+            "part-01-count-comparison",
+            "part-01-count-question",
+            "part-01-count-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-21",
+          "steps": [
+            "intro-21-explain",
+            "intro-21-diagram",
+            "intro-21-question",
+            "intro-21-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.introduction.lesson-22",
+          "steps": [
+            "intro-22-explain",
+            "intro-22-comparison",
+            "intro-22-diagram",
+            "intro-22-question",
+            "intro-22-recap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brooks-trends.part-01-introduction",
+      "lessons": [
+        {
+          "id": "brooks-trends.part-01.lesson-01",
+          "steps": [
+            "part-01-01-explain",
+            "part-01-01-diagram",
+            "part-01-01-question",
+            "part-01-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-02",
+          "steps": [
+            "part-01-02-explain",
+            "part-01-02-diagram",
+            "part-01-02-question",
+            "part-01-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-03",
+          "steps": [
+            "part-01-03-explain",
+            "part-01-03-diagram",
+            "part-01-03-comparison",
+            "part-01-03-question",
+            "part-01-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-04",
+          "steps": [
+            "part-01-04-explain",
+            "part-01-04-diagram",
+            "part-01-04-question",
+            "part-01-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-05",
+          "steps": [
+            "part-01-05-explain",
+            "part-01-05-diagram",
+            "part-01-05-question",
+            "part-01-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-06",
+          "steps": [
+            "part-01-06-explain",
+            "part-01-06-diagram",
+            "part-01-06-question",
+            "part-01-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-07",
+          "steps": [
+            "part-01-07-explain",
+            "part-01-07-diagram",
+            "part-01-07-question",
+            "part-01-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-08",
+          "steps": [
+            "part-01-08-explain",
+            "part-01-08-comparison",
+            "part-01-08-question",
+            "part-01-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-09",
+          "steps": [
+            "part-01-09-explain",
+            "part-01-09-diagram",
+            "part-01-09-question",
+            "part-01-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-10",
+          "steps": [
+            "part-01-10-explain",
+            "part-01-10-comparison",
+            "part-01-10-question",
+            "part-01-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-11",
+          "steps": [
+            "part-01-11-explain",
+            "part-01-11-diagram",
+            "part-01-11-question",
+            "part-01-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-12",
+          "steps": [
+            "part-01-12-explain",
+            "part-01-12-diagram",
+            "part-01-12-question",
+            "part-01-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-13",
+          "steps": [
+            "part-01-13-explain",
+            "part-01-13-diagram",
+            "part-01-13-question",
+            "part-01-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-14",
+          "steps": [
+            "part-01-14-explain",
+            "part-01-14-diagram",
+            "part-01-14-question",
+            "part-01-14-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-15",
+          "steps": [
+            "part-01-15-explain",
+            "part-01-15-diagram",
+            "part-01-15-question",
+            "part-01-15-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-16",
+          "steps": [
+            "part-01-16-explain",
+            "part-01-16-comparison",
+            "part-01-16-question",
+            "part-01-16-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-17",
+          "steps": [
+            "part-01-17-explain",
+            "part-01-17-diagram",
+            "part-01-17-question",
+            "part-01-17-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-18",
+          "steps": [
+            "part-01-18-explain",
+            "part-01-18-diagram",
+            "part-01-18-question",
+            "part-01-18-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-19",
+          "steps": [
+            "part-01-19-explain",
+            "part-01-19-diagram",
+            "part-01-19-question",
+            "part-01-19-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-20",
+          "steps": [
+            "part-01-20-explain",
+            "part-01-20-diagram",
+            "part-01-20-question",
+            "part-01-20-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-21",
+          "steps": [
+            "part-01-21-explain",
+            "part-01-21-diagram",
+            "part-01-21-question",
+            "part-01-21-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-22",
+          "steps": [
+            "part-01-22-explain",
+            "part-01-22-diagram",
+            "part-01-22-comparison",
+            "part-01-22-question",
+            "part-01-22-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-23",
+          "steps": [
+            "part-01-23-explain",
+            "part-01-23-diagram",
+            "part-01-23-question",
+            "part-01-23-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.part-01.lesson-24",
+          "steps": [
+            "part-01-24-explain",
+            "part-01-24-comparison",
+            "part-01-24-question",
+            "part-01-24-recap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brooks-trends.chapter-01",
+      "lessons": [
+        {
+          "id": "brooks-trends.chapter-01.lesson-01",
+          "steps": [
+            "chapter-01-01-explain",
+            "chapter-01-01-diagram",
+            "chapter-01-01-question",
+            "chapter-01-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-01.lesson-02",
+          "steps": [
+            "chapter-01-02-explain",
+            "chapter-01-02-diagram",
+            "chapter-01-02-question",
+            "chapter-01-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-01.lesson-03",
+          "steps": [
+            "chapter-01-03-explain",
+            "chapter-01-03-diagram",
+            "chapter-01-03-question",
+            "chapter-01-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-01.lesson-04",
+          "steps": [
+            "chapter-01-04-explain",
+            "chapter-01-04-diagram",
+            "chapter-01-04-question",
+            "chapter-01-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-01.lesson-05",
+          "steps": [
+            "chapter-01-05-explain",
+            "chapter-01-05-diagram",
+            "chapter-01-05-compare",
+            "chapter-01-05-question",
+            "chapter-01-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-01.lesson-06",
+          "steps": [
+            "chapter-01-06-explain",
+            "chapter-01-06-diagram",
+            "chapter-01-06-compare",
+            "chapter-01-06-question",
+            "chapter-01-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-01.lesson-07",
+          "steps": [
+            "chapter-01-07-explain",
+            "chapter-01-07-diagram",
+            "chapter-01-07-question",
+            "chapter-01-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-01.lesson-08",
+          "steps": [
+            "chapter-01-08-explain",
+            "chapter-01-08-diagram",
+            "chapter-01-08-compare",
+            "chapter-01-08-question",
+            "chapter-01-08-recap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brooks-trends.chapter-02",
+      "lessons": [
+        {
+          "id": "brooks-trends.chapter-02.lesson-01",
+          "steps": [
+            "chapter-02-01-explain",
+            "chapter-02-01-diagram",
+            "chapter-02-01-question",
+            "chapter-02-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-02",
+          "steps": [
+            "chapter-02-02-explain",
+            "chapter-02-02-diagram",
+            "chapter-02-02-compare",
+            "chapter-02-02-question",
+            "chapter-02-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-03",
+          "steps": [
+            "chapter-02-03-explain",
+            "chapter-02-03-diagram",
+            "chapter-02-03-question",
+            "chapter-02-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-04",
+          "steps": [
+            "chapter-02-04-explain",
+            "chapter-02-04-diagram",
+            "chapter-02-04-question",
+            "chapter-02-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-05",
+          "steps": [
+            "chapter-02-05-explain",
+            "chapter-02-05-diagram",
+            "chapter-02-05-compare",
+            "chapter-02-05-question",
+            "chapter-02-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-06",
+          "steps": [
+            "chapter-02-06-explain",
+            "chapter-02-06-diagram",
+            "chapter-02-06-question",
+            "chapter-02-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-07",
+          "steps": [
+            "chapter-02-07-explain",
+            "chapter-02-07-diagram",
+            "chapter-02-07-question",
+            "chapter-02-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-08",
+          "steps": [
+            "chapter-02-08-explain",
+            "chapter-02-08-diagram",
+            "chapter-02-08-compare",
+            "chapter-02-08-question",
+            "chapter-02-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-09",
+          "steps": [
+            "chapter-02-09-explain",
+            "chapter-02-09-diagram",
+            "chapter-02-09-question",
+            "chapter-02-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-10",
+          "steps": [
+            "chapter-02-10-explain",
+            "chapter-02-10-diagram",
+            "chapter-02-10-question",
+            "chapter-02-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-11",
+          "steps": [
+            "chapter-02-11-explain",
+            "chapter-02-11-diagram",
+            "chapter-02-11-question",
+            "chapter-02-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-12",
+          "steps": [
+            "chapter-02-12-explain",
+            "chapter-02-12-diagram",
+            "chapter-02-12-question",
+            "chapter-02-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-13",
+          "steps": [
+            "chapter-02-13-explain",
+            "chapter-02-13-diagram",
+            "chapter-02-13-question",
+            "chapter-02-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-14",
+          "steps": [
+            "chapter-02-14-explain",
+            "chapter-02-14-diagram",
+            "chapter-02-14-question",
+            "chapter-02-14-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-15",
+          "steps": [
+            "chapter-02-15-explain",
+            "chapter-02-15-diagram",
+            "chapter-02-15-question",
+            "chapter-02-15-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-16",
+          "steps": [
+            "chapter-02-16-explain",
+            "chapter-02-16-diagram",
+            "chapter-02-16-compare",
+            "chapter-02-16-question",
+            "chapter-02-16-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-17",
+          "steps": [
+            "chapter-02-17-explain",
+            "chapter-02-17-diagram",
+            "chapter-02-17-question",
+            "chapter-02-17-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-18",
+          "steps": [
+            "chapter-02-18-explain",
+            "chapter-02-18-diagram",
+            "chapter-02-18-compare",
+            "chapter-02-18-question",
+            "chapter-02-18-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-19",
+          "steps": [
+            "chapter-02-19-explain",
+            "chapter-02-19-diagram",
+            "chapter-02-19-speed-diagram",
+            "chapter-02-19-question",
+            "chapter-02-19-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-02.lesson-20",
+          "steps": [
+            "chapter-02-20-explain",
+            "chapter-02-20-diagram",
+            "chapter-02-20-compare",
+            "chapter-02-20-question",
+            "chapter-02-20-recap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brooks-trends.chapter-03",
+      "lessons": [
+        {
+          "id": "brooks-trends.chapter-03.lesson-01",
+          "steps": [
+            "chapter-03-01-explain",
+            "chapter-03-01-diagram",
+            "chapter-03-01-compare",
+            "chapter-03-01-question",
+            "chapter-03-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-02",
+          "steps": [
+            "chapter-03-02-explain",
+            "chapter-03-02-diagram",
+            "chapter-03-02-question",
+            "chapter-03-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-channel-two-sided",
+          "steps": [
+            "chapter-03-channel-two-sided-explain",
+            "chapter-03-channel-two-sided-diagram",
+            "chapter-03-channel-two-sided-question",
+            "chapter-03-channel-two-sided-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-03",
+          "steps": [
+            "chapter-03-03-explain",
+            "chapter-03-03-diagram",
+            "chapter-03-03-compare",
+            "chapter-03-03-question",
+            "chapter-03-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-channel-start-test",
+          "steps": [
+            "chapter-03-channel-start-test-explain",
+            "chapter-03-channel-start-test-diagram",
+            "chapter-03-channel-start-test-question",
+            "chapter-03-channel-start-test-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-04",
+          "steps": [
+            "chapter-03-04-explain",
+            "chapter-03-04-diagram",
+            "chapter-03-04-question",
+            "chapter-03-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-channel-breakout-paths",
+          "steps": [
+            "chapter-03-channel-breakout-paths-explain",
+            "chapter-03-channel-breakout-paths-diagram",
+            "chapter-03-channel-breakout-paths-question",
+            "chapter-03-channel-breakout-paths-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-range-dual-role",
+          "steps": [
+            "chapter-03-range-dual-role-explain",
+            "chapter-03-range-dual-role-diagram",
+            "chapter-03-range-dual-role-question",
+            "chapter-03-range-dual-role-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-test-reference-map",
+          "steps": [
+            "chapter-03-test-reference-map-explain",
+            "chapter-03-test-reference-map-diagram",
+            "chapter-03-test-reference-map-question",
+            "chapter-03-test-reference-map-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-05",
+          "steps": [
+            "chapter-03-05-explain",
+            "chapter-03-05-diagram",
+            "chapter-03-05-compare",
+            "chapter-03-05-question",
+            "chapter-03-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-06",
+          "steps": [
+            "chapter-03-06-explain",
+            "chapter-03-06-diagram",
+            "chapter-03-06-question",
+            "chapter-03-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-07",
+          "steps": [
+            "chapter-03-07-explain",
+            "chapter-03-07-diagram",
+            "chapter-03-07-compare",
+            "chapter-03-07-question",
+            "chapter-03-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-08",
+          "steps": [
+            "chapter-03-08-explain",
+            "chapter-03-08-diagram",
+            "chapter-03-08-question",
+            "chapter-03-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-every-swing-test",
+          "steps": [
+            "chapter-03-every-swing-test-explain",
+            "chapter-03-every-swing-test-diagram",
+            "chapter-03-every-swing-test-question",
+            "chapter-03-every-swing-test-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-09",
+          "steps": [
+            "chapter-03-09-explain",
+            "chapter-03-09-diagram",
+            "chapter-03-09-question",
+            "chapter-03-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-10",
+          "steps": [
+            "chapter-03-10-explain",
+            "chapter-03-10-diagram",
+            "chapter-03-10-compare",
+            "chapter-03-10-question",
+            "chapter-03-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-11",
+          "steps": [
+            "chapter-03-11-explain",
+            "chapter-03-11-diagram",
+            "chapter-03-11-question",
+            "chapter-03-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-12",
+          "steps": [
+            "chapter-03-12-explain",
+            "chapter-03-12-diagram",
+            "chapter-03-12-compare",
+            "chapter-03-12-question",
+            "chapter-03-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-bar-nine-defense",
+          "steps": [
+            "chapter-03-bar-nine-defense-explain",
+            "chapter-03-bar-nine-defense-diagram",
+            "chapter-03-bar-nine-defense-question",
+            "chapter-03-bar-nine-defense-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-bar-three-gap",
+          "steps": [
+            "chapter-03-bar-three-gap-explain",
+            "chapter-03-bar-three-gap-diagram",
+            "chapter-03-bar-three-gap-question",
+            "chapter-03-bar-three-gap-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-13",
+          "steps": [
+            "chapter-03-13-explain",
+            "chapter-03-13-diagram",
+            "chapter-03-13-question",
+            "chapter-03-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-channel-positioning",
+          "steps": [
+            "chapter-03-channel-positioning-explain",
+            "chapter-03-channel-positioning-diagram",
+            "chapter-03-channel-positioning-question",
+            "chapter-03-channel-positioning-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-wedge-pushes",
+          "steps": [
+            "chapter-03-wedge-pushes-explain",
+            "chapter-03-wedge-pushes-diagram",
+            "chapter-03-wedge-pushes-question",
+            "chapter-03-wedge-pushes-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-flag-stack",
+          "steps": [
+            "chapter-03-flag-stack-explain",
+            "chapter-03-flag-stack-diagram",
+            "chapter-03-flag-stack-question",
+            "chapter-03-flag-stack-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-03.lesson-14",
+          "steps": [
+            "chapter-03-14-explain",
+            "chapter-03-14-diagram",
+            "chapter-03-14-compare",
+            "chapter-03-14-question",
+            "chapter-03-14-recap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brooks-trends.chapter-04",
+      "lessons": [
+        {
+          "id": "brooks-trends.chapter-04.lesson-01",
+          "steps": [
+            "chapter-04-01-explain",
+            "chapter-04-01-diagram",
+            "chapter-04-01-compare",
+            "chapter-04-01-question",
+            "chapter-04-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-02",
+          "steps": [
+            "chapter-04-02-explain",
+            "chapter-04-02-diagram",
+            "chapter-04-02-question",
+            "chapter-04-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-03",
+          "steps": [
+            "chapter-04-03-explain",
+            "chapter-04-03-diagram",
+            "chapter-04-03-compare",
+            "chapter-04-03-question",
+            "chapter-04-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-04",
+          "steps": [
+            "chapter-04-04-explain",
+            "chapter-04-04-diagram",
+            "chapter-04-04-question",
+            "chapter-04-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-05",
+          "steps": [
+            "chapter-04-05-explain",
+            "chapter-04-05-diagram",
+            "chapter-04-05-compare",
+            "chapter-04-05-question",
+            "chapter-04-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-06",
+          "steps": [
+            "chapter-04-06-explain",
+            "chapter-04-06-diagram",
+            "chapter-04-06-question",
+            "chapter-04-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-07",
+          "steps": [
+            "chapter-04-07-explain",
+            "chapter-04-07-diagram",
+            "chapter-04-07-question",
+            "chapter-04-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-08",
+          "steps": [
+            "chapter-04-08-explain",
+            "chapter-04-08-diagram",
+            "chapter-04-08-question",
+            "chapter-04-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-09",
+          "steps": [
+            "chapter-04-09-explain",
+            "chapter-04-09-diagram",
+            "chapter-04-09-question",
+            "chapter-04-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-10",
+          "steps": [
+            "chapter-04-10-explain",
+            "chapter-04-10-diagram",
+            "chapter-04-10-question",
+            "chapter-04-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-11",
+          "steps": [
+            "chapter-04-11-explain",
+            "chapter-04-11-diagram",
+            "chapter-04-11-question",
+            "chapter-04-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-12",
+          "steps": [
+            "chapter-04-12-explain",
+            "chapter-04-12-diagram",
+            "chapter-04-12-question",
+            "chapter-04-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-13",
+          "steps": [
+            "chapter-04-13-explain",
+            "chapter-04-13-diagram",
+            "chapter-04-13-question",
+            "chapter-04-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-14",
+          "steps": [
+            "chapter-04-14-explain",
+            "chapter-04-14-diagram",
+            "chapter-04-14-question",
+            "chapter-04-14-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-15",
+          "steps": [
+            "chapter-04-15-explain",
+            "chapter-04-15-diagram",
+            "chapter-04-15-question",
+            "chapter-04-15-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-16",
+          "steps": [
+            "chapter-04-16-explain",
+            "chapter-04-16-diagram",
+            "chapter-04-16-question",
+            "chapter-04-16-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-17",
+          "steps": [
+            "chapter-04-17-explain",
+            "chapter-04-17-diagram",
+            "chapter-04-17-question",
+            "chapter-04-17-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-18",
+          "steps": [
+            "chapter-04-18-explain",
+            "chapter-04-18-diagram",
+            "chapter-04-18-compare",
+            "chapter-04-18-question",
+            "chapter-04-18-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-19",
+          "steps": [
+            "chapter-04-19-explain",
+            "chapter-04-19-diagram",
+            "chapter-04-19-compare",
+            "chapter-04-19-question",
+            "chapter-04-19-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-20",
+          "steps": [
+            "chapter-04-20-explain",
+            "chapter-04-20-diagram",
+            "chapter-04-20-compare",
+            "chapter-04-20-question",
+            "chapter-04-20-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-21",
+          "steps": [
+            "chapter-04-21-explain",
+            "chapter-04-21-diagram",
+            "chapter-04-21-question",
+            "chapter-04-21-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-22",
+          "steps": [
+            "chapter-04-22-explain",
+            "chapter-04-22-diagram",
+            "chapter-04-22-question",
+            "chapter-04-22-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-23",
+          "steps": [
+            "chapter-04-23-explain",
+            "chapter-04-23-diagram",
+            "chapter-04-23-compare",
+            "chapter-04-23-question",
+            "chapter-04-23-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-24",
+          "steps": [
+            "chapter-04-24-explain",
+            "chapter-04-24-diagram",
+            "chapter-04-24-compare",
+            "chapter-04-24-question",
+            "chapter-04-24-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-04.lesson-25",
+          "steps": [
+            "chapter-04-25-explain",
+            "chapter-04-25-diagram",
+            "chapter-04-25-compare",
+            "chapter-04-25-question",
+            "chapter-04-25-recap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brooks-trends.chapter-05",
+      "lessons": [
+        {
+          "id": "brooks-trends.chapter-05.lesson-01",
+          "steps": [
+            "chapter-05-01-explain",
+            "chapter-05-01-diagram",
+            "chapter-05-01-question",
+            "chapter-05-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-02",
+          "steps": [
+            "chapter-05-02-explain",
+            "chapter-05-02-diagram",
+            "chapter-05-02-question",
+            "chapter-05-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-03",
+          "steps": [
+            "chapter-05-03-explain",
+            "chapter-05-03-diagram",
+            "chapter-05-03-question",
+            "chapter-05-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-04",
+          "steps": [
+            "chapter-05-04-explain",
+            "chapter-05-04-diagram",
+            "chapter-05-04-question",
+            "chapter-05-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-05",
+          "steps": [
+            "chapter-05-05-explain",
+            "chapter-05-05-diagram",
+            "chapter-05-05-question",
+            "chapter-05-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-06",
+          "steps": [
+            "chapter-05-06-explain",
+            "chapter-05-06-diagram",
+            "chapter-05-06-compare",
+            "chapter-05-06-question",
+            "chapter-05-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-07",
+          "steps": [
+            "chapter-05-07-explain",
+            "chapter-05-07-diagram",
+            "chapter-05-07-question",
+            "chapter-05-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-08",
+          "steps": [
+            "chapter-05-08-explain",
+            "chapter-05-08-diagram",
+            "chapter-05-08-question",
+            "chapter-05-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-09",
+          "steps": [
+            "chapter-05-09-explain",
+            "chapter-05-09-diagram",
+            "chapter-05-09-question",
+            "chapter-05-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-10",
+          "steps": [
+            "chapter-05-10-explain",
+            "chapter-05-10-diagram",
+            "chapter-05-10-question",
+            "chapter-05-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-11",
+          "steps": [
+            "chapter-05-11-explain",
+            "chapter-05-11-diagram",
+            "chapter-05-11-question",
+            "chapter-05-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-12",
+          "steps": [
+            "chapter-05-12-explain",
+            "chapter-05-12-diagram",
+            "chapter-05-12-question",
+            "chapter-05-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-13",
+          "steps": [
+            "chapter-05-13-explain",
+            "chapter-05-13-diagram",
+            "chapter-05-13-question",
+            "chapter-05-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-14",
+          "steps": [
+            "chapter-05-14-explain",
+            "chapter-05-14-diagram",
+            "chapter-05-14-question",
+            "chapter-05-14-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-15",
+          "steps": [
+            "chapter-05-15-explain",
+            "chapter-05-15-diagram",
+            "chapter-05-15-compare",
+            "chapter-05-15-question",
+            "chapter-05-15-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-16",
+          "steps": [
+            "chapter-05-16-explain",
+            "chapter-05-16-diagram",
+            "chapter-05-16-question",
+            "chapter-05-16-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-17",
+          "steps": [
+            "chapter-05-17-explain",
+            "chapter-05-17-diagram",
+            "chapter-05-17-question",
+            "chapter-05-17-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-18",
+          "steps": [
+            "chapter-05-18-explain",
+            "chapter-05-18-diagram",
+            "chapter-05-18-question",
+            "chapter-05-18-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-19",
+          "steps": [
+            "chapter-05-19-explain",
+            "chapter-05-19-diagram",
+            "chapter-05-19-question",
+            "chapter-05-19-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-20",
+          "steps": [
+            "chapter-05-20-explain",
+            "chapter-05-20-diagram",
+            "chapter-05-20-question",
+            "chapter-05-20-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-21",
+          "steps": [
+            "chapter-05-21-explain",
+            "chapter-05-21-diagram",
+            "chapter-05-21-question",
+            "chapter-05-21-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-22",
+          "steps": [
+            "chapter-05-22-explain",
+            "chapter-05-22-diagram",
+            "chapter-05-22-question",
+            "chapter-05-22-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-23",
+          "steps": [
+            "chapter-05-23-explain",
+            "chapter-05-23-diagram",
+            "chapter-05-23-question",
+            "chapter-05-23-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-24",
+          "steps": [
+            "chapter-05-24-explain",
+            "chapter-05-24-diagram",
+            "chapter-05-24-question",
+            "chapter-05-24-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-05.lesson-25",
+          "steps": [
+            "chapter-05-25-explain",
+            "chapter-05-25-diagram",
+            "chapter-05-25-compare",
+            "chapter-05-25-question",
+            "chapter-05-25-recap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brooks-trends.chapter-06",
+      "lessons": [
+        {
+          "id": "brooks-trends.chapter-06.lesson-01",
+          "steps": [
+            "chapter-06-01-explain",
+            "chapter-06-01-diagram",
+            "chapter-06-01-question",
+            "chapter-06-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-02",
+          "steps": [
+            "chapter-06-02-explain",
+            "chapter-06-02-diagram",
+            "chapter-06-02-question",
+            "chapter-06-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-03",
+          "steps": [
+            "chapter-06-03-explain",
+            "chapter-06-03-diagram",
+            "chapter-06-03-question",
+            "chapter-06-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-04",
+          "steps": [
+            "chapter-06-04-explain",
+            "chapter-06-04-diagram",
+            "chapter-06-04-question",
+            "chapter-06-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-05",
+          "steps": [
+            "chapter-06-05-explain",
+            "chapter-06-05-diagram",
+            "chapter-06-05-question",
+            "chapter-06-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-06",
+          "steps": [
+            "chapter-06-06-explain",
+            "chapter-06-06-diagram",
+            "chapter-06-06-question",
+            "chapter-06-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-07",
+          "steps": [
+            "chapter-06-07-explain",
+            "chapter-06-07-diagram",
+            "chapter-06-07-question",
+            "chapter-06-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-08",
+          "steps": [
+            "chapter-06-08-explain",
+            "chapter-06-08-diagram",
+            "chapter-06-08-question",
+            "chapter-06-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-09",
+          "steps": [
+            "chapter-06-09-explain",
+            "chapter-06-09-diagram",
+            "chapter-06-09-question",
+            "chapter-06-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-10",
+          "steps": [
+            "chapter-06-10-explain",
+            "chapter-06-10-diagram",
+            "chapter-06-10-question",
+            "chapter-06-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-11",
+          "steps": [
+            "chapter-06-11-explain",
+            "chapter-06-11-diagram",
+            "chapter-06-11-question",
+            "chapter-06-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-12",
+          "steps": [
+            "chapter-06-12-explain",
+            "chapter-06-12-diagram",
+            "chapter-06-12-question",
+            "chapter-06-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-13",
+          "steps": [
+            "chapter-06-13-explain",
+            "chapter-06-13-diagram",
+            "chapter-06-13-question",
+            "chapter-06-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-14",
+          "steps": [
+            "chapter-06-14-explain",
+            "chapter-06-14-diagram",
+            "chapter-06-14-question",
+            "chapter-06-14-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-15",
+          "steps": [
+            "chapter-06-15-explain",
+            "chapter-06-15-diagram",
+            "chapter-06-15-question",
+            "chapter-06-15-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-16",
+          "steps": [
+            "chapter-06-16-explain",
+            "chapter-06-16-diagram",
+            "chapter-06-16-question",
+            "chapter-06-16-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-17",
+          "steps": [
+            "chapter-06-17-explain",
+            "chapter-06-17-diagram",
+            "chapter-06-17-question",
+            "chapter-06-17-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-18",
+          "steps": [
+            "chapter-06-18-explain",
+            "chapter-06-18-diagram",
+            "chapter-06-18-question",
+            "chapter-06-18-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-19",
+          "steps": [
+            "chapter-06-19-explain",
+            "chapter-06-19-diagram",
+            "chapter-06-19-question",
+            "chapter-06-19-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-20",
+          "steps": [
+            "chapter-06-20-explain",
+            "chapter-06-20-diagram",
+            "chapter-06-20-question",
+            "chapter-06-20-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-21",
+          "steps": [
+            "chapter-06-21-explain",
+            "chapter-06-21-diagram",
+            "chapter-06-21-question",
+            "chapter-06-21-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-22",
+          "steps": [
+            "chapter-06-22-explain",
+            "chapter-06-22-diagram",
+            "chapter-06-22-question",
+            "chapter-06-22-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-23",
+          "steps": [
+            "chapter-06-23-explain",
+            "chapter-06-23-diagram",
+            "chapter-06-23-question",
+            "chapter-06-23-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-24",
+          "steps": [
+            "chapter-06-24-explain",
+            "chapter-06-24-diagram",
+            "chapter-06-24-question",
+            "chapter-06-24-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-25",
+          "steps": [
+            "chapter-06-25-explain",
+            "chapter-06-25-diagram",
+            "chapter-06-25-question",
+            "chapter-06-25-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-26",
+          "steps": [
+            "chapter-06-26-explain",
+            "chapter-06-26-diagram",
+            "chapter-06-26-question",
+            "chapter-06-26-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-27",
+          "steps": [
+            "chapter-06-27-explain",
+            "chapter-06-27-diagram",
+            "chapter-06-27-question",
+            "chapter-06-27-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-28",
+          "steps": [
+            "chapter-06-28-explain",
+            "chapter-06-28-diagram",
+            "chapter-06-28-question",
+            "chapter-06-28-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-29",
+          "steps": [
+            "chapter-06-29-explain",
+            "chapter-06-29-diagram",
+            "chapter-06-29-question",
+            "chapter-06-29-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-30",
+          "steps": [
+            "chapter-06-30-explain",
+            "chapter-06-30-diagram",
+            "chapter-06-30-question",
+            "chapter-06-30-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-31",
+          "steps": [
+            "chapter-06-31-explain",
+            "chapter-06-31-diagram",
+            "chapter-06-31-question",
+            "chapter-06-31-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-32",
+          "steps": [
+            "chapter-06-32-explain",
+            "chapter-06-32-diagram",
+            "chapter-06-32-question",
+            "chapter-06-32-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-33",
+          "steps": [
+            "chapter-06-33-explain",
+            "chapter-06-33-diagram",
+            "chapter-06-33-question",
+            "chapter-06-33-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-34",
+          "steps": [
+            "chapter-06-34-explain",
+            "chapter-06-34-diagram",
+            "chapter-06-34-question",
+            "chapter-06-34-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-35",
+          "steps": [
+            "chapter-06-35-explain",
+            "chapter-06-35-diagram",
+            "chapter-06-35-question",
+            "chapter-06-35-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-36",
+          "steps": [
+            "chapter-06-36-explain",
+            "chapter-06-36-diagram",
+            "chapter-06-36-question",
+            "chapter-06-36-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-37",
+          "steps": [
+            "chapter-06-37-explain",
+            "chapter-06-37-diagram",
+            "chapter-06-37-question",
+            "chapter-06-37-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-38",
+          "steps": [
+            "chapter-06-38-explain",
+            "chapter-06-38-diagram",
+            "chapter-06-38-question",
+            "chapter-06-38-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-39",
+          "steps": [
+            "chapter-06-39-explain",
+            "chapter-06-39-diagram",
+            "chapter-06-39-question",
+            "chapter-06-39-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-06.lesson-40",
+          "steps": [
+            "chapter-06-40-explain",
+            "chapter-06-40-diagram",
+            "chapter-06-40-question",
+            "chapter-06-40-recap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brooks-trends.chapter-07",
+      "lessons": [
+        {
+          "id": "brooks-trends.chapter-07.lesson-01",
+          "steps": [
+            "chapter-07-01-explain",
+            "chapter-07-01-diagram",
+            "chapter-07-01-question",
+            "chapter-07-01-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-02",
+          "steps": [
+            "chapter-07-02-explain",
+            "chapter-07-02-diagram",
+            "chapter-07-02-question",
+            "chapter-07-02-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-03",
+          "steps": [
+            "chapter-07-03-explain",
+            "chapter-07-03-diagram",
+            "chapter-07-03-question",
+            "chapter-07-03-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-04",
+          "steps": [
+            "chapter-07-04-explain",
+            "chapter-07-04-diagram",
+            "chapter-07-04-question",
+            "chapter-07-04-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-05",
+          "steps": [
+            "chapter-07-05-explain",
+            "chapter-07-05-diagram",
+            "chapter-07-05-question",
+            "chapter-07-05-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-06",
+          "steps": [
+            "chapter-07-06-explain",
+            "chapter-07-06-diagram",
+            "chapter-07-06-question",
+            "chapter-07-06-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-07",
+          "steps": [
+            "chapter-07-07-explain",
+            "chapter-07-07-diagram",
+            "chapter-07-07-question",
+            "chapter-07-07-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-08",
+          "steps": [
+            "chapter-07-08-explain",
+            "chapter-07-08-diagram",
+            "chapter-07-08-question",
+            "chapter-07-08-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-09",
+          "steps": [
+            "chapter-07-09-explain",
+            "chapter-07-09-diagram",
+            "chapter-07-09-question",
+            "chapter-07-09-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-10",
+          "steps": [
+            "chapter-07-10-explain",
+            "chapter-07-10-diagram",
+            "chapter-07-10-question",
+            "chapter-07-10-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-11",
+          "steps": [
+            "chapter-07-11-explain",
+            "chapter-07-11-diagram",
+            "chapter-07-11-question",
+            "chapter-07-11-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-12",
+          "steps": [
+            "chapter-07-12-explain",
+            "chapter-07-12-diagram",
+            "chapter-07-12-question",
+            "chapter-07-12-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-13",
+          "steps": [
+            "chapter-07-13-explain",
+            "chapter-07-13-diagram",
+            "chapter-07-13-question",
+            "chapter-07-13-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-14",
+          "steps": [
+            "chapter-07-14-explain",
+            "chapter-07-14-diagram",
+            "chapter-07-14-question",
+            "chapter-07-14-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-15",
+          "steps": [
+            "chapter-07-15-explain",
+            "chapter-07-15-diagram",
+            "chapter-07-15-question",
+            "chapter-07-15-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-16",
+          "steps": [
+            "chapter-07-16-explain",
+            "chapter-07-16-diagram",
+            "chapter-07-16-question",
+            "chapter-07-16-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-17",
+          "steps": [
+            "chapter-07-17-explain",
+            "chapter-07-17-diagram",
+            "chapter-07-17-question",
+            "chapter-07-17-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-18",
+          "steps": [
+            "chapter-07-18-explain",
+            "chapter-07-18-diagram",
+            "chapter-07-18-question",
+            "chapter-07-18-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-19",
+          "steps": [
+            "chapter-07-19-explain",
+            "chapter-07-19-diagram",
+            "chapter-07-19-question",
+            "chapter-07-19-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-20",
+          "steps": [
+            "chapter-07-20-explain",
+            "chapter-07-20-diagram",
+            "chapter-07-20-question",
+            "chapter-07-20-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-21",
+          "steps": [
+            "chapter-07-21-explain",
+            "chapter-07-21-diagram",
+            "chapter-07-21-question",
+            "chapter-07-21-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-22",
+          "steps": [
+            "chapter-07-22-explain",
+            "chapter-07-22-diagram",
+            "chapter-07-22-question",
+            "chapter-07-22-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-23",
+          "steps": [
+            "chapter-07-23-explain",
+            "chapter-07-23-diagram",
+            "chapter-07-23-question",
+            "chapter-07-23-recap"
+          ]
+        },
+        {
+          "id": "brooks-trends.chapter-07.lesson-24",
+          "steps": [
+            "chapter-07-24-explain",
+            "chapter-07-24-diagram",
+            "chapter-07-24-question",
+            "chapter-07-24-recap"
+          ]
+        }
+      ]
+    }
+  ]
+}
