@@ -64,7 +64,7 @@ zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Kapitel 7 ergän
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-13 `version: 9`:
+seit F-22 `version: 10`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -89,9 +89,12 @@ seit F-13 `version: 9`:
 - `readerPositions` (seit F-13, v9): Lesestelle im Buchleser je Einheit –
   `{ lessonId, stepId, updatedAt }`, Schlüssel ist die Einheit-ID. Sie ist unabhängig vom
   Lektionsabschluss und von `lessonPositions`.
+- `readingOptions` (seit F-22, v10): Leseoptionen im Buchmodus – `size` (`standard`, `large`,
+  `larger`) und `spacing` (`standard`, `relaxed`, `wide`)
 
-Ältere Datensätze (v1–v8) werden beim Laden verlustfrei migriert; der Wiederholungsplan
-startet leer, ebenso die Lesestellen (vor v9). Defekte Lesestellen (ohne Einheit oder Lektion)
+Ältere Datensätze (v1–v9) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+startet leer, ebenso die Lesestellen (vor v9); Leseoptionen beginnen vor v10 bei „Standard“,
+unbekannte Stufen werden einzeln zu „Standard“. Defekte Lesestellen (ohne Einheit oder Lektion)
 entfallen, ein ungültiger Schritt wird zum Abschnittsanfang; eine Lesestelle auf eine unbekannte
 oder gesperrte Lektion bleibt gespeichert, der Leser öffnet dann den nächsten lesbaren Abschnitt. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
@@ -107,15 +110,17 @@ und unbekannte Zusatzfelder.
 
 Der Import prüft streng (`src/features/backup.ts`): höchstens 10 MB, gültiges JSON, bekanntes
 Format und keine neuere Version, alle Pflichtfelder, keine unbekannten Felder, gültige Einträge
-und keine gefährlichen Schlüssel wie `__proto__`. Sicherungen aus v8 (vor dem Buchleser) bleiben gültig: Ihnen
-fehlt nur `readerPositions`, das leer ergänzt wird. Eine abgelehnte Datei ändert nichts. Vor jeder
+und keine gefährlichen Schlüssel wie `__proto__`. Sicherungen aus v8 (vor dem Buchleser) und v9 (vor
+den Leseoptionen) bleiben gültig: Ihnen fehlen nur `readerPositions` bzw. `readingOptions`, die
+leer bzw. mit „Standard“ ergänzt werden. Eine abgelehnte Datei ändert nichts. Vor jeder
 Änderung erscheint eine Vorschau.
 
 - **Zusammenführen** (Standard) ergänzt den Stand, ohne etwas doppelt zu zählen: Vereinigung von
   Lektionen, Lerntagen, Lesezeichen und Meilensteinen; früherer Erstabschluss samt XP;
   Datensatz mit mehr Versuchen; jüngerer Wiederholungsstand und jüngere Lektionsposition;
   Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; je Einheit die
-  zuletzt gesetzte Lesestelle; Antworten lokal vor Import. Tagesziel und Darstellung kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
+  zuletzt gesetzte Lesestelle; Antworten lokal vor Import. Tagesziel und Darstellung
+  (einschließlich Leseoptionen) kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
 - **Vollständig ersetzen** braucht eine ausdrückliche Bestätigung; vorher wird ein Download des
   aktuellen Stands angeboten.
 - **Zurücksetzen** löscht nur `wqt-academy-progress-v1`. `brooks-progress` und `brooks-tr-best`
@@ -192,6 +197,17 @@ eine „öffentliche Sicht“ ohne vorzeitige Lösungen und das Fortsetzen nach 
 `src/content/barCases.ts` ist bewusst leer; kuratierte Fälle liefert ein eigener Content-PR.
 Die Vorgaben dafür stehen in [docs/BAR_CASE_CONTRACT.md](docs/BAR_CASE_CONTRACT.md). Technische
 Testfälle liegen nur in `src/test/fixtures/`.
+
+## Leseoptionen im Buchmodus (F-22)
+
+Oben im Buchmodus öffnet „Leseansicht“ zwei Gruppen von Optionsfeldern: Schriftgröße
+(Standard, Groß, Sehr groß) und Zeilenabstand (Standard, Weit, Sehr weit). Die Wahl wirkt sofort,
+gilt nur für den Lesetext (Absätze, Hinweise, Vergleiche, Fragen, Antworten, Bildunterschriften,
+Zusammenfassungen, Überschriften moderat) und wird in `readingOptions` gespeichert. „Standard“
+setzt nur diese beiden Optionen zurück. Umgesetzt über CSS-Variablen und Datenattribute an
+`.reader-page`; die Stufe „Standard“ lässt alle bisherigen Maße unverändert, größere Stufen
+rechnen in `rem`, damit Browser-Schriftgröße und Zoom weiter wirken. Bedienelemente, Diagramme
+und der Lektionsmodus bleiben unverändert.
 
 ## Begriffe am Lernort (F-21)
 

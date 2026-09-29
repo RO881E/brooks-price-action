@@ -16,6 +16,7 @@ import {
   type DailyGoal,
 } from '../features/progress';
 import type { PwaSnapshot } from '../features/pwa';
+import { readingOptionsLabel } from './ReadingOptionsPanel';
 
 interface SettingsViewProps {
   progress: AcademyProgress;
@@ -49,7 +50,7 @@ function formatDateTime(iso: string): string {
 
 function preferencesLabel(progress: AcademyProgress): string {
   const motion = progress.settings.motion === 'reduce' ? 'Bewegung reduziert' : 'Bewegung wie im System';
-  return `Tagesziel ${goalLabel(progress.dailyGoal)}, ${motion}${progress.settings.compact ? ', kompakt' : ''}`;
+  return `Tagesziel ${goalLabel(progress.dailyGoal)}, ${motion}${progress.settings.compact ? ', kompakt' : ''}, ${readingOptionsLabel(progress.readingOptions)}`;
 }
 
 function mergeLines(preview: ImportPreview): string[] {

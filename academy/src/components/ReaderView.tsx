@@ -3,7 +3,7 @@ import { catalog, useLessonContent } from '../content/catalog';
 import type { CourseOutline, LessonOutline, LessonStep } from '../content/types';
 import { questionView, type QuestionStep as QuestionStepData } from '../features/lessonResults';
 import { prefersReducedMotion, scrollToTop } from '../features/motion';
-import type { AcademyProgress } from '../features/progress';
+import type { AcademyProgress, ReadingOptions } from '../features/progress';
 import {
   isReadable,
   lockHint,
@@ -18,6 +18,7 @@ import {
 } from '../features/reader';
 import { termsForStep } from '../content/stepTerms';
 import { ContentLoadState } from './ContentLoadState';
+import { ReadingOptionsPanel } from './ReadingOptionsPanel';
 import { ComparisonStep, DiagramStep, ExplanationStep, QuestionStep, RecapStep } from './LessonSteps';
 import { StepTerms } from './StepTerms';
 
@@ -37,6 +38,8 @@ interface ReaderViewProps {
   /** Schließt den Abschnitt über die vorhandene Lektionslogik ab (XP einmalig). */
   onCompleteSection: (lesson: LessonOutline) => void;
   onBackToChapters: () => void;
+  /** Schriftgröße/Zeilenabstand ändern (F-22). */
+  onReadingOptions: (changes: Partial<ReadingOptions>) => void;
 }
 
 const stateLabel: Record<ReaderSection['state'], string> = {
@@ -66,6 +69,7 @@ export function ReaderView({
   onReveal,
   onCompleteSection,
   onBackToChapters,
+  onReadingOptions,
 }: ReaderViewProps) {
   const ids = useId();
   const { unit, sections, section, stepIndex, fellBack } = reader;
@@ -75,7 +79,11 @@ export function ReaderView({
   );
 
   return (
-    <div className="page-shell reader-page">
+    <div
+      className="page-shell reader-page"
+      data-reading-size={progress.readingOptions.size}
+      data-reading-spacing={progress.readingOptions.spacing}
+    >
       <header className="page-heading reader-heading">
         <div>
           <p className="eyebrow">Buchmodus · {unit.label}</p>
@@ -98,6 +106,8 @@ export function ReaderView({
           Zur Kapitelübersicht
         </button>
       </header>
+
+      <ReadingOptionsPanel options={progress.readingOptions} onChange={onReadingOptions} />
 
       {fellBack ? (
         <p className="reader-notice" role="status">
@@ -227,7 +237,7 @@ function LockMessage({
   );
 }
 
-interface SectionProps extends Omit<ReaderViewProps, 'onBackToChapters'> {
+interface SectionProps extends Omit<ReaderViewProps, 'onBackToChapters' | 'onReadingOptions'> {
   section: ReaderSection;
   stepIndex: number | null;
   headingId: string;

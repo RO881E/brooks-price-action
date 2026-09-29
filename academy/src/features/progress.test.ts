@@ -16,6 +16,7 @@ import {
   recordLessonStep,
   recordReaderPosition,
   saveProgress,
+  updateReadingOptions,
   updateSettings,
 } from './progress';
 
@@ -589,7 +590,7 @@ describe('settings (v8)', () => {
 describe('Lesestellen im Buchleser (F-13, v9)', () => {
   it('migriert ältere Stände ohne Lesestelle auf v9 mit leerem Feld', () => {
     const migrated = migrateProgress({ version: 8, completedLessonIds: ['a'], answers: {} });
-    expect(migrated?.version).toBe(9);
+    expect(migrated?.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(migrated?.readerPositions).toEqual({});
     expect(migrated?.completedLessonIds).toEqual(['a']);
     expect(migrated?.preservedFields).toEqual({});
@@ -644,5 +645,57 @@ describe('Lesestellen im Buchleser (F-13, v9)', () => {
     saveProgress(store, recordReaderPosition(createEmptyProgress(), 'unit', 'lesson-1', null));
     expect(loadProgress(store).readerPositions.unit.lessonId).toBe('lesson-1');
     expect(JSON.parse(storage.get(ACADEMY_PROGRESS_KEY)!).readerPositions.unit.lessonId).toBe('lesson-1');
+  });
+});
+
+describe('Leseoptionen im Buchmodus (F-22, v10)', () => {
+  it('migriert v9-Stände ohne Leseoptionen auf v10 mit „Standard“ und lässt alles andere unverändert', () => {
+    const v9 = {
+      version: 9,
+      completedLessonIds: ['a'],
+      answers: { q: 'o' },
+      readerPositions: { unit: { lessonId: 'a', stepId: null, updatedAt: '2026-09-29T08:00:00.000Z' } },
+      settings: { motion: 'reduce', compact: true },
+    };
+    const migrated = migrateProgress(v9)!;
+    expect(migrated.version).toBe(10);
+    expect(migrated.readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
+    expect(migrated.completedLessonIds).toEqual(['a']);
+    expect(migrated.answers).toEqual({ q: 'o' });
+    expect(migrated.readerPositions).toEqual(v9.readerPositions);
+    expect(migrated.settings).toEqual({ motion: 'reduce', compact: true });
+    expect(migrated.preservedFields).toEqual({});
+  });
+
+  it('behält gültige Stufen und setzt Unbekanntes einzeln auf „Standard“', () => {
+    expect(migrateProgress({ version: 10, readingOptions: { size: 'larger', spacing: 'relaxed' } })?.readingOptions).toEqual({
+      size: 'larger',
+      spacing: 'relaxed',
+    });
+    expect(migrateProgress({ version: 10, readingOptions: { size: 'riesig', spacing: 'wide' } })?.readingOptions).toEqual({
+      size: 'standard',
+      spacing: 'wide',
+    });
+    expect(migrateProgress({ version: 10, readingOptions: '1.3' })?.readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
+  });
+
+  it('ändert nur die Leseoptionen; „Standard“ setzt nur sie zurück', () => {
+    const progress = updateSettings(createEmptyProgress(), { compact: true });
+    expect(updateReadingOptions(progress, { size: 'standard' })).toBe(progress);
+    const large = updateReadingOptions(progress, { size: 'large' });
+    expect(large.readingOptions).toEqual({ size: 'large', spacing: 'standard' });
+    const wide = updateReadingOptions(large, { spacing: 'wide' });
+    expect(wide.readingOptions).toEqual({ size: 'large', spacing: 'wide' });
+    const reset = updateReadingOptions(wide, { size: 'standard', spacing: 'standard' });
+    expect(reset.readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
+    expect(reset.settings).toEqual(progress.settings);
+    expect(reset.completedLessonIds).toBe(progress.completedLessonIds);
+  });
+
+  it('übersteht Speichern und Laden', () => {
+    const storage = new Map<string, string>();
+    const store = { getItem: (key: string) => storage.get(key) ?? null, setItem: (key: string, value: string) => void storage.set(key, value) };
+    saveProgress(store, updateReadingOptions(createEmptyProgress(), { size: 'larger', spacing: 'relaxed' }));
+    expect(loadProgress(store).readingOptions).toEqual({ size: 'larger', spacing: 'relaxed' });
   });
 });
