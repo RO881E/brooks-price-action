@@ -2,6 +2,7 @@ import type { CourseOutline, LessonOutline } from '../content/types';
 import type { BarCase } from '../content/barCaseTypes';
 import { caseAvailable, findPublishedCase } from './caseTraining';
 import { lessonAccessState } from './courseAccess';
+import { planTransfer } from './transferCheck';
 import { isStepResolved } from './lessonResults';
 import { resolveReader, type ResolvedReader } from './reader';
 import type { AcademyProgress } from './progress';
@@ -59,6 +60,10 @@ export type AppRoute =
       minutes: 10 | 20;
     }
   | {
+      /** Transferprüfung (seit F-17): `#/transfer`. */
+      kind: 'transfer';
+    }
+  | {
       /** Rückblick auf eine abgeschlossene Runde (seit F-25): `#/train/<case-id>/review/<session-id>`. */
       kind: 'replay';
       caseId: string;
@@ -106,6 +111,8 @@ export function parseRoute(hash: string): AppRoute | null {
     return { kind: 'read', unitId, lessonId, step: lessonId ? parseStep(query) : null };
   }
 
+  if (segments.length === 1 && segments[0] === 'transfer') return { kind: 'transfer' };
+
   if (segments.length === 2 && segments[0] === 'study') {
     return segments[1] === '10' || segments[1] === '20' ? { kind: 'study', minutes: segments[1] === '10' ? 10 : 20 } : null;
   }
@@ -150,6 +157,7 @@ export function formatRoute(route: AppRoute): string {
   }
   if (route.kind === 'train') return `#/train/${encodeURIComponent(route.caseId)}`;
   if (route.kind === 'study') return `#/study/${route.minutes}`;
+  if (route.kind === 'transfer') return '#/transfer';
   if (route.kind === 'replay') {
     return `#/train/${encodeURIComponent(route.caseId)}/review/${encodeURIComponent(route.sessionId)}`;
   }
@@ -213,7 +221,9 @@ export type ResolvedRoute =
   | { kind: 'train'; barCase: BarCase }
   // Die Prüfung der Runde (abgeschlossen, passend) übernimmt `buildReplay` – mit klarer Meldung.
   | { kind: 'replay'; caseId: string; sessionId: string }
-  | { kind: 'study'; minutes: 10 | 20 };
+  | { kind: 'study'; minutes: 10 | 20 }
+  // Nur, wenn es freigegebene Transferfälle gibt – sonst zurück zum Lernpfad.
+  | { kind: 'transfer' };
 
 /**
  * Prüft eine Route gegen Kurs und Fortschritt. Unbekannte, geplante oder
@@ -233,6 +243,7 @@ export function resolveRoute(
     return barCase && caseAvailable(course, progress, barCase) ? { kind: 'train', barCase } : null;
   }
   if (route.kind === 'replay' || route.kind === 'study') return route;
+  if (route.kind === 'transfer') return planTransfer(course, progress).approved > 0 ? route : null;
   if (route.kind === 'read') {
     const reader = resolveReader(course, progress, route.unitId, route.lessonId, route.step);
     return reader ? { kind: 'read', reader } : null;

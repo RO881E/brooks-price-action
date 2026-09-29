@@ -277,6 +277,29 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Transferprüfung (F-17)
+
+Unter **Üben → Transferprüfung** (`#/transfer`) entscheidest du mehrere bisher ungesehene
+Chartsituationen (C-02, `transferCases`) nacheinander **ohne Zwischenlösung**: Je Punkt
+sind nur die bekannten Bars und Hinweise sichtbar (über `publicView`, ohne Einordnung); erst nach
+dem letzten Fall folgt die Auswertung mit deiner Wahl, der Einordnung, erkannten und übersehenen
+Hinweisen und Lernlinks. Ergebnis und Wortwahl sind eine Lernstandsanzeige – keine Prognose,
+keine XP, keine Lernaktivität.
+
+- **Fälle:** nur freigegebene (`approved`) und über die abgeschlossenen Lektionen zugängliche
+  Transferfälle, in fester Reihenfolge; ohne freigegebene Fälle erscheint weder Einstieg noch
+  Route. Die Fälle sind vom gewöhnlichen Trainer, der Fehlerübersicht, dem Kurzlernen und
+  dem Rückblick getrennt.
+- **Speicher:** kein neuer Zustand. Die Prüfung nutzt `caseSessions` (Pause und Reload) und
+  `caseRuns` (abgeschlossene Runden mit Einzelantworten). Ein Durchlauf ergibt sich aus der
+  Zahl der Runden je Fall: 0 bisherige Runden = **Erstversuch**, danach ausdrücklich
+  **Wiederholung (Durchlauf n)**; der Erstversuch bleibt unverändert gespeichert.
+- **Fortsetzen:** Nach Reload oder Abbruch bleibt der Durchlauf erhalten; nur die noch
+  offenen Fälle werden fortgesetzt. Fällt ein Fall weg oder kommt einer hinzu, bleiben alle
+  gespeicherten Runden erhalten.
+- **Stand der Inhalte:** Die C-02-Fälle stehen derzeit als Entwurf; die Prüfung erscheint erst,
+  wenn sie nach fachlicher Freigabe auf `approved` stehen.
+
 ## Nach Thema üben (F-27)
 
 Unter **Üben → Nach Thema üben** listet die Academy die Brooks-Themen der redaktionellen

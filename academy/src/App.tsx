@@ -22,6 +22,7 @@ import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { SettingsView } from './components/SettingsView';
 import { TrainerView } from './components/TrainerView';
+import { TransferView } from './components/TransferView';
 import { ReplayView } from './components/ReplayView';
 import { StudyEntry, StudyView } from './components/StudyView';
 import { planStudySession } from './features/studySession';
@@ -243,6 +244,7 @@ export default function App() {
   const training = resolved?.kind === 'train' ? resolved.barCase : null;
   const replaying = resolved?.kind === 'replay' ? resolved : null;
   const studying = resolved?.kind === 'study' ? resolved : null;
+  const transferring = resolved?.kind === 'transfer';
   // Der Buchleser gehört zur Ansicht „Buchmodus“, der Trainer zu „Üben“
   // (Navigation bleibt markiert).
   const view: View =
@@ -250,7 +252,7 @@ export default function App() {
       ? resolved.view
       : reading
         ? 'chapters'
-        : training || replaying
+        : training || replaying || transferring
           ? 'practice'
           : studying
             ? 'path'
@@ -968,6 +970,15 @@ export default function App() {
               onBack={() => chooseView('practice')}
             />
           ) : null}
+          {transferring ? (
+            <TransferView
+              course={courseOutline}
+              progress={progress}
+              onChange={setProgress}
+              onOpenLesson={openLesson}
+              onBack={() => chooseView('practice')}
+            />
+          ) : null}
           {view === 'chapters' && !reading ? (
             <ChapterView
               course={courseOutline}
@@ -995,7 +1006,7 @@ export default function App() {
               onBack={() => chooseView('practice')}
             />
           ) : null}
-          {view === 'practice' && !training && !replaying ? (
+          {view === 'practice' && !training && !replaying && !transferring ? (
             <PracticeView
               course={courseOutline}
               progress={progress}
@@ -1011,6 +1022,10 @@ export default function App() {
               onEnd={() => setProgress((current) => endSession(current, today))}
               onTrain={openTraining}
               onOpenLesson={openLesson}
+              onOpenTransfer={() => {
+                navigate({ kind: 'transfer' }, 'push');
+                scrollToTop();
+              }}
               onPracticeTopic={(topicId, questionIds) => {
                 setProgress((current) =>
                   startSession(
