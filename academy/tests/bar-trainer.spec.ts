@@ -51,7 +51,9 @@ function secretsOf(item: BarCase, index: number): string[] {
 
 async function expectNoSpoilers(page: Page, index: number) {
   const decision = barCase.decisions[index];
-  await expect(page.locator('.case-bar')).toHaveCount(decision.afterBar + 1);
+  // Chart oder Tabelle (F-26): beide zeigen genau die freigegebenen Bars.
+  const bars = page.locator('.case-bar, [data-bar-row]');
+  await expect(bars).toHaveCount(decision.afterBar + 1);
   // Bereits abgegebene Punkte („Bisherige Entscheidungen“) dürfen ihre Einordnung zeigen.
   const text = await page.locator('body').evaluate((body) => {
     const copy = body.cloneNode(true) as HTMLElement;
@@ -255,5 +257,86 @@ test.describe('F-15 Bar-für-Bar-Trainer', () => {
     await check('summary');
     await page.goto('/#/practice');
     await check('list');
+  });
+
+  test('F-26: Tabelle statt Chart – nur freigegebene Bars, Wahl und Fokus bleiben', async ({ page }) => {
+    await seed(page, unlocked);
+    await openCase(page);
+    await page.getByRole('button', { name: 'Runde starten' }).click();
+    const first = barCase.decisions[0];
+
+    // Umschalten per Tastatur: Fokus bleibt auf dem Schalter, Chart verschwindet aus dem DOM.
+    const tableButton = page.getByRole('button', { name: 'Tabelle', exact: true });
+    await tableButton.focus();
+    await page.keyboard.press('Enter');
+    await expect(tableButton).toBeFocused();
+    await expect(tableButton).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.case-chart')).toHaveCount(0);
+    const table = page.getByRole('table', { name: /^Sichtbare Bars/ });
+    await expect(table).toBeVisible();
+    await expect(table.getByRole('columnheader', { name: 'Eröffnung (Open)' })).toBeVisible();
+    await expect(page.getByText(`Entscheidungspunkt 1 von ${barCase.decisions.length}: nach Bar ${first.afterBar + 1}.`)).toBeVisible();
+    await expectNoSpoilers(page, 0);
+    for (const [index, bar] of barCase.bars.slice(0, first.afterBar + 1).entries()) {
+      await expect(table.locator(`[data-bar-row="${index}"]`)).toContainText(`${bar.open}${bar.high}${bar.low}${bar.close}`);
+    }
+
+    // Die Auswahl übersteht das Umschalten in beide Richtungen.
+    await page.getByRole('radio', { name: 'Short', exact: true }).check();
+    await page.getByRole('checkbox', { name: first.cues[0].label }).check();
+    await page.getByRole('button', { name: 'Chart', exact: true }).click();
+    await expectNoSpoilers(page, 0);
+    await tableButton.click();
+    await expect(page.getByRole('radio', { name: 'Short', exact: true })).toBeChecked();
+    await expect(page.getByRole('checkbox', { name: first.cues[0].label })).toBeChecked();
+
+    // Nach dem Reveal kommen nur die freigegebenen Bars hinzu, als „neu“ markiert.
+    await page.getByRole('button', { name: 'Entscheidung abgeben' }).click();
+    const next = barCase.decisions[1];
+    await expect(table.locator('[data-bar-row]')).toHaveCount(next.afterBar + 1);
+    await expect(table.locator('tr.new')).toHaveCount(next.afterBar - first.afterBar);
+    await expect(page.getByText(`Neu sichtbar: Bar ${first.afterBar + 2} bis ${next.afterBar + 1}.`)).toBeVisible();
+
+    // Weiter: Tabelle bleibt gewählt und zeigt wieder nur bis zum nächsten Punkt.
+    await page.getByRole('button', { name: 'Weiter zur nächsten Entscheidung' }).click();
+    await expect(tableButton).toHaveAttribute('aria-pressed', 'true');
+    await expectNoSpoilers(page, 1);
+
+    // Reload: Runde exakt fortgesetzt, Darstellung wieder Chart (nicht gespeichert).
+    await page.reload();
+    await expect(page.getByText('Fortgesetzt')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Chart', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expectNoSpoilers(page, 1);
+    await tableButton.click();
+    await expectNoSpoilers(page, 1);
+    expect(Object.keys(await stored(page))).not.toContain('barDisplay');
+  });
+
+  test('F-26: Tabelle bei 200 % Zoom (1280 → 640 px) und 360 px – kein Seitenüberlauf, axe ohne Befund', async ({ page }) => {
+    await seed(page, unlocked);
+    // Browser-Zoom 200 % auf 1280 px ergibt einen Layout-Viewport von 640 px.
+    for (const [width, zoom] of [
+      [640, '1'],
+      [360, '1'],
+    ] as const) {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto(`/#/train/${barCase.id}`);
+      await expect(page.getByRole('heading', { name: barCase.title, level: 1 })).toBeVisible();
+      const start = page.getByRole('button', { name: /Runde starten/ });
+      if (await start.isVisible()) await start.click();
+      await page.getByRole('button', { name: 'Tabelle', exact: true }).click();
+      await page.evaluate((value) => {
+        document.documentElement.style.zoom = value;
+      }, zoom);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow, `${width}px, Zoom ${zoom}`).toBeLessThanOrEqual(0);
+      const axe = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
+        .analyze();
+      expect(axe.violations.map((violation) => violation.id), `${width}px`).toEqual([]);
+      await page.evaluate(() => {
+        document.documentElement.style.zoom = '';
+      });
+    }
   });
 });

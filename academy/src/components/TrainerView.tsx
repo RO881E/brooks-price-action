@@ -16,6 +16,10 @@ import {
 import { activeSession, lastCaseRun } from '../features/caseTraining';
 import type { AcademyProgress } from '../features/progress';
 import { CaseChart } from './CaseChart';
+import { CaseTable } from './CaseTable';
+
+/** Darstellung der sichtbaren Bars (F-26); nicht gespeichert. */
+export type BarDisplay = 'chart' | 'table';
 
 export const VERDICT_LABELS: Record<OptionVerdict, string> = {
   best: 'Beste Wahl',
@@ -59,6 +63,8 @@ export function TrainerView({ course, barCase, progress, onBegin, onUpdate, onDi
   // die Auswertung bleibt bis zum Verlassen oder einer neuen Runde stehen.
   const [finished, setFinished] = useState<CaseSession | null>(null);
   const [confirm, setConfirm] = useState<'restart' | 'discard' | null>(null);
+  // Chart oder Tabelle – bleibt über Entscheidungen und neue Runden erhalten, nicht über Reload.
+  const [display, setDisplay] = useState<BarDisplay>('chart');
   // „Fortgesetzt“ nur, wenn beim Öffnen schon eine begonnene Runde vorlag.
   const [resumed, setResumed] = useState(() =>
     Boolean(
@@ -122,6 +128,8 @@ export function TrainerView({ course, barCase, progress, onBegin, onUpdate, onDi
           onRestart={() => (session ? setConfirm('restart') : begin())}
           onDiscard={() => setConfirm('discard')}
           onBack={onBack}
+          display={display}
+          onDisplay={setDisplay}
         />
       ) : (
         <StartPanel
@@ -227,9 +235,23 @@ interface RunProps {
   onRestart: () => void;
   onDiscard: () => void;
   onBack: () => void;
+  display: BarDisplay;
+  onDisplay: (display: BarDisplay) => void;
 }
 
-function RunView({ course, barCase, session, resumed, onUpdate, onOpenLesson, onRestart, onDiscard, onBack }: RunProps) {
+function RunView({
+  course,
+  barCase,
+  session,
+  resumed,
+  onUpdate,
+  onOpenLesson,
+  onRestart,
+  onDiscard,
+  onBack,
+  display,
+  onDisplay,
+}: RunProps) {
   const view = publicView(barCase, session);
   const focusTarget = useRef<HTMLHeadingElement>(null);
   const phaseKey = `${view.phase}-${view.progress.position}`;
@@ -269,11 +291,34 @@ function RunView({ course, barCase, session, resumed, onUpdate, onOpenLesson, on
         ) : null}
       </div>
 
-      <CaseChart
-        bars={view.bars}
-        deciding={view.phase === 'decide'}
-        newFrom={view.phase === 'revealed' ? decidedBars : undefined}
-      />
+      <div className="bar-display-toggle" role="group" aria-label="Darstellung der Bars">
+        <button type="button" aria-pressed={display === 'chart'} onClick={() => onDisplay('chart')}>
+          Chart
+        </button>
+        <button type="button" aria-pressed={display === 'table'} onClick={() => onDisplay('table')}>
+          Tabelle
+        </button>
+      </div>
+      {/* Chart und Tabelle erhalten dieselben, vom Trainer freigegebenen Bars (`publicView().bars`). */}
+      {display === 'chart' ? (
+        <CaseChart
+          bars={view.bars}
+          deciding={view.phase === 'decide'}
+          newFrom={view.phase === 'revealed' ? decidedBars : undefined}
+        />
+      ) : (
+        <CaseTable
+          bars={view.bars}
+          newFrom={view.phase === 'revealed' ? decidedBars : undefined}
+          decisionText={
+            view.phase === 'decide'
+              ? `Entscheidungspunkt ${view.progress.position} von ${view.progress.total}: nach Bar ${view.bars.length}. Weitere Bars erscheinen erst nach deiner Abgabe.`
+              : view.phase === 'revealed'
+                ? `Entscheidung ${view.progress.position} abgegeben. Neu sichtbar: Bar ${(decidedBars ?? view.bars.length) + 1} bis ${view.bars.length}.`
+                : `Fall abgeschlossen – alle ${view.bars.length} Bars sichtbar.`
+          }
+        />
+      )}
       <p className="visually-hidden" role="status">
         {view.phase === 'decide'
           ? `Entscheidung ${view.progress.position} von ${view.progress.total}. ${view.bars.length} Bars sichtbar.`

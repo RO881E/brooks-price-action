@@ -387,6 +387,10 @@ test('Bar-für-Bar-Trainer offline: Runde spielen und nach Neustart fortsetzen (
   await page.reload();
   await expect(page.getByText('Fortgesetzt')).toBeVisible();
   await expect(page.getByRole('heading', { name: /^Auflösung: Abwarten/ })).toBeVisible();
+  // F-26: Tabellenansicht auch offline, mit den nach dem Reveal freigegebenen Bars.
+  await page.getByRole('button', { name: 'Tabelle', exact: true }).click();
+  const shown = barCase.decisions[1] ? barCase.decisions[1].afterBar + 1 : barCase.bars.length;
+  await expect(page.locator('[data-bar-row]')).toHaveCount(shown);
 
   serverState.down = false;
   await context.setOffline(false);

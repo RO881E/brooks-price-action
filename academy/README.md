@@ -225,6 +225,14 @@ Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/t
   mit Lektionslinks und die Folgebars. Die Oberfläche rendert ausschließlich `publicView()`;
   vor der Abgabe stehen weder spätere Bars noch Lösungen im DOM oder in ARIA-Texten. Gegen
   absichtliche Inspektion des gebündelten Codes schützt ein clientseitiges Angebot nicht.
+- **Chart oder Tabelle (F-26):** Über „Chart“/„Tabelle“ lassen sich die sichtbaren Bars auch als
+  Datentabelle lesen (Bar, Eröffnung, Hoch, Tief, Schluss, Richtung, ggf. Beschriftung; relative
+  Lernwerte, keine echten Kurse) samt kurzem Text zum aktuellen Entscheidungspunkt. Beide
+  Ansichten erhalten dieselbe Liste `publicView().bars` – die Tabelle greift nie auf das
+  vollständige Fallobjekt zu; nach dem Reveal kommen nur die freigegebenen Bars hinzu (als „neu“
+  markiert). Umschalten behält Auswahl und Fokus; die Wahl der Ansicht wird nicht gespeichert.
+  Auf schmalen Bildschirmen scrollt die Tabelle in ihrem eigenen, per Tastatur erreichbaren
+  Bereich.
 - Auswertung: Einordnung je Entscheidung, übersehene Hinweise und Lektionen zum Nacharbeiten;
   „Neue Runde“ beginnt von vorn. Runden vergeben keine XP und ändern keinen Lektionsabschluss.
 - **Abbruch und Reload:** Jede Aktion wird sofort gespeichert; nach Reload, Browser-Zurück oder
