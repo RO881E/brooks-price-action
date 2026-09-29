@@ -1,4 +1,5 @@
-import type { SavedBookmark, SavedNote, SavedOverview, SavedTarget } from '../features/savedItems';
+import { useId, useMemo, useState } from 'react';
+import { arrangeSaved, type SavedBookmark, type SavedNote, type SavedOverview, type SavedSort, type SavedTarget } from '../features/savedItems';
 
 interface SavedViewProps {
   overview: SavedOverview;
@@ -23,7 +24,7 @@ function OpenButton({ target, onOpen }: { target: SavedTarget; onOpen: (target: 
       onClick={() => onOpen(target)}
       aria-label={`${target.title} öffnen`}
     >
-      Öffnen
+      {target.stepIndex !== null ? 'Zur Fundstelle' : 'Öffnen'}
     </button>
   );
 }
@@ -102,8 +103,13 @@ function NoteItem({
   );
 }
 
-export function SavedView({ overview, onOpen, onRemoveBookmark, onDeleteNote }: SavedViewProps) {
-  const empty = overview.bookmarks.length === 0 && overview.notes.length === 0;
+export function SavedView({ overview: source, onOpen, onRemoveBookmark, onDeleteNote }: SavedViewProps) {
+  const ids = useId();
+  const [sort, setSort] = useState<SavedSort>('recent');
+  const [query, setQuery] = useState('');
+  const overview = useMemo(() => arrangeSaved(source, sort, query), [source, sort, query]);
+  const empty = source.bookmarks.length === 0 && source.notes.length === 0;
+  const filtered = query.trim() !== '';
 
   return (
     <div className="page-shell saved-page">
@@ -126,6 +132,34 @@ export function SavedView({ overview, onOpen, onRemoveBookmark, onDeleteNote }: 
         </div>
       ) : (
         <>
+          <div className="saved-tools">
+            <label className="saved-search" htmlFor={`${ids}-search`}>
+              <span>In Lesezeichen und Notizen suchen</span>
+              <input
+                id={`${ids}-search`}
+                type="search"
+                value={query}
+                autoComplete="off"
+                onChange={(event) => setQuery(event.target.value)}
+              />
+            </label>
+            <fieldset className="saved-sort">
+              <legend>Sortierung</legend>
+              <label>
+                <input type="radio" name={`${ids}-sort`} checked={sort === 'recent'} onChange={() => setSort('recent')} />
+                <span>Neueste zuerst</span>
+              </label>
+              <label>
+                <input type="radio" name={`${ids}-sort`} checked={sort === 'book'} onChange={() => setSort('book')} />
+                <span>Buchreihenfolge</span>
+              </label>
+            </fieldset>
+            <p className="visually-hidden" role="status">
+              {filtered
+                ? `${overview.bookmarks.length + overview.notes.length} Treffer in Lesezeichen und Notizen.`
+                : ''}
+            </p>
+          </div>
           <section className="progress-panel" aria-labelledby="saved-bookmarks-heading">
             <div className="progress-panel-head">
               <h2 id="saved-bookmarks-heading">Lesezeichen</h2>
@@ -140,7 +174,7 @@ export function SavedView({ overview, onOpen, onRemoveBookmark, onDeleteNote }: 
                 ))}
               </ul>
             ) : (
-              <p className="progress-note">Noch keine Lesezeichen.</p>
+              <p className="progress-note">{filtered ? 'Keine Lesezeichen passen zur Suche.' : 'Noch keine Lesezeichen.'}</p>
             )}
           </section>
 
@@ -158,7 +192,7 @@ export function SavedView({ overview, onOpen, onRemoveBookmark, onDeleteNote }: 
                 ))}
               </ul>
             ) : (
-              <p className="progress-note">Noch keine Notizen.</p>
+              <p className="progress-note">{filtered ? 'Keine Notizen passen zur Suche.' : 'Noch keine Notizen.'}</p>
             )}
           </section>
         </>

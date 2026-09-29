@@ -101,7 +101,7 @@ export function StepTerms({ entries }: { entries: GlossaryEntry[] }) {
             <p className="step-term-aliases">Auch: {entry.aliases.join(', ')}</p>
           ) : null}
           <div className="step-term-actions">
-            <a href={formatRoute({ kind: 'view', view: 'glossary', term: entry.term })}>
+            <a className="step-term-link" href={formatRoute({ kind: 'view', view: 'glossary', term: entry.term })}>
               Im Glossar öffnen
             </a>
             <button type="button" className="secondary-button" aria-label={`Schließen: ${entry.term}`} onClick={close}>

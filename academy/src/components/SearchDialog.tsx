@@ -32,6 +32,8 @@ const accessLabels: Record<LessonAccessState, string> = {
   planned: 'In Vorbereitung',
 };
 
+const TYPE_LABEL: Record<SearchResult['type'], string> = { lesson: 'Lektion', step: 'Schritt', glossary: 'Glossar' };
+
 function statusLabel(result: SearchResult): string {
   if (result.type === 'glossary') return 'Glossar';
   return result.access ? accessLabels[result.access] : '';
@@ -179,6 +181,9 @@ export function SearchDialog({ open, index, completedLessonIds, onClose, onSelec
                     onClick={() => choose(result)}
                   >
                     <span className="search-option-main">
+                      <span className={`search-type ${result.type}`} aria-hidden="true">
+                        {TYPE_LABEL[result.type]}
+                      </span>
                       <strong>{result.title}</strong>
                       <small>{result.context}</small>
                     </span>
