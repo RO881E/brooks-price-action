@@ -167,6 +167,7 @@ export function buildQuestionSession(
   questionIds: readonly string[],
   items: ReviewItem[],
   today: DayKey,
+  topicId?: string,
 ): ReviewSession | null {
   const available = new Set(items.map((item) => item.question.id));
   const selected = [...new Set(questionIds)].filter((id) => available.has(id)).slice(0, REVIEW_SESSION_SIZE);
@@ -179,6 +180,7 @@ export function buildQuestionSession(
     answers: {},
     startedDay: today,
     activityRecorded: false,
+    ...(topicId ? { topicId } : {}),
   };
 }
 

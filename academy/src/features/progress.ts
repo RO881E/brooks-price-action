@@ -17,7 +17,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 14;
+export const ACADEMY_PROGRESS_VERSION = 15;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -88,6 +88,11 @@ export interface ReviewSession {
   startedDay: DayKey;
   /** Ob die Runde bereits als Lernaktivität gezählt wurde (seit F-05). */
   activityRecorded: boolean;
+  /**
+   * Themenrunde (seit F-27, v15): nur die Beschriftung. Die Fragen bleiben die
+   * bestehenden; fehlt das Thema später in der Karte, bleibt die Runde spielbar.
+   */
+  topicId?: string;
 }
 
 /** Zählwerte eines Kalendertags für Tagesziel und Wochenansicht (seit F-05). */
@@ -634,6 +639,8 @@ function normalizeReviewCards(value: unknown): Record<string, ReviewCard> {
   );
 }
 
+const TOPIC_ID = /^brooks-topic\.[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
 function normalizeReviewSession(value: unknown): ReviewSession | null {
   if (!isRecord(value)) return null;
   const { mode, unitId, index, startedDay } = value;
@@ -659,6 +666,7 @@ function normalizeReviewSession(value: unknown): ReviewSession | null {
       : {},
     startedDay,
     activityRecorded: value.activityRecorded === true,
+    ...(typeof value.topicId === 'string' && TOPIC_ID.test(value.topicId) ? { topicId: value.topicId } : {}),
   };
 }
 

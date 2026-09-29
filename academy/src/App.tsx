@@ -1007,6 +1007,15 @@ export default function App() {
               onEnd={() => setProgress((current) => endSession(current, today))}
               onTrain={openTraining}
               onOpenLesson={openLesson}
+              onPracticeTopic={(topicId, questionIds) => {
+                setProgress((current) =>
+                  startSession(
+                    current,
+                    buildQuestionSession(questionIds, reviewPool(courseOutline, current), today, topicId),
+                  ),
+                );
+                window.scrollTo({ top: 0 });
+              }}
               onPracticeQuestions={(questionIds) => {
                 setProgress((current) =>
                   startSession(
