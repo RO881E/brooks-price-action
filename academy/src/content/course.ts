@@ -5,6 +5,7 @@ import { chapterTwoLessons } from './courses/brooks-trends/chapter-02';
 import { chapterThreeLessons } from './courses/brooks-trends/chapter-03';
 import { chapterFourLessons } from './courses/brooks-trends/chapter-04';
 import { chapterFiveLessons } from './courses/brooks-trends/chapter-05';
+import { chapterSixLessons } from './courses/brooks-trends/chapter-06';
 import type { Course } from './types';
 
 export const brooksTrendsCourse: Course = {
@@ -92,6 +93,17 @@ export const brooksTrendsCourse: Course = {
         'Bullische und bärische Reversal-Bars, Mit-Trend- und Gegentrend-Setups, Überlappung und Warnzeichen – mit den drei Chartfällen 5.1 bis 5.3.',
       estimatedLessonCount: 25,
       lessons: chapterFiveLessons,
+    },
+    {
+      id: 'brooks-trends.chapter-06',
+      order: 8,
+      kind: 'chapter',
+      label: 'Kapitel 6',
+      title: 'Weitere Signal-Bars und ihre Marktrolle',
+      description:
+        'Starke Trendbars, Zwei- und Drei-Bar-Umkehr, Inside-/Outside-Bars, Mikro-Doppel, Fehlsignale und alle 19 Chartfälle des Buchkapitels.',
+      estimatedLessonCount: 40,
+      lessons: chapterSixLessons,
     },
   ],
 };
