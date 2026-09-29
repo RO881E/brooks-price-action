@@ -15,6 +15,7 @@ import {
   type AcademySettings,
   type DailyGoal,
 } from '../features/progress';
+import type { PwaSnapshot } from '../features/pwa';
 
 interface SettingsViewProps {
   progress: AcademyProgress;
@@ -24,6 +25,9 @@ interface SettingsViewProps {
   onExport: () => void;
   onImport: (imported: AcademyProgress, mode: ImportMode, options: MergeOptions) => void;
   onReset: () => void;
+  /** Offline- und Update-Stand der App (seit F-09). */
+  appStatus?: PwaSnapshot;
+  onApplyUpdate?: () => void;
 }
 
 type ImportState =
@@ -83,6 +87,8 @@ export function SettingsView({
   onExport,
   onImport,
   onReset,
+  appStatus,
+  onApplyUpdate,
 }: SettingsViewProps) {
   const ids = useId();
   const fileInput = useRef<HTMLInputElement>(null);
@@ -207,6 +213,28 @@ export function SettingsView({
           </span>
         </label>
       </section>
+
+      {appStatus ? (
+        <section className="progress-panel settings-section" aria-labelledby={`${ids}-offline`}>
+          <h2 id={`${ids}-offline`}>Offline &amp; App</h2>
+          <p className="settings-text" data-testid="offline-status">
+            {appStatus.offlineReady
+              ? 'Die Academy ist auf diesem Gerät offline verfügbar: Lernpfad, Lektionen, Glossar und dein Fortschritt funktionieren auch ohne Verbindung.'
+              : 'Die Offline-Nutzung wird eingerichtet, sobald die veröffentlichte Academy einmal vollständig online geladen wurde.'}
+          </p>
+          <p className="settings-text">
+            Installieren: Im Browsermenü „App installieren“ oder „Zum Home-Bildschirm“ wählen.
+            PDFs und Inhalte anderer Websites werden nicht offline gespeichert.
+          </p>
+          {appStatus.updateReady && onApplyUpdate ? (
+            <div className="settings-actions">
+              <button type="button" className="primary-button" onClick={onApplyUpdate}>
+                Neue Version laden
+              </button>
+            </div>
+          ) : null}
+        </section>
+      ) : null}
 
       <section className="progress-panel settings-section" aria-labelledby={`${ids}-backup`}>
         <h2 id={`${ids}-backup`}>Datensicherung</h2>

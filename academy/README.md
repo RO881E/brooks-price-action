@@ -37,6 +37,9 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
   je Lektion nur einmal, auch bei „Lektion wiederholen“
 - lesender Kompatibilitätscheck für `brooks-progress` und `brooks-tr-best`
 - responsive Navigation für Desktop und Mobilgeräte
+- installierbare Offline-App: Web-App-Manifest, eigene Icons und ein Service Worker; nach
+  einem Online-Besuch funktionieren Lernpfad, Lektionen, Glossar und Fortschritt ohne
+  Verbindung, neue Versionen werden angekündigt statt ungefragt geladen
 
 ## Gespeicherte Daten
 
@@ -92,6 +95,28 @@ und keine gefährlichen Schlüssel wie `__proto__`. Eine abgelehnte Datei änder
 - **Zurücksetzen** löscht nur `wqt-academy-progress-v1`. `brooks-progress` und `brooks-tr-best`
   bleiben unangetastet.
 
+## Offline-App und Updates
+
+- `public/manifest.webmanifest` beschreibt Name, Farben und Icons; `start_url` und `scope`
+  sind relativ (`./`), damit die App unter jedem Unterpfad (z. B. `/academy/`) läuft. Die Icons
+  in `public/icons/` sind eigene SVGs; die PNG-Fassungen (192, 512, maskable 512,
+  Apple-Touch 180) sind daraus gerendert.
+- Kein zusätzliches Paket: Das Vite-Plugin `pwa/serviceWorkerPlugin.ts` schreibt nach dem
+  Produktions-Build `sw.js` aus der Vorlage `pwa/sw-template.js`. Es trägt alle gebauten
+  Dateien als Vorlade-Liste ein (ohne Source Maps und PDFs) und bildet die Version als Hash
+  über deren Inhalt. Der Cache heißt `wqt-academy-<version>`.
+- Der Service Worker bedient nur GET-Anfragen der eigenen Herkunft innerhalb seines Scopes
+  und nur die vorgeladenen Dateien. PDFs, fremde Ressourcen und alles andere gehen
+  unverändert ans Netz und werden nie gespeichert. Schlägt beim Installieren eine Datei fehl,
+  wird die neue Version verworfen und die bisherige bleibt aktiv.
+- Update-Strategie: Eine neue Version wird im Hintergrund vollständig geladen und wartet.
+  Die App zeigt „Neue Version verfügbar“; erst „Jetzt aktualisieren“ (oder „Neue Version
+  laden“ in den Einstellungen) aktiviert sie und lädt die Seite genau einmal neu. „Später“
+  lässt die laufende Version weiterlaufen; spätestens nach dem Schließen aller Tabs startet die
+  neue. Beim Aktivieren werden nur ältere `wqt-academy-`-Caches gelöscht.
+- Registriert wird nur im Produktions-Build (`import.meta.env.PROD`); `npm run dev` bleibt ohne
+  Service Worker. Ohne Verbindung erscheint ein schließbarer Offline-Hinweis.
+
 ## Wiederholungsplan
 
 Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen
@@ -122,6 +147,9 @@ npm run test:e2e
 
 Die End-to-End-Tests prüfen Desktop und Mobilansicht, Navigation, JavaScript-Fehler,
 Fortschrittsspeicherung und den unveränderten Erhalt der bestehenden Local-Storage-Schlüssel.
+`tests/pwa.spec.ts` baut zusätzlich den Produktions-Build nach `.wqt-playwright-tmp/`, liefert
+ihn unter `/academy/` aus und prüft Registrierung, Offline-Betrieb, Updates, fehlgeschlagene
+Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
 
 ## Geplanter Funktionsausbau
 
