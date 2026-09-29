@@ -6404,3 +6404,196 @@ button:disabled {
     flex: 1 1 100%;
   }
 }
+
+/* Faire, sichtbare Motivation (P07) */
+.summary-panel {
+  margin-bottom: 20px;
+}
+
+.summary-panel h2 {
+  margin: 0 0 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+}
+
+.summary-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summary-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--mode-base, var(--line-strong));
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.summary-label {
+  color: var(--mode-ink, var(--ink-soft));
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.summary-list strong {
+  font-family: 'Manrope', sans-serif;
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.summary-list small {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.summary-list .stat-meter {
+  margin-top: 8px;
+}
+
+.summary-note {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.mission-list,
+.badge-grid {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mission-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--mode-base, var(--line-strong));
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.mission-list li.done {
+  background: var(--canvas);
+}
+
+.mission-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--mode-ink, var(--ink));
+  font-weight: 800;
+  border: 2px solid var(--mode-base, var(--line-strong));
+  border-radius: 50%;
+}
+
+.mission-list li.done .mission-mark {
+  color: #fff;
+  background: var(--mode-ink, var(--ink));
+}
+
+.mission-copy strong,
+.mission-copy small {
+  display: block;
+}
+
+.mission-copy small {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.mission-state {
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mission-list .secondary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.badge-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+}
+
+.badge-grid li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+}
+
+.badge-symbol {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--ink-soft);
+  font-size: 20px;
+  border: 2px dashed var(--line-strong);
+  border-radius: 50%;
+}
+
+.badge-grid li.earned {
+  border-color: var(--progress-base);
+  background: var(--progress-soft);
+}
+
+.badge-grid li.earned .badge-symbol {
+  color: #fff;
+  border: 2px solid var(--progress-ink);
+  background: var(--progress-ink);
+}
+
+.badge-copy strong,
+.badge-copy small,
+.badge-copy em {
+  display: block;
+}
+
+.badge-copy small {
+  margin: 2px 0;
+  color: #444b54;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.badge-copy em {
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* Erfolgsmeldung: größere Schließfläche, ruhige Darstellung. */
+.celebration button {
+  min-width: 44px;
+  min-height: 44px;
+  margin: -10px -12px -10px 0;
+}
+
+.badge-grid li.earned .badge-copy em {
+  color: var(--progress-ink);
+}

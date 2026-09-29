@@ -277,6 +277,27 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Faire, sichtbare Motivation (P07)
+
+Die Fortschrittsansicht macht den Lernweg sichtbar, ohne Druck und ohne Trading-Versprechen:
+
+- **Dein Überblick:** vier Kennzahlen in den Farben der Lernmodi – Lektionen abgeschlossen,
+  Fragen wiederholt, Trainerfälle bearbeitet, Serie. Die Zahlen kommen aus dem gespeicherten
+  Zustand (`src/features/progressSummary.ts`) und stimmen mit den Kacheln darunter überein;
+  nach einem Reload bleiben sie gleich.
+- **Abzeichen:** Die vorhandenen einmaligen Meilensteine erscheinen mit Symbol, erklärtem
+  Kriterium und „Erhalten am …“ bzw. „Noch offen“. Es gibt keine neuen oder nachträglich
+  vergebenen Erfolge; ein Abzeichen wird genau einmal vergeben, Import und Wiederholung ändern
+  es nicht.
+- **Freiwillige Tagesvorschläge:** höchstens drei kleine Vorschläge (Wiederholungsrunde, neue
+  Lektion, Chart-Training), abgeleitet aus dem, was gerade verfügbar ist
+  (`src/features/missions.ts`) – kein neues Zielsystem, kein gespeicherter Zustand. „Erledigt“
+  ergibt sich nur aus bereits gezählten Aktivitäten; **Öffnen oder Verlassen zählt nie als
+  Lerntag**.
+- **Erfolgsmeldung:** unverändert dezent (nur bei echtem Ziel oder Meilenstein), als
+  Statusmeldung für Screenreader, mit Escape und größerer Schließfläche schließbar; bei
+  „Bewegung reduzieren“ (Betriebssystem oder Einstellungen) ohne Animation.
+
 ## Startansicht „Heute“ und Orientierung (P06)
 
 Der Lernpfad beginnt mit **einer** primären Aktion aus dem echten Lernstand
