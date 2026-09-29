@@ -4370,6 +4370,98 @@ button:disabled {
   margin-top: 18px;
 }
 
+/* Begriffe am Lernort (F-21) */
+.step-terms {
+  margin-top: 18px;
+}
+
+.step-terms-label {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.step-terms-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step-term-button {
+  min-height: 36px;
+  padding: 6px 12px;
+  color: var(--gold-dark);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.step-term-button:hover,
+.step-term-button[aria-expanded='true'] {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.step-term-panel {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 14px;
+  background: var(--canvas);
+  overflow-wrap: anywhere;
+  scroll-margin: 90px 0 96px;
+}
+
+.step-term-panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.step-term-panel h4 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+}
+
+.step-term-panel-head span,
+.step-term-aliases {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.step-term-panel p {
+  margin: 10px 0 0;
+  line-height: 1.55;
+}
+
+.step-term-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.step-term-actions a {
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
 .reader-section-footer {
   display: grid;
   gap: 12px;
@@ -4414,6 +4506,7 @@ button:disabled {
   .reader-actions,
   .reader-heading button,
   .chart-zoom-trigger,
+  .step-terms,
   .lesson-notes,
   .app-status {
     display: none !important;

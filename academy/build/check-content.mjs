@@ -20,13 +20,14 @@ async function load(path) {
   return module;
 }
 
-const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { barCases }, { validateBarCases }, check] =
+const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { barCases }, { validateBarCases }, { validateStepTermLinks }, check] =
   await Promise.all([
     load('src/content/course.ts'),
     load('src/content/glossary.ts'),
     load('src/components/LearningChart.tsx'),
     load('src/content/barCases.ts'),
     load('src/features/barCaseValidation.ts'),
+    load('src/content/stepTerms.ts'),
     load('build/contentCheck.ts'),
   ]);
 
@@ -37,6 +38,7 @@ const input = {
   scenarioIds: chart.chartScenarioIds(),
   describe: (scenario) => chart.chartDescription(scenario),
   caseIssues: validateBarCases(barCases, brooksTrendsCourse),
+  termLinkIssues: validateStepTermLinks(brooksTrendsCourse, glossaryEntries),
   known,
 };
 
@@ -60,6 +62,7 @@ function unitEntry(unitId) {
 function locate(issue) {
   if (issue.area === 'glossary') return 'src/content/glossary.ts';
   if (issue.area === 'case') return 'src/content/barCases.ts';
+  if (issue.area === 'term-link') return 'src/content/stepTerms.ts';
   if (issue.area === 'known-ids' && !issue.lessonId) return 'build/published-ids.json';
   if (issue.area === 'diagram' && !issue.lessonId) return 'src/components/LearningChart.tsx';
   for (const id of [issue.id, issue.lessonId]) {

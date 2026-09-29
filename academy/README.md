@@ -193,6 +193,20 @@ eine „öffentliche Sicht“ ohne vorzeitige Lösungen und das Fortsetzen nach 
 Die Vorgaben dafür stehen in [docs/BAR_CASE_CONTRACT.md](docs/BAR_CASE_CONTRACT.md). Technische
 Testfälle liegen nur in `src/test/fixtures/`.
 
+## Begriffe am Lernort (F-21)
+
+Unter ausgewählten Leseabschnitten im Buchmodus stehen wenige Begriffe zum Nachschlagen. Ein
+Klick öffnet ein kleines Panel mit der bestehenden Glossardefinition, den Aliassen und dem Link
+„Im Glossar öffnen“ (`#/glossary?term=…`). „Schließen“ oder Escape bringt Fokus und
+Leseposition zum Begriff zurück; Browser-Zurück aus dem Glossar führt an die Lesestelle.
+Nichts davon wird gespeichert, Fragen, Abschluss und XP bleiben unberührt.
+
+Die Zuordnung steht ausdrücklich in `src/content/stepTerms.ts` (Lektions-ID, Schritt-ID,
+Glossarbegriffe) – keine automatische Wortsuche. Regeln: veröffentlichter Schritt, keine Frage,
+höchstens drei Begriffe, nur vorhandene Glossarbegriffe (Feld `term`), und der Begriff steht als
+eigenes Wort im Text des Schritts. Verstöße melden `npm test` und `npm run check:content`
+(Regel `begriff-am-lernort`); unbekannte Begriffe blendet die Oberfläche sicher aus.
+
 ## Wiederholungsplan
 
 Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen
@@ -255,13 +269,13 @@ Check nach den Unit-Tests aus.
 **Fehler:** doppelte Einheits-, Lektions-, Frage- oder Schritt-IDs und IDs mit unzulässigen
 Zeichen; Einheiten außerhalb der Buchreihenfolge (`order`); fehlende Pflichtfelder (Titel,
 Bezeichnung, Status, XP, Schrittüberschrift, Bildunterschrift) und veröffentlichte Lektionen
-ohne Schritte; ungültige Fragen
-(weniger als zwei Antworten, doppelte Antwort-IDs, fehlende Erklärung, richtige Antwort gibt es
-nicht); Diagramme mit unbekanntem Szenario oder ohne Bildbeschreibung; Glossareinträge mit
-doppeltem Begriff oder einer `firstUnit`, die keine Einheit ist; Verstöße der Bar-für-Bar-Fälle
-gegen den F-14-Vertrag; Abweichungen von `build/published-ids.json` (bekannte Einheit, Lektion
-oder Schritt gelöscht, umbenannt, umgezogen, nicht mehr veröffentlicht oder umsortiert) sowie
-neue veröffentlichte IDs, die noch nicht aufgenommen sind.
+ohne Schritte; ungültige Fragen (weniger als zwei Antworten, doppelte Antwort-IDs, fehlende
+Erklärung, richtige Antwort gibt es nicht); Diagramme mit unbekanntem Szenario oder ohne
+Bildbeschreibung; Glossareinträge mit doppeltem Begriff oder einer `firstUnit`, die keine
+Einheit ist; Verstöße der Bar-für-Bar-Fälle gegen den F-14-Vertrag; ungültige
+Begriffszuordnungen am Lernort (F-21); Abweichungen von `build/published-ids.json` (bekannte
+Einheit, Lektion oder Schritt gelöscht, umbenannt, umgezogen, nicht mehr veröffentlicht oder
+umsortiert) sowie neue veröffentlichte IDs, die noch nicht aufgenommen sind.
 
 **Hinweise (kein Fehler):** definierte, aber nirgends genutzte Diagrammszenarien und
 Glossar-Aliasse, die zugleich ein anderer Begriff oder Alias sind.

@@ -16,8 +16,10 @@ import {
   type ReaderSection,
   type ResolvedReader,
 } from '../features/reader';
+import { termsForStep } from '../content/stepTerms';
 import { ContentLoadState } from './ContentLoadState';
 import { ComparisonStep, DiagramStep, ExplanationStep, QuestionStep, RecapStep } from './LessonSteps';
+import { StepTerms } from './StepTerms';
 
 interface ReaderViewProps {
   course: CourseOutline;
@@ -372,6 +374,7 @@ function ReaderSectionView({
                 onReveal={onReveal}
                 onResolved={focusNext}
               />
+              <StepTerms entries={termsForStep(lesson.id, step.id)} />
             </section>
           ))}
         </div>
