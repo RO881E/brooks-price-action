@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { BarCase, DecisionPoint } from '../content/barCaseTypes';
-import { barCases } from '../content/barCases';
+import { allBarCases, barCases } from '../content/barCases';
 import { brooksTrendsCourse } from '../content/course';
 import { singleStepFixture, technicalFixtures, twoStepFixture } from '../test/fixtures/barCases';
 import { formatIssues, validateBarCase, validateBarCases } from './barCaseValidation';
@@ -24,7 +24,7 @@ function decision(draft: BarCase, index = 0): DecisionPoint {
 
 describe('Bar-für-Bar-Fälle: Registry und Fixtures', () => {
   it('alle registrierten Fälle erfüllen den Vertrag', () => {
-    expect(formatIssues(validateBarCases(barCases, course))).toBe('');
+    expect(formatIssues(validateBarCases(allBarCases, course))).toBe('');
   });
 
   it('die technischen Fixtures sind gültig', () => {
