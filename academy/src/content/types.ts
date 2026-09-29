@@ -76,6 +76,21 @@ export const CHAPTER_NINE_SCENARIOS = [
 
 export type ChapterNineScenarioId = (typeof CHAPTER_NINE_SCENARIOS)[number];
 
+export const CHAPTER_TEN_SCENARIOS = [
+  'c10-second-at-extremes', 'c10-first-second', 'c10-better-price',
+  'c10-smaller-timeframe', 'c10-countertrend-wait',
+  'c10-101-price-map', 'c10-101-bargain-trap', 'c10-101-bull-evidence',
+  'c10-101-micro-doubles',
+  'c10-102-first-short', 'c10-102-second-long', 'c10-102-no-second',
+  'c10-102-second-short',
+  'c10-deep-yesterday', 'c10-deep-low-failure', 'c10-deep-double-top',
+  'c10-deep-low4', 'c10-deep-high2', 'c10-deep-final-flag',
+  'c10-deep-three-climaxes', 'c10-deep-micro-bottom', 'c10-deep-low1',
+  'c10-deep-bar11',
+] as const;
+
+export type ChapterTenScenarioId = (typeof CHAPTER_TEN_SCENARIOS)[number];
+
 export type ChartScenarioId =
   | 'auction-balance'
   | 'institutional-flow'
@@ -185,7 +200,8 @@ export type ChartScenarioId =
   | ChapterSixScenarioId
   | ChapterSevenScenarioId
   | ChapterEightScenarioId
-  | ChapterNineScenarioId;
+  | ChapterNineScenarioId
+  | ChapterTenScenarioId;
 
 export type LessonStep =
   | {

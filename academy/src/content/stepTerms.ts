@@ -37,6 +37,9 @@ export const stepTermLinks: StepTermLink[] = [
   { lessonId: 'brooks-trends.chapter-09.lesson-02', stepId: 'chapter-09-02-explain', terms: ['SPY'] },
   { lessonId: 'brooks-trends.chapter-09.lesson-03', stepId: 'chapter-09-03-explain', terms: ['SDS'] },
   { lessonId: 'brooks-trends.chapter-09.lesson-07', stepId: 'chapter-09-07-explain', terms: ['ETF'] },
+  { lessonId: 'brooks-trends.chapter-10.lesson-01', stepId: 'chapter-10-01-explain', terms: ['Zweiter Entry'] },
+  { lessonId: 'brooks-trends.chapter-10.lesson-09', stepId: 'chapter-10-09-explain', terms: ['Mikro-Doppeltop', 'Mikro-Doppeltief'] },
+  { lessonId: 'brooks-trends.chapter-10.lesson-17', stepId: 'chapter-10-17-explain', terms: ['Low 4'] },
 ];
 
 function linkKey(lessonId: string, stepId: string) {

@@ -510,4 +510,32 @@ export const glossaryEntries: GlossaryEntry[] = [
       'Zusammenfallen mehrerer Verfallstermine im Aktien- und Indexderivatebereich. Im historischen Buchfall ist eine SPY-Preisanpassung an einem solchen Tag für den Vergleich der Eröffnungslücken wichtig.',
     firstUnit: 'Kapitel 9',
   },
+  {
+    term: 'Zweiter Entry',
+    aliases: ['Second Entry', 'zweiter Einstieg'],
+    definition:
+      'Erneuter Einstieg nach einem ersten Umkehr- oder Fortsetzungsversuch und einer Zwischenreaktion. Die Nummer benennt die Folge, nicht deren Qualität oder Ausgang.',
+    firstUnit: 'Kapitel 10',
+  },
+  {
+    term: 'Mikro-Doppeltop',
+    aliases: ['Micro Double Top'],
+    definition:
+      'Zwei nahe Hochtests auf kleinem Raum, die einen zweiten Verkaufsversuch vorbereiten können. Der Abstand der Hochs muss nicht exakt null sein.',
+    firstUnit: 'Kapitel 10',
+  },
+  {
+    term: 'Mikro-Doppeltief',
+    aliases: ['Micro Double Bottom'],
+    definition:
+      'Zwei nahe Tieftests auf kleinem Raum, die einen zweiten Kaufversuch vorbereiten können. Erst die Reaktion danach zeigt Käuferkraft.',
+    firstUnit: 'Kapitel 10',
+  },
+  {
+    term: 'Low 4',
+    aliases: ['L4'],
+    definition:
+      'Vierter gezählter Abwärtsversuch innerhalb eines Pullbacks. Seine Zahl beschreibt die Sequenz; Trendstärke, Auslösung und Anschluss müssen gesondert geprüft werden.',
+    firstUnit: 'Kapitel 10',
+  },
 ];
