@@ -149,7 +149,10 @@ describe('Transferprüfung (F-17)', () => {
     for (const barCase of approved.slice(1)) progress = playCase(progress, barCase);
     expect(plan(progress).status).toBe('done');
     expect(transferResults(course, progress, approved).every((entry) => entry.attempt === 2)).toBe(true);
-    approved.forEach((barCase, index) => expect(progress.caseRuns[barCase.id]![0]).toEqual(firstRuns[index]));
+    // Erstversuch unverändert vorhanden (Reihenfolge nur nach Zeitstempel; bei gleicher Millisekunde entscheidet die ID).
+    approved.forEach((barCase, index) =>
+      expect(progress.caseRuns[barCase.id]!.find((run) => run.sessionId === firstRuns[index].sessionId)).toEqual(firstRuns[index]),
+    );
   });
 
   it('Pool getrennt: der gewöhnliche Trainer kennt die Transferfälle nicht', () => {
