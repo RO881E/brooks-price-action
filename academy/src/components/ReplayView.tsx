@@ -50,7 +50,7 @@ export function ReplayView({ course, progress, caseId, sessionId, onRetrain, onO
 
   if (!replay.ok) {
     return (
-      <div className="page-shell trainer-page">
+      <div className="page-shell trainer-page" data-mode="train">
         <header className="page-heading">
           <p className="eyebrow">Rückblick</p>
           <h1 ref={heading} tabIndex={-1}>
@@ -74,7 +74,7 @@ export function ReplayView({ course, progress, caseId, sessionId, onRetrain, onO
   const { barCase, run, steps } = replay;
   const unit = course.units.find((item) => item.id === barCase.unitId);
   return (
-    <div className="page-shell trainer-page">
+    <div className="page-shell trainer-page" data-mode="train">
       <header className="page-heading trainer-heading">
         <div>
           <p className="eyebrow">Rückblick · {unit?.label ?? barCase.unitId}</p>

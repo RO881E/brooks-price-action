@@ -156,15 +156,18 @@ function isTypingTarget(target: EventTarget | null): boolean {
   );
 }
 
-const navigation: Array<{ id: View; label: string; icon: string; mobile: boolean }> = [
-  { id: 'path', label: 'Lernpfad', icon: '⌁', mobile: true },
-  { id: 'chapters', label: 'Buchmodus', icon: '▤', mobile: true },
-  { id: 'practice', label: 'Üben', icon: '◇', mobile: true },
-  { id: 'progress', label: 'Fortschritt', icon: '◎', mobile: true },
+/** Lernmodus je Bereich: bestimmt Akzentfarbe (Designgrundlage P05); Farbe nie allein als Träger. */
+type NavMode = 'read' | 'practice' | 'review' | 'progress' | 'neutral';
+
+const navigation: Array<{ id: View; label: string; icon: string; mobile: boolean; mode: NavMode }> = [
+  { id: 'path', label: 'Lernpfad', icon: '⌁', mobile: true, mode: 'read' },
+  { id: 'chapters', label: 'Buchmodus', icon: '▤', mobile: true, mode: 'read' },
+  { id: 'practice', label: 'Üben', icon: '◇', mobile: true, mode: 'practice' },
+  { id: 'progress', label: 'Fortschritt', icon: '◎', mobile: true, mode: 'progress' },
   // Auf Mobilgeräten über das Menü erreichbar, damit die untere Leiste lesbar bleibt.
-  { id: 'saved', label: 'Gespeichert', icon: '★', mobile: false },
-  { id: 'glossary', label: 'Glossar', icon: 'Aa', mobile: true },
-  { id: 'settings', label: 'Einstellungen', icon: '⚙︎', mobile: false },
+  { id: 'saved', label: 'Gespeichert', icon: '★', mobile: false, mode: 'review' },
+  { id: 'glossary', label: 'Glossar', icon: 'Aa', mobile: true, mode: 'read' },
+  { id: 'settings', label: 'Einstellungen', icon: '⚙︎', mobile: false, mode: 'neutral' },
 ];
 
 export default function App() {
@@ -788,6 +791,7 @@ export default function App() {
               type="button"
               key={item.id}
               className={view === item.id ? 'active' : ''}
+              data-mode={item.mode}
               aria-current={view === item.id ? 'page' : undefined}
               onClick={() => chooseView(item.id)}
             >
@@ -863,7 +867,7 @@ export default function App() {
           </div>
         </header>
 
-        <div className="view-container">
+        <div className="view-container" data-mode={navigation.find((item) => item.id === view)?.mode}>
           {studying ? (
             <StudyView
               key={studying.minutes}
@@ -1075,6 +1079,7 @@ export default function App() {
             type="button"
             key={item.id}
             className={view === item.id ? 'active' : ''}
+            data-mode={item.mode}
             aria-current={view === item.id ? 'page' : undefined}
             onClick={() => chooseView(item.id)}
           >

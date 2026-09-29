@@ -142,7 +142,7 @@ export function TrainerView({
   const reasoning = session ? (stored?.reasoning ?? {}) : (lastCaseRun(progress, barCase.id)?.reasoning ?? {});
 
   return (
-    <div className="page-shell trainer-page">
+    <div className="page-shell trainer-page" data-mode="train">
       <header className="page-heading trainer-heading">
         <div>
           <p className="eyebrow">Chart trainieren · {unit?.label ?? barCase.unitId}</p>
