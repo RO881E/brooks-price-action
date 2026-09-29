@@ -24,6 +24,17 @@ interface PathViewProps {
   onOpenLesson: (lesson: LessonOutline) => void;
 }
 
+/** Etappenstatus eines Buchteils: nur aus echtem Fortschritt und Freischaltung. */
+type StationState = 'done' | 'current' | 'open' | 'locked' | 'planned';
+
+const stationLabels: Record<StationState, string> = {
+  done: '✓ Abgeschlossen',
+  current: '▶ Hier geht es weiter',
+  open: 'Bereit',
+  locked: '◆ Noch gesperrt',
+  planned: '… In Vorbereitung',
+};
+
 const statusLabels: Record<LessonAccessState, string> = {
   complete: 'Abgeschlossen',
   available: 'Jetzt lernen',
@@ -129,15 +140,33 @@ export function PathView({
             const publishedInUnit = unit.lessons.filter(
               (lesson) => lesson.status === 'published',
             ).length;
+            const states = unit.lessons.map((lesson) => lessonState(lesson));
+            const completeInUnit = states.filter((state) => state === 'complete').length;
+            const station: StationState =
+              publishedInUnit === 0
+                ? 'planned'
+                : completeInUnit === publishedInUnit
+                  ? 'done'
+                  : states.includes('available')
+                    ? unit.lessons.some((lesson) => lesson.id === (resume?.lesson.id ?? nextLesson?.id))
+                      ? 'current'
+                      : 'open'
+                    : 'locked';
 
             return (
-              <section className="unit-section" key={unit.id}>
+              <section className="unit-section" key={unit.id} data-station={station}>
                 <header className="unit-header">
                   <div className="unit-number">{String(unitIndex + 1).padStart(2, '0')}</div>
                   <div>
                     <p>{unit.label}</p>
                     <h2>{unit.title}</h2>
                     <span>{unit.description}</span>
+                    <span className={`station-chip ${station}`}>
+                      {stationLabels[station]}
+                      {publishedInUnit > 0 && station !== 'done' && station !== 'locked'
+                        ? ` · ${completeInUnit} von ${publishedInUnit} Lektionen`
+                        : ''}
+                    </span>
                   </div>
                   <div className="unit-count">
                     <strong>{publishedInUnit}</strong>
