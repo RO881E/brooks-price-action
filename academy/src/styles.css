@@ -6232,3 +6232,175 @@ button:disabled {
 .transfer-case-result li p {
   margin: 4px 0;
 }
+
+/* Startansicht „Heute“ (P06) */
+.today-panel {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.today-primary {
+  padding: 22px clamp(18px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--mode-base, var(--gold));
+  border-radius: 22px;
+  background: linear-gradient(110deg, #fff, color-mix(in srgb, var(--mode-soft, #fff) 55%, #fff));
+  box-shadow: var(--shadow-sm);
+}
+
+.today-primary .eyebrow {
+  margin-bottom: 6px;
+  color: var(--mode-ink, var(--gold-dark));
+  font-size: 11px;
+}
+
+.today-primary h3 {
+  margin: 0 0 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.2;
+}
+
+.today-primary p:not(.eyebrow) {
+  max-width: 640px;
+  margin: 0 0 16px;
+  color: #444b54;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.today-primary .primary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.today-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 12px;
+}
+
+.today-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--mode-base, var(--line-strong));
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.today-tile h3 {
+  margin: 0;
+  color: var(--mode-ink, var(--ink));
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+}
+
+.today-tile p {
+  margin: 0;
+  color: #444b54;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.today-tile button {
+  margin-top: auto;
+  align-self: flex-start;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.today-study .study-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.today-study .study-entry h2 {
+  color: var(--mode-ink, var(--ink));
+  font-size: 16px;
+}
+
+.today-study .study-entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Lernpfad als Etappen (P06) */
+.station-chip {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 3px 10px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.station-chip.done {
+  color: var(--practice-ink);
+  border-color: var(--practice-base);
+  background: var(--practice-soft);
+}
+
+.station-chip.current {
+  color: var(--read-ink);
+  border-color: var(--read-base);
+  background: var(--read-soft);
+}
+
+.station-chip.locked,
+.station-chip.planned {
+  color: var(--ink-soft);
+  background: var(--canvas);
+}
+
+.unit-section[data-station='current'] > .unit-header {
+  box-shadow: inset 5px 0 0 var(--read-base);
+}
+
+.unit-section[data-station='done'] > .unit-header {
+  box-shadow: inset 5px 0 0 var(--practice-base);
+}
+
+.unit-section[data-station='locked'] > .unit-header,
+.unit-section[data-station='planned'] > .unit-header {
+  box-shadow: inset 5px 0 0 var(--line-strong);
+}
+
+/* Abschlussansicht: mehrere Wege (Weiter, Zurück, Wiederholen) brechen auf schmalen Geräten um. */
+.lesson-result .lesson-footer {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.lesson-result .lesson-footer .primary-button,
+.lesson-result .lesson-footer .secondary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+@media (max-width: 680px) {
+  .lesson-result .lesson-footer {
+    padding-inline: 16px;
+  }
+
+  .lesson-result .lesson-footer .primary-button,
+  .lesson-result .lesson-footer .secondary-button {
+    flex: 1 1 100%;
+  }
+}

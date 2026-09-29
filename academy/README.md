@@ -277,6 +277,25 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Startansicht „Heute“ und Orientierung (P06)
+
+Der Lernpfad beginnt mit **einer** primären Aktion aus dem echten Lernstand
+(`src/features/today.ts`, kein eigener Zustand, kein Timer, kein Druck): laufende
+Wiederholungsrunde → begonnene Lektion → fällige Fragen → nächste Lektion → ein zugänglicher
+Trainerfall → „Alles erledigt“. Darunter stehen **Lesen** (zuletzt gelesene zugängliche
+Stelle, sonst der nächste Abschnitt), **Kurz lernen** (10/20 Minuten) und **Wiederholen**
+(Zahl der heute fälligen Fragen). Kein Vorschlag führt zu einer gesperrten Stelle.
+
+- **Lernpfad als Etappen:** Jeder Buchteil trägt einen Status als Text – „✓ Abgeschlossen“,
+  „▶ Hier geht es weiter“, „Bereit“, „◆ Noch gesperrt“ oder „… In Vorbereitung“ – abgeleitet
+  aus Fortschritt und Freischaltung. Reihenfolge und Freischaltungen bleiben unverändert.
+- **Übergänge:** Nach einer Lektion zeigt die Abschlussansicht „Weiter: <nächste Lektion>“
+  (nur wenn sie freigeschaltet ist) und den Rückweg dorthin, woher die Lektion geöffnet wurde
+  („Zurück zum Üben“, „… zum Buchmodus“ oder „… zum Lernpfad“). Nach einem Reload gilt
+  wieder der Lernpfad.
+- **Navigation:** Untere Leiste mit Kurzlabels und mindestens 44 px Touch-Zielen; der aktive
+  Ort steht in `aria-current`.
+
 ## Transferprüfung (F-17)
 
 Unter **Üben → Transferprüfung** (`#/transfer`) entscheidest du mehrere bisher ungesehene

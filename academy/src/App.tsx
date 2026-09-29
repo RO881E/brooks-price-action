@@ -24,7 +24,9 @@ import { SettingsView } from './components/SettingsView';
 import { TrainerView } from './components/TrainerView';
 import { TransferView } from './components/TransferView';
 import { ReplayView } from './components/ReplayView';
-import { StudyEntry, StudyView } from './components/StudyView';
+import { StudyView } from './components/StudyView';
+import { TodayPanel } from './components/TodayPanel';
+import { planToday } from './features/today';
 import { planStudySession } from './features/studySession';
 import { FirstUseWelcome, GuideDialog, type GuideFacts } from './components/FirstUseGuide';
 import { UndoToast, type UndoAction } from './components/UndoToast';
@@ -136,6 +138,13 @@ const INVALID_LINK_NOTICE =
 /** Merkt sich im Verlaufseintrag einer Lektion, aus welcher Ansicht sie geöffnet wurde. */
 interface LessonHistoryState {
   wqtOpenedFrom: View;
+}
+
+/** Ansicht, aus der die Lektion geöffnet wurde (für „Zurück zum …“ nach dem Abschluss). */
+function openedFromOrigin(state: unknown): View | null {
+  if (typeof state !== 'object' || state === null) return null;
+  const from = (state as Partial<LessonHistoryState>).wqtOpenedFrom;
+  return typeof from === 'string' ? (from as View) : null;
 }
 
 function openedFromView(state: unknown): boolean {
@@ -740,6 +749,15 @@ export default function App() {
   }
 
   if (resultLesson) {
+    // Zurück dorthin, woher die Lektion geöffnet wurde – nur, wenn es eine echte Ansicht ist.
+    const origin = openedFromOrigin(window.history.state);
+    const resultOrigin: View = origin === 'practice' || origin === 'chapters' ? origin : 'path';
+    const openNextFromResult = (lesson: LessonOutline) =>
+      navigate(
+        { kind: 'lesson', lessonId: lesson.id, step: startStepIndex(lesson, progress) + 1 },
+        'replace',
+        { wqtOpenedFrom: resultOrigin } satisfies LessonHistoryState,
+      );
     return (
       <>
         <LessonResultView
@@ -754,7 +772,10 @@ export default function App() {
               window.history.state,
             );
           }}
-          onBackToPath={() => navigate({ kind: 'view', view: 'path' }, 'replace')}
+          onBackToPath={() => navigate({ kind: 'view', view: resultOrigin }, 'replace')}
+          backLabel={resultOrigin === 'practice' ? 'Zurück zum Üben' : resultOrigin === 'chapters' ? 'Zurück zum Buchmodus' : 'Zurück zum Lernpfad'}
+          nextLesson={nextAvailableLesson(courseOutline, progress.completedLessonIds)}
+          onNext={openNextFromResult}
           trainingCases={casesForLesson(courseOutline, progress, resultLesson.id)}
           onTrain={openTraining}
         />
@@ -903,8 +924,19 @@ export default function App() {
             />
           ) : null}
           {view === 'path' && !studying && !shouldShowFirstUseGuide(progress) ? (
-            <StudyEntry
-              onChoose={(minutes) => {
+            <TodayPanel
+              plan={planToday(courseOutline, progress, today)}
+              onLesson={openLesson}
+              onReview={() => {
+                // Eine laufende Runde wird fortgesetzt, nicht ersetzt.
+                const running = progress.reviewSession && !isSessionFinished(progress.reviewSession);
+                if (!running) startReview('due');
+                chooseView('practice');
+              }}
+              onPractice={() => chooseView('practice')}
+              onTrain={openTraining}
+              onRead={(unit, lesson) => openReader(unit.id, lesson.id)}
+              onStudy={(minutes) => {
                 navigate({ kind: 'study', minutes }, 'push');
                 scrollToTop();
               }}

@@ -9,6 +9,11 @@ interface LessonResultViewProps {
   summary: LessonSummary;
   onRepeat: () => void;
   onBackToPath: () => void;
+  /** Beschriftung des Rückwegs, z. B. „Zurück zum Üben“ (Standard: Lernpfad). */
+  backLabel?: string;
+  /** Nächste freigeschaltete Lektion – nur dann gibt es „Weiter: …“. */
+  nextLesson?: LessonOutline;
+  onNext?: (lesson: LessonOutline) => void;
   /** Passende, zugängliche Bar-für-Bar-Fälle (F-15). */
   trainingCases?: BarCase[];
   onTrain?: (caseId: string) => void;
@@ -19,6 +24,9 @@ export function LessonResultView({
   summary,
   onRepeat,
   onBackToPath,
+  backLabel = 'Zurück zum Lernpfad',
+  nextLesson,
+  onNext,
   trainingCases = [],
   onTrain = () => {},
 }: LessonResultViewProps) {
@@ -108,8 +116,17 @@ export function LessonResultView({
         <button className="secondary-button" type="button" onClick={onRepeat}>
           Lektion wiederholen
         </button>
-        <button className="primary-button" type="button" onClick={onBackToPath}>
-          Zurück zum Lernpfad
+        {nextLesson && onNext ? (
+          <button className="secondary-button" type="button" onClick={onBackToPath}>
+            {backLabel}
+          </button>
+        ) : null}
+        <button
+          className="primary-button"
+          type="button"
+          onClick={nextLesson && onNext ? () => onNext(nextLesson) : onBackToPath}
+        >
+          {nextLesson && onNext ? `Weiter: ${nextLesson.title}` : backLabel}
         </button>
       </footer>
     </main>
