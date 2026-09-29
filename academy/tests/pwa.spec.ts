@@ -393,6 +393,23 @@ test('Bar-für-Bar-Trainer offline: Runde spielen und nach Neustart fortsetzen (
   expect(errors).toEqual([]);
 });
 
+test('Einführung und Hilfe offline (F-18)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  await firstVisit(page);
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.reload();
+  const welcome = page.getByRole('region', { name: 'So lernst du in der WQT Academy' });
+  await expect(welcome).toBeVisible();
+  await welcome.getByRole('button', { name: 'Einführung schließen' }).click();
+  await expect(welcome).toHaveCount(0);
+  await page.getByRole('button', { name: 'Hilfe', exact: true }).click();
+  await expect(page.getByRole('dialog', { name: 'So lernst du in der WQT Academy' })).toBeVisible();
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
 test('kündigt ein Update an, aktiviert es erst nach Zustimmung und räumt alte Caches auf @desktop', async ({ page }) => {
   const errors = trackConsoleErrors(page);
   const version = builtVersion();

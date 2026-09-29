@@ -68,7 +68,7 @@ Chartfälle und der vertieften Besprechung von Abbildung 10.2.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-16 `version: 12`:
+seit F-18 `version: 13`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -102,8 +102,9 @@ seit F-16 `version: 12`:
   defensible, mistake, missedCues }`, eindeutig je `sessionId`, höchstens die jüngsten 50;
   Runden vergeben keine XP; seit F-16 (v12) zusätzlich `answers` – je Entscheidungspunkt
   `{ decision, cueIds }`. Runden aus v11 haben kein `answers` und gelten dort als „nicht erfasst“.
+- `guideSeenAt` (seit F-18, v13): Zeitpunkt, zu dem die Einführung geschlossen wurde, sonst `null`
 
-Ältere Datensätze (v1–v11) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+Ältere Datensätze (v1–v12) werden beim Laden verlustfrei migriert; der Wiederholungsplan
 startet leer, ebenso die Lesestellen (vor v9) und die Trainerrunden (vor v11); Leseoptionen
 beginnen vor v10 bei „Standard“, unbekannte Stufen werden einzeln zu „Standard“. Defekte
 Trainerrunden oder -sitzungen entfallen einzeln. Defekte Lesestellen (ohne Einheit oder Lektion)
@@ -231,6 +232,19 @@ Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/t
   beginnen“ und „Runde abbrechen“ verlangen eine Bestätigung; abgebrochene Runden werden nicht
   gezählt. Passt eine gespeicherte Runde nicht mehr zum Fall (geänderter Content), wird sie
   nicht repariert, sondern ausdrücklich neu begonnen.
+
+## Einführung und Hilfe (F-18)
+
+Beim ersten echten Besuch – ohne jeden Lernstand, auch keinen aus der alten Website – steht
+oben im Lernpfad ein eingebetteter Abschnitt „So lernst du in der WQT Academy“ (kein Overlay,
+keine Tour). Er erklärt je Weg in einem Satz Lernpfad, Buchmodus, Üben und – nur wenn es
+freigegebene Fälle gibt – Chart trainieren (sind alle gesperrt, sagt der Text das), dazu die
+lokale Speicherung und die JSON-Sicherung in den Einstellungen. Aktionen: „Erste Lektion
+starten: …“ und „Einführung schließen“. Beides vermerkt `guideSeenAt`; danach erscheint die
+Einführung nicht mehr von selbst. Wer schon Lernstand hat, sieht sie nie automatisch.
+Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (Escape schließt,
+der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
+zählt weder als Lerntag noch bringt es XP.
 
 ## Was ich noch verwechsle (F-16)
 

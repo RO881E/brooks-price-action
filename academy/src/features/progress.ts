@@ -17,7 +17,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 12;
+export const ACADEMY_PROGRESS_VERSION = 13;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -265,6 +265,11 @@ export interface AcademyProgress {
   caseSessions: Record<string, StoredCaseSession>;
   /** Abgeschlossene Trainerrunden je Fall, älteste zuerst (seit F-15). */
   caseRuns: Record<string, CaseRun[]>;
+  /**
+   * Wann die Einführung für den ersten Besuch geschlossen wurde (seit F-18,
+   * v13). `null`: noch nicht – sie erscheint trotzdem nur ohne Lernstand.
+   */
+  guideSeenAt: string | null;
   legacyReadChapters: string[];
   legacyTrendRangeBest: number;
   updatedAt: string;
@@ -303,6 +308,7 @@ export function createEmptyProgress(): AcademyProgress {
     readingOptions: DEFAULT_READING_OPTIONS,
     caseSessions: {},
     caseRuns: {},
+    guideSeenAt: null,
     legacyReadChapters: [],
     legacyTrendRangeBest: 0,
     updatedAt: nowIso(),
@@ -356,6 +362,7 @@ const KNOWN_FIELDS = new Set([
   'readingOptions',
   'caseSessions',
   'caseRuns',
+  'guideSeenAt',
   'legacyReadChapters',
   'legacyTrendRangeBest',
   'updatedAt',
@@ -794,6 +801,38 @@ export function updateReadingOptions(
   return sameReadingOptions(next, progress.readingOptions) ? progress : { ...progress, readingOptions: next };
 }
 
+/**
+ * Gibt es schon irgendeinen Lernstand – auch aus der alten Website? Dann ist es
+ * kein erster Besuch, und die Einführung erscheint nicht von selbst (F-18).
+ */
+export function hasLearningData(progress: AcademyProgress): boolean {
+  return (
+    progress.completedLessonIds.length > 0 ||
+    Object.keys(progress.answers).length > 0 ||
+    Object.keys(progress.questionResults).length > 0 ||
+    Object.keys(progress.lessonPositions).length > 0 ||
+    Object.keys(progress.readerPositions).length > 0 ||
+    Object.keys(progress.reviewCards).length > 0 ||
+    Object.keys(progress.bookmarks).length > 0 ||
+    Object.keys(progress.notes).length > 0 ||
+    Object.keys(progress.caseSessions).length > 0 ||
+    Object.keys(progress.caseRuns).length > 0 ||
+    progress.activityDays.length > 0 ||
+    progress.legacyReadChapters.length > 0 ||
+    progress.legacyTrendRangeBest > 0
+  );
+}
+
+/** Einführung beim ersten echten Besuch: nur ohne Lernstand und solange nicht geschlossen. */
+export function shouldShowFirstUseGuide(progress: AcademyProgress): boolean {
+  return progress.guideSeenAt === null && !hasLearningData(progress);
+}
+
+/** Vermerkt, dass die Einführung geschlossen wurde – einmalig, ohne Lernaktivität. */
+export function markGuideSeen(progress: AcademyProgress, now: string = nowIso()): AcademyProgress {
+  return progress.guideSeenAt === null ? { ...progress, guideSeenAt: now } : progress;
+}
+
 export function updateSettings(
   progress: AcademyProgress,
   changes: Partial<AcademySettings>,
@@ -863,6 +902,8 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * Vor v10 gibt es keine Leseoptionen; sie beginnen bei „Standard“.
  * Vor v11 gibt es keine Trainerrunden; beide Felder beginnen leer. Runden aus
  * v11 haben noch keine Einzelantworten (seit v12); sie bleiben ohne `answers`.
+ * Vor v13 gibt es keinen Vermerk zur Einführung (`guideSeenAt: null`); wer
+ * bereits Lernstand hat, sieht sie trotzdem nie automatisch.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {
@@ -910,6 +951,7 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     // Seit v11 (F-15); ältere Stände haben noch keine Trainerrunden.
     caseSessions: normalizeCaseSessions(value.caseSessions),
     caseRuns: normalizeCaseRuns(value.caseRuns),
+    guideSeenAt: typeof value.guideSeenAt === 'string' && value.guideSeenAt !== '' ? value.guideSeenAt : null,
     legacyReadChapters: stringArray(value.legacyReadChapters),
     legacyTrendRangeBest:
       typeof best === 'number' && Number.isFinite(best) && best > 0 ? best : 0,
