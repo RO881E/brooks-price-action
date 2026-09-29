@@ -25,6 +25,23 @@ export type ChapterFiveScenarioId =
   | 'reversal-case-53-flag'
   | 'reversal-three-decisions';
 
+export const CHAPTER_SIX_SCENARIOS = [
+  'c06-signal-context', 'c06-strong-spike', 'c06-trend-asymmetry',
+  'c06-two-bar', 'c06-pair-boundary', 'c06-overlap-ma',
+  'c06-three-bar', 'c06-small-inside', 'c06-ii-iii',
+  'c06-ioi-outside', 'c06-micro-double', 'c06-failed-reversal',
+  'c06-shaved', 'c06-exhaustion', 'c06-trend-range',
+  'c06-channel-orders', 'c06-breakout-pause', 'c06-final-flag',
+  'c06-small-location',
+  'c06-case-01', 'c06-case-02', 'c06-case-03', 'c06-case-04',
+  'c06-case-05', 'c06-case-06', 'c06-case-07', 'c06-case-08',
+  'c06-case-09', 'c06-case-10', 'c06-case-11', 'c06-case-12',
+  'c06-case-13', 'c06-case-14', 'c06-case-15', 'c06-case-16',
+  'c06-case-17', 'c06-case-18', 'c06-case-19',
+] as const;
+
+export type ChapterSixScenarioId = (typeof CHAPTER_SIX_SCENARIOS)[number];
+
 export type ChartScenarioId =
   | 'auction-balance'
   | 'institutional-flow'
@@ -130,7 +147,8 @@ export type ChartScenarioId =
   | 'failed-continuation-setup'
   | 'shaved-structural-setups'
   | 'figure-41-followthrough'
-  | ChapterFiveScenarioId;
+  | ChapterFiveScenarioId
+  | ChapterSixScenarioId;
 
 export type LessonStep =
   | {
