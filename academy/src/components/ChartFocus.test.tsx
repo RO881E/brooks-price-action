@@ -78,12 +78,13 @@ describe('ChartWithFocus', () => {
   it('hält Tab im Dialog', () => {
     const dialog = open();
     const close = within(dialog).getByRole('button', { name: /Schließen/, hidden: true });
-    const text = within(dialog).getByRole('region', { name: 'Erläuterung zum Schaubild', hidden: true });
-    text.focus();
+    // Letztes bedienbares Element: die Beobachtungs-Steuerung im Erläuterungstext (P09).
+    const last = within(dialog).getByRole('button', { name: 'Einzeln durchgehen', hidden: true });
+    last.focus();
     fireEvent.keyDown(dialog, { key: 'Tab' });
     expect(close).toHaveFocus();
     fireEvent.keyDown(dialog, { key: 'Tab', shiftKey: true });
-    expect(text).toHaveFocus();
+    expect(last).toHaveFocus();
   });
 
   it('vergibt eindeutige IDs, auch wenn das Schaubild zweimal im Dokument steht', () => {
