@@ -5,6 +5,7 @@ import {
   type DayKey,
   type ReviewCard,
 } from './reviewScheduler';
+import type { CaseSession } from './barTrainer';
 
 export const LEGACY_PROGRESS_KEY = 'brooks-progress';
 export const LEGACY_TREND_RANGE_BEST_KEY = 'brooks-tr-best';
@@ -16,7 +17,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 10;
+export const ACADEMY_PROGRESS_VERSION = 11;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -150,6 +151,34 @@ export interface Note {
   updatedAt: string;
 }
 
+/**
+ * Laufende Runde im Bar-für-Bar-Trainer je Fall (seit F-15, v11). `session`
+ * ist der Zustand der Engine (`features/barTrainer.ts`); ob er noch zum Fall
+ * passt, prüft `restoreSession` beim Öffnen – hier wird nur die Form gesichert.
+ */
+export interface StoredCaseSession {
+  /** Stabile ID dieser Runde. */
+  sessionId: string;
+  startedAt: string;
+  updatedAt: string;
+  session: CaseSession;
+}
+
+/** Abgeschlossene Trainerrunde (seit F-15, v11). Vergibt keine XP. */
+export interface CaseRun {
+  sessionId: string;
+  completedAt: string;
+  /** Anzahl der Entscheidungen je Einordnung. */
+  best: number;
+  defensible: number;
+  mistake: number;
+  /** Übersehene relevante Hinweise. */
+  missedCues: number;
+}
+
+/** Höchstens so viele abgeschlossene Runden je Fall werden aufbewahrt (die jüngsten). */
+export const MAX_CASE_RUNS = 50;
+
 /** Bewegung: der Systemeinstellung folgen oder immer reduzieren (seit F-08). */
 export type MotionPreference = 'system' | 'reduce';
 
@@ -207,6 +236,10 @@ export interface AcademyProgress {
   readerPositions: Record<string, ReaderPosition>;
   /** Schriftgröße und Zeilenabstand im Buchmodus (seit F-22). */
   readingOptions: ReadingOptions;
+  /** Laufende Trainerrunden, Schlüssel: Fall-ID (seit F-15). Nicht Teil der Sicherung. */
+  caseSessions: Record<string, StoredCaseSession>;
+  /** Abgeschlossene Trainerrunden je Fall, älteste zuerst (seit F-15). */
+  caseRuns: Record<string, CaseRun[]>;
   legacyReadChapters: string[];
   legacyTrendRangeBest: number;
   updatedAt: string;
@@ -243,6 +276,8 @@ export function createEmptyProgress(): AcademyProgress {
     lessonPositions: {},
     readerPositions: {},
     readingOptions: DEFAULT_READING_OPTIONS,
+    caseSessions: {},
+    caseRuns: {},
     legacyReadChapters: [],
     legacyTrendRangeBest: 0,
     updatedAt: nowIso(),
@@ -294,6 +329,8 @@ const KNOWN_FIELDS = new Set([
   'lessonPositions',
   'readerPositions',
   'readingOptions',
+  'caseSessions',
+  'caseRuns',
   'legacyReadChapters',
   'legacyTrendRangeBest',
   'updatedAt',
@@ -336,6 +373,70 @@ export function normalizeReaderPositions(value: unknown): Record<string, ReaderP
           },
         ],
       ];
+    }),
+  );
+}
+
+/** Laufende Trainerrunden: nur Form und Zuordnung, der Inhalt wird beim Öffnen geprüft. */
+export function normalizeCaseSessions(value: unknown): Record<string, StoredCaseSession> {
+  if (!isRecord(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([caseId, entry]) => {
+      if (!isReaderId(caseId) || !isRecord(entry) || !isReaderId(entry.sessionId)) return [];
+      if (!isRecord(entry.session) || entry.session.caseId !== caseId) return [];
+      const startedAt = typeof entry.startedAt === 'string' ? entry.startedAt : nowIso();
+      return [
+        [
+          caseId,
+          {
+            sessionId: entry.sessionId,
+            startedAt,
+            updatedAt: typeof entry.updatedAt === 'string' ? entry.updatedAt : startedAt,
+            session: entry.session as unknown as CaseSession,
+          },
+        ],
+      ];
+    }),
+  );
+}
+
+export function isCaseRun(value: unknown): value is CaseRun {
+  return (
+    isRecord(value) &&
+    isReaderId(value.sessionId) &&
+    typeof value.completedAt === 'string' &&
+    isCount(value.best) &&
+    isCount(value.defensible) &&
+    isCount(value.mistake) &&
+    isCount(value.missedCues)
+  );
+}
+
+/** Runden eindeutig je `sessionId`, nach Abschluss sortiert, auf die jüngsten begrenzt. */
+export function tidyCaseRuns(runs: CaseRun[]): CaseRun[] {
+  const bySession = new Map<string, CaseRun>();
+  for (const run of runs) if (!bySession.has(run.sessionId)) bySession.set(run.sessionId, run);
+  return [...bySession.values()]
+    .sort((a, b) => a.completedAt.localeCompare(b.completedAt) || a.sessionId.localeCompare(b.sessionId))
+    .slice(-MAX_CASE_RUNS);
+}
+
+export function normalizeCaseRuns(value: unknown): Record<string, CaseRun[]> {
+  if (!isRecord(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([caseId, runs]) => {
+      if (!isReaderId(caseId) || !Array.isArray(runs)) return [];
+      const valid = tidyCaseRuns(
+        runs.filter(isCaseRun).map(({ sessionId, completedAt, best, defensible, mistake, missedCues }) => ({
+          sessionId,
+          completedAt,
+          best,
+          defensible,
+          mistake,
+          missedCues,
+        })),
+      );
+      return valid.length ? [[caseId, valid]] : [];
     }),
   );
 }
@@ -739,6 +840,7 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * bleiben unverändert in `answers` und werden nicht in Versuche umgedeutet.
  * Vor v9 gibt es keine Lesestellen im Buchleser; sie beginnen leer.
  * Vor v10 gibt es keine Leseoptionen; sie beginnen bei „Standard“.
+ * Vor v11 gibt es keine Trainerrunden; beide Felder beginnen leer.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {
@@ -783,6 +885,9 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     readerPositions: normalizeReaderPositions(value.readerPositions),
     // Seit v10; ältere Stände lesen in der Standarddarstellung.
     readingOptions: normalizeReadingOptions(value.readingOptions),
+    // Seit v11 (F-15); ältere Stände haben noch keine Trainerrunden.
+    caseSessions: normalizeCaseSessions(value.caseSessions),
+    caseRuns: normalizeCaseRuns(value.caseRuns),
     legacyReadChapters: stringArray(value.legacyReadChapters),
     legacyTrendRangeBest:
       typeof best === 'number' && Number.isFinite(best) && best > 0 ? best : 0,

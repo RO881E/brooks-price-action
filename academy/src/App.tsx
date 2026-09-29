@@ -21,6 +21,7 @@ import { ProgressView } from './components/ProgressView';
 import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { SettingsView } from './components/SettingsView';
+import { TrainerView } from './components/TrainerView';
 import { UndoToast, type UndoAction } from './components/UndoToast';
 import {
   catalog,
@@ -40,6 +41,7 @@ import {
   type ImportMode,
   type MergeOptions,
 } from './features/backup';
+import { beginCaseRun, casesForLesson, discardCaseRun, updateCaseRun } from './features/caseTraining';
 import { nextAvailableLesson } from './features/courseAccess';
 import { downloadTextFile } from './features/download';
 import {
@@ -216,9 +218,17 @@ export default function App() {
     return () => window.clearTimeout(timer);
   }, [upcomingLessonId]);
   const reading = resolved?.kind === 'read' ? resolved.reader : null;
-  // Der Buchleser gehört zur Ansicht „Buchmodus“ (Navigation bleibt markiert).
+  const training = resolved?.kind === 'train' ? resolved.barCase : null;
+  // Der Buchleser gehört zur Ansicht „Buchmodus“, der Trainer zu „Üben“
+  // (Navigation bleibt markiert).
   const view: View =
-    resolved?.kind === 'view' ? resolved.view : reading ? 'chapters' : lastView;
+    resolved?.kind === 'view'
+      ? resolved.view
+      : reading
+        ? 'chapters'
+        : training
+          ? 'practice'
+          : lastView;
   // Hinweis, wenn ein Leser-Link auf einen nicht lesbaren Abschnitt zeigte –
   // bleibt stehen, obwohl die Adresse danach auf die echte Stelle zeigt.
   const [readerFallbackUnit, setReaderFallbackUnit] = useState<string | null>(null);
@@ -513,6 +523,13 @@ export default function App() {
     }
   };
 
+  // Bar-für-Bar-Trainer (F-15): eigener Verlaufseintrag je Fall.
+  const openTraining = (caseId: string) => {
+    setNotice(null);
+    navigate({ kind: 'train', caseId }, 'push');
+    scrollToTop();
+  };
+
   const runNextAction = (action: NextAction) => {
     if (action.kind === 'review') {
       // Eine laufende Runde wird fortgesetzt, nicht ersetzt.
@@ -690,6 +707,8 @@ export default function App() {
             );
           }}
           onBackToPath={() => navigate({ kind: 'view', view: 'path' }, 'replace')}
+          trainingCases={casesForLesson(courseOutline, progress, resultLesson.id)}
+          onTrain={openTraining}
         />
         {toast}
       </>
@@ -831,6 +850,20 @@ export default function App() {
               }
               onBackToChapters={() => chooseView('chapters')}
               onReadingOptions={(changes) => setProgress((current) => updateReadingOptions(current, changes))}
+              onTrain={openTraining}
+            />
+          ) : null}
+          {training ? (
+            <TrainerView
+              key={training.id}
+              course={courseOutline}
+              barCase={training}
+              progress={progress}
+              onBegin={() => setProgress((current) => beginCaseRun(current, training))}
+              onUpdate={(session) => setProgress((current) => updateCaseRun(current, training, session))}
+              onDiscard={() => setProgress((current) => discardCaseRun(current, training.id))}
+              onOpenLesson={openLesson}
+              onBack={() => chooseView('practice')}
             />
           ) : null}
           {view === 'chapters' && !reading ? (
@@ -841,7 +874,7 @@ export default function App() {
               onReadUnit={openReader}
             />
           ) : null}
-          {view === 'practice' ? (
+          {view === 'practice' && !training ? (
             <PracticeView
               course={courseOutline}
               progress={progress}
@@ -855,6 +888,7 @@ export default function App() {
                 window.scrollTo({ top: 0 });
               }}
               onEnd={() => setProgress((current) => endSession(current, today))}
+              onTrain={openTraining}
             />
           ) : null}
           {view === 'progress' ? (

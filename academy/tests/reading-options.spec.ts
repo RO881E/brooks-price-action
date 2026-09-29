@@ -70,7 +70,7 @@ test.describe('F-22 Leseoptionen', () => {
     await expect(page.getByRole('heading', { name: second.title, level: 2 })).toBeVisible();
     await expect.poll(() => paragraphStyle(page)).toEqual(larger);
     let data = await stored(page);
-    expect(data.version).toBe(10);
+    expect(data.version).toBe(11);
     expect(data.readingOptions).toEqual({ size: 'larger', spacing: 'relaxed' });
     // Andere Einstellungen, Abschluss und Lesestelle bleiben unberührt.
     expect(data.settings).toEqual({ motion: 'reduce', compact: false });

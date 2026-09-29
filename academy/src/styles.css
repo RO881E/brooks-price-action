@@ -4370,6 +4370,400 @@ button:disabled {
   margin-top: 18px;
 }
 
+/* Bar-für-Bar-Trainer (F-15) */
+.link-button {
+  padding: 0;
+  color: var(--gold-dark);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.trainer-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.trainer-heading h1:focus {
+  outline: none;
+}
+
+.trainer-timeframe,
+.trainer-disclaimer {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.trainer-disclaimer {
+  margin: -14px 0 18px;
+}
+
+.trainer-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.trainer-resumed {
+  padding: 2px 10px;
+  color: var(--green);
+  font-size: 12px;
+  border-radius: 999px;
+  background: var(--green-soft);
+}
+
+.trainer-run-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.case-chart {
+  margin: 0 0 18px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.case-chart svg {
+  display: block;
+  width: 100%;
+  height: clamp(200px, 42vw, 300px);
+}
+
+.case-bar line {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.case-bar.up rect {
+  fill: var(--green);
+}
+
+.case-bar.down rect {
+  fill: var(--red);
+}
+
+.case-bar.flat rect {
+  fill: var(--ink-soft);
+}
+
+.case-chart-new {
+  fill: var(--gold-soft);
+}
+
+.case-chart-now {
+  stroke: var(--gold-dark);
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  vector-effect: non-scaling-stroke;
+}
+
+.case-chart-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 8px 0 0;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+  list-style: none;
+}
+
+.trainer-panel {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding: 20px clamp(16px, 4vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow-wrap: break-word;
+}
+
+.trainer-panel h2,
+.trainer-panel h3,
+.trainer-panel p {
+  margin: 0;
+}
+
+.trainer-panel h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 2.6vw, 24px);
+}
+
+.trainer-panel h3 {
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.trainer-panel p,
+.trainer-panel li {
+  line-height: 1.6;
+}
+
+.trainer-prompt {
+  font-size: 16px;
+}
+
+.trainer-panel fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.trainer-panel legend {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.trainer-choices,
+.trainer-cues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trainer-cues {
+  flex-direction: column;
+}
+
+.trainer-choices label,
+.trainer-cues label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.trainer-choices label:has(input:checked),
+.trainer-cues label:has(input:checked) {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.trainer-choices input,
+.trainer-cues input {
+  flex: none;
+  accent-color: var(--gold-dark);
+}
+
+.trainer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.trainer-actions .primary-button,
+.trainer-actions .secondary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.trainer-hint {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.trainer-options,
+.trainer-cue-results,
+.trainer-summary-list,
+.trainer-lessons,
+.trainer-steps {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trainer-steps {
+  padding-left: 20px;
+  list-style: decimal;
+}
+
+.trainer-options li,
+.trainer-cue-results li {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--line-strong);
+  border-radius: 12px;
+}
+
+.trainer-options li.chosen {
+  background: var(--canvas);
+}
+
+.trainer-options .verdict-best,
+.trainer-cue-results .cue-good {
+  border-left-color: var(--green);
+}
+
+.trainer-options .verdict-defensible,
+.trainer-cue-results .cue-missed {
+  border-left-color: var(--gold);
+}
+
+.trainer-options .verdict-mistake,
+.trainer-cue-results .cue-misleading {
+  border-left-color: var(--red);
+}
+
+.trainer-explanation {
+  font-size: 16px;
+}
+
+.trainer-added,
+.trainer-last {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.trainer-notice {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--gold-soft);
+}
+
+.trainer-history {
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.trainer-history summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.trainer-confirm {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 18px;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.trainer-confirm h2,
+.trainer-confirm p {
+  margin: 0;
+}
+
+.case-training {
+  margin-top: 36px;
+}
+
+.case-training > h2 {
+  margin: 0 0 6px;
+  font-family: 'Manrope', sans-serif;
+}
+
+.case-training > p {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.case-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-card {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  height: 100%;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow-wrap: break-word;
+}
+
+.case-card h3,
+.case-card p {
+  margin: 0;
+}
+
+.case-card h3 {
+  font-size: 16px;
+}
+
+.case-card .eyebrow {
+  margin: 0;
+}
+
+.case-card-state {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.case-card.locked {
+  background: var(--canvas);
+}
+
+.case-card .primary-button,
+.case-card .secondary-button {
+  justify-self: start;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.case-links {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--canvas);
+}
+
+.case-links p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.case-links ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /* Leseoptionen im Buchmodus (F-22). „Standard“ lässt die bisherigen Maße
    unverändert; größere Stufen skalieren in rem, damit Browser-Schrift und
    -Zoom weiter wirken. Nur Lesetext, Bedienelemente bleiben gleich. */

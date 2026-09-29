@@ -68,7 +68,7 @@ Chartfälle und der vertieften Besprechung von Abbildung 10.2.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-22 `version: 10`:
+seit F-15 `version: 11`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -95,10 +95,17 @@ seit F-22 `version: 10`:
   Lektionsabschluss und von `lessonPositions`.
 - `readingOptions` (seit F-22, v10): Leseoptionen im Buchmodus – `size` (`standard`, `large`,
   `larger`) und `spacing` (`standard`, `relaxed`, `wide`)
+- `caseSessions` (seit F-15, v11): laufende Runde im Bar-für-Bar-Trainer je Fall –
+  `{ sessionId, startedAt, updatedAt, session }`, Schlüssel ist die Fall-ID; `session` ist der
+  Zustand der Engine und wird beim Öffnen gegen den Fall geprüft
+- `caseRuns` (seit F-15, v11): abgeschlossene Runden je Fall – `{ sessionId, completedAt, best,
+  defensible, mistake, missedCues }`, eindeutig je `sessionId`, höchstens die jüngsten 50;
+  Runden vergeben keine XP
 
-Ältere Datensätze (v1–v9) werden beim Laden verlustfrei migriert; der Wiederholungsplan
-startet leer, ebenso die Lesestellen (vor v9); Leseoptionen beginnen vor v10 bei „Standard“,
-unbekannte Stufen werden einzeln zu „Standard“. Defekte Lesestellen (ohne Einheit oder Lektion)
+Ältere Datensätze (v1–v10) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+startet leer, ebenso die Lesestellen (vor v9) und die Trainerrunden (vor v11); Leseoptionen
+beginnen vor v10 bei „Standard“, unbekannte Stufen werden einzeln zu „Standard“. Defekte
+Trainerrunden oder -sitzungen entfallen einzeln. Defekte Lesestellen (ohne Einheit oder Lektion)
 entfallen, ein ungültiger Schritt wird zum Abschnittsanfang; eine Lesestelle auf eine unbekannte
 oder gesperrte Lektion bleibt gespeichert, der Leser öffnet dann den nächsten lesbaren Abschnitt. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
@@ -109,24 +116,25 @@ gelesen, nie verändert.
 
 Eine Sicherung ist eine JSON-Datei mit `format: "wqt-academy-backup"`, `formatVersion: 1`,
 `exportedAt`, `dataVersion` und `data`. Sie enthält alle Lerndaten, Tagesziel und Darstellung –
-nicht aber eine laufende Wiederholungsrunde, die Kopien von `brooks-progress`/`brooks-tr-best`
+nicht aber eine laufende Wiederholungs- oder Trainerrunde, die Kopien von `brooks-progress`/`brooks-tr-best`
 und unbekannte Zusatzfelder.
 
 Der Import prüft streng (`src/features/backup.ts`): höchstens 10 MB, gültiges JSON, bekanntes
 Format und keine neuere Version, alle Pflichtfelder, keine unbekannten Felder, gültige Einträge
-und keine gefährlichen Schlüssel wie `__proto__`. Sicherungen aus v8 (vor dem Buchleser) und v9 (vor
-den Leseoptionen) bleiben gültig: Ihnen fehlen nur `readerPositions` bzw. `readingOptions`, die
-leer bzw. mit „Standard“ ergänzt werden. Eine abgelehnte Datei ändert nichts. Vor jeder
+und keine gefährlichen Schlüssel wie `__proto__`. Sicherungen aus v8 (vor dem Buchleser), v9 (vor den
+Leseoptionen) und v10 (vor dem Trainer) bleiben gültig: Ihnen fehlen nur `readerPositions`,
+`readingOptions` bzw. `caseRuns`, die leer bzw. mit „Standard“ ergänzt werden. Eine abgelehnte Datei ändert nichts. Vor jeder
 Änderung erscheint eine Vorschau.
 
 - **Zusammenführen** (Standard) ergänzt den Stand, ohne etwas doppelt zu zählen: Vereinigung von
   Lektionen, Lerntagen, Lesezeichen und Meilensteinen; früherer Erstabschluss samt XP;
   Datensatz mit mehr Versuchen; jüngerer Wiederholungsstand und jüngere Lektionsposition;
   Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; je Einheit die
-  zuletzt gesetzte Lesestelle; Antworten lokal vor Import. Tagesziel und Darstellung
+  zuletzt gesetzte Lesestelle; abgeschlossene Trainerrunden vereinigt je `sessionId` (eine
+  laufende lokale Runde bleibt); Antworten lokal vor Import. Tagesziel und Darstellung
   (einschließlich Leseoptionen) kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
 - **Vollständig ersetzen** braucht eine ausdrückliche Bestätigung; vorher wird ein Download des
-  aktuellen Stands angeboten.
+  aktuellen Stands angeboten. Laufende Wiederholungs- und Trainerrunden enden dabei.
 - **Zurücksetzen** löscht nur `wqt-academy-progress-v1`. `brooks-progress` und `brooks-tr-best`
   bleiben unangetastet.
 
@@ -191,16 +199,37 @@ leer bzw. mit „Standard“ ergänzt werden. Eine abgelehnte Datei ändert nich
 - Registriert wird nur im Produktions-Build (`import.meta.env.PROD`); `npm run dev` bleibt ohne
   Service Worker. Ohne Verbindung erscheint ein schließbarer Offline-Hinweis.
 
-## Bar-für-Bar-Fälle (Vertrag und Engine)
+## Bar-für-Bar-Trainer (F-14, F-15)
 
-Für den späteren Bar-für-Bar-Trainer (F-15) gibt es seit F-14 einen typisierten Datenvertrag
-(`src/content/barCaseTypes.ts`), eine strenge Prüfung (`src/features/barCaseValidation.ts`)
-und eine reine Engine ohne Oberfläche (`src/features/barTrainer.ts`): Sichtbarkeit der Bars,
-Auswahl von Long/Short/Abwarten mit Begründung über Hinweise, Reveal, Übergänge, Auswertung,
-eine „öffentliche Sicht“ ohne vorzeitige Lösungen und das Fortsetzen nach Reload. Die Registry
-`src/content/barCases.ts` ist bewusst leer; kuratierte Fälle liefert ein eigener Content-PR.
-Die Vorgaben dafür stehen in [docs/BAR_CASE_CONTRACT.md](docs/BAR_CASE_CONTRACT.md). Technische
-Testfälle liegen nur in `src/test/fixtures/`.
+Seit F-14 gibt es einen typisierten Datenvertrag (`src/content/barCaseTypes.ts`), eine strenge
+Prüfung (`src/features/barCaseValidation.ts`) und eine reine Engine
+(`src/features/barTrainer.ts`): Sichtbarkeit der Bars, Auswahl von Long/Short/Abwarten mit
+Begründung über Hinweise, Reveal, Übergänge, Auswertung, eine „öffentliche Sicht“ ohne
+vorzeitige Lösungen und das Fortsetzen nach Reload. Die Fälle kommen aus eigenen Content-PRs
+(C-01: `src/content/barCases/c01.ts`); die Vorgaben stehen in
+[docs/BAR_CASE_CONTRACT.md](docs/BAR_CASE_CONTRACT.md). Technische Testfälle liegen nur in
+`src/test/fixtures/`.
+
+Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/train/<Fall-ID>`:
+
+- Angezeigt werden nur Fälle mit `status: 'approved'`. Ein Fall ist frei, sobald alle ihm
+  zugeordneten Lektionen im Lernpfad zugänglich sind; vorher nennt die Karte die Lektion, die
+  zuerst erreicht werden muss. Gesperrte oder unbekannte Fall-Links fallen sicher auf den
+  Lernpfad zurück. Nach einer passenden Lektion (Auswertung im Lektionsmodus, abgeschlossener
+  Abschnitt im Buchmodus) erscheint ein Link „Chart trainieren“.
+- Je Entscheidung: Chart nur mit den bekannten Bars (Maßstab nur aus ihnen), Frage, Long/Short/
+  Abwarten als Optionsfelder, Hinweise als Kontrollkästchen (mindestens einer). Erst nach
+  „Entscheidung abgeben“ erscheinen Einordnung aller drei Optionen, Erklärung der Hinweise
+  mit Lektionslinks und die Folgebars. Die Oberfläche rendert ausschließlich `publicView()`;
+  vor der Abgabe stehen weder spätere Bars noch Lösungen im DOM oder in ARIA-Texten. Gegen
+  absichtliche Inspektion des gebündelten Codes schützt ein clientseitiges Angebot nicht.
+- Auswertung: Einordnung je Entscheidung, übersehene Hinweise und Lektionen zum Nacharbeiten;
+  „Neue Runde“ beginnt von vorn. Runden vergeben keine XP und ändern keinen Lektionsabschluss.
+- **Abbruch und Reload:** Jede Aktion wird sofort gespeichert; nach Reload, Browser-Zurück oder
+  Neustart der App geht es exakt an derselben Stelle weiter („Fortgesetzt“). „Von vorn
+  beginnen“ und „Runde abbrechen“ verlangen eine Bestätigung; abgebrochene Runden werden nicht
+  gezählt. Passt eine gespeicherte Runde nicht mehr zum Fall (geänderter Content), wird sie
+  nicht repariert, sondern ausdrücklich neu begonnen.
 
 ## Leseoptionen im Buchmodus (F-22)
 

@@ -469,7 +469,7 @@ describe('Leseoptionen im Buchmodus (F-22, v10)', () => {
 
   it('sichert und liest die Leseoptionen mit', () => {
     const backup = createBackup(larger());
-    expect(backup.dataVersion).toBe(10);
+    expect(backup.dataVersion).toBe(ACADEMY_PROGRESS_VERSION);
     expect(backup.data.readingOptions).toEqual({ size: 'larger', spacing: 'wide' });
     const result = parseBackup(serializeBackup(backup));
     expect(result.ok).toBe(true);
@@ -523,5 +523,107 @@ describe('Leseoptionen im Buchmodus (F-22, v10)', () => {
     saveProgress(storage, larger());
     resetAcademyData(storage);
     expect(loadProgress(storage).readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
+  });
+});
+
+describe('Trainerrunden (F-15, v11)', () => {
+  const run = (sessionId: string, completedAt: string) => ({
+    sessionId,
+    completedAt,
+    best: 1,
+    defensible: 0,
+    mistake: 1,
+    missedCues: 1,
+  });
+  const withRuns = (runs: ReturnType<typeof run>[]): AcademyProgress => ({
+    ...createEmptyProgress(),
+    caseRuns: { 'bar-case.chapter-01.range-high-test': runs },
+  });
+  const withSession = (progress: AcademyProgress): AcademyProgress => ({
+    ...progress,
+    caseSessions: {
+      'bar-case.chapter-01.range-high-test': {
+        sessionId: 'run-open',
+        startedAt: '2026-09-29T08:00:00.000Z',
+        updatedAt: '2026-09-29T08:00:00.000Z',
+        session: {
+          caseId: 'bar-case.chapter-01.range-high-test',
+          index: 0,
+          draft: { decision: null, cueIds: [] },
+          answers: {},
+          revealed: false,
+          finished: false,
+        },
+      },
+    },
+  });
+
+  it('sichert abgeschlossene Runden, aber keine laufende Runde', () => {
+    const progress = withSession(withRuns([run('run-a', '2026-09-29T08:00:00.000Z')]));
+    const backup = createBackup(progress);
+    expect(backup.data.caseRuns).toEqual(progress.caseRuns);
+    expect('caseSessions' in backup.data).toBe(false);
+    const result = parseBackup(serializeBackup(backup));
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.imported.caseRuns).toEqual(progress.caseRuns);
+      expect(result.imported.caseSessions).toEqual({});
+    }
+  });
+
+  it('nimmt Sicherungen aus v10 ohne Trainerrunden weiterhin an', () => {
+    const result = parseBackup(
+      backupText(createEmptyProgress(), (backup) => {
+        backup.dataVersion = 10;
+        delete (backup.data as Record<string, unknown>).caseRuns;
+      }),
+    );
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.imported.caseRuns).toEqual({});
+  });
+
+  it('verlangt das Feld ab v11 und prüft jede Runde streng', () => {
+    expectRejected(
+      backupText(createEmptyProgress(), (backup) => {
+        delete (backup.data as Record<string, unknown>).caseRuns;
+      }),
+      /Pflichtfeld fehlt: „caseRuns“/,
+    );
+    const broken = (runs: unknown) =>
+      backupText(createEmptyProgress(), (backup) => {
+        (backup.data as Record<string, unknown>).caseRuns = { 'bar-case.x': runs };
+      });
+    expectRejected(broken('x'), /caseRuns/);
+    expectRejected(broken([{ ...run('a', '2026-09-29T08:00:00.000Z'), best: -1 }]), /caseRuns/);
+    expectRejected(broken([{ ...run('a', '2026-09-29T08:00:00.000Z'), extra: 1 }]), /caseRuns/);
+    expectRejected(broken([run('a', 'gestern')]), /caseRuns/);
+    expectRejected(broken([run('a', '2026-09-29T08:00:00.000Z'), run('a', '2026-09-29T09:00:00.000Z')]), /doppelt/);
+  });
+
+  it('führt zusammen, ohne Runden doppelt zu zählen, und behält die lokale laufende Runde', () => {
+    const local = withSession(withRuns([run('run-a', '2026-09-29T08:00:00.000Z')]));
+    const incoming = withRuns([run('run-a', '2026-09-29T08:00:00.000Z'), run('run-b', '2026-09-29T09:00:00.000Z')]);
+    const merged = mergeProgress(local, incoming);
+    expect(merged.caseRuns['bar-case.chapter-01.range-high-test'].map((item) => item.sessionId)).toEqual(['run-a', 'run-b']);
+    expect(merged.caseSessions).toEqual(local.caseSessions);
+    expect(mergeProgress(merged, incoming).caseRuns).toEqual(merged.caseRuns);
+    const preview = previewImport(local, incoming, '2026-09-29T10:00:00.000Z');
+    expect(preview.file.caseRuns).toBe(2);
+    expect(preview.merge.newCaseRuns).toBe(1);
+    expect(preview.merge.changes).toBe(true);
+    expect(previewImport(local, withRuns([]), 'x').replace.lostCaseRuns).toBe(1);
+  });
+
+  it('Ersetzen übernimmt die Runden der Sicherung und beendet laufende; Zurücksetzen leert beides', () => {
+    const local = withSession(withRuns([run('run-a', '2026-09-29T08:00:00.000Z')]));
+    const replaced = replaceProgress(local, withRuns([run('run-z', '2026-09-29T09:00:00.000Z')]));
+    expect(Object.values(replaced.caseRuns).flat().map((item) => item.sessionId)).toEqual(['run-z']);
+    expect(replaced.caseSessions).toEqual({});
+    const storage = new MemoryStorage();
+    saveProgress(storage, local);
+    resetAcademyData(storage);
+    const reset = loadProgress(storage);
+    expect(reset.caseRuns).toEqual({});
+    expect(reset.caseSessions).toEqual({});
   });
 });

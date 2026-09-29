@@ -68,6 +68,7 @@ function mergeLines(preview: ImportPreview): string[] {
     merge.newLearningDays ? `+ ${plural(merge.newLearningDays, 'Lerntag', 'Lerntage')}` : '',
     merge.newMilestones ? `+ ${plural(merge.newMilestones, 'Meilenstein', 'Meilensteine')}` : '',
     merge.newReviewCards ? `+ ${plural(merge.newReviewCards, 'Wiederholungskarte', 'Wiederholungskarten')}` : '',
+    merge.newCaseRuns ? `+ ${plural(merge.newCaseRuns, 'abgeschlossene Trainerrunde', 'abgeschlossene Trainerrunden')}` : '',
   ].filter(Boolean);
 }
 
@@ -78,6 +79,7 @@ function replaceLosses(preview: ImportPreview): string[] {
     replace.lostNotes ? plural(replace.lostNotes, 'Notiz', 'Notizen') : '',
     replace.lostBookmarks ? plural(replace.lostBookmarks, 'Lesezeichen', 'Lesezeichen') : '',
     replace.lostLearningDays ? plural(replace.lostLearningDays, 'Lerntag', 'Lerntage') : '',
+    replace.lostCaseRuns ? plural(replace.lostCaseRuns, 'abgeschlossene Trainerrunde', 'abgeschlossene Trainerrunden') : '',
   ].filter(Boolean);
 }
 
@@ -302,8 +304,10 @@ export function SettingsView({
               {plural(preview.file.reviewCards, 'Wiederholungskarte', 'Wiederholungskarten')},{' '}
               {plural(preview.file.learningDays, 'Lerntag', 'Lerntage')},{' '}
               {plural(preview.file.milestones, 'Meilenstein', 'Meilensteine')},{' '}
-              {plural(preview.file.bookmarks, 'Lesezeichen', 'Lesezeichen')} und{' '}
-              {plural(preview.file.notes, 'Notiz', 'Notizen')}. Noch wurde nichts verändert.
+              {plural(preview.file.bookmarks, 'Lesezeichen', 'Lesezeichen')},{' '}
+              {plural(preview.file.notes, 'Notiz', 'Notizen')} und{' '}
+              {plural(preview.file.caseRuns, 'abgeschlossene Trainerrunde', 'abgeschlossene Trainerrunden')}. Noch
+              wurde nichts verändert.
             </p>
 
             <fieldset className="settings-choices import-modes">

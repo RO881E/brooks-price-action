@@ -1,12 +1,17 @@
 import { useEffect, useRef } from 'react';
 import type { LessonOutline } from '../content/types';
+import type { BarCase } from '../content/barCaseTypes';
 import type { LessonSummary } from '../features/lessonResults';
+import { CaseLinks } from './CaseTraining';
 
 interface LessonResultViewProps {
   lesson: LessonOutline;
   summary: LessonSummary;
   onRepeat: () => void;
   onBackToPath: () => void;
+  /** Passende, zugängliche Bar-für-Bar-Fälle (F-15). */
+  trainingCases?: BarCase[];
+  onTrain?: (caseId: string) => void;
 }
 
 export function LessonResultView({
@@ -14,6 +19,8 @@ export function LessonResultView({
   summary,
   onRepeat,
   onBackToPath,
+  trainingCases = [],
+  onTrain = () => {},
 }: LessonResultViewProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
@@ -93,6 +100,7 @@ export function LessonResultView({
               freigeschaltet.
             </p>
           ) : null}
+          <CaseLinks cases={trainingCases} onTrain={onTrain} />
         </article>
       </div>
 
