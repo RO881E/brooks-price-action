@@ -699,3 +699,42 @@ describe('Leseoptionen im Buchmodus (F-22, v10)', () => {
     expect(loadProgress(store).readingOptions).toEqual({ size: 'larger', spacing: 'relaxed' });
   });
 });
+
+describe('Einführung beim ersten Besuch (F-18, v13)', () => {
+  it('erscheint nur ohne Lernstand und solange sie nicht geschlossen wurde', async () => {
+    const { hasLearningData, markGuideSeen, shouldShowFirstUseGuide } = await import('./progress');
+    const fresh = createEmptyProgress();
+    expect(hasLearningData(fresh)).toBe(false);
+    expect(shouldShowFirstUseGuide(fresh)).toBe(true);
+    const seen = markGuideSeen(fresh, '2026-09-29T08:00:00.000Z');
+    expect(seen.guideSeenAt).toBe('2026-09-29T08:00:00.000Z');
+    expect(shouldShowFirstUseGuide(seen)).toBe(false);
+    expect(markGuideSeen(seen, '2026-09-30T08:00:00.000Z')).toBe(seen);
+    // Schließen ist keine Lernaktivität.
+    expect(seen.activityDays).toEqual([]);
+    expect(seen.dailyActivity).toEqual({});
+    expect(seen.completedLessonIds).toEqual([]);
+
+    for (const learned of [
+      completeLesson(fresh, 'lesson-1', 30, '2026-09-29T08:00:00.000Z'),
+      recordAnswer(fresh, 'q1', 'a'),
+      recordLessonStep(fresh, 'lesson-1', 1),
+      { ...fresh, legacyReadChapters: ['chapter-1'] },
+      { ...fresh, legacyTrendRangeBest: 4 },
+    ]) {
+      expect(shouldShowFirstUseGuide(learned)).toBe(false);
+    }
+  });
+
+  it('migriert ältere Stände ohne Vermerk; bestehender Lernstand zeigt keine erzwungene Einführung', async () => {
+    const { shouldShowFirstUseGuide } = await import('./progress');
+    const v12 = migrateProgress({ version: 12, completedLessonIds: ['a'], answers: {} })!;
+    expect(v12.version).toBe(ACADEMY_PROGRESS_VERSION);
+    expect(v12.guideSeenAt).toBeNull();
+    expect(shouldShowFirstUseGuide(v12)).toBe(false);
+    expect(migrateProgress({ version: 13, guideSeenAt: 5 })?.guideSeenAt).toBeNull();
+    expect(migrateProgress({ version: 13, guideSeenAt: '2026-09-29T08:00:00.000Z' })?.guideSeenAt).toBe(
+      '2026-09-29T08:00:00.000Z',
+    );
+  });
+});

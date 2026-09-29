@@ -63,6 +63,7 @@ export const BACKUP_FIELDS = [
   'readerPositions',
   'readingOptions',
   'caseRuns',
+  'guideSeenAt',
 ] as const;
 
 export type BackupField = (typeof BACKUP_FIELDS)[number];
@@ -71,7 +72,7 @@ export type BackupField = (typeof BACKUP_FIELDS)[number];
  * Felder, die es erst ab einer bestimmten Datenversion gibt. Ältere
  * Sicherungen ohne sie bleiben gültig; die Migration ergänzt leere Werte.
  */
-const FIELD_SINCE: Partial<Record<BackupField, number>> = { readerPositions: 9, readingOptions: 10, caseRuns: 11 };
+const FIELD_SINCE: Partial<Record<BackupField, number>> = { readerPositions: 9, readingOptions: 10, caseRuns: 11, guideSeenAt: 13 };
 export type BackupData = Pick<AcademyProgress, BackupField>;
 
 export interface AcademyBackup {
@@ -322,6 +323,9 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
       return null;
     });
   },
+  guideSeenAt(value, errors) {
+    if (value !== null && !isIsoDate(value)) errors.push('„guideSeenAt“ ist ungültig.');
+  },
   lastLessonId(value, errors) {
     if (value !== null && !isId(value)) errors.push('„lastLessonId“ ist ungültig.');
   },
@@ -568,6 +572,8 @@ export function mergeProgress(
     readingOptions: options.keepLocalPreferences ? local.readingOptions : incoming.readingOptions,
     // Abgeschlossene Trainerrunden: Vereinigung je Runden-ID, nichts doppelt.
     caseRuns: mergeCaseRuns(local.caseRuns, incoming.caseRuns),
+    // Einmal geschlossen bleibt geschlossen.
+    guideSeenAt: local.guideSeenAt ?? incoming.guideSeenAt,
   };
 }
 

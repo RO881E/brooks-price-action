@@ -652,3 +652,28 @@ describe('Einzelantworten je Trainerrunde (F-16, v12)', () => {
     expectRejected(withRun({ ...base, answers: 'x' }), /Antworten ungültig/);
   });
 });
+
+describe('Einführung gesehen (F-18, v13)', () => {
+  it('wird gesichert, streng geprüft und beim Zusammenführen beibehalten', async () => {
+    const { markGuideSeen } = await import('./progress');
+    const seen = markGuideSeen(createEmptyProgress(), '2026-09-29T08:00:00.000Z');
+    const result = parseBackup(serializeBackup(createBackup(seen)));
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.imported.guideSeenAt).toBe('2026-09-29T08:00:00.000Z');
+    expectRejected(
+      backupText(createEmptyProgress(), (backup) => {
+        (backup.data as Record<string, unknown>).guideSeenAt = 'gestern';
+      }),
+      /guideSeenAt/,
+    );
+    const old = parseBackup(
+      backupText(createEmptyProgress(), (backup) => {
+        backup.dataVersion = 12;
+        delete (backup.data as Record<string, unknown>).guideSeenAt;
+      }),
+    );
+    expect(old.ok).toBe(true);
+    expect(mergeProgress(seen, createEmptyProgress()).guideSeenAt).toBe('2026-09-29T08:00:00.000Z');
+    expect(mergeProgress(createEmptyProgress(), seen).guideSeenAt).toBe('2026-09-29T08:00:00.000Z');
+  });
+});

@@ -22,6 +22,7 @@ import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { SettingsView } from './components/SettingsView';
 import { TrainerView } from './components/TrainerView';
+import { FirstUseWelcome, GuideDialog, type GuideFacts } from './components/FirstUseGuide';
 import { UndoToast, type UndoAction } from './components/UndoToast';
 import {
   catalog,
@@ -41,7 +42,14 @@ import {
   type ImportMode,
   type MergeOptions,
 } from './features/backup';
-import { beginCaseRun, casesForLesson, discardCaseRun, updateCaseRun } from './features/caseTraining';
+import {
+  beginCaseRun,
+  caseEntries,
+  casesForLesson,
+  discardCaseRun,
+  publishedCases,
+  updateCaseRun,
+} from './features/caseTraining';
 import { nextAvailableLesson } from './features/courseAccess';
 import { downloadTextFile } from './features/download';
 import {
@@ -72,12 +80,14 @@ import {
 import {
   completeLesson,
   loadProgress,
+  markGuideSeen,
   progressPercent,
   recordLessonStep,
   recordReaderPosition,
   saveProgress,
   savedKey,
   setDailyGoal,
+  shouldShowFirstUseGuide,
   updateReadingOptions,
   updateSettings,
   type AcademyProgress,
@@ -177,6 +187,9 @@ export default function App() {
   const [undoAction, setUndoAction] = useState<UndoAction | null>(null);
   const dismissUndo = useCallback(() => setUndoAction(null), []);
   const [searchOpen, setSearchOpen] = useState(false);
+  // Einführung (F-18): Hilfe-Dialog jederzeit, Willkommen nur beim ersten Besuch.
+  const [guideOpen, setGuideOpen] = useState(false);
+  const helpButton = useRef<HTMLButtonElement>(null);
   const searchOpener = useRef<HTMLElement | null>(null);
   const searchIndex = useMemo(() => buildSearchIndex(courseOutline, glossaryEntries), []);
   const closeCelebration = useCallback(() => setCelebration(null), []);
@@ -373,6 +386,15 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [openSearch, searchOpen]);
 
+  const guideFacts: GuideFacts = useMemo(
+    () => ({
+      firstLesson: nextAvailableLesson(courseOutline, progress.completedLessonIds),
+      publishedCases: publishedCases().length,
+      availableCases: caseEntries(courseOutline, progress).filter((entry) => entry.state !== 'locked').length,
+    }),
+    [progress],
+  );
+
   const toast = (
     <>
       <AppStatusBanner status={appStatus} onApplyUpdate={pwa.applyUpdate} />
@@ -387,6 +409,17 @@ export default function App() {
         onClose={closeSearch}
         onSelect={(result) => openSearchResult(result)}
       />
+      {guideOpen ? (
+        <GuideDialog
+          facts={guideFacts}
+          returnFocusTo={helpButton}
+          onClose={() => setGuideOpen(false)}
+          onOpenSettings={() => {
+            setGuideOpen(false);
+            chooseView('settings');
+          }}
+        />
+      ) : null}
     </>
   );
 
@@ -794,6 +827,16 @@ export default function App() {
           </div>
           <div className="topbar-actions">
             <button
+              ref={helpButton}
+              type="button"
+              className="help-trigger"
+              aria-haspopup="dialog"
+              onClick={() => setGuideOpen(true)}
+            >
+              <span aria-hidden="true">?</span>
+              <span className="help-trigger-label">Hilfe</span>
+            </button>
+            <button
               type="button"
               className="search-trigger"
               onClick={openSearch}
@@ -812,6 +855,19 @@ export default function App() {
         </header>
 
         <div className="view-container">
+          {view === 'path' && shouldShowFirstUseGuide(progress) ? (
+            <FirstUseWelcome
+              facts={guideFacts}
+              onStart={(lesson) => {
+                setProgress((current) => markGuideSeen(current));
+                openLesson(lesson);
+              }}
+              onDismiss={() => {
+                setProgress((current) => markGuideSeen(current));
+                helpButton.current?.focus();
+              }}
+            />
+          ) : null}
           {view === 'path' ? (
             <PathView
               course={courseOutline}
