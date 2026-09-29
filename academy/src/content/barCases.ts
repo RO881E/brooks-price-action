@@ -1,11 +1,11 @@
 import type { BarCase } from './barCaseTypes';
+import { c01BarCases } from './barCases/c01';
 
 /**
- * Registrierte Bar-für-Bar-Fälle (F-14). Absichtlich leer: Die fachlich
- * geprüften Erstfälle liefert ein eigener Content-PR (C-01). Neue Fälle werden
- * hier eingetragen; ein Unit-Test prüft jeden Eintrag gegen den Vertrag und
- * die Kursgliederung. Angezeigt werden später nur Fälle mit `status: 'approved'`.
+ * Registrierte Bar-für-Bar-Fälle. Ein Unit-Test prüft jeden Eintrag gegen den
+ * Vertrag und die Kursgliederung. Später werden nur fachlich freigegebene
+ * Fälle mit `status: 'approved'` angezeigt.
  *
  * Siehe `academy/docs/BAR_CASE_CONTRACT.md`.
  */
-export const barCases: readonly BarCase[] = [];
+export const barCases: readonly BarCase[] = [...c01BarCases];
