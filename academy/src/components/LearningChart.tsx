@@ -1,6 +1,7 @@
 import type { ChartScenarioId } from '../content/types';
 import { ChapterFourChart } from './ChapterFourCharts';
 import { ChapterFiveChart, chapterFiveDescriptions } from './ChapterFiveCharts';
+import { ChapterSixChart, chapterSixDescriptions } from './ChapterSixCharts';
 import { ChapterThreeChart } from './ChapterThreeCharts';
 import { ChapterTwoChart } from './ChapterTwoCharts';
 
@@ -232,6 +233,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
   'figure-41-followthrough':
     'Die zweite Hälfte des Chartfalls ordnet Bar 3 als Signal, den Fill, den Follow-through sowie die Folge-Setups um Bar 4 und Bar 5.',
   ...chapterFiveDescriptions,
+  ...chapterSixDescriptions,
 };
 
 function yScale(value: number, min: number, max: number): number {
@@ -1476,6 +1478,7 @@ export function LearningChart({ scenario, title }: LearningChartProps) {
         <ChapterThreeChart scenario={scenario} />
         <ChapterFourChart scenario={scenario} />
         <ChapterFiveChart scenario={scenario} />
+        <ChapterSixChart scenario={scenario} />
       </svg>
     </div>
   );
