@@ -1,4 +1,13 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
+import { AppStatusBanner } from './components/AppStatusBanner';
 import { CelebrationToast, type Celebration } from './components/CelebrationToast';
 import { ChapterView } from './components/ChapterView';
 import { GlossaryView } from './components/GlossaryView';
@@ -62,6 +71,7 @@ import {
   type ReviewMode,
 } from './features/progress';
 import { scrollToTop } from './features/motion';
+import { pwa } from './features/pwa';
 import { progressOverview, type NextAction } from './features/progressStats';
 import {
   deleteNote,
@@ -155,6 +165,7 @@ export default function App() {
   const searchOpener = useRef<HTMLElement | null>(null);
   const searchIndex = useMemo(() => buildSearchIndex(brooksTrendsCourse, glossaryEntries), []);
   const closeCelebration = useCallback(() => setCelebration(null), []);
+  const appStatus = useSyncExternalStore(pwa.subscribe, pwa.getSnapshot);
   // Neuester Stand für das sofortige Speichern beim Verlassen der Seite.
   const progressRef = useRef(progress);
   useEffect(() => {
@@ -269,6 +280,7 @@ export default function App() {
 
   const toast = (
     <>
+      <AppStatusBanner status={appStatus} onApplyUpdate={pwa.applyUpdate} />
       {undoAction ? <UndoToast action={undoAction} onDismiss={dismissUndo} /> : null}
       {celebration ? (
         <CelebrationToast celebration={celebration} onClose={closeCelebration} />
@@ -693,6 +705,8 @@ export default function App() {
               onExport={exportBackup}
               onImport={importBackup}
               onReset={resetAll}
+              appStatus={appStatus}
+              onApplyUpdate={pwa.applyUpdate}
             />
           ) : null}
           {view === 'glossary' ? (
