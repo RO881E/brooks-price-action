@@ -29,6 +29,7 @@ import {
   MAX_NOTE_LENGTH,
   saveProgress,
   setDailyGoal,
+  updateReadingOptions,
   updateSettings,
   type AcademyProgress,
 } from './progress';
@@ -460,5 +461,67 @@ describe('Lesestellen im Buchleser (F-13, v9)', () => {
     saveProgress(storage, local);
     resetAcademyData(storage);
     expect(loadProgress(storage).readerPositions).toEqual({});
+  });
+});
+
+describe('Leseoptionen im Buchmodus (F-22, v10)', () => {
+  const larger = () => updateReadingOptions(createEmptyProgress(), { size: 'larger', spacing: 'wide' });
+
+  it('sichert und liest die Leseoptionen mit', () => {
+    const backup = createBackup(larger());
+    expect(backup.dataVersion).toBe(10);
+    expect(backup.data.readingOptions).toEqual({ size: 'larger', spacing: 'wide' });
+    const result = parseBackup(serializeBackup(backup));
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.imported.readingOptions).toEqual({ size: 'larger', spacing: 'wide' });
+  });
+
+  it('nimmt Sicherungen aus v8 und v9 ohne Leseoptionen weiterhin an', () => {
+    for (const version of [8, 9]) {
+      const text = backupText(createEmptyProgress(), (backup) => {
+        backup.dataVersion = version;
+        delete (backup.data as Record<string, unknown>).readingOptions;
+        if (version === 8) delete (backup.data as Record<string, unknown>).readerPositions;
+      });
+      const result = parseBackup(text);
+      expect(result.ok, `v${version}`).toBe(true);
+      if (result.ok) expect(result.imported.readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
+    }
+  });
+
+  it('verlangt das Feld ab v10 und prüft es streng', () => {
+    expectRejected(
+      backupText(createEmptyProgress(), (backup) => {
+        delete (backup.data as Record<string, unknown>).readingOptions;
+      }),
+      /Pflichtfeld fehlt: „readingOptions“/,
+    );
+    const broken = (value: unknown) =>
+      backupText(createEmptyProgress(), (backup) => {
+        (backup.data as Record<string, unknown>).readingOptions = value;
+      });
+    expectRejected(broken({ size: 'riesig', spacing: 'standard' }), /„readingOptions“ hat das falsche Format/);
+    expectRejected(broken({ size: 'large' }), /readingOptions/);
+    expectRejected(broken({ size: 'large', spacing: 'wide', extra: 1 }), /readingOptions/);
+    expectRejected(broken('large'), /readingOptions/);
+  });
+
+  it('Zusammenführen: Leseoptionen zählen zur Darstellung und können lokal bleiben', () => {
+    const local = createEmptyProgress();
+    const incoming = larger();
+    expect(mergeProgress(local, incoming).readingOptions).toEqual(incoming.readingOptions);
+    expect(mergeProgress(local, incoming, { keepLocalPreferences: true }).readingOptions).toEqual(local.readingOptions);
+    const preview = previewImport(local, incoming, '2026-09-29T08:00:00.000Z');
+    expect(preview.merge.preferencesDiffer).toBe(true);
+    expect(preview.replace.settingsChange).toBe(true);
+    expect(previewImport(local, createEmptyProgress(), 'x').merge.preferencesDiffer).toBe(false);
+  });
+
+  it('ersetzt beim vollständigen Import und setzt beim Zurücksetzen auf „Standard“', () => {
+    expect(replaceProgress(createEmptyProgress(), larger()).readingOptions).toEqual({ size: 'larger', spacing: 'wide' });
+    const storage = new MemoryStorage();
+    saveProgress(storage, larger());
+    resetAcademyData(storage);
+    expect(loadProgress(storage).readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
   });
 });

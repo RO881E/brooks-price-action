@@ -259,7 +259,7 @@ test.describe('F-01 resume and stable URLs', () => {
     const stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
-    expect(stored.version).toBe(9);
+    expect(stored.version).toBe(10);
     expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
@@ -338,7 +338,7 @@ test.describe('F-01 resume and stable URLs', () => {
       legacy: localStorage.getItem('brooks-progress'),
       best: localStorage.getItem('brooks-tr-best'),
     }));
-    expect(stored.academy.version).toBe(9);
+    expect(stored.academy.version).toBe(10);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
@@ -410,7 +410,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(9);
+    expect(stored.version).toBe(10);
     expect(stored.completedLessonIds).toEqual([lessonId]);
     expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
     expect(stored.questionResults['intro-01-question']).toMatchObject({
@@ -618,7 +618,7 @@ test.describe('F-03 smart review queue', () => {
     await expect(page.getByText('Für heute ist nichts mehr fällig.')).toBeVisible();
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(9);
+    expect(stored.version).toBe(10);
     for (const question of questions) {
       expect(stored.reviewCards[question.id]).toMatchObject({
         stage: 0,
@@ -1353,7 +1353,7 @@ test.describe('F-08 backup, import and settings', () => {
     await openSettings(page);
     await page.getByRole('checkbox', { name: /Kompakte Darstellung/ }).check();
     const before = await rawAcademy(page);
-    expect(JSON.parse(before ?? '{}').version).toBe(9);
+    expect(JSON.parse(before ?? '{}').version).toBe(10);
 
     const [download] = await Promise.all([
       page.waitForEvent('download'),
@@ -1363,7 +1363,7 @@ test.describe('F-08 backup, import and settings', () => {
     const file = testInfo.outputPath('sicherung.json');
     await download.saveAs(file);
     const backup = JSON.parse(readFileSync(file, 'utf8'));
-    expect(backup).toMatchObject({ format: 'wqt-academy-backup', formatVersion: 1, dataVersion: 9 });
+    expect(backup).toMatchObject({ format: 'wqt-academy-backup', formatVersion: 1, dataVersion: 10 });
     expect(Number.isNaN(Date.parse(backup.exportedAt))).toBe(false);
     expect(backup.data.notes[`${lessonOne.id}::${noteStep.id}`].text).toContain('<b>bleibt Text</b>');
     expect(JSON.stringify(backup)).not.toContain('brooks-progress');

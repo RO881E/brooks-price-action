@@ -16,7 +16,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 9;
+export const ACADEMY_PROGRESS_VERSION = 10;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -161,6 +161,21 @@ export interface AcademySettings {
 
 export const DEFAULT_SETTINGS: AcademySettings = { motion: 'system', compact: false };
 
+/** Schriftgröße des Lesetexts im Buchmodus (seit F-22, v10). */
+export type ReadingSize = 'standard' | 'large' | 'larger';
+/** Zeilenabstand des Lesetexts im Buchmodus (seit F-22, v10). */
+export type ReadingSpacing = 'standard' | 'relaxed' | 'wide';
+
+/** Leseoptionen des Buchmodus – nur Darstellung, kein Einfluss auf Inhalte. */
+export interface ReadingOptions {
+  size: ReadingSize;
+  spacing: ReadingSpacing;
+}
+
+export const READING_SIZES: readonly ReadingSize[] = ['standard', 'large', 'larger'];
+export const READING_SPACINGS: readonly ReadingSpacing[] = ['standard', 'relaxed', 'wide'];
+export const DEFAULT_READING_OPTIONS: ReadingOptions = { size: 'standard', spacing: 'standard' };
+
 export interface AcademyProgress {
   version: typeof ACADEMY_PROGRESS_VERSION;
   completedLessonIds: string[];
@@ -190,6 +205,8 @@ export interface AcademyProgress {
   lessonPositions: Record<string, LessonPosition>;
   /** Lesestelle im Buchleser, Schlüssel: Einheit-ID (seit F-13). */
   readerPositions: Record<string, ReaderPosition>;
+  /** Schriftgröße und Zeilenabstand im Buchmodus (seit F-22). */
+  readingOptions: ReadingOptions;
   legacyReadChapters: string[];
   legacyTrendRangeBest: number;
   updatedAt: string;
@@ -225,6 +242,7 @@ export function createEmptyProgress(): AcademyProgress {
     lastLessonId: null,
     lessonPositions: {},
     readerPositions: {},
+    readingOptions: DEFAULT_READING_OPTIONS,
     legacyReadChapters: [],
     legacyTrendRangeBest: 0,
     updatedAt: nowIso(),
@@ -275,6 +293,7 @@ const KNOWN_FIELDS = new Set([
   'lastLessonId',
   'lessonPositions',
   'readerPositions',
+  'readingOptions',
   'legacyReadChapters',
   'legacyTrendRangeBest',
   'updatedAt',
@@ -632,6 +651,27 @@ function normalizeSettings(value: unknown): AcademySettings {
   };
 }
 
+/** Gültige Leseoptionen aus beliebigen Daten; Unbekanntes wird zu „Standard“. */
+export function normalizeReadingOptions(value: unknown): ReadingOptions {
+  if (!isRecord(value)) return DEFAULT_READING_OPTIONS;
+  const size = READING_SIZES.find((item) => item === value.size) ?? 'standard';
+  const spacing = READING_SPACINGS.find((item) => item === value.spacing) ?? 'standard';
+  return size === 'standard' && spacing === 'standard' ? DEFAULT_READING_OPTIONS : { size, spacing };
+}
+
+export function sameReadingOptions(first: ReadingOptions, second: ReadingOptions): boolean {
+  return first.size === second.size && first.spacing === second.spacing;
+}
+
+/** Ändert Leseoptionen; `DEFAULT_READING_OPTIONS` setzt nur sie zurück. */
+export function updateReadingOptions(
+  progress: AcademyProgress,
+  changes: Partial<ReadingOptions>,
+): AcademyProgress {
+  const next = normalizeReadingOptions({ ...progress.readingOptions, ...changes });
+  return sameReadingOptions(next, progress.readingOptions) ? progress : { ...progress, readingOptions: next };
+}
+
 export function updateSettings(
   progress: AcademyProgress,
   changes: Partial<AcademySettings>,
@@ -698,6 +738,7 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * einmalig aus vorhandenen Zeitstempeln abgeleitet, nie geschätzt. Vorhandene Antworten
  * bleiben unverändert in `answers` und werden nicht in Versuche umgedeutet.
  * Vor v9 gibt es keine Lesestellen im Buchleser; sie beginnen leer.
+ * Vor v10 gibt es keine Leseoptionen; sie beginnen bei „Standard“.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {
@@ -740,6 +781,8 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     lessonPositions: normalizePositions(value.lessonPositions),
     // Seit v9; ältere Stände starten ohne Lesestelle.
     readerPositions: normalizeReaderPositions(value.readerPositions),
+    // Seit v10; ältere Stände lesen in der Standarddarstellung.
+    readingOptions: normalizeReadingOptions(value.readingOptions),
     legacyReadChapters: stringArray(value.legacyReadChapters),
     legacyTrendRangeBest:
       typeof best === 'number' && Number.isFinite(best) && best > 0 ? best : 0,

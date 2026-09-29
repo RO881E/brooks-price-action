@@ -338,6 +338,25 @@ test('Begriffe am Lernort offline: Panel und Glossar-Link (F-21)', async ({ page
   expect(errors).toEqual([]);
 });
 
+test('Leseoptionen offline ändern und nach Neustart behalten (F-22)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  const intro = brooksTrendsCourse.units[0];
+  await firstVisit(page);
+
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.goto(`${origin}/academy/#/read/${intro.id}`);
+  await expect(page.getByRole('heading', { name: intro.lessons[0].title, level: 2 })).toBeVisible();
+  await page.locator('.reading-options summary').click();
+  await page.getByRole('group', { name: 'Schriftgröße' }).getByRole('radio', { name: 'Groß', exact: true }).check();
+  await page.reload();
+  await expect(page.locator('.reader-page')).toHaveAttribute('data-reading-size', 'large');
+
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
 test('kündigt ein Update an, aktiviert es erst nach Zustimmung und räumt alte Caches auf @desktop', async ({ page }) => {
   const errors = trackConsoleErrors(page);
   const version = builtVersion();

@@ -96,7 +96,7 @@ test.describe('F-13 Buchleser', () => {
     await expect(page.getByText('1 von 22 Abschnitten abgeschlossen')).toBeVisible();
 
     const data = await stored(page);
-    expect(data.version).toBe(9);
+    expect(data.version).toBe(10);
     expect(data.completedLessonIds).toEqual([first.id]);
     expect(data.lessonResults[first.id].xpAwarded).toBe(first.xp);
     expect(data.questionResults[question.id]).toMatchObject({ firstAttemptCorrect: false, status: 'correct' });

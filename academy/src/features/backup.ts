@@ -5,7 +5,10 @@ import {
   MAX_ACTIVITY_DAYS,
   MAX_NOTE_LENGTH,
   MILESTONE_IDS,
+  READING_SIZES,
+  READING_SPACINGS,
   loadProgress,
+  sameReadingOptions,
   migrateProgress,
   savedKey,
   type AcademyProgress,
@@ -56,6 +59,7 @@ export const BACKUP_FIELDS = [
   'lastLessonId',
   'lessonPositions',
   'readerPositions',
+  'readingOptions',
 ] as const;
 
 export type BackupField = (typeof BACKUP_FIELDS)[number];
@@ -64,7 +68,7 @@ export type BackupField = (typeof BACKUP_FIELDS)[number];
  * Felder, die es erst ab einer bestimmten Datenversion gibt. Ältere
  * Sicherungen ohne sie bleiben gültig; die Migration ergänzt leere Werte.
  */
-const FIELD_SINCE: Partial<Record<BackupField, number>> = { readerPositions: 9 };
+const FIELD_SINCE: Partial<Record<BackupField, number>> = { readerPositions: 9, readingOptions: 10 };
 export type BackupData = Pick<AcademyProgress, BackupField>;
 
 export interface AcademyBackup {
@@ -272,6 +276,14 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
       (value.motion === 'system' || value.motion === 'reduce') &&
       typeof value.compact === 'boolean';
     if (!valid) errors.push('„settings“ hat das falsche Format.');
+  },
+  readingOptions(value, errors) {
+    const valid =
+      isRecord(value) &&
+      hasExactKeys(value, ['size', 'spacing']) &&
+      (READING_SIZES as readonly unknown[]).includes(value.size) &&
+      (READING_SPACINGS as readonly unknown[]).includes(value.spacing);
+    if (!valid) errors.push('„readingOptions“ hat das falsche Format.');
   },
   lastLessonId(value, errors) {
     if (value !== null && !isId(value)) errors.push('„lastLessonId“ ist ungültig.');
@@ -514,6 +526,7 @@ export function mergeProgress(
     lastLessonId: local.lastLessonId ?? incoming.lastLessonId,
     dailyGoal: options.keepLocalPreferences ? local.dailyGoal : incoming.dailyGoal,
     settings: options.keepLocalPreferences ? local.settings : incoming.settings,
+    readingOptions: options.keepLocalPreferences ? local.readingOptions : incoming.readingOptions,
   };
 }
 
@@ -660,7 +673,8 @@ export function previewImport(
     local.dailyGoal.target !== incoming.dailyGoal.target;
   const settingsChange =
     local.settings.motion !== incoming.settings.motion ||
-    local.settings.compact !== incoming.settings.compact;
+    local.settings.compact !== incoming.settings.compact ||
+    !sameReadingOptions(local.readingOptions, incoming.readingOptions);
   merge.preferencesDiffer = goalChanges || settingsChange;
 
   return {

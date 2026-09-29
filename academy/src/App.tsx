@@ -76,6 +76,7 @@ import {
   saveProgress,
   savedKey,
   setDailyGoal,
+  updateReadingOptions,
   updateSettings,
   type AcademyProgress,
   type ReviewMode,
@@ -829,6 +830,7 @@ export default function App() {
                 )
               }
               onBackToChapters={() => chooseView('chapters')}
+              onReadingOptions={(changes) => setProgress((current) => updateReadingOptions(current, changes))}
             />
           ) : null}
           {view === 'chapters' && !reading ? (
