@@ -5,6 +5,7 @@ import {
   type QuestionStep as QuestionStepData,
   type QuestionView,
 } from '../features/lessonResults';
+import { scrollToTop } from '../features/motion';
 import { LearningChart } from './LearningChart';
 import { NotesPanel } from './NotesPanel';
 
@@ -244,7 +245,7 @@ export function LessonPlayer({
   );
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   }, [stepIndex]);
 
   return (

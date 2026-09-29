@@ -9,10 +9,21 @@ import { PracticeView } from './components/PracticeView';
 import { ProgressView } from './components/ProgressView';
 import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
+import { SettingsView } from './components/SettingsView';
 import { UndoToast, type UndoAction } from './components/UndoToast';
 import { brooksTrendsCourse, publishedLessonIds } from './content/course';
 import { glossaryEntries } from './content/glossary';
 import type { Lesson } from './content/types';
+import {
+  applyImport,
+  backupFileName,
+  createBackup,
+  resetAcademyData,
+  serializeBackup,
+  type ImportMode,
+  type MergeOptions,
+} from './features/backup';
+import { downloadTextFile } from './features/download';
 import {
   awardMilestones,
   goalLabel,
@@ -46,9 +57,11 @@ import {
   saveProgress,
   savedKey,
   setDailyGoal,
+  updateSettings,
   type AcademyProgress,
   type ReviewMode,
 } from './features/progress';
+import { scrollToTop } from './features/motion';
 import { progressOverview, type NextAction } from './features/progressStats';
 import {
   deleteNote,
@@ -112,6 +125,7 @@ const navigation: Array<{ id: View; label: string; icon: string; mobile: boolean
   // Auf Mobilgeräten über das Menü erreichbar, damit die untere Leiste lesbar bleibt.
   { id: 'saved', label: 'Gespeichert', icon: '★', mobile: false },
   { id: 'glossary', label: 'Glossar', icon: 'Aa', mobile: true },
+  { id: 'settings', label: 'Einstellungen', icon: '⚙︎', mobile: false },
 ];
 
 export default function App() {
@@ -175,12 +189,27 @@ export default function App() {
   // Fälligkeit nach lokalem Kalendertag; wird bei jedem Rendern neu bestimmt.
   const today = localDayKey(new Date());
 
-  // Nur echte Übergänge feiern: Reload und Zieländerungen lösen nichts aus.
+  // Darstellungseinstellungen als Attribute am Wurzelelement (CSS und Scrollen) –
+  // als Layout-Effekt, damit die Standardansicht nicht kurz aufblitzt.
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    if (progress.settings.motion === 'reduce') root.dataset.motion = 'reduce';
+    else delete root.dataset.motion;
+    if (progress.settings.compact) root.dataset.density = 'compact';
+    else delete root.dataset.density;
+  }, [progress.settings]);
+
+  // Nur echte Übergänge feiern: Reload, Zieländerungen, Import und Reset lösen nichts aus.
   const previousProgress = useRef(progress);
+  const skipCelebration = useRef(false);
   useEffect(() => {
     const before = previousProgress.current;
     previousProgress.current = progress;
     if (before === progress) return;
+    if (skipCelebration.current) {
+      skipCelebration.current = false;
+      return;
+    }
 
     const reached = newMilestones(before, progress).map(
       (milestone) => `Meilenstein: ${milestone.title}`,
@@ -338,7 +367,7 @@ export default function App() {
     navigate({ kind: 'view', view: next }, 'push');
     setNotice(null);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   };
 
   const runNextAction = (action: NextAction) => {
@@ -406,6 +435,26 @@ export default function App() {
       target.stepIndex !== null ? target.stepIndex + 1 : startStepIndex(target.lesson, progress) + 1;
     const state: LessonHistoryState = { wqtOpenedFrom: view };
     navigate({ kind: 'lesson', lessonId: target.lesson.id, step }, 'push', state);
+  };
+
+  const exportBackup = () => {
+    downloadTextFile(backupFileName(), serializeBackup(createBackup(progress)));
+  };
+
+  const importBackup = (imported: AcademyProgress, mode: ImportMode, options: MergeOptions) => {
+    skipCelebration.current = true;
+    setCelebration(null);
+    setUndoAction(null);
+    setProgress((current) => applyImport(current, imported, mode, options));
+  };
+
+  const resetAll = () => {
+    // Nur der Academy-Datensatz wird gelöscht; alte Website-Schlüssel bleiben.
+    const fresh = resetAcademyData(window.localStorage);
+    skipCelebration.current = true;
+    setCelebration(null);
+    setUndoAction(null);
+    setProgress(() => fresh);
   };
 
   const closeLesson = () => {
@@ -634,6 +683,16 @@ export default function App() {
               onOpen={openSavedTarget}
               onRemoveBookmark={removeBookmarkWithUndo}
               onDeleteNote={deleteNoteWithUndo}
+            />
+          ) : null}
+          {view === 'settings' ? (
+            <SettingsView
+              progress={progress}
+              onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
+              onSettingsChange={(changes) => setProgress((current) => updateSettings(current, changes))}
+              onExport={exportBackup}
+              onImport={importBackup}
+              onReset={resetAll}
             />
           ) : null}
           {view === 'glossary' ? (
