@@ -21,6 +21,8 @@ import { ContentLoadState } from './ContentLoadState';
 import { ReadingOptionsPanel } from './ReadingOptionsPanel';
 import { ComparisonStep, DiagramStep, ExplanationStep, QuestionStep, RecapStep } from './LessonSteps';
 import { StepTerms } from './StepTerms';
+import { casesForLesson } from '../features/caseTraining';
+import { CaseLinks } from './CaseTraining';
 
 interface ReaderViewProps {
   course: CourseOutline;
@@ -40,6 +42,8 @@ interface ReaderViewProps {
   onBackToChapters: () => void;
   /** Schriftgröße/Zeilenabstand ändern (F-22). */
   onReadingOptions: (changes: Partial<ReadingOptions>) => void;
+  /** Passenden Bar-für-Bar-Fall öffnen (F-15). */
+  onTrain?: (caseId: string) => void;
 }
 
 const stateLabel: Record<ReaderSection['state'], string> = {
@@ -70,6 +74,7 @@ export function ReaderView({
   onCompleteSection,
   onBackToChapters,
   onReadingOptions,
+  onTrain,
 }: ReaderViewProps) {
   const ids = useId();
   const { unit, sections, section, stepIndex, fellBack } = reader;
@@ -180,6 +185,7 @@ export function ReaderView({
             onRetry={onRetry}
             onReveal={onReveal}
             onCompleteSection={onCompleteSection}
+            onTrain={onTrain}
           />
         ) : (
           <LockedUnit course={course} reader={reader} progress={progress} onOpenUnit={onOpenUnit} />
@@ -257,6 +263,7 @@ function ReaderSectionView({
   onRetry,
   onReveal,
   onCompleteSection,
+  onTrain,
 }: SectionProps) {
   const { lesson } = section;
   const content = useLessonContent([lesson.id]);
@@ -429,6 +436,9 @@ function ReaderSectionView({
           ) : null}
         </div>
 
+        {complete && onTrain ? (
+          <CaseLinks cases={casesForLesson(course, progress, lesson.id)} onTrain={onTrain} />
+        ) : null}
         {!next && complete ? (
           <UnitEnd course={course} reader={reader} progress={progress} followingUnit={followingUnit} onOpenUnit={onOpenUnit} />
         ) : null}

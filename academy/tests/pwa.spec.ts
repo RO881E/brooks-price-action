@@ -4,6 +4,7 @@ import { createServer, type Server } from 'node:http';
 import type { AddressInfo, Socket } from 'node:net';
 import { extname, join, normalize } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
+import { barCases } from '../src/content/barCases';
 import { brooksTrendsCourse, publishedLessons } from '../src/content/course';
 
 /*
@@ -265,7 +266,7 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
   await firstVisit(page);
 
   // Jede Einheit liegt als eigener Chunk im Vorab-Cache.
-  const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-01|chapter-0\d)-.*\.js$/.test(path));
+  const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-\d\d|chapter-\d\d)-.*\.js$/.test(path));
   expect(chunks).toHaveLength(brooksTrendsCourse.units.length);
 
   serverState.down = true;
@@ -351,6 +352,41 @@ test('Leseoptionen offline ändern und nach Neustart behalten (F-22)', async ({ 
   await page.getByRole('group', { name: 'Schriftgröße' }).getByRole('radio', { name: 'Groß', exact: true }).check();
   await page.reload();
   await expect(page.locator('.reader-page')).toHaveAttribute('data-reading-size', 'large');
+
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
+test('Bar-für-Bar-Trainer offline: Runde spielen und nach Neustart fortsetzen (F-15)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  const barCase = barCases.find((item) => item.status === 'approved')!;
+  const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+  const ids = brooksTrendsCourse.units
+    .slice(0, unitIndex + 1)
+    .flatMap((unit) => unit.lessons)
+    .filter((lesson) => lesson.status === 'published')
+    .map((lesson) => lesson.id);
+  await page.addInitScript((completed) => {
+    if (localStorage.getItem('wqt-academy-progress-v1')) return;
+    localStorage.setItem(
+      'wqt-academy-progress-v1',
+      JSON.stringify({ version: 10, completedLessonIds: completed, answers: {} }),
+    );
+  }, ids);
+  await firstVisit(page);
+
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.goto(`${origin}/academy/#/train/${barCase.id}`);
+  await page.getByRole('button', { name: 'Runde starten' }).click();
+  await page.getByRole('radio', { name: 'Abwarten', exact: true }).check();
+  await page.getByRole('checkbox', { name: barCase.decisions[0].cues[0].label }).check();
+  await page.getByRole('button', { name: 'Entscheidung abgeben' }).click();
+  await expect(page.getByRole('heading', { name: /^Auflösung: Abwarten/ })).toBeVisible();
+  await page.reload();
+  await expect(page.getByText('Fortgesetzt')).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^Auflösung: Abwarten/ })).toBeVisible();
 
   serverState.down = false;
   await context.setOffline(false);

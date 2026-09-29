@@ -4,11 +4,13 @@ import {
   DAILY_GOAL_OPTIONS,
   MAX_ACTIVITY_DAYS,
   MAX_NOTE_LENGTH,
+  MAX_CASE_RUNS,
   MILESTONE_IDS,
   READING_SIZES,
   READING_SPACINGS,
   loadProgress,
   sameReadingOptions,
+  tidyCaseRuns,
   migrateProgress,
   savedKey,
   type AcademyProgress,
@@ -60,6 +62,7 @@ export const BACKUP_FIELDS = [
   'lessonPositions',
   'readerPositions',
   'readingOptions',
+  'caseRuns',
 ] as const;
 
 export type BackupField = (typeof BACKUP_FIELDS)[number];
@@ -68,7 +71,7 @@ export type BackupField = (typeof BACKUP_FIELDS)[number];
  * Felder, die es erst ab einer bestimmten Datenversion gibt. Ältere
  * Sicherungen ohne sie bleiben gültig; die Migration ergänzt leere Werte.
  */
-const FIELD_SINCE: Partial<Record<BackupField, number>> = { readerPositions: 9, readingOptions: 10 };
+const FIELD_SINCE: Partial<Record<BackupField, number>> = { readerPositions: 9, readingOptions: 10, caseRuns: 11 };
 export type BackupData = Pick<AcademyProgress, BackupField>;
 
 export interface AcademyBackup {
@@ -178,6 +181,7 @@ const BOOKMARK_KEYS = ['lessonId', 'stepId', 'createdAt'];
 const NOTE_KEYS = ['lessonId', 'stepId', 'text', 'updatedAt'];
 const POSITION_KEYS = ['stepIndex', 'updatedAt'];
 const READER_POSITION_KEYS = ['lessonId', 'stepId', 'updatedAt'];
+const CASE_RUN_KEYS = ['sessionId', 'completedAt', 'best', 'defensible', 'mistake', 'missedCues'];
 
 const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
   completedLessonIds(value, errors) {
@@ -284,6 +288,21 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
       (READING_SIZES as readonly unknown[]).includes(value.size) &&
       (READING_SPACINGS as readonly unknown[]).includes(value.spacing);
     if (!valid) errors.push('„readingOptions“ hat das falsche Format.');
+  },
+  caseRuns(value, errors) {
+    checkRecord('caseRuns', value, errors, (_key, runs) => {
+      if (!Array.isArray(runs)) return 'keine Liste';
+      if (runs.length > MAX_CASE_RUNS) return 'zu viele Runden';
+      const ids = new Set<string>();
+      for (const run of runs) {
+        if (!isRecord(run) || !hasExactKeys(run, CASE_RUN_KEYS)) return 'Runde unvollständig';
+        if (!isId(run.sessionId) || ids.has(run.sessionId)) return 'Runden-ID ungültig oder doppelt';
+        ids.add(run.sessionId);
+        if (!isIsoDate(run.completedAt)) return 'Datum ungültig';
+        if (![run.best, run.defensible, run.mistake, run.missedCues].every(isCount)) return 'Zählwert ungültig';
+      }
+      return null;
+    });
   },
   lastLessonId(value, errors) {
     if (value !== null && !isId(value)) errors.push('„lastLessonId“ ist ungültig.');
@@ -395,6 +414,8 @@ export function parseBackup(text: string): ParsedBackup {
       // Doppelte Einträge in Listen sind harmlos und werden zusammengefasst.
       completedLessonIds: [...new Set(imported.completedLessonIds)],
       reviewSession: null,
+      // Laufende Trainerrunden sind nicht Teil der Sicherung.
+      caseSessions: {},
       legacyReadChapters: [],
       legacyTrendRangeBest: 0,
       preservedFields: {},
@@ -527,6 +548,8 @@ export function mergeProgress(
     dailyGoal: options.keepLocalPreferences ? local.dailyGoal : incoming.dailyGoal,
     settings: options.keepLocalPreferences ? local.settings : incoming.settings,
     readingOptions: options.keepLocalPreferences ? local.readingOptions : incoming.readingOptions,
+    // Abgeschlossene Trainerrunden: Vereinigung je Runden-ID, nichts doppelt.
+    caseRuns: mergeCaseRuns(local.caseRuns, incoming.caseRuns),
   };
 }
 
@@ -539,11 +562,26 @@ export function replaceProgress(local: AcademyProgress, incoming: AcademyProgres
   return {
     ...incoming,
     reviewSession: null,
+    caseSessions: {},
     legacyReadChapters: local.legacyReadChapters,
     legacyTrendRangeBest: local.legacyTrendRangeBest,
     preservedFields: local.preservedFields,
     updatedAt: new Date().toISOString(),
   };
+}
+
+function mergeCaseRuns(
+  local: AcademyProgress['caseRuns'],
+  incoming: AcademyProgress['caseRuns'],
+): AcademyProgress['caseRuns'] {
+  const ids = new Set([...Object.keys(local), ...Object.keys(incoming)]);
+  return Object.fromEntries(
+    [...ids].map((caseId) => [caseId, tidyCaseRuns([...(local[caseId] ?? []), ...(incoming[caseId] ?? [])])]),
+  );
+}
+
+function caseRunIds(progress: AcademyProgress): Set<string> {
+  return new Set(Object.values(progress.caseRuns).flatMap((runs) => runs.map((run) => run.sessionId)));
 }
 
 export type ImportMode = 'merge' | 'replace';
@@ -592,6 +630,7 @@ export interface BackupCounts {
   milestones: number;
   bookmarks: number;
   notes: number;
+  caseRuns: number;
 }
 
 function counts(progress: AcademyProgress): BackupCounts {
@@ -606,6 +645,7 @@ function counts(progress: AcademyProgress): BackupCounts {
     milestones: Object.keys(progress.milestones).length,
     bookmarks: Object.keys(progress.bookmarks).length,
     notes: Object.keys(progress.notes).length,
+    caseRuns: caseRunIds(progress).size,
   };
 }
 
@@ -627,6 +667,7 @@ export interface ImportPreview {
     /** Notizen, deren lokale Fassung neuer ist und bleibt. */
     keptLocalNotes: number;
     newReviewCards: number;
+    newCaseRuns: number;
     /** Tagesziel oder Darstellung der Sicherung weichen vom aktuellen Stand ab. */
     preferencesDiffer: boolean;
     changes: boolean;
@@ -636,6 +677,7 @@ export interface ImportPreview {
     lostNotes: number;
     lostBookmarks: number;
     lostLearningDays: number;
+    lostCaseRuns: number;
     goalChanges: boolean;
     settingsChange: boolean;
   };
@@ -664,6 +706,7 @@ export function previewImport(
     updatedNotes,
     keptLocalNotes: conflicts.length - updatedNotes,
     newReviewCards: missingKeys(incoming.reviewCards, local.reviewCards),
+    newCaseRuns: [...caseRunIds(incoming)].filter((id) => !caseRunIds(local).has(id)).length,
     preferencesDiffer: false,
     changes: !sameBackupData(merged, local),
   };
@@ -686,6 +729,7 @@ export function previewImport(
       lostNotes: missingKeys(local.notes, incoming.notes),
       lostBookmarks: missingKeys(local.bookmarks, incoming.bookmarks),
       lostLearningDays: local.activityDays.filter((day) => !incoming.activityDays.includes(day)).length,
+      lostCaseRuns: [...caseRunIds(local)].filter((id) => !caseRunIds(incoming).has(id)).length,
       goalChanges,
       settingsChange,
     },

@@ -1,4 +1,6 @@
 import type { CourseOutline, LessonOutline } from '../content/types';
+import type { BarCase } from '../content/barCaseTypes';
+import { caseAvailable, findPublishedCase } from './caseTraining';
 import { lessonAccessState } from './courseAccess';
 import { isStepResolved } from './lessonResults';
 import { resolveReader, type ResolvedReader } from './reader';
@@ -45,6 +47,11 @@ export type AppRoute =
       unitId: string;
       lessonId: string | null;
       step: number | null;
+    }
+  | {
+      /** Bar-für-Bar-Trainer (seit F-15): `#/train/<case-id>`. */
+      kind: 'train';
+      caseId: string;
     };
 
 export const DEFAULT_ROUTE: AppRoute = { kind: 'view', view: 'path' };
@@ -88,6 +95,14 @@ export function parseRoute(hash: string): AppRoute | null {
     return { kind: 'read', unitId, lessonId, step: lessonId ? parseStep(query) : null };
   }
 
+  if (segments.length === 2 && segments[0] === 'train' && segments[1] !== '') {
+    try {
+      return { kind: 'train', caseId: decodeURIComponent(segments[1]) };
+    } catch {
+      return null;
+    }
+  }
+
   const isResult = segments.length === 3 && segments[2] === 'result';
   if ((segments.length === 2 || isResult) && segments[0] === 'lesson' && segments[1] !== '') {
     let lessonId: string;
@@ -110,6 +125,7 @@ export function formatRoute(route: AppRoute): string {
       ? `#/glossary?term=${encodeURIComponent(route.term)}`
       : `#/${route.view}`;
   }
+  if (route.kind === 'train') return `#/train/${encodeURIComponent(route.caseId)}`;
   if (route.kind === 'read') {
     const base = `#/read/${encodeURIComponent(route.unitId)}`;
     if (!route.lessonId) return base;
@@ -166,7 +182,8 @@ export type ResolvedRoute =
   | { kind: 'view'; view: AppView; term?: string }
   | { kind: 'lesson'; lesson: LessonOutline; stepIndex: number }
   | { kind: 'lesson-result'; lesson: LessonOutline }
-  | { kind: 'read'; reader: ResolvedReader };
+  | { kind: 'read'; reader: ResolvedReader }
+  | { kind: 'train'; barCase: BarCase };
 
 /**
  * Prüft eine Route gegen Kurs und Fortschritt. Unbekannte, geplante oder
@@ -180,6 +197,11 @@ export function resolveRoute(
   progress: AcademyProgress,
 ): ResolvedRoute | null {
   if (route.kind === 'view') return route;
+  if (route.kind === 'train') {
+    // Nur freigegebene Fälle, deren Lektionen bereits zugänglich sind.
+    const barCase = findPublishedCase(route.caseId);
+    return barCase && caseAvailable(course, progress, barCase) ? { kind: 'train', barCase } : null;
+  }
   if (route.kind === 'read') {
     const reader = resolveReader(course, progress, route.unitId, route.lessonId, route.step);
     return reader ? { kind: 'read', reader } : null;

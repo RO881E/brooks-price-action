@@ -658,7 +658,7 @@ describe('Leseoptionen im Buchmodus (F-22, v10)', () => {
       settings: { motion: 'reduce', compact: true },
     };
     const migrated = migrateProgress(v9)!;
-    expect(migrated.version).toBe(10);
+    expect(migrated.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(migrated.readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
     expect(migrated.completedLessonIds).toEqual(['a']);
     expect(migrated.answers).toEqual({ q: 'o' });

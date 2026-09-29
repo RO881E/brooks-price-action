@@ -15,6 +15,8 @@ import {
 import { daysBetween, REVIEW_INTERVALS, type DayKey } from '../features/reviewScheduler';
 import { moveAnswerFocus } from './answerKeys';
 import { ContentLoadState } from './ContentLoadState';
+import { caseEntries } from '../features/caseTraining';
+import { CaseTrainingList } from './CaseTraining';
 
 const modeLabels: Record<ReviewMode, string> = {
   due: 'Heute fällig',
@@ -44,6 +46,8 @@ interface PracticeViewProps {
   onAnswer: (question: QuestionStep, optionId: string) => void;
   onNext: () => void;
   onEnd: () => void;
+  /** Bar-für-Bar-Fall öffnen (F-15). */
+  onTrain?: (caseId: string) => void;
 }
 
 export function PracticeView({
@@ -54,9 +58,11 @@ export function PracticeView({
   onAnswer,
   onNext,
   onEnd,
+  onTrain,
 }: PracticeViewProps) {
   const items = useMemo(() => reviewPool(course, progress), [course, progress]);
   const session = progress.reviewSession;
+  const cases = useMemo(() => caseEntries(course, progress), [course, progress]);
 
   return (
     <div className="page-shell practice-page">
@@ -100,6 +106,8 @@ export function PracticeView({
           onStart={onStart}
         />
       )}
+
+      {onTrain && !session ? <CaseTrainingList entries={cases} onTrain={onTrain} /> : null}
     </div>
   );
 }

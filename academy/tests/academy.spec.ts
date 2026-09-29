@@ -259,7 +259,7 @@ test.describe('F-01 resume and stable URLs', () => {
     const stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
-    expect(stored.version).toBe(10);
+    expect(stored.version).toBe(11);
     expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
@@ -338,7 +338,7 @@ test.describe('F-01 resume and stable URLs', () => {
       legacy: localStorage.getItem('brooks-progress'),
       best: localStorage.getItem('brooks-tr-best'),
     }));
-    expect(stored.academy.version).toBe(10);
+    expect(stored.academy.version).toBe(11);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
@@ -410,7 +410,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     await expect(stat(page, 'Richtig im ersten Versuch')).toContainText('100 %');
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(10);
+    expect(stored.version).toBe(11);
     expect(stored.completedLessonIds).toEqual([lessonId]);
     expect(stored.lessonResults[lessonId].xpAwarded).toBe(30);
     expect(stored.questionResults['intro-01-question']).toMatchObject({
@@ -618,7 +618,7 @@ test.describe('F-03 smart review queue', () => {
     await expect(page.getByText('Für heute ist nichts mehr fällig.')).toBeVisible();
 
     const stored = await storedAcademy(page);
-    expect(stored.version).toBe(10);
+    expect(stored.version).toBe(11);
     for (const question of questions) {
       expect(stored.reviewCards[question.id]).toMatchObject({
         stage: 0,
@@ -1041,7 +1041,7 @@ test.describe('F-06 global search', () => {
 
     await page.goto('/#/chapters');
     await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
-    await page.getByRole('button', { name: 'Suchen' }).click();
+    await page.getByRole('button', { name: 'Suchen', exact: true }).click();
     await input(page).fill('beschreibung erklarung');
     const stepOption = dialog(page).getByRole('option', { name: /Beschreibung vor Erklärung/ });
     await expect(stepOption).toContainText('Schritt 3');
@@ -1105,7 +1105,7 @@ test.describe('F-06 global search', () => {
   test('works from the mobile top bar without overflow', { tag: '@mobile' }, async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 780 });
     await page.goto('/');
-    await page.getByRole('button', { name: 'Suchen' }).click();
+    await page.getByRole('button', { name: 'Suchen', exact: true }).click();
     await expect(input(page)).toBeFocused();
     await input(page).fill('doji');
     await expect(dialog(page).getByRole('option').first()).toBeVisible();
@@ -1114,7 +1114,7 @@ test.describe('F-06 global search', () => {
     ).toBe(false);
     await page.getByRole('button', { name: 'Suche schließen' }).click();
     await expect(dialog(page)).toBeHidden();
-    await expect(page.getByRole('button', { name: 'Suchen' })).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Suchen', exact: true })).toBeFocused();
   });
 });
 
@@ -1353,7 +1353,7 @@ test.describe('F-08 backup, import and settings', () => {
     await openSettings(page);
     await page.getByRole('checkbox', { name: /Kompakte Darstellung/ }).check();
     const before = await rawAcademy(page);
-    expect(JSON.parse(before ?? '{}').version).toBe(10);
+    expect(JSON.parse(before ?? '{}').version).toBe(11);
 
     const [download] = await Promise.all([
       page.waitForEvent('download'),
@@ -1363,7 +1363,7 @@ test.describe('F-08 backup, import and settings', () => {
     const file = testInfo.outputPath('sicherung.json');
     await download.saveAs(file);
     const backup = JSON.parse(readFileSync(file, 'utf8'));
-    expect(backup).toMatchObject({ format: 'wqt-academy-backup', formatVersion: 1, dataVersion: 10 });
+    expect(backup).toMatchObject({ format: 'wqt-academy-backup', formatVersion: 1, dataVersion: 11 });
     expect(Number.isNaN(Date.parse(backup.exportedAt))).toBe(false);
     expect(backup.data.notes[`${lessonOne.id}::${noteStep.id}`].text).toContain('<b>bleibt Text</b>');
     expect(JSON.stringify(backup)).not.toContain('brooks-progress');
