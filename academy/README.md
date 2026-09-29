@@ -6,10 +6,10 @@ Stammverzeichnis bleibt während der Entwicklung unverändert.
 ## Veröffentlichtes Buchmaterial
 
 Die Academy bietet eine separate Begriffsreferenz. Der lineare Lernpfad enthält
-die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 5 von
-*Trading Price Action Trends*. Kapitel 5
-enthält 25 Mikro-Lektionen zu Reversal-Bars, einschließlich eigener,
-schematischer Chartfälle zu den Lernpunkten von 5.1 bis 5.3. Die Schaubilder
+die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 6 von
+*Trading Price Action Trends*. Kapitel 5 enthält 25 Mikro-Lektionen zu
+Reversal-Bars und den Chartfällen 5.1 bis 5.3. Kapitel 6 ergänzt 40 Lektionen
+zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Die Schaubilder
 übernehmen weder Originalkurse noch Buchabbildungen.
 
 ## Was der Pilot bereits kann
@@ -191,6 +191,8 @@ Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
 
 - [Funktionsroadmap Phase 2: F-11 bis F-20](docs/FUNCTIONALITY_ROADMAP_PHASE_2.md)
 - [Einzeln kopierbare Claude-Prompts für Phase 2](docs/CLAUDE_PROMPTS_PHASE_2.md)
+- [Funktionsroadmap Phase 3: F-21 bis F-29](docs/FUNCTIONALITY_ROADMAP_PHASE_3.md)
+- [Einzeln kopierbare Claude-Prompts für Phase 3](docs/CLAUDE_PROMPTS_PHASE_3.md)
 - [Bisherige Funktionsroadmap F-01 bis F-10](docs/FUNCTIONALITY_ROADMAP.md)
 - [Bisherige Claude-Prompts F-01 bis F-10](docs/CLAUDE_PROMPTS.md)
 - [Release-Checkliste](docs/RELEASE_CHECKLIST.md)
