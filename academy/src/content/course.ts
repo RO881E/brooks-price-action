@@ -6,6 +6,7 @@ import { chapterThreeLessons } from './courses/brooks-trends/chapter-03';
 import { chapterFourLessons } from './courses/brooks-trends/chapter-04';
 import { chapterFiveLessons } from './courses/brooks-trends/chapter-05';
 import { chapterSixLessons } from './courses/brooks-trends/chapter-06';
+import { chapterSevenLessons } from './courses/brooks-trends/chapter-07';
 import type { Course } from './types';
 
 export const brooksTrendsCourse: Course = {
@@ -104,6 +105,17 @@ export const brooksTrendsCourse: Course = {
         'Starke Trendbars, Zwei- und Drei-Bar-Umkehr, Inside-/Outside-Bars, Mikro-Doppel, Fehlsignale und alle 19 Chartfälle des Buchkapitels.',
       estimatedLessonCount: 40,
       lessons: chapterSixLessons,
+    },
+    {
+      id: 'brooks-trends.chapter-07',
+      order: 9,
+      kind: 'chapter',
+      label: 'Kapitel 7',
+      title: 'Outside Bars im Trend und in der Range',
+      description:
+        'Grenzen und Risiko großer Outside-Bars, ioi und oo, Umkehr- und Fortsetzungslogik sowie die vier Chartfälle 7.1 bis 7.4.',
+      estimatedLessonCount: 24,
+      lessons: chapterSevenLessons,
     },
   ],
 };
