@@ -20,7 +20,7 @@ async function load(path) {
   return module;
 }
 
-const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { barCases }, { validateBarCases }, { validateStepTermLinks }, { brooksTopics }, { validateTopicMap }, check] =
+const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { barCases, allBarCases }, { validateBarCases }, { validateStepTermLinks }, { brooksTopics }, { validateTopicMap }, check] =
   await Promise.all([
     load('src/content/course.ts'),
     load('src/content/glossary.ts'),
@@ -39,7 +39,7 @@ const input = {
   glossary: glossaryEntries,
   scenarioIds: chart.chartScenarioIds(),
   describe: (scenario) => chart.chartDescription(scenario),
-  caseIssues: validateBarCases(barCases, brooksTrendsCourse),
+  caseIssues: validateBarCases(allBarCases, brooksTrendsCourse),
   termLinkIssues: validateStepTermLinks(brooksTrendsCourse, glossaryEntries),
   topicIssues: validateTopicMap(brooksTopics, brooksTrendsCourse, barCases),
   known,
