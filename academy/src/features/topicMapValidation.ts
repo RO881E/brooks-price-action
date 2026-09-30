@@ -24,6 +24,7 @@ export function validateTopicMap(
   topics: readonly BrooksTopic[],
   course: Course,
   cases: readonly BarCase[],
+  transferCases: readonly BarCase[] = [],
 ): TopicIssue[] {
   const issues: TopicIssue[] = [];
   const lessons = new Map(
@@ -35,6 +36,7 @@ export function validateTopicMap(
     for (const step of lesson.steps) if (step.type === 'question') questionLesson.set(step.id, lesson.id);
   }
   const caseById = new Map(cases.map((barCase) => [barCase.id, barCase] as const));
+  const transferById = new Map(transferCases.map((barCase) => [barCase.id, barCase] as const));
   const seenTopics = new Set<string>();
 
   for (const topic of topics) {
@@ -84,6 +86,21 @@ export function validateTopicMap(
       }
       if (seenCases.has(caseId)) report(`caseIds[${index}]`, `Fall „${caseId}“ ist doppelt zugeordnet.`);
       seenCases.add(caseId);
+    });
+
+    // Transferfälle (C-02): eigener Pool, freigegeben, mit gemeinsamer Lektion, nie doppelt.
+    const seenTransfer = new Set<string>();
+    (topic.transferCaseIds ?? []).forEach((caseId, index) => {
+      const barCase = transferById.get(caseId);
+      if (!barCase) report(`transferCaseIds[${index}]`, `Unbekannter Transferfall „${caseId}“.`);
+      else {
+        if (barCase.status !== 'approved') report(`transferCaseIds[${index}]`, `Transferfall „${caseId}“ ist nicht freigegeben.`);
+        if (!barCase.lessonIds.some((lessonId) => teachingLessons.has(lessonId))) {
+          report(`transferCaseIds[${index}]`, `Transferfall „${caseId}“ teilt keine Lektion mit den Lehrstellen des Themas.`);
+        }
+      }
+      if (seenTransfer.has(caseId)) report(`transferCaseIds[${index}]`, `Transferfall „${caseId}“ ist doppelt zugeordnet.`);
+      seenTransfer.add(caseId);
     });
 
     if (topic.questionIds.length === 0 && topic.caseIds.length === 0) {

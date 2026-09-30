@@ -12,8 +12,10 @@
  *   Lektion muss zugeordnet sein; zweifelhafte bleiben offen (siehe
  *   `academy/docs/C03_THEMENKARTE.md`).
  * - `caseIds`: nur freigegebene Fälle des gewöhnlichen Trainers (C-01), deren
- *   Lektionen sich mit den Lehrstellen des Themas überschneiden. Transferfälle
- *   (C-02) sind bewusst nicht enthalten.
+ *   Lektionen sich mit den Lehrstellen des Themas überschneiden.
+ * - `transferCaseIds`: freigegebene Transferfälle (C-02) mit gemeinsamer Lektion.
+ *   Sie werden bei „Nach Thema üben“ nur als Hinweis mit Sprung in die
+ *   Transferprüfung gezeigt – nie im gewöhnlichen Trainer geöffnet.
  *
  * Diese Karte ändert weder UI noch XP, Review-Plan oder Datenmodell. Sie wird erst
  * von F-27 („Nach Thema üben“) gelesen. Mehrfachzuordnung ist erlaubt.
@@ -36,6 +38,8 @@ export interface BrooksTopic {
   teaching: TopicTeachingRef[];
   questionIds: string[];
   caseIds: string[];
+  /** Freigegebene Transferfälle (C-02); nur Hinweis auf die Transferprüfung. */
+  transferCaseIds?: string[];
 }
 
 export const brooksTopics: readonly BrooksTopic[] = [
@@ -68,6 +72,7 @@ export const brooksTopics: readonly BrooksTopic[] = [
       'chapter-06-15-question',
     ],
     caseIds: [],
+    transferCaseIds: ['bar-case.c02.chapter-01.tight-pause-in-trend', 'bar-case.c02.chapter-02.climax-is-not-reversal'],
   },
   {
     id: 'brooks-topic.range-and-inertia',
@@ -96,6 +101,7 @@ export const brooksTopics: readonly BrooksTopic[] = [
       'chapter-07-06-question',
     ],
     caseIds: ['bar-case.chapter-01.range-high-test', 'bar-case.chapter-07.outside-in-range'],
+    transferCaseIds: ['bar-case.c02.chapter-01.tight-pause-in-trend'],
   },
   {
     id: 'brooks-topic.breakout-and-test',
@@ -123,6 +129,7 @@ export const brooksTopics: readonly BrooksTopic[] = [
       'chapter-06-17-question',
     ],
     caseIds: ['bar-case.chapter-01.range-high-test', 'bar-case.chapter-02.breakout-follow-through', 'bar-case.chapter-03.failed-low-test'],
+    transferCaseIds: ['bar-case.c02.chapter-03.breakout-test-holds'],
   },
   {
     id: 'brooks-topic.signals-and-orders',
@@ -153,6 +160,7 @@ export const brooksTopics: readonly BrooksTopic[] = [
       'chapter-06-01-question',
     ],
     caseIds: ['bar-case.chapter-04.signal-and-entry', 'bar-case.chapter-06.inside-pause'],
+    transferCaseIds: ['bar-case.c02.chapter-04.unfilled-order-cancelled'],
   },
   {
     id: 'brooks-topic.reversal-in-context',
@@ -189,6 +197,7 @@ export const brooksTopics: readonly BrooksTopic[] = [
       'chapter-03-07-question',
     ],
     caseIds: ['bar-case.chapter-05.range-top-reversal'],
+    transferCaseIds: ['bar-case.c02.chapter-05.counter-trend-needs-evidence'],
   },
   {
     id: 'brooks-topic.inside-and-outside',
@@ -279,6 +288,7 @@ export const brooksTopics: readonly BrooksTopic[] = [
       'chapter-10-05-question',
     ],
     caseIds: [],
+    transferCaseIds: ['bar-case.c02.chapter-10.second-short-attempt'],
   },
   {
     id: 'brooks-topic.chart-views',

@@ -146,6 +146,7 @@ export function PracticeView({
           onStartTopic={onPracticeTopic}
           onOpenLesson={onOpenLesson}
           onTrain={onTrain}
+          onOpenTransfer={onOpenTransfer}
         />
       ) : null}
 

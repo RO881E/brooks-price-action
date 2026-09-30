@@ -201,7 +201,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 - Fragen aus Lehrstellen, die nicht zugeordnet sind: `chapter-01-07`. `chapter-01-07` gehört zur Lektion „Fehlausbruch über dem Vortageshoch“, prüft aber die bullische Eröffnungsthese; der Bezug zum Thema Ausbruch ist mir nicht eindeutig genug.
 - Nicht zugeordnet: Einleitung, Teil 1 und alle übrigen Lektionen, deren Bezug zu einem der neun Themen nicht eindeutig ist – vor allem die einzelnen Chartfall-Lektionen ab Kapitel 5 und die Kapitel-10-Fälle ab Lektion 6. Sie bleiben über ihre Kapitel erreichbar; die Karte füllt kein Thema künstlich auf.
-- Transferfälle (C-02) sind nicht enthalten; sie können nach ihrer Freigabe und einer fachlichen Sichtung ergänzt werden.
+- Transferfälle (C-02) stehen in `transferCaseIds` der Themen (Zuordnung nach gemeinsamer Lektion, siehe unten). Bei „Nach Thema üben“ erscheinen sie nur als Hinweis mit Sprung in die Transferprüfung, nie als Trainerfall.
 
 ## Für Roberts fachliche Prüfung
 
@@ -210,3 +210,16 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 3. Fehlen Themen mit klarer Lehrstelle? (Zurückhaltung war Absicht.)
 
 Maschinell geprüft (`npm run check:content`, `topicMapValidation.test.ts`): eindeutige Themen-IDs, vorhandene veröffentlichte Lektionen, vorhandene Quellenanker der jeweiligen Lektion, vorhandene Fragen aus den Lehrstellen des Themas, nur freigegebene Fälle mit gemeinsamer Lektion, keine leeren Themen.
+
+## Transferfälle je Thema (C-02)
+
+| Thema | Transferfälle |
+|---|---|
+| Trendstärke und Trendbars | `c02.chapter-01.tight-pause-in-trend`, `c02.chapter-02.climax-is-not-reversal` |
+| Trading Range und Marktträgheit | `c02.chapter-01.tight-pause-in-trend` |
+| Ausbruch, Follow-through und Test | `c02.chapter-03.breakout-test-holds` |
+| Setup, Signal-Bar und Order | `c02.chapter-04.unfilled-order-cancelled` |
+| Reversal-Bars im Kontext | `c02.chapter-05.counter-trend-needs-evidence` |
+| Zweiter Versuch und zweiter Einstieg | `c02.chapter-10.second-short-attempt` |
+
+Geprüft wird maschinell, dass jeder Fall im Transferpool liegt, freigegeben ist und mit den Lehrstellen des Themas eine Lektion teilt. Die fachliche Passung bleibt eine redaktionelle Prüfung.

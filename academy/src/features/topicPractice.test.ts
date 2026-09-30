@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
-import { barCases } from '../content/barCases';
+import { barCases, transferCases } from '../content/barCases';
 import { brooksTrendsCourse } from '../content/course';
 import { brooksTopics } from '../content/topicMap';
 import { completeLesson, createEmptyProgress, migrateProgress, type AcademyProgress } from './progress';
@@ -133,5 +133,18 @@ describe('Nach Thema üben (F-27)', () => {
     expect(bad?.reviewSession).not.toHaveProperty('topicId');
     const old = migrateProgress({ version: 12, completedLessonIds: [], answers: {}, reviewSession: session });
     expect(old?.reviewSession).not.toHaveProperty('topicId');
+  });
+
+  it('Transferfälle: nur als Hinweis, nie als Trainerfall; gesperrt bis die Lehrstelle erreicht ist', () => {
+    // Neuer Stand: nichts zugänglich, aber gesperrte Transferfälle werden gezählt statt angeboten.
+    const fresh = entryOf(createEmptyProgress(), 'trend-strength');
+    expect(fresh.transferCases).toBe(0);
+    expect(fresh.lockedTransferCases).toBeGreaterThan(0);
+    // Nach Kapitel 2 sind die beiden zugeordneten Fälle zugänglich.
+    const later = entryOf(completedThroughChapter('02'), 'trend-strength');
+    expect(later.transferCases).toBe(2);
+    expect(later.cases.every((item) => !transferCases.some((barCase) => barCase.id === item.barCase.id))).toBe(true);
+    // Themen ohne Transferfall bleiben unberührt.
+    expect(entryOf(completedThroughChapter('10'), 'chart-views').transferCases).toBe(0);
   });
 });

@@ -140,4 +140,28 @@ test.describe('F-27 Nach Thema üben', () => {
     await page.keyboard.press('Enter');
     await expect(page.getByText(`Thema: ${reversal.title}`).first()).toBeVisible();
   });
+
+  test('Transferfälle zum Thema: Hinweis mit Sprung in die Transferprüfung, kein Trainerfall, ohne Axe-Befund', async ({ page }) => {
+    await seed(page, published().map((lesson) => lesson.id));
+    await page.goto('/#/practice');
+    const trend = card(page, 'Trendstärke und Trendbars');
+    await expect(trend.getByText(/2 neue Transferfälle zu diesem Thema/)).toBeVisible();
+    // Kein Fall wird hier im gewöhnlichen Trainer angeboten.
+    await expect(trend.getByRole('button', { name: /^Fall:/ })).toHaveCount(0);
+    const axe = await new AxeBuilder({ page }).include('.topic-practice').withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
+    expect(axe.violations.map((violation) => violation.id)).toEqual([]);
+    const before = JSON.stringify((await stored(page)).caseRuns ?? {});
+    await trend.getByRole('button', { name: /Zur Transferprüfung/ }).click();
+    await expect(page).toHaveURL(/#\/transfer$/);
+    await expect(page.getByRole('heading', { name: 'Neue Fälle ohne Zwischenlösung' })).toBeVisible();
+    expect(JSON.stringify((await stored(page)).caseRuns ?? {})).toBe(before);
+  });
+
+  test('neuer Stand: Transferfälle sind nur als „noch gesperrt“ erwähnt, ohne Sprung', async ({ page }) => {
+    await seed(page, []);
+    await page.goto('/#/practice');
+    const trend = card(page, 'Trendstärke und Trendbars');
+    await expect(trend.getByText(/noch gesperrt/).first()).toBeVisible();
+    await expect(trend.getByRole('button', { name: /Zur Transferprüfung/ })).toHaveCount(0);
+  });
 });

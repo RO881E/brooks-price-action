@@ -1,3 +1,4 @@
+import { transferCases as registeredTransferCases } from '../content/barCases';
 import type { BarCase } from '../content/barCaseTypes';
 import { brooksTopics, type BrooksTopic } from '../content/topicMap';
 import type { CourseOutline, LessonOutline } from '../content/types';
@@ -34,6 +35,10 @@ export interface TopicEntry {
   cases: CaseEntry[];
   /** Freigegebene, aber noch gesperrte Fälle. */
   lockedCases: number;
+  /** Zugängliche Transferfälle (C-02) des Themas – nur als Hinweis auf die Transferprüfung. */
+  transferCases: number;
+  /** Freigegebene Transferfälle des Themas, die noch gesperrt sind. */
+  lockedTransferCases: number;
   /** Lehrstellen des Themas mit Zugangsstatus (für Lernlinks und Leerzustand). */
   lessons: TopicLesson[];
   /** Erste offene, freigeschaltete Lehrstelle – Ziel des Lernlinks im Leerzustand. */
@@ -49,10 +54,12 @@ export function topicEntries(
   today: DayKey,
   topics: readonly BrooksTopic[] = brooksTopics,
   cases?: readonly BarCase[],
+  transfer: readonly BarCase[] = registeredTransferCases,
 ): TopicEntry[] {
   const pool = reviewPool(course, progress);
   const byId = new Map(pool.map((item) => [item.question.id, item]));
   const allCases = caseEntries(course, progress, cases);
+  const allTransfer = caseEntries(course, progress, transfer);
   const lessonsById = new Map(course.units.flatMap((unit) => unit.lessons).map((lesson) => [lesson.id, lesson]));
   const completed = new Set(progress.completedLessonIds);
 
@@ -63,6 +70,7 @@ export function topicEntries(
       .flatMap((id) => byId.get(id) ?? [])
       .sort((a, b) => a.order - b.order);
     const topicCases = allCases.filter((entry) => topic.caseIds.includes(entry.barCase.id));
+    const topicTransfer = allTransfer.filter((entry) => topic.transferCaseIds?.includes(entry.barCase.id));
     const lessons = topic.teaching.flatMap((ref) => {
       const lesson = lessonsById.get(ref.lessonId);
       return lesson ? [{ lesson, state: lessonAccessState(course, lesson, completed) }] : [];
@@ -74,6 +82,8 @@ export function topicEntries(
       due: questions.filter((item) => dueDayFor(item, progress, today) <= today).length,
       cases: topicCases.filter((entry) => entry.state !== 'locked'),
       lockedCases: topicCases.filter((entry) => entry.state === 'locked').length,
+      transferCases: topicTransfer.filter((entry) => entry.state !== 'locked').length,
+      lockedTransferCases: topicTransfer.filter((entry) => entry.state === 'locked').length,
       lessons,
       nextLesson,
       courseNextLesson: nextLesson ? undefined : nextAvailableLesson(course, completed),

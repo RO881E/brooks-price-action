@@ -48,6 +48,8 @@ interface Props {
   onStartTopic: (topicId: string, questionIds: string[]) => void;
   onOpenLesson: (lesson: LessonOutline) => void;
   onTrain: (caseId: string) => void;
+  /** Öffnet die Transferprüfung (C-02-Fälle werden nie im gewöhnlichen Trainer geöffnet). */
+  onOpenTransfer?: () => void;
 }
 
 /**
@@ -55,7 +57,7 @@ interface Props {
  * Themenkarte mit dem, was heute zugänglich ist. Die Runde nutzt die vorhandene
  * Wiederholung; gesperrte Lektionen und Fälle werden nie angeboten.
  */
-export function TopicPractice({ course, progress, today, onStartTopic, onOpenLesson, onTrain }: Props) {
+export function TopicPractice({ course, progress, today, onStartTopic, onOpenLesson, onTrain, onOpenTransfer }: Props) {
   const ids = useId();
   const entries = useMemo(() => topicEntries(course, progress, today), [course, progress, today]);
 
@@ -82,6 +84,27 @@ export function TopicPractice({ course, progress, today, onStartTopic, onOpenLes
                   {entry.due > 0 ? ` (${entry.due} fällig)` : ''} · {plural(entry.cases.length, 'Fall', 'Fälle')}
                   {entry.lockedCases > 0 ? ` (+ ${entry.lockedCases} noch gesperrt)` : ''}
                 </p>
+                {entry.transferCases > 0 || entry.lockedTransferCases > 0 ? (
+                  <p className="topic-transfer">
+                    {entry.transferCases > 0
+                      ? `${plural(entry.transferCases, 'neuer Transferfall', 'neue Transferfälle')} zu diesem Thema – ohne Zwischenlösung in der Transferprüfung.`
+                      : null}
+                    {entry.lockedTransferCases > 0 ? ` (+ ${entry.lockedTransferCases} noch gesperrt)` : ''}
+                    {entry.transferCases > 0 && onOpenTransfer ? (
+                      <>
+                        {' '}
+                        <button
+                          type="button"
+                          className="link-button"
+                          aria-label={`Zur Transferprüfung: ${entry.topic.title}`}
+                          onClick={onOpenTransfer}
+                        >
+                          Zur Transferprüfung
+                        </button>
+                      </>
+                    ) : null}
+                  </p>
+                ) : null}
                 {empty ? (
                   <EmptyReason entry={entry} onOpenLesson={onOpenLesson} />
                 ) : (
