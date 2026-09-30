@@ -1,4 +1,7 @@
 import {
+  type ComponentType,
+  Suspense,
+  lazy,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -15,15 +18,9 @@ import { GlossaryView } from './components/GlossaryView';
 import { LessonPlayer } from './components/LessonPlayer';
 import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
-import { PracticeView } from './components/PracticeView';
 import { ReaderView } from './components/ReaderView';
-import { ProgressView } from './components/ProgressView';
-import { SavedView } from './components/SavedView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
-import { SettingsView } from './components/SettingsView';
 import { TrainerView } from './components/TrainerView';
-import { TransferView } from './components/TransferView';
-import { ReplayView } from './components/ReplayView';
 import { StudyView } from './components/StudyView';
 import { TodayPanel } from './components/TodayPanel';
 import { planToday } from './features/today';
@@ -62,6 +59,8 @@ import {
 } from './features/caseTraining';
 import { nextAvailableLesson } from './features/courseAccess';
 import { downloadTextFile } from './features/download';
+import { RescueNotice } from './components/RescueNotice';
+import { discardRescuedData, readRescuedData, RESCUE_FILE_NAME } from './features/recovery';
 import {
   awardMilestones,
   goalLabel,
@@ -131,6 +130,29 @@ import {
   sanitizeSession,
   startSession,
 } from './features/reviewSession';
+
+/**
+ * Lädt eine Ansicht erst bei Bedarf. Jede Ansicht hat ihren eigenen Suspense-Rahmen:
+ * ein gemeinsamer würde beim Nachladen bereits gemountete Ansichten verstecken.
+ */
+function lazyView<Props extends object>(load: () => Promise<ComponentType<Props>>) {
+  const Inner = lazy(async () => ({ default: await load() }));
+  return function LazyView(props: Props) {
+    return (
+      <Suspense fallback={<p className="content-load" role="status">Ansicht wird geladen …</p>}>
+        <Inner {...(props as React.ComponentProps<typeof Inner>)} />
+      </Suspense>
+    );
+  };
+}
+
+// Selten genutzte Ansichten laden erst bei Bedarf (P12): hält das Hauptbündel unter 500 kB.
+const PracticeView = lazyView(() => import('./components/PracticeView').then((module) => module.PracticeView));
+const ProgressView = lazyView(() => import('./components/ProgressView').then((module) => module.ProgressView));
+const SavedView = lazyView(() => import('./components/SavedView').then((module) => module.SavedView));
+const SettingsView = lazyView(() => import('./components/SettingsView').then((module) => module.SettingsView));
+const TransferView = lazyView(() => import('./components/TransferView').then((module) => module.TransferView));
+const ReplayView = lazyView(() => import('./components/ReplayView').then((module) => module.ReplayView));
 
 type View = AppView;
 
@@ -207,6 +229,9 @@ export default function App() {
   const [undoAction, setUndoAction] = useState<UndoAction | null>(null);
   const dismissUndo = useCallback(() => setUndoAction(null), []);
   const [searchOpen, setSearchOpen] = useState(false);
+  // Gesicherte, nicht lesbare Altdaten (P12): sichtbar machen statt still liegen zu lassen.
+  const [rescued, setRescued] = useState(() => readRescuedData(window.localStorage));
+  const [rescueHidden, setRescueHidden] = useState(false);
   // Einführung (F-18): Hilfe-Dialog jederzeit, Willkommen nur beim ersten Besuch.
   const [guideOpen, setGuideOpen] = useState(false);
   const helpButton = useRef<HTMLButtonElement>(null);
@@ -893,6 +918,17 @@ export default function App() {
         </header>
 
         <div className="view-container" data-mode={navigation.find((item) => item.id === view)?.mode}>
+          {rescued && !rescueHidden ? (
+            <RescueNotice
+              rescued={rescued}
+              onDownload={() => downloadTextFile(RESCUE_FILE_NAME, rescued.raw, 'text/plain')}
+              onHide={() => setRescueHidden(true)}
+              onDiscard={() => {
+                discardRescuedData(window.localStorage);
+                setRescued(null);
+              }}
+            />
+          ) : null}
           {studying ? (
             <StudyView
               key={studying.minutes}

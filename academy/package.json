@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "check:content": "node build/check-content.mjs"
+    "check:content": "node build/check-content.mjs",
+    "report:size": "node build/measure-bundle.mjs"
   },
   "dependencies": {
     "react": "^19.3.0",
