@@ -21,7 +21,8 @@ export type IconName =
   | 'chest-open'
   | 'arrow-up'
   | 'arrow-down'
-  | 'pause';
+  | 'pause'
+  | 'chevron';
 
 const SHAPES: Record<IconName, React.ReactNode> = {
   path: (
@@ -78,6 +79,7 @@ const SHAPES: Record<IconName, React.ReactNode> = {
   ),
   'arrow-up': <path d="M12 19V6M6 11.5 12 5.5l6 6" />,
   'arrow-down': <path d="M12 5v13M6 12.5l6 6 6-6" />,
+  chevron: <path d="m6.5 9.5 5.5 5.5 5.5-5.5" strokeWidth="2.8" />,
   pause: <path d="M9 6v12M15 6v12" strokeWidth="3.2" />,
   star: <path d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z" fill="currentColor" />,
 };

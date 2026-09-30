@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import type { CourseOutline, LessonOutline } from '../content/types';
 import {
   lessonAccessState,
@@ -24,6 +25,26 @@ interface PathViewProps {
   goal?: GoalProgress;
   streak?: StreakStats;
   onOpenLesson: (lesson: LessonOutline) => void;
+}
+
+/** Geöffnete Kapitel merkt sich nur dieser Browser-Tab (Sitzung), damit der Weg nach einer Lektion so aussieht wie vorher. */
+const OPEN_UNITS_KEY = 'wqt-academy-path-open';
+
+function readOpenUnits(): Set<string> {
+  try {
+    const stored = JSON.parse(window.sessionStorage.getItem(OPEN_UNITS_KEY) ?? '[]') as unknown;
+    return new Set(Array.isArray(stored) ? stored.filter((id): id is string => typeof id === 'string') : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function writeOpenUnits(open: ReadonlySet<string>): void {
+  try {
+    window.sessionStorage.setItem(OPEN_UNITS_KEY, JSON.stringify([...open]));
+  } catch {
+    // Speicher gesperrt: der Weg funktioniert trotzdem, nur ohne Merken.
+  }
 }
 
 /** Etappenstatus eines Buchteils: nur aus echtem Fortschritt und Freischaltung. */
@@ -80,6 +101,24 @@ export function PathView({
       : statusLabels[state];
 
   const nextLesson = nextAvailableLesson(course, completed);
+  // Nur das Kapitel mit dem nächsten Schritt ist von Anfang an offen; alle anderen sind zugeklappt.
+  const focusLessonId = resume?.lesson.id ?? nextLesson?.id;
+  const currentUnitId = course.units.find((unit) => unit.lessons.some((lesson) => lesson.id === focusLessonId))?.id;
+  const [open, setOpen] = useState<Set<string>>(() => {
+    const initial = readOpenUnits();
+    if (currentUnitId) initial.add(currentUnitId);
+    return initial;
+  });
+  useEffect(() => writeOpenUnits(open), [open]);
+  useEffect(() => {
+    if (currentUnitId) setOpen((previous) => (previous.has(currentUnitId) ? previous : new Set(previous).add(currentUnitId)));
+  }, [currentUnitId]);
+  const toggleUnit = (id: string) =>
+    setOpen((previous) => {
+      const next = new Set(previous);
+      if (!next.delete(id)) next.add(id);
+      return next;
+    });
   const completedCount = published.filter((lesson) => completed.has(lesson.id)).length;
 
   return (
@@ -148,6 +187,18 @@ export function PathView({
           </section>
         ) : null}
 
+        <div className="road-controls">
+          <p>
+            {open.size === 0 ? 'Alle Kapitel sind zugeklappt.' : `${open.size} von ${course.units.length} Kapiteln geöffnet.`}
+          </p>
+          <button type="button" className="link-button" onClick={() => setOpen(new Set(course.units.map((unit) => unit.id)))}>
+            Alle öffnen
+          </button>
+          <button type="button" className="link-button" onClick={() => setOpen(new Set())}>
+            Alle schließen
+          </button>
+        </div>
+
         <div className="learning-road" aria-label="Lernpfad">
           {course.units.map((unit, unitIndex) => {
             const publishedInUnit = unit.lessons.filter(
@@ -166,8 +217,10 @@ export function PathView({
                       : 'open'
                     : 'locked';
 
+            const isOpen = open.has(unit.id);
+
             return (
-              <section className="unit-section" key={unit.id} data-station={station}>
+              <section className="unit-section" key={unit.id} data-station={station} data-open={isOpen}>
                 <header className="unit-header">
                   <div
                     className="unit-number"
@@ -183,7 +236,17 @@ export function PathView({
                   </div>
                   <div>
                     <p>{unit.label}</p>
-                    <h2>{unit.title}</h2>
+                    <h2>
+                      <button
+                        type="button"
+                        className="unit-toggle"
+                        aria-expanded={isOpen}
+                        aria-controls={`unit-lessons-${unit.id}`}
+                        onClick={() => toggleUnit(unit.id)}
+                      >
+                        {unit.title}
+                      </button>
+                    </h2>
                     <span>{unit.description}</span>
                     <span className={`station-chip ${station}`}>
                       {stationLabels[station]}
@@ -195,9 +258,15 @@ export function PathView({
                   <div className="unit-count">
                     <strong>{publishedInUnit}</strong>
                     <span>von ca. {unit.estimatedLessonCount}</span>
+                    <span className="unit-chevron" aria-hidden="true">
+                      <Icon name="chevron" size={22} />
+                    </span>
                   </div>
                 </header>
 
+                <div id={`unit-lessons-${unit.id}`} hidden={!isOpen}>
+                {isOpen ? (
+                <>
                 <div className="lesson-nodes">
                   {unit.lessons.map((lesson, lessonIndex) => {
                     const state = lessonState(lesson);
@@ -251,6 +320,9 @@ export function PathView({
                     </p>
                   </div>
                 ) : null}
+                </>
+                ) : null}
+                </div>
               </section>
             );
           })}
