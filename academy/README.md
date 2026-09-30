@@ -545,6 +545,13 @@ gibt es die Missionstruhe (nur Anzeige) und das Bar-Album mit zwölf Sammelkarte
 Lektionen frei werden. Alles aus dem echten Lernstand abgeleitet, kein neuer gespeicherter Zustand.
 Details: [`docs/DESIGN_STUFE3.md`](docs/DESIGN_STUFE3.md).
 
+## Vibration, Töne und „Fast geschafft“ (Stufe 4e/5a)
+
+Einstellungen → „Rückmeldung“: Vibration (Standard an) und Töne (Standard aus), nur auf diesem Gerät gespeichert
+(`wqt-academy-ui-v1`, nicht im Backup). Signale kommen nur nach eigener Aktion, nie beim Laden; eine falsche
+Antwort bleibt still. Die Fehler-Karte unter „Üben“ und das Rundenende haben ermutigende Zeilen mit dem Bullen.
+Details: [`docs/DESIGN_STUFE4E_5A.md`](docs/DESIGN_STUFE4E_5A.md).
+
 ## Wiederholungsplan
 
 Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen

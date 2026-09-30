@@ -7880,3 +7880,13 @@ button:disabled {
   margin: 4px 0 0;
   color: var(--ink-soft);
 }
+
+/* Stufe 4e „Fast geschafft“: ermutigende Zeile mit dem Bullen auf der Fehler-Karte. */
+.mistake-encourage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--ink);
+  font-weight: 600;
+}

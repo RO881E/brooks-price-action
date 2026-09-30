@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { FeedbackCue } from './FeedbackCue';
 
 export interface Celebration {
   /** Wechselt bei jeder neuen Meldung, damit die Animation neu startet. */
@@ -36,6 +37,7 @@ export function CelebrationToast({
 
   return (
     <div className="celebration" role="status" aria-live="polite" key={celebration.id}>
+      <FeedbackCue kind="milestone" mode="mount" />
       <span className="celebration-mark" aria-hidden="true">
         ✦
       </span>

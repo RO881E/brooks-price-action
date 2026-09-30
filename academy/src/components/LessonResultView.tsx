@@ -3,6 +3,7 @@ import type { LessonOutline } from '../content/types';
 import type { BarCase } from '../content/barCaseTypes';
 import type { LessonSummary } from '../features/lessonResults';
 import { BullSays } from './Bull';
+import { FeedbackCue } from './FeedbackCue';
 import { CaseLinks } from './CaseTraining';
 
 interface LessonResultViewProps {
@@ -60,6 +61,7 @@ export function LessonResultView({
             {lesson.title}
           </h1>
 
+          <FeedbackCue kind="complete" mode="mount" active={summary.completed} />
           {summary.completed ? (
             <BullSays mood="cheer">Geschafft! Wieder ein Stück weiter – gut gemacht.</BullSays>
           ) : (

@@ -20,7 +20,8 @@ import { CaseTrainingList } from './CaseTraining';
 import { mistakeOverview } from '../features/mistakeInsights';
 import { MistakeOverviewView } from './MistakeOverviewView';
 import { bullFeedbackMood } from '../features/bull';
-import { Bull } from './Bull';
+import { Bull, BullSays } from './Bull';
+import { FeedbackCue } from './FeedbackCue';
 import { TopicPractice } from './TopicPractice';
 import { CaseCompare } from './CaseCompare';
 import { TransferEntry } from './TransferEntry';
@@ -251,6 +252,10 @@ function ReviewStart({
                 {overview.mistakes === 1 ? 'Frage wartet' : 'Fragen warten'} auf einen richtigen
                 Versuch.
               </p>
+              <p className="mistake-encourage">
+                <Bull mood="happy" size={40} />
+                <span>Fast geschafft – jede dieser Fragen ist eine neue Chance.</span>
+              </p>
               <button
                 className="primary-button"
                 type="button"
@@ -476,6 +481,7 @@ function SessionQuestion({
           })}
         </div>
 
+        <FeedbackCue kind="correct" active={answered && correct} />
         {answered && chosen ? (
           <div className={`practice-feedback with-bull ${correct ? 'correct' : 'incorrect'}`} role="status">
             <Bull mood={bullFeedbackMood(correct)} size={52} />
@@ -556,12 +562,23 @@ function SessionResult({
     headingRef.current?.focus();
   }, []);
 
+  const perfect = summary.total > 0 && summary.correct === summary.total;
+
   return (
     <article className="practice-card review-result">
+      <FeedbackCue kind="complete" mode="mount" />
       <span className="question-number">Runde abgeschlossen · {roundLabel(session)}</span>
       <h2 tabIndex={-1} ref={headingRef}>
         {summary.correct} von {summary.total} richtig
       </h2>
+
+      {perfect ? (
+        <BullSays mood="cheer">
+          {session.mode === 'mistakes' ? 'Das saß! Diese Fehler hast du jetzt richtig beantwortet.' : 'Fehlerfrei – das saß!'}
+        </BullSays>
+      ) : session.mode === 'mistakes' && summary.total > 0 ? (
+        <BullSays mood="calm">Fast geschafft – die übrigen Fragen bleiben einfach für die nächste Runde.</BullSays>
+      ) : null}
 
       <ul className="review-result-list">
         {summary.entries.map(({ item, correct }) => (
