@@ -79,6 +79,8 @@ test.describe('P06 Orientierung', () => {
     const stations = page.locator('.unit-section');
     await expect(stations.first().locator('.station-chip')).toContainText('Hier geht es weiter');
     await expect(stations.nth(2).locator('.station-chip')).toContainText('Noch gesperrt');
+    // Gesperrte Kapitel sind zugeklappt; nach dem Öffnen sind ihre Lektionen sichtbar, aber nicht bedienbar.
+    await stations.nth(2).getByRole('button', { expanded: false }).click();
     await expect(stations.nth(2).getByRole('button', { name: /Noch gesperrt/ }).first()).toBeDisabled();
     // Nach Abschluss der ersten Einheit ist sie „Abgeschlossen“.
     const firstUnit = brooksTrendsCourse.units[0].lessons.filter((lesson) => lesson.status === 'published').map((lesson) => lesson.id);

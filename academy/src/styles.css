@@ -8240,3 +8240,95 @@ button:disabled {
   min-height: 32px;
   padding: 4px 8px;
 }
+
+/* ==========================================================================
+   Aufklappbare Kapitel im Lernpfad: nur das Kapitel mit dem nächsten Schritt ist
+   offen, die anderen zeigen nur ihren Kopf. Der ganze Kopf ist klickbar; bedient
+   wird der Knopf in der Überschrift (aria-expanded), auch per Tastatur.
+   ========================================================================== */
+
+.road-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  margin: 0 0 14px;
+}
+
+.road-controls p {
+  margin: 0 auto 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.road-controls .link-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 8px;
+}
+
+.unit-header {
+  position: relative;
+}
+
+.unit-toggle {
+  display: inline-block;
+  min-height: 28px;
+  margin: 0;
+  padding: 2px 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Ganze Kopfzeile als Klickfläche. */
+.unit-toggle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.unit-toggle:focus-visible {
+  outline: none;
+}
+
+.unit-toggle:focus-visible::after {
+  outline: 3px solid var(--mode-ink, var(--read-ink));
+  outline-offset: -3px;
+  border-radius: 20px;
+}
+
+.unit-chevron {
+  display: grid;
+  place-items: center;
+  margin-top: 6px;
+  color: var(--ink-soft);
+  transition: transform 180ms ease;
+}
+
+.unit-section[data-open='true'] .unit-chevron {
+  transform: rotate(180deg);
+}
+
+.unit-section[data-open='false'] > .unit-header {
+  border-bottom: 0;
+}
+
+.unit-section[data-open='false'] > .unit-header:hover {
+  background: var(--mode-soft, var(--c-f6f5f1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unit-chevron {
+    transition: none;
+  }
+}
+
+:root[data-motion='reduce'] .unit-chevron {
+  transition: none;
+}

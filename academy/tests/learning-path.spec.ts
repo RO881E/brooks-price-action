@@ -48,6 +48,7 @@ test.describe('Lernpfad als Wanderweg', () => {
   test('Fortschritt: Abgeschlossenes trägt Häkchen, Kapitel-Medaille zeigt Ring und Stern', async ({ page }) => {
     await seed(page, firstUnit.map((lesson) => lesson.id));
     await page.goto('/#/');
+    await page.getByRole('button', { name: 'Alle öffnen' }).click();
     const firstDone = page.locator('.lesson-node.complete').first();
     await expect(firstDone.locator('.node-copy small')).toHaveText('Abgeschlossen');
     await expect(firstDone.locator('svg.icon')).toBeVisible();
@@ -63,6 +64,7 @@ test.describe('Lernpfad als Wanderweg', () => {
   test('Öffnen per Klick und Tastatur; Reihenfolge der Stationen bleibt die Buchreihenfolge', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/');
+    await page.getByRole('button', { name: 'Alle öffnen' }).click();
     const titles = await page.locator('.lesson-node .node-copy strong').allTextContents();
     const expected = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => lesson.title);
     expect(titles).toEqual(expected);
@@ -109,5 +111,67 @@ test.describe('Lernpfad als Wanderweg', () => {
     await expect(icon).toBeVisible();
     expect(await icon.evaluate((el) => getComputedStyle(el).animationName)).toBe('none');
     expect(await page.locator('.path-bull').evaluate((el) => getComputedStyle(el).animationName)).toBe('none');
+  });
+});
+
+test.describe('Aufklappbare Kapitel', () => {
+  test('nur das Kapitel mit dem nächsten Schritt ist offen; die übrigen zeigen nur den Kopf', async ({ page }) => {
+    await seed(page, firstUnit.map((lesson) => lesson.id));
+    await page.goto('/#/');
+    const units = page.locator('.unit-section');
+    await expect(units).toHaveCount(brooksTrendsCourse.units.length);
+    // Nach der ersten Einheit ist die zweite die aktuelle: genau sie ist offen.
+    await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(1);
+    await expect(units.nth(1)).toHaveAttribute('data-open', 'true');
+    await expect(units.nth(0).getByRole('button', { name: brooksTrendsCourse.units[0].title })).toHaveAttribute('aria-expanded', 'false');
+    await expect(units.nth(0).locator('.lesson-node')).toHaveCount(0);
+    expect(await page.locator('.lesson-node').count()).toBeLessThan(brooksTrendsCourse.units[1].lessons.length + 1);
+    await expect(page.getByText('1 von 12 Kapiteln geöffnet.')).toBeVisible();
+  });
+
+  test('Klick auf die Kopfzeile und Tastatur (Enter/Leertaste) klappen auf und zu', async ({ page }) => {
+    await seed(page, []);
+    await page.goto('/#/');
+    const second = page.locator('.unit-section').nth(1);
+    const toggle = second.getByRole('button', { name: brooksTrendsCourse.units[1].title });
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await second.locator('.unit-header').click({ position: { x: 300, y: 30 } });
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await expect(second.locator('.lesson-node').first()).toBeVisible();
+    await toggle.focus();
+    await page.keyboard.press('Enter');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await page.keyboard.press('Space');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await expect(toggle).toHaveAttribute('aria-controls', `unit-lessons-${brooksTrendsCourse.units[1].id}`);
+  });
+
+  test('„Alle öffnen“ und „Alle schließen“; Zustand bleibt nach einer Lektion und zurück erhalten', async ({ page }) => {
+    await seed(page, []);
+    await page.goto('/#/');
+    await page.getByRole('button', { name: 'Alle öffnen' }).click();
+    await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(brooksTrendsCourse.units.length);
+    await page.getByRole('button', { name: 'Alle schließen' }).click();
+    await expect(page.getByText('Alle Kapitel sind zugeklappt.')).toBeVisible();
+    await expect(page.locator('.lesson-node')).toHaveCount(0);
+    // Ein Kapitel öffnen, eine Lektion starten, zurück: das Kapitel ist noch offen.
+    const first = page.locator('.unit-section').first();
+    await first.getByRole('button', { name: brooksTrendsCourse.units[0].title }).click();
+    await page.locator('.lesson-node-row.next .lesson-node').click();
+    await expect(page).toHaveURL(/#\/lesson\//);
+    await page.goBack();
+    await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(1);
+    await expect(first).toHaveAttribute('data-open', 'true');
+  });
+
+  test('gesperrte Kapitel lassen sich ansehen, ihre Lektionen bleiben gesperrt; axe und 360 px', async ({ page }) => {
+    await seed(page, []);
+    await page.goto('/#/');
+    const locked = page.locator('.unit-section[data-station="locked"]').first();
+    await locked.getByRole('button', { name: /./ , expanded: false }).click();
+    await expect(locked.locator('.lesson-node').first()).toBeDisabled();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
+    await axe(page, '.learning-road');
+    await axe(page, '.road-controls');
   });
 });
