@@ -1,5 +1,8 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import { TRADE_DECISION_LABELS, type BarCase, type OptionVerdict } from '../content/barCaseTypes';
+import { TRADE_DECISION_LABELS, type BarCase, type OptionVerdict, type TradeDecision } from '../content/barCaseTypes';
+import type { BullMood } from '../features/bull';
+import { BullSays } from './Bull';
+import { Icon, type IconName } from './Icon';
 import type { CourseOutline, LessonOutline } from '../content/types';
 import {
   advance,
@@ -25,6 +28,16 @@ import type { AcademyProgress } from '../features/progress';
 import { BarDisplayToggle, useBarDisplay, type BarDisplay } from './BarDisplayToggle';
 import { CaseChart } from './CaseChart';
 import { CaseTable } from './CaseTable';
+
+/** Symbole der drei Entscheidungen – neutral, keine Gewinn-/Verlustfarben. */
+const DECISION_ICONS: Record<TradeDecision, IconName> = { long: 'arrow-up', wait: 'pause', short: 'arrow-down' };
+
+/** Kurze Bulle-Sätze zur Auflösung; sie bewerten nur die Einordnung, nie einen Markterfolg. */
+const VERDICT_BULL: Record<OptionVerdict, { mood: BullMood; text: string }> = {
+  best: { mood: 'cheer', text: 'Gut gesehen – das war die klarste Einordnung.' },
+  defensible: { mood: 'happy', text: 'Das lässt sich vertreten. Schau, was die beste Wahl noch klarer macht.' },
+  mistake: { mood: 'think', text: 'Kein Drama – genau hier lernst du am meisten dazu.' },
+};
 
 export const VERDICT_LABELS: Record<OptionVerdict, string> = {
   best: 'Beste Wahl',
@@ -551,9 +564,9 @@ function DecisionForm({
 
       <fieldset>
         <legend>Deine Entscheidung</legend>
-        <div className="trainer-choices">
+        <div className="trainer-choices decision-tiles">
           {current.options.map((decision) => (
-            <label key={decision}>
+            <label key={decision} className="decision-tile" data-decision={decision}>
               <input
                 type="radio"
                 name={`${ids}-decision`}
@@ -561,7 +574,10 @@ function DecisionForm({
                 checked={view.selection.decision === decision}
                 onChange={() => onChoose(decision)}
               />
-              <span>{TRADE_DECISION_LABELS[decision]}</span>
+              <span className="decision-icon" aria-hidden="true">
+                <Icon name={DECISION_ICONS[decision]} size={26} />
+              </span>
+              <span className="decision-name">{TRADE_DECISION_LABELS[decision]}</span>
             </label>
           ))}
         </div>
@@ -647,6 +663,7 @@ function Reveal({
       <h2 id={`reveal-${decision.id}`} ref={headingRef} tabIndex={-1}>
         Auflösung: {TRADE_DECISION_LABELS[answer.decision]} – {VERDICT_LABELS[evaluation.verdict]}
       </h2>
+      <BullSays mood={VERDICT_BULL[evaluation.verdict].mood}>{VERDICT_BULL[evaluation.verdict].text}</BullSays>
       <div className="trainer-compare">
         <div>
           <h3>Fachliche Einordnung</h3>

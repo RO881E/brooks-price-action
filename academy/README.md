@@ -552,6 +552,12 @@ Einstellungen → „Rückmeldung“: Vibration (Standard an) und Töne (Standar
 Antwort bleibt still. Die Fehler-Karte unter „Üben“ und das Rundenende haben ermutigende Zeilen mit dem Bullen.
 Details: [`docs/DESIGN_STUFE4E_5A.md`](docs/DESIGN_STUFE4E_5A.md).
 
+## Trainer-Kacheln, Begriffe-Memory und Blitzrunde (Stufe 4)
+
+Der Chart-Trainer hat große Entscheidungs-Kacheln, animierte neue Bars und einen Bulle-Satz bei der Auflösung. Unter „Üben“ gibt
+es zwei freiwillige Spiele ohne Einfluss auf den Lernstand: Begriffe-Memory (Begriff ↔ Beschreibung aus dem Glossar) und die
+Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](docs/DESIGN_STUFE4.md).
+
 ## Wiederholungsplan
 
 Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen

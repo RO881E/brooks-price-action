@@ -22,6 +22,8 @@ import { MistakeOverviewView } from './MistakeOverviewView';
 import { bullFeedbackMood } from '../features/bull';
 import { Bull, BullSays } from './Bull';
 import { FeedbackCue } from './FeedbackCue';
+import { BlitzGame } from './BlitzGame';
+import { MatchGame } from './MatchGame';
 import { TopicPractice } from './TopicPractice';
 import { CaseCompare } from './CaseCompare';
 import { TransferEntry } from './TransferEntry';
@@ -152,6 +154,9 @@ export function PracticeView({
           onOpenTransfer={onOpenTransfer}
         />
       ) : null}
+
+      {!session ? <MatchGame course={course} progress={progress} /> : null}
+      {!session ? <BlitzGame course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
 
       {onTrain && onOpenLesson && onPracticeQuestions && !session ? (
         <MistakeOverviewView
