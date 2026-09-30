@@ -12,6 +12,7 @@ import {
 } from 'react';
 import { AppStatusBanner } from './components/AppStatusBanner';
 import { albumOverview } from './features/barAlbum';
+import { useApplyTheme } from './features/theme';
 import { Icon, type IconName } from './components/Icon';
 import { CelebrationToast, type Celebration } from './components/CelebrationToast';
 import { ChapterView } from './components/ChapterView';
@@ -207,6 +208,7 @@ const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boole
 ];
 
 export default function App() {
+  useApplyTheme();
   // Einzige Quelle der Wahrheit ist der Hash; die Route wird daraus abgeleitet.
   const [hash, setHash] = useState(() => window.location.hash);
   const route = useMemo(() => parseRoute(hash), [hash]);

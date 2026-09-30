@@ -20,21 +20,23 @@ afterEach(() => {
 
 describe('Geräteeinstellungen (Ton, Vibration)', () => {
   it('Standard: Ton aus, Vibration an – auch bei fehlendem oder defektem Speicher', () => {
-    expect(DEFAULT_UI_PREFERENCES).toEqual({ sound: false, haptics: true });
+    expect(DEFAULT_UI_PREFERENCES).toEqual({ sound: false, haptics: true, theme: 'light' });
     expect(parseUiPreferences(null)).toEqual(DEFAULT_UI_PREFERENCES);
     expect(parseUiPreferences('{kaputt')).toEqual(DEFAULT_UI_PREFERENCES);
     expect(parseUiPreferences('{"sound":"ja","haptics":3}')).toEqual(DEFAULT_UI_PREFERENCES);
-    expect(parseUiPreferences('{"sound":true,"haptics":false,"x":1}')).toEqual({ sound: true, haptics: false });
+    expect(parseUiPreferences('{"sound":true,"haptics":false,"x":1}')).toEqual({ sound: true, haptics: false, theme: 'light' });
+    expect(parseUiPreferences('{"theme":"dark"}')).toEqual({ sound: false, haptics: true, theme: 'dark' });
+    expect(parseUiPreferences('{"theme":"neon"}').theme).toBe('light');
     expect(readUiPreferences({ getItem: () => { throw new Error('gesperrt'); } })).toEqual(DEFAULT_UI_PREFERENCES);
   });
 
   it('schreibt nur den eigenen Schlüssel und lässt den Lernstand unberührt', () => {
     window.localStorage.setItem('wqt-academy-progress-v1', 'LERNSTAND');
     setUiPreferences({ sound: true });
-    expect(getUiPreferences()).toEqual({ sound: true, haptics: true });
-    expect(JSON.parse(window.localStorage.getItem(UI_PREFERENCES_KEY)!)).toEqual({ sound: true, haptics: true });
+    expect(getUiPreferences()).toEqual({ sound: true, haptics: true, theme: 'light' });
+    expect(JSON.parse(window.localStorage.getItem(UI_PREFERENCES_KEY)!)).toEqual({ sound: true, haptics: true, theme: 'light' });
     expect(window.localStorage.getItem('wqt-academy-progress-v1')).toBe('LERNSTAND');
-    expect(writeUiPreferences({ sound: false, haptics: false }, { setItem: () => { throw new Error('voll'); } })).toBe(false);
+    expect(writeUiPreferences({ sound: false, haptics: false, theme: 'light' }, { setItem: () => { throw new Error('voll'); } })).toBe(false);
   });
 
   it('Vibration: nur bei Einstellung und Unterstützung; falsche Antwort löst nichts aus', () => {

@@ -1,21 +1,27 @@
 import { useSyncExternalStore } from 'react';
 
 /*
- * Geräteeinstellungen für Rückmeldung (Stufe 5): Ton und Vibration. Bewusst **nicht** im
+ * Geräteeinstellungen für Rückmeldung (Stufe 5): Ton, Vibration und Farbschema. Bewusst **nicht** im
  * Lernstand und **nicht** im Backup – sie gelten nur für dieses Gerät und ändern nichts an
  * Fortschritt, Antworten oder Fälligkeiten. Eigener Schlüssel, damit `wqt-academy-progress-v1`
  * und die Altschlüssel unberührt bleiben. Fehlender, defekter oder gesperrter Speicher führt
- * zu den Standardwerten (Ton aus, Vibration an).
+ * zu den Standardwerten (Ton aus, Vibration an, helles Farbschema).
  */
 
 export const UI_PREFERENCES_KEY = 'wqt-academy-ui-v1';
 
+export type ThemePreference = 'light' | 'dark' | 'auto';
+
 export interface UiPreferences {
   sound: boolean;
   haptics: boolean;
+  /** Farbschema: hell (Standard), dunkel oder wie im System. */
+  theme: ThemePreference;
 }
 
-export const DEFAULT_UI_PREFERENCES: Readonly<UiPreferences> = { sound: false, haptics: true };
+export const DEFAULT_UI_PREFERENCES: Readonly<UiPreferences> = { sound: false, haptics: true, theme: 'light' };
+
+const isTheme = (value: unknown): value is ThemePreference => value === 'light' || value === 'dark' || value === 'auto';
 
 /** Liest gespeicherten Text; unbekannte oder falsch getypte Werte fallen auf den Standard zurück. */
 export function parseUiPreferences(raw: string | null | undefined): UiPreferences {
@@ -24,6 +30,7 @@ export function parseUiPreferences(raw: string | null | undefined): UiPreference
     return {
       sound: typeof value.sound === 'boolean' ? value.sound : DEFAULT_UI_PREFERENCES.sound,
       haptics: typeof value.haptics === 'boolean' ? value.haptics : DEFAULT_UI_PREFERENCES.haptics,
+      theme: isTheme(value.theme) ? value.theme : DEFAULT_UI_PREFERENCES.theme,
     };
   } catch {
     return { ...DEFAULT_UI_PREFERENCES };

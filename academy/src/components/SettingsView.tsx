@@ -213,6 +213,34 @@ export function SettingsView({
         </div>
       </section>
 
+      <section className="progress-panel settings-section" aria-labelledby={`${ids}-theme`}>
+        <h2 id={`${ids}-theme`}>Farbschema</h2>
+        <fieldset className="settings-choices">
+          <legend>Hell oder dunkel</legend>
+          <p className="settings-effect">
+            Wirkung: gilt sofort überall und wird nur auf diesem Gerät gespeichert – Inhalte, Lernstand und Sicherung
+            ändern sich nicht.
+          </p>
+          {(
+            [
+              ['light', 'Hell'],
+              ['dark', 'Dunkel'],
+              ['auto', 'Wie im System eingestellt'],
+            ] as const
+          ).map(([value, label]) => (
+            <label key={value}>
+              <input
+                type="radio"
+                name={`${ids}-theme`}
+                checked={ui.theme === value}
+                onChange={() => setUi({ theme: value })}
+              />
+              <span>{label}</span>
+            </label>
+          ))}
+        </fieldset>
+      </section>
+
       <section className="progress-panel settings-section" aria-labelledby={`${ids}-feedback`}>
         <h2 id={`${ids}-feedback`}>Rückmeldung: Vibration und Töne</h2>
         <p className="settings-effect">

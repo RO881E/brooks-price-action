@@ -13,6 +13,18 @@
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="WQT Academy" />
     <title>WQT Academy – Price Action</title>
+    <script>
+      // Farbschema vor dem ersten Zeichnen setzen (kein Aufblitzen); Logik wie src/features/theme.ts.
+      (function () {
+        var theme = 'light';
+        try {
+          var stored = JSON.parse(localStorage.getItem('wqt-academy-ui-v1') || '{}').theme;
+          var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (stored === 'auto' && dark)) theme = 'dark';
+        } catch (error) {}
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
