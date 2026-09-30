@@ -5929,6 +5929,10 @@ button:disabled {
   font-weight: 700;
 }
 
+.topic-card .topic-transfer {
+  color: var(--ink);
+}
+
 .topic-actions {
   display: flex;
   flex-wrap: wrap;
@@ -7166,6 +7170,7 @@ button:disabled {
 }
 
 /* Lehrstellen-Links in Listen: ausreichende Zielgröße (WCAG 2.2). */
+.topic-transfer .link-button,
 .topic-sources .link-button {
   display: inline-flex;
   align-items: center;

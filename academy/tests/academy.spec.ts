@@ -99,8 +99,8 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
 
 test.describe('desktop content traversal', () => {
   test('opens every published lesson and renders every learning step', { tag: '@desktop' }, async ({ page }) => {
-    // Rund 190 Lektionen mit allen Schritten: seit Kapitel 6 deutlich über 90 s.
-    test.setTimeout(180_000);
+    // Rund 190 Lektionen mit allen Schritten: seit Kapitel 6 deutlich über 90 s, auf langsameren Läufern über 180 s.
+    test.setTimeout(420_000);
 
     const completedLessonIds = publishedLessons.map((lesson) => lesson.id);
     const answers = Object.fromEntries(

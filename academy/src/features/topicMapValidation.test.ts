@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { barCases } from '../content/barCases';
+import { barCases, transferCases } from '../content/barCases';
 import { brooksTrendsCourse } from '../content/course';
 import { brooksTopics, type BrooksTopic } from '../content/topicMap';
 import { formatTopicIssues, validateTopicMap } from './topicMapValidation';
 
-const check = (topics: readonly BrooksTopic[]) => formatTopicIssues(validateTopicMap(topics, brooksTrendsCourse, barCases));
+const check = (topics: readonly BrooksTopic[]) => formatTopicIssues(validateTopicMap(topics, brooksTrendsCourse, barCases, transferCases));
 const first = brooksTopics[0];
 const clone = (patch: Partial<BrooksTopic>): BrooksTopic => ({ ...structuredClone(first), ...patch });
 
@@ -52,5 +52,24 @@ describe('C-03 Themenkarte', () => {
     expect(check([clone({ questionIds: [foreign] })])).toContain('keine Lehrstelle dieses Themas');
     const otherCase = barCases.find((barCase) => !first.teaching.some((ref) => barCase.lessonIds.includes(ref.lessonId)))!;
     expect(check([clone({ caseIds: [otherCase.id] })])).toContain('teilt keine Lektion');
+  });
+
+  it('Transferfälle: nur aus dem Transferpool, freigegeben, mit gemeinsamer Lektion und ohne Doppelte', () => {
+    const transferTopic = brooksTopics.find((topic) => topic.transferCaseIds?.length)!;
+    const id = transferTopic.transferCaseIds![0];
+    const withIds = (ids: string[]) => check([{ ...structuredClone(transferTopic), transferCaseIds: ids }]);
+    expect(withIds([id])).toBe('');
+    expect(withIds(['bar-case.c02.gibt-es-nicht'])).toContain('Unbekannter Transferfall');
+    expect(withIds([id, id])).toContain('doppelt zugeordnet');
+    // Ein C-01-Fall gehört nicht in den Transferpool.
+    expect(withIds([barCases[0].id])).toContain('Unbekannter Transferfall');
+    // Ein Fall ohne gemeinsame Lektion mit den Lehrstellen wird abgelehnt.
+    const other = transferCases.find((barCase) => !barCase.lessonIds.some((lessonId) => transferTopic.teaching.some((ref) => ref.lessonId === lessonId)))!;
+    expect(withIds([other.id])).toContain('teilt keine Lektion');
+  });
+
+  it('jeder freigegebene Transferfall ist mindestens einem Thema zugeordnet', () => {
+    const mapped = new Set(brooksTopics.flatMap((topic) => topic.transferCaseIds ?? []));
+    for (const barCase of transferCases.filter((item) => item.status === 'approved')) expect(mapped.has(barCase.id)).toBe(true);
   });
 });

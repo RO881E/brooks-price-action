@@ -438,6 +438,8 @@ Fälligkeit, Erstversuch, XP und Trainerzustand bleiben in ihren bestehenden Mec
   Runde spielbar; Lernergebnisse bleiben erhalten. Die laufende Runde ist nicht Teil der
   Sicherung; ältere Stände und Sicherungen laden unverändert.
 
+Zu jedem Thema mit freigegebenen C-02-Transferfällen (`transferCaseIds` in der Themenkarte) steht ein Hinweis mit Sprung in die Transferprüfung. Diese Fälle werden nie im gewöhnlichen Trainer geöffnet und zählen nur dort als Versuch.
+
 ## Freiwilliger Fehlerbericht (F-28)
 
 Unter **Hilfe → Fehler melden** kann man einen Fehler beschreiben („Was ist passiert?“ als
