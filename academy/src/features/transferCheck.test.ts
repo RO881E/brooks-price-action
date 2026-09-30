@@ -40,7 +40,8 @@ const plan = (progress: AcademyProgress, cases = approved) => planTransfer(cours
 
 describe('Transferprüfung (F-17)', () => {
   it('ohne freigegebene Fälle: kein Angebot (Entwürfe zählen nicht)', () => {
-    const result = planTransfer(course, everything, c02BarCases);
+    const drafts = c02BarCases.map((barCase) => ({ ...barCase, status: 'draft' as const }));
+    const result = planTransfer(course, everything, drafts);
     expect(result.status).toBe('none');
     expect(result.approved).toBe(0);
     expect(result.cases).toEqual([]);
@@ -180,7 +181,7 @@ describe('Route der Transferprüfung', () => {
     const { formatRoute, parseRoute, resolveRoute } = await import('./navigation');
     expect(parseRoute('#/transfer')).toEqual({ kind: 'transfer' });
     expect(formatRoute({ kind: 'transfer' })).toBe('#/transfer');
-    // Registrierter Transferpool besteht derzeit aus Entwürfen: keine Route ohne freigegebene Fälle.
-    expect(resolveRoute({ kind: 'transfer' }, course, everything)).toBeNull();
+    // Der registrierte Transferpool ist freigegeben: mit freigeschalteten Lektionen löst die Route auf.
+    expect(resolveRoute({ kind: 'transfer' }, course, everything)).not.toBeNull();
   });
 });

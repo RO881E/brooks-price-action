@@ -25,6 +25,15 @@ async function approveTransferCases(page: Page) {
   });
 }
 
+/** Simuliert einen Stand ohne freigegebene Transferfälle. */
+async function unapproveTransferCases(page: Page) {
+  await page.route('**/src/content/barCases/c02.ts*', async (route) => {
+    const response = await route.fetch();
+    const body = (await response.text()).replace(/status:\s*["']approved["']/g, 'status: "draft"');
+    await route.fulfill({ response, body });
+  });
+}
+
 async function seed(page: Page, ids: string[]) {
   await page.addInitScript(
     ({ completed, version }) => {
@@ -65,6 +74,7 @@ async function playAll(page: Page, cases = c02BarCases.length) {
 
 test.describe('F-17 Transferprüfung', () => {
   test('ohne freigegebene Fälle: kein Angebot, Adresse fällt zurück', async ({ page }) => {
+    await unapproveTransferCases(page);
     await seed(page, published());
     await page.goto('/#/practice');
     await expect(page.getByRole('heading', { name: 'Analyse-Training' })).toBeVisible();

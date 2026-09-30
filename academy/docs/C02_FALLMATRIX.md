@@ -1,6 +1,6 @@
 # C-02 – Fallmatrix und Review-Notiz
 
-Sechs ungesehene Transferfälle (`src/content/barCases/c02.ts`), Status `draft`.
+Sechs ungesehene Transferfälle (`src/content/barCases/c02.ts`), Status `approved` (fachlich freigegeben durch Robert nach Sichtung).
 Sie liegen im Transferpool `transferCases` und erscheinen **nicht** im
 gewöhnlichen Trainer (C-01), in der Fehlerübersicht, im Kurzlernen oder im
 Rückblick. Alle Preisfolgen sind eigene, schematische OHLC-Werte auf einer

@@ -105,7 +105,7 @@ test.describe('P11 Einführung', () => {
 });
 
 test.describe('P11 Sichere Adressen', () => {
-  const bad = ['/#/train/gibt-es-nicht', '/#/lesson/brooks-trends.gibt-es', '/#/read/gibt-es-nicht', '/#/transfer', '/#/study/15'];
+  const bad = ['/#/train/gibt-es-nicht', '/#/lesson/brooks-trends.gibt-es', '/#/read/gibt-es-nicht', '/#/study/15'];
 
   test('unbekannte oder nicht freigegebene Ziele führen mit Hinweis zurück statt auf eine leere Seite', async ({ page }) => {
     await seed(page, published.slice(0, 2).map((lesson) => lesson.id));

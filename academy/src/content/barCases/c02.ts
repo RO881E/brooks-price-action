@@ -4,7 +4,7 @@ import type { BarCase, CaseBar } from '../barCaseTypes';
 // Eigenständig konstruierte relative Preisfolgen – weder Buchabbildungen noch
 // echte Kursdaten oder nachgezeichnete Chartfälle. Jeder Fall übt ein bereits
 // vermitteltes Thema in einer anderen Preisfolge als C-01.
-// Status `draft`, bis Robert die fachliche Freigabe erteilt; Fall-IDs tragen
+// Status `approved`: von Robert fachlich freigegeben (siehe docs/C02_FALLMATRIX.md); Fall-IDs tragen
 // `c02`, damit sie nie mit dem gewöhnlichen Trainer (C-01) verwechselt werden.
 const bars = (...rows: [open: number, high: number, low: number, close: number][]): CaseBar[] =>
   rows.map(([open, high, low, close]) => ({ open, high, low, close }));
@@ -13,7 +13,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-01.tight-pause-in-trend',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Enge Pause nach starkem Anstieg',
     unitId: 'brooks-trends.chapter-01',
     lessonIds: ['brooks-trends.chapter-01.lesson-04', 'brooks-trends.chapter-01.lesson-03'],
@@ -63,7 +63,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-02.climax-is-not-reversal',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Ein ungewöhnlich großer Bar',
     unitId: 'brooks-trends.chapter-02',
     lessonIds: ['brooks-trends.chapter-02.lesson-08', 'brooks-trends.chapter-02.lesson-09'],
@@ -86,7 +86,7 @@ export const c02BarCases: BarCase[] = [
         ],
         cues: [
           { id: 'size', label: 'Der Bar ist ungewöhnlich groß im Vergleich zu den fünf davor', relevant: true, explanation: 'Extreme Größe verändert das Risiko-Bild: Der Schutzabstand wird groß und die Bewegung möglicherweise überdehnt.', lessonId: 'brooks-trends.chapter-02.lesson-09' },
-          { id: 'no-follow', label: 'Es gibt noch keinen Folgebalken', relevant: true, explanation: 'Ob Marktteilnehmer den höheren Bereich annehmen oder zurückgeben, zeigt erst der nächste Bar.', lessonId: 'brooks-trends.chapter-02.lesson-08' },
+          { id: 'no-follow', label: 'Es gibt noch keinen Folgebar', relevant: true, explanation: 'Ob Marktteilnehmer den höheren Bereich annehmen oder zurückgeben, zeigt erst der nächste Bar.', lessonId: 'brooks-trends.chapter-02.lesson-08' },
           { id: 'climax-ends-trend', label: 'Ein Klimax beendet den Trend immer sofort', relevant: false, explanation: 'Nach einem Klimax folgt oft zunächst zweiseitiger Handel, nicht zwingend eine Umkehr.' },
         ],
         explanation: 'Der große Bar liefert Information über Kontrolle und zugleich über Risiko. Die klarere Entscheidung ist, den Anschluss abzuwarten, statt den Klimax für eine Umkehr zu halten.',
@@ -97,7 +97,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-03.breakout-test-holds',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Rücklauf an den alten Rand',
     unitId: 'brooks-trends.chapter-03',
     lessonIds: ['brooks-trends.chapter-03.lesson-05', 'brooks-trends.chapter-03.lesson-01'],
@@ -132,7 +132,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-04.unfilled-order-cancelled',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Ein Signal und der nächste Bar',
     unitId: 'brooks-trends.chapter-04',
     lessonIds: ['brooks-trends.chapter-04.lesson-21', 'brooks-trends.chapter-04.lesson-03'],
@@ -166,7 +166,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-05.counter-trend-needs-evidence',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Ein Bar mit langem Schatten im Abwärtstrend',
     unitId: 'brooks-trends.chapter-05',
     lessonIds: ['brooks-trends.chapter-05.lesson-07', 'brooks-trends.chapter-05.lesson-15'],
@@ -198,14 +198,14 @@ export const c02BarCases: BarCase[] = [
       {
         id: 'failed-bounce',
         afterBar: 8,
-        prompt: 'Nach dem Hammer folgt ein Rücklauf mit tieferem Hoch als davor; der nächste Bar fällt kräftig zurück und schließt nahe seinem Tief. Welche Seite hat jetzt den besseren Kontext?',
+        prompt: 'Nach dem Hammer folgt ein Rücklauf, dessen Hoch unter dem Hoch vor dem Hammer bleibt; der nächste Bar fällt kräftig zurück und schließt nahe seinem Tief. Welche Seite hat jetzt den besseren Kontext?',
         options: [
           { decision: 'long', verdict: 'mistake', feedback: 'Der Rücklauf ist gescheitert und der Verkauf hat sofort wieder Kontrolle. Ein Kauf hätte keinen neuen bullischen Beleg.' },
           { decision: 'short', verdict: 'best', feedback: 'Der Gegenversuch hat nicht getragen und der Trend wird mit starkem Schluss wieder aufgenommen. Ein Short mit dem Trend ist jetzt nachvollziehbar begründet.' },
           { decision: 'wait', verdict: 'defensible', feedback: 'Aussetzen ist vertretbar, wenn der Schutzabstand nicht passt. Fachlich ist der Trendfortsatz aber nun klarer als beim Hammer.' },
         ],
         cues: [
-          { id: 'lower-high', label: 'Der Rücklauf endet mit tieferem Hoch', relevant: true, explanation: 'Das tiefere Hoch zeigt, dass die Käufer keine Kontrolle über den Bereich gewinnen konnten.', lessonId: 'brooks-trends.chapter-05.lesson-07' },
+          { id: 'lower-high', label: 'Das Hoch des Rücklaufs bleibt unter dem Hoch vor dem Hammer', relevant: true, explanation: 'Das tiefere Hoch zeigt, dass die Käufer keine Kontrolle über den Bereich gewinnen konnten.', lessonId: 'brooks-trends.chapter-05.lesson-07' },
           { id: 'bear-close', label: 'Kräftiger bärischer Schluss nahe dem Tief', relevant: true, explanation: 'Der neue Bar liefert die Wiederaufnahme des Trends mit sichtbarer Verkäuferkontrolle.' },
           { id: 'hammer-holds', label: 'Der Hammer bleibt gültig, weil sein Tief noch nicht gebrochen ist', relevant: false, explanation: 'Ein nicht gebrochenes Tief macht einen gescheiterten Rücklauf nicht zum Kaufsignal.' },
         ],
@@ -217,7 +217,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-10.second-short-attempt',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Nach dem ersten bärischen Bar',
     unitId: 'brooks-trends.chapter-10',
     lessonIds: ['brooks-trends.chapter-10.lesson-05', 'brooks-trends.chapter-10.lesson-01'],

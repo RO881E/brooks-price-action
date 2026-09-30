@@ -14,13 +14,12 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 | K02.08 | Klimax ist noch keine Umkehr | Trendbar als Bestandteil eines Klimax |
 | K02.09 | Der ideale Trendbar – und wann Größe warnt | Moderater Körper relativ zu den letzten Bars |
 | K02.10 | Druck sammelt sich Bar für Bar | Bullische Körper in Range oder Bärentrend als Kaufdruck |
-| K02.12 | Dojis können gemeinsam trenden | Kleinere Zeitrahmenbewegungen innerhalb eines Dojis |
 | K05.06 | Im starken Trend darf das Mit-Trend-Signal einfacher sein | Starke Trendrichtung als Kontextvorteil |
 | K06.02 | Starke Trendbars im Spike | Strong Trend Bar |
 | K06.14 | Ein ungewöhnlich großer Trend-Bar kann erschöpfen | Ungewöhnliche Größe spät im Trend |
 | K06.15 | Trendbars als Signal in Trend und Range | Mit-Trend-Einstieg nach Pullback |
 
-**Fragen (11):** `chapter-01-04`, `chapter-02-01`, `chapter-02-04`, `chapter-02-08`, `chapter-02-09`, `chapter-02-10`, `chapter-02-12`, `chapter-05-06`, `chapter-06-02`, `chapter-06-14`, `chapter-06-15`
+**Fragen (10):** `chapter-01-04`, `chapter-02-01`, `chapter-02-04`, `chapter-02-08`, `chapter-02-09`, `chapter-02-10`, `chapter-05-06`, `chapter-06-02`, `chapter-06-14`, `chapter-06-15`
 
 **Trainerfälle (0):** keine (kein freigegebener Fall mit gemeinsamer Lektion)
 
@@ -197,6 +196,8 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 - `chapter-07-05`: Inside- und Outside-Bars · Zweiter Versuch und zweiter Einstieg
 
 ## Bewusst offen gelassen
+
+- K02.12 „Dojis können gemeinsam trenden“ wurde nach Roberts Sichtung aus „Trendstärke und Trendbars“ entfernt (lose Passung); die Frage `chapter-02-12` bleibt ohne Thema.
 
 - Fragen aus Lehrstellen, die nicht zugeordnet sind: `chapter-01-07`. `chapter-01-07` gehört zur Lektion „Fehlausbruch über dem Vortageshoch“, prüft aber die bullische Eröffnungsthese; der Bezug zum Thema Ausbruch ist mir nicht eindeutig genug.
 - Nicht zugeordnet: Einleitung, Teil 1 und alle übrigen Lektionen, deren Bezug zu einem der neun Themen nicht eindeutig ist – vor allem die einzelnen Chartfall-Lektionen ab Kapitel 5 und die Kapitel-10-Fälle ab Lektion 6. Sie bleiben über ihre Kapitel erreichbar; die Karte füllt kein Thema künstlich auf.
