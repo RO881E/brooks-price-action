@@ -1,6 +1,6 @@
 # C-04: Aufgabenpaket für „Finde den Bar“ und „Ordne die Schritte“ – Prüfliste
 
-Stand: **Entwurf (`draft`)**. Die Aufgaben sind in der App **nicht sichtbar**, bis du sie freigibst.
+Stand: **freigegeben (`approved`)** durch Robert. Die Aufgaben sind in der App sichtbar, sobald die zugehörigen Lektionen abgeschlossen sind.
 
 Alle Bars sind eigenständig konstruierte, relative Zahlenfolgen (keine Buchabbildungen, keine echten Kurse). Die Aufgabentexte sind eigene Formulierungen. Jede Aufgabe stützt sich auf bereits vermittelte Lektionen und ist erst offen, wenn **alle** genannten Lektionen abgeschlossen sind.
 
@@ -12,7 +12,7 @@ Technisch geprüft ist bereits (Unit-Tests): Zielbar erfüllt die genannte Regel
 
 ## Freigabe
 
-Sag mir Bescheid (ggf. mit Streichungen/Änderungen je Aufgabe). Freigegeben wird, indem der Status in den beiden Dateien `src/content/practiceTasks/c04Signal.ts` und `c04Order.ts` von `draft` auf `approved` gesetzt wird; danach laufen die zusätzlichen E2E-Tests in `tests/practice-tasks.spec.ts` automatisch mit.
+Sag mir Bescheid (ggf. mit Streichungen/Änderungen je Aufgabe). Die Freigabe erfolgte, indem der Status in `src/content/practiceTasks/c04Signal.ts` und `c04Order.ts` auf `approved` gesetzt wurde; seitdem laufen auch die E2E-Tests in `tests/practice-tasks.spec.ts`.
 
 ## Teil 1: Finde den Bar (8 Aufgaben)
 

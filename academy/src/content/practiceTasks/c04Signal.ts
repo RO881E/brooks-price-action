@@ -4,11 +4,11 @@ import type { CaseBar } from '../barCaseTypes';
 // C-04 (Teil 1): „Finde den Signal-Bar“. Eigenständig konstruierte, relative Preisfolgen –
 // weder Buchabbildungen noch echte Kurse. Jede Aufgabe ist allein mit den gezeigten Bars
 // lösbar (kein späterer Bar wird gebraucht) und stützt sich auf bereits vermittelte Lektionen.
-// Status `draft`: fachliche Freigabe steht aus (siehe docs/C04_AUFGABEN.md).
+// Status `approved`: von Robert fachlich freigegeben (siehe docs/C04_AUFGABEN.md).
 const bars = (...rows: [open: number, high: number, low: number, close: number][]): CaseBar[] =>
   rows.map(([open, high, low, close]) => ({ open, high, low, close }));
 
-const draft = { schemaVersion: PRACTICE_TASK_SCHEMA_VERSION, status: 'draft' } as const;
+const draft = { schemaVersion: PRACTICE_TASK_SCHEMA_VERSION, status: 'approved' } as const;
 
 export const c04SignalTasks: SignalBarTask[] = [
   {
