@@ -1,8 +1,8 @@
 # Stufe 4: Chart-Trainer als Mini-Spiel, Begriffe-Memory, Blitzrunde
 
 Umsetzung von S4a, S4b und S4c aus [`SPIELERISCH_STUFE4_5_PLAN.md`](SPIELERISCH_STUFE4_5_PLAN.md) mit den
-Standardentscheidungen des Plans. **Nicht enthalten:** S4d („Finde den Signal-Bar“, „Ordne die
-Schritte“) – dafür braucht es ein Content-Pack C-04 mit deiner fachlichen Freigabe.
+Standardentscheidungen des Plans. **Nicht enthalten:** S4d („Finde den Bar“, „Ordne die Schritte“) – siehe
+[`DESIGN_STUFE4D.md`](DESIGN_STUFE4D.md).
 
 Grundsatz für die beiden neuen Übungen: **reine Übung** – sie zählen nichts (keine XP, keine Serie,
 kein Einfluss auf den Wiederholungsplan), speichern nichts und ändern den Lernstand nicht.

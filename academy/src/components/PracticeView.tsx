@@ -24,6 +24,7 @@ import { Bull, BullSays } from './Bull';
 import { FeedbackCue } from './FeedbackCue';
 import { BlitzGame } from './BlitzGame';
 import { MatchGame } from './MatchGame';
+import { PracticeTasks } from './PracticeTasks';
 import { TopicPractice } from './TopicPractice';
 import { CaseCompare } from './CaseCompare';
 import { TransferEntry } from './TransferEntry';
@@ -157,6 +158,7 @@ export function PracticeView({
 
       {!session ? <MatchGame course={course} progress={progress} /> : null}
       {!session ? <BlitzGame course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
+      {!session ? <PracticeTasks course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
 
       {onTrain && onOpenLesson && onPracticeQuestions && !session ? (
         <MistakeOverviewView
