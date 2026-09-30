@@ -7188,3 +7188,163 @@ button:disabled {
   min-height: 32px;
   padding: 4px 8px;
 }
+
+/* ==========================================================================
+   Stufe 1 „spielerischer“: Bulle „Bo“, Sprechblase, Rückmeldung mit Figur,
+   kräftigere Knöpfe. Nur Darstellung – Texte, Zähler und Lernstand bleiben.
+   Der Bulle ist Dekoration (leeres alt); Bewegung nur ohne Präferenz
+   „Bewegung reduzieren“.
+   ========================================================================== */
+
+.bull {
+  flex: none;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.bull-says {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.bull-bubble {
+  position: relative;
+  margin: 0;
+  padding: 10px 14px;
+  border: 2px solid var(--mode-base, var(--line-strong));
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* Sprechblasen-Spitze zur Figur hin. */
+.bull-bubble::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--mode-base, var(--line-strong));
+  border-top: 0;
+  border-right: 0;
+  background: #fff;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Rückmeldung nach einer Antwort: Figur links, Text rechts. */
+.answer-feedback.with-bull,
+.practice-feedback.with-bull {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: start;
+}
+
+.with-bull > .bull {
+  grid-column: 1;
+  grid-row: 1 / span 6;
+  align-self: start;
+}
+
+.with-bull > :not(.bull) {
+  grid-column: 2;
+}
+
+/* Kräftigere, rundere Knöpfe mit sichtbarer „Kante“, die beim Drücken einsinkt. */
+.primary-button,
+.secondary-button {
+  border-radius: 14px;
+}
+
+.primary-button {
+  border-color: var(--mode-ink, var(--navy-900));
+  background: var(--mode-ink, var(--navy-900));
+  box-shadow: 0 4px 0 rgba(8, 17, 31, 0.32);
+}
+
+.primary-button:hover:not(:disabled) {
+  background: var(--mode-ink, var(--navy-800));
+  filter: brightness(1.12);
+}
+
+.primary-button.danger-button {
+  border-color: var(--red);
+  background: var(--red);
+}
+
+.secondary-button {
+  box-shadow: 0 3px 0 var(--mode-base, var(--line-strong));
+}
+
+/* Kartenflächen im Farbton des Modus und größere Rundung. */
+.today-primary,
+.study-card,
+.review-mode-card,
+.practice-card {
+  border-radius: 20px;
+}
+
+.review-mode-card,
+.practice-card {
+  background: linear-gradient(180deg, var(--mode-soft, #fff) 0%, #fff 62%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .primary-button:active:not(:disabled),
+  .secondary-button:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 rgba(8, 17, 31, 0.32);
+  }
+
+  .bull-says .bull,
+  .with-bull > .bull {
+    animation: bull-hop 520ms ease-out 1;
+  }
+
+  @keyframes bull-hop {
+    0% {
+      transform: translateY(6px) scale(0.92);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(-4px) scale(1.03);
+      opacity: 1;
+    }
+    100% {
+      transform: none;
+    }
+  }
+}
+
+:root[data-motion='reduce'] .bull {
+  animation: none !important;
+}
+
+@media (max-width: 480px) {
+  .bull-says {
+    gap: 10px;
+  }
+
+  .bull-bubble {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+
+.answer-feedback.with-bull strong,
+.practice-feedback.with-bull strong {
+  font-size: 15px;
+}
+
+.answer-feedback.with-bull p,
+.practice-feedback.with-bull p {
+  font-size: 13.5px;
+}

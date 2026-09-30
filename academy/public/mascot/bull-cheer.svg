@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Bulle Bo, cheer">
+<title>Bulle Bo</title>
+<g stroke="#2b2118" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M32 44 C12 42 6 22 16 10 C21 24 30 30 42 34 Z" fill="#fff4dc"/>
+<path d="M88 44 C108 42 114 22 104 10 C99 24 90 30 78 34 Z" fill="#fff4dc"/>
+<ellipse cx="17" cy="62" rx="12" ry="8" transform="rotate(-20 17 62)" fill="#d98241"/>
+<ellipse cx="103" cy="62" rx="12" ry="8" transform="rotate(20 103 62)" fill="#d98241"/>
+<ellipse cx="17" cy="62" rx="6" ry="3.6" transform="rotate(-20 17 62)" fill="#f4a7a0" stroke="none"/>
+<ellipse cx="103" cy="62" rx="6" ry="3.6" transform="rotate(20 103 62)" fill="#f4a7a0" stroke="none"/>
+<ellipse cx="60" cy="64" rx="40" ry="38" fill="#d98241"/>
+<path d="M50 30 Q60 18 70 30 Q64 26 60 30 Q56 26 50 30Z" fill="#b8632b"/>
+<ellipse cx="60" cy="86" rx="26" ry="19" fill="#fbeacf"/>
+</g>
+<ellipse cx="32" cy="76" rx="7" ry="4.5" fill="#f4a7a0" opacity=".75"/><ellipse cx="88" cy="76" rx="7" ry="4.5" fill="#f4a7a0" opacity=".75"/>
+<path d="M36 42 Q45 36 54 42" fill="none" stroke="#2b2118" stroke-width="3.5" stroke-linecap="round"/><path d="M66 42 Q75 36 84 42" fill="none" stroke="#2b2118" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M36 61 Q45 49 54 61" fill="none" stroke="#2b2118" stroke-width="4" stroke-linecap="round"/><path d="M66 61 Q75 49 84 61" fill="none" stroke="#2b2118" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="51" cy="80" rx="3" ry="3.6" fill="#2b2118"/><ellipse cx="69" cy="80" rx="3" ry="3.6" fill="#2b2118"/>
+<path d="M48 90 Q60 108 72 90 Z" fill="#2b2118" stroke="#2b2118" stroke-width="3" stroke-linejoin="round"/><path d="M53 98 Q60 104 67 98 Q60 94 53 98Z" fill="#f4a7a0"/>
+<path d="M108 91 Q108 100 117 100 Q108 100 108 109 Q108 100 99 100 Q108 100 108 91Z" fill="#f2b632" stroke="#2b2118" stroke-width="1.6" stroke-linejoin="round"/><path d="M11 95 Q11 102 18 102 Q11 102 11 109 Q11 102 4 102 Q11 102 11 95Z" fill="#f2b632" stroke="#2b2118" stroke-width="1.6" stroke-linejoin="round"/><path d="M104 76 Q104 80 108 80 Q104 80 104 84 Q104 80 100 80 Q104 80 104 76Z" fill="#f2b632" stroke="#2b2118" stroke-width="1.6" stroke-linejoin="round"/>
+</svg>

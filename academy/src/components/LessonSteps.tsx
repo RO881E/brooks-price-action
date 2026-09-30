@@ -6,6 +6,7 @@ import {
   type QuestionView,
 } from '../features/lessonResults';
 import { moveAnswerFocus } from './answerKeys';
+import { Bull } from './Bull';
 import { ErrorBoundary } from './ErrorBoundary';
 
 /*
@@ -272,7 +273,8 @@ export function QuestionStep({
       </div>
 
       {awaitingRetry && selectedOption ? (
-        <div className="answer-feedback incorrect" role="status">
+        <div className="answer-feedback incorrect with-bull" role="status">
+          <Bull mood="think" size={52} />
           <strong>Noch nicht ganz.</strong>
           <p>{selectedOption.explanation}</p>
           <div className="answer-actions">
@@ -302,7 +304,8 @@ export function QuestionStep({
       ) : null}
 
       {state.status === 'correct' && correctOption ? (
-        <div className="answer-feedback correct" role="status">
+        <div className="answer-feedback correct with-bull" role="status">
+          <Bull mood="cheer" size={52} />
           <strong>
             {state.wrongOptionIds.length > 0 && !state.legacy
               ? 'Richtig – im neuen Versuch.'
@@ -313,7 +316,8 @@ export function QuestionStep({
       ) : null}
 
       {state.status === 'revealed' && correctOption ? (
-        <div className="answer-feedback revealed" role="status">
+        <div className="answer-feedback revealed with-bull" role="status">
+          <Bull mood="calm" size={52} />
           <strong>Lösung: {correctOption.label}</strong>
           <p>{correctOption.explanation}</p>
           {selectedOption && selectedOption.id !== correctOption.id ? (
