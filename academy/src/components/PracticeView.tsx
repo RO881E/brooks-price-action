@@ -19,6 +19,8 @@ import { caseEntries } from '../features/caseTraining';
 import { CaseTrainingList } from './CaseTraining';
 import { mistakeOverview } from '../features/mistakeInsights';
 import { MistakeOverviewView } from './MistakeOverviewView';
+import { bullFeedbackMood } from '../features/bull';
+import { Bull } from './Bull';
 import { TopicPractice } from './TopicPractice';
 import { CaseCompare } from './CaseCompare';
 import { TransferEntry } from './TransferEntry';
@@ -475,7 +477,8 @@ function SessionQuestion({
         </div>
 
         {answered && chosen ? (
-          <div className={`practice-feedback ${correct ? 'correct' : 'incorrect'}`} role="status">
+          <div className={`practice-feedback with-bull ${correct ? 'correct' : 'incorrect'}`} role="status">
+            <Bull mood={bullFeedbackMood(correct)} size={52} />
             <strong>{correct ? 'Sauber analysiert.' : 'Schau auf den Kontext.'}</strong>
             <p>{chosen.explanation}</p>
             {!correct && solution ? (

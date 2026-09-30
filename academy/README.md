@@ -524,6 +524,14 @@ höchstens drei Begriffe, nur vorhandene Glossarbegriffe (Feld `term`), und der 
 eigenes Wort im Text des Schritts. Verstöße melden `npm test` und `npm run check:content`
 (Regel `begriff-am-lernort`); unbekannte Begriffe blendet die Oberfläche sicher aus.
 
+## Spielerischer: Bulle „Bo“ (Stufe 1)
+
+Ein freundlicher Bulle begleitet „Heute“, die Antwort-Rückmeldung und das Lektionsergebnis; Knöpfe
+und Karten sind farbiger und runder. Nur Darstellung, Lernstand und Texte unverändert. Die Bilder
+liegen in `public/mascot/` und lassen sich durch gleichnamige Dateien ersetzen. Details, Entscheidungen
+und Bildschirmfotos: [`docs/DESIGN_STUFE1.md`](docs/DESIGN_STUFE1.md); Ideen für weitere Stufen:
+[`docs/SPIELERISCH_IDEEN.md`](docs/SPIELERISCH_IDEEN.md).
+
 ## Wiederholungsplan
 
 Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen

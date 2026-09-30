@@ -2,6 +2,8 @@ import { useId } from 'react';
 import type { LessonOutline, UnitOutline } from '../content/types';
 import type { StudyMinutes } from '../features/studySession';
 import type { TodayAction, TodayPlan } from '../features/today';
+import { bullGreeting } from '../features/bull';
+import { BullSays } from './Bull';
 import { StudyEntry } from './StudyView';
 
 interface Props {
@@ -60,6 +62,7 @@ function describe(action: TodayAction): { title: string; detail: string; label: 
 export function TodayPanel({ plan, onLesson, onReview, onPractice, onTrain, onRead, onStudy }: Props) {
   const ids = useId();
   const info = describe(plan.primary);
+  const greeting = bullGreeting(plan.primary);
   const act = () => {
     const action = plan.primary;
     if (action.kind === 'review-resume' || action.kind === 'review-due') onReview();
@@ -72,6 +75,7 @@ export function TodayPanel({ plan, onLesson, onReview, onPractice, onTrain, onRe
         Dein nächster Schritt
       </h2>
       <div className="today-primary" data-mode={plan.primary.kind === 'train' ? 'train' : plan.primary.kind.startsWith('review') ? 'review' : 'read'}>
+        <BullSays mood={greeting.mood} size={84}>{greeting.text}</BullSays>
         <p className="eyebrow">Jetzt dran</p>
         {info ? (
           <>

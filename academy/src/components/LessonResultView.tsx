@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import type { LessonOutline } from '../content/types';
 import type { BarCase } from '../content/barCaseTypes';
 import type { LessonSummary } from '../features/lessonResults';
+import { BullSays } from './Bull';
 import { CaseLinks } from './CaseTraining';
 
 interface LessonResultViewProps {
@@ -58,6 +59,12 @@ export function LessonResultView({
           <h1 tabIndex={-1} ref={headingRef}>
             {lesson.title}
           </h1>
+
+          {summary.completed ? (
+            <BullSays mood="cheer">Geschafft! Wieder ein Stück weiter – gut gemacht.</BullSays>
+          ) : (
+            <BullSays mood="calm">Kein Stress – du kannst jederzeit an dieser Stelle weitermachen.</BullSays>
+          )}
 
           <dl className="result-stats">
             <div>

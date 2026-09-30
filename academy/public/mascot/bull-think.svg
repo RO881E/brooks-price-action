@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Bulle Bo, think">
+<title>Bulle Bo</title>
+<g stroke="#2b2118" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M32 44 C12 42 6 22 16 10 C21 24 30 30 42 34 Z" fill="#fff4dc"/>
+<path d="M88 44 C108 42 114 22 104 10 C99 24 90 30 78 34 Z" fill="#fff4dc"/>
+<ellipse cx="17" cy="62" rx="12" ry="8" transform="rotate(-20 17 62)" fill="#d98241"/>
+<ellipse cx="103" cy="62" rx="12" ry="8" transform="rotate(20 103 62)" fill="#d98241"/>
+<ellipse cx="17" cy="62" rx="6" ry="3.6" transform="rotate(-20 17 62)" fill="#f4a7a0" stroke="none"/>
+<ellipse cx="103" cy="62" rx="6" ry="3.6" transform="rotate(20 103 62)" fill="#f4a7a0" stroke="none"/>
+<ellipse cx="60" cy="64" rx="40" ry="38" fill="#d98241"/>
+<path d="M50 30 Q60 18 70 30 Q64 26 60 30 Q56 26 50 30Z" fill="#b8632b"/>
+<ellipse cx="60" cy="86" rx="26" ry="19" fill="#fbeacf"/>
+</g>
+
+<path d="M36 46 Q45 43 54 47" fill="none" stroke="#2b2118" stroke-width="3.5" stroke-linecap="round"/><path d="M66 40 Q75 34 84 39" fill="none" stroke="#2b2118" stroke-width="3.5" stroke-linecap="round"/>
+<ellipse cx="45" cy="58" rx="8.5" ry="10" fill="#fff" stroke="#2b2118" stroke-width="2.5"/><ellipse cx="75" cy="58" rx="8.5" ry="10" fill="#fff" stroke="#2b2118" stroke-width="2.5"/>
+<circle cx="49" cy="55" r="5" fill="#2b2118"/><circle cx="79" cy="55" r="5" fill="#2b2118"/><circle cx="50.8" cy="52.8" r="1.8" fill="#fff"/><circle cx="80.8" cy="52.8" r="1.8" fill="#fff"/>
+<ellipse cx="51" cy="80" rx="3" ry="3.6" fill="#2b2118"/><ellipse cx="69" cy="80" rx="3" ry="3.6" fill="#2b2118"/>
+<path d="M53 94 Q58 91 68 95" fill="none" stroke="#2b2118" stroke-width="3.5" stroke-linecap="round"/>
+
+</svg>

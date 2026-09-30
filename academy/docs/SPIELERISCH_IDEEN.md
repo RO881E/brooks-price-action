@@ -134,7 +134,14 @@ werden, keine Nachbildung fremder Assets.
 - Jede Stufe als eigenes, kleines Paket mit Bildschirmfotos vorher/nachher und Freigabe durch
   Robert.
 
-## Entscheidungen für Robert
+## Entschieden (Robert)
+
+- Figur: ein **Bulle** (Bo). Ton: locker, gut verständlich ab 12.
+- Töne standardmäßig **aus**, Vibration **an** (Stufe 5).
+- Illustrationen zunächst von Claude als Platzhalter, später gern aus ChatGPT (Austausch siehe `DESIGN_STUFE1.md`).
+- Reihenfolge: mit **Stufe 1** begonnen ([`DESIGN_STUFE1.md`](DESIGN_STUFE1.md)).
+
+## Ursprüngliche Fragen
 
 1. Soll die Figur eine Kerze/Bar sein, oder etwas anderes (Tier, Roboter)?
 2. Wie kindlich darf der Ton werden? (Zielgruppe sind Erwachsene, die Trading lernen.)
