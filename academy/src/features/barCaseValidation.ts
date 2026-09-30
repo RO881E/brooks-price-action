@@ -51,7 +51,7 @@ function lessonIndex(course: CourseOutline): Map<string, LessonRef> {
   );
 }
 
-function checkBar(bar: CaseBar, path: string, report: (path: string, message: string) => void) {
+export function checkBar(bar: CaseBar, path: string, report: (path: string, message: string) => void) {
   const values = [bar.open, bar.high, bar.low, bar.close];
   if (!values.every((value) => typeof value === 'number' && Number.isFinite(value))) {
     report(path, 'OHLC-Werte müssen endliche Zahlen sein.');

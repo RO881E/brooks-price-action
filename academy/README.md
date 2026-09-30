@@ -558,6 +558,12 @@ Der Chart-Trainer hat große Entscheidungs-Kacheln, animierte neue Bars und eine
 es zwei freiwillige Spiele ohne Einfluss auf den Lernstand: Begriffe-Memory (Begriff ↔ Beschreibung aus dem Glossar) und die
 Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](docs/DESIGN_STUFE4.md).
 
+## „Finde den Bar“ und „Ordne die Schritte“ (Stufe 4d, Content-Pack C-04)
+
+Zwei weitere Übungen unter „Üben“ (Chart antippen; Schritte per Hoch/Runter-Knöpfen ordnen), reine Übung ohne
+Einfluss auf den Lernstand. Die 16 Aufgaben sind Entwurf und **erst nach fachlicher Freigabe sichtbar** – Prüfliste:
+[`docs/C04_AUFGABEN.md`](docs/C04_AUFGABEN.md), Details: [`docs/DESIGN_STUFE4D.md`](docs/DESIGN_STUFE4D.md).
+
 ## Farbschema: Hell, Dunkel, Bunt, wie im System (Stufe 5b/5c)
 
 Einstellungen → „Farbschema“. Alle Farben sind Tokens (`src/theme-colors.json`, erzeugt `src/theme.css` mit
