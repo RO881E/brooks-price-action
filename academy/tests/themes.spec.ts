@@ -5,7 +5,7 @@ import { brooksTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
 /*
- * Stufe 5b: Farbschema. Dunkel (und „wie im System“) für alle Kernansichten und wichtige
+ * Stufe 5b/5c: Farbschema. Dunkel, Bunt (und „wie im System“) für alle Kernansichten und wichtige
  * Zustände: axe ohne Befund, kein Überlauf, Auswahl bleibt erhalten, kein Aufblitzen.
  */
 
@@ -53,7 +53,7 @@ const VIEWS: Array<[string, string]> = [
   ['Einstellungen', '/#/settings'],
 ];
 
-test.describe('Dunkles Thema', () => {
+test.describe('Farbschema', () => {
   test('Standard hell: data-theme ist „light“; Wahl „Dunkel“ gilt sofort und bleibt nach Reload', async ({ page }) => {
     await seed(page, null);
     await page.goto('/#/settings');
@@ -92,14 +92,32 @@ test.describe('Dunkles Thema', () => {
     expect(await page.evaluate(() => (window as unknown as { __themeAtLoad: string | null }).__themeAtLoad)).toBe('dark');
   });
 
+  test('Bunt: Wahl gilt sofort, bleibt nach Reload und ändert die Akzentfarben, nicht die Struktur', async ({ page }) => {
+    await seed(page, null);
+    await page.goto('/#/settings');
+    const canvasLight = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    await page.getByRole('radio', { name: 'Bunt', exact: true }).check();
+    expect(await attr(page)).toBe('bunt');
+    await page.reload();
+    await expect(page.getByRole('radio', { name: 'Bunt', exact: true })).toBeChecked();
+    expect(await attr(page)).toBe('bunt');
+    const canvasBunt = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    expect(canvasBunt).not.toBe(canvasLight);
+    // Struktur bleibt hell: der Hintergrund ist hell, nicht dunkel.
+    expect(canvasBunt.match(/\d+/g)!.map(Number).slice(0, 3).reduce((a, b) => a + b, 0) / 3).toBeGreaterThan(200);
+  });
+});
+
+for (const theme of ['dark', 'bunt'] as const) {
+  test.describe(`Thema ${theme}`, () => {
   test('alle Kernansichten: axe ohne Befund und kein Überlauf bei 360 px', async ({ page }) => {
     test.setTimeout(180_000);
-    await seed(page, 'dark');
+    await seed(page, theme);
     await page.setViewportSize({ width: 360, height: 740 });
     for (const [name, hash] of VIEWS) {
       await page.goto(hash);
       await expect(page.getByRole('heading', { level: 1 }).first()).toBeVisible();
-      expect(await attr(page), name).toBe('dark');
+      expect(await attr(page), name).toBe(theme);
       expect(await overflow(page), `${name}: Überlauf`).toBeLessThanOrEqual(0);
       const axe = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();
       expect(axe.violations.map((violation) => `${name}: ${violation.id}`)).toEqual([]);
@@ -108,7 +126,7 @@ test.describe('Dunkles Thema', () => {
 
   test('wichtige Zustände: Antwort-Rückmeldung, Trainer-Auflösung, Bar-Album, Spiele, Hilfe', async ({ page }) => {
     test.setTimeout(180_000);
-    await seed(page, 'dark');
+    await seed(page, theme);
     const axe = async (name: string, include?: string) => {
       const builder = new AxeBuilder({ page }).withTags(AXE_TAGS);
       if (include) builder.include(include);
@@ -146,3 +164,4 @@ test.describe('Dunkles Thema', () => {
     await axe('Hilfe', 'dialog, [role="dialog"]');
   });
 });
+}

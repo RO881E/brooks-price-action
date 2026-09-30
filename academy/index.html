@@ -21,6 +21,7 @@
           var stored = JSON.parse(localStorage.getItem('wqt-academy-ui-v1') || '{}').theme;
           var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
           if (stored === 'dark' || (stored === 'auto' && dark)) theme = 'dark';
+          else if (stored === 'bunt') theme = 'bunt';
         } catch (error) {}
         document.documentElement.setAttribute('data-theme', theme);
       })();

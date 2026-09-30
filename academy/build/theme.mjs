@@ -94,6 +94,10 @@ export function buildTheme(config, css = '') {
     ...rgba.map(([name, value]) => `  --c-${name}: ${config.dark?.[name] ?? darkOfRgba(value)};`),
   ].join('\n');
   const derived = rootTokens(css).join('\n');
+  const bunt = Object.entries(config.bunt ?? {})
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([key, value]) => `  --c-${key}: ${value};`)
+    .join('\n');
   return `/* Erzeugt von build/theme.mjs aus src/theme-colors.json – nicht von Hand ändern (\`npm run theme\`). */
 
 :root {
@@ -103,6 +107,11 @@ ${light}
 :root[data-theme='dark'] {
   color-scheme: dark;
 ${night}
+}
+
+/* Thema „Bunt“: gesättigtere Akzente auf heller Struktur (nur die Werte aus \`bunt\`). */
+:root[data-theme='bunt'] {
+${bunt}
 }
 
 /* Immer dunkle Flächen (Seitenleiste) behalten in beiden Themen die Originalfarben. */

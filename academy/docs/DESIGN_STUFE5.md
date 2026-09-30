@@ -1,12 +1,12 @@
 # Stufe 5: Farbschema (Dunkel) und Thema „Bunt“
 
-Umsetzung von S5b (und danach S5c) aus [`SPIELERISCH_STUFE4_5_PLAN.md`](SPIELERISCH_STUFE4_5_PLAN.md). Nur Darstellung:
+Umsetzung von S5b und S5c aus [`SPIELERISCH_STUFE4_5_PLAN.md`](SPIELERISCH_STUFE4_5_PLAN.md). Nur Darstellung:
 Inhalte, Lernstand, XP und Sicherung bleiben unverändert. Die Wahl liegt wie Ton und Vibration im
 Geräteschlüssel `wqt-academy-ui-v1` (nicht im Lernstand, nicht im Backup).
 
 ## S5b – Dunkles Thema
 
-**Auswahl:** Einstellungen → „Farbschema“: *Hell* (Standard), *Dunkel*, *Wie im System eingestellt*
+**Auswahl:** Einstellungen → „Farbschema“: *Hell* (Standard), *Dunkel*, *Bunt*, *Wie im System eingestellt*
 (folgt dem Systemwunsch, auch während die App läuft). Die Wahl gilt sofort und bleibt nach dem Neuladen.
 Ein kleines Skript in `index.html` setzt `data-theme` vor dem ersten Zeichnen – kein Aufblitzen.
 
@@ -28,7 +28,7 @@ Statt Stelle für Stelle umzuschreiben, ist **jede Farbe ein Token** `--c-<hex>`
 
 ### Prüfung
 
-- `tests/dark-theme.spec.ts` (Desktop und 360 px): Wahl und Reload, „Wie im System“ inkl. Wechsel, kein
+- `tests/themes.spec.ts` (Desktop und 360 px; gleiche Prüfungen für Dunkel und Bunt): Wahl und Reload, „Wie im System“ inkl. Wechsel, kein
   Aufblitzen, axe ohne Befund für alle Kernansichten (Lernpfad, Buchmodus, Leser, Üben, Kurzlernen, Trainer,
   Rückblick, Fortschritt, Gespeichert, Glossar, Einstellungen) und wichtige Zustände (Antwort-Rückmeldung,
   Trainer-Auflösung, Bar-Album, Begriffe-Memory, Blitzrunde, Hilfe-Dialog), kein Überlauf.
@@ -40,3 +40,16 @@ Statt Stelle für Stelle umzuschreiben, ist **jede Farbe ein Token** `--c-<hex>`
   umgemalt. Bilder aus ChatGPT sollten auf hellem **und** dunklem Grund geprüft werden.
 - Die Farbableitung ist automatisch; einzelne Stellen (z. B. Verläufe) können mit Geschmack nachjustiert
   werden – über `dark` in `theme-colors.json`.
+
+## S5c – Thema „Bunt“
+
+Gleiche helle Struktur, aber **gesättigtere Akzentfarben**: kräftigeres Blau, Türkis, Violett, Orange und Gold
+für Lesen, Üben, Wiederholen, Trainieren und Fortschritt, satter getönte Flächen und ein leicht warmer
+Grund. Umgesetzt mit denselben Tokens wie das dunkle Thema (`bunt` in `src/theme-colors.json` überschreibt nur
+die Akzentwerte; `npm run theme` erzeugt `:root[data-theme='bunt']`). Die Seitenleiste bleibt dunkel.
+
+- **Kontrast:** Die Akzent-Textfarben („Ink“) sind so gewählt, dass sie auf Weiß, auf der eigenen Fläche und auf dem
+  Grund mindestens 4,5 : 1 erreichen (Unit-Test `build/themeTokens.test.ts`). axe ist für alle Kernansichten und
+  wichtigen Zustände ohne Befund (`tests/themes.spec.ts`).
+- Farbe bleibt Beiwerk: Status und Bedeutung stehen weiterhin als Text und Symbol; keine Gewinn-/Verlustfarben.
+- Bilder: [`docs/design/s5c`](design/s5c).
