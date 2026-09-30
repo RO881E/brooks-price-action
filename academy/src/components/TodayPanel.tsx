@@ -3,11 +3,15 @@ import type { LessonOutline, UnitOutline } from '../content/types';
 import type { StudyMinutes } from '../features/studySession';
 import type { TodayAction, TodayPlan } from '../features/today';
 import { bullGreeting } from '../features/bull';
+import type { GoalOverview } from '../features/goals';
 import { BullSays } from './Bull';
 import { StudyEntry } from './StudyView';
+import { WeekStrip } from './WeekStrip';
 
 interface Props {
   plan: TodayPlan;
+  /** Tagesziel und Wochenblick (Stufe 3); ohne sie fehlen Ring und Wochenleiste. */
+  goals?: GoalOverview;
   onLesson: (lesson: LessonOutline) => void;
   /** Startet die fällige Runde bzw. setzt die laufende fort. */
   onReview: () => void;
@@ -59,7 +63,7 @@ function describe(action: TodayAction): { title: string; detail: string; label: 
  * Startansicht „Heute“ (P06): eine primäre nächste Aktion aus dem echten
  * Lernstand, darunter Lesen, Kurzlernen und Fälliges.
  */
-export function TodayPanel({ plan, onLesson, onReview, onPractice, onTrain, onRead, onStudy }: Props) {
+export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrain, onRead, onStudy }: Props) {
   const ids = useId();
   const info = describe(plan.primary);
   const greeting = bullGreeting(plan.primary);
@@ -75,7 +79,7 @@ export function TodayPanel({ plan, onLesson, onReview, onPractice, onTrain, onRe
         Dein nächster Schritt
       </h2>
       <div className="today-primary" data-mode={plan.primary.kind === 'train' ? 'train' : plan.primary.kind.startsWith('review') ? 'review' : 'read'}>
-        <BullSays mood={greeting.mood} size={84}>{greeting.text}</BullSays>
+        <BullSays mood={greeting.mood} size={84} ring={goals?.today.percent}>{greeting.text}</BullSays>
         <p className="eyebrow">Jetzt dran</p>
         {info ? (
           <>
@@ -91,6 +95,15 @@ export function TodayPanel({ plan, onLesson, onReview, onPractice, onTrain, onRe
             <p>Du hast alle veröffentlichten Lektionen abgeschlossen und nichts ist fällig. Schau später wieder vorbei.</p>
           </>
         )}
+        {goals ? (
+          <div className="today-week">
+            <WeekStrip week={goals.week} />
+            <p className="week-goal">
+              Tagesziel heute: {Math.min(goals.today.value, goals.today.goal.target)} von {goals.today.goal.target}
+              {goals.today.met ? ' – geschafft' : ''}
+            </p>
+          </div>
+        ) : null}
       </div>
       <div className="today-grid">
         {plan.reading ? (

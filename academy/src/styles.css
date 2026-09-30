@@ -7628,3 +7628,255 @@ button:disabled {
   background: transparent;
   box-shadow: none;
 }
+
+/* ==========================================================================
+   Stufe 3 „spielerischer“: Wochenblick, Ziel-Ring, Missionstruhe, Bar-Album.
+   Nur Anzeige aus dem echten Lernstand; eine Pause ist neutral („kein Lerntag“),
+   nie „verpasst“ oder „Serie verloren“.
+   ========================================================================== */
+
+/* Ziel-Ring um den Bullen (Tagesziel in Prozent). */
+.bull-ring {
+  --ring: 0%;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  padding: 5px;
+  border-radius: 50%;
+  background: conic-gradient(var(--mode-base, var(--read-base)) var(--ring), #e6e3da 0);
+}
+
+.bull-ring .bull {
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Wochenblick */
+.today-week {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.week-strip {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.week-strip li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.week-dot {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #fff;
+  border: 3px solid #e6e3da;
+  border-radius: 50%;
+  background: #f4f2ec;
+}
+
+.week-strip li.met .week-dot,
+.week-strip li.active .week-dot {
+  border-color: var(--mode-ink, var(--read-ink));
+  background: var(--mode-ink, var(--read-ink));
+}
+
+.week-strip li.met .week-dot {
+  box-shadow: 0 0 0 4px var(--mode-soft, #e6eefb);
+}
+
+.week-strip li.today .week-dot {
+  border-color: var(--mode-base, var(--read-base));
+  border-style: solid;
+}
+
+.week-strip li.future .week-dot {
+  opacity: 0.55;
+}
+
+.week-day-label {
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.week-strip li.today .week-day-label {
+  color: var(--ink);
+}
+
+.today-primary .week-summary,
+.today-primary .week-goal {
+  margin: 10px 0 0;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Missionstruhe: reine Anzeige, ohne Punkte. */
+.mission-chest {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  border: 2px dashed var(--line-strong);
+  border-radius: 16px;
+  background: #fbfaf7;
+}
+
+.mission-chest.open {
+  border-style: solid;
+  border-color: var(--progress-base);
+  background: var(--progress-soft);
+}
+
+.mission-chest-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  color: var(--progress-ink);
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Bar-Album */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.album-grid li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 0 rgba(8, 17, 31, 0.05);
+}
+
+.album-grid li.unlocked {
+  border-color: var(--read-base);
+  background: linear-gradient(180deg, var(--read-soft) 0%, #fff 55%);
+}
+
+.album-grid h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 15px;
+}
+
+.album-grid p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.album-grid li.locked p,
+.album-grid li.locked h3 {
+  color: #6b7280;
+}
+
+.album-lock {
+  display: inline-grid;
+  place-items: center;
+  color: #6b7280;
+}
+
+.album-bars {
+  width: 100%;
+  height: auto;
+  max-height: 96px;
+}
+
+.album-bars line {
+  stroke: #47506a;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.album-bars .album-level {
+  stroke: var(--train-base);
+  stroke-dasharray: 4 4;
+  stroke-width: 1.4;
+}
+
+.album-bar rect {
+  stroke: #47506a;
+  stroke-width: 1.4;
+}
+
+.album-bar.up rect {
+  fill: var(--read-base);
+}
+
+.album-bar.down rect {
+  fill: var(--review-base);
+}
+
+.album-bar:not(.focus) {
+  opacity: 0.55;
+}
+
+.album-bars.locked line,
+.album-bars.locked rect {
+  stroke: #b5b9c2;
+}
+
+.album-bars.locked .album-bar rect {
+  fill: #e4e4df;
+}
+
+.album-bars.locked .album-bar {
+  opacity: 1;
+}
+
+.album-grid .link-button {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 32px;
+  padding: 4px 8px;
+}
+
+@media (max-width: 480px) {
+  .album-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .album-grid li {
+    padding: 10px;
+  }
+}
+
+.today-primary .today-week .week-summary {
+  margin: 14px 0 0;
+}
+
+.today-primary .today-week .week-goal {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+}

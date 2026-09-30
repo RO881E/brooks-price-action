@@ -538,6 +538,13 @@ Runde Stationen auf einem geschwungenen Weg, Kapitel-Medaille mit Fortschrittsri
 Station, einheitliche Icons und Schritt-Marken im Lektionsbalken. Reihenfolge, Sperren, Texte und Lernstand
 bleiben unverändert. Details und Bildschirmfotos: [`docs/DESIGN_STUFE2.md`](docs/DESIGN_STUFE2.md).
 
+## Wochenblick, Bar-Album und mehr (Stufe 3)
+
+„Heute“ zeigt den Wochenblick (sieben Punkte) und einen Tagesziel-Ring um den Bullen; unter „Fortschritt“
+gibt es die Missionstruhe (nur Anzeige) und das Bar-Album mit zwölf Sammelkarten, die durch abgeschlossene
+Lektionen frei werden. Alles aus dem echten Lernstand abgeleitet, kein neuer gespeicherter Zustand.
+Details: [`docs/DESIGN_STUFE3.md`](docs/DESIGN_STUFE3.md).
+
 ## Wiederholungsplan
 
 Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen

@@ -32,10 +32,27 @@ export function Bull({ mood, size = 56, className = '' }: { mood: BullMood; size
 }
 
 /** Bulle mit Sprechblase; der Text ist normaler, lesbarer Inhalt. */
-export function BullSays({ mood, children, size = 64 }: { mood: BullMood; children: ReactNode; size?: number }) {
+export function BullSays({
+  mood,
+  children,
+  size = 64,
+  ring,
+}: {
+  mood: BullMood;
+  children: ReactNode;
+  size?: number;
+  /** Optionaler Ring um die Figur in Prozent (z. B. Tagesziel); reine Anzeige. */
+  ring?: number;
+}) {
   return (
     <div className="bull-says">
-      <Bull mood={mood} size={size} />
+      {ring === undefined ? (
+        <Bull mood={mood} size={size} />
+      ) : (
+        <span className="bull-ring" aria-hidden="true" style={{ '--ring': `${Math.max(0, Math.min(100, Math.round(ring)))}%` } as React.CSSProperties}>
+          <Bull mood={mood} size={size} />
+        </span>
+      )}
       <p className="bull-bubble">{children}</p>
     </div>
   );
