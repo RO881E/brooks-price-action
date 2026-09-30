@@ -7890,3 +7890,132 @@ button:disabled {
   color: var(--ink);
   font-weight: 600;
 }
+
+/* ==========================================================================
+   Stufe 4a „Chart-Trainer als Mini-Spiel“: große Entscheidungs-Kacheln, Bars
+   erscheinen nacheinander, Auflösung mit dem Bullen. Bedienung und Auswertung
+   bleiben unverändert (echte Radiogruppe); nur ohne „Bewegung reduzieren“
+   bewegt sich etwas. Long/Kurz nutzen neutrale Modusfarben, keine
+   Gewinn-/Verlustfarben.
+   ========================================================================== */
+
+.decision-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.trainer-choices .decision-tile {
+  --tile: var(--line-strong);
+  --tile-soft: #f6f5f1;
+  --tile-ink: var(--ink);
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-height: 92px;
+  padding: 14px 8px;
+  text-align: center;
+  border: 2px solid var(--tile);
+  border-radius: 18px;
+  background: var(--tile-soft);
+  box-shadow: 0 4px 0 var(--tile);
+}
+
+.decision-tile[data-decision='long'] {
+  --tile: var(--read-base);
+  --tile-soft: var(--read-soft);
+  --tile-ink: var(--read-ink);
+}
+
+.decision-tile[data-decision='short'] {
+  --tile: var(--review-base);
+  --tile-soft: var(--review-soft);
+  --tile-ink: var(--review-ink);
+}
+
+.decision-tile input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.decision-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--tile-ink);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.decision-name {
+  color: var(--tile-ink);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.trainer-choices .decision-tile:has(input:checked) {
+  border-color: var(--tile-ink);
+  background: #fff;
+  box-shadow: 0 0 0 4px var(--tile-soft), 0 4px 0 var(--tile-ink);
+}
+
+.trainer-choices .decision-tile:has(input:checked) .decision-icon {
+  color: #fff;
+  background: var(--tile-ink);
+}
+
+.trainer-choices .decision-tile:has(input:focus-visible) {
+  outline: 3px solid var(--tile-ink);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .decision-tiles {
+    gap: 8px;
+  }
+
+  .trainer-choices .decision-tile {
+    min-height: 84px;
+    padding: 10px 4px;
+  }
+
+  .decision-name {
+    font-size: 13px;
+  }
+}
+
+/* Neue Bars erscheinen nacheinander. */
+@media (prefers-reduced-motion: no-preference) {
+  .case-bar.is-new {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: bar-in 420ms ease-out both;
+    animation-delay: calc(var(--n, 0) * 140ms);
+  }
+
+  @keyframes bar-in {
+    from {
+      opacity: 0;
+      transform: scaleY(0.2);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+:root[data-motion='reduce'] .case-bar.is-new {
+  animation: none !important;
+}
+
+.trainer-reveal > .bull-says {
+  margin-top: 4px;
+}

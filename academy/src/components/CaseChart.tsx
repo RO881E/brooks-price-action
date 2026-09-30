@@ -62,7 +62,12 @@ export function CaseChart({
           const top = y(Math.max(bar.open, bar.close));
           const bottom = y(Math.min(bar.open, bar.close));
           return (
-            <g key={index} className={`case-bar ${tone}`} data-bar-index={index}>
+            <g
+              key={index}
+              className={`case-bar ${tone}${newFrom !== undefined && index >= newFrom ? ' is-new' : ''}`}
+              data-bar-index={index}
+              style={newFrom !== undefined && index >= newFrom ? ({ '--n': index - newFrom } as React.CSSProperties) : undefined}
+            >
               <line x1={x(index)} x2={x(index)} y1={y(bar.high)} y2={y(bar.low)} />
               <rect x={x(index) - body / 2} y={top} width={body} height={Math.max(2, bottom - top)} rx={2} />
             </g>
