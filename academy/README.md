@@ -532,6 +532,12 @@ liegen in `public/mascot/` und lassen sich durch gleichnamige Dateien ersetzen. 
 und Bildschirmfotos: [`docs/DESIGN_STUFE1.md`](docs/DESIGN_STUFE1.md); Ideen für weitere Stufen:
 [`docs/SPIELERISCH_IDEEN.md`](docs/SPIELERISCH_IDEEN.md).
 
+## Lernpfad als Wanderweg (Stufe 2)
+
+Runde Stationen auf einem geschwungenen Weg, Kapitel-Medaille mit Fortschrittsring, der Bulle an der aktuellen
+Station, einheitliche Icons und Schritt-Marken im Lektionsbalken. Reihenfolge, Sperren, Texte und Lernstand
+bleiben unverändert. Details und Bildschirmfotos: [`docs/DESIGN_STUFE2.md`](docs/DESIGN_STUFE2.md).
+
 ## Wiederholungsplan
 
 Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen

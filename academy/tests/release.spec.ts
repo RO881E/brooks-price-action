@@ -197,6 +197,8 @@ test.describe('F-10 Release-Suite', () => {
   });
 
   test('360 px: keine horizontale Überbreite in Ansichten, Lektion, Suche und Import', async ({ page }) => {
+    // axe über alle Ansichten inkl. Lernpfad mit 250+ Stationen: rund 40 s.
+    test.setTimeout(120_000);
     const errors = trackErrors(page);
     await page.setViewportSize({ width: 360, height: 740 });
     for (const view of VIEWS) {
