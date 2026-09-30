@@ -52,6 +52,7 @@ function median(values: number[]): number {
 }
 
 const isTrendUp = (bar: CaseBar) => bar.close > bar.open && body(bar) >= 0.6 * range(bar);
+const isInside = (bar: CaseBar, before: CaseBar) => bar.high < before.high && bar.low > before.low;
 
 /**
  * Indizes der Bars, die die Regel erfüllen. Die Regeln sind bewusst einfache, nachrechenbare
@@ -99,11 +100,54 @@ export function ruleMatches(bars: readonly CaseBar[], rule: SignalRule): number[
       return indices.filter(
         (i) => i >= 3 && bars.slice(0, i).every(isTrendUp) && (bars[i].close <= bars[i].open || body(bars[i]) < 0.3 * range(bars[i])),
       );
+    case 'failed-breakdown': {
+      const lowestBefore = (index: number) => Math.min(...bars.slice(0, index).map((bar) => bar.low));
+      return indices.filter((i) => i >= 1 && bars[i].low < lowestBefore(i) && bars[i].close >= lowestBefore(i));
+    }
+    case 'ii-first':
+      return indices.filter(
+        (i) => i >= 1 && i + 1 < bars.length && isInside(bars[i], bars[i - 1]) && isInside(bars[i + 1], bars[i]),
+      );
+    case 'bull-reversal-bar': {
+      const lowestBefore = (index: number) => Math.min(...bars.slice(0, index).map((bar) => bar.low));
+      return indices.filter((i) => {
+        const bar = bars[i];
+        if (i < 1 || !(bar.low < lowestBefore(i)) || !(bar.close > bar.open) || !(bar.close > bars[i - 1].close)) return false;
+        const upperTail = bar.high - bar.close;
+        const lowerTail = bar.open - bar.low;
+        return (bar.close - bar.low) >= 0.7 * range(bar) && upperTail <= 0.2 * range(bar) && lowerTail >= 0.3 * range(bar);
+      });
+    }
+    case 'shaved-top':
+      return indices.filter((i) => bars[i].close > bars[i].open && bars[i].high - bars[i].close <= 0.02 * range(bars[i]));
+    case 'outside-bar':
+      return indices.filter((i) => i >= 1 && bars[i].high > bars[i - 1].high && bars[i].low < bars[i - 1].low);
+    case 'weak-bear-close': {
+      const lowestBefore = (index: number) => Math.min(...bars.slice(0, index).map((bar) => bar.low));
+      return indices.filter(
+        (i) => i >= 1 && bars[i].close < bars[i].open && bars[i].low < lowestBefore(i) && bars[i].close - bars[i].low >= 0.35 * range(bars[i]),
+      );
+    }
+    case 'second-test': {
+      const medianRange = median(bars.map(range));
+      return indices.filter((i) => {
+        if (i < 3) return false;
+        const before = bars.slice(0, i).map((bar) => bar.low);
+        const lowest = Math.min(...before);
+        const lowestAt = before.indexOf(lowest);
+        return (
+          lowestAt <= i - 2 &&
+          bars[i].low >= lowest &&
+          bars[i].low - lowest <= 0.25 * medianRange &&
+          bars[i].close > bars[i].open
+        );
+      });
+    }
   }
 }
 
 /** Regeln, bei denen der **erste** Treffer zählt (spätere Bars dürfen ebenfalls passen). */
-export const FIRST_MATCH_RULES: readonly SignalRule[] = ['breakout-close', 'first-pause'];
+export const FIRST_MATCH_RULES: readonly SignalRule[] = ['breakout-close', 'first-pause', 'second-test'];
 
 export function describeSignalBar(bar: CaseBar, index: number): string {
   const direction = bar.close > bar.open ? 'steigend' : bar.close < bar.open ? 'fallend' : 'unverändert';

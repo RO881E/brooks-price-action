@@ -3,6 +3,8 @@
 Umsetzung von S4d aus [`SPIELERISCH_STUFE4_5_PLAN.md`](SPIELERISCH_STUFE4_5_PLAN.md). Inhalte: Content-Pack
 C-04 ([Prüfliste](C04_AUFGABEN.md)), Status **freigegeben**.
 
+Teil 2 des Packs (Kapitel 3–10, 16 weitere Aufgaben) ist Entwurf; Teil 1 (Kapitel 1–2) ist freigegeben.
+
 Beide Übungen (unter „Üben“) sind **reine Übung**: kein XP, keine Serie, kein Einfluss auf den
 Wiederholungsplan, nichts wird gespeichert.
 
