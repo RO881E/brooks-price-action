@@ -86,7 +86,7 @@ export const c02BarCases: BarCase[] = [
         ],
         cues: [
           { id: 'size', label: 'Der Bar ist ungewöhnlich groß im Vergleich zu den fünf davor', relevant: true, explanation: 'Extreme Größe verändert das Risiko-Bild: Der Schutzabstand wird groß und die Bewegung möglicherweise überdehnt.', lessonId: 'brooks-trends.chapter-02.lesson-09' },
-          { id: 'no-follow', label: 'Es gibt noch keinen Folgebalken', relevant: true, explanation: 'Ob Marktteilnehmer den höheren Bereich annehmen oder zurückgeben, zeigt erst der nächste Bar.', lessonId: 'brooks-trends.chapter-02.lesson-08' },
+          { id: 'no-follow', label: 'Es gibt noch keinen Folgebar', relevant: true, explanation: 'Ob Marktteilnehmer den höheren Bereich annehmen oder zurückgeben, zeigt erst der nächste Bar.', lessonId: 'brooks-trends.chapter-02.lesson-08' },
           { id: 'climax-ends-trend', label: 'Ein Klimax beendet den Trend immer sofort', relevant: false, explanation: 'Nach einem Klimax folgt oft zunächst zweiseitiger Handel, nicht zwingend eine Umkehr.' },
         ],
         explanation: 'Der große Bar liefert Information über Kontrolle und zugleich über Risiko. Die klarere Entscheidung ist, den Anschluss abzuwarten, statt den Klimax für eine Umkehr zu halten.',
@@ -198,14 +198,14 @@ export const c02BarCases: BarCase[] = [
       {
         id: 'failed-bounce',
         afterBar: 8,
-        prompt: 'Nach dem Hammer folgt ein Rücklauf mit tieferem Hoch als davor; der nächste Bar fällt kräftig zurück und schließt nahe seinem Tief. Welche Seite hat jetzt den besseren Kontext?',
+        prompt: 'Nach dem Hammer folgt ein Rücklauf, dessen Hoch unter dem Hoch vor dem Hammer bleibt; der nächste Bar fällt kräftig zurück und schließt nahe seinem Tief. Welche Seite hat jetzt den besseren Kontext?',
         options: [
           { decision: 'long', verdict: 'mistake', feedback: 'Der Rücklauf ist gescheitert und der Verkauf hat sofort wieder Kontrolle. Ein Kauf hätte keinen neuen bullischen Beleg.' },
           { decision: 'short', verdict: 'best', feedback: 'Der Gegenversuch hat nicht getragen und der Trend wird mit starkem Schluss wieder aufgenommen. Ein Short mit dem Trend ist jetzt nachvollziehbar begründet.' },
           { decision: 'wait', verdict: 'defensible', feedback: 'Aussetzen ist vertretbar, wenn der Schutzabstand nicht passt. Fachlich ist der Trendfortsatz aber nun klarer als beim Hammer.' },
         ],
         cues: [
-          { id: 'lower-high', label: 'Der Rücklauf endet mit tieferem Hoch', relevant: true, explanation: 'Das tiefere Hoch zeigt, dass die Käufer keine Kontrolle über den Bereich gewinnen konnten.', lessonId: 'brooks-trends.chapter-05.lesson-07' },
+          { id: 'lower-high', label: 'Das Hoch des Rücklaufs bleibt unter dem Hoch vor dem Hammer', relevant: true, explanation: 'Das tiefere Hoch zeigt, dass die Käufer keine Kontrolle über den Bereich gewinnen konnten.', lessonId: 'brooks-trends.chapter-05.lesson-07' },
           { id: 'bear-close', label: 'Kräftiger bärischer Schluss nahe dem Tief', relevant: true, explanation: 'Der neue Bar liefert die Wiederaufnahme des Trends mit sichtbarer Verkäuferkontrolle.' },
           { id: 'hammer-holds', label: 'Der Hammer bleibt gültig, weil sein Tief noch nicht gebrochen ist', relevant: false, explanation: 'Ein nicht gebrochenes Tief macht einen gescheiterten Rücklauf nicht zum Kaufsignal.' },
         ],
