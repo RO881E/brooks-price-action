@@ -558,7 +558,7 @@ Der Chart-Trainer hat große Entscheidungs-Kacheln, animierte neue Bars und eine
 es zwei freiwillige Spiele ohne Einfluss auf den Lernstand: Begriffe-Memory (Begriff ↔ Beschreibung aus dem Glossar) und die
 Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](docs/DESIGN_STUFE4.md).
 
-## Farbschema: Hell, Dunkel, wie im System (Stufe 5b)
+## Farbschema: Hell, Dunkel, Bunt, wie im System (Stufe 5b/5c)
 
 Einstellungen → „Farbschema“. Alle Farben sind Tokens (`src/theme-colors.json`, erzeugt `src/theme.css` mit
 `npm run theme`); neue Farben nie als Hex in `styles.css` schreiben (ein Test prüft das). Details:

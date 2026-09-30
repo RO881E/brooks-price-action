@@ -311,6 +311,31 @@
   --c-rgba-255-255-255-0_98: rgba(16, 18, 22, 0.98);
 }
 
+/* Thema „Bunt“: gesättigtere Akzente auf heller Struktur (nur die Werte aus `bunt`). */
+:root[data-theme='bunt'] {
+  --c-0b6b63: #056a62;
+  --c-14a094: #00b8a9;
+  --c-1d4f91: #1444a3;
+  --c-2f6fbd: #2b7cff;
+  --c-4fd1c5: #3ee6d3;
+  --c-5b3fb0: #5a34c7;
+  --c-7c5ce0: #8a5cff;
+  --c-8a5e1e: #8a5300;
+  --c-8db8f0: #7fb4ff;
+  --c-a8410f: #b23a06;
+  --c-b7a2ff: #b9a0ff;
+  --c-bb8734: #f2a100;
+  --c-d9b46f: #ffc94d;
+  --c-dff3f0: #c9f5ee;
+  --c-e2662f: #ff6a1f;
+  --c-e6eefb: #d9e8ff;
+  --c-ece8fb: #e4dbff;
+  --c-f4e9d5: #ffefc2;
+  --c-f4f3ef: #fff5e1;
+  --c-fdebe1: #ffe1d0;
+  --c-ff9a6b: #ff9a5c;
+}
+
 /* Immer dunkle Flächen (Seitenleiste) behalten in beiden Themen die Originalfarben. */
 :root[data-theme='dark'] .app-sidebar {
   --c-08111f: #08111f;

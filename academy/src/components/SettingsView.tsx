@@ -216,7 +216,7 @@ export function SettingsView({
       <section className="progress-panel settings-section" aria-labelledby={`${ids}-theme`}>
         <h2 id={`${ids}-theme`}>Farbschema</h2>
         <fieldset className="settings-choices">
-          <legend>Hell oder dunkel</legend>
+          <legend>Hell, dunkel oder bunt</legend>
           <p className="settings-effect">
             Wirkung: gilt sofort überall und wird nur auf diesem Gerät gespeichert – Inhalte, Lernstand und Sicherung
             ändern sich nicht.
@@ -225,6 +225,7 @@ export function SettingsView({
             [
               ['light', 'Hell'],
               ['dark', 'Dunkel'],
+              ['bunt', 'Bunt'],
               ['auto', 'Wie im System eingestellt'],
             ] as const
           ).map(([value, label]) => (

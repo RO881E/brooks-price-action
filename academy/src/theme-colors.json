@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Alle Farben der Oberfläche als Tokens --c-<hex>. Neue Farbe: hier eintragen (6 oder 8 Hexstellen, klein), dann `npm run theme` ausführen und nur var(--c-<hex>) in styles.css verwenden. `dark` überschreibt den automatisch abgeleiteten dunklen Wert.",
+  "_hinweis": "Alle Farben der Oberfläche als Tokens --c-<hex>. Neue Farbe: hier eintragen (6 oder 8 Hexstellen, klein), dann `npm run theme` ausführen und nur var(--c-<hex>) in styles.css verwenden. `dark` überschreibt den automatisch abgeleiteten dunklen Wert. `bunt` überschreibt einzelne Farben im Thema „Bunt“ (gesättigtere Akzente auf heller Struktur).",
   "colors": [
     "08111f",
     "0b6b63",
@@ -156,5 +156,28 @@
     "rgba-255-255-255-0_76": "rgba(255, 255, 255, 0.76)",
     "rgba-255-255-255-0_95": "rgba(255, 255, 255, 0.95)",
     "rgba-255-255-255-0_96": "rgba(255, 255, 255, 0.96)"
+  },
+  "bunt": {
+    "1d4f91": "#1444a3",
+    "2f6fbd": "#2b7cff",
+    "e6eefb": "#d9e8ff",
+    "8db8f0": "#7fb4ff",
+    "0b6b63": "#056a62",
+    "14a094": "#00b8a9",
+    "dff3f0": "#c9f5ee",
+    "4fd1c5": "#3ee6d3",
+    "5b3fb0": "#5a34c7",
+    "7c5ce0": "#8a5cff",
+    "ece8fb": "#e4dbff",
+    "b7a2ff": "#b9a0ff",
+    "a8410f": "#b23a06",
+    "e2662f": "#ff6a1f",
+    "fdebe1": "#ffe1d0",
+    "ff9a6b": "#ff9a5c",
+    "8a5e1e": "#8a5300",
+    "bb8734": "#f2a100",
+    "f4e9d5": "#ffefc2",
+    "d9b46f": "#ffc94d",
+    "f4f3ef": "#fff5e1"
   }
 }

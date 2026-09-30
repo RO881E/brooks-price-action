@@ -10,18 +10,18 @@ import { useSyncExternalStore } from 'react';
 
 export const UI_PREFERENCES_KEY = 'wqt-academy-ui-v1';
 
-export type ThemePreference = 'light' | 'dark' | 'auto';
+export type ThemePreference = 'light' | 'dark' | 'auto' | 'bunt';
 
 export interface UiPreferences {
   sound: boolean;
   haptics: boolean;
-  /** Farbschema: hell (Standard), dunkel oder wie im System. */
+  /** Farbschema: hell (Standard), dunkel, bunt oder wie im System. */
   theme: ThemePreference;
 }
 
 export const DEFAULT_UI_PREFERENCES: Readonly<UiPreferences> = { sound: false, haptics: true, theme: 'light' };
 
-const isTheme = (value: unknown): value is ThemePreference => value === 'light' || value === 'dark' || value === 'auto';
+const isTheme = (value: unknown): value is ThemePreference => value === 'light' || value === 'dark' || value === 'auto' || value === 'bunt';
 
 /** Liest gespeicherten Text; unbekannte oder falsch getypte Werte fallen auf den Standard zurück. */
 export function parseUiPreferences(raw: string | null | undefined): UiPreferences {

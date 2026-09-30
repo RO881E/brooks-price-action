@@ -60,6 +60,23 @@ describe('Farb-Tokens und dunkles Thema (Stufe 5b)', () => {
     }
   });
 
+  it('Thema „Bunt“: Akzent-Text bleibt auf Weiß und auf der eigenen Fläche gut lesbar', () => {
+    const bunt = (config as unknown as { bunt: Record<string, string> }).bunt;
+    const pairs: Array<[string, string]> = [
+      ['1d4f91', 'e6eefb'],
+      ['0b6b63', 'dff3f0'],
+      ['5b3fb0', 'ece8fb'],
+      ['a8410f', 'fdebe1'],
+      ['8a5e1e', 'f4e9d5'],
+    ];
+    for (const [ink, soft] of pairs) {
+      expect(contrast(bunt[ink], '#ffffff'), `${ink} auf Weiß`).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(bunt[ink], bunt[soft]), `${ink} auf Fläche`).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(bunt[ink], bunt.f4f3ef), `${ink} auf Grund`).toBeGreaterThanOrEqual(4.5);
+    }
+    expect(themeCss).toContain(":root[data-theme='bunt']");
+  });
+
   it('Seitenleiste behält im dunklen Thema die Originalfarben samt abgeleiteten Variablen', () => {
     const block = themeCss.slice(themeCss.indexOf('.app-sidebar {'));
     expect(block).toContain('--c-0d1728: #0d1728;');

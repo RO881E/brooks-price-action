@@ -2,16 +2,17 @@ import { useEffect } from 'react';
 import { useUiPreferences, type ThemePreference } from './uiPreferences';
 
 /*
- * Farbschema (Stufe 5b): hell, dunkel oder wie im System. Gesetzt wird `data-theme` am
- * <html>-Element (`light` | `dark`); die Farben stehen als Tokens in `src/theme.css`. Beim
+ * Farbschema (Stufe 5b): hell, dunkel, bunt oder wie im System. Gesetzt wird `data-theme` am
+ * <html>-Element (`light` | `dark` | `bunt`); die Farben stehen als Tokens in `src/theme.css`. Beim
  * Start setzt ein kleines Skript in `index.html` dasselbe Attribut vor dem ersten Zeichnen,
  * damit nichts aufblitzt. Der Speicher ist der Geräteschlüssel `wqt-academy-ui-v1`.
  */
 
-export type ResolvedTheme = 'light' | 'dark';
+export type ResolvedTheme = 'light' | 'dark' | 'bunt';
 
 export function resolveTheme(preference: ThemePreference, systemDark: boolean): ResolvedTheme {
   if (preference === 'dark') return 'dark';
+  if (preference === 'bunt') return 'bunt';
   if (preference === 'auto') return systemDark ? 'dark' : 'light';
   return 'light';
 }

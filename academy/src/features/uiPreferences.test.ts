@@ -26,6 +26,7 @@ describe('Geräteeinstellungen (Ton, Vibration)', () => {
     expect(parseUiPreferences('{"sound":"ja","haptics":3}')).toEqual(DEFAULT_UI_PREFERENCES);
     expect(parseUiPreferences('{"sound":true,"haptics":false,"x":1}')).toEqual({ sound: true, haptics: false, theme: 'light' });
     expect(parseUiPreferences('{"theme":"dark"}')).toEqual({ sound: false, haptics: true, theme: 'dark' });
+    expect(parseUiPreferences('{"theme":"bunt"}').theme).toBe('bunt');
     expect(parseUiPreferences('{"theme":"neon"}').theme).toBe('light');
     expect(readUiPreferences({ getItem: () => { throw new Error('gesperrt'); } })).toEqual(DEFAULT_UI_PREFERENCES);
   });
