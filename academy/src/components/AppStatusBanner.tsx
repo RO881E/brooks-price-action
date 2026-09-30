@@ -37,8 +37,8 @@ export function AppStatusBanner({ status, onApplyUpdate }: AppStatusBannerProps)
           <div>
             <strong>Neue Version verfügbar</strong>
             <span>
-              Dein Fortschritt und deine Notizen bleiben erhalten. Die Seite lädt dafür einmal
-              neu.
+              Dein Fortschritt und deine Notizen bleiben erhalten. Die Seite lädt dafür einmal neu –
+              nur, wenn du zustimmst, und nie mitten in einer Lektion.
             </span>
           </div>
           <div className="app-status-actions">

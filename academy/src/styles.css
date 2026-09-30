@@ -7071,3 +7071,60 @@ button:disabled {
   flex-wrap: wrap;
   gap: 6px 12px;
 }
+
+/* App-Gefühl und Vertrauen (P11) */
+.guide-loop {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 10px;
+  margin: 14px 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: loop;
+}
+
+.guide-loop li {
+  position: relative;
+  padding: 10px 12px 10px 44px;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--canvas);
+  counter-increment: loop;
+}
+
+.guide-loop li::before {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  content: counter(loop);
+  border-radius: 50%;
+  background: var(--read-ink);
+}
+
+.guide-loop li:nth-child(2)::before {
+  background: var(--train-ink);
+}
+
+.guide-loop li:nth-child(3)::before {
+  background: var(--review-ink);
+}
+
+.settings-effect {
+  margin: 4px 0 8px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.settings-reading {
+  margin-top: 14px;
+}

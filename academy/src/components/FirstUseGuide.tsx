@@ -34,6 +34,17 @@ function GuideContent({
         Du lernst Al Brooks' „Trading Price Action Trends“ in Buchreihenfolge – in kurzen Schritten mit
         Fragen. Es gibt vier Wege:
       </p>
+      <ol className="guide-loop" aria-label="Der Lernrhythmus">
+        <li>
+          <strong>Lesen</strong> – eine kurze Lektion mit Fragen.
+        </li>
+        <li>
+          <strong>Anwenden</strong> – die Situation an einem schematischen Chart entscheiden.
+        </li>
+        <li>
+          <strong>Wiederholen</strong> – fällige Fragen kommen im richtigen Abstand zurück.
+        </li>
+      </ol>
       <dl className="guide-ways">
         <div>
           <dt>Lernpfad</dt>
