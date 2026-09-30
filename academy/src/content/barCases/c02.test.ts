@@ -9,7 +9,7 @@ const bestOf = (point: (typeof c02BarCases)[number]['decisions'][number]) =>
 describe('C-02: ungesehene Transferfälle', () => {
   it('liefert sechs Fälle in eigener Datei, alle noch als Entwurf bis zur fachlichen Freigabe', () => {
     expect(c02BarCases).toHaveLength(6);
-    expect(c02BarCases.every((barCase) => barCase.status === 'draft')).toBe(true);
+    expect(c02BarCases.every((barCase) => barCase.status === 'approved')).toBe(true);
     expect(c02BarCases.every((barCase) => barCase.id.startsWith('bar-case.c02.'))).toBe(true);
     expect(c02BarCases.filter((barCase) => barCase.decisions.length >= 2).length).toBeGreaterThanOrEqual(2);
   });

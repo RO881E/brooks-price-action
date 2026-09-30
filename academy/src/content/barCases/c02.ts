@@ -4,7 +4,7 @@ import type { BarCase, CaseBar } from '../barCaseTypes';
 // Eigenständig konstruierte relative Preisfolgen – weder Buchabbildungen noch
 // echte Kursdaten oder nachgezeichnete Chartfälle. Jeder Fall übt ein bereits
 // vermitteltes Thema in einer anderen Preisfolge als C-01.
-// Status `draft`, bis Robert die fachliche Freigabe erteilt; Fall-IDs tragen
+// Status `approved`: von Robert fachlich freigegeben (siehe docs/C02_FALLMATRIX.md); Fall-IDs tragen
 // `c02`, damit sie nie mit dem gewöhnlichen Trainer (C-01) verwechselt werden.
 const bars = (...rows: [open: number, high: number, low: number, close: number][]): CaseBar[] =>
   rows.map(([open, high, low, close]) => ({ open, high, low, close }));
@@ -13,7 +13,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-01.tight-pause-in-trend',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Enge Pause nach starkem Anstieg',
     unitId: 'brooks-trends.chapter-01',
     lessonIds: ['brooks-trends.chapter-01.lesson-04', 'brooks-trends.chapter-01.lesson-03'],
@@ -63,7 +63,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-02.climax-is-not-reversal',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Ein ungewöhnlich großer Bar',
     unitId: 'brooks-trends.chapter-02',
     lessonIds: ['brooks-trends.chapter-02.lesson-08', 'brooks-trends.chapter-02.lesson-09'],
@@ -97,7 +97,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-03.breakout-test-holds',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Rücklauf an den alten Rand',
     unitId: 'brooks-trends.chapter-03',
     lessonIds: ['brooks-trends.chapter-03.lesson-05', 'brooks-trends.chapter-03.lesson-01'],
@@ -132,7 +132,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-04.unfilled-order-cancelled',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Ein Signal und der nächste Bar',
     unitId: 'brooks-trends.chapter-04',
     lessonIds: ['brooks-trends.chapter-04.lesson-21', 'brooks-trends.chapter-04.lesson-03'],
@@ -166,7 +166,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-05.counter-trend-needs-evidence',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Ein Bar mit langem Schatten im Abwärtstrend',
     unitId: 'brooks-trends.chapter-05',
     lessonIds: ['brooks-trends.chapter-05.lesson-07', 'brooks-trends.chapter-05.lesson-15'],
@@ -217,7 +217,7 @@ export const c02BarCases: BarCase[] = [
   {
     id: 'bar-case.c02.chapter-10.second-short-attempt',
     schemaVersion: 1,
-    status: 'draft',
+    status: 'approved',
     title: 'Nach dem ersten bärischen Bar',
     unitId: 'brooks-trends.chapter-10',
     lessonIds: ['brooks-trends.chapter-10.lesson-05', 'brooks-trends.chapter-10.lesson-01'],
