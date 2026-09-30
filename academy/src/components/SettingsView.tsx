@@ -14,14 +14,17 @@ import {
   type AcademyProgress,
   type AcademySettings,
   type DailyGoal,
+  type ReadingOptions,
 } from '../features/progress';
 import type { PwaSnapshot } from '../features/pwa';
-import { readingOptionsLabel } from './ReadingOptionsPanel';
+import { ReadingOptionsPanel, readingOptionsLabel } from './ReadingOptionsPanel';
 
 interface SettingsViewProps {
   progress: AcademyProgress;
   onGoalChange: (goal: DailyGoal) => void;
   onSettingsChange: (changes: Partial<AcademySettings>) => void;
+  /** Schriftgröße und Zeilenabstand des Buchmodus (seit F-22). */
+  onReadingOptions: (changes: Partial<ReadingOptions>) => void;
   /** Lädt eine Sicherung des aktuellen Stands herunter. */
   onExport: () => void;
   onImport: (imported: AcademyProgress, mode: ImportMode, options: MergeOptions) => void;
@@ -87,6 +90,7 @@ export function SettingsView({
   progress,
   onGoalChange,
   onSettingsChange,
+  onReadingOptions,
   onExport,
   onImport,
   onReset,
@@ -159,32 +163,11 @@ export function SettingsView({
         </p>
       </header>
 
-      <section className="progress-panel settings-section" aria-labelledby={`${ids}-goal`}>
-        <h2 id={`${ids}-goal`}>Tagesziel</h2>
-        <fieldset className="goal-options">
-          <legend className="visually-hidden">Tagesziel wählen</legend>
-          {DAILY_GOAL_OPTIONS.map((option) => {
-            const id = `${ids}-goal-${option.kind}-${option.target}`;
-            return (
-              <label key={id} htmlFor={id}>
-                <input
-                  id={id}
-                  type="radio"
-                  name={`${ids}-daily-goal`}
-                  checked={option === progress.dailyGoal}
-                  onChange={() => onGoalChange(option)}
-                />
-                <span>{goalLabel(option)}</span>
-              </label>
-            );
-          })}
-        </fieldset>
-      </section>
-
       <section className="progress-panel settings-section" aria-labelledby={`${ids}-display`}>
         <h2 id={`${ids}-display`}>Darstellung</h2>
         <fieldset className="settings-choices">
           <legend>Bewegung und Animationen</legend>
+          <p className="settings-effect">Wirkung: sofort in der ganzen App – Einblendungen und sanftes Scrollen entfallen.</p>
           <label>
             <input
               type="radio"
@@ -212,9 +195,41 @@ export function SettingsView({
           />
           <span>
             Kompakte Darstellung
-            <small>Weniger Abstände und kleinere Überschriften – mehr Inhalt auf einen Blick.</small>
+            <small>
+              Wirkung: weniger Abstände und kleinere Überschriften – mehr Inhalt auf einen Blick. Inhalte und
+              Lernstand ändern sich nicht.
+            </small>
           </span>
         </label>
+        <div className="settings-reading">
+          <p className="settings-effect">
+            Wirkung der Schrift: Größe und Zeilenabstand des Lesetexts im Buchmodus – auf diesem Gerät
+            gespeichert, ohne Einfluss auf Lernstand oder Inhalte.
+          </p>
+          <ReadingOptionsPanel options={progress.readingOptions} onChange={onReadingOptions} />
+        </div>
+      </section>
+
+      <section className="progress-panel settings-section" aria-labelledby={`${ids}-goal`}>
+        <h2 id={`${ids}-goal`}>Tagesziel</h2>
+        <fieldset className="goal-options">
+          <legend className="visually-hidden">Tagesziel wählen</legend>
+          {DAILY_GOAL_OPTIONS.map((option) => {
+            const id = `${ids}-goal-${option.kind}-${option.target}`;
+            return (
+              <label key={id} htmlFor={id}>
+                <input
+                  id={id}
+                  type="radio"
+                  name={`${ids}-daily-goal`}
+                  checked={option === progress.dailyGoal}
+                  onChange={() => onGoalChange(option)}
+                />
+                <span>{goalLabel(option)}</span>
+              </label>
+            );
+          })}
+        </fieldset>
       </section>
 
       {appStatus ? (
@@ -224,6 +239,12 @@ export function SettingsView({
             {appStatus.offlineReady
               ? 'Die Academy ist auf diesem Gerät offline verfügbar: Lernpfad, Lektionen, Glossar und dein Fortschritt funktionieren auch ohne Verbindung.'
               : 'Die Offline-Nutzung wird eingerichtet, sobald die veröffentlichte Academy einmal vollständig online geladen wurde.'}
+          </p>
+          <p className="settings-text" data-testid="app-version">
+            Version {__APP_VERSION__} ·{' '}
+            {appStatus.updateReady
+              ? 'Eine neue Version liegt bereit. Sie wird erst nach deiner Zustimmung geladen – nie mitten in einer Lektion.'
+              : 'Du nutzt die neueste geladene Version.'}
           </p>
           <p className="settings-text">
             Installieren: Im Browsermenü „App installieren“ oder „Zum Home-Bildschirm“ wählen.

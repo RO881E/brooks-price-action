@@ -277,6 +277,24 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## App-Gefühl und Vertrauen (P11)
+
+- **Offline und Update:** Der Hinweis „Neue Version verfügbar“ sagt ausdrücklich, dass die Seite nur
+  mit deiner Zustimmung und nie mitten in einer Lektion neu lädt (in Lektionen erscheint der Hinweis
+  gar nicht). Unter **Einstellungen → Offline & App** stehen Version und Update-Stand; Fortschritt
+  und Notizen bleiben bei jedem Update erhalten.
+- **Laden und Fehler:** Nachgeladene Kapitel zeigen erst nach kurzer Pause einen Ladehinweis; ein
+  Fehler bietet „Erneut laden“ und den Rückweg und löscht nie Daten. Unbekannte, gesperrte oder nicht
+  freigegebene Adressen (Lektion, Kapitel, Fall, Transferprüfung, Kurzlernen) führen mit einem Hinweis
+  in den Lernpfad zurück – nie auf eine leere Seite und ohne den Lernstand zu ändern.
+- **Einführung:** Die Erklärung zeigt den Lernrhythmus **Lesen → Anwenden → Wiederholen** und den
+  sofortigen Start („Erste Lektion starten“). Sie ist überspringbar, jederzeit über „Hilfe“ erreichbar
+  und macht keine Ergebnis- oder Gewinnversprechen.
+- **Einstellungen:** Reihenfolge Darstellung (Bewegung reduzieren, kompakte Ansicht, Schrift) →
+  Tagesziel → Offline & App → Datensicherung → Zurücksetzen. Jede Darstellungsoption nennt kurz ihre
+  Wirkung; die Schrift stellst du hier mit demselben Zustand ein wie im Buchmodus. Alle Optionen sind
+  per Tastatur erreichbar; Werte und Sicherungsformat bleiben unverändert.
+
 ## Lesen und Wiederfinden (P10)
 
 - **Buchseite:** Jeder Schritt trägt am Rand eine kleine Beschriftung seiner Art (Lesetext, Schaubild,

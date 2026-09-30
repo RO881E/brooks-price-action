@@ -23,6 +23,11 @@ describe('AppStatusBanner', () => {
     expect(screen.getByRole('button', { name: 'Wird aktualisiert …' })).toBeDisabled();
   });
 
+  it('sagt ausdrücklich: nur mit Zustimmung und nie mitten in einer Lektion', () => {
+    render(<AppStatusBanner status={{ ...base, updateReady: true }} onApplyUpdate={vi.fn()} />);
+    expect(screen.getByText(/nur, wenn du zustimmst, und nie mitten in einer Lektion/)).toBeInTheDocument();
+  });
+
   it('„Später“ blendet den Update-Hinweis aus, ohne zu aktualisieren', () => {
     const apply = vi.fn();
     render(<AppStatusBanner status={{ ...base, updateReady: true }} onApplyUpdate={apply} />);

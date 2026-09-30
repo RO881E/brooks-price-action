@@ -1110,6 +1110,7 @@ export default function App() {
               progress={progress}
               onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
               onSettingsChange={(changes) => setProgress((current) => updateSettings(current, changes))}
+              onReadingOptions={(changes) => setProgress((current) => updateReadingOptions(current, changes))}
               onExport={exportBackup}
               onImport={importBackup}
               onReset={resetAll}
