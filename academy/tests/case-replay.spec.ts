@@ -103,6 +103,7 @@ test.describe('F-25 Rückblick', () => {
     await seed(page);
     await playRound(page, choices, 'erster Versuch');
     await page.getByRole('button', { name: 'Zur Fallauswahl' }).last().click();
+    await expect(page).toHaveURL(/#\/practice$/);
     await playRound(page, choices.map(() => 'wait'), 'zweiter Versuch');
     await page.getByRole('button', { name: 'Zur Fallauswahl' }).last().click();
     await page.getByRole('button', { name: `Erneut trainieren: ${barCase.title}` }).click();

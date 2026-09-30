@@ -84,6 +84,7 @@ test.describe('P05 Designgrundlage', () => {
 
   test('Bedienelemente bleiben mindestens 44 px hoch, Fokus bleibt sichtbar', async ({ page }) => {
     await page.goto('/#/practice');
+    await expect(page.locator('.review-mode-card').first()).toBeVisible();
     const buttons = page.locator('.review-mode-card .primary-button, .review-mode-card .secondary-button');
     const count = await buttons.count();
     expect(count).toBeGreaterThan(1);

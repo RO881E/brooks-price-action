@@ -7128,3 +7128,58 @@ button:disabled {
 .settings-reading {
   margin-top: 14px;
 }
+
+/* Wiederherstellung unlesbarer Daten (P12) */
+.rescue-notice {
+  margin: 0 0 20px;
+  padding: 16px 18px;
+  border: 1px solid var(--train-base);
+  border-left-width: 6px;
+  border-radius: var(--radius);
+  background: var(--train-soft);
+}
+
+.rescue-notice h2 {
+  margin: 0 0 6px;
+  color: var(--train-ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+}
+
+.rescue-notice p {
+  max-width: 720px;
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.rescue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.rescue-actions .text-button {
+  min-height: 44px;
+  padding: 0 8px;
+}
+
+/* Lehrstellen-Links in Listen: ausreichende Zielgröße (WCAG 2.2). */
+.topic-sources .link-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 8px;
+}
+
+.study-actions .link-button,
+.study-skipped .link-button,
+.review-reread .link-button,
+.review-sources .link-button,
+.trainer-lessons .link-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 8px;
+}

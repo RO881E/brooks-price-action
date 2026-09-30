@@ -568,6 +568,23 @@ Lesestelle, Wechsel über den Lernpfad, Diagramm-Fokus, Export/Import und 360 px
 Direktlinks, Zurück/Vorwärts, gesperrte und unbekannte Lektionen, Suche über noch nicht
 geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Laden.
 
+## Qualitätsrunde (P12)
+
+- **Rettungskopie:** Kann der gespeicherte Lernstand nicht gelesen werden, legt die App den Rohtext
+  unter einem Sicherungsschlüssel ab und zeigt oben einen Hinweis mit „Kopie herunterladen“,
+  „Ausblenden“ und „Kopie löschen“. Nichts wird gelöscht oder überschrieben, bevor du entscheidest.
+- **Alte Stände:** `src/features/legacyStates.test.ts` lädt, migriert, exportiert, importiert und
+  führt Stände der Versionen 1, 2, 5, 8, 9, 10, 12 und 14 zusammen (XP nur einmal, früheste
+  Meilensteine, Vereinigung der Runden).
+- **Größe:** `npm run build && npm run report:size` misst Hauptbündel, größtes Kapitel, Gesamtgröße
+  und Offline-Vorladung und endet mit Fehler bei Überschreitung der Grenzwerte. Üben, Fortschritt,
+  Gespeichert, Einstellungen, Transfer und Rückblick laden erst beim Öffnen; das Hauptbündel bleibt
+  unter 500 kB.
+- **Zugänglichkeit:** `tests/quality.spec.ts` prüft alle Hauptansichten auf 360 px, bei 200 % Zoom,
+  mit reduzierter Bewegung, per Tastatur und mit axe sowie Touch-Ziele (mindestens 24 px).
+- Ergebnisse und Grenzen: [`docs/QUALITY_REPORT.md`](docs/QUALITY_REPORT.md); Ablauf für die
+  Beta: [`docs/BETA_CHECKLIST.md`](docs/BETA_CHECKLIST.md).
+
 ## Struktureller Content-Check (F-29)
 
 ```bash

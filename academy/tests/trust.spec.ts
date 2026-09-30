@@ -30,6 +30,7 @@ test.describe('P11 Einstellungen', () => {
   test('Darstellung zuerst, jede Option erklärt ihre Wirkung, Schrift dort einstellbar und gespeichert', async ({ page }) => {
     await seed(page);
     await page.goto('/#/settings');
+    await expect(page.getByRole('heading', { name: 'Einstellungen', level: 1 })).toBeVisible();
     const headings = await page.getByRole('heading', { level: 2 }).allTextContents();
     expect(headings.indexOf('Darstellung')).toBeLessThan(headings.indexOf('Tagesziel'));
     expect(headings.indexOf('Tagesziel')).toBeLessThan(headings.indexOf('Datensicherung'));
