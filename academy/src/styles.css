@@ -8019,3 +8019,224 @@ button:disabled {
 .trainer-reveal > .bull-says {
   margin-top: 4px;
 }
+
+/* Stufe 4b: Begriffe-Memory */
+.match-game {
+  margin-top: 28px;
+}
+
+.match-status {
+  min-height: 1.5em;
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+.match-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 16px;
+  margin: 8px 0 14px;
+}
+
+.match-terms,
+.match-definitions {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.match-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 14px;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+  border: 2px solid var(--practice-base);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 0 var(--practice-base);
+  cursor: pointer;
+}
+
+.match-item.definition {
+  font-weight: 500;
+  border-color: var(--line-strong);
+  box-shadow: 0 4px 0 var(--line-strong);
+}
+
+.match-item.selected {
+  color: #fff;
+  border-color: var(--practice-ink);
+  background: var(--practice-ink);
+  box-shadow: 0 0 0 4px var(--practice-soft), 0 4px 0 var(--practice-ink);
+}
+
+.match-item.matched {
+  color: var(--practice-ink);
+  border-color: var(--practice-base);
+  background: var(--practice-soft);
+  box-shadow: none;
+  cursor: default;
+}
+
+.match-item:disabled {
+  opacity: 1;
+}
+
+.match-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  border-radius: 50%;
+  background: var(--practice-ink);
+}
+
+.match-note {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .match-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .match-item.selected {
+    animation: node-pulse 900ms ease-in-out 1;
+  }
+}
+
+/* Stufe 4c: Blitzrunde */
+.blitz-game {
+  margin-top: 28px;
+}
+
+.blitz-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+
+.blitz-head h2 {
+  margin: 0;
+}
+
+.blitz-timer {
+  margin-left: auto;
+  padding: 4px 12px;
+  color: var(--practice-ink);
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 999px;
+  background: var(--practice-soft);
+}
+
+.blitz-timer.untimed,
+.blitz-timer.paused {
+  color: var(--ink-soft);
+  background: #eceef2;
+}
+
+.blitz-options {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.blitz-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 10px 14px;
+  text-align: left;
+  border: 2px solid var(--practice-base);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 0 var(--practice-base);
+  cursor: pointer;
+}
+
+.blitz-option > span:first-child {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  color: var(--practice-ink);
+  font-weight: 800;
+  border-radius: 50%;
+  background: var(--practice-soft);
+}
+
+.blitz-option.correct {
+  border-color: var(--practice-ink);
+  background: var(--practice-soft);
+}
+
+.blitz-option.incorrect {
+  border-color: var(--line-strong);
+  background: #f4f2ec;
+}
+
+.blitz-option.muted {
+  opacity: 0.65;
+}
+
+.blitz-option:disabled {
+  cursor: default;
+}
+
+.blitz-score {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.blitz-wrong {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blitz-wrong li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.blitz-wrong small {
+  display: block;
+  color: var(--ink-soft);
+}
+
+.blitz-wrong .link-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 8px;
+}
