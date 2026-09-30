@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import { AppCrashScreen, ErrorBoundary } from './components/ErrorBoundary';
 import { startPwa } from './features/pwa';
+import './theme.css';
 import './styles.css';
 
 createRoot(document.getElementById('root')!).render(

@@ -118,7 +118,7 @@ test.describe('Vibration und Töne', () => {
     await sound.focus();
     await page.keyboard.press('Space');
     await expect(sound).toBeChecked();
-    expect(JSON.parse((await page.evaluate(() => localStorage.getItem('wqt-academy-ui-v1')))!)).toEqual({ sound: true, haptics: true });
+    expect(JSON.parse((await page.evaluate(() => localStorage.getItem('wqt-academy-ui-v1')))!)).toEqual({ sound: true, haptics: true, theme: 'light' });
     expect(await page.evaluate(() => localStorage.getItem('wqt-academy-progress-v1'))).toBe(progressBefore);
     await page.reload();
     await expect(page.getByRole('checkbox', { name: /Töne/ })).toBeChecked();
