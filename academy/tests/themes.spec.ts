@@ -153,11 +153,19 @@ for (const theme of ['dark', 'bunt'] as const) {
     await axe('Bar-Album', '.bar-album');
     // Üben: Spiele
     await page.goto('/#/practice');
-    await page.getByRole('button', { name: /^Spielen/ }).click();
+    await page.locator('.match-game').getByRole('button', { name: /^Spielen/ }).click();
     await axe('Begriffe-Memory', '.match-game');
     await page.getByRole('button', { name: 'Beenden' }).first().click();
     await page.getByRole('button', { name: 'Ohne Zeit spielen' }).click();
     await axe('Blitzrunde', '.blitz-game');
+    await page.locator('.blitz-game').getByRole('button', { name: 'Beenden' }).click();
+    // Üben: Finde den Bar, Ordne die Schritte (C-04)
+    await page.locator('.signal-game').getByRole('button', { name: /^Spielen/ }).click();
+    await page.locator('.signal-hit').first().click();
+    await axe('Finde den Bar', '.signal-game');
+    await page.locator('.order-game').getByRole('button', { name: /^Spielen/ }).click();
+    await page.locator('.order-game').getByRole('button', { name: 'Reihenfolge prüfen' }).click();
+    await axe('Ordne die Schritte', '.order-game');
     // Hilfe-Dialog
     await page.getByRole('button', { name: 'Hilfe', exact: true }).click();
     await expect(page.getByRole('dialog')).toBeVisible();

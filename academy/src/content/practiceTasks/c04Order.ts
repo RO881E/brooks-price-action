@@ -2,8 +2,8 @@ import { PRACTICE_TASK_SCHEMA_VERSION, type OrderTask } from '../practiceTaskTyp
 
 // C-04 (Teil 2): „Ordne die Schritte“. Die Reihenfolgen folgen ausdrücklich dem Ablauf, den die
 // genannten Lektionen selbst vermitteln; eigene Formulierungen, keine Buchzitate.
-// Status `draft`: fachliche Freigabe steht aus (siehe docs/C04_AUFGABEN.md).
-const draft = { schemaVersion: PRACTICE_TASK_SCHEMA_VERSION, status: 'draft' } as const;
+// Status `approved`: von Robert fachlich freigegeben (siehe docs/C04_AUFGABEN.md).
+const draft = { schemaVersion: PRACTICE_TASK_SCHEMA_VERSION, status: 'approved' } as const;
 
 export const c04OrderTasks: OrderTask[] = [
   {

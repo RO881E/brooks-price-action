@@ -561,7 +561,7 @@ Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](d
 ## „Finde den Bar“ und „Ordne die Schritte“ (Stufe 4d, Content-Pack C-04)
 
 Zwei weitere Übungen unter „Üben“ (Chart antippen; Schritte per Hoch/Runter-Knöpfen ordnen), reine Übung ohne
-Einfluss auf den Lernstand. Die 16 Aufgaben sind Entwurf und **erst nach fachlicher Freigabe sichtbar** – Prüfliste:
+Einfluss auf den Lernstand. Die 16 Aufgaben sind fachlich freigegeben – Prüfliste:
 [`docs/C04_AUFGABEN.md`](docs/C04_AUFGABEN.md), Details: [`docs/DESIGN_STUFE4D.md`](docs/DESIGN_STUFE4D.md).
 
 ## Farbschema: Hell, Dunkel, Bunt, wie im System (Stufe 5b/5c)
