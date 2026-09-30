@@ -61,6 +61,15 @@ const SCROLL_SETTLE_MS = 700;
  * Abschnitt. Gliederung, aktuelle Stelle und Lesefortschritt helfen bei der
  * Orientierung; Fragen bleiben Pflicht, gesperrte Abschnitte werden benannt.
  */
+/** Art des Schritts als kurze Beschriftung am Rand (rein visuell, per CSS; kein Bedeutungsträger allein). */
+const STEP_KIND_LABEL: Record<string, string> = {
+  explanation: 'Lesetext',
+  diagram: 'Schaubild',
+  comparison: 'Vergleich',
+  question: 'Frage',
+  recap: 'Zusammengefasst',
+};
+
 export function ReaderView({
   course,
   reader,
@@ -360,6 +369,9 @@ function ReaderSectionView({
       <p className="eyebrow">
         Abschnitt {section.number} von {reader.sections.length} · {lesson.sourceUnit}
       </p>
+      <div className="reader-section-meter" aria-hidden="true">
+        <span style={{ width: `${(section.number / reader.sections.length) * 100}%` }} />
+      </div>
       <h2 id={headingId} ref={heading} tabIndex={-1}>
         {lesson.title}
       </h2>
@@ -380,6 +392,7 @@ function ReaderSectionView({
             <section
               key={step.id}
               className={`reader-step reader-step-${step.type}`}
+              data-kind={STEP_KIND_LABEL[step.type]}
               data-step-index={index}
               aria-label={`Schritt ${index + 1}: ${step.title}`}
             >

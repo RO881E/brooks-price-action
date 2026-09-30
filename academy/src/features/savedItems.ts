@@ -120,6 +120,8 @@ export interface SavedTarget {
   context: string;
   /** Nur zugängliche, noch vorhandene Fundstellen lassen sich öffnen. */
   openable: boolean;
+  /** Position in der Buchreihenfolge (Einheit, Lektion, Schritt); nicht mehr vorhandene Fundstellen zuletzt. */
+  order: number;
 }
 
 export interface SavedBookmark extends SavedTarget {
@@ -137,9 +139,11 @@ function resolveTarget(
   lessonId: string,
   stepId: string | null,
 ): SavedTarget {
-  for (const unit of course.units) {
-    const lesson = unit.lessons.find((candidate) => candidate.id === lessonId);
+  for (const [unitIndex, unit] of course.units.entries()) {
+    const lessonIndex = unit.lessons.findIndex((candidate) => candidate.id === lessonId);
+    const lesson = unit.lessons[lessonIndex];
     if (!lesson) continue;
+    const position = (unitIndex * 1000 + lessonIndex) * 1000;
 
     const stepIndex = stepId ? lesson.steps.findIndex((step) => step.id === stepId) : null;
     const state = lessonAccessState(course, lesson, progress.completedLessonIds);
@@ -154,6 +158,7 @@ function resolveTarget(
         title: lesson.title,
         context: 'Der gemerkte Schritt existiert nicht mehr – die Lektion öffnet von vorn.',
         openable: accessible,
+        order: position,
       };
     }
 
@@ -168,6 +173,7 @@ function resolveTarget(
           ? `${unit.label} · ${unit.title}`
           : `Schritt ${stepIndex + 1} · ${lesson.title}`,
       openable: accessible,
+      order: position + (stepIndex === null ? 0 : stepIndex + 1),
     };
   }
 
@@ -179,6 +185,7 @@ function resolveTarget(
     title: 'Nicht mehr verfügbar',
     context: 'Diese Lektion gibt es im Kurs nicht mehr.',
     openable: false,
+    order: Number.MAX_SAFE_INTEGER,
   };
 }
 
@@ -202,5 +209,29 @@ export function savedOverview(course: CourseOutline, progress: AcademyProgress):
         ...resolveTarget(course, progress, key, note.lessonId, note.stepId),
         note,
       })),
+  };
+}
+
+export type SavedSort = 'recent' | 'book';
+
+/** Normalisierter Suchtext (Umlaute und Großschreibung egal). */
+function fold(value: string): string {
+  return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/ß/g, 'ss').toLowerCase();
+}
+
+/**
+ * Ordnet und filtert die Übersicht: „recent“ = neueste zuerst (wie gespeichert), „book“ = in
+ * Buchreihenfolge. Der Filter sucht in Titel, Fundstelle und Notiztext. Reine Ansicht – nichts
+ * wird verändert oder gespeichert, und der Suchtext steht nie in einer Adresse.
+ */
+export function arrangeSaved(overview: SavedOverview, sort: SavedSort, query: string): SavedOverview {
+  const needle = fold(query.trim());
+  const matches = (item: SavedTarget, extra = '') =>
+    needle === '' || fold(`${item.title} ${item.context} ${extra}`).includes(needle);
+  const order = <T extends SavedTarget>(items: T[]) =>
+    sort === 'book' ? [...items].sort((a, b) => a.order - b.order) : items;
+  return {
+    bookmarks: order(overview.bookmarks.filter((item) => matches(item))),
+    notes: order(overview.notes.filter((item) => matches(item, item.note.text))),
   };
 }

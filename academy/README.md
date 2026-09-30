@@ -277,6 +277,23 @@ Jederzeit erreichbar ist derselbe Text über **Hilfe** oben rechts als Dialog (E
 der Fokus kehrt zurück; „Zu den Einstellungen“ führt zur Sicherung). Öffnen oder Schließen
 zählt weder als Lerntag noch bringt es XP.
 
+## Lesen und Wiederfinden (P10)
+
+- **Buchseite:** Jeder Schritt trägt am Rand eine kleine Beschriftung seiner Art (Lesetext, Schaubild,
+  Vergleich, Frage, Zusammengefasst) samt Akzent; Fragen stehen als abgesetzte Karte, Schaubilder
+  im eigenen Rahmen. Ein Balken zeigt den Abschnittsfortschritt („Abschnitt n von N“ bleibt als
+  Text). Es wird nichts gekürzt; Leseoptionen, Scrollposition und Kapitelreihenfolge sind unverändert.
+- **Begriffe am Lernort:** Begriffe, „Im Glossar öffnen“ und „Schließen“ sind mindestens 44 px hoch,
+  auf schmalen Geräten volle Breite; die Definition stammt weiter aus dem einen Glossareintrag und
+  der Fokus geht beim Schließen zum Begriff zurück.
+- **Suche:** Treffer stehen in den Gruppen Lektion, Schritt und Glossar mit sichtbarer Trefferart und
+  gut lesbarem Fundort. Die Trefferart-Chips sind rein dekorativ (`aria-hidden`), zugängliche Namen,
+  gesperrte Vorschau, Hash-Links und der `/`-Shortcut bleiben unverändert.
+- **Gespeichert als Notizbuch:** Suche in Titel, Fundstelle und Notiztext (Groß-/Kleinschreibung und
+  Umlaute egal) und Sortierung „Neueste zuerst“ oder „Buchreihenfolge“; „Zur Fundstelle“ öffnet den
+  gemerkten Schritt. Suchtext und Notizen stehen nie in einer Adresse, und beim Suchen oder Sortieren
+  wird nichts gespeichert; Löschen mit Rückgängig bleibt unverändert.
+
 ## Charts zum Entdecken (P09)
 
 - **Diagramm-Fokus mobil:** Zoom-, Verschiebe- und Reset-Knöpfe sind auf Touch-Geräten mindestens
