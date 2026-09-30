@@ -7,6 +7,7 @@ import {
 } from '../features/lessonResults';
 import { moveAnswerFocus } from './answerKeys';
 import { Bull } from './Bull';
+import { FeedbackCue } from './FeedbackCue';
 import { ErrorBoundary } from './ErrorBoundary';
 
 /*
@@ -272,6 +273,7 @@ export function QuestionStep({
         })}
       </div>
 
+      <FeedbackCue kind="correct" active={state.status === 'correct'} />
       {awaitingRetry && selectedOption ? (
         <div className="answer-feedback incorrect with-bull" role="status">
           <Bull mood="think" size={52} />

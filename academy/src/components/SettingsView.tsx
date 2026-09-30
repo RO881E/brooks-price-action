@@ -17,6 +17,8 @@ import {
   type ReadingOptions,
 } from '../features/progress';
 import type { PwaSnapshot } from '../features/pwa';
+import { vibrationSupported } from '../features/haptics';
+import { useUiPreferences } from '../features/uiPreferences';
 import { ReadingOptionsPanel, readingOptionsLabel } from './ReadingOptionsPanel';
 
 interface SettingsViewProps {
@@ -98,6 +100,7 @@ export function SettingsView({
   onApplyUpdate,
 }: SettingsViewProps) {
   const ids = useId();
+  const [ui, setUi] = useUiPreferences();
   const fileInput = useRef<HTMLInputElement>(null);
   const resultHeading = useRef<HTMLHeadingElement>(null);
   const [exported, setExported] = useState(false);
@@ -208,6 +211,33 @@ export function SettingsView({
           </p>
           <ReadingOptionsPanel options={progress.readingOptions} onChange={onReadingOptions} />
         </div>
+      </section>
+
+      <section className="progress-panel settings-section" aria-labelledby={`${ids}-feedback`}>
+        <h2 id={`${ids}-feedback`}>Rückmeldung: Vibration und Töne</h2>
+        <p className="settings-effect">
+          Wirkung: nur auf diesem Gerät gespeichert, ohne Einfluss auf Lernstand, Antworten oder Sicherung. Texte
+          und Symbole bleiben immer – Vibration und Töne sind nur eine zusätzliche Rückmeldung nach richtiger Antwort,
+          abgeschlossener Lektion oder Runde und erreichtem Meilenstein.
+        </p>
+        <label className="settings-toggle">
+          <input type="checkbox" checked={ui.haptics} onChange={(event) => setUi({ haptics: event.target.checked })} />
+          <span>
+            Vibration
+            <small>
+              Wirkung: kurzes Vibrieren am Handy. Es funktioniert nur auf Geräten und in Browsern mit dieser Funktion
+              (z. B. Android-Chrome, nicht iPhone-Safari).
+              {vibrationSupported() ? '' : ' Dieses Gerät meldet keine Vibration – die Einstellung bleibt wirkungslos.'}
+            </small>
+          </span>
+        </label>
+        <label className="settings-toggle">
+          <input type="checkbox" checked={ui.sound} onChange={(event) => setUi({ sound: event.target.checked })} />
+          <span>
+            Töne
+            <small>Wirkung: kurze, leise Klänge (standardmäßig aus). Sie erklingen nur nach deiner eigenen Aktion.</small>
+          </span>
+        </label>
       </section>
 
       <section className="progress-panel settings-section" aria-labelledby={`${ids}-goal`}>
