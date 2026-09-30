@@ -8,6 +8,8 @@ import { goalLabel, type GoalProgress, type StreakStats } from '../features/goal
 import { earnedXp } from '../features/lessonResults';
 import type { ResumeTarget } from '../features/navigation';
 import type { AcademyProgress } from '../features/progress';
+import { Bull } from './Bull';
+import { Icon, type IconName } from './Icon';
 
 interface PathViewProps {
   course: CourseOutline;
@@ -34,6 +36,17 @@ const stationLabels: Record<StationState, string> = {
   locked: '◆ Noch gesperrt',
   planned: '… In Vorbereitung',
 };
+
+/** Symbol je Stationszustand (nur Dekoration, der Status steht als Text daneben). */
+const nodeIcons: Record<LessonAccessState, IconName> = {
+  complete: 'check',
+  available: 'play',
+  locked: 'lock',
+  planned: 'dots',
+};
+
+/** Seitlicher Versatz der Station auf dem Weg in Prozent der Wegbreite (sanfte Wellenlinie). */
+const waveX = (index: number) => Math.round(50 + 27 * Math.sin(index * 1.15));
 
 const statusLabels: Record<LessonAccessState, string> = {
   complete: 'Abgeschlossen',
@@ -156,7 +169,18 @@ export function PathView({
             return (
               <section className="unit-section" key={unit.id} data-station={station}>
                 <header className="unit-header">
-                  <div className="unit-number">{String(unitIndex + 1).padStart(2, '0')}</div>
+                  <div
+                    className="unit-number"
+                    data-station={station}
+                    style={{ '--ring': `${publishedInUnit ? Math.round((completeInUnit / publishedInUnit) * 100) : 0}%` } as React.CSSProperties}
+                  >
+                    {String(unitIndex + 1).padStart(2, '0')}
+                    {station === 'done' ? (
+                      <span className="medal-star" aria-hidden="true">
+                        <Icon name="star" size={14} />
+                      </span>
+                    ) : null}
+                  </div>
                   <div>
                     <p>{unit.label}</p>
                     <h2>{unit.title}</h2>
@@ -178,10 +202,19 @@ export function PathView({
                   {unit.lessons.map((lesson, lessonIndex) => {
                     const state = lessonState(lesson);
                     const interactive = state === 'available' || state === 'complete';
+                    const x = waveX(lessonIndex);
+                    const nextX = waveX(lessonIndex + 1);
+                    const isNext = lesson.id === (resume?.lesson.id ?? nextLesson?.id);
 
                     return (
-                      <div className={`lesson-node-row ${lessonIndex % 2 ? 'offset' : ''}`} key={lesson.id}>
-                        <span className="road-line" aria-hidden="true" />
+                      <div
+                        className={`lesson-node-row ${state}${isNext ? ' next' : ''}`}
+                        key={lesson.id}
+                        style={{ '--x': `${x}%` } as React.CSSProperties}
+                      >
+                        <svg className="road-curve" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                          <path d={`M ${x} 0 C ${x} 55, ${nextX} 45, ${nextX} 100`} />
+                        </svg>
                         <button
                           className={`lesson-node ${state}`}
                           type="button"
@@ -189,14 +222,10 @@ export function PathView({
                           onClick={() => interactive && onOpenLesson(lesson)}
                           aria-label={`${lesson.title}: ${statusLabel(lesson, state)}`}
                         >
-                          <span className="node-icon" aria-hidden="true">
-                            {state === 'complete'
-                              ? '✓'
-                              : state === 'available'
-                                ? '▶'
-                                : state === 'planned'
-                                  ? '…'
-                                  : '◆'}
+                          <span className="node-lane" aria-hidden="true">
+                            <span className="node-icon">
+                              <Icon name={nodeIcons[state]} size={24} />
+                            </span>
                           </span>
                           <span className="node-copy">
                             <small>{statusLabel(lesson, state)}</small>
@@ -207,6 +236,7 @@ export function PathView({
                             ) : null}
                           </span>
                         </button>
+                        {isNext ? <Bull mood="happy" size={44} className="path-bull" /> : null}
                       </div>
                     );
                   })}

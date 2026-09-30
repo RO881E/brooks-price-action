@@ -139,7 +139,7 @@ werden, keine Nachbildung fremder Assets.
 - Figur: ein **Bulle** (Bo). Ton: locker, gut verständlich ab 12.
 - Töne standardmäßig **aus**, Vibration **an** (Stufe 5).
 - Illustrationen zunächst von Claude als Platzhalter, später gern aus ChatGPT (Austausch siehe `DESIGN_STUFE1.md`).
-- Reihenfolge: mit **Stufe 1** begonnen ([`DESIGN_STUFE1.md`](DESIGN_STUFE1.md)).
+- Reihenfolge: **Stufe 1** umgesetzt ([`DESIGN_STUFE1.md`](DESIGN_STUFE1.md)), **Stufe 2** umgesetzt ([`DESIGN_STUFE2.md`](DESIGN_STUFE2.md)).
 
 ## Ursprüngliche Fragen
 

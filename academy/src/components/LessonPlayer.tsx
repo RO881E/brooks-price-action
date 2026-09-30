@@ -113,6 +113,7 @@ export function LessonPlayer({
           aria-valuetext={`Schritt ${stepIndex + 1} von ${lesson.steps.length}`}
         >
           <span style={{ width: `${percent}%` }} />
+          <i className="progress-ticks" aria-hidden="true" style={{ '--steps': lesson.steps.length } as React.CSSProperties} />
         </div>
         <div className="lesson-xp">+{lesson.xp} XP</div>
       </header>

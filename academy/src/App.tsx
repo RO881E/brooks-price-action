@@ -11,6 +11,7 @@ import {
   useSyncExternalStore,
 } from 'react';
 import { AppStatusBanner } from './components/AppStatusBanner';
+import { Icon, type IconName } from './components/Icon';
 import { CelebrationToast, type Celebration } from './components/CelebrationToast';
 import { ChapterView } from './components/ChapterView';
 import { LessonLoading } from './components/ContentLoadState';
@@ -193,15 +194,15 @@ function isTypingTarget(target: EventTarget | null): boolean {
 /** Lernmodus je Bereich: bestimmt Akzentfarbe (Designgrundlage P05); Farbe nie allein als Träger. */
 type NavMode = 'read' | 'practice' | 'review' | 'progress' | 'neutral';
 
-const navigation: Array<{ id: View; label: string; icon: string; mobile: boolean; mode: NavMode }> = [
-  { id: 'path', label: 'Lernpfad', icon: '⌁', mobile: true, mode: 'read' },
-  { id: 'chapters', label: 'Buchmodus', icon: '▤', mobile: true, mode: 'read' },
-  { id: 'practice', label: 'Üben', icon: '◇', mobile: true, mode: 'practice' },
-  { id: 'progress', label: 'Fortschritt', icon: '◎', mobile: true, mode: 'progress' },
+const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boolean; mode: NavMode }> = [
+  { id: 'path', label: 'Lernpfad', icon: 'path', mobile: true, mode: 'read' },
+  { id: 'chapters', label: 'Buchmodus', icon: 'book', mobile: true, mode: 'read' },
+  { id: 'practice', label: 'Üben', icon: 'practice', mobile: true, mode: 'practice' },
+  { id: 'progress', label: 'Fortschritt', icon: 'progress', mobile: true, mode: 'progress' },
   // Auf Mobilgeräten über das Menü erreichbar, damit die untere Leiste lesbar bleibt.
-  { id: 'saved', label: 'Gespeichert', icon: '★', mobile: false, mode: 'review' },
-  { id: 'glossary', label: 'Glossar', icon: 'Aa', mobile: true, mode: 'read' },
-  { id: 'settings', label: 'Einstellungen', icon: '⚙︎', mobile: false, mode: 'neutral' },
+  { id: 'saved', label: 'Gespeichert', icon: 'saved', mobile: false, mode: 'review' },
+  { id: 'glossary', label: 'Glossar', icon: 'glossary', mobile: true, mode: 'read' },
+  { id: 'settings', label: 'Einstellungen', icon: 'settings', mobile: false, mode: 'neutral' },
 ];
 
 export default function App() {
@@ -845,7 +846,9 @@ export default function App() {
               aria-current={view === item.id ? 'page' : undefined}
               onClick={() => chooseView(item.id)}
             >
-              <span aria-hidden="true">{item.icon}</span>
+              <span aria-hidden="true">
+                <Icon name={item.icon} size={20} />
+              </span>
               {item.label}
             </button>
           ))}
@@ -1176,7 +1179,9 @@ export default function App() {
             aria-current={view === item.id ? 'page' : undefined}
             onClick={() => chooseView(item.id)}
           >
-            <span aria-hidden="true">{item.icon}</span>
+            <span aria-hidden="true">
+                <Icon name={item.icon} size={20} />
+              </span>
             <small>{item.label}</small>
           </button>
         ))}
