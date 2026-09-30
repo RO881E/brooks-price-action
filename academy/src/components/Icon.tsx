@@ -16,7 +16,9 @@ export type IconName =
   | 'play'
   | 'lock'
   | 'dots'
-  | 'star';
+  | 'star'
+  | 'chest'
+  | 'chest-open';
 
 const SHAPES: Record<IconName, React.ReactNode> = {
   path: (
@@ -57,6 +59,20 @@ const SHAPES: Record<IconName, React.ReactNode> = {
     </>
   ),
   dots: <path d="M7 12h.01M12 12h.01M17 12h.01" strokeWidth="3.2" />,
+  chest: (
+    <>
+      <path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3" />
+      <rect x="4" y="11" width="16" height="9" rx="2" />
+      <path d="M4 14h16M12 12.5v3" />
+    </>
+  ),
+  'chest-open': (
+    <>
+      <path d="M5 9.5 3.5 5.5h17L19 9.5" />
+      <rect x="4" y="11" width="16" height="9" rx="2" />
+      <path d="M4 14h16M9 8V6M12 8V4.5M15 8V6" />
+    </>
+  ),
   star: <path d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z" fill="currentColor" />,
 };
 

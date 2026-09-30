@@ -4,6 +4,8 @@ import type { GoalOverview } from '../features/goals';
 import type { Mission } from '../features/missions';
 import type { ProgressOverview } from '../features/progressStats';
 import type { ProgressSummary as Summary } from '../features/progressSummary';
+import { Bull } from './Bull';
+import { Icon } from './Icon';
 
 function formatDate(day: string): string {
   const [year, month, date] = day.split('-');
@@ -72,6 +74,23 @@ export function MissionList({
         <h2 id={`${ids}-title`}>Kleine Vorschläge für heute</h2>
         <p>freiwillig</p>
       </div>
+      {missions.length > 0 ? (
+        <p className={`mission-chest${missions.every((mission) => mission.done) ? ' open' : ''}`}>
+          <span className="mission-chest-icon" aria-hidden="true">
+            <Icon name={missions.every((mission) => mission.done) ? 'chest-open' : 'chest'} size={28} />
+          </span>
+          {missions.every((mission) => mission.done) ? (
+            <>
+              <Bull mood="cheer" size={40} />
+              <span>Truhe offen – alle Vorschläge für heute sind erledigt. Bo freut sich mit dir!</span>
+            </>
+          ) : (
+            <span>
+              Noch {missions.filter((mission) => !mission.done).length} von {missions.length} Vorschlägen – dann öffnet sich die Truhe.
+            </span>
+          )}
+        </p>
+      ) : null}
       {missions.length === 0 ? (
         <p className="progress-note">Heute gibt es keine offenen Vorschläge – du bist auf dem Laufenden.</p>
       ) : (

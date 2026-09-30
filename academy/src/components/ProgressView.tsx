@@ -2,6 +2,9 @@ import type { CourseOutline } from '../content/types';
 import { goalLabel, type GoalOverview, type WeekDayStatus } from '../features/goals';
 import type { Mission } from '../features/missions';
 import type { ProgressSummary as Summary } from '../features/progressSummary';
+import type { LessonOutline } from '../content/types';
+import type { AlbumOverview } from '../features/barAlbum';
+import { BarAlbum } from './BarAlbum';
 import { BadgeGrid, MissionList, ProgressSummary } from './MotivationPanels';
 import { DAILY_GOAL_OPTIONS, type DailyGoal } from '../features/progress';
 import type { NextAction, ProgressOverview } from '../features/progressStats';
@@ -19,6 +22,9 @@ interface ProgressViewProps {
   /** Freiwillige Tagesvorschläge (P07). */
   missions: Mission[];
   onMission: (mission: Mission) => void;
+  /** Bar-Album (Stufe 3): Karten aus dem echten Lernstand. */
+  album?: AlbumOverview;
+  onOpenLesson?: (lesson: LessonOutline) => void;
 }
 
 const weekStatusLabels: Record<WeekDayStatus, string> = {
@@ -154,6 +160,8 @@ export function ProgressView({
   summary,
   missions,
   onMission,
+  album,
+  onOpenLesson,
 }: ProgressViewProps) {
   const { lessons, firstAttempt, activity } = overview;
   const [primary, ...secondary] = overview.actions;
@@ -326,6 +334,8 @@ export function ProgressView({
       )}
 
       <BadgeGrid goals={goals} />
+
+      {album ? <BarAlbum album={album} onOpenLesson={onOpenLesson} /> : null}
 
       {overview.legacyReadChapters > 0 ? (
         <p className="progress-note">

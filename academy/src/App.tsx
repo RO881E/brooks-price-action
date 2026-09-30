@@ -11,6 +11,7 @@ import {
   useSyncExternalStore,
 } from 'react';
 import { AppStatusBanner } from './components/AppStatusBanner';
+import { albumOverview } from './features/barAlbum';
 import { Icon, type IconName } from './components/Icon';
 import { CelebrationToast, type Celebration } from './components/CelebrationToast';
 import { ChapterView } from './components/ChapterView';
@@ -967,6 +968,7 @@ export default function App() {
           {view === 'path' && !studying && !shouldShowFirstUseGuide(progress) ? (
             <TodayPanel
               plan={planToday(courseOutline, progress, today)}
+              goals={goalOverview(progress, today)}
               onLesson={openLesson}
               onReview={() => {
                 // Eine laufende Runde wird fortgesetzt, nicht ersetzt.
@@ -1129,6 +1131,8 @@ export default function App() {
               onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
               summary={progressSummary(progress)}
               missions={dailyMissions(courseOutline, progress, today)}
+              album={albumOverview(courseOutline, progress)}
+              onOpenLesson={openLesson}
               onMission={(mission) => {
                 if (mission.kind === 'review') runNextAction({ kind: 'review', due: 0 });
                 else if (mission.kind === 'lesson' && mission.lesson) openLesson(mission.lesson);

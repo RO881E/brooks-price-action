@@ -85,7 +85,7 @@ test.describe('F-16 Was ich noch verwechsle', () => {
     await seed(page, exampleRecord());
     await page.goto('/#/practice');
     const card = overview(page).getByRole('article', { name: question.title });
-    await expect(card.getByText('Zuletzt falsch')).toBeVisible();
+    await expect(card.getByText('Zuletzt falsch', { exact: true })).toBeVisible();
     await expect(card.getByText('In der Lektion: erster Versuch falsch.')).toBeVisible();
     await expect(card.getByText('In der Wiederholung: 1 von 2 Antworten falsch.')).toBeVisible();
     await expect(card.getByText(`Zuletzt falsch gewählt: „${wrongOption.label}“.`)).toBeVisible();
