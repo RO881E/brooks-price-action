@@ -24,7 +24,14 @@ export type SignalRule =
   | 'breakout-close'
   | 'counter-spike'
   | 'climax-bar'
-  | 'first-pause';
+  | 'first-pause'
+  | 'failed-breakdown'
+  | 'ii-first'
+  | 'bull-reversal-bar'
+  | 'shaved-top'
+  | 'outside-bar'
+  | 'weak-bear-close'
+  | 'second-test';
 
 export interface SignalHint {
   /** Nullbasierter Index eines naheliegenden falschen Bars. */

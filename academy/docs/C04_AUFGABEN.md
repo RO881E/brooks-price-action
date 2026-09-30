@@ -1,6 +1,6 @@
 # C-04: Aufgabenpaket für „Finde den Bar“ und „Ordne die Schritte“ – Prüfliste
 
-Stand: **freigegeben (`approved`)** durch Robert. Die Aufgaben sind in der App sichtbar, sobald die zugehörigen Lektionen abgeschlossen sind.
+Stand: **Teil 1 (Kapitel 1–2, 16 Aufgaben) freigegeben (`approved`)** durch Robert – sichtbar, sobald die zugehörigen Lektionen abgeschlossen sind. **Teil 2 (Kapitel 3–10, 16 Aufgaben) ist Entwurf (`draft`)** und in der App erst nach deiner Freigabe sichtbar.
 
 Alle Bars sind eigenständig konstruierte, relative Zahlenfolgen (keine Buchabbildungen, keine echten Kurse). Die Aufgabentexte sind eigene Formulierungen. Jede Aufgabe stützt sich auf bereits vermittelte Lektionen und ist erst offen, wenn **alle** genannten Lektionen abgeschlossen sind.
 
@@ -14,7 +14,7 @@ Technisch geprüft ist bereits (Unit-Tests): Zielbar erfüllt die genannte Regel
 
 Sag mir Bescheid (ggf. mit Streichungen/Änderungen je Aufgabe). Die Freigabe erfolgte, indem der Status in `src/content/practiceTasks/c04Signal.ts` und `c04Order.ts` auf `approved` gesetzt wurde; seitdem laufen auch die E2E-Tests in `tests/practice-tasks.spec.ts`.
 
-## Teil 1: Finde den Bar (8 Aufgaben)
+## Teil 1 (freigegeben): Finde den Bar (8 Aufgaben)
 
 | # | Titel | Lektionen | Zielbar | Regel | Aufgabe |
 |---|---|---|---|---|---|
@@ -29,7 +29,7 @@ Sag mir Bescheid (ggf. mit Streichungen/Änderungen je Aufgabe). Die Freigabe er
 
 Regeln (mechanisch geprüft): `trend-bar-up/down` = Körper ≥ 2× Median, ≥ 60 % der Spanne, Schluss im äußeren Fünftel; `doji` = Körper ≤ 15 % der Spanne bei mindestens medianer Spanne; `failed-breakout` = Hoch über allen früheren Hochs, Schluss nicht darüber; `breakout-close` = erster Schluss über allen früheren Hochs; `counter-spike` = bärischer Bar mit ≥ 1,5× Median-Körper; `climax-bar` = Körper ≥ 2,5× Median und größte Spanne; `first-pause` = erster Nicht-Trendbar nach mindestens drei Aufwärts-Trendbars.
 
-## Teil 2: Ordne die Schritte (8 Aufgaben)
+## Teil 1 (freigegeben): Ordne die Schritte (8 Aufgaben)
 
 ### 1. Einen einzelnen Bar lesen
 Lektionen: chapter-02.lesson-01
@@ -94,3 +94,90 @@ Lektionen: chapter-02.lesson-09
 2. Open, Close und Tails prüfen.
 3. Die Position im Trend beachten: Ein ungewöhnlich großer Bar spät im Trend warnt vor Erschöpfung.
 4. Auf gute Folgebars als Bestätigung warten.
+
+---
+
+# Teil 2 (Kapitel 3–10) – Entwurf, wartet auf Freigabe
+
+Freigabe: Status in `src/content/practiceTasks/c04SignalPart2.ts` und `c04OrderPart2.ts` von `draft` auf `approved` setzen (oder mir Bescheid geben, ggf. mit Streichungen).
+
+Zusätzliche Regeln (mechanisch geprüft): `failed-breakdown` = Tief unter allen früheren Tiefs, Schluss nicht darunter; `ii-first` = erster Inside-Bar, auf den direkt ein weiterer Inside-Bar folgt; `bull-reversal-bar` = bullisch, Tief unter allen früheren Tiefs, Schluss in den oberen 30 % der Spanne und über dem Vorschluss, oberer Schatten ≤ 20 %, unterer Schatten ≥ 30 %; `shaved-top` = bullischer Bar mit Schluss am Hoch (≤ 2 % der Spanne); `outside-bar` = höheres Hoch und tieferes Tief als der Vorbar; `weak-bear-close` = bärisch, neues Tief, Schluss ≥ 35 % der Spanne über dem Tief; `second-test` = erster bullischer Bar, der nach mindestens einem Bar Abstand das tiefste bisherige Tief erneut anläuft (innerhalb 25 % der mittleren Spanne) und hält; `failed-breakout` wie in Teil 1.
+
+## Finde den Bar (8 Aufgaben)
+
+| # | Titel | Lektionen | Zielbar | Regel | Aufgabe |
+|---|---|---|---|---|---|
+| 1 | Der gescheiterte Tiefausbruch | chapter-03.lesson-09 | Bar 5 | `failed-breakdown` | Der Markt fällt Bar für Bar auf neue Tiefs. Tippe auf den Bar, der die bisherigen Tiefs unterschreitet, aber wieder darüber schließt. |
+| 2 | Der Beginn des ii | chapter-04.lesson-11 | Bar 4 | `ii-first` | Die Kursspanne verengt sich. Tippe auf den ersten Inside-Bar, auf den direkt ein weiterer Inside-Bar folgt (ii). |
+| 3 | Der bullische Reversal-Bar | chapter-05.lesson-02, chapter-05.lesson-12 | Bar 5 | `bull-reversal-bar` | Nach einer Abwärtsbewegung erscheint ein bullischer Reversal-Bar: Er handelt unter dem früheren Tief, schließt aber weit oben mit kleinem oberem Schatten. |
+| 4 | Der Bar ohne Schatten am Hoch | chapter-06.lesson-13 | Bar 4 | `shaved-top` | Ein Bullenlauf mit vielen Bars. Tippe auf den bullischen Bar, der genau an seinem Hoch schließt (kein oberer Schatten). |
+| 5 | Der Outside-Bar | chapter-07.lesson-01 | Bar 5 | `outside-bar` | Tippe auf den Outside-Bar: Er hat ein höheres Hoch und ein tieferes Tief als der unmittelbar vorherige Bar. |
+| 6 | Das bärische Signal mit nachlassender Schärfe | chapter-08.lesson-04 | Bar 4 | `weak-bear-close` | Ein Bärenlauf. Tippe auf den bärischen Bar, der ein neues Tief erreicht, aber deutlich über diesem Tief schließt. |
+| 7 | Der gescheiterte Ausbruch aus der Flagge | chapter-09.lesson-05 | Bar 6 | `failed-breakout` | Der Markt schiebt sich in einer vermeintlichen Bullenflagge seitwärts. Tippe auf den Bar, der nach oben ausbricht, aber wieder darunter schließt. |
+| 8 | Der zweite Test des Tiefs | chapter-10.lesson-01 | Bar 7 | `second-test` | Ein Markt fällt, springt zurück und läuft erneut zum Tief. Tippe auf den Bar, der das frühere Tief ein zweites Mal testet, dort hält und bullisch schließt. |
+
+## Ordne die Schritte (8 Aufgaben)
+
+### 1. Vom Tiefbruch zum Spike nach oben
+Lektionen: chapter-03.lesson-09
+
+1. Der Markt unterschreitet das Tief des Vortages und erzeugt ein neues Tief.
+2. Er kann die tieferen Preise nicht halten: Es fehlt die Akzeptanz.
+3. Bären reduzieren Verkäufe und decken Shorts ein, Bullen kaufen aggressiv.
+4. Ein bullischer Spike sucht anschließend einen neuen Gleichgewichtsbereich.
+
+### 2. Ein ii sauber lesen
+Lektionen: chapter-04.lesson-11
+
+1. Die Kompression erkennen: Hochs und Tiefs rücken zusammen.
+2. Beide Seiten planen: Ein Ausbruch ist nach oben und nach unten möglich.
+3. Den Kontext gewichten: Trend oder Trading Range, Lage im Chart.
+4. Erst nach Auslösung und Anschluss bewerten.
+
+### 3. Vom Setup-Bar zum Entry-Bar
+Lektionen: chapter-05.lesson-05
+
+1. Der bullische Bar ist zunächst nur ein mögliches Setup, noch kein Signal.
+2. Vor dem Einstieg beide Fälle planen: guter Anschluss oder sofortige Rückkehr in die alte Struktur.
+3. Der nächste Bar überschreitet die Schwelle, die Order wird ausgeführt: Der Vorbar wird rückblickend zum Signal-Bar.
+4. Den Entry-Bar beurteilen: Schließt er kräftig in Handelsrichtung?
+
+### 4. Setup, Auslösung, Raum
+Lektionen: chapter-06.lesson-01
+
+1. Das Setup erkennen: Der Bar bereitet eine Gelegenheit vor.
+2. Die Auslösung abwarten: Erst dann wird der Bar zum Signal-Bar.
+3. Den Raum für Anschluss beurteilen: Marktphase, Widerstand, Zielraum.
+
+### 5. Bei Unklarheit abwarten
+Lektionen: chapter-07.lesson-11
+
+1. Die Unklarheit ausdrücklich benennen.
+2. Grenzen und den nächsten aussagekräftigen Test notieren.
+3. Folgebars beobachten: gehaltener Bruch mit Anschluss oder schnelle Rückkehr?
+4. Erst mit einer klaren These handeln – sonst ist kein Trade der Plan.
+
+### 6. Erst den geschlossenen Bar beurteilen
+Lektionen: chapter-08.lesson-01
+
+1. Den Einstieg als wiederholbaren Plan festlegen.
+2. Das Ende des Bars abwarten.
+3. Den geschlossenen Bar beurteilen: Schluss und Lage.
+4. Erst dann nach Plan einsteigen.
+
+### 7. Warnung, Abwarten, Fehlschlag
+Lektionen: chapter-09.lesson-05
+
+1. Das uneindeutige Muster mit Warnzeichen erkennen.
+2. Nicht sofort handeln, sondern weitere Price Action abwarten.
+3. Den versuchten Ausbruch und die Reaktion danach beobachten.
+4. Erst dann die Gegenthese handeln – mit eigenem Auslöser und Schutzpunkt.
+
+### 8. Gegen einen starken Trend: der zweite Versuch
+Lektionen: chapter-10.lesson-05
+
+1. Den ersten Gegenversuch als Beobachtung behandeln, keinen Gegentrend-Trade nehmen.
+2. Die Wiederaufnahme des Trends für ein oder zwei Bars ansehen.
+3. Auf einen erneuten Umkehrversuch warten.
+4. Erst dann einen Entry erwägen – mit passendem Ort, Auslösung und begrenztem Schutz.
+

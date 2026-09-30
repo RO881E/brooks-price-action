@@ -20,12 +20,12 @@ const courseOutline = toCourseOutline(brooksTrendsCourse);
 describe('C-04 Aufgaben (Vertrag)', () => {
   it('Signal-Bar-Aufgaben erfüllen den Vertrag und ihre Regel', () => {
     expect(validateSignalTasks(signalBarTasks, courseOutline)).toEqual([]);
-    expect(signalBarTasks.length).toBeGreaterThanOrEqual(8);
+    expect(signalBarTasks.length).toBeGreaterThanOrEqual(16);
   });
 
   it('Reihenfolge-Aufgaben erfüllen den Vertrag', () => {
     expect(validateOrderTasks(orderTasks, courseOutline)).toEqual([]);
-    expect(orderTasks.length).toBeGreaterThanOrEqual(8);
+    expect(orderTasks.length).toBeGreaterThanOrEqual(16);
   });
 
   it('der Validator findet Fehler', () => {
