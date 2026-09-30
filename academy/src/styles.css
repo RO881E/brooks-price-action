@@ -7057,3 +7057,17 @@ button:disabled {
 .reader-outline-item.current small {
   color: var(--ink);
 }
+
+/* Runden-Aktionen im Trainer: ausreichend große Ziele mit Abstand (WCAG 2.2 Zielgröße). */
+.trainer-run-actions .link-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 8px;
+}
+
+.trainer-run-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
