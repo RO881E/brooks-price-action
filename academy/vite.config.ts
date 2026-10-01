@@ -17,7 +17,13 @@ export default defineConfig({
         // `src/content/units.ts` per dynamischem Import in je einen Chunk pro
         // Einheit (F-12); die Schaubilder lädt der Lesson Player bei Bedarf.
         codeSplitting: {
-          groups: [{ name: 'react', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/ }],
+          groups: [
+            { name: 'react', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/ },
+            // Die Kursgliederung (`virtual:wqt-course-outline`) wächst mit jedem Kapitel. Als eigener
+            // Baustein lädt sie beim Start parallel (modulepreload) und bleibt im Cache, solange sich
+            // nur App-Code ändert – und umgekehrt. Das Hauptbündel enthält so nur App-Code.
+            { name: 'course-outline', test: /virtual:wqt-course-outline/ },
+          ],
         },
       },
     },

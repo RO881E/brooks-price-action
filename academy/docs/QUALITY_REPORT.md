@@ -23,6 +23,20 @@ Stand: Ende der Paketreihe P01–P12. Alle Angaben stammen aus automatischen Lä
 - Größtes Chunk: Schaubild (ChartFocus) 276 kB roh / 68 kB gzip; größtes Kapitel 27 kB gzip.
 - `dist` gesamt 1,91 MB; Offline-Vorladung 32 Dateien, 1,91 MB.
 
+Nachtrag nach Kapitel 11–14 und „Mehrere Kurse“: Die Kursgliederung lag im Hauptbündel und war mit 359
+Lektionen auf 326 kB gewachsen (Hauptbündel 566 kB, `dist` 2,41 MB – drei Grenzwerte überschritten). Die
+Gliederung ist jetzt ein eigener, beim Start parallel geladener Baustein, und `report:size` trennt
+App-Code von Kursinhalten:
+
+| Bereich | Messung | Grenze |
+| --- | --- | --- |
+| Hauptbündel (nur App-Code) | 240,6 kB roh / 71,4 kB gzip | 500 kB roh / 160 kB gzip |
+| App-Grundgerüst ohne Kursinhalte | 0,80 MB roh | 1,0 MB |
+| Kursgliederung | 325,7 kB roh / 58,7 kB gzip | 120 kB gzip |
+| Schaubilder | 347 kB roh / 82,2 kB gzip | 150 kB gzip |
+| größtes Kapitel | 29,2 kB gzip | 40 kB gzip |
+| Offline-Vorladung (übertragen) | 42 Dateien, 0,67 MB gzip (2,41 MB roh) | 1,5 MB gzip |
+
 ## Änderungen dieser Runde
 
 - Rettungskopie statt stillem Verlust bei nicht lesbaren Daten.
