@@ -201,4 +201,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 52,
     load: () => import('./courses/price-action-trends/chapter-15').then((module) => module.chapterFifteenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-16', order: 18, kind: 'chapter', label: 'Kapitel 16',
+    title: 'Mikrokanäle und erste Rückläufe',
+    description: 'Mikro-Trendlinien, erste Gegenversuche, doppelte Fehlschläge und Kontextwechsel – mit sechs Chartfällen, Zeitebenenvergleich und einem überprüfbaren Replayplan.',
+    estimatedLessonCount: 46,
+    load: () => import('./courses/price-action-trends/chapter-16').then((module) => module.chapterSixteenLessons),
+  },
 ];
