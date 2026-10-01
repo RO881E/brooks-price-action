@@ -663,10 +663,14 @@ geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Lade
 - **Alte Stände:** `src/features/legacyStates.test.ts` lädt, migriert, exportiert, importiert und
   führt Stände der Versionen 1, 2, 5, 8, 9, 10, 12, 14 und 15 zusammen (XP nur einmal, früheste
   Meilensteine, Vereinigung der Runden).
-- **Größe:** `npm run build && npm run report:size` misst Hauptbündel, größtes Kapitel, Gesamtgröße
-  und Offline-Vorladung und endet mit Fehler bei Überschreitung der Grenzwerte. Üben, Fortschritt,
-  Gespeichert, Einstellungen, Transfer und Rückblick laden erst beim Öffnen; das Hauptbündel bleibt
-  unter 500 kB.
+- **Größe:** `npm run build && npm run report:size` misst App-Code und Kursinhalte getrennt und endet
+  mit Fehler bei Überschreitung der Grenzwerte: Hauptbündel (nur App-Code, unter 500 kB), App-Grundgerüst
+  ohne Kursinhalte (≤ 1,0 MB), Kursgliederung (≤ 120 kB gzip), Schaubilder (≤ 150 kB gzip), größtes
+  Kapitel (≤ 40 kB gzip) und die Offline-Vorladung, so wie sie übertragen wird (≤ 1,5 MB gzip). Die
+  Kursgliederung ist ein eigener Baustein, der beim Start parallel lädt (`vite.config.ts`); sie wächst mit
+  jedem Kapitel, ohne das Hauptbündel zu vergrößern. Erreicht ein Inhaltsbaustein seine Grenze, wird er
+  aufgeteilt (Gliederung je Kurs, Schaubilder je Kapitel) – die Meldung nennt den Weg. Üben, Fortschritt,
+  Gespeichert, Einstellungen, Transfer, Rückblick und Bibliothek laden erst beim Öffnen.
 - **Zugänglichkeit:** `tests/quality.spec.ts` prüft alle Hauptansichten auf 360 px, bei 200 % Zoom,
   mit reduzierter Bewegung, per Tastatur und mit axe sowie Touch-Ziele (mindestens 24 px).
 - Ergebnisse und Grenzen: [`docs/QUALITY_REPORT.md`](docs/QUALITY_REPORT.md); Ablauf für die
