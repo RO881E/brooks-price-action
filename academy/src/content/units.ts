@@ -194,4 +194,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 28,
     load: () => import('./courses/price-action-trends/chapter-14').then((module) => module.chapterFourteenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-15', order: 17, kind: 'chapter', label: 'Kapitel 15',
+    title: 'Kanäle im Marktkontext',
+    description: 'Enge und breite Kanäle, Kontextwechsel, Zielprojektionen, Ausbruchsfehlschläge und Orderlogik – mit acht Chartfällen und einem überprüfbaren Beobachtungsplan.',
+    estimatedLessonCount: 52,
+    load: () => import('./courses/price-action-trends/chapter-15').then((module) => module.chapterFifteenLessons),
+  },
 ];
