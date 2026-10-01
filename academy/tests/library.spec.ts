@@ -1,12 +1,15 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { libraryCounts, librarySubjects } from '../src/content/library';
 
 /*
- * Bibliothek: Themengebiete und Kurse. Verfügbare Kurse führen in den Lernpfad, angekündigte
- * Themen stehen als „Geplant“ da – ohne Link, ohne Inhalt.
+ * Bibliothek: alle Themengebiete mit ihren Kursen, aufklappbar. Offen ist zu Beginn nur das Gebiet
+ * mit Inhalt; verfügbare Kurse führen in den Lernpfad, geplante stehen ohne Link da.
  */
 
 const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
+const counts = libraryCounts(librarySubjects);
+const volume = librarySubjects.find((subject) => subject.id === 'volume')!;
 
 async function open(page: Page, isMobile: boolean) {
   await page.goto('/');
@@ -16,21 +19,65 @@ async function open(page: Page, isMobile: boolean) {
   await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
 }
 
+const toggle = (page: Page, title: string) => page.getByRole('button', { name: title, exact: true });
+
 test.describe('Bibliothek', () => {
-  test('über den Kursblock erreichbar: Themen, Geplant-Karten, aktiver Kurs', async ({ page, isMobile }) => {
+  test('über den Kursblock erreichbar: alle Themengebiete, nur das aktive offen', async ({ page, isMobile }) => {
     await open(page, isMobile);
     await expect(page).toHaveURL(/#\/library$/);
-    for (const title of ['Price Action', 'Volumen', 'Orderflow', 'Unternehmensbewertung']) {
-      await expect(page.getByRole('heading', { level: 2, name: title })).toBeVisible();
+    await expect(page.locator('.library-subject')).toHaveCount(counts.subjects);
+    for (const subject of librarySubjects) {
+      await expect(page.getByRole('heading', { level: 2, name: subject.title, exact: true })).toBeVisible();
     }
+    await expect(toggle(page, 'Price Action und Marktstruktur')).toHaveAttribute('aria-expanded', 'true');
+    await expect(toggle(page, 'Volumen')).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.getByText(`1 von ${counts.subjects} Themengebieten geöffnet.`)).toBeVisible();
+    await expect(page.locator('.library-subject.is-planned')).toHaveCount(counts.subjects - 1);
+
     const trends = page.locator('.library-course', { hasText: 'Price Action: Trends' });
     await expect(trends).toContainText('Teil 1 von 3');
     await expect(trends).toContainText('Aktiv');
-    // Buch 2 und 3 sowie die neuen Themen: sichtbar als Geplant, nicht bedienbar.
-    await expect(page.locator('.library-course.is-planned')).toHaveCount(2);
-    await expect(page.locator('.library-subject.is-planned')).toHaveCount(3);
-    await expect(page.locator('.library-course.is-planned button, .library-subject.is-planned button')).toHaveCount(0);
-    await expect(page.locator('.library-view').getByText('Geplant').first()).toBeVisible();
+
+    // Alle öffnen: jede Karte sichtbar; geplante Kurse führen nirgendwohin.
+    await page.getByRole('button', { name: 'Alle öffnen' }).click();
+    await expect(page.locator('.library-course')).toHaveCount(counts.courses);
+    await expect(page.locator('.library-course.is-planned')).toHaveCount(counts.courses - counts.available);
+    await expect(page.locator('.library-course.is-planned').getByRole('button', { name: 'Zum Lernpfad' })).toHaveCount(0);
+    await expect(page.locator('.library-course.is-planned .library-badge')).toHaveText(
+      Array(counts.courses - counts.available).fill('Geplant'),
+    );
+  });
+
+  test('Gebiet per Klick und Tastatur auf- und zuklappen, Unterthemen zeigen, Zustand bleibt im Tab', async ({ page }) => {
+    await page.goto('/#/library');
+    const button = toggle(page, 'Volumen');
+    await button.click();
+    await expect(button).toHaveAttribute('aria-expanded', 'true');
+    const panel = page.locator(`[id="${await button.getAttribute('aria-controls')}"]`);
+    await expect(panel.locator('.library-course')).toHaveCount(volume.courses.length);
+
+    const vwap = panel.locator('.library-course', { hasText: 'VWAP' });
+    const firstTopic = volume.courses.find((course) => course.id === 'vwap')!.subtopics[0];
+    await expect(vwap.getByText(firstTopic)).toBeHidden();
+    await vwap.locator('summary').click();
+    await expect(vwap.getByText(firstTopic)).toBeVisible();
+
+    await button.focus();
+    await page.keyboard.press('Enter');
+    await expect(button).toHaveAttribute('aria-expanded', 'false');
+    await expect(panel).toBeHidden();
+    await page.keyboard.press('Space');
+    await expect(button).toHaveAttribute('aria-expanded', 'true');
+
+    // Nach einem Wechsel in eine andere Ansicht ist derselbe Zustand wieder da.
+    await page.goto('/#/practice');
+    await page.goto('/#/library');
+    await expect(toggle(page, 'Volumen')).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.getByText(`2 von ${counts.subjects} Themengebieten geöffnet.`)).toBeVisible();
+
+    await page.getByRole('button', { name: 'Alle schließen' }).click();
+    await expect(page.getByText('Alle Themengebiete sind zugeklappt.')).toBeVisible();
+    await expect(page.locator('.library-course')).toHaveCount(0);
   });
 
   test('Navigationseintrag „Bibliothek“ und Rückweg in den Lernpfad', async ({ page, isMobile }) => {
@@ -45,12 +92,19 @@ test.describe('Bibliothek', () => {
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   });
 
-  test('barrierefrei und schmal (360 px) ohne Überlauf', async ({ page }) => {
+  test('barrierefrei und schmal (360 px) ohne Überlauf – zugeklappt und ganz geöffnet', async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 740 });
     await page.goto('/#/library');
     await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
-    const results = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();
-    expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+    const check = async () => {
+      const results = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();
+      expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+    };
+    await check();
+    await page.getByRole('button', { name: 'Alle öffnen' }).click();
+    // Alle Unterthemen ausklappen (die untere Leiste würde Klicks am Bildrand abfangen).
+    await page.locator('.library-subtopics').evaluateAll((items) => items.forEach((item) => ((item as HTMLDetailsElement).open = true)));
+    await check();
   });
 });

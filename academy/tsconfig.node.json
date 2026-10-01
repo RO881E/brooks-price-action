@@ -9,5 +9,5 @@
     "strict": true,
     "types": ["node"]
   },
-  "include": ["vite.config.ts", "playwright.config.ts", "pwa/**/*.ts", "build/**/*.ts", "src/content/types.ts"]
+  "include": ["vite.config.ts", "playwright.config.ts", "pwa/**/*.ts", "build/**/*.ts", "src/content/types.ts", "src/content/library.ts"]
 }

@@ -554,12 +554,14 @@ Der Chart-Trainer hat große Entscheidungs-Kacheln, animierte neue Bars und eine
 es zwei freiwillige Spiele ohne Einfluss auf den Lernstand: Begriffe-Memory (Begriff ↔ Beschreibung aus dem Glossar) und die
 Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](docs/DESIGN_STUFE4.md).
 
-## Bibliothek: Platz für weitere Themen
+## Bibliothek: alle Themen
 
-Neue Ansicht „Bibliothek“ (`#/library`, im Menü und über „Alle Themen ansehen“): Price Action in drei
-Teilen (Teil 1 aktiv, 2 und 3 geplant) sowie Volumen, Orderflow und Unternehmensbewertung als „Geplant“-Karten.
-Ein neues Thema ist ein Eintrag in `src/content/library.ts`. Mehrere gleichzeitig verfügbare Kurse (Lernstand je Kurs
-usw.) sind bewusst noch nicht gebaut. Details: [`docs/DESIGN_BIBLIOTHEK.md`](docs/DESIGN_BIBLIOTHEK.md).
+Ansicht „Bibliothek“ (`#/library`, im Menü und über „Alle Themen ansehen“): 18 Themengebiete mit 106 Kursen –
+von Marktgrundlagen und Price Action über Volumen, Orderflow, Risiko und Psychologie bis zu Bewertung, Makro und
+Marktgeschichte. Die Gebiete sind aufklappbar, jede Kurskarte nennt ihre möglichen Unterthemen. Aktiv ist
+„Price Action: Trends“; alles andere steht als „Geplant“ ohne Inhalt da. Einzige Liste: `src/content/library.ts`;
+daraus erzeugt `npm run catalog` den [Themenkatalog](docs/THEMENKATALOG.md). Mehrere gleichzeitig lernbare Kurse
+(Lernstand je Kurs usw.) sind bewusst noch nicht gebaut. Details: [`docs/DESIGN_BIBLIOTHEK.md`](docs/DESIGN_BIBLIOTHEK.md).
 
 ## „Finde den Bar“ und „Ordne die Schritte“ (Stufe 4d, Content-Pack C-04)
 

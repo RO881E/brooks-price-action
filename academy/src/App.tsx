@@ -18,7 +18,6 @@ import { CelebrationToast, type Celebration } from './components/CelebrationToas
 import { ChapterView } from './components/ChapterView';
 import { LessonLoading } from './components/ContentLoadState';
 import { GlossaryView } from './components/GlossaryView';
-import { LibraryView } from './components/LibraryView';
 import { LessonPlayer } from './components/LessonPlayer';
 import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
@@ -157,6 +156,7 @@ const SavedView = lazyView(() => import('./components/SavedView').then((module) 
 const SettingsView = lazyView(() => import('./components/SettingsView').then((module) => module.SettingsView));
 const TransferView = lazyView(() => import('./components/TransferView').then((module) => module.TransferView));
 const ReplayView = lazyView(() => import('./components/ReplayView').then((module) => module.ReplayView));
+const LibraryView = lazyView(() => import('./components/LibraryView').then((module) => module.LibraryView));
 
 type View = AppView;
 
