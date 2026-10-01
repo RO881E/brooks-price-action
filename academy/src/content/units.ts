@@ -166,4 +166,32 @@ export const unitDefinitions: UnitDefinition[] = [
     load: () =>
       import('./courses/price-action-trends/chapter-10').then((module) => module.chapterTenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-11', order: 13, kind: 'chapter', label: 'Kapitel 11',
+    title: 'Verpasste und späte Einstiege',
+    description: 'Späte Trendteilnahme, Haltefrage, Stop-Abstand, Positionsgröße und Aufstocken – mit einem Chartfall und vertiefter Kanal- und Durchschnittslogik.',
+    estimatedLessonCount: 16,
+    load: () => import('./courses/price-action-trends/chapter-11').then((module) => module.chapterElevenLessons),
+  },
+  {
+    id: 'price-action-trends.chapter-12', order: 14, kind: 'chapter', label: 'Kapitel 12',
+    title: 'Wie Chartmuster sich entwickeln',
+    description: 'Erweiterungen, Fehlschläge, festgesetzte Trader und Richtungswechsel – mit zwei Chartfällen, vertiefter Tagesentwicklung und einem Beobachtungsplan.',
+    estimatedLessonCount: 21,
+    load: () => import('./courses/price-action-trends/chapter-12').then((module) => module.chapterTwelveLessons),
+  },
+  {
+    id: 'price-action-trends.chapter-13', order: 15, kind: 'chapter', label: 'Kapitel 13',
+    title: 'Trendlinien und ihre Tests',
+    description: 'Swinglinien, Gegenbrüche, Extremtests und parallele Kanalgrenzen – mit sieben Chartfällen, vertiefter Einordnung und einem klaren Beobachtungsplan.',
+    estimatedLessonCount: 36,
+    load: () => import('./courses/price-action-trends/chapter-13').then((module) => module.chapterThirteenLessons),
+  },
+  {
+    id: 'price-action-trends.chapter-14', order: 16, kind: 'chapter', label: 'Kapitel 14',
+    title: 'Kanalgrenzen und Überschreitungen',
+    description: 'Parallele und direkte Kanalgrenzen, Keile, Fehlausbrüche und Beschleunigung – mit drei Chartfällen und einem überprüfbaren Beobachtungsplan.',
+    estimatedLessonCount: 28,
+    load: () => import('./courses/price-action-trends/chapter-14').then((module) => module.chapterFourteenLessons),
+  },
 ];

@@ -91,6 +91,126 @@ export const CHAPTER_TEN_SCENARIOS = [
 
 export type ChapterTenScenarioId = (typeof CHAPTER_TEN_SCENARIOS)[number];
 
+export const CHAPTER_ELEVEN_SCENARIOS = [
+  "c11-missed-trend",
+  "c11-clear-direction",
+  "c11-swing-size",
+  "c11-risk-size",
+  "c11-hold-vs-enter",
+  "c11-four-bars",
+  "c11-wait-pullback",
+  "c11-failed-bear",
+  "c11-inside-signal",
+  "c11-late-arrival",
+  "c11-add-position",
+  "c11-tight-channel",
+  "c11-ma-gap",
+  "c11-twenty-gap",
+  "c11-higher-timeframe",
+  "c11-checklist"
+] as const;
+
+export type ChapterElevenScenarioId = (typeof CHAPTER_ELEVEN_SCENARIOS)[number];
+
+export const CHAPTER_TWELVE_SCENARIOS = [
+  "c12-current-bars",
+  "c12-expand-or-reverse",
+  "c12-trapped-orders",
+  "c12-reset-context",
+  "c12-scalp-vs-swing",
+  "c12-expanding-triangle",
+  "c12-micro-line",
+  "c12-final-flag",
+  "c12-channel-range",
+  "c12-opening-flags",
+  "c12-121-wedge-top",
+  "c12-121-complex-low2",
+  "c12-121-wedge-bottom",
+  "c12-121-failed-low2",
+  "c12-121-channel-top",
+  "c12-121-failed-high2",
+  "c12-122-gap-reversal",
+  "c12-122-double-flags",
+  "c12-122-two-readings",
+  "c12-122-trending-ranges",
+  "c12-observation-plan"
+] as const;
+
+export type ChapterTwelveScenarioId = (typeof CHAPTER_TWELVE_SCENARIOS)[number];
+
+export const CHAPTER_FOURTEEN_SCENARIOS = [
+  "c14-01",
+  "c14-02",
+  "c14-03",
+  "c14-04",
+  "c14-05",
+  "c14-06",
+  "c14-07",
+  "c14-08",
+  "c14-09",
+  "c14-10",
+  "c14-11",
+  "c14-12",
+  "c14-13",
+  "c14-14",
+  "c14-15",
+  "c14-16",
+  "c14-17",
+  "c14-18",
+  "c14-19",
+  "c14-20",
+  "c14-21",
+  "c14-22",
+  "c14-23",
+  "c14-24",
+  "c14-25",
+  "c14-26",
+  "c14-27",
+  "c14-28"
+] as const;
+export type ChapterFourteenScenarioId = (typeof CHAPTER_FOURTEEN_SCENARIOS)[number];
+
+export const CHAPTER_THIRTEEN_SCENARIOS = [
+  "c13-01",
+  "c13-02",
+  "c13-03",
+  "c13-04",
+  "c13-05",
+  "c13-06",
+  "c13-07",
+  "c13-08",
+  "c13-09",
+  "c13-10",
+  "c13-11",
+  "c13-12",
+  "c13-13",
+  "c13-14",
+  "c13-15",
+  "c13-16",
+  "c13-17",
+  "c13-18",
+  "c13-19",
+  "c13-20",
+  "c13-21",
+  "c13-22",
+  "c13-23",
+  "c13-24",
+  "c13-25",
+  "c13-26",
+  "c13-27",
+  "c13-28",
+  "c13-29",
+  "c13-30",
+  "c13-31",
+  "c13-32",
+  "c13-33",
+  "c13-34",
+  "c13-35",
+  "c13-36"
+] as const;
+
+export type ChapterThirteenScenarioId = (typeof CHAPTER_THIRTEEN_SCENARIOS)[number];
+
 export type ChartScenarioId =
   | 'auction-balance'
   | 'institutional-flow'
@@ -201,7 +321,11 @@ export type ChartScenarioId =
   | ChapterSevenScenarioId
   | ChapterEightScenarioId
   | ChapterNineScenarioId
-  | ChapterTenScenarioId;
+  | ChapterTenScenarioId
+  | ChapterElevenScenarioId
+  | ChapterTwelveScenarioId
+  | ChapterThirteenScenarioId
+  | ChapterFourteenScenarioId;
 
 export type LessonStep =
   | {
