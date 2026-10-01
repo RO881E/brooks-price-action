@@ -173,4 +173,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 16,
     load: () => import('./courses/price-action-trends/chapter-11').then((module) => module.chapterElevenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-12', order: 14, kind: 'chapter', label: 'Kapitel 12',
+    title: 'Wie Chartmuster sich entwickeln',
+    description: 'Erweiterungen, Fehlschläge, festgesetzte Trader und Richtungswechsel – mit zwei Chartfällen, vertiefter Tagesentwicklung und einem Beobachtungsplan.',
+    estimatedLessonCount: 21,
+    load: () => import('./courses/price-action-trends/chapter-12').then((module) => module.chapterTwelveLessons),
+  },
 ];
