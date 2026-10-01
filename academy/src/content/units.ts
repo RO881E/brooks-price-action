@@ -187,4 +187,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 36,
     load: () => import('./courses/price-action-trends/chapter-13').then((module) => module.chapterThirteenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-14', order: 16, kind: 'chapter', label: 'Kapitel 14',
+    title: 'Kanalgrenzen und Überschreitungen',
+    description: 'Parallele und direkte Kanalgrenzen, Keile, Fehlausbrüche und Beschleunigung – mit drei Chartfällen und einem überprüfbaren Beobachtungsplan.',
+    estimatedLessonCount: 28,
+    load: () => import('./courses/price-action-trends/chapter-14').then((module) => module.chapterFourteenLessons),
+  },
 ];

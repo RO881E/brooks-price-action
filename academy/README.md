@@ -6,7 +6,7 @@ Einzeldatei-Website wurde entfernt; die App liegt auf der Startseite der veröff
 ## Veröffentlichtes Buchmaterial
 
 Die Academy bietet eine separate Begriffsreferenz. Der lineare Lernpfad enthält
-die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 13 von
+die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 14 von
 *Trading Price Action Trends*. Kapitel 5 enthält 25 Mikro-Lektionen zu
 Reversal-Bars und den Chartfällen 5.1 bis 5.3. Kapitel 6 ergänzt 40 Lektionen
 zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Kapitel 7 ergänzt
@@ -28,6 +28,8 @@ vertiefte Einordnung. Jede Lektion enthält ein eigenes schematisches Schaubild.
 Kapitel 13 ergänzt 36 Mikro-Lektionen zu Trendlinien, Tests, Gegenbrüchen und
 parallelen Kanalgrenzen. Sieben Chartfälle und ihre vertiefte Einordnung werden
 mit eigenen schematischen Linien- und Kerzendiagrammen erläutert.
+
+Kapitel 14 ergänzt 28 Mikro-Lektionen zu Kanalgrenzen, Überschreitungen, Keilbildung und Beschleunigung. Drei Chartfälle werden mit eigenen synthetischen OHLC-Diagrammen und individuellem Quizfeedback erklärt.
 
 ## Was der Pilot bereits kann
 
