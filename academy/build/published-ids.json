@@ -3831,6 +3831,425 @@
           ]
         }
       ]
+    },
+    {
+      "id": "price-action-trends.chapter-16",
+      "lessons": [
+        {
+          "id": "price-action-trends.chapter-16.lesson-01",
+          "steps": [
+            "chapter-16-01-explain",
+            "chapter-16-01-diagram",
+            "chapter-16-01-question",
+            "chapter-16-01-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-02",
+          "steps": [
+            "chapter-16-02-explain",
+            "chapter-16-02-diagram",
+            "chapter-16-02-question",
+            "chapter-16-02-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-03",
+          "steps": [
+            "chapter-16-03-explain",
+            "chapter-16-03-diagram",
+            "chapter-16-03-question",
+            "chapter-16-03-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-04",
+          "steps": [
+            "chapter-16-04-explain",
+            "chapter-16-04-diagram",
+            "chapter-16-04-question",
+            "chapter-16-04-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-05",
+          "steps": [
+            "chapter-16-05-explain",
+            "chapter-16-05-diagram",
+            "chapter-16-05-question",
+            "chapter-16-05-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-06",
+          "steps": [
+            "chapter-16-06-explain",
+            "chapter-16-06-diagram",
+            "chapter-16-06-question",
+            "chapter-16-06-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-07",
+          "steps": [
+            "chapter-16-07-explain",
+            "chapter-16-07-diagram",
+            "chapter-16-07-question",
+            "chapter-16-07-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-08",
+          "steps": [
+            "chapter-16-08-explain",
+            "chapter-16-08-diagram",
+            "chapter-16-08-question",
+            "chapter-16-08-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-09",
+          "steps": [
+            "chapter-16-09-explain",
+            "chapter-16-09-diagram",
+            "chapter-16-09-question",
+            "chapter-16-09-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-10",
+          "steps": [
+            "chapter-16-10-explain",
+            "chapter-16-10-diagram",
+            "chapter-16-10-question",
+            "chapter-16-10-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-11",
+          "steps": [
+            "chapter-16-11-explain",
+            "chapter-16-11-diagram",
+            "chapter-16-11-question",
+            "chapter-16-11-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-12",
+          "steps": [
+            "chapter-16-12-explain",
+            "chapter-16-12-diagram",
+            "chapter-16-12-question",
+            "chapter-16-12-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-13",
+          "steps": [
+            "chapter-16-13-explain",
+            "chapter-16-13-diagram",
+            "chapter-16-13-question",
+            "chapter-16-13-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-14",
+          "steps": [
+            "chapter-16-14-explain",
+            "chapter-16-14-diagram",
+            "chapter-16-14-question",
+            "chapter-16-14-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-15",
+          "steps": [
+            "chapter-16-15-explain",
+            "chapter-16-15-diagram",
+            "chapter-16-15-question",
+            "chapter-16-15-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-16",
+          "steps": [
+            "chapter-16-16-explain",
+            "chapter-16-16-diagram",
+            "chapter-16-16-question",
+            "chapter-16-16-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-17",
+          "steps": [
+            "chapter-16-17-explain",
+            "chapter-16-17-diagram",
+            "chapter-16-17-question",
+            "chapter-16-17-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-18",
+          "steps": [
+            "chapter-16-18-explain",
+            "chapter-16-18-diagram",
+            "chapter-16-18-question",
+            "chapter-16-18-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-19",
+          "steps": [
+            "chapter-16-19-explain",
+            "chapter-16-19-diagram",
+            "chapter-16-19-question",
+            "chapter-16-19-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-20",
+          "steps": [
+            "chapter-16-20-explain",
+            "chapter-16-20-diagram",
+            "chapter-16-20-question",
+            "chapter-16-20-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-21",
+          "steps": [
+            "chapter-16-21-explain",
+            "chapter-16-21-diagram",
+            "chapter-16-21-question",
+            "chapter-16-21-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-22",
+          "steps": [
+            "chapter-16-22-explain",
+            "chapter-16-22-diagram",
+            "chapter-16-22-question",
+            "chapter-16-22-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-23",
+          "steps": [
+            "chapter-16-23-explain",
+            "chapter-16-23-diagram",
+            "chapter-16-23-question",
+            "chapter-16-23-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-24",
+          "steps": [
+            "chapter-16-24-explain",
+            "chapter-16-24-diagram",
+            "chapter-16-24-question",
+            "chapter-16-24-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-25",
+          "steps": [
+            "chapter-16-25-explain",
+            "chapter-16-25-diagram",
+            "chapter-16-25-question",
+            "chapter-16-25-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-26",
+          "steps": [
+            "chapter-16-26-explain",
+            "chapter-16-26-diagram",
+            "chapter-16-26-question",
+            "chapter-16-26-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-27",
+          "steps": [
+            "chapter-16-27-explain",
+            "chapter-16-27-diagram",
+            "chapter-16-27-question",
+            "chapter-16-27-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-28",
+          "steps": [
+            "chapter-16-28-explain",
+            "chapter-16-28-diagram",
+            "chapter-16-28-question",
+            "chapter-16-28-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-29",
+          "steps": [
+            "chapter-16-29-explain",
+            "chapter-16-29-diagram",
+            "chapter-16-29-question",
+            "chapter-16-29-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-30",
+          "steps": [
+            "chapter-16-30-explain",
+            "chapter-16-30-diagram",
+            "chapter-16-30-question",
+            "chapter-16-30-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-31",
+          "steps": [
+            "chapter-16-31-explain",
+            "chapter-16-31-diagram",
+            "chapter-16-31-question",
+            "chapter-16-31-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-32",
+          "steps": [
+            "chapter-16-32-explain",
+            "chapter-16-32-diagram",
+            "chapter-16-32-question",
+            "chapter-16-32-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-33",
+          "steps": [
+            "chapter-16-33-explain",
+            "chapter-16-33-diagram",
+            "chapter-16-33-question",
+            "chapter-16-33-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-34",
+          "steps": [
+            "chapter-16-34-explain",
+            "chapter-16-34-diagram",
+            "chapter-16-34-question",
+            "chapter-16-34-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-35",
+          "steps": [
+            "chapter-16-35-explain",
+            "chapter-16-35-diagram",
+            "chapter-16-35-question",
+            "chapter-16-35-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-36",
+          "steps": [
+            "chapter-16-36-explain",
+            "chapter-16-36-diagram",
+            "chapter-16-36-question",
+            "chapter-16-36-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-37",
+          "steps": [
+            "chapter-16-37-explain",
+            "chapter-16-37-diagram",
+            "chapter-16-37-question",
+            "chapter-16-37-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-38",
+          "steps": [
+            "chapter-16-38-explain",
+            "chapter-16-38-diagram",
+            "chapter-16-38-question",
+            "chapter-16-38-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-39",
+          "steps": [
+            "chapter-16-39-explain",
+            "chapter-16-39-diagram",
+            "chapter-16-39-question",
+            "chapter-16-39-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-40",
+          "steps": [
+            "chapter-16-40-explain",
+            "chapter-16-40-diagram",
+            "chapter-16-40-question",
+            "chapter-16-40-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-41",
+          "steps": [
+            "chapter-16-41-explain",
+            "chapter-16-41-diagram",
+            "chapter-16-41-question",
+            "chapter-16-41-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-42",
+          "steps": [
+            "chapter-16-42-explain",
+            "chapter-16-42-diagram",
+            "chapter-16-42-question",
+            "chapter-16-42-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-43",
+          "steps": [
+            "chapter-16-43-explain",
+            "chapter-16-43-diagram",
+            "chapter-16-43-question",
+            "chapter-16-43-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-44",
+          "steps": [
+            "chapter-16-44-explain",
+            "chapter-16-44-diagram",
+            "chapter-16-44-question",
+            "chapter-16-44-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-45",
+          "steps": [
+            "chapter-16-45-explain",
+            "chapter-16-45-diagram",
+            "chapter-16-45-question",
+            "chapter-16-45-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-16.lesson-46",
+          "steps": [
+            "chapter-16-46-explain",
+            "chapter-16-46-diagram",
+            "chapter-16-46-question",
+            "chapter-16-46-recap"
+          ]
+        }
+      ]
     }
   ]
 }
