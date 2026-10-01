@@ -1,3 +1,8 @@
+export const CHAPTER_TWENTY_ONE_SCENARIOS = [
+'c21-01', 'c21-02', 'c21-03', 'c21-04', 'c21-05', 'c21-06', 'c21-07', 'c21-08', 'c21-09', 'c21-10', 'c21-11', 'c21-12', 'c21-13', 'c21-14', 'c21-15', 'c21-16', 'c21-17', 'c21-18', 'c21-19', 'c21-20', 'c21-21', 'c21-22', 'c21-23', 'c21-24', 'c21-25', 'c21-26', 'c21-27', 'c21-28', 'c21-29', 'c21-30', 'c21-31', 'c21-32', 'c21-33', 'c21-34', 'c21-35', 'c21-36', 'c21-37', 'c21-38', 'c21-39', 'c21-40', 'c21-41', 'c21-42', 'c21-43', 'c21-44', 'c21-45', 'c21-46', 'c21-47', 'c21-48', 'c21-49', 'c21-50', 'c21-51', 'c21-52', 'c21-53', 'c21-54', 'c21-55', 'c21-56', 'c21-57', 'c21-58', 'c21-59', 'c21-60'
+] as const;
+export type ChapterTwentyOneScenarioId = (typeof CHAPTER_TWENTY_ONE_SCENARIOS)[number];
+
 export const CHAPTER_TWENTY_SCENARIOS = [
 'c20-01', 'c20-02', 'c20-03', 'c20-04', 'c20-05', 'c20-06', 'c20-07', 'c20-08', 'c20-09', 'c20-10', 'c20-11', 'c20-12', 'c20-13', 'c20-14', 'c20-15', 'c20-16', 'c20-17', 'c20-18', 'c20-19', 'c20-20', 'c20-21', 'c20-22'
 ] as const;
@@ -575,7 +580,8 @@ export type ChartScenarioId =
   | ChapterSeventeenScenarioId
   | ChapterEighteenScenarioId
   | ChapterNineteenScenarioId
-  | ChapterTwentyScenarioId;
+  | ChapterTwentyScenarioId
+  | ChapterTwentyOneScenarioId;
 
 export type LessonStep =
   | {

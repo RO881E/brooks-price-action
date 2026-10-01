@@ -236,4 +236,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 22,
     load: () => import('./courses/price-action-trends/chapter-20').then((module) => module.chapterTwentyLessons),
   },
+  {
+    id: 'price-action-trends.chapter-21', order: 23, kind: 'chapter', label: 'Kapitel 21',
+    title: 'Impuls und Kanal: Phasen eines Trends',
+    description: 'Schnelle Impulse, erste Rückläufe, Kanalfortsetzung, Starttests und Klimaxvarianten – mit zehn Lernfällen, eigener OHLC-Aggregation, Zielrechnungen und zeitgerechter Orderprüfung.',
+    estimatedLessonCount: 60,
+    load: () => import('./courses/price-action-trends/chapter-21').then((module) => module.chapterTwentyOneLessons),
+  },
 ];

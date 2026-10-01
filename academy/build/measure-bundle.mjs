@@ -61,14 +61,14 @@ for (const file of assets) console.log(file.path.padEnd(44), String(kb(file.raw)
 const app = all.filter((file) => file.area === 'app');
 const chapters = all.filter((file) => file.area === 'chapter').sort((a, b) => b.gzip - a.gzip);
 const outline = all.find((file) => file.area === 'outline');
-const charts = all.find((file) => file.area === 'charts');
+const charts = all.filter((file) => file.area === 'charts');
 const main = assets.find((file) => /^assets\/index-.*\.js$/.test(file.path));
 
 console.log(`\nGesamt dist: ${mb(sum(all, 'raw'))} MB`);
 console.log(`- App-Grundgerüst: ${app.length} Dateien, ${mb(sum(app, 'raw'))} MB roh, ${kb(sum(app, 'gzip'))} kB gzip`);
 console.log(`- Kapitel: ${chapters.length} Dateien, ${mb(sum(chapters, 'raw'))} MB roh, ${kb(sum(chapters, 'gzip'))} kB gzip`);
 if (outline) console.log(`- Gliederung: ${kb(outline.raw)} kB roh, ${kb(outline.gzip)} kB gzip`);
-if (charts) console.log(`- Schaubilder: ${kb(charts.raw)} kB roh, ${kb(charts.gzip)} kB gzip`);
+if (charts.length) console.log(`- Schaubilder: ${charts.length} Dateien, ${kb(sum(charts, 'raw'))} kB roh, ${kb(sum(charts, 'gzip'))} kB gzip`);
 console.log(
   `Vorladung offline: ${precachePaths.size} Dateien, ${mb(sum(precached, 'raw'))} MB roh, ${mb(sum(precached, 'gzip'))} MB übertragen (gzip)`,
 );
@@ -84,8 +84,8 @@ if (outline && outline.gzip / 1024 > BUDGET.outlineGzipKb) {
     `Gliederung ${kb(outline.gzip)} kB gzip > ${BUDGET.outlineGzipKb} kB – Zeit, sie je Kurs aufzuteilen (nur der gewählte Kurs lädt beim Start)`,
   );
 }
-if (charts && charts.gzip / 1024 > BUDGET.chartsGzipKb) {
-  problems.push(`Schaubilder ${kb(charts.gzip)} kB gzip > ${BUDGET.chartsGzipKb} kB – Zeit, sie je Kapitel nachzuladen`);
+if (sum(charts, 'gzip') / 1024 > BUDGET.chartsGzipKb) {
+  problems.push(`Schaubilder ${kb(sum(charts, 'gzip'))} kB gzip > ${BUDGET.chartsGzipKb} kB – Zeit, sie je Kapitel nachzuladen`);
 }
 if (chapters[0] && chapters[0].gzip / 1024 > BUDGET.chapterGzipKb) {
   problems.push(`Kapitel ${chapters[0].path} ${kb(chapters[0].gzip)} kB gzip > ${BUDGET.chapterGzipKb} kB`);
