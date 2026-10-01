@@ -208,4 +208,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 46,
     load: () => import('./courses/price-action-trends/chapter-16').then((module) => module.chapterSixteenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-17', order: 19, kind: 'chapter', label: 'Kapitel 17',
+    title: 'Horizontale Linien und wichtige Preisbereiche',
+    description: 'Swingpreise, Fehlausbrüche, zweite Umkehrversuche und Ausbruchspullbacks – mit zwei Chartfällen zu Range, Trend und Kontextwechsel sowie einem eigenen Level-Protokoll.',
+    estimatedLessonCount: 28,
+    load: () => import('./courses/price-action-trends/chapter-17').then((module) => module.chapterSeventeenLessons),
+  },
 ];
