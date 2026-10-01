@@ -4944,6 +4944,416 @@
           ]
         }
       ]
+    },
+    {
+      "id": "price-action-trends.chapter-19",
+      "lessons": [
+        {
+          "id": "price-action-trends.chapter-19.lesson-01",
+          "steps": [
+            "chapter-19-01-explain",
+            "chapter-19-01-diagram",
+            "chapter-19-01-question",
+            "chapter-19-01-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-02",
+          "steps": [
+            "chapter-19-02-explain",
+            "chapter-19-02-diagram",
+            "chapter-19-02-question",
+            "chapter-19-02-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-03",
+          "steps": [
+            "chapter-19-03-explain",
+            "chapter-19-03-diagram",
+            "chapter-19-03-question",
+            "chapter-19-03-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-04",
+          "steps": [
+            "chapter-19-04-explain",
+            "chapter-19-04-diagram",
+            "chapter-19-04-question",
+            "chapter-19-04-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-05",
+          "steps": [
+            "chapter-19-05-explain",
+            "chapter-19-05-diagram",
+            "chapter-19-05-question",
+            "chapter-19-05-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-06",
+          "steps": [
+            "chapter-19-06-explain",
+            "chapter-19-06-diagram",
+            "chapter-19-06-question",
+            "chapter-19-06-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-07",
+          "steps": [
+            "chapter-19-07-explain",
+            "chapter-19-07-diagram",
+            "chapter-19-07-question",
+            "chapter-19-07-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-08",
+          "steps": [
+            "chapter-19-08-explain",
+            "chapter-19-08-diagram",
+            "chapter-19-08-question",
+            "chapter-19-08-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-09",
+          "steps": [
+            "chapter-19-09-explain",
+            "chapter-19-09-diagram",
+            "chapter-19-09-question",
+            "chapter-19-09-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-10",
+          "steps": [
+            "chapter-19-10-explain",
+            "chapter-19-10-diagram",
+            "chapter-19-10-question",
+            "chapter-19-10-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-11",
+          "steps": [
+            "chapter-19-11-explain",
+            "chapter-19-11-diagram",
+            "chapter-19-11-question",
+            "chapter-19-11-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-12",
+          "steps": [
+            "chapter-19-12-explain",
+            "chapter-19-12-diagram",
+            "chapter-19-12-question",
+            "chapter-19-12-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-13",
+          "steps": [
+            "chapter-19-13-explain",
+            "chapter-19-13-diagram",
+            "chapter-19-13-question",
+            "chapter-19-13-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-14",
+          "steps": [
+            "chapter-19-14-explain",
+            "chapter-19-14-diagram",
+            "chapter-19-14-question",
+            "chapter-19-14-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-15",
+          "steps": [
+            "chapter-19-15-explain",
+            "chapter-19-15-diagram",
+            "chapter-19-15-question",
+            "chapter-19-15-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-16",
+          "steps": [
+            "chapter-19-16-explain",
+            "chapter-19-16-diagram",
+            "chapter-19-16-question",
+            "chapter-19-16-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-17",
+          "steps": [
+            "chapter-19-17-explain",
+            "chapter-19-17-diagram",
+            "chapter-19-17-question",
+            "chapter-19-17-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-18",
+          "steps": [
+            "chapter-19-18-explain",
+            "chapter-19-18-diagram",
+            "chapter-19-18-question",
+            "chapter-19-18-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-19",
+          "steps": [
+            "chapter-19-19-explain",
+            "chapter-19-19-diagram",
+            "chapter-19-19-question",
+            "chapter-19-19-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-20",
+          "steps": [
+            "chapter-19-20-explain",
+            "chapter-19-20-diagram",
+            "chapter-19-20-question",
+            "chapter-19-20-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-21",
+          "steps": [
+            "chapter-19-21-explain",
+            "chapter-19-21-diagram",
+            "chapter-19-21-question",
+            "chapter-19-21-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-22",
+          "steps": [
+            "chapter-19-22-explain",
+            "chapter-19-22-diagram",
+            "chapter-19-22-question",
+            "chapter-19-22-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-23",
+          "steps": [
+            "chapter-19-23-explain",
+            "chapter-19-23-diagram",
+            "chapter-19-23-question",
+            "chapter-19-23-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-24",
+          "steps": [
+            "chapter-19-24-explain",
+            "chapter-19-24-diagram",
+            "chapter-19-24-question",
+            "chapter-19-24-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-25",
+          "steps": [
+            "chapter-19-25-explain",
+            "chapter-19-25-diagram",
+            "chapter-19-25-question",
+            "chapter-19-25-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-26",
+          "steps": [
+            "chapter-19-26-explain",
+            "chapter-19-26-diagram",
+            "chapter-19-26-question",
+            "chapter-19-26-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-27",
+          "steps": [
+            "chapter-19-27-explain",
+            "chapter-19-27-diagram",
+            "chapter-19-27-question",
+            "chapter-19-27-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-28",
+          "steps": [
+            "chapter-19-28-explain",
+            "chapter-19-28-diagram",
+            "chapter-19-28-question",
+            "chapter-19-28-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-29",
+          "steps": [
+            "chapter-19-29-explain",
+            "chapter-19-29-diagram",
+            "chapter-19-29-question",
+            "chapter-19-29-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-30",
+          "steps": [
+            "chapter-19-30-explain",
+            "chapter-19-30-diagram",
+            "chapter-19-30-question",
+            "chapter-19-30-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-31",
+          "steps": [
+            "chapter-19-31-explain",
+            "chapter-19-31-diagram",
+            "chapter-19-31-question",
+            "chapter-19-31-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-32",
+          "steps": [
+            "chapter-19-32-explain",
+            "chapter-19-32-diagram",
+            "chapter-19-32-question",
+            "chapter-19-32-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-33",
+          "steps": [
+            "chapter-19-33-explain",
+            "chapter-19-33-diagram",
+            "chapter-19-33-question",
+            "chapter-19-33-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-34",
+          "steps": [
+            "chapter-19-34-explain",
+            "chapter-19-34-diagram",
+            "chapter-19-34-question",
+            "chapter-19-34-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-35",
+          "steps": [
+            "chapter-19-35-explain",
+            "chapter-19-35-diagram",
+            "chapter-19-35-question",
+            "chapter-19-35-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-36",
+          "steps": [
+            "chapter-19-36-explain",
+            "chapter-19-36-diagram",
+            "chapter-19-36-question",
+            "chapter-19-36-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-37",
+          "steps": [
+            "chapter-19-37-explain",
+            "chapter-19-37-diagram",
+            "chapter-19-37-question",
+            "chapter-19-37-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-38",
+          "steps": [
+            "chapter-19-38-explain",
+            "chapter-19-38-diagram",
+            "chapter-19-38-question",
+            "chapter-19-38-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-39",
+          "steps": [
+            "chapter-19-39-explain",
+            "chapter-19-39-diagram",
+            "chapter-19-39-question",
+            "chapter-19-39-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-40",
+          "steps": [
+            "chapter-19-40-explain",
+            "chapter-19-40-diagram",
+            "chapter-19-40-question",
+            "chapter-19-40-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-41",
+          "steps": [
+            "chapter-19-41-explain",
+            "chapter-19-41-diagram",
+            "chapter-19-41-question",
+            "chapter-19-41-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-42",
+          "steps": [
+            "chapter-19-42-explain",
+            "chapter-19-42-diagram",
+            "chapter-19-42-question",
+            "chapter-19-42-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-43",
+          "steps": [
+            "chapter-19-43-explain",
+            "chapter-19-43-diagram",
+            "chapter-19-43-question",
+            "chapter-19-43-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-44",
+          "steps": [
+            "chapter-19-44-explain",
+            "chapter-19-44-diagram",
+            "chapter-19-44-question",
+            "chapter-19-44-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-19.lesson-45",
+          "steps": [
+            "chapter-19-45-explain",
+            "chapter-19-45-diagram",
+            "chapter-19-45-question",
+            "chapter-19-45-recap"
+          ]
+        }
+      ]
     }
   ]
 }

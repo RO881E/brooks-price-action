@@ -222,4 +222,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 48,
     load: () => import('./courses/price-action-trends/chapter-18').then((module) => module.chapterEighteenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-19', order: 21, kind: 'chapter', label: 'Kapitel 19',
+    title: 'Stärkezeichen im Trend',
+    description: 'Gerichtete Swings, Barqualität, Gap-Arten, kleine Rückläufe und scheiternde Gegenversuche – mit drei Chartfällen, berechneten Durchschnitten und einem zeitgerechten Stärke-Protokoll.',
+    estimatedLessonCount: 45,
+    load: () => import('./courses/price-action-trends/chapter-19').then((module) => module.chapterNineteenLessons),
+  },
 ];
