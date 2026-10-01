@@ -138,6 +138,38 @@ export const CHAPTER_TWELVE_SCENARIOS = [
 
 export type ChapterTwelveScenarioId = (typeof CHAPTER_TWELVE_SCENARIOS)[number];
 
+export const CHAPTER_SEVENTEEN_SCENARIOS = [
+  "c17-01",
+  "c17-02",
+  "c17-03",
+  "c17-04",
+  "c17-05",
+  "c17-06",
+  "c17-07",
+  "c17-08",
+  "c17-09",
+  "c17-10",
+  "c17-11",
+  "c17-12",
+  "c17-13",
+  "c17-14",
+  "c17-15",
+  "c17-16",
+  "c17-17",
+  "c17-18",
+  "c17-19",
+  "c17-20",
+  "c17-21",
+  "c17-22",
+  "c17-23",
+  "c17-24",
+  "c17-25",
+  "c17-26",
+  "c17-27",
+  "c17-28"
+] as const;
+export type ChapterSeventeenScenarioId = (typeof CHAPTER_SEVENTEEN_SCENARIOS)[number];
+
 export const CHAPTER_SIXTEEN_SCENARIOS = [
   "c16-01",
   "c16-02",
@@ -433,7 +465,8 @@ export type ChartScenarioId =
   | ChapterThirteenScenarioId
   | ChapterFourteenScenarioId
   | ChapterFifteenScenarioId
-  | ChapterSixteenScenarioId;
+  | ChapterSixteenScenarioId
+  | ChapterSeventeenScenarioId;
 
 export type LessonStep =
   | {
