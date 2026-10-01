@@ -558,6 +558,13 @@ Der Chart-Trainer hat große Entscheidungs-Kacheln, animierte neue Bars und eine
 es zwei freiwillige Spiele ohne Einfluss auf den Lernstand: Begriffe-Memory (Begriff ↔ Beschreibung aus dem Glossar) und die
 Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](docs/DESIGN_STUFE4.md).
 
+## Bibliothek: Platz für weitere Themen
+
+Neue Ansicht „Bibliothek“ (`#/library`, im Menü und über „Alle Themen ansehen“): Price Action mit den drei
+Brooks-Büchern (Buch 1 aktiv, 2 und 3 geplant) sowie Volumen, Orderflow und Unternehmensbewertung als „Geplant“-Karten.
+Ein neues Thema ist ein Eintrag in `src/content/library.ts`. Mehrere gleichzeitig verfügbare Kurse (Lernstand je Kurs
+usw.) sind bewusst noch nicht gebaut. Details: [`docs/DESIGN_BIBLIOTHEK.md`](docs/DESIGN_BIBLIOTHEK.md).
+
 ## „Finde den Bar“ und „Ordne die Schritte“ (Stufe 4d, Content-Pack C-04)
 
 Zwei weitere Übungen unter „Üben“ (Chart antippen; Schritte per Hoch/Runter-Knöpfen ordnen), reine Übung ohne

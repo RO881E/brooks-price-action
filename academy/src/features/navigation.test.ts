@@ -89,6 +89,8 @@ describe('parseRoute', () => {
     expect(parseRoute('#/practice')).toEqual({ kind: 'view', view: 'practice' });
     expect(parseRoute('#/progress')).toEqual({ kind: 'view', view: 'progress' });
     expect(parseRoute('#/glossary')).toEqual({ kind: 'view', view: 'glossary' });
+    expect(parseRoute('#/library')).toEqual({ kind: 'view', view: 'library' });
+    expect(formatRoute({ kind: 'view', view: 'library' })).toBe('#/library');
   });
 
   it('reads a lesson with and without step', () => {

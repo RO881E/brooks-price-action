@@ -16,6 +16,7 @@ export type AppView =
   | 'progress'
   | 'saved'
   | 'glossary'
+  | 'library'
   | 'settings';
 
 export const APP_VIEWS: readonly AppView[] = [
@@ -25,6 +26,7 @@ export const APP_VIEWS: readonly AppView[] = [
   'progress',
   'saved',
   'glossary',
+  'library',
   'settings',
 ];
 

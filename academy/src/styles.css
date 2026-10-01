@@ -127,6 +127,7 @@ button:disabled {
     radial-gradient(circle at 20% 4%, rgba(187, 135, 52, 0.15), transparent 26%),
     linear-gradient(180deg, var(--navy-900), var(--navy-950));
   border-right: 1px solid var(--c-rgba-255-255-255-0_08);
+  overflow-y: auto;
   z-index: 30;
 }
 
@@ -8490,4 +8491,162 @@ button:disabled {
 .order-move:focus-visible {
   outline: 3px solid var(--practice-ink);
   outline-offset: 2px;
+}
+
+/* Bibliothek: Themengebiete und Kurse */
+.sidebar-course-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sidebar-course-switch {
+  min-height: 24px;
+  margin: 0;
+  padding: 2px 0;
+  color: var(--c-e1bd77);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: right;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.library-view {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.library-view h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+}
+
+.library-intro {
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.library-subjects {
+  display: grid;
+  gap: 16px;
+}
+
+.library-subject {
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.library-subject.is-planned {
+  border-style: dashed;
+}
+
+.library-subject header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.library-subject h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.library-subject > p {
+  margin: 6px 0 0;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.library-empty {
+  font-style: italic;
+}
+
+.library-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+}
+
+.library-badge.active {
+  color: var(--practice-ink);
+  border-color: var(--practice-base);
+  background: var(--practice-soft);
+}
+
+.library-courses {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.library-course {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.library-course.is-planned {
+  border-style: dashed;
+}
+
+.library-course > div:first-child {
+  display: grid;
+  flex: 1 1 280px;
+  gap: 3px;
+  min-width: 0;
+}
+
+.library-course small {
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.library-course > div:first-child span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.library-course-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.library-course-action .primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Wenig Platz in der Höhe: der reine Statushinweis weicht, damit nichts aus der Seitenleiste ragt. */
+@media (max-height: 860px) {
+  .sidebar-status {
+    display: none;
+  }
 }
