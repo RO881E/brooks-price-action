@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Locator, type Page } from '@playwright/test';
-import { brooksTrendsCourse, publishedLessons } from '../src/content/course';
+import { priceActionTrendsCourse, publishedLessons } from '../src/content/course';
 import type { Lesson } from '../src/content/types';
 
 /*
@@ -17,7 +17,7 @@ interface DiagramCase {
 }
 
 /** Je Einheit das erste veröffentlichte Schaubild – verschiedene Szenariotypen. */
-const cases: DiagramCase[] = brooksTrendsCourse.units.flatMap((unit) => {
+const cases: DiagramCase[] = priceActionTrendsCourse.units.flatMap((unit) => {
   for (const lesson of unit.lessons) {
     if (lesson.status !== 'published') continue;
     const index = lesson.steps.findIndex((step) => step.type === 'diagram');

@@ -4,7 +4,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Trendstärke und Trendbars
 
-`brooks-topic.trend-strength` · Wie stark eine Bewegung ist, zeigen Größe, Schluss und Anschluss der Bars – und wann ungewöhnliche Größe eher warnt.
+`topic.trend-strength` · Wie stark eine Bewegung ist, zeigen Größe, Schluss und Anschluss der Bars – und wann ungewöhnliche Größe eher warnt.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|
@@ -25,7 +25,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Trading Range und Marktträgheit
 
-`brooks-topic.range-and-inertia` · Zwischen Trend und Range gibt es ein Spektrum; viele Ausbruchs- und Umkehrversuche scheitern zunächst an der Trägheit des Marktes.
+`topic.range-and-inertia` · Zwischen Trend und Range gibt es ein Spektrum; viele Ausbruchs- und Umkehrversuche scheitern zunächst an der Trägheit des Marktes.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|
@@ -45,7 +45,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Ausbruch, Follow-through und Test
 
-`brooks-topic.breakout-and-test` · Ein Ausbruch beginnt als Kontrollwechsel; ob er trägt, zeigen Anschluss, Rücklauf und der Test einer Preiszone.
+`topic.breakout-and-test` · Ein Ausbruch beginnt als Kontrollwechsel; ob er trägt, zeigen Anschluss, Rücklauf und der Test einer Preiszone.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|
@@ -65,7 +65,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Setup, Signal-Bar und Order
 
-`brooks-topic.signals-and-orders` · Ein Setup ist zunächst nur eine Möglichkeit: Erst die Auslösung macht daraus ein Signal, und eine nicht ausgelöste Order wird gestrichen.
+`topic.signals-and-orders` · Ein Setup ist zunächst nur eine Möglichkeit: Erst die Auslösung macht daraus ein Signal, und eine nicht ausgelöste Order wird gestrichen.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|
@@ -86,7 +86,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Reversal-Bars im Kontext
 
-`brooks-topic.reversal-in-context` · Eine Reversal-Bar ist ein Versuch, keine Trendwende – Kontext, Struktur und Beweislast entscheiden, ob er trägt.
+`topic.reversal-in-context` · Eine Reversal-Bar ist ein Versuch, keine Trendwende – Kontext, Struktur und Beweislast entscheiden, ob er trägt.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|
@@ -110,7 +110,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Inside- und Outside-Bars
 
-`brooks-topic.inside-and-outside` · Inside-Bars, ii, ioi und Outside-Bars zeigen Kompression und Ausweitung – ihre Aussage hängt von Ort, Größe und Anschluss ab.
+`topic.inside-and-outside` · Inside-Bars, ii, ioi und Outside-Bars zeigen Kompression und Ausweitung – ihre Aussage hängt von Ort, Größe und Anschluss ab.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|
@@ -135,7 +135,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Bar-Schluss und Schutz
 
-`brooks-topic.bar-close-and-stops` · Ein Bar kann bis zum Schluss kippen; deshalb zählt der Schluss – und ein zu enger Stop kann einen guten Trade beenden.
+`topic.bar-close-and-stops` · Ein Bar kann bis zum Schluss kippen; deshalb zählt der Schluss – und ein zu enger Stop kann einen guten Trade beenden.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|
@@ -155,7 +155,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Zweiter Versuch und zweiter Einstieg
 
-`brooks-topic.second-entries` · Ein zweiter Versuch am selben Bereich hat mehr Gewicht als der erste – ist aber keine Garantie, und ein auffällig günstiger zweiter Preis warnt.
+`topic.second-entries` · Ein zweiter Versuch am selben Bereich hat mehr Gewicht als der erste – ist aber keine Garantie, und ein auffällig günstiger zweiter Preis warnt.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|
@@ -173,7 +173,7 @@ Quelle der Daten: `src/content/topicMap.ts`. Diese Tabelle ist aus den Daten erz
 
 ## Darstellung wechseln: ETF, Index und inverse Charts
 
-`brooks-topic.chart-views` · Eine zweite Ansicht – ETF, verwandter Index oder inverser Chart – kann ein Muster klären, ersetzt aber nicht die Analyse des Hauptcharts.
+`topic.chart-views` · Eine zweite Ansicht – ETF, verwandter Index oder inverser Chart – kann ein Muster klären, ersetzt aber nicht die Analyse des Hauptcharts.
 
 | Lehrstelle | Lektion | Quellenanker |
 |---|---|---|

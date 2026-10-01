@@ -2,7 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
 import { TRADE_DECISION_LABELS } from '../src/content/barCaseTypes';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * Stufe 4a: Chart-Trainer als Mini-Spiel – Entscheidungs-Kacheln, Bars erscheinen
@@ -11,8 +11,8 @@ import { brooksTrendsCourse } from '../src/content/course';
 
 const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
 const barCase = barCases.find((item) => item.status === 'approved' && item.decisions.length >= 2)!;
-const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
-const unlock = brooksTrendsCourse.units
+const unitIndex = priceActionTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+const unlock = priceActionTrendsCourse.units
   .slice(0, unitIndex + 1)
   .flatMap((unit) => unit.lessons)
   .filter((lesson) => lesson.status === 'published')

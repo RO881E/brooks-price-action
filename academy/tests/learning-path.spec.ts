@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * Stufe 2 „spielerischer“: Lernpfad als Wanderweg. Reihenfolge, Sperren und
@@ -9,8 +9,8 @@ import { brooksTrendsCourse } from '../src/content/course';
  */
 
 const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
-const published = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
-const firstUnit = brooksTrendsCourse.units[0].lessons.filter((lesson) => lesson.status === 'published');
+const published = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
+const firstUnit = priceActionTrendsCourse.units[0].lessons.filter((lesson) => lesson.status === 'published');
 
 async function seed(page: Page, ids: string[]) {
   await page.addInitScript((completed) => {
@@ -61,12 +61,12 @@ test.describe('Lernpfad als Wanderweg', () => {
     expect(parseInt(ring, 10)).toBeLessThan(100);
   });
 
-  test('Öffnen per Klick und Tastatur; Reihenfolge der Stationen bleibt die Buchreihenfolge', async ({ page }) => {
+  test('Öffnen per Klick und Tastatur; Reihenfolge der Stationen bleibt die Kapitelreihenfolge', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/');
     await page.getByRole('button', { name: 'Alle öffnen' }).click();
     const titles = await page.locator('.lesson-node .node-copy strong').allTextContents();
-    const expected = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => lesson.title);
+    const expected = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => lesson.title);
     expect(titles).toEqual(expected);
     const next = page.locator('.lesson-node-row.next .lesson-node');
     await next.focus();
@@ -119,13 +119,13 @@ test.describe('Aufklappbare Kapitel', () => {
     await seed(page, firstUnit.map((lesson) => lesson.id));
     await page.goto('/#/');
     const units = page.locator('.unit-section');
-    await expect(units).toHaveCount(brooksTrendsCourse.units.length);
+    await expect(units).toHaveCount(priceActionTrendsCourse.units.length);
     // Nach der ersten Einheit ist die zweite die aktuelle: genau sie ist offen.
     await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(1);
     await expect(units.nth(1)).toHaveAttribute('data-open', 'true');
-    await expect(units.nth(0).getByRole('button', { name: brooksTrendsCourse.units[0].title })).toHaveAttribute('aria-expanded', 'false');
+    await expect(units.nth(0).getByRole('button', { name: priceActionTrendsCourse.units[0].title })).toHaveAttribute('aria-expanded', 'false');
     await expect(units.nth(0).locator('.lesson-node')).toHaveCount(0);
-    expect(await page.locator('.lesson-node').count()).toBeLessThan(brooksTrendsCourse.units[1].lessons.length + 1);
+    expect(await page.locator('.lesson-node').count()).toBeLessThan(priceActionTrendsCourse.units[1].lessons.length + 1);
     await expect(page.getByText('1 von 12 Kapiteln geöffnet.')).toBeVisible();
   });
 
@@ -133,7 +133,7 @@ test.describe('Aufklappbare Kapitel', () => {
     await seed(page, []);
     await page.goto('/#/');
     const second = page.locator('.unit-section').nth(1);
-    const toggle = second.getByRole('button', { name: brooksTrendsCourse.units[1].title });
+    const toggle = second.getByRole('button', { name: priceActionTrendsCourse.units[1].title });
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await second.locator('.unit-header').click({ position: { x: 300, y: 30 } });
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
@@ -143,20 +143,20 @@ test.describe('Aufklappbare Kapitel', () => {
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await page.keyboard.press('Space');
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-    await expect(toggle).toHaveAttribute('aria-controls', `unit-lessons-${brooksTrendsCourse.units[1].id}`);
+    await expect(toggle).toHaveAttribute('aria-controls', `unit-lessons-${priceActionTrendsCourse.units[1].id}`);
   });
 
   test('„Alle öffnen“ und „Alle schließen“; Zustand bleibt nach einer Lektion und zurück erhalten', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/');
     await page.getByRole('button', { name: 'Alle öffnen' }).click();
-    await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(brooksTrendsCourse.units.length);
+    await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(priceActionTrendsCourse.units.length);
     await page.getByRole('button', { name: 'Alle schließen' }).click();
     await expect(page.getByText('Alle Kapitel sind zugeklappt.')).toBeVisible();
     await expect(page.locator('.lesson-node')).toHaveCount(0);
     // Ein Kapitel öffnen, eine Lektion starten, zurück: das Kapitel ist noch offen.
     const first = page.locator('.unit-section').first();
-    await first.getByRole('button', { name: brooksTrendsCourse.units[0].title }).click();
+    await first.getByRole('button', { name: priceActionTrendsCourse.units[0].title }).click();
     await page.locator('.lesson-node-row.next .lesson-node').click();
     await expect(page).toHaveURL(/#\/lesson\//);
     await page.goBack();

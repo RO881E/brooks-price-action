@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * Stufe 1 „spielerischer“: Bulle Bo als Dekoration, Sprechblase auf „Heute“,
@@ -9,7 +9,7 @@ import { brooksTrendsCourse } from '../src/content/course';
 
 const MOODS = ['happy', 'think', 'cheer', 'calm'];
 const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
-const lesson = brooksTrendsCourse.units[0].lessons.find((item) => item.status === 'published' && item.steps.some((step) => step.type === 'question'))!;
+const lesson = priceActionTrendsCourse.units[0].lessons.find((item) => item.status === 'published' && item.steps.some((step) => step.type === 'question'))!;
 const question = lesson.steps.find((step) => step.type === 'question')! as Extract<(typeof lesson.steps)[number], { type: 'question' }>;
 const wrong = question.options.find((option) => option.id !== question.correctOptionId)!;
 const right = question.options.find((option) => option.id === question.correctOptionId)!;

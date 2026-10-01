@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { glossaryEntries } from '../src/content/glossary';
 import { stepTermLinks } from '../src/content/stepTerms';
 
@@ -8,13 +8,13 @@ import { stepTermLinks } from '../src/content/stepTerms';
  * F-21: Begriffe am Lernort im Buchleser. Läuft auf Desktop und Mobil.
  */
 
-const intro = brooksTrendsCourse.units[0];
+const intro = priceActionTrendsCourse.units[0];
 const [first] = intro.lessons;
 const link = stepTermLinks.find((item) => item.lessonId === first.id)!;
 const linkedStep = first.steps.find((step) => step.id === link.stepId)!;
 const term = glossaryEntries.find((entry) => entry.term === link.terms[0])!;
 const lockedLink = stepTermLinks.find((item) => item.lessonId.includes('chapter-02'))!;
-const lockedUnit = brooksTrendsCourse.units.find((unit) => unit.lessons.some((lesson) => lesson.id === lockedLink.lessonId))!;
+const lockedUnit = priceActionTrendsCourse.units.find((unit) => unit.lessons.some((lesson) => lesson.id === lockedLink.lessonId))!;
 
 function trackErrors(page: Page) {
   const errors: string[] = [];

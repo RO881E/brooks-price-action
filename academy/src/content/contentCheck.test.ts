@@ -12,25 +12,25 @@ import known from '../../build/published-ids.json';
 import { chartDescription, chartScenarioIds } from '../components/LearningChart';
 import { validateBarCases } from '../features/barCaseValidation';
 import { allBarCases } from './barCases';
-import { brooksTrendsCourse } from './course';
+import { priceActionTrendsCourse } from './course';
 import { glossaryEntries } from './glossary';
 import type { ChartScenarioId, Course, LessonStep } from './types';
 
 /** Echte Inhalte als Eingabe – wie `npm run check:content`. */
 function realInput(): ContentCheckInput {
   return {
-    course: brooksTrendsCourse,
+    course: priceActionTrendsCourse,
     glossary: glossaryEntries,
     scenarioIds: chartScenarioIds(),
     describe: (scenario) => chartDescription(scenario as ChartScenarioId),
-    caseIssues: validateBarCases(allBarCases, brooksTrendsCourse),
+    caseIssues: validateBarCases(allBarCases, priceActionTrendsCourse),
     known: known as KnownIds,
   };
 }
 
 /** Gezielt defekte Kopie der echten Inhalte; das Original bleibt unberührt. */
 function withCourse(change: (course: Course) => void, extra: Partial<ContentCheckInput> = {}) {
-  const course = structuredClone(brooksTrendsCourse);
+  const course = structuredClone(priceActionTrendsCourse);
   change(course);
   return checkContent({ ...realInput(), course, ...extra });
 }
@@ -43,7 +43,7 @@ function find(issues: ContentIssue[], rule: string, id: string) {
   return issues.find((issue) => issue.rule === rule && issue.id === id);
 }
 
-const [intro, partOne] = brooksTrendsCourse.units;
+const [intro, partOne] = priceActionTrendsCourse.units;
 const firstLesson = intro.lessons[0];
 const secondLesson = intro.lessons[1];
 const question = firstLesson.steps.find((step) => step.type === 'question') as Extract<LessonStep, { type: 'question' }>;
@@ -56,7 +56,7 @@ describe('Strukturprüfung: gültiger Bestand', () => {
   });
 
   it('die Liste bekannter IDs entspricht dem veröffentlichten Stand', () => {
-    expect(snapshotKnownIds(brooksTrendsCourse).units).toEqual((known as KnownIds).units);
+    expect(snapshotKnownIds(priceActionTrendsCourse).units).toEqual((known as KnownIds).units);
   });
 });
 
@@ -65,7 +65,7 @@ describe('Strukturprüfung: gezielt defekte Inhalte', () => {
     const report = withCourse((course) => {
       course.units[1].lessons[0].id = firstLesson.id;
     });
-    expect(find(report.issues, 'doppelte-id', firstLesson.id)?.message).toMatch(/Lektions-ID kommt mehrfach vor \(auch in brooks-trends.introduction\)/);
+    expect(find(report.issues, 'doppelte-id', firstLesson.id)?.message).toMatch(/Lektions-ID kommt mehrfach vor \(auch in price-action-trends.introduction\)/);
   });
 
   it('doppelte Schritt-ID in einer Lektion', () => {
@@ -207,7 +207,7 @@ describe('Strukturprüfung: bekannte veröffentlichte IDs', () => {
   });
 
   it('neue IDs werden gemeldet und lassen sich bewusst aufnehmen – ohne bekannte zu verlieren', () => {
-    const course = structuredClone(brooksTrendsCourse);
+    const course = structuredClone(priceActionTrendsCourse);
     course.units[0].lessons.push({ ...structuredClone(firstLesson), id: 'neue-lektion', steps: [{ ...firstLesson.steps[0], id: 'neuer-schritt' }] });
     course.units[0].lessons[0].steps.push({ ...firstLesson.steps[0], id: 'zusatz-schritt' });
     const before = checkContent({ ...realInput(), course });
@@ -227,9 +227,9 @@ describe('Strukturprüfung: bekannte veröffentlichte IDs', () => {
       course.units[0].lessons[1].id = 'umbenannt';
     });
     const issue = find(report.issues, 'bekannte-id', secondLesson.id)!;
-    issue.file = 'src/content/courses/brooks-trends/introduction-foundations.ts';
+    issue.file = 'src/content/courses/price-action-trends/introduction-foundations.ts';
     expect(formatReport({ ...report, issues: [issue] })).toMatch(
-      new RegExp(`^✗ \\[bekannte-id\\] ${secondLesson.id.replace(/\./g, '\\.')} \\(src/content/courses/brooks-trends/introduction-foundations.ts\\): `),
+      new RegExp(`^✗ \\[bekannte-id\\] ${secondLesson.id.replace(/\./g, '\\.')} \\(src/content/courses/price-action-trends/introduction-foundations.ts\\): `),
     );
   });
 });

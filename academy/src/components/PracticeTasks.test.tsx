@@ -1,12 +1,12 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { orderTasks, signalBarTasks } from '../content/practiceTasks';
 import { completeLesson, createEmptyProgress } from '../features/progress';
 import { OrderGame, PracticeTasks, SignalBarGame } from './PracticeTasks';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const approve = <T extends { status: string }>(task: T): T => ({ ...task, status: 'approved' });
 const signal = approve(signalBarTasks[0]);
 const order = approve(orderTasks[0]);

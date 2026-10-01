@@ -3,23 +3,12 @@ import { expect, test } from '@playwright/test';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 import { publishedLessons } from '../src/content/course';
 
-test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => {
-    localStorage.setItem(
-      'brooks-progress',
-      JSON.stringify({ 'b1-intro': true, 'b1-ch1': true }),
-    );
-    localStorage.setItem('brooks-tr-best', '9');
-  });
-});
-
 test('loads every main view without JavaScript errors', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
 
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
-  await expect(page.getByText('Alter Fortschritt erkannt')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
 
   const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
   const navigation = (await mobileNavigation.isVisible())
@@ -45,7 +34,7 @@ test('loads every main view without JavaScript errors', async ({ page }) => {
   expect(errors).toEqual([]);
 });
 
-test('completes a lesson, persists progress and preserves legacy keys', async ({ page }) => {
+test('completes a lesson and persists progress', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ }).click();
 
@@ -67,8 +56,6 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
   await expect(page.getByRole('button', { name: /Institutionen, Programme und dein einzelner Stop: Jetzt lernen/ })).toBeVisible();
 
   const valuesBeforeReload = await page.evaluate(() => ({
-    legacy: localStorage.getItem('brooks-progress'),
-    best: localStorage.getItem('brooks-tr-best'),
     academy: localStorage.getItem('wqt-academy-progress-v1'),
   }));
 
@@ -86,15 +73,11 @@ test('completes a lesson, persists progress and preserves legacy keys', async ({
   await expect(page.getByRole('heading', { name: 'Welche Aussage bleibt am belastbarsten?' })).toBeVisible();
 
   const valuesAfterReload = await page.evaluate(() => ({
-    legacy: localStorage.getItem('brooks-progress'),
-    best: localStorage.getItem('brooks-tr-best'),
     academy: localStorage.getItem('wqt-academy-progress-v1'),
   }));
 
-  expect(valuesBeforeReload.legacy).toBe(JSON.stringify({ 'b1-intro': true, 'b1-ch1': true }));
-  expect(valuesAfterReload.legacy).toBe(valuesBeforeReload.legacy);
-  expect(valuesAfterReload.best).toBe('9');
-  expect(valuesAfterReload.academy).toContain('brooks-trends.introduction.lesson-01');
+  expect(valuesBeforeReload.academy).toContain('price-action-trends.introduction.lesson-01');
+  expect(valuesAfterReload.academy).toContain('price-action-trends.introduction.lesson-01');
 });
 
 test.describe('desktop content traversal', () => {
@@ -207,7 +190,7 @@ test('is usable in a narrow mobile viewport', { tag: '@mobile' }, async ({ page 
 });
 
 test.describe('F-01 resume and stable URLs', () => {
-  const firstLessonId = 'brooks-trends.introduction.lesson-01';
+  const firstLessonId = 'price-action-trends.introduction.lesson-01';
 
   const mainNavigation = async (page: import('@playwright/test').Page) => {
     const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
@@ -261,7 +244,7 @@ test.describe('F-01 resume and stable URLs', () => {
       JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
     );
     expect(stored.version).toBe(ACADEMY_PROGRESS_VERSION);
-    expect(stored.lessonPositions['brooks-trends.introduction.lesson-01'].stepIndex).toBe(2);
+    expect(stored.lessonPositions['price-action-trends.introduction.lesson-01'].stepIndex).toBe(2);
   });
 
   test('supports browser back and forward between views and lessons', async ({ page }) => {
@@ -297,12 +280,12 @@ test.describe('F-01 resume and stable URLs', () => {
 
     for (const hash of [
       '#/lesson/does-not-exist?step=3',
-      '#/lesson/brooks-trends.introduction.lesson-02',
+      '#/lesson/price-action-trends.introduction.lesson-02',
       '#/unknown-view',
       '#/lesson/%E0%A4%A',
     ]) {
       await page.goto(`/${hash}`);
-      await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
       await expect(page.getByRole('status').filter({ hasText: 'zurück im Lernpfad' })).toBeVisible();
       await expect(page).toHaveURL(/#\/path$/);
     }
@@ -336,15 +319,11 @@ test.describe('F-01 resume and stable URLs', () => {
 
     const stored = await page.evaluate(() => ({
       academy: JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'),
-      legacy: localStorage.getItem('brooks-progress'),
-      best: localStorage.getItem('brooks-tr-best'),
     }));
     expect(stored.academy.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(stored.academy.completedLessonIds).toEqual([firstLessonId]);
     expect(stored.academy.lessonPositions).toEqual({});
     expect(stored.academy.futureField).toEqual({ keep: true });
-    expect(stored.legacy).toBe(JSON.stringify({ 'b1-intro': true, 'b1-ch1': true }));
-    expect(stored.best).toBe('9');
   });
 
   test('keeps working with corrupted academy data and backs it up', async ({ page }) => {
@@ -355,7 +334,7 @@ test.describe('F-01 resume and stable URLs', () => {
     });
 
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     expect(
       await page.evaluate(() => localStorage.getItem('wqt-academy-progress-backup')),
     ).toBe('{"version":1,"completedLess');
@@ -364,7 +343,7 @@ test.describe('F-01 resume and stable URLs', () => {
 });
 
 test.describe('F-02 repeatable questions and lesson results', () => {
-  const lessonId = 'brooks-trends.introduction.lesson-01';
+  const lessonId = 'price-action-trends.introduction.lesson-01';
   const lessonTitle = 'Der Chart ist das Ergebnis';
   const correctAnswer = /Die schwache Reaktion/;
   const wrongAnswer = /Die Nachricht war positiv/;
@@ -715,7 +694,7 @@ test.describe('F-03 smart review queue', () => {
     await expect(page.getByText('Für heute ist alles wiederholt. Nächste Wiederholung morgen.')).toBeVisible();
     await expect(page.getByText('Keine offenen Fehler – stark.')).toBeVisible();
     await expect(page.getByRole('combobox', { name: 'Kapitel' })).toHaveValue(
-      'brooks-trends.introduction',
+      'price-action-trends.introduction',
     );
     await page.getByRole('button', { name: 'Kapitel üben' }).click();
     await expect(page.getByText('Frage 1 / 1')).toBeVisible();
@@ -767,8 +746,6 @@ test.describe('F-04 progress dashboard', () => {
     await page.goto('/');
     await openProgress(page);
     await expect(page.getByText('Noch keine Lerndaten')).toBeVisible();
-    // Gelesene Kapitel der alten Website bleiben sichtbar, zählen aber nicht mit.
-    await expect(page.getByText('2 gelesene Kapitel erhalten')).toBeVisible();
 
     await page.reload();
     await expect(page.getByRole('heading', { name: 'Fortschritt', level: 1 })).toBeVisible();
@@ -997,7 +974,7 @@ test.describe('F-06 global search', () => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
 
     await page.keyboard.press('/');
     await expect(dialog(page)).toBeVisible();
@@ -1063,7 +1040,7 @@ test.describe('F-06 global search', () => {
 
   test('opens glossary hits as a shareable deep link', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await page.keyboard.press('/');
     await input(page).fill('Candle');
     await expect(dialog(page).getByRole('option').first()).toContainText('Bar');
@@ -1074,7 +1051,7 @@ test.describe('F-06 global search', () => {
     await expect(page.getByRole('heading', { name: 'Bar', exact: true })).toBeVisible();
 
     await page.goBack();
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
 
     await page.goto('/#/glossary?term=High%202');
     await expect(page.getByRole('searchbox', { name: 'Glossar durchsuchen' })).toHaveValue('High 2');
@@ -1083,7 +1060,7 @@ test.describe('F-06 global search', () => {
 
   test('shows locked lessons only as preview', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await page.keyboard.press('/');
     await input(page).fill('Institutionen');
     const locked = dialog(page).getByRole('option', { name: /Institutionen, Programme/ }).first();
@@ -1273,8 +1250,6 @@ test.describe('F-08 backup, import and settings', () => {
   };
 
   const rawAcademy = (page: Page) => page.evaluate(() => localStorage.getItem('wqt-academy-progress-v1'));
-  const legacyKeys = (page: Page) =>
-    page.evaluate(() => [localStorage.getItem('brooks-progress'), localStorage.getItem('brooks-tr-best')]);
 
   /** Die gesicherten Felder eines gespeicherten Stands – ohne Zeitstempel des Speicherns. */
   const backedUpFields = (raw: string | null) => {
@@ -1367,10 +1342,8 @@ test.describe('F-08 backup, import and settings', () => {
     expect(backup).toMatchObject({ format: 'wqt-academy-backup', formatVersion: 1, dataVersion: ACADEMY_PROGRESS_VERSION });
     expect(Number.isNaN(Date.parse(backup.exportedAt))).toBe(false);
     expect(backup.data.notes[`${lessonOne.id}::${noteStep.id}`].text).toContain('<b>bleibt Text</b>');
-    expect(JSON.stringify(backup)).not.toContain('brooks-progress');
 
-    // Zurücksetzen: nur Academy-Daten, alte Website-Schlüssel bleiben.
-    const legacyBefore = await legacyKeys(page);
+    // Zurücksetzen: löscht die Academy-Daten.
     await page.getByRole('button', { name: 'Academy-Daten zurücksetzen …' }).click();
     const finalReset = page.getByRole('button', { name: 'Endgültig zurücksetzen' });
     await expect(finalReset).toBeDisabled();
@@ -1381,7 +1354,6 @@ test.describe('F-08 backup, import and settings', () => {
     expect(afterReset.completedLessonIds).toEqual([]);
     expect(afterReset.notes).toEqual({});
     expect(afterReset.settings).toEqual({ motion: 'system', compact: false });
-    expect(await legacyKeys(page)).toEqual(legacyBefore);
     await expect(page.locator('html')).not.toHaveAttribute('data-density', 'compact');
 
     // Import der Sicherung: Vorschau, dann Zusammenführen.
@@ -1401,7 +1373,6 @@ test.describe('F-08 backup, import and settings', () => {
 
     await page.reload();
     expect(backedUpFields(await rawAcademy(page))).toEqual(backedUpFields(before));
-    expect(await legacyKeys(page)).toEqual(legacyBefore);
     expect(errors).toEqual([]);
   });
 
@@ -1479,7 +1450,6 @@ test.describe('F-08 backup, import and settings', () => {
     expect(after.notes).toEqual({});
     expect(after.bookmarks).toEqual({});
     expect(after.dailyGoal).toEqual({ kind: 'activities', target: 1 });
-    expect(await legacyKeys(page)).toEqual([JSON.stringify({ 'b1-intro': true, 'b1-ch1': true }), '9']);
   });
 
   test('applies reduced motion, compact layout and the daily goal', async ({ page }) => {
@@ -1515,7 +1485,7 @@ test.describe('F-08 backup, import and settings', () => {
     // Kompakt und schmal: kein seitlicher Überlauf.
     await page.setViewportSize({ width: 360, height: 780 });
     await page.goto('/#/path');
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth),
     ).toBe(false);

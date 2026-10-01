@@ -54,7 +54,7 @@ export function GlossaryView({
         <strong>Pilotbestand</strong>
         <p>
           Hier sind zunächst {entries.length} Begriffe technisch eingebunden. Die vollständige
-          Buchreferenz mit 165 geprüften Einträgen wird danach in Originalreihenfolge ergänzt.
+          Liste mit 165 geprüften Einträgen wird danach ergänzt.
         </p>
       </div>
 

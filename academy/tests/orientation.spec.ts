@@ -1,13 +1,13 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
 /*
  * P06: Orientierung – „Heute“, Lernpfad als Etappen, sichere Übergänge.
  */
 
-const published = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
+const published = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 
 async function seed(page: Page, ids: string[], extra: Record<string, unknown> = {}) {
   await page.addInitScript(
@@ -83,7 +83,7 @@ test.describe('P06 Orientierung', () => {
     await stations.nth(2).getByRole('button', { expanded: false }).click();
     await expect(stations.nth(2).getByRole('button', { name: /Noch gesperrt/ }).first()).toBeDisabled();
     // Nach Abschluss der ersten Einheit ist sie „Abgeschlossen“.
-    const firstUnit = brooksTrendsCourse.units[0].lessons.filter((lesson) => lesson.status === 'published').map((lesson) => lesson.id);
+    const firstUnit = priceActionTrendsCourse.units[0].lessons.filter((lesson) => lesson.status === 'published').map((lesson) => lesson.id);
     await page.evaluate((ids) => {
       const value = JSON.parse(localStorage.getItem('wqt-academy-progress-v1')!);
       value.completedLessonIds = ids;

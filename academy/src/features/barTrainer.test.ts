@@ -139,8 +139,8 @@ describe('Auswertung', () => {
     expect(summary.missedCues).toBe(2);
     // Übersehen: cue-a (mit Lernlink) und cue-d; danach die Lektionen des Falls.
     expect(summary.lessonIds).toEqual([
-      'brooks-trends.introduction.lesson-04',
-      'brooks-trends.introduction.lesson-01',
+      'price-action-trends.introduction.lesson-04',
+      'price-action-trends.introduction.lesson-01',
     ]);
     expect(summary.finished).toBe(true);
   });

@@ -216,7 +216,6 @@ describe('complete and migrated users', () => {
     const progress: AcademyProgress = {
       ...createEmptyProgress(),
       completedLessonIds: ['l1', 'l2'],
-      legacyReadChapters: ['b1-intro', 'b1-ch1'],
     };
     const overview = progressOverview(course, progress, TODAY);
 
@@ -225,7 +224,6 @@ describe('complete and migrated users', () => {
     expect(overview.undatedCompletions).toBe(2);
     expect(overview.activity.last30).toBe(0);
     expect(overview.dueToday).toBe(3);
-    expect(overview.legacyReadChapters).toBe(2);
     expect(overview.actions[0]).toEqual({ kind: 'review', due: 3 });
   });
 });

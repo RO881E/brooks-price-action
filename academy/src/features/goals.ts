@@ -138,8 +138,8 @@ export const MILESTONES: readonly MilestoneDefinition[] = [
   { id: 'first-lesson', title: 'Erste Lektion', description: 'Die erste Lektion abgeschlossen.', symbol: '①' },
   {
     id: 'first-chapter',
-    title: 'Erster Buchabschnitt',
-    description: 'Alle Lektionen eines vollständig veröffentlichten Buchabschnitts abgeschlossen.',
+    title: 'Erster Kursabschnitt',
+    description: 'Alle Lektionen eines vollständig veröffentlichten Kursabschnitts abgeschlossen.',
     symbol: '▤',
   },
   { id: 'xp-1000', title: '1000 XP', description: '1000 XP aus abgeschlossenen Lektionen gesammelt.', symbol: '✦' },

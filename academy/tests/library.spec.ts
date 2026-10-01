@@ -10,7 +10,7 @@ const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
 
 async function open(page: Page, isMobile: boolean) {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   if (isMobile) await page.getByRole('button', { name: 'Menü öffnen' }).click();
   await page.getByRole('button', { name: 'Alle Themen ansehen' }).click();
   await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
@@ -23,8 +23,8 @@ test.describe('Bibliothek', () => {
     for (const title of ['Price Action', 'Volumen', 'Orderflow', 'Unternehmensbewertung']) {
       await expect(page.getByRole('heading', { level: 2, name: title })).toBeVisible();
     }
-    const trends = page.locator('.library-course', { hasText: 'Trading Price Action Trends' });
-    await expect(trends).toContainText('Buch 1 von 3');
+    const trends = page.locator('.library-course', { hasText: 'Price Action: Trends' });
+    await expect(trends).toContainText('Teil 1 von 3');
     await expect(trends).toContainText('Aktiv');
     // Buch 2 und 3 sowie die neuen Themen: sichtbar als Geplant, nicht bedienbar.
     await expect(page.locator('.library-course.is-planned')).toHaveCount(2);
@@ -42,7 +42,7 @@ test.describe('Bibliothek', () => {
     }
     await page.getByRole('button', { name: 'Zum Lernpfad' }).click();
     await expect(page).not.toHaveURL(/library/);
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   });
 
   test('barrierefrei und schmal (360 px) ohne Überlauf', async ({ page }) => {

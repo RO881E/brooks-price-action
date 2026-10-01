@@ -202,7 +202,7 @@ Themen oder fragliche Fälle werden nicht künstlich aufgefüllt. Eine
 Bezeichnung ist keine neu erfundene Marktlehre. Vor F-27 fachlich prüfen
 und mergen. Claude baut in F-27 ausschließlich die Auswahl und Navigation.
 
-## F-27 – Nach Brooks-Thema üben
+## F-27 – Nach Thema üben
 
 **Ablauf.** In „Üben“ erscheint eine überschaubare Themenliste mit den
 tatsächlich verfügbaren Fragen/Fällen. Nach Auswahl startet eine Runde aus

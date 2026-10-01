@@ -94,9 +94,9 @@ describe('parseRoute', () => {
   });
 
   it('reads a lesson with and without step', () => {
-    expect(parseRoute('#/lesson/brooks-trends.introduction.lesson-01?step=3')).toEqual({
+    expect(parseRoute('#/lesson/price-action-trends.introduction.lesson-01?step=3')).toEqual({
       kind: 'lesson',
-      lessonId: 'brooks-trends.introduction.lesson-01',
+      lessonId: 'price-action-trends.introduction.lesson-01',
       step: 3,
     });
     expect(parseRoute('#/lesson/unit.lesson-01')).toEqual({

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
 /*
@@ -9,9 +9,9 @@ import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
  * Kurzlern-Vorschlag, Vergleich mit der vorherigen Runde im Rückblick.
  */
 
-const published = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
+const published = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 const questions = new Map(
-  brooksTrendsCourse.units.flatMap((unit) =>
+  priceActionTrendsCourse.units.flatMap((unit) =>
     unit.lessons.flatMap((lesson) => lesson.steps.flatMap((step) => (step.type === 'question' ? [[step.id, { step, lesson }] as const] : []))),
   ),
 );
@@ -116,8 +116,8 @@ test.describe('P08 Übungsroutine', () => {
 
   test('Rückblick: Vergleich mit der vorherigen Runde – Fakten, damalige Begründung, nichts überschrieben', async ({ page }) => {
     const barCase = barCases.find((item) => item.status === 'approved' && item.decisions.length >= 2)!;
-    const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
-    const ids = brooksTrendsCourse.units
+    const unitIndex = priceActionTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+    const ids = priceActionTrendsCourse.units
       .slice(0, unitIndex + 1)
       .flatMap((unit) => unit.lessons)
       .filter((lesson) => lesson.status === 'published')

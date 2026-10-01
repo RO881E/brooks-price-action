@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * P05: Designgrundlage – Akzent je Lernmodus, farbige Navigation, einheitliche
@@ -8,7 +8,7 @@ import { brooksTrendsCourse } from '../src/content/course';
  * reduzierte Bewegung bleiben erhalten.
  */
 
-const completed = brooksTrendsCourse.units
+const completed = priceActionTrendsCourse.units
   .slice(0, 3)
   .flatMap((unit) => unit.lessons)
   .filter((lesson) => lesson.status === 'published')
@@ -26,7 +26,7 @@ async function seed(page: Page) {
 }
 
 const VIEWS: Array<{ hash: string; mode: string; heading: RegExp | string }> = [
-  { hash: '/#/', mode: 'read', heading: /Trading Price Action Trends/ },
+  { hash: '/#/', mode: 'read', heading: /Price Action: Trends/ },
   { hash: '/#/practice', mode: 'practice', heading: 'Analyse-Training' },
   { hash: '/#/progress', mode: 'progress', heading: 'Fortschritt' },
   { hash: '/#/glossary', mode: 'read', heading: 'Price-Action-Glossar' },

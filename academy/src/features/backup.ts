@@ -43,9 +43,7 @@ const FORBIDDEN_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
 
 /**
  * Felder einer Sicherung. Nicht enthalten sind die laufende
- * Wiederholungsrunde (flüchtig), die Kopien von `brooks-progress` und
- * `brooks-tr-best` (eigene Schlüssel, bleiben unangetastet) und unbekannte
- * Zusatzfelder.
+ * Wiederholungsrunde (flüchtig) und unbekannte Zusatzfelder.
  */
 export const BACKUP_FIELDS = [
   'completedLessonIds',
@@ -455,8 +453,6 @@ export function parseBackup(text: string): ParsedBackup {
       reviewSession: null,
       // Laufende Trainerrunden sind nicht Teil der Sicherung.
       caseSessions: {},
-      legacyReadChapters: [],
-      legacyTrendRangeBest: 0,
       preservedFields: {},
     },
   };
@@ -539,7 +535,7 @@ export interface MergeOptions {
  *   Sicherung nichts doppelt zählt
  * - Notizen: neuere Fassung
  * - Tagesziel und Darstellung: aus der Sicherung, außer `keepLocalPreferences`
- * - laufende Runde, alte Website-Daten und unbekannte Zusatzfelder: lokal
+ * - laufende Runde und unbekannte Zusatzfelder: lokal
  */
 export function mergeProgress(
   local: AcademyProgress,
@@ -596,16 +592,13 @@ export function mergeProgress(
 
 /**
  * Vollständiges Ersetzen: Der Stand der Sicherung gilt. Erhalten bleiben nur
- * die Kopien der alten Website-Daten und unbekannte Zusatzfelder; eine
- * laufende Wiederholungsrunde endet.
+ * unbekannte Zusatzfelder; eine laufende Wiederholungsrunde endet.
  */
 export function replaceProgress(local: AcademyProgress, incoming: AcademyProgress): AcademyProgress {
   return {
     ...incoming,
     reviewSession: null,
     caseSessions: {},
-    legacyReadChapters: local.legacyReadChapters,
-    legacyTrendRangeBest: local.legacyTrendRangeBest,
     preservedFields: local.preservedFields,
     updatedAt: new Date().toISOString(),
   };
@@ -782,8 +775,7 @@ export function previewImport(
 /* ------------------------------------------------------------------ */
 
 /**
- * Löscht ausschließlich den Academy-Datensatz. `brooks-progress` und
- * `brooks-tr-best` werden nicht angefasst und nur wie beim Start gelesen.
+ * Löscht ausschließlich den Academy-Datensatz.
  */
 export function resetAcademyData(
   storage: Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>,

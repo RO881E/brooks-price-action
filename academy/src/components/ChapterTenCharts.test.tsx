@@ -1,6 +1,6 @@
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
-import { chapterTenLessons } from '../content/courses/brooks-trends/chapter-10';
+import { chapterTenLessons } from '../content/courses/price-action-trends/chapter-10';
 import { CHAPTER_TEN_SCENARIOS } from '../content/types';
 import { chapterTenCharts } from './ChapterTenCharts';
 import { LearningChart } from './LearningChart';

@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
 /*
@@ -8,7 +8,7 @@ import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
  * dezente Erfolgsmeldung. Alles aus gespeichertem Zustand; Öffnen zählt nicht als Lerntag.
  */
 
-const published = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
+const published = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 
 async function seed(page: Page, ids: string[], extra: Record<string, unknown> = {}) {
   await page.addInitScript(

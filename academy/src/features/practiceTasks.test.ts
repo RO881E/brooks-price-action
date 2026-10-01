@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { orderTasks, signalBarTasks } from '../content/practiceTasks';
 import { createEmptyProgress } from './progress';
 import {
@@ -15,7 +15,7 @@ import {
 } from './practiceTasks';
 import { validateOrderTasks, validateSignalTasks } from './practiceTaskValidation';
 
-const courseOutline = toCourseOutline(brooksTrendsCourse);
+const courseOutline = toCourseOutline(priceActionTrendsCourse);
 
 describe('C-04 Aufgaben (Vertrag)', () => {
   it('Signal-Bar-Aufgaben erfüllen den Vertrag und ihre Regel', () => {

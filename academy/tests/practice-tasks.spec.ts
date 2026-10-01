@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { orderTasks, signalBarTasks } from '../src/content/practiceTasks';
 
 /*
@@ -14,7 +14,7 @@ const anyApproved = [...signalBarTasks, ...orderTasks].some((task) => task.statu
 const signal = signalBarTasks.filter((task) => task.status === 'approved');
 const order = orderTasks.filter((task) => task.status === 'approved');
 
-const allLessonIds = brooksTrendsCourse.units.flatMap((unit) =>
+const allLessonIds = priceActionTrendsCourse.units.flatMap((unit) =>
   unit.lessons.filter((lesson) => lesson.status === 'published').map((lesson) => lesson.id),
 );
 

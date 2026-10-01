@@ -2,7 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { barCases } from '../src/content/barCases';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
 /*
@@ -10,7 +10,7 @@ import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
  * 200-%-Zoom, reduzierte Bewegung, Tastatur und die Wiederherstellung defekter Daten.
  */
 
-const published = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
+const published = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 const [caseA, caseB] = barCases;
 const [a1, a2] = caseA.decisions;
 
@@ -63,7 +63,7 @@ async function approveTransfer(page: Page) {
 const VIEWS: Array<[string, string]> = [
   ['Lernpfad', '/#/'],
   ['Buchmodus', '/#/chapters'],
-  ['Leser', `/#/read/${brooksTrendsCourse.units[1].id}`],
+  ['Leser', `/#/read/${priceActionTrendsCourse.units[1].id}`],
   ['Üben', '/#/practice'],
   ['Kurzlernen', '/#/study/20'],
   ['Trainer', `/#/train/${caseA.id}`],
@@ -190,12 +190,11 @@ test.describe('P12 Wiederherstellung defekter Daten', () => {
       if (sessionStorage.getItem('seeded')) return;
       sessionStorage.setItem('seeded', '1');
       localStorage.setItem('wqt-academy-progress-v1', '{kaputt: nicht lesbar');
-      localStorage.setItem('brooks-tr-best', '6');
     });
     await page.goto('/');
     const notice = page.getByRole('alert').filter({ hasText: 'Gespeicherte Lerndaten waren nicht lesbar' });
     await expect(notice).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     const [file] = await Promise.all([page.waitForEvent('download'), notice.getByRole('button', { name: 'Kopie herunterladen' }).click()]);
     expect(file.suggestedFilename()).toBe('wqt-academy-gerettete-daten.txt');
     expect(readFileSync((await file.path())!, 'utf8')).toBe('{kaputt: nicht lesbar');
@@ -205,16 +204,15 @@ test.describe('P12 Wiederherstellung defekter Daten', () => {
     expect(await page.evaluate(() => localStorage.getItem('wqt-academy-progress-backup'))).toBe('{kaputt: nicht lesbar');
     await page.reload();
     await expect(page.getByRole('alert').filter({ hasText: 'nicht lesbar' })).toBeVisible();
-    // Bewusstes Löschen entfernt nur die Kopie; alte Website-Schlüssel bleiben.
+    // Bewusstes Löschen entfernt die Kopie.
     await page.getByRole('button', { name: 'Kopie löschen' }).click();
     await expect(page.getByRole('alert').filter({ hasText: 'nicht lesbar' })).toHaveCount(0);
     expect(await page.evaluate(() => localStorage.getItem('wqt-academy-progress-backup'))).toBeNull();
-    expect(await page.evaluate(() => localStorage.getItem('brooks-tr-best'))).toBe('6');
     await page.reload();
     await expect(page.getByRole('alert').filter({ hasText: 'nicht lesbar' })).toHaveCount(0);
     const welcome = page.getByRole('region', { name: 'So lernst du in der WQT Academy' });
     if (await welcome.isVisible()) await welcome.getByRole('button', { name: 'Einführung schließen' }).click();
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   });
 
   test('Barrierefreiheit des Hinweises', async ({ page }) => {

@@ -29,7 +29,7 @@ Typen: `src/content/barCaseTypes.ts` · Prüfung: `src/features/barCaseValidatio
 | `schemaVersion` | ja | Immer `1`. |
 | `status` | ja | `draft` oder `approved`. |
 | `title` | ja | Kurzer Titel. |
-| `unitId` | ja | Veröffentlichte Einheit, z. B. `brooks-trends.chapter-02`. |
+| `unitId` | ja | Veröffentlichte Einheit, z. B. `price-action-trends.chapter-02`. |
 | `lessonIds` | ja | Mindestens eine **veröffentlichte** Lektion **dieser** Einheit, deren Inhalt der Fall übt. |
 | `setup` | ja | Ausgangslage vor dem ersten Bar (ein bis drei Sätze). |
 | `timeframe` | nein | Rahmen, z. B. „schematischer 5-Minuten-Chart“. |
@@ -90,8 +90,8 @@ Gekürzt:
   schemaVersion: 1,
   status: 'draft',
   title: 'Technischer Testfall: zwei Entscheidungen',
-  unitId: 'brooks-trends.introduction',
-  lessonIds: ['brooks-trends.introduction.lesson-01', 'brooks-trends.introduction.lesson-04'],
+  unitId: 'price-action-trends.introduction',
+  lessonIds: ['price-action-trends.introduction.lesson-01', 'price-action-trends.introduction.lesson-04'],
   setup: 'Technische Ausgangslage für Engine-Tests ohne fachliche Aussage.',
   bars: [{ open: 100, high: 101.5, low: 99.4, close: 101.2 }, /* … 8 Bars */],
   decisions: [
@@ -107,7 +107,7 @@ Gekürzt:
       ],
       cues: [
         { id: 'cue-a', label: 'Test-Hinweis A', relevant: true, explanation: '…',
-          lessonId: 'brooks-trends.introduction.lesson-04' },
+          lessonId: 'price-action-trends.introduction.lesson-04' },
         { id: 'cue-b', label: 'Test-Hinweis B', relevant: false, explanation: '…' },
       ],
     },

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { barAlbum } from '../src/content/barAlbum';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * Stufe 3 „spielerischer“: Wochenblick und Ziel-Ring auf „Heute“, Missionstruhe und
@@ -9,7 +9,7 @@ import { brooksTrendsCourse } from '../src/content/course';
  */
 
 const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
-const lessons = new Map(brooksTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => [lesson.id, lesson]));
+const lessons = new Map(priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => [lesson.id, lesson]));
 const first = barAlbum[1];
 const firstLesson = lessons.get(first.lessonId)!;
 const todayKey = () => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);

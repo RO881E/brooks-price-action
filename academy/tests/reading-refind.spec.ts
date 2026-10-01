@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { glossaryEntries } from '../src/content/glossary';
 import { stepTermLinks } from '../src/content/stepTerms';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
@@ -9,8 +9,8 @@ import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
  * P10: Lesen und Wiederfinden – ruhigerer Leser, Begriffs-Panel, Suche, Notizbuch.
  */
 
-const published = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
-const intro = brooksTrendsCourse.units[0];
+const published = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
+const intro = priceActionTrendsCourse.units[0];
 const [first] = intro.lessons;
 const link = stepTermLinks.find((item) => item.lessonId === first.id)!;
 const term = glossaryEntries.find((entry) => entry.term === link.terms[0])!;
@@ -132,7 +132,7 @@ test.describe('P10 Notizbuch', () => {
     const titles = () => notes.locator('.saved-item strong').allTextContents();
     // Neueste zuerst: die Notiz aus Lektion 2 vor der aus Lektion 1.
     await expect(notes.locator('.saved-note-text').first()).toContainText('Zweite Notiz');
-    await page.getByRole('radio', { name: 'Buchreihenfolge' }).check();
+    await page.getByRole('radio', { name: 'Kapitelreihenfolge' }).check();
     await expect(notes.locator('.saved-note-text').first()).toContainText('Kaffeetasse');
     expect((await titles()).length).toBe(2);
     // Suche im Notiztext, ohne Umlaut-/Großschreibungs-Probleme.
@@ -153,7 +153,7 @@ test.describe('P10 Notizbuch', () => {
     await expect(page.getByRole('searchbox', { name: 'In Lesezeichen und Notizen suchen' })).toBeVisible();
     const before = await page.evaluate(() => localStorage.getItem('wqt-academy-progress-v1'));
     await page.getByRole('searchbox', { name: 'In Lesezeichen und Notizen suchen' }).fill('Ausbruch');
-    await page.getByRole('radio', { name: 'Buchreihenfolge' }).check();
+    await page.getByRole('radio', { name: 'Kapitelreihenfolge' }).check();
     expect(await page.evaluate(() => localStorage.getItem('wqt-academy-progress-v1'))).toBe(before);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow).toBeLessThanOrEqual(0);

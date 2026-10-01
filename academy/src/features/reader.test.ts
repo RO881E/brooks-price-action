@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { formatRoute, parseRoute, resolveRoute } from './navigation';
 import { createEmptyProgress, recordReaderPosition, type AcademyProgress } from './progress';
 import {
@@ -15,7 +15,7 @@ import {
   sectionResolved,
 } from './reader';
 
-const course = brooksTrendsCourse;
+const course = priceActionTrendsCourse;
 const [intro, partOne, chapterOne] = course.units;
 
 function completed(ids: string[]): AcademyProgress {
@@ -27,9 +27,9 @@ const introDone = (count: number) => completed(intro.lessons.slice(0, count).map
 
 describe('Leser-Route', () => {
   it('liest und schreibt Einheit, Abschnitt und Schritt', () => {
-    expect(parseRoute('#/read/brooks-trends.chapter-01')).toEqual({
+    expect(parseRoute('#/read/price-action-trends.chapter-01')).toEqual({
       kind: 'read',
-      unitId: 'brooks-trends.chapter-01',
+      unitId: 'price-action-trends.chapter-01',
       lessonId: null,
       step: null,
     });

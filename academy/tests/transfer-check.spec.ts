@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { c02BarCases } from '../src/content/barCases/c02';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
 /*
@@ -11,8 +11,8 @@ import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
  */
 
 const published = (through?: string) =>
-  brooksTrendsCourse.units
-    .slice(0, through ? brooksTrendsCourse.units.findIndex((unit) => unit.id === through) + 1 : undefined)
+  priceActionTrendsCourse.units
+    .slice(0, through ? priceActionTrendsCourse.units.findIndex((unit) => unit.id === through) + 1 : undefined)
     .flatMap((unit) => unit.lessons)
     .filter((lesson) => lesson.status === 'published')
     .map((lesson) => lesson.id);
@@ -147,7 +147,7 @@ test.describe('F-17 Transferprüfung', () => {
 
   test('nur erreichte Kapitel: gesperrte Fälle werden nicht angeboten', async ({ page }) => {
     await approveTransferCases(page);
-    await seed(page, published('brooks-trends.chapter-01'));
+    await seed(page, published('price-action-trends.chapter-01'));
     await page.goto('/#/transfer');
     await expect(page.getByText(/1 Fall aus bereits abgeschlossenen Kapiteln/)).toBeVisible();
     await expect(page.getByText(/weitere öffnen sich mit späteren Kapiteln/)).toBeVisible();

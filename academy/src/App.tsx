@@ -700,7 +700,7 @@ export default function App() {
   };
 
   const resetAll = () => {
-    // Nur der Academy-Datensatz wird gelöscht; alte Website-Schlüssel bleiben.
+    // Nur der Academy-Datensatz wird gelöscht.
     const fresh = resetAcademyData(window.localStorage);
     skipCelebration.current = true;
     setCelebration(null);
@@ -835,7 +835,7 @@ export default function App() {
 
         <div className="sidebar-course">
           <span>Aktiver Kurs</span>
-          <strong>Price Action Trends</strong>
+          <strong>Price Action: Trends</strong>
           <div className="sidebar-progress">
             <span style={{ width: `${percent}%` }} />
           </div>
@@ -875,7 +875,7 @@ export default function App() {
           <span className="status-dot" />
           <div>
             <strong>V2 · technischer Pilot</strong>
-            <small>Bestehende Website bleibt erhalten</small>
+            <small>Lernstand nur auf diesem Gerät</small>
           </div>
         </div>
       </aside>
@@ -929,7 +929,7 @@ export default function App() {
               <span className="search-trigger-label">Suchen</span>
               <kbd aria-hidden="true">/</kbd>
             </button>
-            <span className="pilot-pill">Pilot · Buch 1</span>
+            <span className="pilot-pill">Pilot · Teil 1</span>
             <div className="profile-chip" role="img" aria-label="Profil Robert">
               RW
             </div>

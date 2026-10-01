@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { BLITZ_MIN_QUESTIONS, BLITZ_SIZE, blitzQuestions, blitzSummary, timerAnnouncement } from './blitz';
 import { completeLesson, createEmptyProgress } from './progress';
 import { reviewPool } from './reviewSession';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const published = course.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 const progress = published
   .slice(0, 12)

@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
 /*
@@ -8,7 +8,7 @@ import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
  * sichere Adressen (nie eine leere Seite), Hinweise zu Update und Offline.
  */
 
-const published = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
+const published = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 
 async function seed(page: Page, ids: string[] = [], extra: Record<string, unknown> = {}) {
   await page.addInitScript(
@@ -42,7 +42,7 @@ test.describe('P11 Einstellungen', () => {
     await page.getByText('Leseansicht').click();
     await page.getByRole('radio', { name: 'Groß', exact: true }).check();
     expect((await stored(page)).readingOptions.size).toBe('large');
-    await page.goto(`/#/read/${brooksTrendsCourse.units[0].id}`);
+    await page.goto(`/#/read/${priceActionTrendsCourse.units[0].id}`);
     await expect(page.locator('.reader-page')).toHaveAttribute('data-reading-size', 'large');
 
     // Bewegung reduzieren und kompakte Ansicht bleiben unverändert wirksam.
@@ -105,7 +105,7 @@ test.describe('P11 Einführung', () => {
 });
 
 test.describe('P11 Sichere Adressen', () => {
-  const bad = ['/#/train/gibt-es-nicht', '/#/lesson/brooks-trends.gibt-es', '/#/read/gibt-es-nicht', '/#/study/15'];
+  const bad = ['/#/train/gibt-es-nicht', '/#/lesson/price-action-trends.gibt-es', '/#/read/gibt-es-nicht', '/#/study/15'];
 
   test('unbekannte oder nicht freigegebene Ziele führen mit Hinweis zurück statt auf eine leere Seite', async ({ page }) => {
     await seed(page, published.slice(0, 2).map((lesson) => lesson.id));
@@ -113,7 +113,7 @@ test.describe('P11 Sichere Adressen', () => {
     const before = JSON.stringify((await stored(page)).completedLessonIds);
     for (const hash of bad) {
       await page.goto(hash);
-      await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
       await expect(page.getByText('Dieser Link führt zu keiner verfügbaren Ansicht oder Lektion.')).toBeVisible();
     }
     expect(JSON.stringify((await stored(page)).completedLessonIds)).toBe(before);

@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import type { BarCase, DecisionPoint } from '../content/barCaseTypes';
 import { allBarCases, barCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { singleStepFixture, technicalFixtures, twoStepFixture } from '../test/fixtures/barCases';
 import { formatIssues, validateBarCase, validateBarCases } from './barCaseValidation';
 
-const course = brooksTrendsCourse;
+const course = priceActionTrendsCourse;
 
 /** Tiefe Kopie mit gezielter Änderung – die Fixture selbst bleibt unberührt. */
 function variant(change: (draft: BarCase) => void, base: BarCase = twoStepFixture): BarCase {
@@ -67,7 +67,7 @@ describe('Bar-für-Bar-Fälle: Prüfung einzelner Fehler', () => {
     [
       'Lektion aus anderer Einheit',
       (d) => void d.lessonIds.push(course.units[1].lessons[0].id),
-      /gehört nicht zu „brooks-trends.introduction“/,
+      /gehört nicht zu „price-action-trends.introduction“/,
     ],
     ['kein Quellenanker', (d) => void (d.sourceAnchors = []), /sourceAnchors/],
     ['leerer Quellenanker', (d) => void (d.sourceAnchors = ['']), /sourceAnchors/],

@@ -15,7 +15,7 @@ describe('Beta-Fehlerbericht (F-28)', () => {
   });
 
   it('nennt nur den Bereich, nie IDs oder Parameter', () => {
-    expect(describeArea('#/lesson/brooks-trends.chapter-01.x?token=geheim')).toBe('lesson');
+    expect(describeArea('#/lesson/price-action-trends.chapter-01.x?token=geheim')).toBe('lesson');
     expect(describeArea('#/train/bar-case.a/review/run-1')).toBe('train');
     expect(describeArea('')).toBe('Lernpfad');
     expect(describeArea('#/')).toBe('Lernpfad');

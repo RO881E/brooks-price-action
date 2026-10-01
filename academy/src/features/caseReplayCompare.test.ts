@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { barCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { buildReplay } from './caseReplay';
 import { completeLesson, createEmptyProgress, type AcademyProgress, type CaseRun } from './progress';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const barCase = barCases.find((item) => item.status === 'approved' && item.decisions.length >= 2)!;
 const unitIndex = course.units.findIndex((unit) => unit.id === barCase.unitId);
 const base = course.units

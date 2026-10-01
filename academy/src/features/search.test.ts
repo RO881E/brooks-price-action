@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { glossaryEntries, type GlossaryEntry } from '../content/glossary';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import type { Course, Lesson } from '../content/types';
 import {
   buildSearchIndex,
@@ -177,10 +177,10 @@ describe('grouping', () => {
 });
 
 describe('real course content', () => {
-  const realIndex = buildSearchIndex(brooksTrendsCourse, glossaryEntries);
+  const realIndex = buildSearchIndex(priceActionTrendsCourse, glossaryEntries);
 
   it('indexes every lesson, step and glossary entry', () => {
-    const lessons = brooksTrendsCourse.units.flatMap((unit) => unit.lessons);
+    const lessons = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons);
     const steps = lessons.reduce((sum, l) => sum + l.steps.length, 0);
     expect(realIndex.entries).toHaveLength(lessons.length + steps + glossaryEntries.length);
   });

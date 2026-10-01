@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { barCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import type { QuestionOutline } from '../content/types';
 import {
   accessibleLesson,
@@ -15,7 +15,7 @@ import {
 } from './mistakeInsights';
 import { completeLesson, createEmptyProgress, migrateProgress, type AcademyProgress, type CaseRun } from './progress';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const lessons = course.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 const [firstLesson, secondLesson] = lessons;
 const questionOf = (index: number) =>

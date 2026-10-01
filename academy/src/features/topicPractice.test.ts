@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { barCases, transferCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
-import { brooksTopics } from '../content/topicMap';
+import { priceActionTrendsCourse } from '../content/course';
+import { priceActionTopics } from '../content/topicMap';
 import { completeLesson, createEmptyProgress, migrateProgress, type AcademyProgress } from './progress';
 import { buildQuestionSession, dueItems, reviewPool, startSession } from './reviewSession';
 import { planTopicRound, topicEntries, topicSources, TOPIC_ROUND_SIZE } from './topicPractice';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const today = '2026-09-29';
 const published = course.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 
@@ -18,7 +18,7 @@ function completedThrough(count: number): AcademyProgress {
 }
 /** Alles bis einschließlich der Einheit `chapter-NN` abgeschlossen. */
 function completedThroughChapter(chapter: string): AcademyProgress {
-  const index = course.units.findIndex((unit) => unit.id === `brooks-trends.chapter-${chapter}`);
+  const index = course.units.findIndex((unit) => unit.id === `price-action-trends.chapter-${chapter}`);
   return course.units
     .slice(0, index + 1)
     .flatMap((unit) => unit.lessons)
@@ -26,12 +26,12 @@ function completedThroughChapter(chapter: string): AcademyProgress {
     .reduce((progress, lesson) => completeLesson(progress, lesson.id, lesson.xp, '2026-09-20T08:00:00.000Z'), createEmptyProgress());
 }
 const entryOf = (progress: AcademyProgress, id: string) =>
-  topicEntries(course, progress, today).find((entry) => entry.topic.id === `brooks-topic.${id}`)!;
+  topicEntries(course, progress, today).find((entry) => entry.topic.id === `topic.${id}`)!;
 
 describe('Nach Thema üben (F-27)', () => {
   it('neuer Stand: kein Thema hat Fragen, Lernlink auf die erste Lektion, nichts gesperrt Angebotenes', () => {
     const entries = topicEntries(course, createEmptyProgress(), today);
-    expect(entries).toHaveLength(brooksTopics.length);
+    expect(entries).toHaveLength(priceActionTopics.length);
     for (const entry of entries) {
       expect(entry.questions).toEqual([]);
       expect(entry.cases).toEqual([]);
@@ -90,7 +90,7 @@ describe('Nach Thema üben (F-27)', () => {
 
   it('Mehrfachzuordnung: dieselbe Frage taucht je Thema auf, zählt aber nur einmal pro Runde', () => {
     const progress = completedThrough(published.length);
-    const doubled = brooksTopics.flatMap((topic) => topic.questionIds).find((id, _, all) => all.indexOf(id) !== all.lastIndexOf(id))!;
+    const doubled = priceActionTopics.flatMap((topic) => topic.questionIds).find((id, _, all) => all.indexOf(id) !== all.lastIndexOf(id))!;
     const holders = topicEntries(course, progress, today).filter((entry) => entry.questions.some((item) => item.question.id === doubled));
     expect(holders.length).toBeGreaterThan(1);
     for (const entry of holders) {
@@ -127,8 +127,8 @@ describe('Nach Thema üben (F-27)', () => {
 
   it('gespeichertes Thema: Import alter Daten, unbekannte Themen-ID überlebt defensiv', () => {
     const session = { mode: 'mixed', unitId: null, questionIds: ['chapter-01-01-question'], index: 0, answers: {}, startedDay: today, activityRecorded: false };
-    const ok = migrateProgress({ ...createEmptyProgress(), reviewSession: { ...session, topicId: 'brooks-topic.gibt-es-nicht-mehr' } });
-    expect(ok?.reviewSession?.topicId).toBe('brooks-topic.gibt-es-nicht-mehr');
+    const ok = migrateProgress({ ...createEmptyProgress(), reviewSession: { ...session, topicId: 'topic.gibt-es-nicht-mehr' } });
+    expect(ok?.reviewSession?.topicId).toBe('topic.gibt-es-nicht-mehr');
     const bad = migrateProgress({ ...createEmptyProgress(), reviewSession: { ...session, topicId: '<script>' } });
     expect(bad?.reviewSession).not.toHaveProperty('topicId');
     const old = migrateProgress({ version: 12, completedLessonIds: [], answers: {}, reviewSession: session });

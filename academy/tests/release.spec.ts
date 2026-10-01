@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Locator, type Page } from '@playwright/test';
-import { brooksTrendsCourse, publishedLessons } from '../src/content/course';
+import { priceActionTrendsCourse, publishedLessons } from '../src/content/course';
 import type { Lesson } from '../src/content/types';
 
 /*
@@ -13,7 +13,7 @@ import type { Lesson } from '../src/content/types';
 type QuestionStep = Extract<Lesson['steps'][number], { type: 'question' }>;
 
 const VIEWS = [
-  { hash: '#/path', heading: 'Trading Price Action Trends' },
+  { hash: '#/path', heading: 'Price Action: Trends' },
   { hash: '#/chapters', heading: 'Inhalte zusammenhängend lesen' },
   { hash: '#/practice', heading: 'Analyse-Training' },
   { hash: '#/progress', heading: 'Fortschritt' },
@@ -22,7 +22,7 @@ const VIEWS = [
   { hash: '#/settings', heading: 'Einstellungen' },
 ];
 
-const firstUnit = brooksTrendsCourse.units[0].lessons.filter(
+const firstUnit = priceActionTrendsCourse.units[0].lessons.filter(
   (lesson) => lesson.status === 'published',
 );
 
@@ -170,7 +170,7 @@ async function finishLessonByKeyboard(page: Page, lesson: Lesson, withRetry: boo
   await expect(page.getByRole('heading', { name: lesson.title, level: 1 })).toBeFocused();
   await tabTo(page, page.getByRole('button', { name: 'Zurück zum Lernpfad' }));
   await page.keyboard.press('Enter');
-  await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeFocused();
+  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeFocused();
 }
 
 test.describe('F-10 Release-Suite', () => {
@@ -252,7 +252,7 @@ test.describe('F-10 Release-Suite', () => {
     test.setTimeout(240_000);
     const errors = trackErrors(page);
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
 
     for (const [index, lesson] of firstUnit.entries()) {
       await tabTo(page, page.getByRole('button', { name: `${lesson.title}: Jetzt lernen` }));
@@ -265,7 +265,7 @@ test.describe('F-10 Release-Suite', () => {
     expect(data.completedLessonIds).toEqual(expect.arrayContaining(firstUnit.map((lesson) => lesson.id)));
     const firstQuestion = questionOf(firstUnit[0])!;
     expect(data.questionResults[firstQuestion.id]).toMatchObject({ firstAttemptCorrect: false });
-    const nextUnitLesson = brooksTrendsCourse.units[1].lessons[0];
+    const nextUnitLesson = priceActionTrendsCourse.units[1].lessons[0];
     await expect(page.getByRole('button', { name: `${nextUnitLesson.title}: Jetzt lernen` })).toBeVisible();
     expect(errors).toEqual([]);
   });

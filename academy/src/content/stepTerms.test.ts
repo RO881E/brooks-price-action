@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { brooksTrendsCourse } from './course';
+import { priceActionTrendsCourse } from './course';
 import { glossaryEntries } from './glossary';
 import {
   MAX_TERMS_PER_STEP,
@@ -13,7 +13,7 @@ import {
 const [first] = stepTermLinks;
 
 function messages(links: StepTermLink[]) {
-  return validateStepTermLinks(brooksTrendsCourse, glossaryEntries, links).map(
+  return validateStepTermLinks(priceActionTrendsCourse, glossaryEntries, links).map(
     (issue) => `${issue.stepId}${issue.term ? ` → ${issue.term}` : ''}: ${issue.message}`,
   );
 }
@@ -52,7 +52,7 @@ describe('Begriffe am Lernort: Zuordnung', () => {
 });
 
 describe('Begriffe am Lernort: Prüfung meldet defekte Zuordnungen', () => {
-  const lesson = brooksTrendsCourse.units[0].lessons[0];
+  const lesson = priceActionTrendsCourse.units[0].lessons[0];
   const question = lesson.steps.find((step) => step.type === 'question')!;
 
   const cases: Array<[string, StepTermLink[], RegExp]> = [
@@ -74,7 +74,7 @@ describe('Begriffe am Lernort: Prüfung meldet defekte Zuordnungen', () => {
   }
 
   it('meldet nicht veröffentlichte Lektionen', () => {
-    const course = structuredClone(brooksTrendsCourse);
+    const course = structuredClone(priceActionTrendsCourse);
     const target = course.units.flatMap((unit) => unit.lessons).find((item) => item.id === first.lessonId)!;
     target.status = 'planned';
     expect(validateStepTermLinks(course, glossaryEntries, [first]).map((issue) => issue.message)).toContain(

@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { barCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { advance, chooseDecision, startSession, submitDecision, toggleCue, type CaseSession } from './barTrainer';
 import { buildReplay, completedRuns } from './caseReplay';
 import { activeSession, beginCaseRun, setReasoningDraft, updateCaseRun } from './caseTraining';
 import { formatRoute, parseRoute, resolveRoute } from './navigation';
 import { completeLesson, createEmptyProgress, migrateProgress, type AcademyProgress } from './progress';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const barCase = barCases.find((item) => item.id === 'bar-case.chapter-01.range-high-test')!;
 const [highTest, backInside] = barCase.decisions;
 

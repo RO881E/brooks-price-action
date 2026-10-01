@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
-import { brooksTrendsCourse, publishedLessons } from '../src/content/course';
+import { priceActionTrendsCourse, publishedLessons } from '../src/content/course';
 import type { Lesson } from '../src/content/types';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
@@ -142,8 +142,8 @@ test.describe('P09 Fallvergleich', () => {
 
 test.describe('P09 Chart und Tabelle', () => {
   const barCase = barCases.find((item) => item.status === 'approved' && item.decisions.length >= 2)!;
-  const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
-  const unlock = brooksTrendsCourse.units
+  const unitIndex = priceActionTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+  const unlock = priceActionTrendsCourse.units
     .slice(0, unitIndex + 1)
     .flatMap((unit) => unit.lessons)
     .filter((lesson) => lesson.status === 'published')

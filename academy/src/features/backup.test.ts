@@ -21,8 +21,6 @@ import {
   ACADEMY_PROGRESS_VERSION,
   completeLesson,
   createEmptyProgress,
-  LEGACY_PROGRESS_KEY,
-  LEGACY_TREND_RANGE_BEST_KEY,
   loadProgress,
   logActivity,
   recordReaderPosition,
@@ -84,8 +82,6 @@ function richProgress(): AcademyProgress {
       startedDay: '2026-09-22',
       activityRecorded: false,
     },
-    legacyReadChapters: ['b1-intro'],
-    legacyTrendRangeBest: 7,
     preservedFields: { futureThing: 1 },
   };
 }
@@ -137,17 +133,14 @@ describe('roundtrip', () => {
     expect(dataOf(mergeProgress(createEmptyProgress(), parsed.imported))).toEqual(dataOf(original));
   });
 
-  it('survives export → reset → import and never touches the old keys', () => {
+  it('survives export → reset → import', () => {
     const storage = new MemoryStorage();
-    storage.setItem(LEGACY_PROGRESS_KEY, '{"b1-intro":true}');
-    storage.setItem(LEGACY_TREND_RANGE_BEST_KEY, '7');
     saveProgress(storage, richProgress());
     const before = loadProgress(storage);
     const exported = serializeBackup(createBackup(before));
 
     const fresh = resetAcademyData(storage);
     expect(dataOf(fresh)).toEqual(dataOf(createEmptyProgress()));
-    expect(fresh.legacyReadChapters).toEqual(['b1-intro']);
     expect(storage.getItem(ACADEMY_PROGRESS_KEY)).toBeNull();
 
     const parsed = parseBackup(exported);
@@ -155,8 +148,6 @@ describe('roundtrip', () => {
     saveProgress(storage, applyImport(fresh, parsed.imported, 'merge'));
 
     expect(dataOf(loadProgress(storage))).toEqual(dataOf(before));
-    expect(storage.getItem(LEGACY_PROGRESS_KEY)).toBe('{"b1-intro":true}');
-    expect(storage.getItem(LEGACY_TREND_RANGE_BEST_KEY)).toBe('7');
   });
 });
 
@@ -341,15 +332,14 @@ describe('merge rules', () => {
     const keep = mergeProgress(local, incoming, { keepLocalPreferences: true });
     expect(keep.dailyGoal).toEqual({ kind: 'xp', target: 60 });
     expect(keep.settings).toEqual({ motion: 'reduce', compact: true });
-    // Lokal bleiben immer: laufende Runde, alte Website-Daten, unbekannte Felder.
+    // Lokal bleiben immer: laufende Runde, unbekannte Felder.
     expect(merged.reviewSession?.questionIds).toEqual(['q1']);
-    expect(merged.legacyReadChapters).toEqual(['b1-intro']);
     expect(merged.preservedFields).toEqual({ futureThing: 1 });
   });
 });
 
 describe('replace', () => {
-  it('uses the backup and keeps only old website data and unknown fields', () => {
+  it('uses the backup and keeps only unknown fields', () => {
     const local = richProgress();
     const incoming = completeLesson(createEmptyProgress(), 'lesson-9', 40, at('2026-09-23'));
     const replaced = replaceProgress(local, incoming);
@@ -359,8 +349,6 @@ describe('replace', () => {
     expect(replaced.bookmarks).toEqual({});
     expect(replaced.dailyGoal).toEqual({ kind: 'activities', target: 1 });
     expect(replaced.reviewSession).toBeNull();
-    expect(replaced.legacyReadChapters).toEqual(['b1-intro']);
-    expect(replaced.legacyTrendRangeBest).toBe(7);
     expect(replaced.preservedFields).toEqual({ futureThing: 1 });
     expect(applyImport(local, incoming, 'replace').completedLessonIds).toEqual(['lesson-9']);
   });
@@ -404,7 +392,7 @@ describe('preview', () => {
 
 describe('Lesestellen im Buchleser (F-13, v9)', () => {
   const withPosition = (progress: AcademyProgress, lessonId: string, stepId: string | null, at: string) =>
-    recordReaderPosition(progress, 'brooks-trends.chapter-01', lessonId, stepId, at);
+    recordReaderPosition(progress, 'price-action-trends.chapter-01', lessonId, stepId, at);
 
   it('sichert und liest die Lesestellen mit', () => {
     const progress = withPosition(createEmptyProgress(), 'lesson-a', 'step-2', '2026-09-29T08:00:00.000Z');
@@ -434,7 +422,7 @@ describe('Lesestellen im Buchleser (F-13, v9)', () => {
     );
     const broken = (entry: unknown) =>
       backupText(createEmptyProgress(), (backup) => {
-        (backup.data as Record<string, unknown>).readerPositions = { 'brooks-trends.chapter-01': entry };
+        (backup.data as Record<string, unknown>).readerPositions = { 'price-action-trends.chapter-01': entry };
       });
     expectRejected(broken({ lessonId: '', stepId: null, updatedAt: '2026-09-29T08:00:00.000Z' }), /readerPositions/);
     expectRejected(broken({ lessonId: 'a', stepId: 3, updatedAt: '2026-09-29T08:00:00.000Z' }), /readerPositions/);
@@ -445,11 +433,11 @@ describe('Lesestellen im Buchleser (F-13, v9)', () => {
   it('führt zusammen: die zuletzt gesetzte Lesestelle je Einheit gewinnt', () => {
     const older = withPosition(createEmptyProgress(), 'lesson-a', null, '2026-09-01T08:00:00.000Z');
     const newer = withPosition(createEmptyProgress(), 'lesson-b', 'step-1', '2026-09-20T08:00:00.000Z');
-    const other = recordReaderPosition(createEmptyProgress(), 'brooks-trends.chapter-02', 'lesson-x', null, '2026-09-02T08:00:00.000Z');
-    expect(mergeProgress(older, newer).readerPositions['brooks-trends.chapter-01'].lessonId).toBe('lesson-b');
-    expect(mergeProgress(newer, older).readerPositions['brooks-trends.chapter-01'].lessonId).toBe('lesson-b');
+    const other = recordReaderPosition(createEmptyProgress(), 'price-action-trends.chapter-02', 'lesson-x', null, '2026-09-02T08:00:00.000Z');
+    expect(mergeProgress(older, newer).readerPositions['price-action-trends.chapter-01'].lessonId).toBe('lesson-b');
+    expect(mergeProgress(newer, older).readerPositions['price-action-trends.chapter-01'].lessonId).toBe('lesson-b');
     const merged = mergeProgress(older, other);
-    expect(Object.keys(merged.readerPositions).sort()).toEqual(['brooks-trends.chapter-01', 'brooks-trends.chapter-02']);
+    expect(Object.keys(merged.readerPositions).sort()).toEqual(['price-action-trends.chapter-01', 'price-action-trends.chapter-02']);
     // Derselbe Import zweimal ändert nichts.
     expect(mergeProgress(merged, merged).readerPositions).toEqual(merged.readerPositions);
   });
