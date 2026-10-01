@@ -229,4 +229,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 45,
     load: () => import('./courses/price-action-trends/chapter-19').then((module) => module.chapterNineteenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-20', order: 22, kind: 'chapter', label: 'Kapitel 20',
+    title: 'Bewegungen in zwei Schüben',
+    description: 'ABC-Rückläufe, zweite Tests, verschachtelte Beine und die Überschneidung mit Dreischubformen – mit eigenen OHLC-Beispielen, echter Zeitebenenaggregation und einem zeitgerechten Replay-Protokoll.',
+    estimatedLessonCount: 22,
+    load: () => import('./courses/price-action-trends/chapter-20').then((module) => module.chapterTwentyLessons),
+  },
 ];

@@ -1,3 +1,8 @@
+export const CHAPTER_TWENTY_SCENARIOS = [
+'c20-01', 'c20-02', 'c20-03', 'c20-04', 'c20-05', 'c20-06', 'c20-07', 'c20-08', 'c20-09', 'c20-10', 'c20-11', 'c20-12', 'c20-13', 'c20-14', 'c20-15', 'c20-16', 'c20-17', 'c20-18', 'c20-19', 'c20-20', 'c20-21', 'c20-22'
+] as const;
+export type ChapterTwentyScenarioId = (typeof CHAPTER_TWENTY_SCENARIOS)[number];
+
 export type ChapterFiveScenarioId =
   | 'reversal-meaning'
   | 'bull-reversal-anatomy'
@@ -569,7 +574,8 @@ export type ChartScenarioId =
   | ChapterSixteenScenarioId
   | ChapterSeventeenScenarioId
   | ChapterEighteenScenarioId
-  | ChapterNineteenScenarioId;
+  | ChapterNineteenScenarioId
+  | ChapterTwentyScenarioId;
 
 export type LessonStep =
   | {
