@@ -50,6 +50,7 @@ const VIEWS: Array<[string, string]> = [
   ['Fortschritt', '/#/progress'],
   ['Gespeichert', '/#/saved'],
   ['Glossar', '/#/glossary'],
+  ['Bibliothek', '/#/library'],
   ['Einstellungen', '/#/settings'],
 ];
 

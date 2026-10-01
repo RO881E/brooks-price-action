@@ -7,6 +7,7 @@
 export type IconName =
   | 'path'
   | 'book'
+  | 'library'
   | 'practice'
   | 'progress'
   | 'saved'
@@ -36,6 +37,13 @@ const SHAPES: Record<IconName, React.ReactNode> = {
     <>
       <path d="M4.5 5.5A2 2 0 0 1 6.5 3.5H19v15H6.5a2 2 0 0 0-2 2z" />
       <path d="M4.5 5.5v15M9 8h6" />
+    </>
+  ),
+  library: (
+    <>
+      <rect x="4" y="4" width="6" height="16" rx="1.4" />
+      <rect x="13.5" y="4" width="6" height="7" rx="1.4" />
+      <rect x="13.5" y="14" width="6" height="6" rx="1.4" />
     </>
   ),
   practice: <path d="M13.2 3 5.5 13.5h5.3l-1 7.5 7.7-10.5h-5.3z" />,

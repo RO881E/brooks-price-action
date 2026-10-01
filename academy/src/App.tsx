@@ -18,6 +18,7 @@ import { CelebrationToast, type Celebration } from './components/CelebrationToas
 import { ChapterView } from './components/ChapterView';
 import { LessonLoading } from './components/ContentLoadState';
 import { GlossaryView } from './components/GlossaryView';
+import { LibraryView } from './components/LibraryView';
 import { LessonPlayer } from './components/LessonPlayer';
 import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
@@ -204,6 +205,8 @@ const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boole
   // Auf Mobilgeräten über das Menü erreichbar, damit die untere Leiste lesbar bleibt.
   { id: 'saved', label: 'Gespeichert', icon: 'saved', mobile: false, mode: 'review' },
   { id: 'glossary', label: 'Glossar', icon: 'glossary', mobile: true, mode: 'read' },
+  // Themenübersicht; auf Mobilgeräten über das Menü und den Kursblock erreichbar.
+  { id: 'library', label: 'Bibliothek', icon: 'library', mobile: false, mode: 'neutral' },
   { id: 'settings', label: 'Einstellungen', icon: 'settings', mobile: false, mode: 'neutral' },
 ];
 
@@ -836,7 +839,17 @@ export default function App() {
           <div className="sidebar-progress">
             <span style={{ width: `${percent}%` }} />
           </div>
-          <small>{percent}% im Pilot</small>
+          <div className="sidebar-course-foot">
+            <small>{percent}% im Pilot</small>
+            <button
+              type="button"
+              className="sidebar-course-switch"
+              aria-label="Alle Themen ansehen"
+              onClick={() => chooseView('library')}
+            >
+              Alle Themen
+            </button>
+          </div>
         </div>
 
         <nav className="sidebar-nav" aria-label="Hauptnavigation">
@@ -1163,6 +1176,7 @@ export default function App() {
               onApplyUpdate={pwa.applyUpdate}
             />
           ) : null}
+          {view === 'library' ? <LibraryView percent={percent} onOpenCourse={() => chooseView('path')} /> : null}
           {view === 'glossary' ? (
             <GlossaryView
               key={glossaryTerm ?? ''}
