@@ -15,6 +15,7 @@ ansehen“ im Kursblock der Seitenleiste (auch auf dem Handy, über das Menü).
 ## Neues Thema oder neuen Kurs eintragen
 
 Einzige Liste: `librarySubjects` in `src/content/library.ts`.
+Mögliche Themen und Unterthemen zur Auswahl sammelt [`THEMENKATALOG.md`](THEMENKATALOG.md).
 
 1. **Ankündigen:** Eintrag mit `status: 'planned'` (Kurs) bzw. leerer `courses`-Liste (Thema) ergänzen.
    Titel und eine kurze Beschreibung genügen; Texte in eigenen Worten.
