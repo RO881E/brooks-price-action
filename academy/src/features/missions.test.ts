@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { barCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { beginCaseRun, updateCaseRun } from './caseTraining';
 import { advance, chooseDecision, startSession as startCase, submitDecision, toggleCue } from './barTrainer';
 import { MILESTONES, awardMilestone, awardMilestones } from './goals';
@@ -9,7 +9,7 @@ import { dailyMissions } from './missions';
 import { completeLesson, createEmptyProgress, type AcademyProgress } from './progress';
 import { progressSummary } from './progressSummary';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const today = '2026-09-29';
 const published = course.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 const complete = (progress: AcademyProgress, count: number, at: string) =>

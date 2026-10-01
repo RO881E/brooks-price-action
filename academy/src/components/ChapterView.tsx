@@ -23,7 +23,7 @@ export function ChapterView({
         <p className="eyebrow">Buchmodus</p>
         <h1>Inhalte zusammenhängend lesen</h1>
         <p>
-          „Kapitel lesen“ öffnet ein Kapitel als zusammenhängenden Text in Buchreihenfolge –
+          „Kapitel lesen“ öffnet ein Kapitel als zusammenhängenden Text in Kapitelreihenfolge –
           mit Schaubildern, Vergleichen und Fragen. Die Lesestelle wird gemerkt. Einzelne
           Abschnitte lassen sich weiterhin als Lektion öffnen.
         </p>
@@ -84,8 +84,8 @@ export function ChapterView({
                   })}
                   {unit.estimatedLessonCount > published.length ? (
                     <div className="chapter-planned">
-                      + {unit.estimatedLessonCount - published.length} weitere Lektionen laut
-                      Quellenplan
+                      + {unit.estimatedLessonCount - published.length} weitere Lektionen
+                      geplant
                     </div>
                   ) : null}
                 </div>

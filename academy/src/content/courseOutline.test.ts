@@ -1,28 +1,28 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
-import { brooksTrendsCourse } from './course';
+import { priceActionTrendsCourse } from './course';
 
-const outline = toCourseOutline(brooksTrendsCourse);
+const outline = toCourseOutline(priceActionTrendsCourse);
 
 describe('toCourseOutline', () => {
   it('behält Einheiten, Lektionen und Schritte in Buchreihenfolge mit denselben IDs', () => {
-    expect(outline.units.map((unit) => unit.id)).toEqual(brooksTrendsCourse.units.map((unit) => unit.id));
-    const ids = (course: typeof outline | typeof brooksTrendsCourse) =>
+    expect(outline.units.map((unit) => unit.id)).toEqual(priceActionTrendsCourse.units.map((unit) => unit.id));
+    const ids = (course: typeof outline | typeof priceActionTrendsCourse) =>
       course.units.flatMap((unit) =>
         unit.lessons.map((lesson) => [lesson.id, lesson.steps.map((step) => `${step.type}:${step.id}`)]),
       );
-    expect(ids(outline)).toEqual(ids(brooksTrendsCourse));
+    expect(ids(outline)).toEqual(ids(priceActionTrendsCourse));
   });
 
   it('übernimmt Metadaten für Pfad, Freischaltung, XP und Suche unverändert', () => {
-    const full = brooksTrendsCourse.units[2].lessons[0];
+    const full = priceActionTrendsCourse.units[2].lessons[0];
     const short = outline.units[2].lessons[0];
     for (const key of ['title', 'summary', 'durationMinutes', 'xp', 'sourceUnit', 'sourceAnchors', 'status'] as const) {
       expect(short[key]).toEqual(full[key]);
     }
     expect(outline.units[2]).toMatchObject({
-      label: brooksTrendsCourse.units[2].label,
-      estimatedLessonCount: brooksTrendsCourse.units[2].estimatedLessonCount,
+      label: priceActionTrendsCourse.units[2].label,
+      estimatedLessonCount: priceActionTrendsCourse.units[2].estimatedLessonCount,
     });
   });
 
@@ -34,12 +34,12 @@ describe('toCourseOutline', () => {
       );
     }
     const json = JSON.stringify(outline);
-    const paragraph = brooksTrendsCourse.units[0].lessons[0].steps.find((step) => step.type === 'explanation');
+    const paragraph = priceActionTrendsCourse.units[0].lessons[0].steps.find((step) => step.type === 'explanation');
     expect(paragraph && 'paragraphs' in paragraph).toBe(true);
     if (paragraph && paragraph.type === 'explanation') expect(json).not.toContain(paragraph.paragraphs[0]);
   });
 
   it('bleibt deutlich kleiner als der vollständige Kurs', () => {
-    expect(JSON.stringify(outline).length).toBeLessThan(JSON.stringify(brooksTrendsCourse).length / 3);
+    expect(JSON.stringify(outline).length).toBeLessThan(JSON.stringify(priceActionTrendsCourse).length / 3);
   });
 });

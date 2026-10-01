@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { createEmptyProgress, savedKey, type AcademyProgress } from './progress';
 import { arrangeSaved, savedOverview } from './savedItems';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const published = course.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 const [one, two, three] = [published[0], published[5], published[12]];
 const stepOf = (lesson: typeof one, index: number) => lesson.steps[index].id;
@@ -63,10 +63,10 @@ describe('Gespeichert als Notizbuch (P10)', () => {
       ...base,
       notes: {
         ...base.notes,
-        [savedKey('brooks-trends.gibt-es-nicht', null)]: { lessonId: 'brooks-trends.gibt-es-nicht', stepId: null, text: 'alt', updatedAt: '2026-09-29T11:00:00.000Z' },
+        [savedKey('price-action-trends.gibt-es-nicht', null)]: { lessonId: 'price-action-trends.gibt-es-nicht', stepId: null, text: 'alt', updatedAt: '2026-09-29T11:00:00.000Z' },
       },
     };
     const book = arrangeSaved(savedOverview(course, withMissing), 'book', '');
-    expect(book.notes.at(-1)?.note.lessonId).toBe('brooks-trends.gibt-es-nicht');
+    expect(book.notes.at(-1)?.note.lessonId).toBe('price-action-trends.gibt-es-nicht');
   });
 });

@@ -1,27 +1,27 @@
 import { describe, expect, it } from 'vitest';
-import { brooksTrendsCourse, publishedLessons } from './course';
+import { priceActionTrendsCourse, publishedLessons } from './course';
 
-describe('Brooks course model', () => {
+describe('Price-Action-Kursmodell', () => {
   it('keeps introduction, part introduction and chapters 1–10 in source order', () => {
-    expect(brooksTrendsCourse.units.map((unit) => unit.id)).toEqual([
-      'brooks-trends.introduction',
-      'brooks-trends.part-01-introduction',
-      'brooks-trends.chapter-01',
-      'brooks-trends.chapter-02',
-      'brooks-trends.chapter-03',
-      'brooks-trends.chapter-04',
-      'brooks-trends.chapter-05',
-      'brooks-trends.chapter-06',
-      'brooks-trends.chapter-07',
-      'brooks-trends.chapter-08',
-      'brooks-trends.chapter-09',
-      'brooks-trends.chapter-10',
+    expect(priceActionTrendsCourse.units.map((unit) => unit.id)).toEqual([
+      'price-action-trends.introduction',
+      'price-action-trends.part-01-introduction',
+      'price-action-trends.chapter-01',
+      'price-action-trends.chapter-02',
+      'price-action-trends.chapter-03',
+      'price-action-trends.chapter-04',
+      'price-action-trends.chapter-05',
+      'price-action-trends.chapter-06',
+      'price-action-trends.chapter-07',
+      'price-action-trends.chapter-08',
+      'price-action-trends.chapter-09',
+      'price-action-trends.chapter-10',
     ]);
-    expect(brooksTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    expect(priceActionTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   });
 
   it('publishes the complete source-mapped introduction as 22 micro-lessons', () => {
-    const introduction = brooksTrendsCourse.units[0];
+    const introduction = priceActionTrendsCourse.units[0];
 
     expect(introduction.estimatedLessonCount).toBe(22);
     expect(introduction.lessons).toHaveLength(22);
@@ -35,8 +35,8 @@ describe('Brooks course model', () => {
   });
 
   it('places the complete introduction before the complete Part I source unit', () => {
-    const introduction = brooksTrendsCourse.units[0];
-    const partIntroduction = brooksTrendsCourse.units[1];
+    const introduction = priceActionTrendsCourse.units[0];
+    const partIntroduction = priceActionTrendsCourse.units[1];
 
     expect(introduction.lessons.map((lesson) => lesson.title)).toEqual(
       expect.arrayContaining([
@@ -75,7 +75,7 @@ describe('Brooks course model', () => {
   });
 
   it('publishes chapter 1 as eight source-ordered micro-lessons', () => {
-    const chapterOne = brooksTrendsCourse.units[2];
+    const chapterOne = priceActionTrendsCourse.units[2];
 
     expect(chapterOne.estimatedLessonCount).toBe(8);
     expect(chapterOne.lessons).toHaveLength(8);
@@ -96,7 +96,7 @@ describe('Brooks course model', () => {
   });
 
   it('publishes chapter 2 as twenty source-ordered micro-lessons', () => {
-    const chapterTwo = brooksTrendsCourse.units[3];
+    const chapterTwo = priceActionTrendsCourse.units[3];
 
     expect(chapterTwo.estimatedLessonCount).toBe(20);
     expect(chapterTwo.lessons).toHaveLength(20);
@@ -123,7 +123,7 @@ describe('Brooks course model', () => {
   });
 
   it('publishes chapter 3 as twenty-five source-ordered micro-lessons', () => {
-    const chapterThree = brooksTrendsCourse.units[4];
+    const chapterThree = priceActionTrendsCourse.units[4];
 
     expect(chapterThree.estimatedLessonCount).toBe(25);
     expect(chapterThree.lessons).toHaveLength(25);
@@ -167,7 +167,7 @@ describe('Brooks course model', () => {
   });
 
   it('publishes chapter 4 as twenty-five source-ordered micro-lessons', () => {
-    const chapterFour = brooksTrendsCourse.units[5];
+    const chapterFour = priceActionTrendsCourse.units[5];
 
     expect(chapterFour.estimatedLessonCount).toBe(25);
     expect(chapterFour.lessons).toHaveLength(25);
@@ -208,7 +208,7 @@ describe('Brooks course model', () => {
   });
 
   it('publishes chapter 5 with 25 source-ordered lessons and distinct charts', () => {
-    const chapterFive = brooksTrendsCourse.units[6];
+    const chapterFive = priceActionTrendsCourse.units[6];
 
     expect(chapterFive.estimatedLessonCount).toBe(25);
     expect(chapterFive.lessons).toHaveLength(25);
@@ -232,7 +232,7 @@ describe('Brooks course model', () => {
   });
 
   it('publishes chapter 6 with foundational rules and all 19 chart cases', () => {
-    const chapterSix = brooksTrendsCourse.units[7];
+    const chapterSix = priceActionTrendsCourse.units[7];
     expect(chapterSix.estimatedLessonCount).toBe(40);
     expect(chapterSix.lessons).toHaveLength(40);
     expect(chapterSix.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
@@ -242,7 +242,7 @@ describe('Brooks course model', () => {
 
     const cases = chapterSix.lessons.slice(19);
     const figureNumbers = cases.map((lesson) => {
-      const figure = lesson.sourceAnchors?.[0]?.match(/^Abbildung 6\.(\d+)/);
+      const figure = lesson.sourceAnchors?.[0]?.match(/^Fall 6\.(\d+)/);
       expect(figure).not.toBeNull();
       return Number(figure?.[1]);
     });
@@ -250,7 +250,7 @@ describe('Brooks course model', () => {
     expect(figureNumbers).toEqual([...figureNumbers].sort((a, b) => a - b));
 
     for (const [index, lesson] of chapterSix.lessons.entries()) {
-      expect(lesson.id).toBe(`brooks-trends.chapter-06.lesson-${String(index + 1).padStart(2, '0')}`);
+      expect(lesson.id).toBe(`price-action-trends.chapter-06.lesson-${String(index + 1).padStart(2, '0')}`);
       expect(lesson.sourceAnchors).toHaveLength(3);
       expect(lesson.steps.map((step) => step.type)).toEqual(['explanation', 'diagram', 'question', 'recap']);
       expect(lesson.steps.find((step) => step.type === 'explanation')?.paragraphs).toHaveLength(3);
@@ -259,7 +259,7 @@ describe('Brooks course model', () => {
   });
 
   it('publishes chapter 7 with four complete chart discussions', () => {
-    const chapterSeven = brooksTrendsCourse.units[8];
+    const chapterSeven = priceActionTrendsCourse.units[8];
     expect(chapterSeven.estimatedLessonCount).toBe(24);
     expect(chapterSeven.lessons).toHaveLength(24);
     expect(chapterSeven.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
@@ -269,7 +269,7 @@ describe('Brooks course model', () => {
 
     const cases = chapterSeven.lessons.slice(11);
     const figures = cases.map((lesson) => {
-      const number = lesson.sourceAnchors?.[0]?.match(/^Abbildung 7\.(\d+)/)?.[1];
+      const number = lesson.sourceAnchors?.[0]?.match(/^Fall 7\.(\d+)/)?.[1];
       expect(number).toBeDefined();
       return Number(number);
     });
@@ -281,7 +281,7 @@ describe('Brooks course model', () => {
     );
     expect(new Set(scenarios).size).toBe(24);
     for (const [index, lesson] of chapterSeven.lessons.entries()) {
-      expect(lesson.id).toBe(`brooks-trends.chapter-07.lesson-${String(index + 1).padStart(2, '0')}`);
+      expect(lesson.id).toBe(`price-action-trends.chapter-07.lesson-${String(index + 1).padStart(2, '0')}`);
       expect(lesson.sourceAnchors).toHaveLength(3);
       expect(lesson.steps.map((step) => step.type)).toEqual(['explanation', 'diagram', 'question', 'recap']);
       expect(lesson.steps.find((step) => step.type === 'explanation')?.paragraphs).toHaveLength(3);
@@ -290,7 +290,7 @@ describe('Brooks course model', () => {
   });
 
   it('publishes chapter 8 with its full argument and chart discussion', () => {
-    const chapterEight = brooksTrendsCourse.units[9];
+    const chapterEight = priceActionTrendsCourse.units[9];
     expect(chapterEight.estimatedLessonCount).toBe(12);
     expect(chapterEight.lessons).toHaveLength(12);
     expect(publishedLessons).toHaveLength(258);
@@ -303,7 +303,7 @@ describe('Brooks course model', () => {
     );
     expect(new Set(scenarios).size).toBe(12);
     for (const [index, lesson] of chapterEight.lessons.entries()) {
-      expect(lesson.id).toBe(`brooks-trends.chapter-08.lesson-${String(index + 1).padStart(2, '0')}`);
+      expect(lesson.id).toBe(`price-action-trends.chapter-08.lesson-${String(index + 1).padStart(2, '0')}`);
       expect(lesson.sourceAnchors).toHaveLength(3);
       expect(lesson.steps.map((step) => step.type)).toEqual(['explanation', 'diagram', 'question', 'recap']);
       expect(lesson.steps.find((step) => step.type === 'explanation')?.paragraphs).toHaveLength(3);
@@ -311,15 +311,15 @@ describe('Brooks course model', () => {
     }
   });
 
-  it('covers chapter 9 and both figures in book order', () => {
-    const chapterNine = brooksTrendsCourse.units[10];
+  it('covers chapter 9 and both cases in course order', () => {
+    const chapterNine = priceActionTrendsCourse.units[10];
     expect(chapterNine.estimatedLessonCount).toBe(10);
     expect(chapterNine.lessons).toHaveLength(10);
     expect(chapterNine.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
     expect(chapterNine.lessons.slice(0, 7).every((lesson) => lesson.sourceAnchors?.[0]?.startsWith('Kapitel 9'))).toBe(true);
-    expect(chapterNine.lessons.slice(7).map((lesson) => lesson.sourceAnchors?.[0]?.match(/^Abbildung 9\.(\d+)/)?.[1])).toEqual(['1', '1', '2']);
+    expect(chapterNine.lessons.slice(7).map((lesson) => lesson.sourceAnchors?.[0]?.match(/^Fall 9\.(\d+)/)?.[1])).toEqual(['1', '1', '2']);
     for (const [index, lesson] of chapterNine.lessons.entries()) {
-      expect(lesson.id).toBe(`brooks-trends.chapter-09.lesson-${String(index + 1).padStart(2, '0')}`);
+      expect(lesson.id).toBe(`price-action-trends.chapter-09.lesson-${String(index + 1).padStart(2, '0')}`);
       expect(lesson.sourceAnchors).toHaveLength(3);
       expect(lesson.steps.map((step) => step.type)).toEqual(['explanation', 'diagram', 'question', 'recap']);
       expect(lesson.steps.find((step) => step.type === 'explanation')?.paragraphs).toHaveLength(3);
@@ -327,16 +327,16 @@ describe('Brooks course model', () => {
   });
 
   it('covers chapter 10 from the second-entry rule through both figures and the deeper discussion', () => {
-    const chapterTen = brooksTrendsCourse.units[11];
+    const chapterTen = priceActionTrendsCourse.units[11];
     expect(chapterTen.estimatedLessonCount).toBe(23);
     expect(chapterTen.lessons).toHaveLength(23);
     expect(chapterTen.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
     expect(chapterTen.lessons.slice(0, 5).every((lesson) => lesson.sourceAnchors?.[0]?.startsWith('Kapitel 10'))).toBe(true);
-    expect(chapterTen.lessons.slice(5, 9).every((lesson) => lesson.sourceAnchors?.[0]?.startsWith('Abbildung 10.1'))).toBe(true);
-    expect(chapterTen.lessons.slice(9).every((lesson) => lesson.sourceAnchors?.[0]?.startsWith('Abbildung 10.2'))).toBe(true);
+    expect(chapterTen.lessons.slice(5, 9).every((lesson) => lesson.sourceAnchors?.[0]?.startsWith('Fall 10.1'))).toBe(true);
+    expect(chapterTen.lessons.slice(9).every((lesson) => lesson.sourceAnchors?.[0]?.startsWith('Fall 10.2'))).toBe(true);
     expect(chapterTen.lessons.at(-1)?.title).toContain('Bar 11');
     for (const [index, lesson] of chapterTen.lessons.entries()) {
-      expect(lesson.id).toBe(`brooks-trends.chapter-10.lesson-${String(index + 1).padStart(2, '0')}`);
+      expect(lesson.id).toBe(`price-action-trends.chapter-10.lesson-${String(index + 1).padStart(2, '0')}`);
       expect(lesson.sourceAnchors).toHaveLength(3);
       expect(lesson.steps.map((step) => step.type)).toEqual(['explanation', 'diagram', 'question', 'recap']);
       expect(lesson.steps.find((step) => step.type === 'explanation')?.paragraphs).toHaveLength(3);
@@ -345,8 +345,8 @@ describe('Brooks course model', () => {
 
   it('uses globally unique stable IDs', () => {
     const ids = [
-      brooksTrendsCourse.id,
-      ...brooksTrendsCourse.units.flatMap((unit) => [
+      priceActionTrendsCourse.id,
+      ...priceActionTrendsCourse.units.flatMap((unit) => [
         unit.id,
         ...unit.lessons.flatMap((lesson) => [
           lesson.id,
@@ -373,7 +373,7 @@ describe('Brooks course model', () => {
   });
 
   it('does not claim fewer estimated lessons than are already modeled', () => {
-    for (const unit of brooksTrendsCourse.units) {
+    for (const unit of priceActionTrendsCourse.units) {
       expect(unit.estimatedLessonCount).toBeGreaterThanOrEqual(unit.lessons.length);
     }
   });

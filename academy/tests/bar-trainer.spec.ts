@@ -3,7 +3,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 import { barCases } from '../src/content/barCases';
 import { TRADE_DECISION_LABELS, type BarCase, type TradeDecision } from '../src/content/barCaseTypes';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * F-15: Bar-für-Bar-Trainer. Läuft auf Desktop und Mobil gegen den Entwicklungsserver.
@@ -11,9 +11,9 @@ import { brooksTrendsCourse } from '../src/content/course';
 
 const VERDICT_LABELS = { best: 'Beste Wahl', defensible: 'Vertretbar', mistake: 'Nicht tragfähig' } as const;
 const barCase = barCases.find((item) => item.status === 'approved' && item.decisions.length >= 2)!;
-const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+const unitIndex = priceActionTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
 /** Alle veröffentlichten Lektionen bis einschließlich der Einheit des Falls. */
-const unlockIds = brooksTrendsCourse.units
+const unlockIds = priceActionTrendsCourse.units
   .slice(0, unitIndex + 1)
   .flatMap((unit) => unit.lessons)
   .filter((lesson) => lesson.status === 'published')

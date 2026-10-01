@@ -1,12 +1,12 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * F-18: Einführung beim ersten Besuch und jederzeit über „Hilfe“. Desktop und Mobil.
  */
 
-const firstLesson = brooksTrendsCourse.units[0].lessons[0];
+const firstLesson = priceActionTrendsCourse.units[0].lessons[0];
 const welcome = (page: Page) => page.getByRole('region', { name: 'So lernst du in der WQT Academy' });
 const helpButton = (page: Page) => page.getByRole('button', { name: 'Hilfe', exact: true });
 
@@ -31,7 +31,7 @@ test.describe('F-18 Einführung', () => {
     await expect(helpButton(page)).toBeFocused();
 
     await page.reload();
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await expect(welcome(page)).toHaveCount(0);
     const data = await stored(page);
     expect(typeof data.guideSeenAt).toBe('string');
@@ -47,7 +47,7 @@ test.describe('F-18 Einführung', () => {
     await welcome(page).getByRole('button', { name: `Erste Lektion starten: ${firstLesson.title}` }).click();
     await expect(page).toHaveURL(new RegExp(`#/lesson/${firstLesson.id}`));
     await page.goBack();
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await expect(welcome(page)).toHaveCount(0);
   });
 
@@ -58,7 +58,7 @@ test.describe('F-18 Einführung', () => {
       localStorage.setItem('wqt-academy-progress-v1', JSON.stringify({ version: 2, completedLessonIds: [id], answers: {} }));
     }, firstLesson.id);
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await expect(welcome(page)).toHaveCount(0);
 
     await helpButton(page).focus();

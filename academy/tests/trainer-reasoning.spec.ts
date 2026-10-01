@@ -1,15 +1,15 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * F-24: eigene Begründung vor dem Reveal. Desktop und Mobil.
  */
 
 const barCase = barCases.find((item) => item.status === 'approved' && item.decisions.length >= 2)!;
-const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
-const unlockIds = brooksTrendsCourse.units
+const unitIndex = priceActionTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+const unlockIds = priceActionTrendsCourse.units
   .slice(0, unitIndex + 1)
   .flatMap((unit) => unit.lessons)
   .filter((lesson) => lesson.status === 'published')

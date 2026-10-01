@@ -493,21 +493,21 @@ export const glossaryEntries: GlossaryEntry[] = [
     term: 'SPY',
     aliases: ['SPDR S&P 500 ETF'],
     definition:
-      'S&P-500-ETF, den Brooks als ergänzenden Chart zum Emini betrachtet. Ähnliche Marktbewegung bedeutet weder identische Bars noch dieselbe Preisachse.',
+      'S&P-500-ETF, der als ergänzender Chart zum Emini dient. Ähnliche Marktbewegung bedeutet weder identische Bars noch dieselbe Preisachse.',
     firstUnit: 'Kapitel 9',
   },
   {
     term: 'SDS',
     aliases: ['UltraShort S&P 500'],
     definition:
-      'Im Buch verwendeter inverser, zweifach gehebelter ETF auf den S&P-500-Bereich. Seine Gegenrichtung dient als Chart-Gegenprobe, nicht als exakte Spiegelung einzelner Emini-Bars.',
+      'Inverser, zweifach gehebelter ETF auf den S&P-500-Bereich. Seine Gegenrichtung dient als Chart-Gegenprobe, nicht als exakte Spiegelung einzelner Emini-Bars.',
     firstUnit: 'Kapitel 9',
   },
   {
     term: 'Dreifacher Verfall',
     aliases: ['Triple Witching'],
     definition:
-      'Zusammenfallen mehrerer Verfallstermine im Aktien- und Indexderivatebereich. Im historischen Buchfall ist eine SPY-Preisanpassung an einem solchen Tag für den Vergleich der Eröffnungslücken wichtig.',
+      'Zusammenfallen mehrerer Verfallstermine im Aktien- und Indexderivatebereich. Im historischen Fallbeispiel ist eine SPY-Preisanpassung an einem solchen Tag für den Vergleich der Eröffnungslücken wichtig.',
     firstUnit: 'Kapitel 9',
   },
   {

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import type { Lesson } from '../src/content/types';
 
 /*
@@ -10,8 +10,8 @@ import type { Lesson } from '../src/content/types';
 
 type QuestionStep = Extract<Lesson['steps'][number], { type: 'question' }>;
 
-const intro = brooksTrendsCourse.units[0];
-const chapterOne = brooksTrendsCourse.units[2];
+const intro = priceActionTrendsCourse.units[0];
+const chapterOne = priceActionTrendsCourse.units[2];
 const [first, second, third] = intro.lessons;
 
 const questionOf = (lesson: Lesson) =>
@@ -166,7 +166,7 @@ test.describe('F-13 Buchleser', () => {
 
     // Wechsel Lernpfad → Buchmodus → „Weiterlesen“.
     await page.goto('/#/path');
-    await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await page.goto('/#/chapters');
     await expect(page.getByText(`Zuletzt: ${second.title}`)).toBeVisible();
     await page.getByRole('button', { name: /^Weiterlesen: Einleitung/ }).click();

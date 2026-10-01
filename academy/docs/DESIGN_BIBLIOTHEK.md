@@ -1,13 +1,13 @@
 # Bibliothek: Navigation für weitere Themen
 
-Die App kennt jetzt mehr als „die drei Brooks-Bücher“: Eine **Bibliothek** (`#/library`) listet
+Die App kennt jetzt mehr als einen einzelnen Kurs: Eine **Bibliothek** (`#/library`) listet
 Themengebiete und ihre Kurse. Erreichbar über den Eintrag „Bibliothek“ im Menü und über „Alle Themen
 ansehen“ im Kursblock der Seitenleiste (auch auf dem Handy, über das Menü).
 
 ## Was sichtbar ist
 
-- **Price Action** mit den drei Brooks-Büchern: Buch 1 ist aktiv (mit Fortschritt und Sprung in den
-  Lernpfad), Buch 2 und 3 stehen als „Geplant · noch ohne Inhalt“ da.
+- **Price Action** in drei Teilen: Teil 1 (Trends) ist aktiv (mit Fortschritt und Sprung in den
+  Lernpfad), Teil 2 und 3 stehen als „Geplant · noch ohne Inhalt“ da.
 - **Volumen**, **Orderflow**, **Unternehmensbewertung** als „Geplant“-Karten.
 - Geplante Einträge haben **keinen Link und keinen Inhalt**; sie versprechen nichts außer dem Platz in
   der Navigation.
@@ -25,7 +25,7 @@ Einzige Liste: `librarySubjects` in `src/content/library.ts`.
 
 ## Grenzen (bewusst noch nicht gebaut)
 
-Die App arbeitet weiterhin mit **einem aktiven Kurs** (`ACTIVE_COURSE_ID`, heute `brooks-trends`):
+Die App arbeitet weiterhin mit **einem aktiven Kurs** (`ACTIVE_COURSE_ID`, heute `price-action-trends`):
 Lernpfad, Buchmodus, Üben, Fortschritt, Glossar und Suche beziehen sich auf ihn, der Lernstand liegt in
 einem Speicher (`wqt-academy-progress-v1`, unverändert). Ein zweiter **verfügbarer** Kurs bräuchte ein
 eigenes Arbeitspaket: Kurswahl in Routen und Seitenleiste, Lernstand je Kurs (Datenmodell, Sicherung,

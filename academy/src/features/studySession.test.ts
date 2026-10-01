@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { barCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import type { QuestionOutline } from '../content/types';
 import { beginCaseRun } from './caseTraining';
 import { formatRoute, parseRoute, resolveRoute } from './navigation';
@@ -9,7 +9,7 @@ import { completeLesson, createEmptyProgress, recordLessonStep, type AcademyProg
 import { buildQuestionSession, dueItems, reviewPool, startSession } from './reviewSession';
 import { planStudySession, visibleStudyItems } from './studySession';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const today = '2026-09-29';
 const published = course.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 const questionsOf = (lessonIndex: number) =>
@@ -35,11 +35,11 @@ describe('Kurz lernen: Vorschläge (F-23)', () => {
 
   it('fortgeschritten: fällige Fragen aus mehreren Kapiteln zuerst, begrenzt je Rahmen, dann Lektion und Fall', () => {
     // Alles bis einschließlich Kapitel 1 vor Tagen abgeschlossen → viele Fragen fällig.
-    const unitIndex = course.units.findIndex((unit) => unit.id === 'brooks-trends.chapter-01');
+    const unitIndex = course.units.findIndex((unit) => unit.id === 'price-action-trends.chapter-01');
     const count = published.findIndex((lesson) => !course.units.slice(0, unitIndex + 1).some((unit) => unit.lessons.includes(lesson)));
     const base = completedThrough(count);
     // Eine Kapitel-1-Frage ist schon länger fällig (Wiederholungsplan) → Fragen aus mehreren Einheiten.
-    const chapterOneQuestion = reviewPool(course, base).find((item) => item.unit.id === 'brooks-trends.chapter-01')!;
+    const chapterOneQuestion = reviewPool(course, base).find((item) => item.unit.id === 'price-action-trends.chapter-01')!;
     const progress: AcademyProgress = {
       ...base,
       reviewCards: {

@@ -1,14 +1,14 @@
 import { readFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * F-28: Freiwilliger Beta-Fehlerbericht unter „Hilfe“. Nichts wird gesendet;
  * die Vorschau ist exakt der kopierte bzw. heruntergeladene Text.
  */
 
-const lesson = brooksTrendsCourse.units[0].lessons.find((item) => item.status === 'published')!;
+const lesson = priceActionTrendsCourse.units[0].lessons.find((item) => item.status === 'published')!;
 const PRIVATE_NOTE = 'GEHEIME-NOTIZ-4711';
 const PREVIEW = 'Vorschau – genau dieser Text wird kopiert';
 

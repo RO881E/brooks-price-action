@@ -316,7 +316,7 @@ export function PathView({
                     <span aria-hidden="true">＋</span>
                     <p>
                       Weitere {unit.estimatedLessonCount - unit.lessons.length} Mikro-Lektionen
-                      sind in der Quellenmatrix vorgesehen.
+                      sind noch vorgesehen.
                     </p>
                   </div>
                 ) : null}
@@ -393,24 +393,10 @@ export function PathView({
           </div>
         </section>
 
-        {progress.legacyReadChapters.length > 0 || progress.legacyTrendRangeBest > 0 ? (
-          <section className="rail-card migration-card">
-            <span className="migration-icon" aria-hidden="true">↻</span>
-            <div>
-              <h2>Alter Fortschritt erkannt</h2>
-              <p>
-                {progress.legacyReadChapters.length} gelesene Kapitel und dein alter Drill-Rekord
-                von {progress.legacyTrendRangeBest} bleiben erhalten. Sie werden nicht als neue
-                Mastery ausgegeben.
-              </p>
-            </div>
-          </section>
-        ) : null}
-
         <section className="rail-card quality-card">
           <p className="eyebrow">Qualitätsversprechen</p>
           <ul>
-            <li>Buchreihenfolge bleibt erhalten</li>
+            <li>Reihenfolge der Kapitel bleibt erhalten</li>
             <li>Grafiken werden eigenständig erstellt</li>
             <li>Fehler führen zu Erklärung, nicht zu Strafe</li>
           </ul>

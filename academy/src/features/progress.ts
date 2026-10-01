@@ -7,8 +7,6 @@ import {
 } from './reviewScheduler';
 import type { CaseSession } from './barTrainer';
 
-export const LEGACY_PROGRESS_KEY = 'brooks-progress';
-export const LEGACY_TREND_RANGE_BEST_KEY = 'brooks-tr-best';
 /**
  * Der Schlüssel behält aus Kompatibilitätsgründen sein Suffix `-v1`, auch wenn
  * der gespeicherte Datensatz inzwischen `version: 2` trägt.
@@ -313,8 +311,6 @@ export interface AcademyProgress {
    * v13). `null`: noch nicht – sie erscheint trotzdem nur ohne Lernstand.
    */
   guideSeenAt: string | null;
-  legacyReadChapters: string[];
-  legacyTrendRangeBest: number;
   updatedAt: string;
   /**
    * Unbekannte Felder (z. B. aus einer späteren Version) werden nicht
@@ -352,36 +348,9 @@ export function createEmptyProgress(): AcademyProgress {
     caseSessions: {},
     caseRuns: {},
     guideSeenAt: null,
-    legacyReadChapters: [],
-    legacyTrendRangeBest: 0,
     updatedAt: nowIso(),
     preservedFields: {},
   };
-}
-
-function readLegacyChapters(storage: StorageLike): string[] {
-  try {
-    const raw = storage.getItem(LEGACY_PROGRESS_KEY);
-    if (!raw) return [];
-
-    const parsed: unknown = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return [];
-
-    return Object.entries(parsed as Record<string, unknown>)
-      .filter(([, value]) => value === true)
-      .map(([key]) => key)
-      .sort();
-  } catch {
-    return [];
-  }
-}
-
-function readLegacyBest(storage: StorageLike): number {
-  const parsed = Number.parseInt(
-    storage.getItem(LEGACY_TREND_RANGE_BEST_KEY) ?? '0',
-    10,
-  );
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
 }
 
 const KNOWN_FIELDS = new Set([
@@ -406,6 +375,7 @@ const KNOWN_FIELDS = new Set([
   'caseSessions',
   'caseRuns',
   'guideSeenAt',
+  // Bis v15 Felder der früheren Einzeldatei-Website; werden gelesen, aber verworfen.
   'legacyReadChapters',
   'legacyTrendRangeBest',
   'updatedAt',
@@ -639,7 +609,7 @@ function normalizeReviewCards(value: unknown): Record<string, ReviewCard> {
   );
 }
 
-const TOPIC_ID = /^brooks-topic\.[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const TOPIC_ID = /^topic\.[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 function normalizeReviewSession(value: unknown): ReviewSession | null {
   if (!isRecord(value)) return null;
@@ -863,7 +833,7 @@ export function updateReadingOptions(
 }
 
 /**
- * Gibt es schon irgendeinen Lernstand – auch aus der alten Website? Dann ist es
+ * Gibt es schon irgendeinen Lernstand? Dann ist es
  * kein erster Besuch, und die Einführung erscheint nicht von selbst (F-18).
  */
 export function hasLearningData(progress: AcademyProgress): boolean {
@@ -878,9 +848,7 @@ export function hasLearningData(progress: AcademyProgress): boolean {
     Object.keys(progress.notes).length > 0 ||
     Object.keys(progress.caseSessions).length > 0 ||
     Object.keys(progress.caseRuns).length > 0 ||
-    progress.activityDays.length > 0 ||
-    progress.legacyReadChapters.length > 0 ||
-    progress.legacyTrendRangeBest > 0
+    progress.activityDays.length > 0
   );
 }
 
@@ -972,7 +940,6 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
   if (!isRecord(value)) return null;
   if (typeof value.version !== 'number' || value.version < 1) return null;
 
-  const best = value.legacyTrendRangeBest;
   const lessonResults = normalizeLessonResults(value.lessonResults);
   const reviewCards = normalizeReviewCards(value.reviewCards);
 
@@ -1014,9 +981,6 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     caseSessions: normalizeCaseSessions(value.caseSessions),
     caseRuns: normalizeCaseRuns(value.caseRuns),
     guideSeenAt: typeof value.guideSeenAt === 'string' && value.guideSeenAt !== '' ? value.guideSeenAt : null,
-    legacyReadChapters: stringArray(value.legacyReadChapters),
-    legacyTrendRangeBest:
-      typeof best === 'number' && Number.isFinite(best) && best > 0 ? best : 0,
     updatedAt: typeof value.updatedAt === 'string' ? value.updatedAt : nowIso(),
     preservedFields: Object.fromEntries(
       Object.entries(value).filter(([key]) => !KNOWN_FIELDS.has(key)),
@@ -1050,20 +1014,7 @@ export function loadProgress(storage: StorageLike): AcademyProgress {
     }
   }
 
-  const progress = stored ?? createEmptyProgress();
-  const legacyReadChapters = readLegacyChapters(storage);
-  const legacyTrendRangeBest = readLegacyBest(storage);
-
-  return {
-    ...progress,
-    legacyReadChapters: Array.from(
-      new Set([...progress.legacyReadChapters, ...legacyReadChapters]),
-    ).sort(),
-    legacyTrendRangeBest: Math.max(
-      progress.legacyTrendRangeBest,
-      legacyTrendRangeBest,
-    ),
-  };
+  return stored ?? createEmptyProgress();
 }
 
 export function saveProgress(

@@ -1,7 +1,7 @@
 # WQT Academy V2
 
-Technisches Grundgerüst für den neuen, kursbasierten Lernbereich. Die bestehende Website im
-Stammverzeichnis bleibt während der Entwicklung unverändert.
+Interaktive Lern-App zu Price Action mit kursbasiertem Lernbereich (React, TypeScript, Vite). Die frühere
+Einzeldatei-Website wurde entfernt; die App liegt auf der Startseite der veröffentlichten Adresse.
 
 ## Veröffentlichtes Buchmaterial
 
@@ -53,7 +53,6 @@ Chartfälle und der vertieften Besprechung von Abbildung 10.2.
 - Abschlussansicht (`#/lesson/<lesson-id>/result`) mit beantworteten Fragen,
   Erstversuch-Trefferquote, Status und tatsächlich verdienter XP; XP und Abschluss entstehen
   je Lektion nur einmal, auch bei „Lektion wiederholen“
-- lesender Kompatibilitätscheck für `brooks-progress` und `brooks-tr-best`
 - responsive Navigation für Desktop und Mobilgeräte
 - Diagramm-Fokus: „Vergrößern“ unter jedem Schaubild öffnet einen Dialog mit Titel,
   Bildbeschreibung, Einordnung und Beobachtungen; Zoom (100–400 %) über Tasten, Mausrad oder
@@ -116,15 +115,13 @@ Trainerrunden oder -sitzungen entfallen einzeln. Defekte Lesestellen (ohne Einhe
 entfallen, ein ungültiger Schritt wird zum Abschnittsanfang; eine Lesestelle auf eine unbekannte
 oder gesperrte Lektion bleibt gespeichert, der Leser öffnet dann den nächsten lesbaren Abschnitt. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
-`wqt-academy-progress-backup` gesichert. `brooks-progress` und `brooks-tr-best` werden nur
-gelesen, nie verändert.
+`wqt-academy-progress-backup` gesichert.
 
 ## Sicherung, Import und Zurücksetzen
 
 Eine Sicherung ist eine JSON-Datei mit `format: "wqt-academy-backup"`, `formatVersion: 1`,
 `exportedAt`, `dataVersion` und `data`. Sie enthält alle Lerndaten, Tagesziel und Darstellung –
-nicht aber eine laufende Wiederholungs- oder Trainerrunde, die Kopien von `brooks-progress`/`brooks-tr-best`
-und unbekannte Zusatzfelder.
+nicht aber eine laufende Wiederholungs- oder Trainerrunde und unbekannte Zusatzfelder.
 
 Der Import prüft streng (`src/features/backup.ts`): höchstens 10 MB, gültiges JSON, bekanntes
 Format und keine neuere Version, alle Pflichtfelder, keine unbekannten Felder, gültige Einträge
@@ -142,8 +139,7 @@ Leseoptionen) und v10 (vor dem Trainer) bleiben gültig: Ihnen fehlen nur `reade
   (einschließlich Leseoptionen) kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
 - **Vollständig ersetzen** braucht eine ausdrückliche Bestätigung; vorher wird ein Download des
   aktuellen Stands angeboten. Laufende Wiederholungs- und Trainerrunden enden dabei.
-- **Zurücksetzen** löscht nur `wqt-academy-progress-v1`. `brooks-progress` und `brooks-tr-best`
-  bleiben unangetastet.
+- **Zurücksetzen** löscht nur `wqt-academy-progress-v1`.
 
 ## Barrierefreiheit und Leistung
 
@@ -266,7 +262,7 @@ Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/t
 
 ## Einführung und Hilfe (F-18)
 
-Beim ersten echten Besuch – ohne jeden Lernstand, auch keinen aus der alten Website – steht
+Beim ersten echten Besuch – ohne jeden Lernstand – steht
 oben im Lernpfad ein eingebetteter Abschnitt „So lernst du in der WQT Academy“ (kein Overlay,
 keine Tour). Er erklärt je Weg in einem Satz Lernpfad, Buchmodus, Üben und – nur wenn es
 freigegebene Fälle gibt – Chart trainieren (sind alle gesperrt, sagt der Text das), dazu die
@@ -415,7 +411,7 @@ keine XP, keine Lernaktivität.
 
 ## Nach Thema üben (F-27)
 
-Unter **Üben → Nach Thema üben** listet die Academy die Brooks-Themen der redaktionellen
+Unter **Üben → Nach Thema üben** listet die Academy die Themen der redaktionellen
 Themenkarte (`src/content/topicMap.ts`, C-03) mit dem, was heute zugänglich ist: Fragen
 aus bereits abgeschlossenen Lektionen (davon fällig), freigegebene Trainerfälle und die
 Lehrstellen mit Quellenanker samt Zugangsstatus. „Runde starten“ nutzt die **vorhandene
@@ -560,8 +556,8 @@ Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](d
 
 ## Bibliothek: Platz für weitere Themen
 
-Neue Ansicht „Bibliothek“ (`#/library`, im Menü und über „Alle Themen ansehen“): Price Action mit den drei
-Brooks-Büchern (Buch 1 aktiv, 2 und 3 geplant) sowie Volumen, Orderflow und Unternehmensbewertung als „Geplant“-Karten.
+Neue Ansicht „Bibliothek“ (`#/library`, im Menü und über „Alle Themen ansehen“): Price Action in drei
+Teilen (Teil 1 aktiv, 2 und 3 geplant) sowie Volumen, Orderflow und Unternehmensbewertung als „Geplant“-Karten.
 Ein neues Thema ist ein Eintrag in `src/content/library.ts`. Mehrere gleichzeitig verfügbare Kurse (Lernstand je Kurs
 usw.) sind bewusst noch nicht gebaut. Details: [`docs/DESIGN_BIBLIOTHEK.md`](docs/DESIGN_BIBLIOTHEK.md).
 
@@ -650,7 +646,7 @@ npm run check:content -- --accept-new # neue veröffentlichte IDs bewusst aufneh
 Das Werkzeug liegt in `build/` (`contentCheck.ts`, `check-content.mjs`) und ist nicht Teil des
 Browser-Bundles. Es lädt den vollständigen Kurs, das Glossar, die Diagrammbeschreibungen und die
 Bar-für-Bar-Fälle und meldet jede Abweichung mit Regel, ID und Datei, z. B.
-`✗ [bekannte-id] brooks-trends.introduction.lesson-02 (src/content/…): …`. Die CI führt den
+`✗ [bekannte-id] price-action-trends.introduction.lesson-02 (src/content/…): …`. Die CI führt den
 Check nach den Unit-Tests aus.
 
 **Fehler:** doppelte Einheits-, Lektions-, Frage- oder Schritt-IDs und IDs mit unzulässigen

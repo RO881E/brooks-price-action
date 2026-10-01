@@ -14,7 +14,7 @@ export interface LibraryCourse {
   /** Stabile ID; bei `available` die ID des registrierten Kurses (`courseInfo.id`). */
   id: string;
   title: string;
-  /** Kurzer Zusatz, z. B. „Buch 1 von 3“. */
+  /** Kurzer Zusatz, z. B. „Teil 1 von 3“. */
   label?: string;
   description: string;
   status: CourseStatus;
@@ -29,7 +29,7 @@ export interface LibrarySubject {
 }
 
 /** Der Kurs, mit dem die App heute arbeitet (Lernpfad, Üben, Fortschritt …). */
-export const ACTIVE_COURSE_ID = 'brooks-trends';
+export const ACTIVE_COURSE_ID = 'price-action-trends';
 
 export const librarySubjects: LibrarySubject[] = [
   {
@@ -38,23 +38,23 @@ export const librarySubjects: LibrarySubject[] = [
     description: 'Kursbewegungen Bar für Bar lesen: Kontext, Setups und Entscheidungen.',
     courses: [
       {
-        id: 'brooks-trends',
-        title: 'Trading Price Action Trends',
-        label: 'Buch 1 von 3',
+        id: 'price-action-trends',
+        title: 'Price Action: Trends',
+        label: 'Teil 1 von 3',
         description: 'Vom einzelnen Bar bis zum vollständigen Trendtag.',
         status: 'available',
       },
       {
-        id: 'brooks-ranges',
-        title: 'Trading Price Action Trading Ranges',
-        label: 'Buch 2 von 3',
+        id: 'price-action-ranges',
+        title: 'Price Action: Ranges',
+        label: 'Teil 2 von 3',
         description: 'Ausbrüche, Gaps, Unterstützung und Widerstand, Pullbacks, Ranges und Trade-Management.',
         status: 'planned',
       },
       {
-        id: 'brooks-reversals',
-        title: 'Trading Price Action Reversals',
-        label: 'Buch 3 von 3',
+        id: 'price-action-reversals',
+        title: 'Price Action: Umkehrungen',
+        label: 'Teil 3 von 3',
         description: 'Umkehrungen, Tageshandel, größere Zeitebenen und selektive Setups.',
         status: 'planned',
       },

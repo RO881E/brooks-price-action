@@ -5,7 +5,7 @@ import type { AddressInfo, Socket } from 'node:net';
 import { extname, join, normalize } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
-import { brooksTrendsCourse, publishedLessons } from '../src/content/course';
+import { priceActionTrendsCourse, publishedLessons } from '../src/content/course';
 
 /*
  * F-09: Diese Tests prüfen den echten Produktions-Build. Er wird mit relativem
@@ -132,7 +132,7 @@ function trackConsoleErrors(page: Page) {
 /** Erster Online-Besuch: warten, bis der Service Worker die Seite steuert. */
 async function firstVisit(page: Page, hash = '') {
   await page.goto(`${origin}/academy/${hash}`);
-  await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null);
 }
 
@@ -233,7 +233,7 @@ test('Lernpfad, Lektion, Glossar und Fortschritt funktionieren offline', async (
   await expect(page.getByRole('heading', { name: 'High 2' })).toBeVisible();
 
   await page.goto(`${origin}/academy/#/path`);
-  await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   await expect(
     page.getByRole('button', { name: /^(Weiterlernen|Der Chart ist das Ergebnis weiterlernen)$/ }).first(),
   ).toBeVisible();
@@ -267,11 +267,11 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
 
   // Jede Einheit liegt als eigener Chunk im Vorab-Cache.
   const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-\d\d|chapter-\d\d)-.*\.js$/.test(path));
-  expect(chunks).toHaveLength(brooksTrendsCourse.units.length);
+  expect(chunks).toHaveLength(priceActionTrendsCourse.units.length);
 
   serverState.down = true;
   await context.setOffline(true);
-  for (const unit of [brooksTrendsCourse.units.at(-1)!, brooksTrendsCourse.units[3]]) {
+  for (const unit of [priceActionTrendsCourse.units.at(-1)!, priceActionTrendsCourse.units[3]]) {
     const lesson = unit.lessons[0];
     await page.goto(`${origin}/academy/#/lesson/${lesson.id}?step=1`);
     await expect(page.getByRole('heading', { name: lesson.steps[0].title, level: 1 })).toBeVisible();
@@ -279,7 +279,7 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
   // Suche über alle Kapitel funktioniert offline aus der Gliederung.
   await page.goto(`${origin}/academy/#/path`);
   await page.keyboard.press('/');
-  await page.keyboard.type(brooksTrendsCourse.units[5].lessons[1].title);
+  await page.keyboard.type(priceActionTrendsCourse.units[5].lessons[1].title);
   await expect(page.getByRole('option').first()).toBeVisible();
 
   serverState.down = false;
@@ -289,7 +289,7 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
 
 test('Buchleser offline: Kapitel lesen und Lesestelle halten (F-13)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
-  const intro = brooksTrendsCourse.units[0];
+  const intro = priceActionTrendsCourse.units[0];
   const [first, second] = intro.lessons;
   await page.addInitScript((id) => {
     if (localStorage.getItem('wqt-academy-progress-v1')) return;
@@ -320,7 +320,7 @@ test('Buchleser offline: Kapitel lesen und Lesestelle halten (F-13)', async ({ p
 
 test('Begriffe am Lernort offline: Panel und Glossar-Link (F-21)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
-  const intro = brooksTrendsCourse.units[0];
+  const intro = priceActionTrendsCourse.units[0];
   const [first] = intro.lessons;
   await firstVisit(page);
 
@@ -341,7 +341,7 @@ test('Begriffe am Lernort offline: Panel und Glossar-Link (F-21)', async ({ page
 
 test('Leseoptionen offline ändern und nach Neustart behalten (F-22)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
-  const intro = brooksTrendsCourse.units[0];
+  const intro = priceActionTrendsCourse.units[0];
   await firstVisit(page);
 
   serverState.down = true;
@@ -361,8 +361,8 @@ test('Leseoptionen offline ändern und nach Neustart behalten (F-22)', async ({ 
 test('Bar-für-Bar-Trainer offline: Runde spielen und nach Neustart fortsetzen (F-15)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   const barCase = barCases.find((item) => item.status === 'approved')!;
-  const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
-  const ids = brooksTrendsCourse.units
+  const unitIndex = priceActionTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+  const ids = priceActionTrendsCourse.units
     .slice(0, unitIndex + 1)
     .flatMap((unit) => unit.lessons)
     .filter((lesson) => lesson.status === 'published')
@@ -403,8 +403,8 @@ test('Bar-für-Bar-Trainer offline: Runde spielen und nach Neustart fortsetzen (
 test('Rückblick auf eine abgeschlossene Runde offline (F-25)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   const barCase = barCases.find((item) => item.status === 'approved')!;
-  const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
-  const ids = brooksTrendsCourse.units
+  const unitIndex = priceActionTrendsCourse.units.findIndex((unit) => unit.id === barCase.unitId);
+  const ids = priceActionTrendsCourse.units
     .slice(0, unitIndex + 1)
     .flatMap((unit) => unit.lessons)
     .filter((lesson) => lesson.status === 'published')
@@ -584,7 +584,7 @@ test('Update-Banner: „Jetzt aktualisieren“ lädt die neue Version @desktop',
   const reloaded = page.waitForEvent('load');
   await page.getByRole('button', { name: 'Jetzt aktualisieren' }).click();
   await reloaded;
-  await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   await expect.poll(async () => (await cacheState(page)).names).toEqual([`wqt-academy-${version}-banner`]);
   await expect(page.getByText('Neue Version verfügbar')).toHaveCount(0);
 });
@@ -609,7 +609,7 @@ test('eine fehlgeschlagene Datei verhindert das Update und die alte Version blei
 
   // Das Skript liefert das Netz gerade nur mit Fehler – die App kommt aus dem Cache.
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Trading Price Action Trends' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
 
   // Sobald die Dateien wieder erreichbar sind, klappt das Update.
   serverState.failing = [];
@@ -625,7 +625,7 @@ test('speichert weder PDFs noch fremde Ressourcen im Cache @desktop', async ({ p
   const results = await page.evaluate(
     async ({ foreign }) => {
       const pdfInScope = await fetch('./handbuch.pdf');
-      const pdfOutside = await fetch('/pdfs/brooks.pdf');
+      const pdfOutside = await fetch('/pdfs/ausserhalb.pdf');
       const foreignAsset = await fetch(`${foreign}/academy/manifest.webmanifest`);
       const unknown = await fetch('./unbekannt.json');
       return [pdfInScope.status, pdfOutside.status, foreignAsset.status, unknown.status];

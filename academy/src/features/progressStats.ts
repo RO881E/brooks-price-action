@@ -161,8 +161,6 @@ export interface ProgressOverview {
   units: UnitStats[];
   /** Abgeschlossene Lektionen ohne erfasstes Abschlussdatum (ältere Versionen). */
   undatedCompletions: number;
-  /** Gelesene Kapitel der alten Website. */
-  legacyReadChapters: number;
   actions: NextAction[];
 }
 
@@ -199,7 +197,6 @@ export function progressOverview(
       (lesson) =>
         completed.has(lesson.id) && !progress.lessonResults[lesson.id]?.firstCompletedAt,
     ).length,
-    legacyReadChapters: progress.legacyReadChapters.length,
     actions: nextActions(course, progress, today),
   };
 }

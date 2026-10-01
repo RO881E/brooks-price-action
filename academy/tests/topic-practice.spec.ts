@@ -1,29 +1,29 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
-import { brooksTopics } from '../src/content/topicMap';
+import { priceActionTrendsCourse } from '../src/content/course';
+import { priceActionTopics } from '../src/content/topicMap';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 
 /*
- * F-27: Nach Brooks-Thema üben. Nutzt nur die Themenkarte (C-03) und die vorhandene
+ * F-27: Nach Thema üben. Nutzt nur die Themenkarte (C-03) und die vorhandene
  * Wiederholung; gesperrte Inhalte werden nie angeboten.
  */
 
 const published = (through?: string) =>
-  brooksTrendsCourse.units
-    .slice(0, through ? brooksTrendsCourse.units.findIndex((unit) => unit.id === through) + 1 : undefined)
+  priceActionTrendsCourse.units
+    .slice(0, through ? priceActionTrendsCourse.units.findIndex((unit) => unit.id === through) + 1 : undefined)
     .flatMap((unit) => unit.lessons)
     .filter((lesson) => lesson.status === 'published');
-const lessonOf = new Map(brooksTrendsCourse.units.flatMap((unit) => unit.lessons.map((lesson) => [lesson.id, lesson] as const)));
+const lessonOf = new Map(priceActionTrendsCourse.units.flatMap((unit) => unit.lessons.map((lesson) => [lesson.id, lesson] as const)));
 const questions = new Map(
-  brooksTrendsCourse.units.flatMap((unit) =>
+  priceActionTrendsCourse.units.flatMap((unit) =>
     unit.lessons.flatMap((lesson) =>
       lesson.steps.flatMap((step) => (step.type === 'question' ? [[step.id, { step, lesson }] as const] : [])),
     ),
   ),
 );
-const reversal = brooksTopics.find((topic) => topic.id === 'brooks-topic.reversal-in-context')!;
-const chartViews = brooksTopics.find((topic) => topic.id === 'brooks-topic.chart-views')!;
+const reversal = priceActionTopics.find((topic) => topic.id === 'topic.reversal-in-context')!;
+const chartViews = priceActionTopics.find((topic) => topic.id === 'topic.chart-views')!;
 
 async function seed(page: Page, ids: string[]) {
   await page.addInitScript(
@@ -50,7 +50,7 @@ test.describe('F-27 Nach Thema üben', () => {
     page.on('pageerror', (error) => errors.push(error.message));
     await seed(page, []);
     await page.goto('/#/practice');
-    await expect(section(page).getByRole('article')).toHaveCount(brooksTopics.length);
+    await expect(section(page).getByRole('article')).toHaveCount(priceActionTopics.length);
     await expect(section(page).getByRole('button', { name: /Runde starten/ })).toHaveCount(0);
     const views = card(page, chartViews.title);
     await expect(views.getByText('0 Fragen bereit')).toBeVisible();
@@ -63,7 +63,7 @@ test.describe('F-27 Nach Thema üben', () => {
   });
 
   test('Runde: Thema, Erstversuch, Nachlesen mit Fundstelle, Reload, keine neuen Fragen', async ({ page }) => {
-    await seed(page, published('brooks-trends.chapter-05').map((lesson) => lesson.id));
+    await seed(page, published('price-action-trends.chapter-05').map((lesson) => lesson.id));
     await page.goto('/#/practice');
     const topic = card(page, reversal.title);
     await expect(topic.getByText(/\d+ Fragen bereit \(\d+ fällig\)/)).toBeVisible();
@@ -102,11 +102,11 @@ test.describe('F-27 Nach Thema üben', () => {
     expect(Object.keys(after.reviewCards).sort()).toEqual([...session.questionIds].sort());
     expect(after.reviewCards[session.questionIds[0]].lastResult).toBe('wrong');
     for (const id of Object.keys(after.reviewCards)) expect(questions.has(id)).toBe(true);
-    expect(after.completedLessonIds).toHaveLength(published('brooks-trends.chapter-05').length);
+    expect(after.completedLessonIds).toHaveLength(published('price-action-trends.chapter-05').length);
   });
 
   test('freigeschaltete Fälle erscheinen, gesperrte nur als Zahl', async ({ page }) => {
-    await seed(page, published('brooks-trends.chapter-01').map((lesson) => lesson.id));
+    await seed(page, published('price-action-trends.chapter-01').map((lesson) => lesson.id));
     await page.goto('/#/practice');
     const breakout = card(page, 'Ausbruch, Follow-through und Test');
     await expect(breakout.getByRole('button', { name: 'Fall: Eine überlappende Spanne' })).toBeVisible();
@@ -117,7 +117,7 @@ test.describe('F-27 Nach Thema üben', () => {
   });
 
   test('Lehrstellen zeigen den Zugang und öffnen nur freigeschaltete Lektionen', async ({ page }) => {
-    await seed(page, published('brooks-trends.chapter-01').map((lesson) => lesson.id));
+    await seed(page, published('price-action-trends.chapter-01').map((lesson) => lesson.id));
     await page.goto('/#/practice');
     const topic = card(page, reversal.title);
     await topic.locator('summary').click();
@@ -127,7 +127,7 @@ test.describe('F-27 Nach Thema üben', () => {
   });
 
   test('Tastatur, 360 px ohne Überlauf und keine Axe-Verstöße', async ({ page }) => {
-    await seed(page, published('brooks-trends.chapter-05').map((lesson) => lesson.id));
+    await seed(page, published('price-action-trends.chapter-05').map((lesson) => lesson.id));
     await page.goto('/#/practice');
     const start = card(page, reversal.title).getByRole('button', { name: /Runde starten/ });
     await start.focus();

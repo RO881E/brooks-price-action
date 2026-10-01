@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { glossaryEntries } from '../content/glossary';
 import { buildMatchRound, MATCH_MIN_TERMS, MATCH_ROUND_SIZE, matchTerms, seededRandom } from './matchPairs';
 import { completeLesson, createEmptyProgress } from './progress';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const firstLessonOf = (label: string) => course.units.find((unit) => unit.label === label)!.lessons.find((lesson) => lesson.status === 'published')!;
 const withLesson = (label: string) => {
   const lesson = firstLessonOf(label);

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import type { BarCase } from '../content/barCaseTypes';
 import { barCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { twoStepFixture } from '../test/fixtures/barCases';
 import { advance, caseSummary, chooseDecision, startSession, submitDecision, toggleCue, type CaseSession } from './barTrainer';
 import {
@@ -20,7 +20,7 @@ import {
 } from './caseTraining';
 import { ACADEMY_PROGRESS_VERSION, completeLesson, createEmptyProgress, MAX_CASE_RUNS, migrateProgress, type AcademyProgress } from './progress';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const allLessons = course.units.flatMap((unit) => unit.lessons);
 /** Fixture als freigegebener Fall – nur in diesem Test. */
 const approvedFixture: BarCase = { ...twoStepFixture, status: 'approved' };

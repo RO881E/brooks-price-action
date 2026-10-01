@@ -34,13 +34,13 @@ export function courseOutlinePlugin(): Plugin {
       const contentDir = resolve(root, 'src/content');
       // Änderungen an Inhalten erneuern die Gliederung auch im Entwicklungsserver.
       for (const file of contentFiles(contentDir)) this.addWatchFile(file);
-      const { module } = await runnerImport<{ brooksTrendsCourse: Course }>(
+      const { module } = await runnerImport<{ priceActionTrendsCourse: Course }>(
         resolve(contentDir, 'course.ts'),
         { configFile: false, logLevel: 'error' },
       );
       // Als JSON-String: Große Datenobjekte parst der Browser so schneller als ein
       // gleichwertiges Objektliteral.
-      const json = JSON.stringify(toCourseOutline(module.brooksTrendsCourse));
+      const json = JSON.stringify(toCourseOutline(module.priceActionTrendsCourse));
       return `export default JSON.parse(${JSON.stringify(json)});\n`;
     },
   };

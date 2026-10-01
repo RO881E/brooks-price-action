@@ -2,10 +2,10 @@
   "note": "Bekannte veröffentlichte IDs (F-29). An ihnen hängen Fortschritt, Antworten, Notizen, Lesezeichen, Lesestellen und Wiederholungen. Neue Kapitel/Lektionen/Schritte mit „npm run check:content -- --accept-new“ aufnehmen; Löschen oder Umbenennen nur bewusst von Hand und mit Migration.",
   "units": [
     {
-      "id": "brooks-trends.introduction",
+      "id": "price-action-trends.introduction",
       "lessons": [
         {
-          "id": "brooks-trends.introduction.lesson-01",
+          "id": "price-action-trends.introduction.lesson-01",
           "steps": [
             "intro-01-explain",
             "intro-01-diagram",
@@ -15,7 +15,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-04",
+          "id": "price-action-trends.introduction.lesson-04",
           "steps": [
             "intro-04-explain",
             "intro-04-diagram",
@@ -25,7 +25,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-05",
+          "id": "price-action-trends.introduction.lesson-05",
           "steps": [
             "intro-05-explain",
             "intro-05-diagram",
@@ -35,7 +35,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-06",
+          "id": "price-action-trends.introduction.lesson-06",
           "steps": [
             "intro-06-explain",
             "intro-06-comparison",
@@ -44,7 +44,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-07",
+          "id": "price-action-trends.introduction.lesson-07",
           "steps": [
             "intro-07-explain",
             "intro-07-diagram",
@@ -53,7 +53,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-08",
+          "id": "price-action-trends.introduction.lesson-08",
           "steps": [
             "intro-08-explain",
             "intro-08-diagram",
@@ -63,7 +63,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-02",
+          "id": "price-action-trends.introduction.lesson-02",
           "steps": [
             "intro-02-explain",
             "intro-02-diagram",
@@ -73,7 +73,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-03",
+          "id": "price-action-trends.introduction.lesson-03",
           "steps": [
             "intro-03-explain",
             "intro-03-diagram",
@@ -83,7 +83,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-09",
+          "id": "price-action-trends.introduction.lesson-09",
           "steps": [
             "intro-09-explain",
             "intro-09-comparison",
@@ -92,7 +92,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-10",
+          "id": "price-action-trends.introduction.lesson-10",
           "steps": [
             "intro-10-explain",
             "intro-10-diagram",
@@ -101,7 +101,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-11",
+          "id": "price-action-trends.introduction.lesson-11",
           "steps": [
             "intro-11-explain",
             "intro-11-diagram",
@@ -110,7 +110,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-12",
+          "id": "price-action-trends.introduction.lesson-12",
           "steps": [
             "intro-12-explain",
             "intro-12-diagram",
@@ -120,7 +120,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-13",
+          "id": "price-action-trends.introduction.lesson-13",
           "steps": [
             "intro-13-explain",
             "intro-13-diagram",
@@ -129,7 +129,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-14",
+          "id": "price-action-trends.introduction.lesson-14",
           "steps": [
             "intro-14-explain",
             "intro-14-diagram",
@@ -138,7 +138,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-15",
+          "id": "price-action-trends.introduction.lesson-15",
           "steps": [
             "intro-15-explain",
             "intro-15-comparison",
@@ -147,7 +147,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-16",
+          "id": "price-action-trends.introduction.lesson-16",
           "steps": [
             "intro-16-explain",
             "intro-16-diagram",
@@ -158,7 +158,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-17",
+          "id": "price-action-trends.introduction.lesson-17",
           "steps": [
             "intro-17-explain",
             "intro-17-diagram",
@@ -169,7 +169,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-18",
+          "id": "price-action-trends.introduction.lesson-18",
           "steps": [
             "intro-18-explain",
             "intro-18-diagram",
@@ -179,7 +179,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-19",
+          "id": "price-action-trends.introduction.lesson-19",
           "steps": [
             "intro-19-explain",
             "intro-19-diagram",
@@ -190,7 +190,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01-introduction.lesson-01",
+          "id": "price-action-trends.part-01-introduction.lesson-01",
           "steps": [
             "part-01-count-explain",
             "part-01-count-diagram",
@@ -200,7 +200,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-21",
+          "id": "price-action-trends.introduction.lesson-21",
           "steps": [
             "intro-21-explain",
             "intro-21-diagram",
@@ -209,7 +209,7 @@
           ]
         },
         {
-          "id": "brooks-trends.introduction.lesson-22",
+          "id": "price-action-trends.introduction.lesson-22",
           "steps": [
             "intro-22-explain",
             "intro-22-comparison",
@@ -221,10 +221,10 @@
       ]
     },
     {
-      "id": "brooks-trends.part-01-introduction",
+      "id": "price-action-trends.part-01-introduction",
       "lessons": [
         {
-          "id": "brooks-trends.part-01.lesson-01",
+          "id": "price-action-trends.part-01.lesson-01",
           "steps": [
             "part-01-01-explain",
             "part-01-01-diagram",
@@ -233,7 +233,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-02",
+          "id": "price-action-trends.part-01.lesson-02",
           "steps": [
             "part-01-02-explain",
             "part-01-02-diagram",
@@ -242,7 +242,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-03",
+          "id": "price-action-trends.part-01.lesson-03",
           "steps": [
             "part-01-03-explain",
             "part-01-03-diagram",
@@ -252,7 +252,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-04",
+          "id": "price-action-trends.part-01.lesson-04",
           "steps": [
             "part-01-04-explain",
             "part-01-04-diagram",
@@ -261,7 +261,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-05",
+          "id": "price-action-trends.part-01.lesson-05",
           "steps": [
             "part-01-05-explain",
             "part-01-05-diagram",
@@ -270,7 +270,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-06",
+          "id": "price-action-trends.part-01.lesson-06",
           "steps": [
             "part-01-06-explain",
             "part-01-06-diagram",
@@ -279,7 +279,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-07",
+          "id": "price-action-trends.part-01.lesson-07",
           "steps": [
             "part-01-07-explain",
             "part-01-07-diagram",
@@ -288,7 +288,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-08",
+          "id": "price-action-trends.part-01.lesson-08",
           "steps": [
             "part-01-08-explain",
             "part-01-08-comparison",
@@ -297,7 +297,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-09",
+          "id": "price-action-trends.part-01.lesson-09",
           "steps": [
             "part-01-09-explain",
             "part-01-09-diagram",
@@ -306,7 +306,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-10",
+          "id": "price-action-trends.part-01.lesson-10",
           "steps": [
             "part-01-10-explain",
             "part-01-10-comparison",
@@ -315,7 +315,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-11",
+          "id": "price-action-trends.part-01.lesson-11",
           "steps": [
             "part-01-11-explain",
             "part-01-11-diagram",
@@ -324,7 +324,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-12",
+          "id": "price-action-trends.part-01.lesson-12",
           "steps": [
             "part-01-12-explain",
             "part-01-12-diagram",
@@ -333,7 +333,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-13",
+          "id": "price-action-trends.part-01.lesson-13",
           "steps": [
             "part-01-13-explain",
             "part-01-13-diagram",
@@ -342,7 +342,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-14",
+          "id": "price-action-trends.part-01.lesson-14",
           "steps": [
             "part-01-14-explain",
             "part-01-14-diagram",
@@ -351,7 +351,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-15",
+          "id": "price-action-trends.part-01.lesson-15",
           "steps": [
             "part-01-15-explain",
             "part-01-15-diagram",
@@ -360,7 +360,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-16",
+          "id": "price-action-trends.part-01.lesson-16",
           "steps": [
             "part-01-16-explain",
             "part-01-16-comparison",
@@ -369,7 +369,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-17",
+          "id": "price-action-trends.part-01.lesson-17",
           "steps": [
             "part-01-17-explain",
             "part-01-17-diagram",
@@ -378,7 +378,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-18",
+          "id": "price-action-trends.part-01.lesson-18",
           "steps": [
             "part-01-18-explain",
             "part-01-18-diagram",
@@ -387,7 +387,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-19",
+          "id": "price-action-trends.part-01.lesson-19",
           "steps": [
             "part-01-19-explain",
             "part-01-19-diagram",
@@ -396,7 +396,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-20",
+          "id": "price-action-trends.part-01.lesson-20",
           "steps": [
             "part-01-20-explain",
             "part-01-20-diagram",
@@ -405,7 +405,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-21",
+          "id": "price-action-trends.part-01.lesson-21",
           "steps": [
             "part-01-21-explain",
             "part-01-21-diagram",
@@ -414,7 +414,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-22",
+          "id": "price-action-trends.part-01.lesson-22",
           "steps": [
             "part-01-22-explain",
             "part-01-22-diagram",
@@ -424,7 +424,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-23",
+          "id": "price-action-trends.part-01.lesson-23",
           "steps": [
             "part-01-23-explain",
             "part-01-23-diagram",
@@ -433,7 +433,7 @@
           ]
         },
         {
-          "id": "brooks-trends.part-01.lesson-24",
+          "id": "price-action-trends.part-01.lesson-24",
           "steps": [
             "part-01-24-explain",
             "part-01-24-comparison",
@@ -444,10 +444,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-01",
+      "id": "price-action-trends.chapter-01",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-01.lesson-01",
+          "id": "price-action-trends.chapter-01.lesson-01",
           "steps": [
             "chapter-01-01-explain",
             "chapter-01-01-diagram",
@@ -456,7 +456,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-01.lesson-02",
+          "id": "price-action-trends.chapter-01.lesson-02",
           "steps": [
             "chapter-01-02-explain",
             "chapter-01-02-diagram",
@@ -465,7 +465,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-01.lesson-03",
+          "id": "price-action-trends.chapter-01.lesson-03",
           "steps": [
             "chapter-01-03-explain",
             "chapter-01-03-diagram",
@@ -474,7 +474,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-01.lesson-04",
+          "id": "price-action-trends.chapter-01.lesson-04",
           "steps": [
             "chapter-01-04-explain",
             "chapter-01-04-diagram",
@@ -483,7 +483,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-01.lesson-05",
+          "id": "price-action-trends.chapter-01.lesson-05",
           "steps": [
             "chapter-01-05-explain",
             "chapter-01-05-diagram",
@@ -493,7 +493,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-01.lesson-06",
+          "id": "price-action-trends.chapter-01.lesson-06",
           "steps": [
             "chapter-01-06-explain",
             "chapter-01-06-diagram",
@@ -503,7 +503,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-01.lesson-07",
+          "id": "price-action-trends.chapter-01.lesson-07",
           "steps": [
             "chapter-01-07-explain",
             "chapter-01-07-diagram",
@@ -512,7 +512,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-01.lesson-08",
+          "id": "price-action-trends.chapter-01.lesson-08",
           "steps": [
             "chapter-01-08-explain",
             "chapter-01-08-diagram",
@@ -524,10 +524,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-02",
+      "id": "price-action-trends.chapter-02",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-02.lesson-01",
+          "id": "price-action-trends.chapter-02.lesson-01",
           "steps": [
             "chapter-02-01-explain",
             "chapter-02-01-diagram",
@@ -536,7 +536,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-02",
+          "id": "price-action-trends.chapter-02.lesson-02",
           "steps": [
             "chapter-02-02-explain",
             "chapter-02-02-diagram",
@@ -546,7 +546,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-03",
+          "id": "price-action-trends.chapter-02.lesson-03",
           "steps": [
             "chapter-02-03-explain",
             "chapter-02-03-diagram",
@@ -555,7 +555,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-04",
+          "id": "price-action-trends.chapter-02.lesson-04",
           "steps": [
             "chapter-02-04-explain",
             "chapter-02-04-diagram",
@@ -564,7 +564,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-05",
+          "id": "price-action-trends.chapter-02.lesson-05",
           "steps": [
             "chapter-02-05-explain",
             "chapter-02-05-diagram",
@@ -574,7 +574,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-06",
+          "id": "price-action-trends.chapter-02.lesson-06",
           "steps": [
             "chapter-02-06-explain",
             "chapter-02-06-diagram",
@@ -583,7 +583,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-07",
+          "id": "price-action-trends.chapter-02.lesson-07",
           "steps": [
             "chapter-02-07-explain",
             "chapter-02-07-diagram",
@@ -592,7 +592,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-08",
+          "id": "price-action-trends.chapter-02.lesson-08",
           "steps": [
             "chapter-02-08-explain",
             "chapter-02-08-diagram",
@@ -602,7 +602,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-09",
+          "id": "price-action-trends.chapter-02.lesson-09",
           "steps": [
             "chapter-02-09-explain",
             "chapter-02-09-diagram",
@@ -611,7 +611,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-10",
+          "id": "price-action-trends.chapter-02.lesson-10",
           "steps": [
             "chapter-02-10-explain",
             "chapter-02-10-diagram",
@@ -620,7 +620,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-11",
+          "id": "price-action-trends.chapter-02.lesson-11",
           "steps": [
             "chapter-02-11-explain",
             "chapter-02-11-diagram",
@@ -629,7 +629,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-12",
+          "id": "price-action-trends.chapter-02.lesson-12",
           "steps": [
             "chapter-02-12-explain",
             "chapter-02-12-diagram",
@@ -638,7 +638,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-13",
+          "id": "price-action-trends.chapter-02.lesson-13",
           "steps": [
             "chapter-02-13-explain",
             "chapter-02-13-diagram",
@@ -647,7 +647,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-14",
+          "id": "price-action-trends.chapter-02.lesson-14",
           "steps": [
             "chapter-02-14-explain",
             "chapter-02-14-diagram",
@@ -656,7 +656,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-15",
+          "id": "price-action-trends.chapter-02.lesson-15",
           "steps": [
             "chapter-02-15-explain",
             "chapter-02-15-diagram",
@@ -665,7 +665,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-16",
+          "id": "price-action-trends.chapter-02.lesson-16",
           "steps": [
             "chapter-02-16-explain",
             "chapter-02-16-diagram",
@@ -675,7 +675,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-17",
+          "id": "price-action-trends.chapter-02.lesson-17",
           "steps": [
             "chapter-02-17-explain",
             "chapter-02-17-diagram",
@@ -684,7 +684,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-18",
+          "id": "price-action-trends.chapter-02.lesson-18",
           "steps": [
             "chapter-02-18-explain",
             "chapter-02-18-diagram",
@@ -694,7 +694,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-19",
+          "id": "price-action-trends.chapter-02.lesson-19",
           "steps": [
             "chapter-02-19-explain",
             "chapter-02-19-diagram",
@@ -704,7 +704,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-02.lesson-20",
+          "id": "price-action-trends.chapter-02.lesson-20",
           "steps": [
             "chapter-02-20-explain",
             "chapter-02-20-diagram",
@@ -716,10 +716,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-03",
+      "id": "price-action-trends.chapter-03",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-03.lesson-01",
+          "id": "price-action-trends.chapter-03.lesson-01",
           "steps": [
             "chapter-03-01-explain",
             "chapter-03-01-diagram",
@@ -729,7 +729,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-02",
+          "id": "price-action-trends.chapter-03.lesson-02",
           "steps": [
             "chapter-03-02-explain",
             "chapter-03-02-diagram",
@@ -738,7 +738,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-channel-two-sided",
+          "id": "price-action-trends.chapter-03.lesson-channel-two-sided",
           "steps": [
             "chapter-03-channel-two-sided-explain",
             "chapter-03-channel-two-sided-diagram",
@@ -747,7 +747,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-03",
+          "id": "price-action-trends.chapter-03.lesson-03",
           "steps": [
             "chapter-03-03-explain",
             "chapter-03-03-diagram",
@@ -757,7 +757,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-channel-start-test",
+          "id": "price-action-trends.chapter-03.lesson-channel-start-test",
           "steps": [
             "chapter-03-channel-start-test-explain",
             "chapter-03-channel-start-test-diagram",
@@ -766,7 +766,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-04",
+          "id": "price-action-trends.chapter-03.lesson-04",
           "steps": [
             "chapter-03-04-explain",
             "chapter-03-04-diagram",
@@ -775,7 +775,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-channel-breakout-paths",
+          "id": "price-action-trends.chapter-03.lesson-channel-breakout-paths",
           "steps": [
             "chapter-03-channel-breakout-paths-explain",
             "chapter-03-channel-breakout-paths-diagram",
@@ -784,7 +784,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-range-dual-role",
+          "id": "price-action-trends.chapter-03.lesson-range-dual-role",
           "steps": [
             "chapter-03-range-dual-role-explain",
             "chapter-03-range-dual-role-diagram",
@@ -793,7 +793,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-test-reference-map",
+          "id": "price-action-trends.chapter-03.lesson-test-reference-map",
           "steps": [
             "chapter-03-test-reference-map-explain",
             "chapter-03-test-reference-map-diagram",
@@ -802,7 +802,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-05",
+          "id": "price-action-trends.chapter-03.lesson-05",
           "steps": [
             "chapter-03-05-explain",
             "chapter-03-05-diagram",
@@ -812,7 +812,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-06",
+          "id": "price-action-trends.chapter-03.lesson-06",
           "steps": [
             "chapter-03-06-explain",
             "chapter-03-06-diagram",
@@ -821,7 +821,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-07",
+          "id": "price-action-trends.chapter-03.lesson-07",
           "steps": [
             "chapter-03-07-explain",
             "chapter-03-07-diagram",
@@ -831,7 +831,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-08",
+          "id": "price-action-trends.chapter-03.lesson-08",
           "steps": [
             "chapter-03-08-explain",
             "chapter-03-08-diagram",
@@ -840,7 +840,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-every-swing-test",
+          "id": "price-action-trends.chapter-03.lesson-every-swing-test",
           "steps": [
             "chapter-03-every-swing-test-explain",
             "chapter-03-every-swing-test-diagram",
@@ -849,7 +849,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-09",
+          "id": "price-action-trends.chapter-03.lesson-09",
           "steps": [
             "chapter-03-09-explain",
             "chapter-03-09-diagram",
@@ -858,7 +858,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-10",
+          "id": "price-action-trends.chapter-03.lesson-10",
           "steps": [
             "chapter-03-10-explain",
             "chapter-03-10-diagram",
@@ -868,7 +868,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-11",
+          "id": "price-action-trends.chapter-03.lesson-11",
           "steps": [
             "chapter-03-11-explain",
             "chapter-03-11-diagram",
@@ -877,7 +877,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-12",
+          "id": "price-action-trends.chapter-03.lesson-12",
           "steps": [
             "chapter-03-12-explain",
             "chapter-03-12-diagram",
@@ -887,7 +887,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-bar-nine-defense",
+          "id": "price-action-trends.chapter-03.lesson-bar-nine-defense",
           "steps": [
             "chapter-03-bar-nine-defense-explain",
             "chapter-03-bar-nine-defense-diagram",
@@ -896,7 +896,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-bar-three-gap",
+          "id": "price-action-trends.chapter-03.lesson-bar-three-gap",
           "steps": [
             "chapter-03-bar-three-gap-explain",
             "chapter-03-bar-three-gap-diagram",
@@ -905,7 +905,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-13",
+          "id": "price-action-trends.chapter-03.lesson-13",
           "steps": [
             "chapter-03-13-explain",
             "chapter-03-13-diagram",
@@ -914,7 +914,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-channel-positioning",
+          "id": "price-action-trends.chapter-03.lesson-channel-positioning",
           "steps": [
             "chapter-03-channel-positioning-explain",
             "chapter-03-channel-positioning-diagram",
@@ -923,7 +923,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-wedge-pushes",
+          "id": "price-action-trends.chapter-03.lesson-wedge-pushes",
           "steps": [
             "chapter-03-wedge-pushes-explain",
             "chapter-03-wedge-pushes-diagram",
@@ -932,7 +932,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-flag-stack",
+          "id": "price-action-trends.chapter-03.lesson-flag-stack",
           "steps": [
             "chapter-03-flag-stack-explain",
             "chapter-03-flag-stack-diagram",
@@ -941,7 +941,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-03.lesson-14",
+          "id": "price-action-trends.chapter-03.lesson-14",
           "steps": [
             "chapter-03-14-explain",
             "chapter-03-14-diagram",
@@ -953,10 +953,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-04",
+      "id": "price-action-trends.chapter-04",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-04.lesson-01",
+          "id": "price-action-trends.chapter-04.lesson-01",
           "steps": [
             "chapter-04-01-explain",
             "chapter-04-01-diagram",
@@ -966,7 +966,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-02",
+          "id": "price-action-trends.chapter-04.lesson-02",
           "steps": [
             "chapter-04-02-explain",
             "chapter-04-02-diagram",
@@ -975,7 +975,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-03",
+          "id": "price-action-trends.chapter-04.lesson-03",
           "steps": [
             "chapter-04-03-explain",
             "chapter-04-03-diagram",
@@ -985,7 +985,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-04",
+          "id": "price-action-trends.chapter-04.lesson-04",
           "steps": [
             "chapter-04-04-explain",
             "chapter-04-04-diagram",
@@ -994,7 +994,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-05",
+          "id": "price-action-trends.chapter-04.lesson-05",
           "steps": [
             "chapter-04-05-explain",
             "chapter-04-05-diagram",
@@ -1004,7 +1004,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-06",
+          "id": "price-action-trends.chapter-04.lesson-06",
           "steps": [
             "chapter-04-06-explain",
             "chapter-04-06-diagram",
@@ -1013,7 +1013,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-07",
+          "id": "price-action-trends.chapter-04.lesson-07",
           "steps": [
             "chapter-04-07-explain",
             "chapter-04-07-diagram",
@@ -1022,7 +1022,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-08",
+          "id": "price-action-trends.chapter-04.lesson-08",
           "steps": [
             "chapter-04-08-explain",
             "chapter-04-08-diagram",
@@ -1031,7 +1031,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-09",
+          "id": "price-action-trends.chapter-04.lesson-09",
           "steps": [
             "chapter-04-09-explain",
             "chapter-04-09-diagram",
@@ -1040,7 +1040,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-10",
+          "id": "price-action-trends.chapter-04.lesson-10",
           "steps": [
             "chapter-04-10-explain",
             "chapter-04-10-diagram",
@@ -1049,7 +1049,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-11",
+          "id": "price-action-trends.chapter-04.lesson-11",
           "steps": [
             "chapter-04-11-explain",
             "chapter-04-11-diagram",
@@ -1058,7 +1058,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-12",
+          "id": "price-action-trends.chapter-04.lesson-12",
           "steps": [
             "chapter-04-12-explain",
             "chapter-04-12-diagram",
@@ -1067,7 +1067,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-13",
+          "id": "price-action-trends.chapter-04.lesson-13",
           "steps": [
             "chapter-04-13-explain",
             "chapter-04-13-diagram",
@@ -1076,7 +1076,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-14",
+          "id": "price-action-trends.chapter-04.lesson-14",
           "steps": [
             "chapter-04-14-explain",
             "chapter-04-14-diagram",
@@ -1085,7 +1085,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-15",
+          "id": "price-action-trends.chapter-04.lesson-15",
           "steps": [
             "chapter-04-15-explain",
             "chapter-04-15-diagram",
@@ -1094,7 +1094,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-16",
+          "id": "price-action-trends.chapter-04.lesson-16",
           "steps": [
             "chapter-04-16-explain",
             "chapter-04-16-diagram",
@@ -1103,7 +1103,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-17",
+          "id": "price-action-trends.chapter-04.lesson-17",
           "steps": [
             "chapter-04-17-explain",
             "chapter-04-17-diagram",
@@ -1112,7 +1112,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-18",
+          "id": "price-action-trends.chapter-04.lesson-18",
           "steps": [
             "chapter-04-18-explain",
             "chapter-04-18-diagram",
@@ -1122,7 +1122,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-19",
+          "id": "price-action-trends.chapter-04.lesson-19",
           "steps": [
             "chapter-04-19-explain",
             "chapter-04-19-diagram",
@@ -1132,7 +1132,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-20",
+          "id": "price-action-trends.chapter-04.lesson-20",
           "steps": [
             "chapter-04-20-explain",
             "chapter-04-20-diagram",
@@ -1142,7 +1142,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-21",
+          "id": "price-action-trends.chapter-04.lesson-21",
           "steps": [
             "chapter-04-21-explain",
             "chapter-04-21-diagram",
@@ -1151,7 +1151,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-22",
+          "id": "price-action-trends.chapter-04.lesson-22",
           "steps": [
             "chapter-04-22-explain",
             "chapter-04-22-diagram",
@@ -1160,7 +1160,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-23",
+          "id": "price-action-trends.chapter-04.lesson-23",
           "steps": [
             "chapter-04-23-explain",
             "chapter-04-23-diagram",
@@ -1170,7 +1170,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-24",
+          "id": "price-action-trends.chapter-04.lesson-24",
           "steps": [
             "chapter-04-24-explain",
             "chapter-04-24-diagram",
@@ -1180,7 +1180,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-04.lesson-25",
+          "id": "price-action-trends.chapter-04.lesson-25",
           "steps": [
             "chapter-04-25-explain",
             "chapter-04-25-diagram",
@@ -1192,10 +1192,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-05",
+      "id": "price-action-trends.chapter-05",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-05.lesson-01",
+          "id": "price-action-trends.chapter-05.lesson-01",
           "steps": [
             "chapter-05-01-explain",
             "chapter-05-01-diagram",
@@ -1204,7 +1204,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-02",
+          "id": "price-action-trends.chapter-05.lesson-02",
           "steps": [
             "chapter-05-02-explain",
             "chapter-05-02-diagram",
@@ -1213,7 +1213,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-03",
+          "id": "price-action-trends.chapter-05.lesson-03",
           "steps": [
             "chapter-05-03-explain",
             "chapter-05-03-diagram",
@@ -1222,7 +1222,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-04",
+          "id": "price-action-trends.chapter-05.lesson-04",
           "steps": [
             "chapter-05-04-explain",
             "chapter-05-04-diagram",
@@ -1231,7 +1231,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-05",
+          "id": "price-action-trends.chapter-05.lesson-05",
           "steps": [
             "chapter-05-05-explain",
             "chapter-05-05-diagram",
@@ -1240,7 +1240,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-06",
+          "id": "price-action-trends.chapter-05.lesson-06",
           "steps": [
             "chapter-05-06-explain",
             "chapter-05-06-diagram",
@@ -1250,7 +1250,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-07",
+          "id": "price-action-trends.chapter-05.lesson-07",
           "steps": [
             "chapter-05-07-explain",
             "chapter-05-07-diagram",
@@ -1259,7 +1259,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-08",
+          "id": "price-action-trends.chapter-05.lesson-08",
           "steps": [
             "chapter-05-08-explain",
             "chapter-05-08-diagram",
@@ -1268,7 +1268,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-09",
+          "id": "price-action-trends.chapter-05.lesson-09",
           "steps": [
             "chapter-05-09-explain",
             "chapter-05-09-diagram",
@@ -1277,7 +1277,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-10",
+          "id": "price-action-trends.chapter-05.lesson-10",
           "steps": [
             "chapter-05-10-explain",
             "chapter-05-10-diagram",
@@ -1286,7 +1286,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-11",
+          "id": "price-action-trends.chapter-05.lesson-11",
           "steps": [
             "chapter-05-11-explain",
             "chapter-05-11-diagram",
@@ -1295,7 +1295,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-12",
+          "id": "price-action-trends.chapter-05.lesson-12",
           "steps": [
             "chapter-05-12-explain",
             "chapter-05-12-diagram",
@@ -1304,7 +1304,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-13",
+          "id": "price-action-trends.chapter-05.lesson-13",
           "steps": [
             "chapter-05-13-explain",
             "chapter-05-13-diagram",
@@ -1313,7 +1313,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-14",
+          "id": "price-action-trends.chapter-05.lesson-14",
           "steps": [
             "chapter-05-14-explain",
             "chapter-05-14-diagram",
@@ -1322,7 +1322,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-15",
+          "id": "price-action-trends.chapter-05.lesson-15",
           "steps": [
             "chapter-05-15-explain",
             "chapter-05-15-diagram",
@@ -1332,7 +1332,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-16",
+          "id": "price-action-trends.chapter-05.lesson-16",
           "steps": [
             "chapter-05-16-explain",
             "chapter-05-16-diagram",
@@ -1341,7 +1341,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-17",
+          "id": "price-action-trends.chapter-05.lesson-17",
           "steps": [
             "chapter-05-17-explain",
             "chapter-05-17-diagram",
@@ -1350,7 +1350,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-18",
+          "id": "price-action-trends.chapter-05.lesson-18",
           "steps": [
             "chapter-05-18-explain",
             "chapter-05-18-diagram",
@@ -1359,7 +1359,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-19",
+          "id": "price-action-trends.chapter-05.lesson-19",
           "steps": [
             "chapter-05-19-explain",
             "chapter-05-19-diagram",
@@ -1368,7 +1368,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-20",
+          "id": "price-action-trends.chapter-05.lesson-20",
           "steps": [
             "chapter-05-20-explain",
             "chapter-05-20-diagram",
@@ -1377,7 +1377,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-21",
+          "id": "price-action-trends.chapter-05.lesson-21",
           "steps": [
             "chapter-05-21-explain",
             "chapter-05-21-diagram",
@@ -1386,7 +1386,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-22",
+          "id": "price-action-trends.chapter-05.lesson-22",
           "steps": [
             "chapter-05-22-explain",
             "chapter-05-22-diagram",
@@ -1395,7 +1395,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-23",
+          "id": "price-action-trends.chapter-05.lesson-23",
           "steps": [
             "chapter-05-23-explain",
             "chapter-05-23-diagram",
@@ -1404,7 +1404,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-24",
+          "id": "price-action-trends.chapter-05.lesson-24",
           "steps": [
             "chapter-05-24-explain",
             "chapter-05-24-diagram",
@@ -1413,7 +1413,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-05.lesson-25",
+          "id": "price-action-trends.chapter-05.lesson-25",
           "steps": [
             "chapter-05-25-explain",
             "chapter-05-25-diagram",
@@ -1425,10 +1425,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-06",
+      "id": "price-action-trends.chapter-06",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-06.lesson-01",
+          "id": "price-action-trends.chapter-06.lesson-01",
           "steps": [
             "chapter-06-01-explain",
             "chapter-06-01-diagram",
@@ -1437,7 +1437,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-02",
+          "id": "price-action-trends.chapter-06.lesson-02",
           "steps": [
             "chapter-06-02-explain",
             "chapter-06-02-diagram",
@@ -1446,7 +1446,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-03",
+          "id": "price-action-trends.chapter-06.lesson-03",
           "steps": [
             "chapter-06-03-explain",
             "chapter-06-03-diagram",
@@ -1455,7 +1455,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-04",
+          "id": "price-action-trends.chapter-06.lesson-04",
           "steps": [
             "chapter-06-04-explain",
             "chapter-06-04-diagram",
@@ -1464,7 +1464,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-05",
+          "id": "price-action-trends.chapter-06.lesson-05",
           "steps": [
             "chapter-06-05-explain",
             "chapter-06-05-diagram",
@@ -1473,7 +1473,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-06",
+          "id": "price-action-trends.chapter-06.lesson-06",
           "steps": [
             "chapter-06-06-explain",
             "chapter-06-06-diagram",
@@ -1482,7 +1482,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-07",
+          "id": "price-action-trends.chapter-06.lesson-07",
           "steps": [
             "chapter-06-07-explain",
             "chapter-06-07-diagram",
@@ -1491,7 +1491,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-08",
+          "id": "price-action-trends.chapter-06.lesson-08",
           "steps": [
             "chapter-06-08-explain",
             "chapter-06-08-diagram",
@@ -1500,7 +1500,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-09",
+          "id": "price-action-trends.chapter-06.lesson-09",
           "steps": [
             "chapter-06-09-explain",
             "chapter-06-09-diagram",
@@ -1509,7 +1509,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-10",
+          "id": "price-action-trends.chapter-06.lesson-10",
           "steps": [
             "chapter-06-10-explain",
             "chapter-06-10-diagram",
@@ -1518,7 +1518,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-11",
+          "id": "price-action-trends.chapter-06.lesson-11",
           "steps": [
             "chapter-06-11-explain",
             "chapter-06-11-diagram",
@@ -1527,7 +1527,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-12",
+          "id": "price-action-trends.chapter-06.lesson-12",
           "steps": [
             "chapter-06-12-explain",
             "chapter-06-12-diagram",
@@ -1536,7 +1536,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-13",
+          "id": "price-action-trends.chapter-06.lesson-13",
           "steps": [
             "chapter-06-13-explain",
             "chapter-06-13-diagram",
@@ -1545,7 +1545,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-14",
+          "id": "price-action-trends.chapter-06.lesson-14",
           "steps": [
             "chapter-06-14-explain",
             "chapter-06-14-diagram",
@@ -1554,7 +1554,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-15",
+          "id": "price-action-trends.chapter-06.lesson-15",
           "steps": [
             "chapter-06-15-explain",
             "chapter-06-15-diagram",
@@ -1563,7 +1563,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-16",
+          "id": "price-action-trends.chapter-06.lesson-16",
           "steps": [
             "chapter-06-16-explain",
             "chapter-06-16-diagram",
@@ -1572,7 +1572,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-17",
+          "id": "price-action-trends.chapter-06.lesson-17",
           "steps": [
             "chapter-06-17-explain",
             "chapter-06-17-diagram",
@@ -1581,7 +1581,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-18",
+          "id": "price-action-trends.chapter-06.lesson-18",
           "steps": [
             "chapter-06-18-explain",
             "chapter-06-18-diagram",
@@ -1590,7 +1590,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-19",
+          "id": "price-action-trends.chapter-06.lesson-19",
           "steps": [
             "chapter-06-19-explain",
             "chapter-06-19-diagram",
@@ -1599,7 +1599,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-20",
+          "id": "price-action-trends.chapter-06.lesson-20",
           "steps": [
             "chapter-06-20-explain",
             "chapter-06-20-diagram",
@@ -1608,7 +1608,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-21",
+          "id": "price-action-trends.chapter-06.lesson-21",
           "steps": [
             "chapter-06-21-explain",
             "chapter-06-21-diagram",
@@ -1617,7 +1617,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-22",
+          "id": "price-action-trends.chapter-06.lesson-22",
           "steps": [
             "chapter-06-22-explain",
             "chapter-06-22-diagram",
@@ -1626,7 +1626,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-23",
+          "id": "price-action-trends.chapter-06.lesson-23",
           "steps": [
             "chapter-06-23-explain",
             "chapter-06-23-diagram",
@@ -1635,7 +1635,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-24",
+          "id": "price-action-trends.chapter-06.lesson-24",
           "steps": [
             "chapter-06-24-explain",
             "chapter-06-24-diagram",
@@ -1644,7 +1644,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-25",
+          "id": "price-action-trends.chapter-06.lesson-25",
           "steps": [
             "chapter-06-25-explain",
             "chapter-06-25-diagram",
@@ -1653,7 +1653,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-26",
+          "id": "price-action-trends.chapter-06.lesson-26",
           "steps": [
             "chapter-06-26-explain",
             "chapter-06-26-diagram",
@@ -1662,7 +1662,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-27",
+          "id": "price-action-trends.chapter-06.lesson-27",
           "steps": [
             "chapter-06-27-explain",
             "chapter-06-27-diagram",
@@ -1671,7 +1671,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-28",
+          "id": "price-action-trends.chapter-06.lesson-28",
           "steps": [
             "chapter-06-28-explain",
             "chapter-06-28-diagram",
@@ -1680,7 +1680,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-29",
+          "id": "price-action-trends.chapter-06.lesson-29",
           "steps": [
             "chapter-06-29-explain",
             "chapter-06-29-diagram",
@@ -1689,7 +1689,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-30",
+          "id": "price-action-trends.chapter-06.lesson-30",
           "steps": [
             "chapter-06-30-explain",
             "chapter-06-30-diagram",
@@ -1698,7 +1698,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-31",
+          "id": "price-action-trends.chapter-06.lesson-31",
           "steps": [
             "chapter-06-31-explain",
             "chapter-06-31-diagram",
@@ -1707,7 +1707,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-32",
+          "id": "price-action-trends.chapter-06.lesson-32",
           "steps": [
             "chapter-06-32-explain",
             "chapter-06-32-diagram",
@@ -1716,7 +1716,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-33",
+          "id": "price-action-trends.chapter-06.lesson-33",
           "steps": [
             "chapter-06-33-explain",
             "chapter-06-33-diagram",
@@ -1725,7 +1725,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-34",
+          "id": "price-action-trends.chapter-06.lesson-34",
           "steps": [
             "chapter-06-34-explain",
             "chapter-06-34-diagram",
@@ -1734,7 +1734,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-35",
+          "id": "price-action-trends.chapter-06.lesson-35",
           "steps": [
             "chapter-06-35-explain",
             "chapter-06-35-diagram",
@@ -1743,7 +1743,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-36",
+          "id": "price-action-trends.chapter-06.lesson-36",
           "steps": [
             "chapter-06-36-explain",
             "chapter-06-36-diagram",
@@ -1752,7 +1752,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-37",
+          "id": "price-action-trends.chapter-06.lesson-37",
           "steps": [
             "chapter-06-37-explain",
             "chapter-06-37-diagram",
@@ -1761,7 +1761,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-38",
+          "id": "price-action-trends.chapter-06.lesson-38",
           "steps": [
             "chapter-06-38-explain",
             "chapter-06-38-diagram",
@@ -1770,7 +1770,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-39",
+          "id": "price-action-trends.chapter-06.lesson-39",
           "steps": [
             "chapter-06-39-explain",
             "chapter-06-39-diagram",
@@ -1779,7 +1779,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-06.lesson-40",
+          "id": "price-action-trends.chapter-06.lesson-40",
           "steps": [
             "chapter-06-40-explain",
             "chapter-06-40-diagram",
@@ -1790,10 +1790,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-07",
+      "id": "price-action-trends.chapter-07",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-07.lesson-01",
+          "id": "price-action-trends.chapter-07.lesson-01",
           "steps": [
             "chapter-07-01-explain",
             "chapter-07-01-diagram",
@@ -1802,7 +1802,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-02",
+          "id": "price-action-trends.chapter-07.lesson-02",
           "steps": [
             "chapter-07-02-explain",
             "chapter-07-02-diagram",
@@ -1811,7 +1811,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-03",
+          "id": "price-action-trends.chapter-07.lesson-03",
           "steps": [
             "chapter-07-03-explain",
             "chapter-07-03-diagram",
@@ -1820,7 +1820,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-04",
+          "id": "price-action-trends.chapter-07.lesson-04",
           "steps": [
             "chapter-07-04-explain",
             "chapter-07-04-diagram",
@@ -1829,7 +1829,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-05",
+          "id": "price-action-trends.chapter-07.lesson-05",
           "steps": [
             "chapter-07-05-explain",
             "chapter-07-05-diagram",
@@ -1838,7 +1838,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-06",
+          "id": "price-action-trends.chapter-07.lesson-06",
           "steps": [
             "chapter-07-06-explain",
             "chapter-07-06-diagram",
@@ -1847,7 +1847,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-07",
+          "id": "price-action-trends.chapter-07.lesson-07",
           "steps": [
             "chapter-07-07-explain",
             "chapter-07-07-diagram",
@@ -1856,7 +1856,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-08",
+          "id": "price-action-trends.chapter-07.lesson-08",
           "steps": [
             "chapter-07-08-explain",
             "chapter-07-08-diagram",
@@ -1865,7 +1865,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-09",
+          "id": "price-action-trends.chapter-07.lesson-09",
           "steps": [
             "chapter-07-09-explain",
             "chapter-07-09-diagram",
@@ -1874,7 +1874,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-10",
+          "id": "price-action-trends.chapter-07.lesson-10",
           "steps": [
             "chapter-07-10-explain",
             "chapter-07-10-diagram",
@@ -1883,7 +1883,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-11",
+          "id": "price-action-trends.chapter-07.lesson-11",
           "steps": [
             "chapter-07-11-explain",
             "chapter-07-11-diagram",
@@ -1892,7 +1892,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-12",
+          "id": "price-action-trends.chapter-07.lesson-12",
           "steps": [
             "chapter-07-12-explain",
             "chapter-07-12-diagram",
@@ -1901,7 +1901,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-13",
+          "id": "price-action-trends.chapter-07.lesson-13",
           "steps": [
             "chapter-07-13-explain",
             "chapter-07-13-diagram",
@@ -1910,7 +1910,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-14",
+          "id": "price-action-trends.chapter-07.lesson-14",
           "steps": [
             "chapter-07-14-explain",
             "chapter-07-14-diagram",
@@ -1919,7 +1919,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-15",
+          "id": "price-action-trends.chapter-07.lesson-15",
           "steps": [
             "chapter-07-15-explain",
             "chapter-07-15-diagram",
@@ -1928,7 +1928,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-16",
+          "id": "price-action-trends.chapter-07.lesson-16",
           "steps": [
             "chapter-07-16-explain",
             "chapter-07-16-diagram",
@@ -1937,7 +1937,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-17",
+          "id": "price-action-trends.chapter-07.lesson-17",
           "steps": [
             "chapter-07-17-explain",
             "chapter-07-17-diagram",
@@ -1946,7 +1946,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-18",
+          "id": "price-action-trends.chapter-07.lesson-18",
           "steps": [
             "chapter-07-18-explain",
             "chapter-07-18-diagram",
@@ -1955,7 +1955,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-19",
+          "id": "price-action-trends.chapter-07.lesson-19",
           "steps": [
             "chapter-07-19-explain",
             "chapter-07-19-diagram",
@@ -1964,7 +1964,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-20",
+          "id": "price-action-trends.chapter-07.lesson-20",
           "steps": [
             "chapter-07-20-explain",
             "chapter-07-20-diagram",
@@ -1973,7 +1973,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-21",
+          "id": "price-action-trends.chapter-07.lesson-21",
           "steps": [
             "chapter-07-21-explain",
             "chapter-07-21-diagram",
@@ -1982,7 +1982,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-22",
+          "id": "price-action-trends.chapter-07.lesson-22",
           "steps": [
             "chapter-07-22-explain",
             "chapter-07-22-diagram",
@@ -1991,7 +1991,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-23",
+          "id": "price-action-trends.chapter-07.lesson-23",
           "steps": [
             "chapter-07-23-explain",
             "chapter-07-23-diagram",
@@ -2000,7 +2000,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-07.lesson-24",
+          "id": "price-action-trends.chapter-07.lesson-24",
           "steps": [
             "chapter-07-24-explain",
             "chapter-07-24-diagram",
@@ -2011,10 +2011,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-08",
+      "id": "price-action-trends.chapter-08",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-08.lesson-01",
+          "id": "price-action-trends.chapter-08.lesson-01",
           "steps": [
             "chapter-08-01-explain",
             "chapter-08-01-diagram",
@@ -2023,7 +2023,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-02",
+          "id": "price-action-trends.chapter-08.lesson-02",
           "steps": [
             "chapter-08-02-explain",
             "chapter-08-02-diagram",
@@ -2032,7 +2032,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-03",
+          "id": "price-action-trends.chapter-08.lesson-03",
           "steps": [
             "chapter-08-03-explain",
             "chapter-08-03-diagram",
@@ -2041,7 +2041,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-04",
+          "id": "price-action-trends.chapter-08.lesson-04",
           "steps": [
             "chapter-08-04-explain",
             "chapter-08-04-diagram",
@@ -2050,7 +2050,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-05",
+          "id": "price-action-trends.chapter-08.lesson-05",
           "steps": [
             "chapter-08-05-explain",
             "chapter-08-05-diagram",
@@ -2059,7 +2059,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-06",
+          "id": "price-action-trends.chapter-08.lesson-06",
           "steps": [
             "chapter-08-06-explain",
             "chapter-08-06-diagram",
@@ -2068,7 +2068,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-07",
+          "id": "price-action-trends.chapter-08.lesson-07",
           "steps": [
             "chapter-08-07-explain",
             "chapter-08-07-diagram",
@@ -2077,7 +2077,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-08",
+          "id": "price-action-trends.chapter-08.lesson-08",
           "steps": [
             "chapter-08-08-explain",
             "chapter-08-08-diagram",
@@ -2086,7 +2086,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-09",
+          "id": "price-action-trends.chapter-08.lesson-09",
           "steps": [
             "chapter-08-09-explain",
             "chapter-08-09-diagram",
@@ -2095,7 +2095,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-10",
+          "id": "price-action-trends.chapter-08.lesson-10",
           "steps": [
             "chapter-08-10-explain",
             "chapter-08-10-diagram",
@@ -2104,7 +2104,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-11",
+          "id": "price-action-trends.chapter-08.lesson-11",
           "steps": [
             "chapter-08-11-explain",
             "chapter-08-11-diagram",
@@ -2113,7 +2113,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-08.lesson-12",
+          "id": "price-action-trends.chapter-08.lesson-12",
           "steps": [
             "chapter-08-12-explain",
             "chapter-08-12-diagram",
@@ -2124,10 +2124,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-09",
+      "id": "price-action-trends.chapter-09",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-09.lesson-01",
+          "id": "price-action-trends.chapter-09.lesson-01",
           "steps": [
             "chapter-09-01-explain",
             "chapter-09-01-diagram",
@@ -2136,7 +2136,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-02",
+          "id": "price-action-trends.chapter-09.lesson-02",
           "steps": [
             "chapter-09-02-explain",
             "chapter-09-02-diagram",
@@ -2145,7 +2145,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-03",
+          "id": "price-action-trends.chapter-09.lesson-03",
           "steps": [
             "chapter-09-03-explain",
             "chapter-09-03-diagram",
@@ -2154,7 +2154,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-04",
+          "id": "price-action-trends.chapter-09.lesson-04",
           "steps": [
             "chapter-09-04-explain",
             "chapter-09-04-diagram",
@@ -2163,7 +2163,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-05",
+          "id": "price-action-trends.chapter-09.lesson-05",
           "steps": [
             "chapter-09-05-explain",
             "chapter-09-05-diagram",
@@ -2172,7 +2172,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-06",
+          "id": "price-action-trends.chapter-09.lesson-06",
           "steps": [
             "chapter-09-06-explain",
             "chapter-09-06-diagram",
@@ -2181,7 +2181,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-07",
+          "id": "price-action-trends.chapter-09.lesson-07",
           "steps": [
             "chapter-09-07-explain",
             "chapter-09-07-diagram",
@@ -2190,7 +2190,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-08",
+          "id": "price-action-trends.chapter-09.lesson-08",
           "steps": [
             "chapter-09-08-explain",
             "chapter-09-08-diagram",
@@ -2199,7 +2199,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-09",
+          "id": "price-action-trends.chapter-09.lesson-09",
           "steps": [
             "chapter-09-09-explain",
             "chapter-09-09-diagram",
@@ -2208,7 +2208,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-09.lesson-10",
+          "id": "price-action-trends.chapter-09.lesson-10",
           "steps": [
             "chapter-09-10-explain",
             "chapter-09-10-diagram",
@@ -2219,10 +2219,10 @@
       ]
     },
     {
-      "id": "brooks-trends.chapter-10",
+      "id": "price-action-trends.chapter-10",
       "lessons": [
         {
-          "id": "brooks-trends.chapter-10.lesson-01",
+          "id": "price-action-trends.chapter-10.lesson-01",
           "steps": [
             "chapter-10-01-explain",
             "chapter-10-01-diagram",
@@ -2231,7 +2231,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-02",
+          "id": "price-action-trends.chapter-10.lesson-02",
           "steps": [
             "chapter-10-02-explain",
             "chapter-10-02-diagram",
@@ -2240,7 +2240,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-03",
+          "id": "price-action-trends.chapter-10.lesson-03",
           "steps": [
             "chapter-10-03-explain",
             "chapter-10-03-diagram",
@@ -2249,7 +2249,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-04",
+          "id": "price-action-trends.chapter-10.lesson-04",
           "steps": [
             "chapter-10-04-explain",
             "chapter-10-04-diagram",
@@ -2258,7 +2258,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-05",
+          "id": "price-action-trends.chapter-10.lesson-05",
           "steps": [
             "chapter-10-05-explain",
             "chapter-10-05-diagram",
@@ -2267,7 +2267,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-06",
+          "id": "price-action-trends.chapter-10.lesson-06",
           "steps": [
             "chapter-10-06-explain",
             "chapter-10-06-diagram",
@@ -2276,7 +2276,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-07",
+          "id": "price-action-trends.chapter-10.lesson-07",
           "steps": [
             "chapter-10-07-explain",
             "chapter-10-07-diagram",
@@ -2285,7 +2285,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-08",
+          "id": "price-action-trends.chapter-10.lesson-08",
           "steps": [
             "chapter-10-08-explain",
             "chapter-10-08-diagram",
@@ -2294,7 +2294,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-09",
+          "id": "price-action-trends.chapter-10.lesson-09",
           "steps": [
             "chapter-10-09-explain",
             "chapter-10-09-diagram",
@@ -2303,7 +2303,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-10",
+          "id": "price-action-trends.chapter-10.lesson-10",
           "steps": [
             "chapter-10-10-explain",
             "chapter-10-10-diagram",
@@ -2312,7 +2312,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-11",
+          "id": "price-action-trends.chapter-10.lesson-11",
           "steps": [
             "chapter-10-11-explain",
             "chapter-10-11-diagram",
@@ -2321,7 +2321,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-12",
+          "id": "price-action-trends.chapter-10.lesson-12",
           "steps": [
             "chapter-10-12-explain",
             "chapter-10-12-diagram",
@@ -2330,7 +2330,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-13",
+          "id": "price-action-trends.chapter-10.lesson-13",
           "steps": [
             "chapter-10-13-explain",
             "chapter-10-13-diagram",
@@ -2339,7 +2339,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-14",
+          "id": "price-action-trends.chapter-10.lesson-14",
           "steps": [
             "chapter-10-14-explain",
             "chapter-10-14-diagram",
@@ -2348,7 +2348,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-15",
+          "id": "price-action-trends.chapter-10.lesson-15",
           "steps": [
             "chapter-10-15-explain",
             "chapter-10-15-diagram",
@@ -2357,7 +2357,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-16",
+          "id": "price-action-trends.chapter-10.lesson-16",
           "steps": [
             "chapter-10-16-explain",
             "chapter-10-16-diagram",
@@ -2366,7 +2366,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-17",
+          "id": "price-action-trends.chapter-10.lesson-17",
           "steps": [
             "chapter-10-17-explain",
             "chapter-10-17-diagram",
@@ -2375,7 +2375,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-18",
+          "id": "price-action-trends.chapter-10.lesson-18",
           "steps": [
             "chapter-10-18-explain",
             "chapter-10-18-diagram",
@@ -2384,7 +2384,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-19",
+          "id": "price-action-trends.chapter-10.lesson-19",
           "steps": [
             "chapter-10-19-explain",
             "chapter-10-19-diagram",
@@ -2393,7 +2393,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-20",
+          "id": "price-action-trends.chapter-10.lesson-20",
           "steps": [
             "chapter-10-20-explain",
             "chapter-10-20-diagram",
@@ -2402,7 +2402,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-21",
+          "id": "price-action-trends.chapter-10.lesson-21",
           "steps": [
             "chapter-10-21-explain",
             "chapter-10-21-diagram",
@@ -2411,7 +2411,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-22",
+          "id": "price-action-trends.chapter-10.lesson-22",
           "steps": [
             "chapter-10-22-explain",
             "chapter-10-22-diagram",
@@ -2420,7 +2420,7 @@
           ]
         },
         {
-          "id": "brooks-trends.chapter-10.lesson-23",
+          "id": "price-action-trends.chapter-10.lesson-23",
           "steps": [
             "chapter-10-23-explain",
             "chapter-10-23-diagram",

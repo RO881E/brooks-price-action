@@ -8,7 +8,7 @@ import type { Course } from './types';
  */
 const lessonsByUnit = await Promise.all(unitDefinitions.map((unit) => unit.load()));
 
-export const brooksTrendsCourse: Course = {
+export const priceActionTrendsCourse: Course = {
   ...courseInfo,
   units: unitDefinitions.map(({ load: _load, ...unit }, index) => ({
     ...unit,
@@ -16,7 +16,7 @@ export const brooksTrendsCourse: Course = {
   })),
 };
 
-export const publishedLessons = brooksTrendsCourse.units.flatMap((unit) =>
+export const publishedLessons = priceActionTrendsCourse.units.flatMap((unit) =>
   unit.lessons.filter((lesson) => lesson.status === 'published'),
 );
 

@@ -1,6 +1,6 @@
 import { transferCases as registeredTransferCases } from '../content/barCases';
 import type { BarCase } from '../content/barCaseTypes';
-import { brooksTopics, type BrooksTopic } from '../content/topicMap';
+import { priceActionTopics, type PriceActionTopic } from '../content/topicMap';
 import type { CourseOutline, LessonOutline } from '../content/types';
 import { caseEntries, type CaseEntry } from './caseTraining';
 import { lessonAccessState, nextAvailableLesson, type LessonAccessState } from './courseAccess';
@@ -26,7 +26,7 @@ export interface TopicLesson {
 }
 
 export interface TopicEntry {
-  topic: BrooksTopic;
+  topic: PriceActionTopic;
   /** Zugängliche, wiederholbare Fragen des Themas in Buchreihenfolge (ohne Doppelte). */
   questions: ReviewItem[];
   /** Davon heute fällig. */
@@ -52,7 +52,7 @@ export function topicEntries(
   course: CourseOutline,
   progress: AcademyProgress,
   today: DayKey,
-  topics: readonly BrooksTopic[] = brooksTopics,
+  topics: readonly PriceActionTopic[] = priceActionTopics,
   cases?: readonly BarCase[],
   transfer: readonly BarCase[] = registeredTransferCases,
 ): TopicEntry[] {
@@ -146,7 +146,7 @@ export interface TopicSource {
 }
 
 /** Fundstellen einer Frage laut Themenkarte – nur aus dem, was die Karte belegt. */
-export function topicSources(item: ReviewItem, topics: readonly BrooksTopic[] = brooksTopics): TopicSource[] {
+export function topicSources(item: ReviewItem, topics: readonly PriceActionTopic[] = priceActionTopics): TopicSource[] {
   return topics.flatMap((topic) => {
     if (!topic.questionIds.includes(item.question.id)) return [];
     const ref = topic.teaching.find((entry) => entry.lessonId === item.lesson.id);
@@ -154,6 +154,6 @@ export function topicSources(item: ReviewItem, topics: readonly BrooksTopic[] = 
   });
 }
 
-export function findTopic(topicId: string | undefined, topics: readonly BrooksTopic[] = brooksTopics): BrooksTopic | undefined {
+export function findTopic(topicId: string | undefined, topics: readonly PriceActionTopic[] = priceActionTopics): PriceActionTopic | undefined {
   return topicId ? topics.find((topic) => topic.id === topicId) : undefined;
 }

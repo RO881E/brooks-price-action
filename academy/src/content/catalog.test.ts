@@ -1,11 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { catalog, courseOutline, LessonCatalog, publishedLessonIds, unitIdOfLesson } from './catalog';
-import { brooksTrendsCourse, publishedLessonIds as fullPublishedIds } from './course';
+import { priceActionTrendsCourse, publishedLessonIds as fullPublishedIds } from './course';
 import type { Lesson } from './types';
 
-const outline = toCourseOutline(brooksTrendsCourse);
-const [firstUnit, secondUnit] = brooksTrendsCourse.units;
+const outline = toCourseOutline(priceActionTrendsCourse);
+const [firstUnit, secondUnit] = priceActionTrendsCourse.units;
 
 function deferred<T>() {
   let resolve!: (value: T) => void;
@@ -41,7 +41,7 @@ describe('Kursgliederung aus dem Build-Plugin', () => {
 describe('LessonCatalog', () => {
   it('lädt eine Einheit nur einmal, auch bei parallelen Aufrufen', async () => {
     const load = vi.fn(async (unitId: string) =>
-      brooksTrendsCourse.units.find((unit) => unit.id === unitId)!.lessons,
+      priceActionTrendsCourse.units.find((unit) => unit.id === unitId)!.lessons,
     );
     const source = new LessonCatalog(outline, { load });
     const listener = vi.fn();

@@ -65,7 +65,7 @@ export function TopicPractice({ course, progress, today, onStartTopic, onOpenLes
     <section className="topic-practice" aria-labelledby={`${ids}-title`}>
       <h2 id={`${ids}-title`}>Nach Thema üben</h2>
       <p className="topic-intro">
-        Wähle ein Brooks-Thema. Die Runde nutzt nur Fragen aus Lektionen, die du schon abgeschlossen hast;
+        Wähle ein Thema. Die Runde nutzt nur Fragen aus Lektionen, die du schon abgeschlossen hast;
         Fälligkeit, XP und Lernstand bleiben wie bei jeder Wiederholung.
       </p>
       <ul className="topic-list">

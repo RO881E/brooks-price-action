@@ -1,4 +1,4 @@
-name: Website und Academy veröffentlichen
+name: Academy veröffentlichen
 
 on:
   push:
@@ -6,8 +6,6 @@ on:
       - main
     paths:
       - academy/**
-      - index.html
-      - pdfs/**
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 
@@ -50,9 +48,9 @@ jobs:
       - name: Veröffentlichungsordner zusammenstellen
         run: |
           mkdir -p _site/academy
-          cp index.html _site/index.html
-          cp -R pdfs _site/pdfs
-          cp -R academy/dist/. _site/academy/
+          cp -R academy/dist/. _site/
+          # Frühere Adresse /academy/ leitet auf die Startseite um.
+          printf '<!doctype html><html lang="de"><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=../"><title>Weiterleitung</title><a href="../">Zur Startseite</a></html>\n' > _site/academy/index.html
           touch _site/.nojekyll
 
       - name: GitHub Pages konfigurieren

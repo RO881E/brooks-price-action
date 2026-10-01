@@ -1,7 +1,7 @@
 import type { Course, CourseUnit, Lesson } from './types';
 
 /**
- * Einzige Liste der Kurseinheiten in Buchreihenfolge (F-12). Jede Einheit lädt
+ * Einzige Liste der Kurseinheiten in Kursreihenfolge (F-12). Jede Einheit lädt
  * ihre vollständigen Lektionen als eigenen Chunk. Die sofort verfügbare
  * Gliederung (`virtual:wqt-course-outline`, siehe `build/courseOutlinePlugin.ts`)
  * wird beim Build aus genau diesen Loadern erzeugt – eine zweite, von Hand
@@ -12,18 +12,18 @@ export interface UnitDefinition extends Omit<CourseUnit, 'lessons'> {
 }
 
 export const courseInfo: Omit<Course, 'units'> = {
-  id: 'brooks-trends',
-  eyebrow: 'Buch 1 von 3 · Price Action',
-  title: 'Trading Price Action Trends',
+  id: 'price-action-trends',
+  eyebrow: 'Teil 1 von 3 · Price Action',
+  title: 'Price Action: Trends',
   subtitle:
     'Lerne, Kursbewegungen als fortlaufende Auktion zu lesen – vom einzelnen Bar bis zum vollständigen Trendtag.',
   sourceOrderNotice:
-    'Der Lernpfad folgt der Reihenfolge des Buches. Kleine Lektionen ersetzen keine Inhalte, sondern machen sie schrittweise zugänglich.',
+    'Der Lernpfad folgt der Reihenfolge der Kapitel. Kleine Lektionen ersetzen keine Inhalte, sondern machen sie schrittweise zugänglich.',
 };
 
 export const unitDefinitions: UnitDefinition[] = [
   {
-    id: 'brooks-trends.introduction',
+    id: 'price-action-trends.introduction',
     order: 1,
     kind: 'introduction',
     label: 'Einleitung',
@@ -32,10 +32,10 @@ export const unitDefinitions: UnitDefinition[] = [
       'Marktlogik, Wahrscheinlichkeit, Disziplin, Stärkezeichen und die grundlegende High-/Low-Zählung in der Reihenfolge der Quelle.',
     estimatedLessonCount: 22,
     load: () =>
-      import('./courses/brooks-trends/introduction').then((module) => module.introductionLessons),
+      import('./courses/price-action-trends/introduction').then((module) => module.introductionLessons),
   },
   {
-    id: 'brooks-trends.part-01-introduction',
+    id: 'price-action-trends.part-01-introduction',
     order: 2,
     kind: 'part-introduction',
     label: 'Teil I · Price Action',
@@ -44,10 +44,10 @@ export const unitDefinitions: UnitDefinition[] = [
       'Vom einzelnen Tick über Trend- und Range-Entscheidungen bis zu institutioneller Ausführung, HFT, Pullback-Zählung und einer konkreten Trainingsmethode.',
     estimatedLessonCount: 24,
     load: () =>
-      import('./courses/brooks-trends/part-01').then((module) => module.partOneLessons),
+      import('./courses/price-action-trends/part-01').then((module) => module.partOneLessons),
   },
   {
-    id: 'brooks-trends.chapter-01',
+    id: 'price-action-trends.chapter-01',
     order: 3,
     kind: 'chapter',
     label: 'Kapitel 1',
@@ -56,22 +56,22 @@ export const unitDefinitions: UnitDefinition[] = [
       'Extremzustände, Marktträgheit, zweibeinige Bewegungen und Trendwiederaufnahme am zentralen Chartfall.',
     estimatedLessonCount: 8,
     load: () =>
-      import('./courses/brooks-trends/chapter-01').then((module) => module.chapterOneLessons),
+      import('./courses/price-action-trends/chapter-01').then((module) => module.chapterOneLessons),
   },
   {
-    id: 'brooks-trends.chapter-02',
+    id: 'price-action-trends.chapter-02',
     order: 4,
     kind: 'chapter',
     label: 'Kapitel 2',
     title: 'Trendbars, Dojis und Klimaxe',
     description:
-      'Kontrolle im einzelnen Bar, Follow-through, kumulativer Druck, Klimaxlogik und alle sechs Chartfälle in der Reihenfolge des Buches.',
+      'Kontrolle im einzelnen Bar, Follow-through, kumulativer Druck, Klimaxlogik und alle sechs Chartfälle in der Reihenfolge der Kapitel.',
     estimatedLessonCount: 20,
     load: () =>
-      import('./courses/brooks-trends/chapter-02').then((module) => module.chapterTwoLessons),
+      import('./courses/price-action-trends/chapter-02').then((module) => module.chapterTwoLessons),
   },
   {
-    id: 'brooks-trends.chapter-03',
+    id: 'price-action-trends.chapter-03',
     order: 5,
     kind: 'chapter',
     label: 'Kapitel 3',
@@ -80,22 +80,22 @@ export const unitDefinitions: UnitDefinition[] = [
       'Vom Breakout über Spike-and-Channel und Testzonen bis zur Umkehrlogik – einschließlich des vollständigen Chartfalls 3.1.',
     estimatedLessonCount: 25,
     load: () =>
-      import('./courses/brooks-trends/chapter-03').then((module) => module.chapterThreeLessons),
+      import('./courses/price-action-trends/chapter-03').then((module) => module.chapterThreeLessons),
   },
   {
-    id: 'brooks-trends.chapter-04',
+    id: 'price-action-trends.chapter-04',
     order: 6,
     kind: 'chapter',
     label: 'Kapitel 4',
     title: 'Signal-Bars, Entry-Bars, Setups und Kerzenmuster',
     description:
-      'Vom möglichen Setup über Auslösung und Follow-through bis zum vollständigen Chartfall – mit den Signalfolgen und Filtern des Buchkapitels.',
+      'Vom möglichen Setup über Auslösung und Follow-through bis zum vollständigen Chartfall – mit den Signalfolgen und Filtern des Kapitels.',
     estimatedLessonCount: 25,
     load: () =>
-      import('./courses/brooks-trends/chapter-04').then((module) => module.chapterFourLessons),
+      import('./courses/price-action-trends/chapter-04').then((module) => module.chapterFourLessons),
   },
   {
-    id: 'brooks-trends.chapter-05',
+    id: 'price-action-trends.chapter-05',
     order: 7,
     kind: 'chapter',
     label: 'Kapitel 5',
@@ -104,34 +104,34 @@ export const unitDefinitions: UnitDefinition[] = [
       'Bullische und bärische Reversal-Bars, Mit-Trend- und Gegentrend-Setups, Überlappung und Warnzeichen – mit den drei Chartfällen 5.1 bis 5.3.',
     estimatedLessonCount: 25,
     load: () =>
-      import('./courses/brooks-trends/chapter-05').then((module) => module.chapterFiveLessons),
+      import('./courses/price-action-trends/chapter-05').then((module) => module.chapterFiveLessons),
   },
   {
-    id: 'brooks-trends.chapter-06',
+    id: 'price-action-trends.chapter-06',
     order: 8,
     kind: 'chapter',
     label: 'Kapitel 6',
     title: 'Weitere Signal-Bars und ihre Marktrolle',
     description:
-      'Starke Trendbars, Zwei- und Drei-Bar-Umkehr, Inside-/Outside-Bars, Mikro-Doppel, Fehlsignale und alle 19 Chartfälle des Buchkapitels.',
+      'Starke Trendbars, Zwei- und Drei-Bar-Umkehr, Inside-/Outside-Bars, Mikro-Doppel, Fehlsignale und alle 19 Chartfälle des Kapitels.',
     estimatedLessonCount: 40,
     load: () =>
-      import('./courses/brooks-trends/chapter-06').then((module) => module.chapterSixLessons),
+      import('./courses/price-action-trends/chapter-06').then((module) => module.chapterSixLessons),
   },
   {
-    id: 'brooks-trends.chapter-07',
+    id: 'price-action-trends.chapter-07',
     order: 9,
     kind: 'chapter',
     label: 'Kapitel 7',
     title: 'Outside Bars im Chartkontext',
     description:
-      'Outside-Bars als Breakout, Umkehr oder Falle lesen – mit den vier Chartfällen 7.1 bis 7.4 in Buchreihenfolge.',
+      'Outside-Bars als Breakout, Umkehr oder Falle lesen – mit den vier Chartfällen 7.1 bis 7.4 der Reihe nach.',
     estimatedLessonCount: 24,
     load: () =>
-      import('./courses/brooks-trends/chapter-07').then((module) => module.chapterSevenLessons),
+      import('./courses/price-action-trends/chapter-07').then((module) => module.chapterSevenLessons),
   },
   {
-    id: 'brooks-trends.chapter-08',
+    id: 'price-action-trends.chapter-08',
     order: 10,
     kind: 'chapter',
     label: 'Kapitel 8',
@@ -140,30 +140,30 @@ export const unitDefinitions: UnitDefinition[] = [
       'Vorzeitige Signale, späte Schlusswechsel, Stop-Disziplin und der Vergleich der Zeitebenen in Chartfall 8.1.',
     estimatedLessonCount: 12,
     load: () =>
-      import('./courses/brooks-trends/chapter-08').then((module) => module.chapterEightLessons),
+      import('./courses/price-action-trends/chapter-08').then((module) => module.chapterEightLessons),
   },
   {
-    id: 'brooks-trends.chapter-09',
+    id: 'price-action-trends.chapter-09',
     order: 11,
     kind: 'chapter',
     label: 'Kapitel 9',
     title: 'ETFs und inverse Charts',
     description:
-      'Alternative Chartansichten, SPY und Emini, die SDS-Gegenprobe sowie die beiden Buchabbildungen zu Vergleich und Eröffnungslücke.',
+      'Alternative Chartansichten, SPY und Emini, die SDS-Gegenprobe sowie die beiden Chartfälle zu Vergleich und Eröffnungslücke.',
     estimatedLessonCount: 10,
     load: () =>
-      import('./courses/brooks-trends/chapter-09').then((module) => module.chapterNineLessons),
+      import('./courses/price-action-trends/chapter-09').then((module) => module.chapterNineLessons),
   },
   {
-    id: 'brooks-trends.chapter-10',
+    id: 'price-action-trends.chapter-10',
     order: 12,
     kind: 'chapter',
     label: 'Kapitel 10',
     title: 'Zweite Einstiege im Kontext',
     description:
-      'Erste und zweite Umkehrversuche, Preisfallen, Gegentrend-Momentum sowie beide Chartfälle mit der vertieften Besprechung von Abbildung 10.2.',
+      'Erste und zweite Umkehrversuche, Preisfallen, Gegentrend-Momentum sowie beide Chartfälle mit der vertieften Besprechung von Fall 10.2.',
     estimatedLessonCount: 23,
     load: () =>
-      import('./courses/brooks-trends/chapter-10').then((module) => module.chapterTenLessons),
+      import('./courses/price-action-trends/chapter-10').then((module) => module.chapterTenLessons),
   },
 ];

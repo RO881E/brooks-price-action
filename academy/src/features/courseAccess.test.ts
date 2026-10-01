@@ -1,26 +1,26 @@
 import { describe, expect, it } from 'vitest';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import type { Course } from '../content/types';
 import { lessonAccessState, nextAvailableLesson } from './courseAccess';
 
 describe('course access', () => {
-  const introduction = brooksTrendsCourse.units[0];
-  const partIntroduction = brooksTrendsCourse.units[1];
-  const chapterOne = brooksTrendsCourse.units[2];
-  const chapterTwo = brooksTrendsCourse.units[3];
-  const chapterThree = brooksTrendsCourse.units[4];
-  const chapterFour = brooksTrendsCourse.units[5];
+  const introduction = priceActionTrendsCourse.units[0];
+  const partIntroduction = priceActionTrendsCourse.units[1];
+  const chapterOne = priceActionTrendsCourse.units[2];
+  const chapterTwo = priceActionTrendsCourse.units[3];
+  const chapterThree = priceActionTrendsCourse.units[4];
+  const chapterFour = priceActionTrendsCourse.units[5];
 
   it('unlocks published lessons one by one inside a complete source unit', () => {
     expect(
-      lessonAccessState(brooksTrendsCourse, introduction.lessons[0], []),
+      lessonAccessState(priceActionTrendsCourse, introduction.lessons[0], []),
     ).toBe('available');
     expect(
-      lessonAccessState(brooksTrendsCourse, introduction.lessons[1], []),
+      lessonAccessState(priceActionTrendsCourse, introduction.lessons[1], []),
     ).toBe('locked');
 
     expect(
-      lessonAccessState(brooksTrendsCourse, introduction.lessons[1], [
+      lessonAccessState(priceActionTrendsCourse, introduction.lessons[1], [
         introduction.lessons[0].id,
       ]),
     ).toBe('available');
@@ -32,27 +32,27 @@ describe('course access', () => {
     expect(partIntroduction.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         partIntroduction.lessons[0],
         completedIntroduction,
       ),
     ).toBe('available');
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         partIntroduction.lessons[1],
         completedIntroduction,
       ),
     ).toBe('locked');
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         chapterOne.lessons[0],
         completedIntroduction,
       ),
     ).toBe('locked');
     expect(
-      nextAvailableLesson(brooksTrendsCourse, completedIntroduction),
+      nextAvailableLesson(priceActionTrendsCourse, completedIntroduction),
     ).toBe(partIntroduction.lessons[0]);
   });
 
@@ -64,19 +64,19 @@ describe('course access', () => {
 
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         chapterOne.lessons[0],
         completedEarlierUnits,
       ),
     ).toBe('available');
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         chapterOne.lessons[1],
         completedEarlierUnits,
       ),
     ).toBe('locked');
-    expect(nextAvailableLesson(brooksTrendsCourse, completedEarlierUnits)).toBe(
+    expect(nextAvailableLesson(priceActionTrendsCourse, completedEarlierUnits)).toBe(
       chapterOne.lessons[0],
     );
   });
@@ -94,14 +94,14 @@ describe('course access', () => {
 
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         chapterThree.lessons[0],
         completedThroughChapterOne,
       ),
     ).toBe('locked');
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         chapterThree.lessons[0],
         completedThroughChapterTwo,
       ),
@@ -122,14 +122,14 @@ describe('course access', () => {
 
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         chapterFour.lessons[0],
         completedThroughChapterTwo,
       ),
     ).toBe('locked');
     expect(
       lessonAccessState(
-        brooksTrendsCourse,
+        priceActionTrendsCourse,
         chapterFour.lessons[0],
         completedThroughChapterThree,
       ),
@@ -197,7 +197,7 @@ describe('course access', () => {
 
   it('keeps completed lessons revisitable', () => {
     expect(
-      lessonAccessState(brooksTrendsCourse, chapterOne.lessons[0], [
+      lessonAccessState(priceActionTrendsCourse, chapterOne.lessons[0], [
         chapterOne.lessons[0].id,
       ]),
     ).toBe('complete');

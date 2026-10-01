@@ -1,7 +1,7 @@
 import type { BarCase } from '../../content/barCaseTypes';
 
 /*
- * Rein technische Testfälle für die Engine (F-14). Keine Brooks-Übungen, keine
+ * Rein technische Testfälle für die Engine (F-14). Keine Kursübungen, keine
  * fachliche Aussage: Die Kurse sind willkürliche Zahlen, die Texte beschreiben
  * nur, was getestet wird. Diese Datei darf nie in `content/barCases.ts`
  * eingetragen oder von App-Code importiert werden (ein Test prüft das).
@@ -14,8 +14,8 @@ export const twoStepFixture: BarCase = {
   schemaVersion: 1,
   status: 'draft',
   title: 'Technischer Testfall: zwei Entscheidungen',
-  unitId: 'brooks-trends.introduction',
-  lessonIds: ['brooks-trends.introduction.lesson-01', 'brooks-trends.introduction.lesson-04'],
+  unitId: 'price-action-trends.introduction',
+  lessonIds: ['price-action-trends.introduction.lesson-01', 'price-action-trends.introduction.lesson-04'],
   setup: 'Technische Ausgangslage für Engine-Tests ohne fachliche Aussage.',
   timeframe: 'schematisch',
   bars: [
@@ -45,7 +45,7 @@ export const twoStepFixture: BarCase = {
           label: 'Test-Hinweis A',
           relevant: true,
           explanation: 'Technische Erklärung A – relevant im Test.',
-          lessonId: 'brooks-trends.introduction.lesson-04',
+          lessonId: 'price-action-trends.introduction.lesson-04',
         },
         { id: 'cue-b', label: 'Test-Hinweis B', relevant: false, explanation: 'Technische Erklärung B – Ablenkung im Test.' },
         { id: 'cue-c', label: 'Test-Hinweis C', relevant: true, explanation: 'Technische Erklärung C – relevant im Test.' },
@@ -68,7 +68,7 @@ export const twoStepFixture: BarCase = {
           label: 'Test-Hinweis E',
           relevant: false,
           explanation: 'Technische Erklärung E – Ablenkung im Test.',
-          lessonId: 'brooks-trends.introduction.lesson-01',
+          lessonId: 'price-action-trends.introduction.lesson-01',
         },
       ],
     },
@@ -82,8 +82,8 @@ export const singleStepFixture: BarCase = {
   schemaVersion: 1,
   status: 'draft',
   title: 'Technischer Testfall: eine Entscheidung',
-  unitId: 'brooks-trends.introduction',
-  lessonIds: ['brooks-trends.introduction.lesson-01'],
+  unitId: 'price-action-trends.introduction',
+  lessonIds: ['price-action-trends.introduction.lesson-01'],
   setup: 'Zweite technische Ausgangslage für Engine-Tests.',
   bars: [
     { open: 50, high: 50.4, low: 49.2, close: 49.4 },

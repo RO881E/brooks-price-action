@@ -151,7 +151,7 @@ export function SavedView({ overview: source, onOpen, onRemoveBookmark, onDelete
               </label>
               <label>
                 <input type="radio" name={`${ids}-sort`} checked={sort === 'book'} onChange={() => setSort('book')} />
-                <span>Buchreihenfolge</span>
+                <span>Kapitelreihenfolge</span>
               </label>
             </fieldset>
             <p className="visually-hidden" role="status">

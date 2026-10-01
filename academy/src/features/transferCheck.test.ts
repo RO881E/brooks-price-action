@@ -3,7 +3,7 @@ import { toCourseOutline } from '../../build/courseOutline';
 import { c02BarCases } from '../content/barCases/c02';
 import { barCases } from '../content/barCases';
 import type { BarCase } from '../content/barCaseTypes';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { activeSession, caseEntries, findPublishedCase } from './caseTraining';
 import { canSubmit, chooseDecision, publicView, toggleCue } from './barTrainer';
 import { completeLesson, createEmptyProgress, migrateProgress, type AcademyProgress } from './progress';
@@ -15,7 +15,7 @@ import {
   updateTransferDraft,
 } from './transferCheck';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const approved: BarCase[] = c02BarCases.map((barCase) => ({ ...barCase, status: 'approved' }));
 const published = course.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 
@@ -65,14 +65,14 @@ describe('Transferprüfung (F-17)', () => {
   });
 
   it('nur bereits erreichte Kapitel: Fälle aus späteren Kapiteln bleiben gesperrt und werden nicht angeboten', () => {
-    const chapterTwo = course.units.findIndex((unit) => unit.id === 'brooks-trends.chapter-02');
+    const chapterTwo = course.units.findIndex((unit) => unit.id === 'price-action-trends.chapter-02');
     const progress = course.units
       .slice(0, chapterTwo + 1)
       .flatMap((unit) => unit.lessons)
       .filter((lesson) => lesson.status === 'published')
       .reduce((p, lesson) => completeLesson(p, lesson.id, lesson.xp, '2026-09-20T08:00:00.000Z'), createEmptyProgress());
     const result = plan(progress);
-    expect(result.cases.map((barCase) => barCase.unitId)).toEqual(['brooks-trends.chapter-01', 'brooks-trends.chapter-02']);
+    expect(result.cases.map((barCase) => barCase.unitId)).toEqual(['price-action-trends.chapter-01', 'price-action-trends.chapter-02']);
     expect(result.locked.length).toBe(approved.length - 2);
   });
 

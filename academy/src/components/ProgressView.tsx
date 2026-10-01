@@ -310,7 +310,7 @@ export function ProgressView({
 
           <section className="progress-panel" aria-labelledby="units-heading">
             <div className="progress-panel-head">
-              <h2 id="units-heading">Fortschritt je Buchabschnitt</h2>
+              <h2 id="units-heading">Fortschritt je Kursabschnitt</h2>
             </div>
             <ul className="unit-progress-list">
               {overview.units.map((unit) => (
@@ -336,13 +336,6 @@ export function ProgressView({
       <BadgeGrid goals={goals} />
 
       {album ? <BarAlbum album={album} onOpenLesson={onOpenLesson} /> : null}
-
-      {overview.legacyReadChapters > 0 ? (
-        <p className="progress-note">
-          Von der bisherigen Website sind {overview.legacyReadChapters} gelesene Kapitel erhalten.
-          Sie zählen nicht als abgeschlossene Lektionen in „{course.title}“.
-        </p>
-      ) : null}
     </div>
   );
 }

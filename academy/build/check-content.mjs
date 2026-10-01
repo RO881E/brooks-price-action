@@ -20,7 +20,7 @@ async function load(path) {
   return module;
 }
 
-const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { barCases, allBarCases, transferCases }, { validateBarCases }, { validateStepTermLinks }, { brooksTopics }, { validateTopicMap }, check] =
+const [{ priceActionTrendsCourse }, { glossaryEntries }, chart, { barCases, allBarCases, transferCases }, { validateBarCases }, { validateStepTermLinks }, { priceActionTopics }, { validateTopicMap }, check] =
   await Promise.all([
     load('src/content/course.ts'),
     load('src/content/glossary.ts'),
@@ -35,13 +35,13 @@ const [{ brooksTrendsCourse }, { glossaryEntries }, chart, { barCases, allBarCas
 
 const known = JSON.parse(readFileSync(knownPath, 'utf8'));
 const input = {
-  course: brooksTrendsCourse,
+  course: priceActionTrendsCourse,
   glossary: glossaryEntries,
   scenarioIds: chart.chartScenarioIds(),
   describe: (scenario) => chart.chartDescription(scenario),
-  caseIssues: validateBarCases(allBarCases, brooksTrendsCourse),
-  termLinkIssues: validateStepTermLinks(brooksTrendsCourse, glossaryEntries),
-  topicIssues: validateTopicMap(brooksTopics, brooksTrendsCourse, barCases, transferCases),
+  caseIssues: validateBarCases(allBarCases, priceActionTrendsCourse),
+  termLinkIssues: validateStepTermLinks(priceActionTrendsCourse, glossaryEntries),
+  topicIssues: validateTopicMap(priceActionTopics, priceActionTrendsCourse, barCases, transferCases),
   known,
 };
 
@@ -84,7 +84,7 @@ if (acceptNew) {
     console.error(withoutNew.map((issue) => `✗ ${issue.id}: ${issue.message}`).join('\n'));
     process.exit(1);
   }
-  const next = check.acceptNewIds(known, brooksTrendsCourse);
+  const next = check.acceptNewIds(known, priceActionTrendsCourse);
   writeFileSync(knownPath, `${JSON.stringify(next, null, 2)}\n`);
   console.log('Neue veröffentlichte IDs aufgenommen: build/published-ids.json (bitte im PR mitsenden).');
 }

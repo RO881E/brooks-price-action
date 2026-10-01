@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { barCases } from '../content/barCases';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { caseLockedBy, publishedCases } from './caseTraining';
 import { formatRoute, parseRoute, resolveRoute } from './navigation';
 import { completeLesson, createEmptyProgress, type AcademyProgress } from './progress';
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const [firstCase] = publishedCases();
 
 function unlocked(): AcademyProgress {

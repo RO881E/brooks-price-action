@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { applyImport, createBackup, parseBackup, sameBackupData, serializeBackup } from './backup';
 import { earnedXp } from './lessonResults';
 import { awardMilestone } from './goals';
@@ -8,8 +8,6 @@ import {
   ACADEMY_PROGRESS_BACKUP_KEY,
   ACADEMY_PROGRESS_KEY,
   ACADEMY_PROGRESS_VERSION,
-  LEGACY_PROGRESS_KEY,
-  LEGACY_TREND_RANGE_BEST_KEY,
   completeLesson,
   createEmptyProgress,
   loadProgress,
@@ -32,14 +30,14 @@ class MemoryStorage implements Pick<Storage, 'getItem' | 'setItem' | 'removeItem
   }
 }
 
-const course = toCourseOutline(brooksTrendsCourse);
+const course = toCourseOutline(priceActionTrendsCourse);
 const published = course.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
 const [one, two, three] = published;
 
 /** Datensätze früherer Versionen: nur, was es damals gab – plus Kern, der nie verloren gehen darf. */
 const core = { completedLessonIds: [one.id, two.id], answers: { 'chapter-01-01-question': 'a' } };
 const history: Array<[number, Record<string, unknown>]> = [
-  [1, { version: 1, ...core, lastLessonId: two.id, legacyReadChapters: ['b1-intro'], legacyTrendRangeBest: 4 }],
+  [1, { version: 1, ...core, lastLessonId: two.id }],
   [2, { version: 2, ...core, questionResults: {}, lessonResults: {} }],
   [5, { version: 5, ...core, reviewCards: {}, activityDays: ['2026-09-01'] }],
   [8, { version: 8, ...core, bookmarks: {}, notes: {}, milestones: { 'first-lesson': { achievedDay: '2026-09-01' } } }],
@@ -50,22 +48,17 @@ const history: Array<[number, Record<string, unknown>]> = [
 ];
 
 describe('Alte Lernstände absichern (P12)', () => {
-  it.each(history)('Stand v%i: lädt, hebt auf die aktuelle Version, behält den Kern und die alten Schlüssel', (_version, record) => {
+  it.each(history)('Stand v%i: lädt und hebt auf die aktuelle Version, behält den Kern', (_version, record) => {
     const storage = new MemoryStorage();
-    storage.setItem(LEGACY_PROGRESS_KEY, JSON.stringify({ 'b1-intro': true }));
-    storage.setItem(LEGACY_TREND_RANGE_BEST_KEY, '7');
     storage.setItem(ACADEMY_PROGRESS_KEY, JSON.stringify(record));
     const progress = loadProgress(storage);
     expect(progress.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(progress.completedLessonIds).toEqual([one.id, two.id]);
     expect(progress.answers).toEqual(core.answers);
     expect(readRescuedData(storage)).toBeNull();
-    // Die Academy-Daten werden beim Speichern angehoben, die alten Website-Schlüssel nie angefasst.
+    // Die Academy-Daten werden beim Speichern angehoben.
     saveProgress(storage, progress);
     expect(JSON.parse(storage.getItem(ACADEMY_PROGRESS_KEY)!).version).toBe(ACADEMY_PROGRESS_VERSION);
-    expect(storage.getItem(LEGACY_PROGRESS_KEY)).toBe(JSON.stringify({ 'b1-intro': true }));
-    expect(storage.getItem(LEGACY_TREND_RANGE_BEST_KEY)).toBe('7');
-    expect(progress.legacyTrendRangeBest).toBeGreaterThanOrEqual(7);
     // Erneutes Laden ändert nichts (idempotent).
     expect(loadProgress(storage)).toEqual(loadProgress(storage));
   });
@@ -119,16 +112,14 @@ describe('Alte Lernstände absichern (P12)', () => {
 describe('Defekte Daten führen zu verständlicher Wiederherstellung (P12)', () => {
   const broken = ['{kaputt', '', 'null', '[]', '"text"', '42', '{"version":"x"}', '{"version":0}', '{"version":-3,"completedLessonIds":[]}'];
 
-  it.each(broken.filter(Boolean))('unlesbarer Datensatz %s: leerer Stand, Kopie gesichert, alte Schlüssel unberührt', (raw) => {
+  it.each(broken.filter(Boolean))('unlesbarer Datensatz %s: leerer Stand, Kopie gesichert', (raw) => {
     const storage = new MemoryStorage();
-    storage.setItem(LEGACY_TREND_RANGE_BEST_KEY, '9');
     storage.setItem(ACADEMY_PROGRESS_KEY, raw);
     const progress = loadProgress(storage);
     expect(progress.completedLessonIds).toEqual([]);
     expect(progress.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(readRescuedData(storage)?.raw).toBe(raw);
     expect(storage.getItem(ACADEMY_PROGRESS_BACKUP_KEY)).toBe(raw);
-    expect(storage.getItem(LEGACY_TREND_RANGE_BEST_KEY)).toBe('9');
   });
 
   it('Falsche Feldtypen in einem sonst lesbaren Datensatz werden abgefangen, nicht übernommen', () => {

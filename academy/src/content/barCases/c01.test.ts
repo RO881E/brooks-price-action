@@ -6,7 +6,7 @@ describe('C-01: kuratierte Erstfälle', () => {
     expect(c01BarCases).toHaveLength(7);
     expect(c01BarCases.every((barCase) => barCase.status === 'approved')).toBe(true);
     expect(c01BarCases.map((barCase) => barCase.unitId)).toEqual(
-      Array.from({ length: 7 }, (_, index) => `brooks-trends.chapter-0${index + 1}`),
+      Array.from({ length: 7 }, (_, index) => `price-action-trends.chapter-0${index + 1}`),
     );
     const waitCases = c01BarCases.filter((barCase) =>
       barCase.decisions.some((point) =>

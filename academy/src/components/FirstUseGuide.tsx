@@ -31,7 +31,7 @@ function GuideContent({
         So lernst du in der WQT Academy
       </h2>
       <p>
-        Du lernst Al Brooks' „Trading Price Action Trends“ in Buchreihenfolge – in kurzen Schritten mit
+        Du lernst Price Action Schritt für Schritt – in kurzen Lektionen mit
         Fragen. Es gibt vier Wege:
       </p>
       <ol className="guide-loop" aria-label="Der Lernrhythmus">

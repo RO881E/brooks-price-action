@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { barAlbum } from '../content/barAlbum';
-import { brooksTrendsCourse } from '../content/course';
+import { priceActionTrendsCourse } from '../content/course';
 import { glossaryEntries } from '../content/glossary';
 import { albumOverview } from './barAlbum';
 import { completeLesson, createEmptyProgress } from './progress';
 
-const course = toCourseOutline(brooksTrendsCourse);
-const lessons = new Map(brooksTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => [lesson.id, lesson]));
+const course = toCourseOutline(priceActionTrendsCourse);
+const lessons = new Map(priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => [lesson.id, lesson]));
 
 describe('Bar-Album (Stufe 3)', () => {
   it('jede Karte hat einen Glossarbegriff, eine veröffentlichte Lektion und gültige Bars', () => {

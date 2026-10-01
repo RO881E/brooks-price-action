@@ -5,8 +5,6 @@ import {
   ACADEMY_PROGRESS_VERSION,
   completeLesson,
   createEmptyProgress,
-  LEGACY_PROGRESS_KEY,
-  LEGACY_TREND_RANGE_BEST_KEY,
   loadProgress,
   progressPercent,
   logActivity,
@@ -33,46 +31,16 @@ class MemoryStorage implements Pick<Storage, 'getItem' | 'setItem'> {
 }
 
 describe('progress migration', () => {
-  it('reads legacy values without treating old chapters as mastered lessons', () => {
+  it('starts empty without stored data and saves only the new versioned key', () => {
     const storage = new MemoryStorage();
-    storage.setItem(
-      LEGACY_PROGRESS_KEY,
-      JSON.stringify({ 'b1-intro': true, 'b1-ch1': true, 'b1-ch2': false }),
-    );
-    storage.setItem(LEGACY_TREND_RANGE_BEST_KEY, '11');
 
     const progress = loadProgress(storage);
-
-    expect(progress.legacyReadChapters).toEqual(['b1-ch1', 'b1-intro']);
-    expect(progress.legacyTrendRangeBest).toBe(11);
     expect(progress.completedLessonIds).toEqual([]);
-    expect(storage.getItem(LEGACY_PROGRESS_KEY)).toContain('b1-intro');
     expect(storage.getItem(ACADEMY_PROGRESS_KEY)).toBeNull();
-  });
 
-  it('ignores malformed legacy data safely', () => {
-    const storage = new MemoryStorage();
-    storage.setItem(LEGACY_PROGRESS_KEY, '{broken');
-    storage.setItem(LEGACY_TREND_RANGE_BEST_KEY, 'not-a-number');
-
-    const progress = loadProgress(storage);
-
-    expect(progress.legacyReadChapters).toEqual([]);
-    expect(progress.legacyTrendRangeBest).toBe(0);
-  });
-
-  it('saves only the new versioned key', () => {
-    const storage = new MemoryStorage();
-    storage.setItem(LEGACY_PROGRESS_KEY, JSON.stringify({ 'b1-intro': true }));
-    storage.setItem(LEGACY_TREND_RANGE_BEST_KEY, '4');
-    const legacyBefore = storage.getItem(LEGACY_PROGRESS_KEY);
-    const bestBefore = storage.getItem(LEGACY_TREND_RANGE_BEST_KEY);
-
-    saveProgress(storage, loadProgress(storage));
+    saveProgress(storage, progress);
 
     expect(storage.getItem(ACADEMY_PROGRESS_KEY)).not.toBeNull();
-    expect(storage.getItem(LEGACY_PROGRESS_KEY)).toBe(legacyBefore);
-    expect(storage.getItem(LEGACY_TREND_RANGE_BEST_KEY)).toBe(bestBefore);
   });
 });
 
@@ -105,6 +73,7 @@ describe('academy data migration', () => {
     completedLessonIds: ['lesson-1', 'lesson-2'],
     answers: { 'question-1': 'a' },
     lastLessonId: 'lesson-2',
+    // Felder der früheren Einzeldatei-Website: werden verworfen und nicht aufbewahrt.
     legacyReadChapters: ['b1-intro'],
     legacyTrendRangeBest: 5,
     updatedAt: '2026-09-01T08:00:00.000Z',
@@ -120,8 +89,8 @@ describe('academy data migration', () => {
     expect(progress.completedLessonIds).toEqual(['lesson-1', 'lesson-2']);
     expect(progress.answers).toEqual({ 'question-1': 'a' });
     expect(progress.lastLessonId).toBe('lesson-2');
-    expect(progress.legacyReadChapters).toEqual(['b1-intro']);
-    expect(progress.legacyTrendRangeBest).toBe(5);
+    expect(progress).not.toHaveProperty('legacyReadChapters');
+    expect(progress).not.toHaveProperty('legacyTrendRangeBest');
     expect(progress.lessonPositions).toEqual({});
     expect(progress.preservedFields).toEqual({});
     expect(storage.getItem(ACADEMY_PROGRESS_BACKUP_KEY)).toBeNull();
@@ -216,20 +185,6 @@ describe('academy data migration', () => {
     expect(progress?.lessonPositions).toEqual({
       valid: { stepIndex: 2, updatedAt: '2026-09-28T09:00:00.000Z' },
     });
-    expect(progress?.legacyReadChapters).toEqual([]);
-    expect(progress?.legacyTrendRangeBest).toBe(0);
-  });
-
-  it('never touches the legacy keys during migration', () => {
-    const storage = new MemoryStorage();
-    storage.setItem(LEGACY_PROGRESS_KEY, JSON.stringify({ 'b1-ch1': true }));
-    storage.setItem(LEGACY_TREND_RANGE_BEST_KEY, '7');
-    storage.setItem(ACADEMY_PROGRESS_KEY, JSON.stringify(v1Record));
-
-    saveProgress(storage, loadProgress(storage));
-
-    expect(storage.getItem(LEGACY_PROGRESS_KEY)).toBe(JSON.stringify({ 'b1-ch1': true }));
-    expect(storage.getItem(LEGACY_TREND_RANGE_BEST_KEY)).toBe('7');
   });
 });
 
@@ -719,8 +674,6 @@ describe('Einführung beim ersten Besuch (F-18, v13)', () => {
       completeLesson(fresh, 'lesson-1', 30, '2026-09-29T08:00:00.000Z'),
       recordAnswer(fresh, 'q1', 'a'),
       recordLessonStep(fresh, 'lesson-1', 1),
-      { ...fresh, legacyReadChapters: ['chapter-1'] },
-      { ...fresh, legacyTrendRangeBest: 4 },
     ]) {
       expect(shouldShowFirstUseGuide(learned)).toBe(false);
     }

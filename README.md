@@ -1,70 +1,38 @@
-# Price Action Lernpfad — Al Brooks Zusammenfassung
+# WQT Academy
 
-Eine interaktive, selbst erstellte Lernwebsite mit Zusammenfassungen von Al Brooks'
-Price-Action-Buchtrilogie ("Trading Price Action Trends", Buch 1 von 3).
+Eine interaktive Lern-App zu Price Action im Trading: kurze Lektionen mit Fragen, Wiederholungen,
+Bar-für-Bar-Training, Glossar und Fortschritt. Läuft komplett im Browser (React + TypeScript + Vite),
+der Lernstand bleibt lokal auf dem Gerät.
 
-**Wichtig:** Alle Inhalte sind eigenständige, in eigenen Worten verfasste
-Zusammenfassungen der Kernkonzepte — kein Nachdruck oder Zitat des Originaltexts.
-Das Original bleibt urheberrechtlich geschützt bei Al Brooks / Wiley. Bitte beim
-Weiterbearbeiten (auch mit ChatGPT o.ä.) keine wörtlichen Auszüge aus dem Buch
-selbst einfügen, sondern beim Stil "eigene Worte, Tabellen, Diagramme" bleiben.
+**Wichtig:** Alle Inhalte sind eigenständig in eigenen Worten formuliert. Es werden keine Texte,
+Abbildungen oder Kursdaten aus Büchern übernommen (siehe `CONTRIBUTING.md`, Abschnitt Urheberrecht).
 
 ## Struktur
 
 ```
-index.html          Die komplette Lernwebsite (single-file, keine Build-Tools nötig)
-pdfs/                Ältere PDF-Versionen von Einleitung & Kapitel 1 (Referenz/Backup)
+academy/     Die App (Quellcode, Tests, Dokumentation unter academy/docs)
+docs/        Planungsdokumente
 ```
 
-## Was die Website enthält
+## Entwickeln
 
-- **Buch 1 komplett zusammengefasst:** Einleitung + alle 26 Kapitel
-  (Teil I–IV: Price-Action-Grundlagen, Trendlinien/-kanäle, Trends,
-  häufige Trendmuster)
-- **Fortschritts-Tracking** pro Kapitel (lokal im Browser, `localStorage`)
-- **Verständnis-Quiz** zu jedem fertigen Kapitel
-- **Glossar & Suche** über die zentralen Fachbegriffe
-- **Vier interaktive Übungen:**
-  - Bar-Typ erkennen (Trend-Bar/Doji/Reversal)
-  - Beine zählen (High/Low 1-2-3-4)
-  - Glossar-Flashcards
-  - Schnell-Drill "Trend oder Range?"
-- **Navigationsgerüst für Buch 2 & 3** (Trading Ranges / Reversals) bereits
-  angelegt, aber noch ohne Inhalt — wartet auf die jeweiligen Quellbücher
+```bash
+cd academy
+npm ci
+npm run dev        # lokaler Entwicklungsserver
+npm test           # Unit-Tests
+npm run build      # Produktionsbuild
+npm run test:e2e   # Browser-Tests (Playwright)
+```
 
-## Lokal öffnen
+Ausführliche Beschreibung der App, des Datenmodells und der Funktionen: [`academy/README.md`](academy/README.md).
 
-Einfach `index.html` doppelklicken bzw. im Browser öffnen — reines HTML/CSS/
-Vanilla-JS, keine Abhängigkeiten, kein Server nötig.
+## Veröffentlichen
 
-## Mit GitHub Pages hosten (optional)
+Bei jedem Push auf `main` baut GitHub Actions die App und veröffentlicht sie über GitHub Pages
+(`.github/workflows/deploy-pages.yml`). Die App liegt auf der Startseite der Pages-Adresse
+(`https://<nutzer>.github.io/<repo>/`); die frühere Adresse `…/academy/` leitet dorthin um.
 
-1. Repo-Settings → Pages → Branch `main`, Ordner `/ (root)` auswählen
-2. Die Seite ist danach unter `https://<username>.github.io/<repo-name>/` erreichbar
+## Nutzung
 
-## Weiterarbeiten (Claude oder ChatGPT)
-
-Der gesamte Seiteninhalt liegt in `index.html` in zwei JS-Objekten:
-
-- `DATA` — die Kapitel-Navigation (Buch/Teil/Kapitel-Struktur, `status: 'done'`
-  oder `'pending'`)
-- `CONTENT['<kapitel-id>']` — der HTML-Inhalt eines Kapitels als Template-String
-- `QUIZZES['<kapitel-id>']` — die Quiz-Fragen dazu
-- `GLOSSARY` — das Begriffs-Array `[["Begriff", "Erklärung"], ...]`
-
-Um ein neues Kapitel zu ergänzen (z. B. für Buch 2/3):
-1. Neuen Eintrag in `DATA` mit `status: 'done'` anlegen (oder bestehenden
-   `'pending'`-Eintrag umstellen)
-2. `CONTENT['neue-id'] = \`...\`;` mit dem Kapitelinhalt ergänzen (gleicher
-   Karten/Tabellen-Stil wie die bestehenden Kapitel als Vorlage nehmen)
-3. Optional `QUIZZES['neue-id'] = [...]` ergänzen
-
-Nach jeder Änderung: Datei in einem Browser öffnen und die Konsole auf
-JavaScript-Fehler prüfen (fehlende Anführungszeichen in Template-Strings sind
-die häufigste Fehlerquelle bei String-Konkatenation mit Apostrophen).
-
-## Lizenz / Nutzung
-
-Nur für den persönlichen Lerngebrauch gedacht. Enthält keine Inhalte, Bilder
-oder Textpassagen aus dem Originalbuch — nur eigenständig formulierte
-Zusammenfassungen der darin behandelten (nicht schutzfähigen) Handelskonzepte.
+Nur für den persönlichen Lerngebrauch gedacht. Keine Anlageberatung.

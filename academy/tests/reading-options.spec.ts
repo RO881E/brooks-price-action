@@ -1,13 +1,13 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * F-22: Leseoptionen im Buchmodus. Läuft auf Desktop und Mobil.
  */
 
-const intro = brooksTrendsCourse.units[0];
+const intro = priceActionTrendsCourse.units[0];
 const [first, second] = intro.lessons;
 const PARAGRAPH = '.reader-step .step-copy > p:not(.eyebrow):not(.question-prompt):not(.chart-caption)';
 

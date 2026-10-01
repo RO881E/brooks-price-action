@@ -1,5 +1,5 @@
 import type { BarCase } from '../content/barCaseTypes';
-import type { BrooksTopic } from '../content/topicMap';
+import type { PriceActionTopic } from '../content/topicMap';
 import type { Course } from '../content/types';
 
 /*
@@ -16,12 +16,12 @@ export interface TopicIssue {
   message: string;
 }
 
-const TOPIC_ID = /^brooks-topic\.[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const TOPIC_ID = /^topic\.[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 const isText = (value: unknown): value is string => typeof value === 'string' && value.trim() !== '';
 
 export function validateTopicMap(
-  topics: readonly BrooksTopic[],
+  topics: readonly PriceActionTopic[],
   course: Course,
   cases: readonly BarCase[],
   transferCases: readonly BarCase[] = [],
@@ -41,7 +41,7 @@ export function validateTopicMap(
 
   for (const topic of topics) {
     const report = (path: string, message: string) => issues.push({ topicId: topic.id, path, message });
-    if (!TOPIC_ID.test(topic.id)) report('id', 'Ungültige Themen-ID (erwartet „brooks-topic.<name>“).');
+    if (!TOPIC_ID.test(topic.id)) report('id', 'Ungültige Themen-ID (erwartet „topic.<name>“).');
     if (seenTopics.has(topic.id)) report('id', `Doppelte Themen-ID „${topic.id}“.`);
     seenTopics.add(topic.id);
     if (!isText(topic.title)) report('title', 'Der Titel fehlt.');

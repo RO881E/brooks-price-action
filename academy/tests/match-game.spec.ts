@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 import { glossaryEntries } from '../src/content/glossary';
 
 /*
@@ -8,7 +8,7 @@ import { glossaryEntries } from '../src/content/glossary';
  */
 
 const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
-const intro = brooksTrendsCourse.units[0].lessons.filter((lesson) => lesson.status === 'published');
+const intro = priceActionTrendsCourse.units[0].lessons.filter((lesson) => lesson.status === 'published');
 const definitionOf = (term: string) => glossaryEntries.find((entry) => entry.term === term)!.definition;
 
 async function seed(page: Page, ids: string[]) {

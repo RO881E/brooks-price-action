@@ -1,15 +1,15 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { brooksTrendsCourse } from '../src/content/course';
+import { priceActionTrendsCourse } from '../src/content/course';
 
 /*
  * F-23: „Kurz lernen“ – Vorschläge für etwa zehn oder zwanzig Minuten.
  * Feste Reihenfolge, kein Timer, kein eigener gespeicherter Zustand.
  */
 
-const published = brooksTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
-const unitIndex = brooksTrendsCourse.units.findIndex((unit) => unit.id === 'brooks-trends.chapter-01');
-const throughChapterOne = brooksTrendsCourse.units
+const published = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).filter((lesson) => lesson.status === 'published');
+const unitIndex = priceActionTrendsCourse.units.findIndex((unit) => unit.id === 'price-action-trends.chapter-01');
+const throughChapterOne = priceActionTrendsCourse.units
   .slice(0, unitIndex + 1)
   .flatMap((unit) => unit.lessons)
   .filter((lesson) => lesson.status === 'published');
