@@ -33,14 +33,20 @@ import { planStudySession } from './features/studySession';
 import { FirstUseWelcome, GuideDialog, type GuideFacts } from './components/FirstUseGuide';
 import { UndoToast, type UndoAction } from './components/UndoToast';
 import {
+  allCoursesOutline,
   catalog,
-  courseOutline,
-  publishedLessonIds,
+  courseOfLesson,
+  courseOfUnit,
+  courseOutlineFor,
+  courseOutlines,
+  findCourseOutline,
+  publishedLessonIdsOf,
+  publishedLessonOutlinesOf,
   unitIdOfLesson,
   useLessonContent,
 } from './content/catalog';
-import { glossaryEntries } from './content/glossary';
-import type { LessonOutline } from './content/types';
+import { glossaryFor } from './content/registry';
+import type { CourseOutline, LessonOutline } from './content/types';
 import {
   applyImport,
   backupFileName,
@@ -54,9 +60,9 @@ import {
   beginCaseRun,
   caseEntries,
   casesForLesson,
+  courseCases,
   discardCaseRun,
   findPublishedCase,
-  publishedCases,
   setReasoningDraft,
   updateCaseRun,
 } from './features/caseTraining';
@@ -90,6 +96,7 @@ import {
   type AppView,
 } from './features/navigation';
 import {
+  chooseCourse,
   completeLesson,
   loadProgress,
   markGuideSeen,
@@ -121,6 +128,7 @@ import {
   type SavedTarget,
 } from './features/savedItems';
 import { buildSearchIndex, type SearchResult } from './features/search';
+import { earnedXp } from './features/lessonResults';
 import { localDayKey, seededRandom } from './features/reviewScheduler';
 import {
   advanceSession,
@@ -156,12 +164,30 @@ const SavedView = lazyView(() => import('./components/SavedView').then((module) 
 const SettingsView = lazyView(() => import('./components/SettingsView').then((module) => module.SettingsView));
 const TransferView = lazyView(() => import('./components/TransferView').then((module) => module.TransferView));
 const ReplayView = lazyView(() => import('./components/ReplayView').then((module) => module.ReplayView));
+// Bibliothek mit Gebiets- und Kursseiten (mehrere Kurse): ein gemeinsamer Chunk mit den Bibliotheksdaten.
 const LibraryView = lazyView(() => import('./components/LibraryView').then((module) => module.LibraryView));
+const SubjectPage = lazyView(() => import('./components/LibraryView').then((module) => module.SubjectPage));
+const CoursePage = lazyView(() => import('./components/LibraryView').then((module) => module.CoursePage));
 
 type View = AppView;
 
 const INVALID_LINK_NOTICE =
   'Dieser Link führt zu keiner verfügbaren Ansicht oder Lektion. Du bist zurück im Lernpfad.';
+
+/** Gewählter Kurs eines Lernstands; ohne gültige Wahl der Standardkurs (mehrere Kurse). */
+const outlineOf = (progress: AcademyProgress): CourseOutline => courseOutlineFor(progress.activeCourseId);
+
+/** Fragen eines Kurses – grenzt die Zusammenfassung auf ihn ein. */
+function questionIdsOf(course: CourseOutline): Set<string> {
+  return new Set(
+    course.units.flatMap((unit) =>
+      unit.lessons.flatMap((lesson) => lesson.steps.filter((step) => step.type === 'question').map((step) => step.id)),
+    ),
+  );
+}
+
+/** Alle veröffentlichten Lektionen aller Kurse: XP zählen kursübergreifend. */
+const allPublishedLessons = publishedLessonOutlinesOf(allCoursesOutline);
 
 /** Merkt sich im Verlaufseintrag einer Lektion, aus welcher Ansicht sie geöffnet wurde. */
 interface LessonHistoryState {
@@ -219,19 +245,24 @@ export default function App() {
   const [notice, setNotice] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
-  // Bereits früher erreichte Meilensteine werden beim Laden still nachgetragen.
+  // Bereits früher erreichte Meilensteine werden beim Laden still nachgetragen. Sie
+  // gelten wie XP und Serie für alle Kurse gemeinsam.
   const [progress, setStoredProgress] = useState(() =>
-    awardMilestones(loadProgress(window.localStorage), courseOutline, localDayKey(new Date())),
+    awardMilestones(loadProgress(window.localStorage), allCoursesOutline, localDayKey(new Date())),
   );
   // Jede Änderung prüft im selben Schritt die Meilensteine – so gibt es keinen
   // Zwischenstand und jede Vergabe bleibt einmalig.
   const setProgress = useCallback(
     (update: (current: AcademyProgress) => AcademyProgress) =>
       setStoredProgress((current) =>
-        awardMilestones(update(current), courseOutline, localDayKey(new Date())),
+        awardMilestones(update(current), allCoursesOutline, localDayKey(new Date())),
       ),
     [],
   );
+  // Lernpfad, Üben, Fortschritt & Co. zeigen den gewählten Kurs (mehrere Kurse).
+  const course = useMemo(() => outlineOf(progress), [progress]);
+  const glossary = useMemo(() => glossaryFor(course.id), [course.id]);
+  const album = useMemo(() => albumOverview(course, progress), [course, progress]);
   const [celebration, setCelebration] = useState<Celebration | null>(null);
   const [undoAction, setUndoAction] = useState<UndoAction | null>(null);
   const dismissUndo = useCallback(() => setUndoAction(null), []);
@@ -243,7 +274,7 @@ export default function App() {
   const [guideOpen, setGuideOpen] = useState(false);
   const helpButton = useRef<HTMLButtonElement>(null);
   const searchOpener = useRef<HTMLElement | null>(null);
-  const searchIndex = useMemo(() => buildSearchIndex(courseOutline, glossaryEntries), []);
+  const searchIndex = useMemo(() => buildSearchIndex(course, glossary.entries), [course, glossary]);
   const closeCelebration = useCallback(() => setCelebration(null), []);
   const appStatus = useSyncExternalStore(pwa.subscribe, pwa.getSnapshot);
   // Neuester Stand für das sofortige Speichern beim Verlassen der Seite.
@@ -252,14 +283,16 @@ export default function App() {
     progressRef.current = progress;
   }, [progress]);
   const percent = useMemo(
-    () => progressPercent(progress, publishedLessonIds),
-    [progress],
+    () => progressPercent(progress, publishedLessonIdsOf(course)),
+    [progress, course],
   );
+  const totalXp = useMemo(() => earnedXp(progress, allPublishedLessons), [progress]);
+  // Lektionen, Leser und Fälle aller Kurse bleiben erreichbar – jeweils in ihrem eigenen Kurs geprüft.
   const resolved = useMemo(
-    () => (route ? resolveRoute(route, courseOutline, progress) : null),
-    [route, progress],
+    () => (route ? resolveRoute(route, course, progress, courseOutlines) : null),
+    [route, course, progress],
   );
-  const resume = useMemo(() => resumeTarget(courseOutline, progress), [progress]);
+  const resume = useMemo(() => resumeTarget(course, progress), [course, progress]);
   const activeLesson = resolved?.kind === 'lesson' ? resolved.lesson : null;
   const activeStepIndex = resolved?.kind === 'lesson' ? resolved.stepIndex : 0;
   const resultLesson = resolved?.kind === 'lesson-result' ? resolved.lesson : null;
@@ -271,7 +304,7 @@ export default function App() {
   // Das Kapitel der nächsten Lektion im Leerlauf vorladen – so öffnet sie ohne
   // Wartezeit. Offline liefert es der Service Worker ohnehin aus dem Cache.
   const upcomingLessonId =
-    resume?.lesson.id ?? nextAvailableLesson(courseOutline, progress.completedLessonIds)?.id;
+    resume?.lesson.id ?? nextAvailableLesson(course, progress.completedLessonIds)?.id;
   useEffect(() => {
     const unitId = upcomingLessonId ? unitIdOfLesson(upcomingLessonId) : undefined;
     if (!unitId) return undefined;
@@ -286,8 +319,13 @@ export default function App() {
   const reading = resolved?.kind === 'read' ? resolved.reader : null;
   const training = resolved?.kind === 'train' ? resolved.barCase : null;
   const replaying = resolved?.kind === 'replay' ? resolved : null;
+  // Rückblick im Kurs des Falls (mehrere Kurse).
+  const replayCase = replaying ? findPublishedCase(replaying.caseId) : undefined;
+  const replayCourse = (replayCase && courseOfUnit(replayCase.unitId)) ?? course;
   const studying = resolved?.kind === 'study' ? resolved : null;
   const transferring = resolved?.kind === 'transfer';
+  const librarySubject = resolved?.kind === 'subject' ? resolved.subjectId : null;
+  const libraryCourse = resolved?.kind === 'course' ? resolved.courseId : null;
   // Der Buchleser gehört zur Ansicht „Buchmodus“, der Trainer zu „Üben“
   // (Navigation bleibt markiert).
   const view: View =
@@ -299,7 +337,9 @@ export default function App() {
           ? 'practice'
           : studying
             ? 'path'
-            : lastView;
+            : librarySubject !== null || libraryCourse !== null
+              ? 'library'
+              : lastView;
   // Hinweis, wenn ein Leser-Link auf einen nicht lesbaren Abschnitt zeigte –
   // bleibt stehen, obwohl die Adresse danach auf die echte Stelle zeigt.
   const [readerFallbackUnit, setReaderFallbackUnit] = useState<string | null>(null);
@@ -312,7 +352,7 @@ export default function App() {
   // Eine gespeicherte Wiederholungsrunde nur mit noch vorhandenen Fragen fortsetzen.
   useEffect(() => {
     setProgress((current) =>
-      sanitizeSession(current, reviewPool(courseOutline, current)),
+      sanitizeSession(current, reviewPool(outlineOf(current), current)),
     );
   }, []);
 
@@ -445,11 +485,12 @@ export default function App() {
 
   const guideFacts: GuideFacts = useMemo(
     () => ({
-      firstLesson: nextAvailableLesson(courseOutline, progress.completedLessonIds),
-      publishedCases: publishedCases().length,
-      availableCases: caseEntries(courseOutline, progress).filter((entry) => entry.state !== 'locked').length,
+      courseTitle: course.title,
+      firstLesson: nextAvailableLesson(course, progress.completedLessonIds),
+      publishedCases: courseCases(course).length,
+      availableCases: caseEntries(course, progress).filter((entry) => entry.state !== 'locked').length,
     }),
-    [progress],
+    [course, progress],
   );
 
   const toast = (
@@ -484,7 +525,7 @@ export default function App() {
     setProgress((current) =>
       startSession(
         current,
-        buildSession(mode, reviewPool(courseOutline, current), current, {
+        buildSession(mode, reviewPool(outlineOf(current), current), current, {
           today,
           unitId,
           random: seededRandom(Date.now()),
@@ -612,6 +653,29 @@ export default function App() {
     if (window.location.hash !== formatRoute(next)) {
       navigate(next, 'replace', window.history.state);
     }
+  };
+
+  // Bibliothek (mehrere Kurse): Gebiets- und Kursseiten mit eigenem Verlaufseintrag.
+  const openLibraryPage = (next: AppRoute) => {
+    navigate(next, 'push');
+    setNotice(null);
+    setMobileMenuOpen(false);
+    scrollToTop();
+  };
+
+  // Kurs starten oder wechseln: Nur die Wahl ändert sich, der Lernstand aller Kurse bleibt.
+  // Eine laufende Wiederholungsrunde gehört zum bisherigen Kurs und endet (wie „Runde beenden“).
+  const startCourse = (courseId: string) => {
+    const target = findCourseOutline(courseId);
+    if (!target) return;
+    const switching = target.id !== course.id;
+    setProgress((current) => chooseCourse(switching ? endSession(current, today) : current, target.id));
+    navigate({ kind: 'view', view: 'path' }, 'push');
+    setMobileMenuOpen(false);
+    setNotice(
+      switching ? `Du lernst jetzt „${target.title}“. Dein Stand in den anderen Kursen bleibt erhalten.` : null,
+    );
+    scrollToTop();
   };
 
   // Bar-für-Bar-Trainer (F-15): eigener Verlaufseintrag je Fall.
@@ -785,6 +849,8 @@ export default function App() {
   if (resultLesson) {
     // Zurück dorthin, woher die Lektion geöffnet wurde – nur, wenn es eine echte Ansicht ist.
     const origin = openedFromOrigin(window.history.state);
+    // „Nächste Lektion“ und Trainingsfälle aus dem Kurs der Lektion – auch wenn ein anderer gewählt ist.
+    const resultCourse = courseOfLesson(resultLesson.id) ?? course;
     const resultOrigin: View = origin === 'practice' || origin === 'chapters' ? origin : 'path';
     const openNextFromResult = (lesson: LessonOutline) =>
       navigate(
@@ -808,9 +874,9 @@ export default function App() {
           }}
           onBackToPath={() => navigate({ kind: 'view', view: resultOrigin }, 'replace')}
           backLabel={resultOrigin === 'practice' ? 'Zurück zum Üben' : resultOrigin === 'chapters' ? 'Zurück zum Buchmodus' : 'Zurück zum Lernpfad'}
-          nextLesson={nextAvailableLesson(courseOutline, progress.completedLessonIds)}
+          nextLesson={nextAvailableLesson(resultCourse, progress.completedLessonIds)}
           onNext={openNextFromResult}
-          trainingCases={casesForLesson(courseOutline, progress, resultLesson.id)}
+          trainingCases={casesForLesson(resultCourse, progress, resultLesson.id)}
           onTrain={openTraining}
         />
         {toast}
@@ -835,7 +901,7 @@ export default function App() {
 
         <div className="sidebar-course">
           <span>Aktiver Kurs</span>
-          <strong>Price Action: Trends</strong>
+          <strong>{course.title}</strong>
           <div className="sidebar-progress">
             <span style={{ width: `${percent}%` }} />
           </div>
@@ -929,7 +995,7 @@ export default function App() {
               <span className="search-trigger-label">Suchen</span>
               <kbd aria-hidden="true">/</kbd>
             </button>
-            <span className="pilot-pill">Pilot · Teil 1</span>
+            <span className="pilot-pill">Pilot</span>
             <div className="profile-chip" role="img" aria-label="Profil Robert">
               RW
             </div>
@@ -951,13 +1017,13 @@ export default function App() {
           {studying ? (
             <StudyView
               key={studying.minutes}
-              plan={planStudySession(courseOutline, progress, today, studying.minutes)}
+              plan={planStudySession(course, progress, today, studying.minutes)}
               onMinutes={(minutes) => navigate({ kind: 'study', minutes }, 'replace')}
               onReview={(questionIds) => {
                 // Neue Runde aus den vorgeschlagenen Fragen – oder die laufende fortsetzen.
                 if (questionIds) {
                   setProgress((current) =>
-                    startSession(current, buildQuestionSession(questionIds, reviewPool(courseOutline, current), today)),
+                    startSession(current, buildQuestionSession(questionIds, reviewPool(outlineOf(current), current), today)),
                   );
                 }
                 chooseView('practice');
@@ -982,7 +1048,7 @@ export default function App() {
           ) : null}
           {view === 'path' && !studying && !shouldShowFirstUseGuide(progress) ? (
             <TodayPanel
-              plan={planToday(courseOutline, progress, today)}
+              plan={planToday(course, progress, today)}
               goals={goalOverview(progress, today)}
               onLesson={openLesson}
               onReview={() => {
@@ -1002,7 +1068,7 @@ export default function App() {
           ) : null}
           {view === 'path' && !studying ? (
             <PathView
-              course={courseOutline}
+              course={course}
               progress={progress}
               percent={percent}
               resume={resume}
@@ -1010,12 +1076,13 @@ export default function App() {
               onDismissNotice={() => setNotice(null)}
               goal={goalProgress(progress, today)}
               streak={goalOverview(progress, today).streak}
+              totalXp={totalXp}
               onOpenLesson={openLesson}
             />
           ) : null}
           {reading ? (
             <ReaderView
-              course={courseOutline}
+              course={courseOfUnit(reading.unit.id) ?? course}
               reader={
                 readerFallbackUnit === reading.unit.id ? { ...reading, fellBack: true } : reading
               }
@@ -1045,7 +1112,7 @@ export default function App() {
           {training ? (
             <TrainerView
               key={training.id}
-              course={courseOutline}
+              course={courseOfUnit(training.unitId) ?? course}
               barCase={training}
               progress={progress}
               onBegin={() => setProgress((current) => beginCaseRun(current, training))}
@@ -1062,7 +1129,7 @@ export default function App() {
           ) : null}
           {transferring ? (
             <TransferView
-              course={courseOutline}
+              course={course}
               progress={progress}
               onChange={setProgress}
               onOpenLesson={openLesson}
@@ -1071,7 +1138,7 @@ export default function App() {
           ) : null}
           {view === 'chapters' && !reading ? (
             <ChapterView
-              course={courseOutline}
+              course={course}
               progress={progress}
               onOpenLesson={openLesson}
               onReadUnit={openReader}
@@ -1080,7 +1147,7 @@ export default function App() {
           {replaying ? (
             <ReplayView
               key={`${replaying.caseId}/${replaying.sessionId}`}
-              course={courseOutline}
+              course={replayCourse}
               progress={progress}
               caseId={replaying.caseId}
               sessionId={replaying.sessionId}
@@ -1098,9 +1165,10 @@ export default function App() {
           ) : null}
           {view === 'practice' && !training && !replaying && !transferring ? (
             <PracticeView
-              course={courseOutline}
+              course={course}
               progress={progress}
               today={today}
+              glossary={glossary.entries}
               onStart={startReview}
               onAnswer={(question, optionId) =>
                 setProgress((current) => answerReview(current, question, optionId, today))
@@ -1120,7 +1188,7 @@ export default function App() {
                 setProgress((current) =>
                   startSession(
                     current,
-                    buildQuestionSession(questionIds, reviewPool(courseOutline, current), today, topicId),
+                    buildQuestionSession(questionIds, reviewPool(outlineOf(current), current), today, topicId),
                   ),
                 );
                 window.scrollTo({ top: 0 });
@@ -1129,7 +1197,7 @@ export default function App() {
                 setProgress((current) =>
                   startSession(
                     current,
-                    buildQuestionSession(questionIds, reviewPool(courseOutline, current), today),
+                    buildQuestionSession(questionIds, reviewPool(outlineOf(current), current), today),
                   ),
                 );
                 window.scrollTo({ top: 0 });
@@ -1138,15 +1206,16 @@ export default function App() {
           ) : null}
           {view === 'progress' ? (
             <ProgressView
-              course={courseOutline}
-              overview={progressOverview(courseOutline, progress, today)}
+              key={course.id}
+              course={course}
+              overview={progressOverview(course, progress, today, allCoursesOutline)}
               goals={goalOverview(progress, today)}
               today={today}
               onAction={runNextAction}
               onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
-              summary={progressSummary(progress)}
-              missions={dailyMissions(courseOutline, progress, today)}
-              album={albumOverview(courseOutline, progress)}
+              summary={progressSummary(progress, courseCases(course), questionIdsOf(course))}
+              missions={dailyMissions(course, progress, today)}
+              album={album.cards.length > 0 ? album : undefined}
               onOpenLesson={openLesson}
               onMission={(mission) => {
                 if (mission.kind === 'review') runNextAction({ kind: 'review', due: 0 });
@@ -1157,7 +1226,11 @@ export default function App() {
           ) : null}
           {view === 'saved' ? (
             <SavedView
-              overview={savedOverview(courseOutline, progress)}
+              overview={savedOverview(
+                course,
+                progress,
+                courseOutlines.filter((other) => other.id !== course.id).map((other) => other.id),
+              )}
               onOpen={openSavedTarget}
               onRemoveBookmark={removeBookmarkWithUndo}
               onDeleteNote={deleteNoteWithUndo}
@@ -1176,11 +1249,33 @@ export default function App() {
               onApplyUpdate={pwa.applyUpdate}
             />
           ) : null}
-          {view === 'library' ? <LibraryView percent={percent} onOpenCourse={() => chooseView('path')} /> : null}
+          {view === 'library' && librarySubject === null && libraryCourse === null ? (
+            <LibraryView
+              progress={progress}
+              activeCourseId={course.id}
+              onNavigate={openLibraryPage}
+              onContinue={() => chooseView('path')}
+            />
+          ) : null}
+          {librarySubject !== null ? (
+            <SubjectPage subjectId={librarySubject} activeCourseId={course.id} onNavigate={openLibraryPage} />
+          ) : null}
+          {libraryCourse !== null ? (
+            <CoursePage
+              key={libraryCourse}
+              courseId={libraryCourse}
+              progress={progress}
+              activeCourseId={course.id}
+              onNavigate={openLibraryPage}
+              onStart={startCourse}
+              onContinue={() => chooseView('path')}
+            />
+          ) : null}
           {view === 'glossary' ? (
             <GlossaryView
-              key={glossaryTerm ?? ''}
-              entries={glossaryEntries}
+              key={`${course.id}:${glossaryTerm ?? ''}`}
+              entries={glossary.entries}
+              title={glossary.title}
               initialQuery={glossaryTerm}
             />
           ) : null}

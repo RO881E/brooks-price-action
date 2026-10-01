@@ -10,6 +10,7 @@ import {
   MILESTONE_IDS,
   READING_SIZES,
   READING_SPACINGS,
+  isCourseId,
   loadProgress,
   sameReadingOptions,
   tidyCaseRuns,
@@ -64,6 +65,7 @@ export const BACKUP_FIELDS = [
   'readingOptions',
   'caseRuns',
   'guideSeenAt',
+  'activeCourseId',
 ] as const;
 
 export type BackupField = (typeof BACKUP_FIELDS)[number];
@@ -72,7 +74,13 @@ export type BackupField = (typeof BACKUP_FIELDS)[number];
  * Felder, die es erst ab einer bestimmten Datenversion gibt. Ältere
  * Sicherungen ohne sie bleiben gültig; die Migration ergänzt leere Werte.
  */
-const FIELD_SINCE: Partial<Record<BackupField, number>> = { readerPositions: 9, readingOptions: 10, caseRuns: 11, guideSeenAt: 13 };
+const FIELD_SINCE: Partial<Record<BackupField, number>> = {
+  readerPositions: 9,
+  readingOptions: 10,
+  caseRuns: 11,
+  guideSeenAt: 13,
+  activeCourseId: 16,
+};
 export type BackupData = Pick<AcademyProgress, BackupField>;
 
 export interface AcademyBackup {
@@ -344,6 +352,9 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
   lastLessonId(value, errors) {
     if (value !== null && !isId(value)) errors.push('„lastLessonId“ ist ungültig.');
   },
+  activeCourseId(value, errors) {
+    if (value !== null && !isCourseId(value)) errors.push('„activeCourseId“ ist ungültig.');
+  },
   lessonPositions(value, errors) {
     checkRecord('lessonPositions', value, errors, (_key, entry) => {
       if (!isRecord(entry) || !hasExactKeys(entry, POSITION_KEYS)) return 'unvollständig';
@@ -535,6 +546,7 @@ export interface MergeOptions {
  *   Sicherung nichts doppelt zählt
  * - Notizen: neuere Fassung
  * - Tagesziel und Darstellung: aus der Sicherung, außer `keepLocalPreferences`
+ * - gewählter Kurs: lokal, ohne lokale Wahl der aus der Sicherung
  * - laufende Runde und unbekannte Zusatzfelder: lokal
  */
 export function mergeProgress(
@@ -587,6 +599,8 @@ export function mergeProgress(
     caseRuns: mergeCaseRuns(local.caseRuns, incoming.caseRuns),
     // Einmal geschlossen bleibt geschlossen.
     guideSeenAt: local.guideSeenAt ?? incoming.guideSeenAt,
+    // Der hier gewählte Kurs bleibt; ohne eigene Wahl gilt die der Sicherung.
+    activeCourseId: local.activeCourseId ?? incoming.activeCourseId,
   };
 }
 

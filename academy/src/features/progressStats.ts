@@ -168,6 +168,8 @@ export function progressOverview(
   course: CourseOutline,
   progress: AcademyProgress,
   today: DayKey,
+  /** Gliederung aller Kurse: XP zählen kursübergreifend (mehrere Kurse). */
+  allCourses: CourseOutline = course,
 ): ProgressOverview {
   const lessons = lessonStats(course, progress);
   const published = publishedLessons(course);
@@ -188,7 +190,7 @@ export function progressOverview(
           ? 'active'
           : 'new',
     lessons,
-    xp: earnedXp(progress, published),
+    xp: earnedXp(progress, allCourses === course ? published : publishedLessons(allCourses)),
     firstAttempt,
     dueToday: dueItems(reviewPool(course, progress), progress, today).length,
     activity,

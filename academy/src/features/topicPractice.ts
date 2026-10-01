@@ -63,7 +63,8 @@ export function topicEntries(
   const lessonsById = new Map(course.units.flatMap((unit) => unit.lessons).map((lesson) => [lesson.id, lesson]));
   const completed = new Set(progress.completedLessonIds);
 
-  return topics.map((topic) => {
+  // Nur Themen dieses Kurses (mehrere Kurse): Ihre Lehrstellen stehen in seiner Gliederung.
+  return topics.filter((topic) => topic.teaching.some((ref) => lessonsById.has(ref.lessonId))).map((topic) => {
     const seen = new Set<string>();
     const questions = topic.questionIds
       .filter((id) => !seen.has(id) && seen.add(id))

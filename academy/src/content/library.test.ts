@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { courseInfo } from './units';
+import { DEFAULT_COURSE_ID } from './registry';
 import {
-  ACTIVE_COURSE_ID,
   libraryCounts,
   librarySubjects,
   subjectStatus,
@@ -12,9 +12,9 @@ import {
 const registered = [courseInfo.id];
 
 describe('Bibliothek (Themenliste)', () => {
-  it('die echte Liste ist gültig und der aktive Kurs ist der registrierte', () => {
-    expect(validateLibrary(librarySubjects, ACTIVE_COURSE_ID, registered)).toEqual([]);
-    expect(ACTIVE_COURSE_ID).toBe(courseInfo.id);
+  it('die echte Liste ist gültig und der Standardkurs ist der registrierte', () => {
+    expect(validateLibrary(librarySubjects, DEFAULT_COURSE_ID, registered)).toEqual([]);
+    expect(DEFAULT_COURSE_ID).toBe(courseInfo.id);
   });
 
   it('enthält alle Themengebiete; nur der Kurs mit Inhalt ist verfügbar, alles andere geplant', () => {
@@ -62,6 +62,6 @@ describe('Bibliothek (Themenliste)', () => {
     expect(messages).toContain('mindestens ein Thema');
     expect(messages).toContain('Mindestens ein Unterthema');
     expect(messages).toContain('Ein Unterthema steht doppelt');
-    expect(messages).toContain('Der aktive Kurs fehlt');
+    expect(messages).toContain('Der Standardkurs fehlt');
   });
 });

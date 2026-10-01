@@ -32,9 +32,6 @@ export interface LibrarySubject {
   courses: LibraryCourse[];
 }
 
-/** Der Kurs, mit dem die App heute arbeitet (Lernpfad, Üben, Fortschritt …). */
-export const ACTIVE_COURSE_ID = 'price-action-trends';
-
 const planned = (id: string, title: string, description: string, subtopics: string[], label?: string): LibraryCourse => ({
   id,
   title,
@@ -830,10 +827,10 @@ export interface LibraryIssue {
 
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-/** Prüft die Liste: eindeutige IDs, genau der aktive Kurs ist verfügbar, Texte und Unterthemen vorhanden. */
+/** Prüft die Liste: eindeutige IDs, verfügbar sind genau die registrierten Kurse (darunter der Standardkurs), Texte und Unterthemen vorhanden. */
 export function validateLibrary(
   subjects: readonly LibrarySubject[],
-  activeCourseId: string,
+  defaultCourseId: string,
   availableCourseIds: readonly string[],
 ): LibraryIssue[] {
   const issues: LibraryIssue[] = [];
@@ -874,8 +871,8 @@ export function validateLibrary(
     });
   });
 
-  const active = subjects.flatMap((subject) => subject.courses).find((course) => course.id === activeCourseId);
-  if (!active) issues.push({ path: 'activeCourseId', message: 'Der aktive Kurs fehlt in der Bibliothek.' });
-  else if (active.status !== 'available') issues.push({ path: 'activeCourseId', message: 'Der aktive Kurs muss verfügbar sein.' });
+  const standard = subjects.flatMap((subject) => subject.courses).find((course) => course.id === defaultCourseId);
+  if (!standard) issues.push({ path: 'defaultCourseId', message: 'Der Standardkurs fehlt in der Bibliothek.' });
+  else if (standard.status !== 'available') issues.push({ path: 'defaultCourseId', message: 'Der Standardkurs muss verfügbar sein.' });
   return issues;
 }

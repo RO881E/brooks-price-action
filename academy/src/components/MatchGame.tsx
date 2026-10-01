@@ -1,4 +1,5 @@
 import { useId, useMemo, useRef, useState } from 'react';
+import type { GlossaryEntry } from '../content/glossary';
 import type { CourseOutline } from '../content/types';
 import { buildMatchRound, MATCH_MIN_TERMS, matchTerms } from '../features/matchPairs';
 import type { AcademyProgress } from '../features/progress';
@@ -10,9 +11,18 @@ import { Icon } from './Icon';
  * Übung ohne Einfluss auf Lernstand, XP oder Fälligkeiten; nichts wird gespeichert. Alles
  * sind normale Buttons (Tastatur, kein Ziehen); Fehlversuche erklären statt zu bestrafen.
  */
-export function MatchGame({ course, progress }: { course: CourseOutline; progress: AcademyProgress }) {
+export function MatchGame({
+  course,
+  progress,
+  glossary,
+}: {
+  course: CourseOutline;
+  progress: AcademyProgress;
+  /** Begriffe des Kurses (mehrere Kurse); ohne Angabe das Price-Action-Glossar. */
+  glossary?: readonly GlossaryEntry[];
+}) {
   const ids = useId();
-  const terms = useMemo(() => matchTerms(course, progress), [course, progress]);
+  const terms = useMemo(() => matchTerms(course, progress, glossary), [course, progress, glossary]);
   const [seed, setSeed] = useState<number | null>(null);
   const round = useMemo(() => (seed === null ? null : buildMatchRound(terms, seed)), [terms, seed]);
   const [matched, setMatched] = useState<Set<string>>(new Set());

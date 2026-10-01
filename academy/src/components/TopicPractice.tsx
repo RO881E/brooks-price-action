@@ -60,6 +60,8 @@ interface Props {
 export function TopicPractice({ course, progress, today, onStartTopic, onOpenLesson, onTrain, onOpenTransfer }: Props) {
   const ids = useId();
   const entries = useMemo(() => topicEntries(course, progress, today), [course, progress, today]);
+  // Kurse ohne Themenkarte zeigen den Bereich nicht (mehrere Kurse).
+  if (entries.length === 0) return null;
 
   return (
     <section className="topic-practice" aria-labelledby={`${ids}-title`}>

@@ -2,7 +2,7 @@ import { transferCases as registeredTransferCases } from '../content/barCases';
 import type { BarCase } from '../content/barCaseTypes';
 import type { CourseOutline } from '../content/types';
 import { advance, canSubmit, submitDecision, type CaseSession } from './barTrainer';
-import { activeSession, beginCaseRun, caseAvailable, caseLockedBy, publishedCases, updateCaseRun } from './caseTraining';
+import { activeSession, beginCaseRun, caseAvailable, caseLockedBy, courseCases, publishedCases, updateCaseRun } from './caseTraining';
 import { buildReplay, type Replay } from './caseReplay';
 import type { AcademyProgress } from './progress';
 
@@ -27,7 +27,7 @@ export type TransferStatus =
 
 export interface TransferPlan {
   status: TransferStatus;
-  /** Freigegebene Transferfälle insgesamt (auch noch gesperrte). */
+  /** Freigegebene Transferfälle des Kurses insgesamt (auch noch gesperrte). */
   approved: number;
   /** Zugängliche freigegebene Fälle in fester Reihenfolge. */
   cases: BarCase[];
@@ -46,7 +46,7 @@ export function planTransfer(
   progress: AcademyProgress,
   cases: readonly BarCase[] = registeredTransferCases,
 ): TransferPlan {
-  const approved = publishedCases(cases);
+  const approved = courseCases(course, cases);
   const accessible = approved.filter((barCase) => caseAvailable(course, progress, barCase));
   const locked = approved.flatMap((barCase) => {
     const lockedBy = caseLockedBy(course, progress, barCase);

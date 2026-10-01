@@ -6,6 +6,7 @@ import type { CourseOutline, LessonOutline } from '../content/types';
 import {
   approvedTasks,
   correctPositions,
+  courseTasks,
   describeSignalBar,
   moveStep,
   nextTaskIndex,
@@ -147,9 +148,11 @@ export function SignalBarGame({
   course,
   progress,
   onOpenLesson,
-  tasks = allSignalTasks,
+  tasks: allTasks = allSignalTasks,
 }: Omit<TaskProps, 'signalTasks' | 'orderTasks'> & { tasks?: readonly SignalBarTask[] }) {
   const ids = useId();
+  // Nur Aufgaben des gewählten Kurses (mehrere Kurse).
+  const tasks = useMemo(() => courseTasks(course, allTasks), [course, allTasks]);
   const available = useMemo(() => unlockedSignalTasks(progress, tasks), [progress, tasks]);
   const [current, setCurrent] = useState<{ index: number; seed: number } | null>(null);
   const [missed, setMissed] = useState<Set<number>>(new Set());
@@ -260,9 +263,11 @@ export function OrderGame({
   course,
   progress,
   onOpenLesson,
-  tasks = allOrderTasks,
+  tasks: allTasks = allOrderTasks,
 }: Omit<TaskProps, 'signalTasks' | 'orderTasks'> & { tasks?: readonly OrderTask[] }) {
   const ids = useId();
+  // Nur Aufgaben des gewählten Kurses (mehrere Kurse).
+  const tasks = useMemo(() => courseTasks(course, allTasks), [course, allTasks]);
   const available = useMemo(() => unlockedOrderTasks(progress, tasks), [progress, tasks]);
   const [current, setCurrent] = useState<{ index: number; order: string[] } | null>(null);
   const [checked, setChecked] = useState<boolean[] | null>(null);

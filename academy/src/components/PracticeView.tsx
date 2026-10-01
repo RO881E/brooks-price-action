@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { loadedQuestion, useLessonContent } from '../content/catalog';
+import type { GlossaryEntry } from '../content/glossary';
 import type { CourseOutline, LessonOutline } from '../content/types';
 import type { QuestionStep } from '../features/lessonResults';
 import type { AcademyProgress, ReviewMode, ReviewSession } from '../features/progress';
@@ -74,6 +75,8 @@ interface PracticeViewProps {
   onPracticeTopic?: (topicId: string, questionIds: string[]) => void;
   /** Transferprüfung (F-17) öffnen. */
   onOpenTransfer?: () => void;
+  /** Begriffe des Kurses für das Begriffe-Memory (mehrere Kurse). */
+  glossary?: readonly GlossaryEntry[];
 }
 
 export function PracticeView({
@@ -89,6 +92,7 @@ export function PracticeView({
   onPracticeQuestions,
   onPracticeTopic,
   onOpenTransfer,
+  glossary,
 }: PracticeViewProps) {
   const items = useMemo(() => reviewPool(course, progress), [course, progress]);
   const session = progress.reviewSession;
@@ -156,7 +160,9 @@ export function PracticeView({
         />
       ) : null}
 
-      {!session ? <MatchGame course={course} progress={progress} /> : null}
+      {!session && (glossary === undefined || glossary.length > 0) ? (
+        <MatchGame course={course} progress={progress} glossary={glossary} />
+      ) : null}
       {!session ? <BlitzGame course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
       {!session ? <PracticeTasks course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
 
@@ -170,8 +176,9 @@ export function PracticeView({
           onTrain={onTrain}
         />
       ) : null}
-      {onTrain && !session ? <CaseTrainingList entries={cases} onTrain={onTrain} /> : null}
-      {onTrain && !session ? <CaseCompare course={course} progress={progress} /> : null}
+      {/* Kurse ohne Trainingsfälle zeigen beide Bereiche nicht (mehrere Kurse). */}
+      {onTrain && !session && cases.length > 0 ? <CaseTrainingList entries={cases} onTrain={onTrain} /> : null}
+      {onTrain && !session && cases.length > 0 ? <CaseCompare course={course} progress={progress} /> : null}
     </div>
   );
 }

@@ -39,6 +39,19 @@ export function findPublishedCase(caseId: string, cases: readonly BarCase[] = re
   return publishedCases(cases).find((barCase) => barCase.id === caseId);
 }
 
+/**
+ * Ob ein Fall zu einem Kurs gehört (mehrere Kurse): Seine Einheit steht in der
+ * Gliederung des Kurses. Einheiten-IDs sind kursübergreifend eindeutig.
+ */
+export function caseInCourse(course: CourseOutline, barCase: BarCase): boolean {
+  return course.units.some((unit) => unit.id === barCase.unitId);
+}
+
+/** Freigegebene Fälle eines Kurses – Fälle anderer Kurse erscheinen dort nicht. */
+export function courseCases(course: CourseOutline, cases: readonly BarCase[] = registeredCases): BarCase[] {
+  return publishedCases(cases).filter((barCase) => caseInCourse(course, barCase));
+}
+
 function findLesson(course: CourseOutline, lessonId: string): LessonOutline | undefined {
   for (const unit of course.units) {
     const lesson = unit.lessons.find((item) => item.id === lessonId);
@@ -98,7 +111,7 @@ export function caseEntries(
   progress: AcademyProgress,
   cases: readonly BarCase[] = registeredCases,
 ): CaseEntry[] {
-  return publishedCases(cases).map((barCase) => {
+  return courseCases(course, cases).map((barCase) => {
     const unit = course.units.find((item) => item.id === barCase.unitId);
     const runs = progress.caseRuns[barCase.id]?.length ?? 0;
     const base = { barCase, unitLabel: unit?.label ?? barCase.unitId, runs };

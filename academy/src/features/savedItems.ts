@@ -194,16 +194,27 @@ export interface SavedOverview {
   notes: SavedNote[];
 }
 
-/** Lesezeichen und Notizen, neueste zuerst, mit aufgelöster Fundstelle. */
-export function savedOverview(course: CourseOutline, progress: AcademyProgress): SavedOverview {
+/**
+ * Lesezeichen und Notizen, neueste zuerst, mit aufgelöster Fundstelle. Bei mehreren Kursen
+ * zeigt jeder Kurs nur seine eigenen: Einträge, deren Lektion zu einem der `otherCourseIds`
+ * gehört (Präfix der Lektions-ID), bleiben gespeichert, erscheinen aber in jenem Kurs.
+ */
+export function savedOverview(
+  course: CourseOutline,
+  progress: AcademyProgress,
+  otherCourseIds: readonly string[] = [],
+): SavedOverview {
+  const elsewhere = (lessonId: string) => otherCourseIds.some((id) => lessonId.startsWith(`${id}.`));
   return {
     bookmarks: Object.entries(progress.bookmarks)
+      .filter(([, bookmark]) => !elsewhere(bookmark.lessonId))
       .sort(([, a], [, b]) => b.createdAt.localeCompare(a.createdAt))
       .map(([key, bookmark]) => ({
         ...resolveTarget(course, progress, key, bookmark.lessonId, bookmark.stepId),
         bookmark,
       })),
     notes: Object.entries(progress.notes)
+      .filter(([, note]) => !elsewhere(note.lessonId))
       .sort(([, a], [, b]) => b.updatedAt.localeCompare(a.updatedAt))
       .map(([key, note]) => ({
         ...resolveTarget(course, progress, key, note.lessonId, note.stepId),

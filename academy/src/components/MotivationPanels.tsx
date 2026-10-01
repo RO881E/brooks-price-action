@@ -38,13 +38,16 @@ export function ProgressSummary({ overview, summary, goals }: { overview: Progre
           <strong>{summary.reviewedQuestions}</strong>
           <small>{summary.reviewedQuestions === 1 ? 'Frage wiederholt' : 'Fragen wiederholt'}</small>
         </li>
-        <li data-mode="train">
-          <span className="summary-label">Trainieren</span>
-          <strong>
-            {summary.trainedCases} von {summary.totalCases}
-          </strong>
-          <small>Trainerfällen bearbeitet</small>
-        </li>
+        {/* Kurse ohne Trainerfälle (mehrere Kurse) zeigen diese Kennzahl nicht. */}
+        {summary.totalCases > 0 ? (
+          <li data-mode="train">
+            <span className="summary-label">Trainieren</span>
+            <strong>
+              {summary.trainedCases} von {summary.totalCases}
+            </strong>
+            <small>Trainerfällen bearbeitet</small>
+          </li>
+        ) : null}
         <li data-mode="progress">
           <span className="summary-label">Serie</span>
           <strong>{goals.streak.current}</strong>

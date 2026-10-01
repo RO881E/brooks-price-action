@@ -691,3 +691,42 @@ describe('Einführung beim ersten Besuch (F-18, v13)', () => {
     );
   });
 });
+
+describe('Gewählter Kurs (Mehrkurs, v16)', () => {
+  it('beginnt ohne Wahl; ältere Stände lernen im Standardkurs', () => {
+    expect(createEmptyProgress().activeCourseId).toBeNull();
+    const v15 = migrateProgress({ version: 15, completedLessonIds: ['a'], answers: {} })!;
+    expect(v15.version).toBe(ACADEMY_PROGRESS_VERSION);
+    expect(v15.activeCourseId).toBeNull();
+    expect(v15.preservedFields).toEqual({});
+  });
+
+  it('übernimmt nur gültige Kurs-IDs – auch unbekannte Kurse einer neueren Version', () => {
+    expect(migrateProgress({ version: 16, activeCourseId: 'test-course' })?.activeCourseId).toBe('test-course');
+    expect(migrateProgress({ version: 16, activeCourseId: 'kurs-aus-spaeterer-version' })?.activeCourseId).toBe(
+      'kurs-aus-spaeterer-version',
+    );
+    for (const invalid of [5, '', 'Großbuchstaben', 'mit leerzeichen', '../pfad', 'a'.repeat(201), {}]) {
+      expect(migrateProgress({ version: 16, activeCourseId: invalid })?.activeCourseId).toBeNull();
+    }
+  });
+
+  it('wechselt nur die Wahl; der Lernstand bleibt unberührt', async () => {
+    const { chooseCourse } = await import('./progress');
+    const learned = completeLesson(createEmptyProgress(), 'price-action-trends.chapter-01.lesson-01', 30, '2026-10-01T08:00:00.000Z');
+    const switched = chooseCourse(learned, 'test-course');
+    expect(switched.activeCourseId).toBe('test-course');
+    expect(switched.completedLessonIds).toBe(learned.completedLessonIds);
+    expect(switched.dailyActivity).toBe(learned.dailyActivity);
+    expect(chooseCourse(switched, 'test-course')).toBe(switched);
+    expect(chooseCourse(switched, 'Ungültig!')).toBe(switched);
+  });
+
+  it('übersteht Speichern und Laden', async () => {
+    const { chooseCourse } = await import('./progress');
+    const storage = new Map<string, string>();
+    const store = { getItem: (key: string) => storage.get(key) ?? null, setItem: (key: string, value: string) => void storage.set(key, value) };
+    saveProgress(store, chooseCourse(createEmptyProgress(), 'test-course'));
+    expect(loadProgress(store).activeCourseId).toBe('test-course');
+  });
+});
