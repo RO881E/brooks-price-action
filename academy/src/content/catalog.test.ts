@@ -110,16 +110,15 @@ describe('LessonCatalog', () => {
 });
 
 describe('App-Code', () => {
-  it('importiert nie den vollständigen Kurs – nur die Gliederung und den Katalog', () => {
-    // Quelltexte aller App-Module (ohne Tests); `course.ts` selbst ausgenommen.
-    const files = import.meta.glob(['../**/*.{ts,tsx}', '!../**/*.test.{ts,tsx}', '!./course.ts'], {
-      query: '?raw',
-      import: 'default',
-      eager: true,
-    }) as Record<string, string>;
+  it('importiert nie die vollständigen Kurse – nur die Gliederungen und den Katalog', () => {
+    // Quelltexte aller App-Module (ohne Tests); `course.ts` und `allCourses.ts` selbst ausgenommen.
+    const files = import.meta.glob(
+      ['../**/*.{ts,tsx}', '!../**/*.test.{ts,tsx}', '!./course.ts', '!./allCourses.ts'],
+      { query: '?raw', import: 'default', eager: true },
+    ) as Record<string, string>;
     expect(Object.keys(files).length).toBeGreaterThan(30);
     const offenders = Object.entries(files)
-      .filter(([, source]) => /from ['"](\.{1,2}\/)+(content\/)?course['"]/.test(source))
+      .filter(([, source]) => /from ['"](\.{1,2}\/)+(content\/)?(course|allCourses)['"]/.test(source))
       .map(([file]) => file);
     expect(offenders).toEqual([]);
   });

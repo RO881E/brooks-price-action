@@ -67,7 +67,7 @@ Chartfälle und der vertieften Besprechung von Abbildung 10.2.
 ## Gespeicherte Daten
 
 Der Schlüssel `wqt-academy-progress-v1` behält seinen Namen. Der Datensatz darin trägt
-seit F-24 `version: 14`:
+seit „Mehrere Kurse“ `version: 16`:
 
 - `lessonPositions` (seit F-01): letzter Schritt je begonnener Lektion
 - `answers`: zuletzt abgegebene Auswahl je Frage – Format seit v1 unverändert
@@ -107,8 +107,13 @@ seit F-24 `version: 14`:
 - `reviewSession.topicId` (seit F-27, v15): optionale Beschriftung einer Themenrunde; nicht Teil der
   Sicherung (laufende Runden werden nicht gesichert).
 - `guideSeenAt` (seit F-18, v13): Zeitpunkt, zu dem die Einführung geschlossen wurde, sonst `null`
+- `activeCourseId` (seit „Mehrere Kurse“, v16): der gewählte Kurs; `null`, solange keiner gewählt ist –
+  dann gilt der Standardkurs. Der übrige Lernstand ist über die kursübergreifend eindeutigen IDs je Kurs
+  getrennt; XP, Lerntage, Tagesziel und Meilensteine gelten für alle Kurse gemeinsam
+  ([`docs/DESIGN_MEHRERE_KURSE.md`](docs/DESIGN_MEHRERE_KURSE.md))
 
-Ältere Datensätze (v1–v14) werden beim Laden verlustfrei migriert; der Wiederholungsplan
+Ältere Datensätze (v1–v15) werden beim Laden verlustfrei migriert (vor v16 ohne gewählten Kurs, also im
+Standardkurs); der Wiederholungsplan
 startet leer, ebenso die Lesestellen (vor v9) und die Trainerrunden (vor v11); Leseoptionen
 beginnen vor v10 bei „Standard“, unbekannte Stufen werden einzeln zu „Standard“. Defekte
 Trainerrunden oder -sitzungen entfallen einzeln. Defekte Lesestellen (ohne Einheit oder Lektion)
@@ -127,7 +132,8 @@ Der Import prüft streng (`src/features/backup.ts`): höchstens 10 MB, gültiges
 Format und keine neuere Version, alle Pflichtfelder, keine unbekannten Felder, gültige Einträge
 und keine gefährlichen Schlüssel wie `__proto__`. Sicherungen aus v8 (vor dem Buchleser), v9 (vor den
 Leseoptionen) und v10 (vor dem Trainer) bleiben gültig: Ihnen fehlen nur `readerPositions`,
-`readingOptions` bzw. `caseRuns`, die leer bzw. mit „Standard“ ergänzt werden. Eine abgelehnte Datei ändert nichts. Vor jeder
+`readingOptions` bzw. `caseRuns`, die leer bzw. mit „Standard“ ergänzt werden; Sicherungen vor v16 fehlt
+`activeCourseId` (Standardkurs). Beim Zusammenführen bleibt der hier gewählte Kurs. Eine abgelehnte Datei ändert nichts. Vor jeder
 Änderung erscheint eine Vorschau.
 
 - **Zusammenführen** (Standard) ergänzt den Stand, ohne etwas doppelt zu zählen: Vereinigung von
@@ -159,11 +165,12 @@ Leseoptionen) und v10 (vor dem Trainer) bleiben gültig: Ihnen fehlen nur `reade
 
 ## Kapitelweises Laden
 
-- `src/content/units.ts` ist die **einzige** Liste der Kurseinheiten in Buchreihenfolge. Jede
-  Einheit hat Metadaten und einen `load()`-Aufruf mit dynamischem Import; daraus entsteht je
-  Einheit ein eigener Chunk. **Neue Kapitel werden nur hier eingetragen.**
+- `src/content/units.ts` ist die **einzige** Liste der Einheiten von „Price Action: Trends“ in
+  Buchreihenfolge. Jede Einheit hat Metadaten und einen `load()`-Aufruf mit dynamischem Import;
+  daraus entsteht je Einheit ein eigener Chunk. **Neue Kapitel werden nur hier eingetragen.**
+  Weitere Kurse trägt das Kursregister `src/content/registry.ts` ein (siehe „Mehrere Kurse parallel“).
 - Das Vite-Plugin `build/courseOutlinePlugin.ts` erzeugt beim Build und im Entwicklungsserver
-  das virtuelle Modul `virtual:wqt-course-outline`: die Gliederung aller Einheiten, Lektionen
+  das virtuelle Modul `virtual:wqt-course-outline`: je Kurs die Gliederung aller Einheiten, Lektionen
   und Schritte (IDs, Titel, Zusammenfassung, Quelle, XP, Status, bei Fragen die richtige
   Antwort-ID) – ohne Lehrtexte. Sie wird aus denselben Inhaltsdateien berechnet und kann nicht
   von ihnen abweichen.
@@ -176,8 +183,9 @@ Leseoptionen) und v10 (vor dem Trainer) bleiben gültig: Ihnen fehlen nur `reade
 - Schlägt das Laden fehl, erscheint „Die Lektion konnte nicht geladen werden.“ mit „Erneut
   laden“ (lädt die Seite neu, weil Browser fehlgeschlagene Module zwischenspeichern) und „Zurück
   zur Übersicht“. Gespeicherte Daten bleiben unberührt.
-- `src/content/course.ts` setzt den vollständigen Kurs zusammen und ist nur für Tests und die
-  Build-Erzeugung da; ein Unit-Test verhindert, dass App-Code ihn importiert.
+- `src/content/course.ts` (Standardkurs) und `src/content/allCourses.ts` (alle Kurse des Registers)
+  setzen die vollständigen Kurse zusammen und sind nur für Tests und die Build-Erzeugung da; ein
+  Unit-Test verhindert, dass App-Code sie importiert.
 - Offline: Der Service Worker lädt weiterhin alle Einheiten vorab (wählbare Kapitel wären F-19).
 
 ## Offline-App und Updates
@@ -554,14 +562,24 @@ Der Chart-Trainer hat große Entscheidungs-Kacheln, animierte neue Bars und eine
 es zwei freiwillige Spiele ohne Einfluss auf den Lernstand: Begriffe-Memory (Begriff ↔ Beschreibung aus dem Glossar) und die
 Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](docs/DESIGN_STUFE4.md).
 
-## Bibliothek: alle Themen
+## Bibliothek: alle Themen auf eigenen Seiten
 
-Ansicht „Bibliothek“ (`#/library`, im Menü und über „Alle Themen ansehen“): 18 Themengebiete mit 106 Kursen –
-von Marktgrundlagen und Price Action über Volumen, Orderflow, Risiko und Psychologie bis zu Bewertung, Makro und
-Marktgeschichte. Die Gebiete sind aufklappbar, jede Kurskarte nennt ihre möglichen Unterthemen. Aktiv ist
-„Price Action: Trends“; alles andere steht als „Geplant“ ohne Inhalt da. Einzige Liste: `src/content/library.ts`;
-daraus erzeugt `npm run catalog` den [Themenkatalog](docs/THEMENKATALOG.md). Mehrere gleichzeitig lernbare Kurse
-(Lernstand je Kurs usw.) sind bewusst noch nicht gebaut. Details: [`docs/DESIGN_BIBLIOTHEK.md`](docs/DESIGN_BIBLIOTHEK.md).
+„Bibliothek“ (im Menü und über „Alle Themen ansehen“) besteht aus drei Seiten: der Übersicht (`#/library`) mit
+„Deine Kurse“ und 18 Themengebieten als Kacheln, je einer Seite pro Gebiet (`#/library/<gebiet>`) mit seinen
+Kursen und je einer Seite pro Kurs (`#/course/<kurs>`) mit Beschreibung, Unterthemen und – bei Kursen mit
+Inhalt – „Kurs starten“ bzw. „Zu diesem Kurs wechseln“. Insgesamt 106 Kurse von Marktgrundlagen und Price Action
+über Volumen, Orderflow, Risiko und Psychologie bis zu Bewertung, Makro und Marktgeschichte; Inhalt hat heute
+„Price Action: Trends“, alles andere steht als „Geplant“ ohne Start da. Einzige Liste: `src/content/library.ts`;
+daraus erzeugt `npm run catalog` den [Themenkatalog](docs/THEMENKATALOG.md).
+Details: [`docs/DESIGN_BIBLIOTHEK.md`](docs/DESIGN_BIBLIOTHEK.md).
+
+## Mehrere Kurse parallel
+
+Jeder Kurs mit Inhalt lässt sich starten und jederzeit wechseln. Lernpfad, Buchmodus, Üben, Fortschritt, Glossar,
+Suche und Gespeichert zeigen den gewählten Kurs; jeder Kurs behält seinen eigenen Stand. XP, Lerntage, Tagesziel
+und Meilensteine zählen für alle Kurse gemeinsam. Kurse stehen im Kursregister `src/content/registry.ts`. Die
+Browser-Tests laufen im Vite-Modus `e2e` mit einem kleinen Testkurs, den es im Build nicht gibt.
+Details: [`docs/DESIGN_MEHRERE_KURSE.md`](docs/DESIGN_MEHRERE_KURSE.md).
 
 ## „Finde den Bar“ und „Ordne die Schritte“ (Stufe 4d, Content-Pack C-04)
 
@@ -593,6 +611,8 @@ Format; geplante Einträge bilden die Quellenreihenfolge ab, ohne Vollständigke
 npm install
 npm run dev
 ```
+
+Mit `npm run dev -- --mode e2e` enthält die App zusätzlich den Testkurs (wie in den Browser-Tests).
 
 ## Qualität prüfen
 
@@ -627,7 +647,7 @@ geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Lade
   unter einem Sicherungsschlüssel ab und zeigt oben einen Hinweis mit „Kopie herunterladen“,
   „Ausblenden“ und „Kopie löschen“. Nichts wird gelöscht oder überschrieben, bevor du entscheidest.
 - **Alte Stände:** `src/features/legacyStates.test.ts` lädt, migriert, exportiert, importiert und
-  führt Stände der Versionen 1, 2, 5, 8, 9, 10, 12 und 14 zusammen (XP nur einmal, früheste
+  führt Stände der Versionen 1, 2, 5, 8, 9, 10, 12, 14 und 15 zusammen (XP nur einmal, früheste
   Meilensteine, Vereinigung der Runden).
 - **Größe:** `npm run build && npm run report:size` misst Hauptbündel, größtes Kapitel, Gesamtgröße
   und Offline-Vorladung und endet mit Fehler bei Überschreitung der Grenzwerte. Üben, Fortschritt,

@@ -15,7 +15,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 15;
+export const ACADEMY_PROGRESS_VERSION = 16;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -311,6 +311,13 @@ export interface AcademyProgress {
    * v13). `null`: noch nicht – sie erscheint trotzdem nur ohne Lernstand.
    */
   guideSeenAt: string | null;
+  /**
+   * Gewählter Kurs (seit v16). `null`: noch keiner gewählt – dann gilt der
+   * Standardkurs. Ein Kurs, den diese Version nicht kennt, bleibt gespeichert;
+   * die App zeigt solange den Standardkurs. Der Lernstand selbst hängt an den
+   * IDs von Lektionen, Fragen und Fällen und ist damit je Kurs getrennt.
+   */
+  activeCourseId: string | null;
   updatedAt: string;
   /**
    * Unbekannte Felder (z. B. aus einer späteren Version) werden nicht
@@ -348,6 +355,7 @@ export function createEmptyProgress(): AcademyProgress {
     caseSessions: {},
     caseRuns: {},
     guideSeenAt: null,
+    activeCourseId: null,
     updatedAt: nowIso(),
     preservedFields: {},
   };
@@ -375,6 +383,7 @@ const KNOWN_FIELDS = new Set([
   'caseSessions',
   'caseRuns',
   'guideSeenAt',
+  'activeCourseId',
   // Bis v15 Felder der früheren Einzeldatei-Website; werden gelesen, aber verworfen.
   'legacyReadChapters',
   'legacyTrendRangeBest',
@@ -392,6 +401,22 @@ function stringArray(value: unknown): string[] {
 }
 
 const MAX_READER_ID_LENGTH = 200;
+
+/** Kurs-IDs wie in der Bibliothek: Kleinbuchstaben, Ziffern und Bindestriche. */
+const COURSE_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+export function isCourseId(value: unknown): value is string {
+  return typeof value === 'string' && value.length <= MAX_READER_ID_LENGTH && COURSE_ID_PATTERN.test(value);
+}
+
+/**
+ * Wählt den Kurs, in dem gelernt wird (seit v16). Ändert nur die Wahl – der
+ * Lernstand aller Kurse bleibt, wie er ist. Ungültige IDs ändern nichts.
+ */
+export function chooseCourse(progress: AcademyProgress, courseId: string): AcademyProgress {
+  if (!isCourseId(courseId) || progress.activeCourseId === courseId) return progress;
+  return { ...progress, activeCourseId: courseId };
+}
 
 function isReaderId(value: unknown): value is string {
   return typeof value === 'string' && value !== '' && value.length <= MAX_READER_ID_LENGTH;
@@ -934,6 +959,7 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * Vor v13 gibt es keinen Vermerk zur Einführung (`guideSeenAt: null`); wer
  * bereits Lernstand hat, sieht sie trotzdem nie automatisch.
  * Vor v14 gibt es keine eigenen Trainerbegründungen; Runden bleiben ohne `reasoning`.
+ * Vor v16 gibt es keinen gewählten Kurs (`activeCourseId: null`): Es gilt der Standardkurs.
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {
@@ -981,6 +1007,8 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     caseSessions: normalizeCaseSessions(value.caseSessions),
     caseRuns: normalizeCaseRuns(value.caseRuns),
     guideSeenAt: typeof value.guideSeenAt === 'string' && value.guideSeenAt !== '' ? value.guideSeenAt : null,
+    // Seit v16; ältere Stände lernen im Standardkurs.
+    activeCourseId: isCourseId(value.activeCourseId) ? value.activeCourseId : null,
     updatedAt: typeof value.updatedAt === 'string' ? value.updatedAt : nowIso(),
     preservedFields: Object.fromEntries(
       Object.entries(value).filter(([key]) => !KNOWN_FIELDS.has(key)),

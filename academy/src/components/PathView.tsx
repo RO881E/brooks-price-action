@@ -24,6 +24,8 @@ interface PathViewProps {
   /** Tagesziel und Serie für die Karte „Heute“. */
   goal?: GoalProgress;
   streak?: StreakStats;
+  /** XP aus allen Kursen (mehrere Kurse zählen gemeinsam); ohne Angabe die dieses Kurses. */
+  totalXp?: number;
   onOpenLesson: (lesson: LessonOutline) => void;
 }
 
@@ -85,6 +87,7 @@ export function PathView({
   onDismissNotice,
   goal,
   streak,
+  totalXp,
   onOpenLesson,
 }: PathViewProps) {
   const published = course.units.flatMap((unit) =>
@@ -120,6 +123,8 @@ export function PathView({
       return next;
     });
   const completedCount = published.filter((lesson) => completed.has(lesson.id)).length;
+  // Gemerkt werden Kapitel aller Kurse; gezählt werden nur die dieses Kurses.
+  const openCount = course.units.filter((unit) => open.has(unit.id)).length;
 
   return (
     <div className="path-layout">
@@ -141,8 +146,8 @@ export function PathView({
             <h1>{course.title}</h1>
             <p>{course.subtitle}</p>
             <div className="course-meta-row">
-              <span>26 Originalkapitel</span>
-              <span>121 Chartfälle inventarisiert</span>
+              <span>{course.units.length} {course.units.length === 1 ? 'Kursabschnitt' : 'Kursabschnitte'}</span>
+              <span>{published.length} {published.length === 1 ? 'Lektion' : 'Lektionen'}</span>
               <span>Reihenfolge geschützt</span>
             </div>
           </div>
@@ -189,7 +194,7 @@ export function PathView({
 
         <div className="road-controls">
           <p>
-            {open.size === 0 ? 'Alle Kapitel sind zugeklappt.' : `${open.size} von ${course.units.length} Kapiteln geöffnet.`}
+            {openCount === 0 ? 'Alle Kapitel sind zugeklappt.' : `${openCount} von ${course.units.length} Kapiteln geöffnet.`}
           </p>
           <button type="button" className="link-button" onClick={() => setOpen(new Set(course.units.map((unit) => unit.id)))}>
             Alle öffnen
@@ -389,7 +394,7 @@ export function PathView({
           </div>
           <div>
             <span>Gesammelte XP</span>
-            <strong>{earnedXp(progress, published)}</strong>
+            <strong>{totalXp ?? earnedXp(progress, published)}</strong>
           </div>
         </section>
 

@@ -1,7 +1,7 @@
 import { barCases as registeredCases } from '../content/barCases';
 import type { BarCase, DecisionCue, DecisionPoint, OptionVerdict } from '../content/barCaseTypes';
 import type { CourseOutline, LessonOutline, QuestionOutline, UnitOutline } from '../content/types';
-import { caseAvailable, findPublishedCase } from './caseTraining';
+import { caseAvailable, caseInCourse, findPublishedCase } from './caseTraining';
 import { lessonAccessState } from './courseAccess';
 import type { AcademyProgress, CaseRunAnswer } from './progress';
 import { reviewPool } from './reviewSession';
@@ -154,6 +154,8 @@ export function caseMistakes(
       runsOfUnknownCases += runs.length;
       continue;
     }
+    // Fälle anderer Kurse zeigt deren eigene Übersicht.
+    if (!caseInCourse(course, barCase)) continue;
     runsWithoutAnswers += runs.filter((run) => !run.answers).length;
     const order = cases.findIndex((item) => item.id === caseId);
     const available = caseAvailable(course, progress, barCase);

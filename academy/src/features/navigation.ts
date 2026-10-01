@@ -70,6 +70,16 @@ export type AppRoute =
       kind: 'replay';
       caseId: string;
       sessionId: string;
+    }
+  | {
+      /** Themengebiet der Bibliothek mit seinen Kursen (mehrere Kurse): `#/library/<gebiet-id>`. */
+      kind: 'subject';
+      subjectId: string;
+    }
+  | {
+      /** Kursseite mit Beschreibung, Unterthemen und „Kurs starten“: `#/course/<kurs-id>`. */
+      kind: 'course';
+      courseId: string;
     };
 
 export const DEFAULT_ROUTE: AppRoute = { kind: 'view', view: 'path' };
@@ -115,6 +125,18 @@ export function parseRoute(hash: string): AppRoute | null {
 
   if (segments.length === 1 && segments[0] === 'transfer') return { kind: 'transfer' };
 
+  // Bibliotheksseiten (mehrere Kurse). Ob Gebiet oder Kurs existieren, prüft erst die Seite selbst:
+  // Die Bibliotheksdaten werden mit ihr nachgeladen.
+  if (segments.length === 2 && (segments[0] === 'library' || segments[0] === 'course') && segments[1] !== '') {
+    let id: string;
+    try {
+      id = decodeURIComponent(segments[1]);
+    } catch {
+      return null;
+    }
+    return segments[0] === 'library' ? { kind: 'subject', subjectId: id } : { kind: 'course', courseId: id };
+  }
+
   if (segments.length === 2 && segments[0] === 'study') {
     return segments[1] === '10' || segments[1] === '20' ? { kind: 'study', minutes: segments[1] === '10' ? 10 : 20 } : null;
   }
@@ -158,6 +180,8 @@ export function formatRoute(route: AppRoute): string {
       : `#/${route.view}`;
   }
   if (route.kind === 'train') return `#/train/${encodeURIComponent(route.caseId)}`;
+  if (route.kind === 'subject') return `#/library/${encodeURIComponent(route.subjectId)}`;
+  if (route.kind === 'course') return `#/course/${encodeURIComponent(route.courseId)}`;
   if (route.kind === 'study') return `#/study/${route.minutes}`;
   if (route.kind === 'transfer') return '#/transfer';
   if (route.kind === 'replay') {
@@ -225,34 +249,55 @@ export type ResolvedRoute =
   | { kind: 'replay'; caseId: string; sessionId: string }
   | { kind: 'study'; minutes: 10 | 20 }
   // Nur, wenn es freigegebene Transferfälle gibt – sonst zurück zum Lernpfad.
-  | { kind: 'transfer' };
+  | { kind: 'transfer' }
+  // Bibliotheksseiten: unbekannte Gebiete und Kurse meldet die Seite selbst.
+  | { kind: 'subject'; subjectId: string }
+  | { kind: 'course'; courseId: string };
+
+/** Kurs, zu dem eine Einheit gehört – unter mehreren Kursen. */
+export function courseWithUnit(courses: readonly CourseOutline[], unitId: string): CourseOutline | undefined {
+  return courses.find((course) => course.units.some((unit) => unit.id === unitId));
+}
+
+/** Kurs, zu dem eine Lektion gehört – unter mehreren Kursen. */
+export function courseWithLesson(courses: readonly CourseOutline[], lessonId: string): CourseOutline | undefined {
+  return courses.find((course) => findLesson(course, lessonId) !== undefined);
+}
 
 /**
  * Prüft eine Route gegen Kurs und Fortschritt. Unbekannte, geplante oder
  * gesperrte Lektionen ergeben `null` – der Aufrufer fällt auf den Lernpfad
  * zurück. Ein ungültiger Schritt wird auf den letzten gültigen begrenzt. Die
  * Abschlussansicht gibt es nur für bereits abgeschlossene Lektionen.
+ *
+ * Mehrere Kurse: Lektionen, Leser und Fälle werden in **ihrem** Kurs geprüft
+ * (`courses`), damit Links und Verlauf auch nach einem Kurswechsel funktionieren.
+ * Transferprüfung und „Kurz lernen“ gehören zum gewählten Kurs `course`.
  */
 export function resolveRoute(
   route: AppRoute,
   course: CourseOutline,
   progress: AcademyProgress,
+  courses: readonly CourseOutline[] = [course],
 ): ResolvedRoute | null {
-  if (route.kind === 'view') return route;
+  if (route.kind === 'view' || route.kind === 'subject' || route.kind === 'course') return route;
   if (route.kind === 'train') {
     // Nur freigegebene Fälle, deren Lektionen bereits zugänglich sind.
     const barCase = findPublishedCase(route.caseId);
-    return barCase && caseAvailable(course, progress, barCase) ? { kind: 'train', barCase } : null;
+    const owner = barCase ? courseWithUnit(courses, barCase.unitId) : undefined;
+    return barCase && owner && caseAvailable(owner, progress, barCase) ? { kind: 'train', barCase } : null;
   }
   if (route.kind === 'replay' || route.kind === 'study') return route;
   if (route.kind === 'transfer') return planTransfer(course, progress).approved > 0 ? route : null;
   if (route.kind === 'read') {
-    const reader = resolveReader(course, progress, route.unitId, route.lessonId, route.step);
+    const owner = courseWithUnit(courses, route.unitId) ?? course;
+    const reader = resolveReader(owner, progress, route.unitId, route.lessonId, route.step);
     return reader ? { kind: 'read', reader } : null;
   }
 
-  const lesson = findLesson(course, route.lessonId);
-  if (!lesson || lesson.steps.length === 0 || !canOpenLesson(course, lesson, progress)) {
+  const owner = courseWithLesson(courses, route.lessonId) ?? course;
+  const lesson = findLesson(owner, route.lessonId);
+  if (!lesson || lesson.steps.length === 0 || !canOpenLesson(owner, lesson, progress)) {
     return null;
   }
 

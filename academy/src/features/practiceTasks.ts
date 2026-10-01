@@ -1,6 +1,7 @@
 import type { CaseBar } from '../content/barCaseTypes';
 import type { OrderTask, SignalBarTask, SignalRule } from '../content/practiceTaskTypes';
 import { orderTasks, signalBarTasks } from '../content/practiceTasks';
+import type { CourseOutline } from '../content/types';
 import type { AcademyProgress } from './progress';
 import { seededRandom } from './matchPairs';
 
@@ -13,6 +14,11 @@ import { seededRandom } from './matchPairs';
 interface Unlockable {
   status: string;
   lessonIds: string[];
+}
+
+/** Aufgaben eines Kurses (mehrere Kurse): Ihre Einheit steht in dessen Gliederung. */
+export function courseTasks<T extends { unitId: string }>(course: CourseOutline, tasks: readonly T[]): T[] {
+  return tasks.filter((task) => course.units.some((unit) => unit.id === task.unitId));
 }
 
 export function approvedTasks<T extends Unlockable>(tasks: readonly T[]): T[] {

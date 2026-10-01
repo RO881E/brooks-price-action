@@ -15,16 +15,18 @@ function contentFiles(dir: string): string[] {
 }
 
 /**
- * Stellt die Kursgliederung als virtuelles Modul bereit (F-12). Sie wird aus
+ * Stellt die Gliederungen aller Kurse als virtuelles Modul bereit (F-12, Mehrkurs). Sie werden aus
  * den echten Inhaltsdateien berechnet – beim Build und im Entwicklungsserver –
- * und kann deshalb nie von den Lektionen abweichen.
+ * und können deshalb nie von den Lektionen abweichen.
  */
 export function courseOutlinePlugin(): Plugin {
   let root = process.cwd();
+  let mode = 'production';
   return {
     name: 'wqt-course-outline',
     configResolved(config) {
       root = config.root;
+      mode = config.mode;
     },
     resolveId(id) {
       return id === COURSE_OUTLINE_ID ? RESOLVED_ID : undefined;
@@ -34,13 +36,15 @@ export function courseOutlinePlugin(): Plugin {
       const contentDir = resolve(root, 'src/content');
       // Änderungen an Inhalten erneuern die Gliederung auch im Entwicklungsserver.
       for (const file of contentFiles(contentDir)) this.addWatchFile(file);
-      const { module } = await runnerImport<{ priceActionTrendsCourse: Course }>(
-        resolve(contentDir, 'course.ts'),
+      const { module } = await runnerImport<{ baseCourses: Course[]; testCourses: Course[] }>(
+        resolve(contentDir, 'allCourses.ts'),
         { configFile: false, logLevel: 'error' },
       );
+      // Den Testkurs gibt es nur in den Browser-Tests (Modus `e2e`), wie im Kursregister der App.
+      const courses = mode === 'e2e' ? [...module.baseCourses, ...module.testCourses] : module.baseCourses;
       // Als JSON-String: Große Datenobjekte parst der Browser so schneller als ein
       // gleichwertiges Objektliteral.
-      const json = JSON.stringify(toCourseOutline(module.priceActionTrendsCourse));
+      const json = JSON.stringify(courses.map(toCourseOutline));
       return `export default JSON.parse(${JSON.stringify(json)});\n`;
     },
   };

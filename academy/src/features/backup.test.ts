@@ -698,3 +698,39 @@ describe('Eigene Trainerbegründungen (F-24, v14)', () => {
     expect(merged.map((item) => item.reasoning?.d.text)).toEqual(['lokal', 'zweiter']);
   });
 });
+
+describe('Gewählter Kurs (Mehrkurs, v16)', () => {
+  it('wird gesichert, streng geprüft und beim Zusammenführen lokal bevorzugt', async () => {
+    const { chooseCourse } = await import('./progress');
+    const chosen = chooseCourse(createEmptyProgress(), 'test-course');
+    const result = parseBackup(serializeBackup(createBackup(chosen)));
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.imported.activeCourseId).toBe('test-course');
+    expectRejected(
+      backupText(createEmptyProgress(), (backup) => {
+        (backup.data as Record<string, unknown>).activeCourseId = 'Kein Kurs!';
+      }),
+      /activeCourseId/,
+    );
+    // Neue Sicherungen müssen das Feld enthalten, ältere (vor v16) nicht.
+    expectRejected(
+      backupText(createEmptyProgress(), (backup) => {
+        delete (backup.data as Record<string, unknown>).activeCourseId;
+      }),
+      /Pflichtfeld fehlt: „activeCourseId“/,
+    );
+    const old = parseBackup(
+      backupText(createEmptyProgress(), (backup) => {
+        backup.dataVersion = 15;
+        delete (backup.data as Record<string, unknown>).activeCourseId;
+      }),
+    );
+    expect(old.ok).toBe(true);
+    if (old.ok) expect(old.imported.activeCourseId).toBeNull();
+
+    const other = chooseCourse(createEmptyProgress(), 'price-action-trends');
+    expect(mergeProgress(chosen, other).activeCourseId).toBe('test-course');
+    expect(mergeProgress(createEmptyProgress(), chosen).activeCourseId).toBe('test-course');
+    expect(applyImport(chosen, other, 'replace').activeCourseId).toBe('price-action-trends');
+  });
+});

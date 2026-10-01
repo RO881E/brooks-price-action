@@ -18,7 +18,8 @@ export default defineConfig({
       : undefined,
   },
   webServer: {
-    command: 'npm run dev -- --port 4173',
+    // Modus `e2e`: Die App enthält zusätzlich den kleinen Testkurs (Mehrkurs-Tests), den es im Build nicht gibt.
+    command: 'npm run dev -- --port 4173 --mode e2e',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI,
   },

@@ -8534,85 +8534,181 @@ button:disabled {
   line-height: 1.55;
 }
 
-.library-controls {
+/* Brotkrumen der Bibliotheksseiten (Bibliothek → Gebiet → Kurs). */
+.library-crumbs ol {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 14px;
-  margin: 0 0 14px;
-}
-
-.library-controls p {
-  margin: 0 auto 0 0;
+  gap: 2px 6px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
   color: var(--ink-soft);
   font-size: 13px;
 }
 
-.library-controls .link-button {
+.library-crumbs li + li::before {
+  content: '/';
+  margin-right: 6px;
+  color: var(--line-strong);
+}
+
+.library-crumbs a {
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  padding: 4px 8px;
+  min-height: 28px;
+  color: var(--ink);
+  font-weight: 700;
+  text-underline-offset: 3px;
 }
 
-.library-subjects {
+.library-section {
+  margin: 22px 0 0;
+}
+
+.library-section h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+/* „Deine Kurse“: Kurse mit Inhalt mit eigenem Stand. */
+.library-mine {
   display: grid;
-  gap: 12px;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.library-subject {
-  padding: 14px 18px;
+.library-mine li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 14px 16px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper);
 }
 
-.library-subject.is-planned {
-  border-style: dashed;
+.library-mine li.is-active {
+  border-color: var(--practice-base);
 }
 
-/* Kopfzeile eines Themengebiets: ganze Zeile klickbar (wie die Kapitel im Lernpfad). */
-.library-subject header {
-  position: relative;
+.library-mine-text {
+  display: grid;
+  flex: 1 1 260px;
+  gap: 6px;
+  min-width: 0;
+}
+
+.library-mine-text h3,
+.library-course-text h3,
+.library-tile h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.library-mine-text h3 a,
+.library-course-text h3 a,
+.library-tile h3 a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.library-mine-text p {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px 12px;
-}
-
-.library-subject h2 {
-  flex: 1 1 220px;
+  gap: 4px 10px;
   margin: 0;
-  font-size: 18px;
+  color: var(--ink-soft);
+  font-size: 13px;
 }
 
-.library-toggle {
-  display: inline-block;
-  min-height: 28px;
+.library-meter {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.library-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--green);
+}
+
+.library-mine .primary-button,
+.library-start .primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Themengebiete als Kacheln: der Titel ist der Link, die ganze Kachel ist klickbar. */
+.library-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
   margin: 0;
-  padding: 2px 0;
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  border: 0;
-  background: none;
-  cursor: pointer;
+  padding: 0;
+  list-style: none;
 }
 
-.library-toggle::after {
+.library-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.library-tile.is-planned {
+  border-style: dashed;
+}
+
+.library-tile h3 a::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 12px;
+  border-radius: var(--radius);
 }
 
-.library-toggle:focus-visible {
+.library-tile h3 a:focus-visible {
   outline: none;
 }
 
-.library-toggle:focus-visible::after {
-  outline: 3px solid var(--mode-ink, var(--ink));
-  outline-offset: 4px;
+.library-tile h3 a:focus-visible::after {
+  outline: 3px solid var(--gold-dark);
+  outline-offset: 2px;
+}
+
+.library-tile:hover {
+  border-color: var(--line-strong);
+}
+
+.library-tile > p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.library-tile > p.library-tile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-top: auto;
 }
 
 .library-count {
@@ -8621,36 +8717,97 @@ button:disabled {
   font-weight: 700;
 }
 
-.library-chevron {
-  display: grid;
-  place-items: center;
-  color: var(--ink-soft);
-  transition: transform 180ms ease;
-}
-
-.library-subject[data-open='true'] .library-chevron {
-  transform: rotate(180deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .library-chevron {
-    transition: none;
-  }
-}
-
-:root[data-motion='reduce'] .library-chevron {
-  transition: none;
-}
-
-.library-subject > p {
-  margin: 6px 0 0;
+.library-exercises {
+  margin: 0;
   color: var(--ink-soft);
   font-size: 13.5px;
   line-height: 1.5;
 }
 
-.library-empty {
-  font-style: italic;
+/* Kursseite: Start, Wechsel oder „Geplant“. */
+.library-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--practice-base);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.library-start.is-planned {
+  border: 1px dashed var(--line-strong);
+}
+
+.library-start > div {
+  display: grid;
+  flex: 1 1 260px;
+  gap: 6px;
+  justify-items: start;
+}
+
+.library-start p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.library-start .library-start-note {
+  font-size: 12.5px;
+}
+
+.library-topic-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px 18px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.library-units summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.library-units summary::before {
+  content: '▸';
+  margin-right: 6px;
+}
+
+.library-units[open] summary::before {
+  content: '▾';
+}
+
+.library-units summary:focus-visible {
+  outline: 3px solid var(--gold-dark);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.library-units ol {
+  margin: 6px 0 0;
+  padding-left: 22px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.library-back {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+  text-decoration: none;
 }
 
 .library-badge {
@@ -8709,43 +8866,6 @@ button:disabled {
   color: var(--ink-soft);
   font-size: 13px;
   line-height: 1.45;
-}
-
-.library-subtopics summary {
-  display: inline-flex;
-  align-items: center;
-  min-height: 28px;
-  color: var(--ink-soft);
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.library-subtopics summary:focus-visible {
-  outline: 3px solid var(--mode-ink, var(--ink));
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-.library-subtopics ul {
-  margin: 2px 0 4px;
-  padding-left: 18px;
-  color: var(--ink-soft);
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.library-course-action {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
-}
-
-.library-course-action .primary-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
 }
 
 /* Wenig Platz in der Höhe: der reine Statushinweis weicht, damit nichts aus der Seitenleiste ragt. */

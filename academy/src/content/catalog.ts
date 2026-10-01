@@ -1,30 +1,86 @@
-import outline from 'virtual:wqt-course-outline';
+import outlines from 'virtual:wqt-course-outline';
 import { useEffect, useSyncExternalStore } from 'react';
+import { courseDefinitions, DEFAULT_COURSE_ID } from './registry';
 import type { CourseOutline, Lesson, LessonOutline, LessonStep } from './types';
-import { unitDefinitions, type UnitDefinition } from './units';
+import type { UnitDefinition } from './units';
 
 /*
- * Kurskatalog der App (F-12). Die Gliederung ist sofort da – damit arbeiten
- * Lernpfad, Freischaltung, Suche, Fortsetzen und Statistik ohne Wartezeit.
- * Die vollständigen Lektionen einer Einheit werden erst geladen, wenn eine
- * Ansicht sie wirklich anzeigt, und danach im Speicher gehalten.
+ * Kurskatalog der App (F-12, mehrere Kurse). Die Gliederungen aller Kurse sind
+ * sofort da – damit arbeiten Lernpfad, Freischaltung, Suche, Fortsetzen und
+ * Statistik ohne Wartezeit. Die vollständigen Lektionen einer Einheit werden
+ * erst geladen, wenn eine Ansicht sie wirklich anzeigt, und danach im Speicher
+ * gehalten.
  */
 
-export const courseOutline: CourseOutline = outline;
+/** Gliederungen aller Kurse mit Inhalt, in der Reihenfolge des Kursregisters. */
+export const courseOutlines: readonly CourseOutline[] = outlines;
 
-export const publishedLessonOutlines: LessonOutline[] = courseOutline.units.flatMap((unit) =>
-  unit.lessons.filter((lesson) => lesson.status === 'published'),
-);
+/** Gliederung eines Kurses – `undefined` für unbekannte Kurse und Kurse ohne Inhalt. */
+export function findCourseOutline(
+  courseId: string | null | undefined,
+  available: readonly CourseOutline[] = courseOutlines,
+): CourseOutline | undefined {
+  return courseId ? available.find((course) => course.id === courseId) : undefined;
+}
+
+/** Der Kurs, mit dem die App beginnt, solange kein anderer gewählt ist. */
+export const defaultCourseOutline: CourseOutline = findCourseOutline(DEFAULT_COURSE_ID) ?? courseOutlines[0];
+
+/** Gliederung des gewählten Kurses; ohne gültige Wahl gilt der Standardkurs. */
+export function courseOutlineFor(courseId: string | null | undefined): CourseOutline {
+  return findCourseOutline(courseId) ?? defaultCourseOutline;
+}
+
+/**
+ * Alle Kurse als eine Gliederung – nur für Fragen über Kursgrenzen hinweg
+ * (Gespeichertes, XP, Meilensteine, Laden). Nicht für die Freischaltung:
+ * Die Reihenfolge der Einheiten gilt immer nur innerhalb eines Kurses.
+ */
+export const allCoursesOutline: CourseOutline = {
+  ...defaultCourseOutline,
+  id: 'all-courses',
+  title: 'Alle Kurse',
+  units: courseOutlines.flatMap((course) => course.units),
+};
+
+/** Gliederung des Standardkurses (für Tests und Prüfskripte, die nur ihn betreffen). */
+export const courseOutline: CourseOutline = defaultCourseOutline;
+
+export function publishedLessonOutlinesOf(course: CourseOutline): LessonOutline[] {
+  return course.units.flatMap((unit) => unit.lessons.filter((lesson) => lesson.status === 'published'));
+}
+
+export function publishedLessonIdsOf(course: CourseOutline): string[] {
+  return publishedLessonOutlinesOf(course).map((lesson) => lesson.id);
+}
+
+/** Veröffentlichte Lektionen des Standardkurses. */
+export const publishedLessonOutlines: LessonOutline[] = publishedLessonOutlinesOf(defaultCourseOutline);
 
 export const publishedLessonIds = publishedLessonOutlines.map((lesson) => lesson.id);
 
 const unitOfLessonId = new Map(
-  courseOutline.units.flatMap((unit) => unit.lessons.map((lesson) => [lesson.id, unit.id] as const)),
+  allCoursesOutline.units.flatMap((unit) => unit.lessons.map((lesson) => [lesson.id, unit.id] as const)),
+);
+
+const courseOfUnitId = new Map(
+  courseOutlines.flatMap((course) => course.units.map((unit) => [unit.id, course] as const)),
 );
 
 /** Einheit, zu der eine Lektion gehört – `undefined` für unbekannte IDs. */
 export function unitIdOfLesson(lessonId: string): string | undefined {
   return unitOfLessonId.get(lessonId);
+}
+
+/** Kurs, zu dem eine Einheit gehört – `undefined` für unbekannte IDs. */
+export function courseOfUnit(unitId: string): CourseOutline | undefined {
+  return courseOfUnitId.get(unitId);
+}
+
+/** Kurs, zu dem eine Lektion gehört – `undefined` für unbekannte IDs. */
+export function courseOfLesson(lessonId: string): CourseOutline | undefined {
+  const unitId = unitIdOfLesson(lessonId);
+  return unitId ? courseOfUnit(unitId) : undefined;
 }
 
 export type UnitLoadStatus = 'idle' | 'loading' | 'ready' | 'error';
@@ -139,7 +195,11 @@ function loaderFor(definitions: UnitDefinition[]): CatalogLoader {
   };
 }
 
-export const catalog = new LessonCatalog(courseOutline, loaderFor(unitDefinitions));
+/** Ein gemeinsamer Katalog für alle Kurse: Einheiten-IDs sind kursübergreifend eindeutig. */
+export const catalog = new LessonCatalog(
+  allCoursesOutline,
+  loaderFor(courseDefinitions.flatMap((course) => course.units)),
+);
 
 export interface ContentState {
   status: UnitLoadStatus;

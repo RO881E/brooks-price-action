@@ -1,15 +1,20 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { testLibrarySubject } from '../src/content/courses/test-course';
 import { libraryCounts, librarySubjects } from '../src/content/library';
 
 /*
- * Bibliothek: alle Themengebiete mit ihren Kursen, aufklappbar. Offen ist zu Beginn nur das Gebiet
- * mit Inhalt; verfügbare Kurse führen in den Lernpfad, geplante stehen ohne Link da.
+ * Bibliothek als eigene Seiten: Übersicht (deine Kurse + alle Themengebiete) → Gebiet mit
+ * seinen Kursen → Kursseite mit Beschreibung, Unterthemen und – bei Kursen mit Inhalt –
+ * „Kurs starten“. Die Browser-Tests laufen im Modus `e2e`; dort gibt es zusätzlich das
+ * Testgebiet mit dem kleinen Testkurs.
  */
 
 const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
-const counts = libraryCounts(librarySubjects);
+const subjects = [...librarySubjects, testLibrarySubject];
+const counts = libraryCounts(subjects);
 const volume = librarySubjects.find((subject) => subject.id === 'volume')!;
+const vwap = volume.courses.find((course) => course.id === 'vwap')!;
 
 async function open(page: Page, isMobile: boolean) {
   await page.goto('/');
@@ -19,92 +24,118 @@ async function open(page: Page, isMobile: boolean) {
   await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
 }
 
-const toggle = (page: Page, title: string) => page.getByRole('button', { name: title, exact: true });
+async function expectAccessible(page: Page) {
+  const results = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();
+  expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+}
 
-test.describe('Bibliothek', () => {
-  test('über den Kursblock erreichbar: alle Themengebiete, nur das aktive offen', async ({ page, isMobile }) => {
+test.describe('Bibliothek: Seiten', () => {
+  test('über den Kursblock erreichbar: deine Kurse und alle Themengebiete als Kacheln', async ({ page, isMobile }) => {
     await open(page, isMobile);
     await expect(page).toHaveURL(/#\/library$/);
-    await expect(page.locator('.library-subject')).toHaveCount(counts.subjects);
-    for (const subject of librarySubjects) {
-      await expect(page.getByRole('heading', { level: 2, name: subject.title, exact: true })).toBeVisible();
+    await expect(page.getByText(`${counts.subjects} Themengebiete mit ${counts.courses} Kursen`)).toBeVisible();
+
+    const mine = page.locator('.library-mine > li');
+    await expect(mine).toHaveCount(2);
+    await expect(mine.first()).toContainText('Price Action: Trends');
+    await expect(mine.first()).toContainText('Aktiver Kurs');
+    await expect(mine.nth(1)).toContainText('Testkurs: Grundgerüst');
+    await expect(mine.nth(1)).toContainText('Noch nicht begonnen');
+
+    const tiles = page.locator('.library-tile');
+    await expect(tiles).toHaveCount(counts.subjects);
+    for (const subject of subjects) {
+      await expect(page.getByRole('link', { name: subject.title, exact: true })).toBeVisible();
     }
-    await expect(toggle(page, 'Price Action und Marktstruktur')).toHaveAttribute('aria-expanded', 'true');
-    await expect(toggle(page, 'Volumen')).toHaveAttribute('aria-expanded', 'false');
-    await expect(page.getByText(`1 von ${counts.subjects} Themengebieten geöffnet.`)).toBeVisible();
-    await expect(page.locator('.library-subject.is-planned')).toHaveCount(counts.subjects - 1);
+    await expect(page.locator('.library-tile.is-planned')).toHaveCount(counts.subjects - 2);
+    await expect(page.locator('.library-tile', { hasText: 'Volumen' })).toContainText('Geplant');
+  });
 
-    const trends = page.locator('.library-course', { hasText: 'Price Action: Trends' });
-    await expect(trends).toContainText('Teil 1 von 3');
-    await expect(trends).toContainText('Aktiv');
-
-    // Alle öffnen: jede Karte sichtbar; geplante Kurse führen nirgendwohin.
-    await page.getByRole('button', { name: 'Alle öffnen' }).click();
-    await expect(page.locator('.library-course')).toHaveCount(counts.courses);
-    await expect(page.locator('.library-course.is-planned')).toHaveCount(counts.courses - counts.available);
-    await expect(page.locator('.library-course.is-planned').getByRole('button', { name: 'Zum Lernpfad' })).toHaveCount(0);
+  test('Gebiet → geplanter Kurs: Unterthemen ohne Start, Brotkrumen und Zurück führen zurück', async ({ page }) => {
+    await page.goto('/#/library');
+    await page.getByRole('link', { name: 'Volumen', exact: true }).click();
+    await expect(page).toHaveURL(/#\/library\/volume$/);
+    await expect(page.getByRole('heading', { level: 1, name: 'Volumen' })).toBeVisible();
+    await expect(page.getByText(volume.exercises)).toBeVisible();
+    await expect(page.locator('.library-course')).toHaveCount(volume.courses.length);
     await expect(page.locator('.library-course.is-planned .library-badge')).toHaveText(
-      Array(counts.courses - counts.available).fill('Geplant'),
+      Array(volume.courses.length).fill('Geplant'),
     );
-  });
 
-  test('Gebiet per Klick und Tastatur auf- und zuklappen, Unterthemen zeigen, Zustand bleibt im Tab', async ({ page }) => {
-    await page.goto('/#/library');
-    const button = toggle(page, 'Volumen');
-    await button.click();
-    await expect(button).toHaveAttribute('aria-expanded', 'true');
-    const panel = page.locator(`[id="${await button.getAttribute('aria-controls')}"]`);
-    await expect(panel.locator('.library-course')).toHaveCount(volume.courses.length);
+    await page.getByRole('link', { name: vwap.title, exact: true }).click();
+    await expect(page).toHaveURL(/#\/course\/vwap$/);
+    await expect(page.getByRole('heading', { level: 1, name: vwap.title })).toBeVisible();
+    await expect(page.locator('.library-start')).toContainText('Geplant');
+    await expect(page.locator('.library-start')).toContainText('noch keine Lektionen');
+    await expect(page.getByRole('button', { name: /Kurs starten|Zu diesem Kurs wechseln|Weiterlernen/ })).toHaveCount(0);
+    for (const topic of vwap.subtopics) {
+      await expect(page.locator('.library-topic-list').getByText(topic, { exact: true })).toBeVisible();
+    }
 
-    const vwap = panel.locator('.library-course', { hasText: 'VWAP' });
-    const firstTopic = volume.courses.find((course) => course.id === 'vwap')!.subtopics[0];
-    await expect(vwap.getByText(firstTopic)).toBeHidden();
-    await vwap.locator('summary').click();
-    await expect(vwap.getByText(firstTopic)).toBeVisible();
-
-    await button.focus();
-    await page.keyboard.press('Enter');
-    await expect(button).toHaveAttribute('aria-expanded', 'false');
-    await expect(panel).toBeHidden();
-    await page.keyboard.press('Space');
-    await expect(button).toHaveAttribute('aria-expanded', 'true');
-
-    // Nach einem Wechsel in eine andere Ansicht ist derselbe Zustand wieder da.
-    await page.goto('/#/practice');
-    await page.goto('/#/library');
-    await expect(toggle(page, 'Volumen')).toHaveAttribute('aria-expanded', 'true');
-    await expect(page.getByText(`2 von ${counts.subjects} Themengebieten geöffnet.`)).toBeVisible();
-
-    await page.getByRole('button', { name: 'Alle schließen' }).click();
-    await expect(page.getByText('Alle Themengebiete sind zugeklappt.')).toBeVisible();
-    await expect(page.locator('.library-course')).toHaveCount(0);
-  });
-
-  test('Navigationseintrag „Bibliothek“ und Rückweg in den Lernpfad', async ({ page, isMobile }) => {
-    await page.goto('/#/library');
+    const crumbs = page.getByRole('navigation', { name: 'Brotkrumen' });
+    await expect(crumbs.locator('[aria-current="page"]')).toHaveText(vwap.title);
+    await crumbs.getByRole('link', { name: 'Volumen' }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Volumen' })).toBeVisible();
+    await page.goBack();
+    await expect(page.getByRole('heading', { level: 1, name: vwap.title })).toBeVisible();
+    await page.goBack();
+    await page.goBack();
     await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
-    if (!isMobile) {
-      const item = page.getByRole('navigation', { name: 'Hauptnavigation' }).getByRole('button', { name: 'Bibliothek' });
+  });
+
+  test('Kursseite des aktiven Kurses: Aufbau und „Weiterlernen“ in den Lernpfad', async ({ page }) => {
+    await page.goto('/#/library/price-action');
+    await page.getByRole('link', { name: 'Price Action: Trends', exact: true }).click();
+    await expect(page).toHaveURL(/#\/course\/price-action-trends$/);
+    await expect(page.locator('.library-start')).toContainText('Aktiver Kurs');
+    await expect(page.locator('.library-start')).toContainText('Noch nicht begonnen');
+    await page.locator('.library-units summary').click();
+    await expect(page.locator('.library-units li').first()).toContainText('Einleitung');
+
+    await page.getByRole('button', { name: 'Weiterlernen' }).click();
+    await expect(page).toHaveURL(/#\/path$/);
+    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
+    // Kein Wechsel, also auch kein Hinweis.
+    await expect(page.locator('.route-notice')).toHaveCount(0);
+  });
+
+  test('unbekannte Gebiete und Kurse: klarer Hinweis und Weg zurück', async ({ page }) => {
+    await page.goto('/#/library/gibt-es-nicht');
+    await expect(page.getByRole('heading', { level: 1, name: 'Themengebiet nicht gefunden' })).toBeVisible();
+    await page.getByRole('link', { name: 'Zur Bibliothek' }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
+
+    await page.goto('/#/course/gibt-es-nicht');
+    await expect(page.getByRole('heading', { level: 1, name: 'Kurs nicht gefunden' })).toBeVisible();
+  });
+
+  test('Navigationseintrag „Bibliothek“ bleibt auf allen Bibliotheksseiten markiert @desktop', async ({ page }) => {
+    const item = page.getByRole('navigation', { name: 'Hauptnavigation' }).getByRole('button', { name: 'Bibliothek' });
+    for (const hash of ['#/library', '#/library/volume', '#/course/vwap']) {
+      await page.goto(`/${hash}`);
+      await expect(page.locator('.view-container h1')).toBeVisible();
       await expect(item).toHaveAttribute('aria-current', 'page');
     }
-    await page.getByRole('button', { name: 'Zum Lernpfad' }).click();
-    await expect(page).not.toHaveURL(/library/);
-    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   });
 
-  test('barrierefrei und schmal (360 px) ohne Überlauf – zugeklappt und ganz geöffnet', async ({ page }) => {
+  test('barrierefrei und schmal (360 px) ohne Überlauf – alle drei Seiten', async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 740 });
     await page.goto('/#/library');
     await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
-    const check = async () => {
-      const results = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();
-      expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
-    };
-    await check();
-    await page.getByRole('button', { name: 'Alle öffnen' }).click();
-    // Alle Unterthemen ausklappen (die untere Leiste würde Klicks am Bildrand abfangen).
-    await page.locator('.library-subtopics').evaluateAll((items) => items.forEach((item) => ((item as HTMLDetailsElement).open = true)));
-    await check();
+    await expectAccessible(page);
+
+    await page.goto('/#/library/volume');
+    await expect(page.getByRole('heading', { level: 1, name: 'Volumen' })).toBeVisible();
+    await expectAccessible(page);
+
+    await page.goto('/#/course/price-action-trends');
+    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
+    await page.locator('.library-units').evaluate((details) => ((details as HTMLDetailsElement).open = true));
+    await expectAccessible(page);
+
+    await page.goto('/#/course/vwap');
+    await expect(page.getByRole('heading', { level: 1, name: vwap.title })).toBeVisible();
+    await expectAccessible(page);
   });
 });

@@ -3,6 +3,8 @@ import { BugReportForm } from './BugReportForm';
 import type { LessonOutline } from '../content/types';
 
 export interface GuideFacts {
+  /** Titel des gewählten Kurses (mehrere Kurse). */
+  courseTitle?: string;
   /** Erste noch offene Lektion – Ziel von „Erste Lektion starten“. */
   firstLesson?: LessonOutline;
   /** Freigegebene Trainerfälle insgesamt und davon bereits zugängliche. */
@@ -31,8 +33,8 @@ function GuideContent({
         So lernst du in der WQT Academy
       </h2>
       <p>
-        Du lernst Price Action Schritt für Schritt – in kurzen Lektionen mit
-        Fragen. Es gibt vier Wege:
+        Du lernst {facts.courseTitle ? `„${facts.courseTitle}“` : 'Price Action'} Schritt für Schritt – in kurzen
+        Lektionen mit Fragen. Es gibt {facts.publishedCases > 0 ? 'vier' : 'drei'} Wege:
       </p>
       <ol className="guide-loop" aria-label="Der Lernrhythmus">
         <li>

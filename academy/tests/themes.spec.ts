@@ -51,6 +51,8 @@ const VIEWS: Array<[string, string]> = [
   ['Gespeichert', '/#/saved'],
   ['Glossar', '/#/glossary'],
   ['Bibliothek', '/#/library'],
+  ['Themengebiet', '/#/library/volume'],
+  ['Kursseite', '/#/course/price-action-trends'],
   ['Einstellungen', '/#/settings'],
 ];
 

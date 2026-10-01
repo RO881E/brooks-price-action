@@ -1,11 +1,12 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { createServer, type Server } from 'node:http';
 import type { AddressInfo, Socket } from 'node:net';
 import { extname, join, normalize } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
 import { priceActionTrendsCourse, publishedLessons } from '../src/content/course';
+import { librarySubjects } from '../src/content/library';
 
 /*
  * F-09: Diese Tests prüfen den echten Produktions-Build. Er wird mit relativem
@@ -498,6 +499,40 @@ test('Nach Thema üben offline: Themenliste und Lernlink (F-27)', async ({ page,
   serverState.down = false;
   await context.setOffline(false);
   expect(errors).toEqual([]);
+});
+
+test('Bibliothek offline: Übersicht, Gebiet und Kursseite (mehrere Kurse)', async ({ page, context }) => {
+  const errors = trackConsoleErrors(page);
+  const volume = librarySubjects.find((subject) => subject.id === 'volume')!;
+  const vwap = volume.courses.find((course) => course.id === 'vwap')!;
+  await firstVisit(page);
+  await page.getByRole('button', { name: 'Einführung schließen' }).click();
+  serverState.down = true;
+  await context.setOffline(true);
+  await page.goto(`${origin}/academy/#/library`);
+  await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
+  // Im veröffentlichten Build gibt es nur den Kurs mit Inhalt – keinen Testkurs.
+  await expect(page.locator('.library-mine > li')).toHaveCount(1);
+  await expect(page.locator('.library-tile')).toHaveCount(librarySubjects.length);
+  await page.getByRole('link', { name: volume.title, exact: true }).click();
+  await expect(page.getByRole('heading', { level: 1, name: volume.title })).toBeVisible();
+  await page.getByRole('link', { name: vwap.title, exact: true }).click();
+  await expect(page.getByRole('heading', { level: 1, name: vwap.title })).toBeVisible();
+  await expect(page.locator('.library-start')).toContainText('Geplant');
+  serverState.down = false;
+  await context.setOffline(false);
+  expect(errors).toEqual([]);
+});
+
+test('der veröffentlichte Build enthält den Testkurs nicht (mehrere Kurse) @desktop', () => {
+  const files = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
+      entry.isDirectory() ? files(join(dir, entry.name)) : [join(dir, entry.name)],
+    );
+  const leaks = files(ROOT).filter(
+    (file) => /\.(js|html|css|webmanifest)$/.test(file) && /Testkurs|test-course/.test(readFileSync(file, 'utf8')),
+  );
+  expect(leaks).toEqual([]);
 });
 
 test('Einführung und Hilfe offline (F-18)', async ({ page, context }) => {

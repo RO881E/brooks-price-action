@@ -4,10 +4,13 @@ import type { GlossaryEntry } from '../content/glossary';
 export function GlossaryView({
   entries,
   initialQuery,
+  title = 'Price-Action-Glossar',
 }: {
   entries: GlossaryEntry[];
   /** Vorbelegung aus einem Such-Sprung oder Link `#/glossary?term=…`. */
   initialQuery?: string;
+  /** Überschrift – je Kurs (mehrere Kurse). */
+  title?: string;
 }) {
   const [query, setQuery] = useState(initialQuery ?? '');
   const normalized = query.trim().toLocaleLowerCase('de');
@@ -27,11 +30,27 @@ export function GlossaryView({
     [entries, normalized],
   );
 
+  // Kurse ohne eigene Begriffe (mehrere Kurse): kein leeres Suchfeld, sondern ein klarer Hinweis.
+  if (entries.length === 0) {
+    return (
+      <div className="page-shell glossary-page">
+        <header className="page-heading">
+          <p className="eyebrow">Nachschlagen statt raten</p>
+          <h1>{title}</h1>
+        </header>
+        <div className="empty-state">
+          <strong>Noch keine Begriffe</strong>
+          <p>Für diesen Kurs gibt es noch kein Glossar. Begriffe kommen mit seinen Lektionen dazu.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="page-shell glossary-page">
       <header className="page-heading">
         <p className="eyebrow">Nachschlagen statt raten</p>
-        <h1>Price-Action-Glossar</h1>
+        <h1>{title}</h1>
         <p>
           Deutsche Erklärungen, englische Suchbegriffe und direkte Zuordnung zur ersten
           passenden Lerneinheit.
