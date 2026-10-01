@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { priceActionTrendsCourse, publishedLessons } from './course';
 
 describe('Price-Action-Kursmodell', () => {
-  it('keeps introduction, part introduction and chapters 1–17 in source order', () => {
+  it('keeps introduction, part introduction and chapters 1–18 in source order', () => {
     expect(priceActionTrendsCourse.units.map((unit) => unit.id)).toEqual([
       'price-action-trends.introduction',
       'price-action-trends.part-01-introduction',
@@ -23,8 +23,9 @@ describe('Price-Action-Kursmodell', () => {
       'price-action-trends.chapter-15',
       'price-action-trends.chapter-16',
       'price-action-trends.chapter-17',
+      'price-action-trends.chapter-18',
     ]);
-    expect(priceActionTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
+    expect(priceActionTrendsCourse.units.map((unit) => unit.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
   });
 
   it('publishes the complete source-mapped introduction as 22 micro-lessons', () => {
@@ -300,7 +301,7 @@ describe('Price-Action-Kursmodell', () => {
     const chapterEight = priceActionTrendsCourse.units[9];
     expect(chapterEight.estimatedLessonCount).toBe(12);
     expect(chapterEight.lessons).toHaveLength(12);
-    expect(publishedLessons).toHaveLength(485);
+    expect(publishedLessons).toHaveLength(533);
     expect(chapterEight.lessons.every((lesson) => lesson.status === 'published')).toBe(true);
     expect(chapterEight.lessons.at(0)?.title).toBe('Der fast fertige Bar kann noch kippen');
     expect(chapterEight.lessons.at(7)?.sourceUnit).toContain('Chartfall 8.1');

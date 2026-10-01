@@ -215,4 +215,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 28,
     load: () => import('./courses/price-action-trends/chapter-17').then((module) => module.chapterSeventeenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-18', order: 20, kind: 'chapter', label: 'Kapitel 18',
+    title: 'Einen Trend handeln: Einstieg und Positionsführung',
+    description: 'Stop-, Limit- und Market-Einstiege, gemeinsames Risikobudget, Teilgewinne und strukturelle Stop-Nachführung – mit einem ausführlichen Tagesfall von der Eröffnung bis zum Rangeübergang.',
+    estimatedLessonCount: 48,
+    load: () => import('./courses/price-action-trends/chapter-18').then((module) => module.chapterEighteenLessons),
+  },
 ];

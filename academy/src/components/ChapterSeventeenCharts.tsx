@@ -11,7 +11,7 @@ interface Panel { title: string; note: string; bars: readonly Bar[]; lines: read
 interface Definition { heading: string; panels: readonly [Panel, Panel]; footer: string; description: string; }
 
 // Independent synthetic OHLC paths; no historical chart is reproduced.
-export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definition> = {
+const chartDefinitions: Record<ChapterSeventeenScenarioId, Omit<Definition, 'description'>> = {
   "c17-01": {
     "heading": "Ein früherer Preis bleibt als Referenz",
     "panels": [
@@ -143,8 +143,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Die Linie zeigt den Ort; die Bars zeigen die Reaktion",
-    "description": "Eigenes schematisches Beispiel: links Sichtbares Swinghoch (Gegenbewegung ist schon sichtbar), rechts Späterer Besuch (gleicher Preis, neue Reaktion). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Die Linie zeigt den Ort; die Bars zeigen die Reaktion"
+    "footer": "Die Linie zeigt den Ort; die Bars zeigen die Reaktion"
   },
   "c17-02": {
     "heading": "Laufendes Hoch oder bestätigter Swing?",
@@ -220,8 +219,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Erst sichtbare Gegenbewegung bestätigt den Swing",
-    "description": "Eigenes schematisches Beispiel: links Noch laufender Schub (weiteres Hoch möglich), rechts Gegenbewegung folgt (lokaler Swing jetzt erkennbar). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Erst sichtbare Gegenbewegung bestätigt den Swing"
+    "footer": "Erst sichtbare Gegenbewegung bestätigt den Swing"
   },
   "c17-03": {
     "heading": "Rangegrenze und Anschluss außerhalb",
@@ -386,8 +384,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Kräftiger Anschluss kann die bisherige Lesart verändern",
-    "description": "Eigenes schematisches Beispiel: links Viele Rückkehrbewegungen (überlappender Verlauf), rechts Neue Stärke außerhalb (Range-Lesart wird schwächer). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Kräftiger Anschluss kann die bisherige Lesart verändern"
+    "footer": "Kräftiger Anschluss kann die bisherige Lesart verändern"
   },
   "c17-04": {
     "heading": "Höheres Hoch kehrt unter die Referenz zurück",
@@ -517,8 +514,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Hoch, Rückkehr und Gegenanschluss zeitlich trennen",
-    "description": "Eigenes schematisches Beispiel: links Alter Hochbereich (neuer Versuch folgt), rechts 76, dann Rückkehr (Verkäufer gewinnen Raum). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Hoch, Rückkehr und Gegenanschluss zeitlich trennen"
+    "footer": "Hoch, Rückkehr und Gegenanschluss zeitlich trennen"
   },
   "c17-05": {
     "heading": "Tieferes Tief kehrt über die Referenz zurück",
@@ -648,8 +644,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Die neue Tiefmarke allein ist noch keine Umkehr",
-    "description": "Eigenes schematisches Beispiel: links Alter Tiefbereich (neuer Versuch folgt), rechts 24, dann Rückkehr (Käufer gewinnen Raum). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Die neue Tiefmarke allein ist noch keine Umkehr"
+    "footer": "Die neue Tiefmarke allein ist noch keine Umkehr"
   },
   "c17-06": {
     "heading": "Zwei getrennte obere Versuche",
@@ -800,8 +795,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Zweite Signale brauchen eine erkennbare erste Reaktion",
-    "description": "Eigenes schematisches Beispiel: links Erster Versuch scheitert (Gegenbewegung dazwischen), rechts Zweiter Versuch scheitert (weiteres Hoch, erneute Rückkehr). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Zweite Signale brauchen eine erkennbare erste Reaktion"
+    "footer": "Zweite Signale brauchen eine erkennbare erste Reaktion"
   },
   "c17-07": {
     "heading": "Die erwartete Rückkehr scheitert selbst",
@@ -914,8 +908,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Neuer Anschluss verändert die Arbeitshypothese",
-    "description": "Eigenes schematisches Beispiel: links Rückkehr unter die Grenze (Shortidee noch offen), rechts Käufer setzen sich durch (Rückkehr wird zum Pullback). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Neuer Anschluss verändert die Arbeitshypothese"
+    "footer": "Neuer Anschluss verändert die Arbeitshypothese"
   },
   "c17-08": {
     "heading": "Alte Grenze als Pullbackbereich im Trend",
@@ -1067,8 +1060,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Gleiche horizontale Idee, gespiegelte Trendrichtung",
-    "description": "Eigenes schematisches Beispiel: links Bullenfall (Test von oben), rechts Bärenfall (Test von unten). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Gleiche horizontale Idee, gespiegelte Trendrichtung"
+    "footer": "Gleiche horizontale Idee, gespiegelte Trendrichtung"
   },
   "c17-09": {
     "heading": "Kleiner Gegenbar oder klare Gegenstärke?",
@@ -1256,8 +1248,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Bruchqualität ist wichtiger als die Existenz einer Linie",
-    "description": "Eigenes schematisches Beispiel: links Kurze Pause (Käufer kehren rasch zurück), rechts Größerer Gegenabschnitt (Umkehrprüfung besser begründet). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Bruchqualität ist wichtiger als die Existenz einer Linie"
+    "footer": "Bruchqualität ist wichtiger als die Existenz einer Linie"
   },
   "c17-10": {
     "heading": "Zeitbezug des unteren Testbereichs",
@@ -1382,8 +1373,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Lokaler Swing und älterer Preis können denselben Bereich prüfen",
-    "description": "Eigenes schematisches Beispiel: links Vorheriger Tagesbereich (bekanntes Tief 30), rechts Neuer Test nahe 30 (ähnlich, nicht exakt identisch). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Lokaler Swing und älterer Preis können denselben Bereich prüfen"
+    "footer": "Lokaler Swing und älterer Preis können denselben Bereich prüfen"
   },
   "c17-11": {
     "heading": "Raum vom tatsächlichen Einstieg aus messen",
@@ -1591,8 +1581,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "18 zu 10 ist 1,8 zu 1 vor Kosten; die Trefferquote bleibt offen",
-    "description": "Eigenes schematisches Beispiel: links Frühere Auslösung 68 (Schutz 78, Zielbereich 50), rechts Späterer Preis 54 (weniger Raum zum gleichen Ziel). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. 18 zu 10 ist 1,8 zu 1 vor Kosten; die Trefferquote bleibt offen"
+    "footer": "18 zu 10 ist 1,8 zu 1 vor Kosten; die Trefferquote bleibt offen"
   },
   "c17-12": {
     "heading": "Referenz zuerst, Folgebars danach",
@@ -1722,8 +1711,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Die alte Linie nicht heimlich an das spätere Extrem verschieben",
-    "description": "Eigenes schematisches Beispiel: links Vor dem neuen Test (Hoch 70 ist bereits sichtbar), rechts Neue Daten aufdecken (jetzt Reaktion beurteilen). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Die alte Linie nicht heimlich an das spätere Extrem verschieben"
+    "footer": "Die alte Linie nicht heimlich an das spätere Extrem verschieben"
   },
   "c17-13": {
     "heading": "Zweites höheres Hoch mit drei kleinen Schüben",
@@ -1893,8 +1881,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Zwei Perspektiven beschreiben dieselben Bars",
-    "description": "Eigenes schematisches Beispiel: links Erste obere Ablehnung (ein Rücklauf trennt die Versuche), rechts Drei Schübe im zweiten Angriff (keine perfekte Keilkontur nötig). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Zwei Perspektiven beschreiben dieselben Bars"
+    "footer": "Zwei Perspektiven beschreiben dieselben Bars"
   },
   "c17-14": {
     "heading": "Lokales Tief und älterer Tagesbereich",
@@ -2043,8 +2030,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Lokales tieferes Tief kann zugleich ein älterer Doppeltief-Test sein",
-    "description": "Eigenes schematisches Beispiel: links Erster Tiefversuch (lokales Tief 29), rechts Zweiter Tiefversuch (27 liegt nahe am Vortagsbereich). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Lokales tieferes Tief kann zugleich ein älterer Doppeltief-Test sein"
+    "footer": "Lokales tieferes Tief kann zugleich ein älterer Doppeltief-Test sein"
   },
   "c17-15": {
     "heading": "Große Ausweitung und kleiner oberer Versuch",
@@ -2198,8 +2184,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Die gewählte Größe bestimmt die Versuchszählung",
-    "description": "Eigenes schematisches Beispiel: links Spanne wird breiter (höhere Hochs, tiefere Tiefs), rechts Kleinerer Abschnitt (zwei obere Angriffe trennen). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Die gewählte Größe bestimmt die Versuchszählung"
+    "footer": "Die gewählte Größe bestimmt die Versuchszählung"
   },
   "c17-16": {
     "heading": "Großer Doppeltief-Pullback mit zwei Beinen",
@@ -2373,8 +2358,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Zwei komplexe Beine bestehen aus mehr als zwei Bars",
-    "description": "Eigenes schematisches Beispiel: links Zwei größere Abwärtsbeine (früher Tiefbereich wird geprüft), rechts Zweite Käuferauslösung (Signal und Auslösung folgen). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Zwei komplexe Beine bestehen aus mehr als zwei Bars"
+    "footer": "Zwei komplexe Beine bestehen aus mehr als zwei Bars"
   },
   "c17-17": {
     "heading": "Abwärtsbruch des lokalen Gegenkanals",
@@ -2552,8 +2536,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Horizontale Tiefreferenz und geneigte Kanalgrenze getrennt lesen",
-    "description": "Eigenes schematisches Beispiel: links Steigender Gegenkanal (zunächst Bärenflaggen-Idee), rechts Ausbruch kehrt zurück (erwarteter Abwärtsanschluss fehlt). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Horizontale Tiefreferenz und geneigte Kanalgrenze getrennt lesen"
+    "footer": "Horizontale Tiefreferenz und geneigte Kanalgrenze getrennt lesen"
   },
   "c17-18": {
     "heading": "Drei Abwärtsversuche im komplexen Rücklauf",
@@ -2680,8 +2663,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Die Zählung vor der Folge begründen",
-    "description": "Eigenes schematisches Beispiel: links Erste zwei Versuche (Gegenbewegungen dazwischen), rechts Dritter Versuch und Reaktion (keilartige Bullenflaggen-Idee). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Die Zählung vor der Folge begründen"
+    "footer": "Die Zählung vor der Folge begründen"
   },
   "c17-19": {
     "heading": "Doppeltop-Idee wird von Käuferstärke überboten",
@@ -2807,8 +2789,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Neue Bars können die bisherige Gegenidee widerlegen",
-    "description": "Eigenes schematisches Beispiel: links Zwei obere Tests (Verkäuferhypothese ist noch offen), rechts Großer Käuferausbruch (neue Stärke mit Anschluss). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Neue Bars können die bisherige Gegenidee widerlegen"
+    "footer": "Neue Bars können die bisherige Gegenidee widerlegen"
   },
   "c17-20": {
     "heading": "Lokale tiefere Tiefs im größeren höheren Tief",
@@ -2995,8 +2976,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "54 liegt unter 56 und 58, aber weit über 30",
-    "description": "Eigenes schematisches Beispiel: links Rücklauf nach Käuferausbruch (kleine Tiefs 58, 56, 54), rechts Reaktion am Ausbruchsbereich (Käufer gewinnen erneut Raum). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. 54 liegt unter 56 und 58, aber weit über 30"
+    "footer": "54 liegt unter 56 und 58, aber weit über 30"
   },
   "c17-21": {
     "heading": "Die Rolle der alten Grenze verändert sich",
@@ -3169,8 +3149,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Kontext ab der sichtbaren Veränderung aktualisieren",
-    "description": "Eigenes schematisches Beispiel: links Früher überlappend (Range-Lesart begründet), rechts Ausbruch und haltender Test (Käuferkontrolle wird deutlicher). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Kontext ab der sichtbaren Veränderung aktualisieren"
+    "footer": "Kontext ab der sichtbaren Veränderung aktualisieren"
   },
   "c17-22": {
     "heading": "Zwanzig Bars getrennt vom Durchschnitt",
@@ -3854,8 +3833,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         "focus": []
       }
     ],
-    "footer": "20 × 5 Minuten = 100 Minuten; keine universelle Orderregel",
-    "description": "Eigenes schematisches Beispiel: links Bullenfolge (20 vollständige Fünf-Minuten-Bars), rechts Bärenfolge (gleiche Dauer, andere Richtung). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. 20 × 5 Minuten = 100 Minuten; keine universelle Orderregel"
+    "footer": "20 × 5 Minuten = 100 Minuten; keine universelle Orderregel"
   },
   "c17-23": {
     "heading": "Kleines Gegensignal in starker Folge",
@@ -4027,8 +4005,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Gegenbar und großer Kontrollwechsel sind verschiedene Aussagen",
-    "description": "Eigenes schematisches Beispiel: links Verkäuferbar am Hoch (Käuferkontrolle bleibt sichtbar), rechts Käuferreaktion am Tief (Bärenkontrolle bleibt sichtbar). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Gegenbar und großer Kontrollwechsel sind verschiedene Aussagen"
+    "footer": "Gegenbar und großer Kontrollwechsel sind verschiedene Aussagen"
   },
   "c17-24": {
     "heading": "Frühe Käuferreaktion verliert ihren Anschluss",
@@ -4151,8 +4128,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Der spätere Kanal war beim zweiten Bar noch unbekannt",
-    "description": "Eigenes schematisches Beispiel: links Versuch am Tagesstart (Käufer reagieren auf den Bruch), rechts Erneuter Abwärtsausbruch (Spike, danach Bärenkanal). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Der spätere Kanal war beim zweiten Bar noch unbekannt"
+    "footer": "Der spätere Kanal war beim zweiten Bar noch unbekannt"
   },
   "c17-25": {
     "heading": "Doppelte Preisbereichstests als Trendflaggen",
@@ -4304,8 +4280,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Gleiche Preise erhalten ihre Rolle aus dem größeren Verlauf",
-    "description": "Eigenes schematisches Beispiel: links Doppeltief-Bullenflagge (Pullback in größerer Käuferfolge), rechts Doppeltop-Bärenflagge (Pullback in größerer Verkäuferfolge). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Gleiche Preise erhalten ihre Rolle aus dem größeren Verlauf"
+    "footer": "Gleiche Preise erhalten ihre Rolle aus dem größeren Verlauf"
   },
   "c17-26": {
     "heading": "Späterer Rücklauf zum Kanalbeginn",
@@ -4479,8 +4454,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Kanalbeginn und Ursprung der Gesamtbewegung auseinanderhalten",
-    "description": "Eigenes schematisches Beispiel: links Spike und Kanal (Kanalstart 45, großer Ursprung 20), rechts Test bis 44 (großer Ursprung bleibt entfernt). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Kanalbeginn und Ursprung der Gesamtbewegung auseinanderhalten"
+    "footer": "Kanalbeginn und Ursprung der Gesamtbewegung auseinanderhalten"
   },
   "c17-27": {
     "heading": "Später Durchschnittstest mit zwei offenen Folgen",
@@ -4798,8 +4772,7 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Uhrzeit allein entscheidet keine der beiden Folgen",
-    "description": "Eigenes schematisches Beispiel: links Trendreaktion gelingt (Käufer kehren zurück), rechts Rückkehr wird stärker (Fortsetzungsidee geschwächt). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Uhrzeit allein entscheidet keine der beiden Folgen"
+    "footer": "Uhrzeit allein entscheidet keine der beiden Folgen"
   },
   "c17-28": {
     "heading": "Dein Protokoll am horizontalen Bereich",
@@ -4953,10 +4926,20 @@ export const chapterSeventeenCharts: Record<ChapterSeventeenScenarioId, Definiti
         ]
       }
     ],
-    "footer": "Ein zweites Signal vergrößert kein vorab festgelegtes Geldrisiko",
-    "description": "Eigenes schematisches Beispiel: links Bekannter Preis und Kontext (Hypothese vor dem Test festhalten), rechts Neue Reaktion und Zielraum (Auslösung und Verlustgrenze prüfen). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. Ein zweites Signal vergrößert kein vorab festgelegtes Geldrisiko"
+    "footer": "Ein zweites Signal vergrößert kein vorab festgelegtes Geldrisiko"
   }
 };
+
+// Derive repeated accessible wording without changing any existing description.
+export const chapterSeventeenCharts = Object.fromEntries(
+  Object.entries(chartDefinitions).map(([id, definition]) => {
+    const [left, right] = definition.panels;
+    return [id, { ...definition,
+      description: `Eigenes schematisches Beispiel: links ${left.title} (${left.note}), rechts ${right.title} (${right.note}). Gepunktet: beschrifteter Preisbereich; durchgezogen: Trendseite; gestrichelt: Kanalgrenze; strichpunktiert: berechneter gleitender Durchschnitt. ${definition.footer}`,
+    }];
+  }),
+) as Record<ChapterSeventeenScenarioId, Definition>;
+
 
 export const chapterSeventeenDescriptions = Object.fromEntries(
   Object.entries(chapterSeventeenCharts).map(([id, definition]) => [id, definition.description]),
