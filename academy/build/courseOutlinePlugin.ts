@@ -2,6 +2,7 @@ import { readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { runnerImport, type Plugin } from 'vite';
 import { toCourseOutline } from './courseOutline.ts';
+import { compactJsonModule } from './compactJson.ts';
 import type { Course } from '../src/content/types.ts';
 
 export const COURSE_OUTLINE_ID = 'virtual:wqt-course-outline';
@@ -44,8 +45,8 @@ export function courseOutlinePlugin(): Plugin {
       const courses = mode === 'e2e' ? [...module.baseCourses, ...module.testCourses] : module.baseCourses;
       // Als JSON-String: Große Datenobjekte parst der Browser so schneller als ein
       // gleichwertiges Objektliteral.
-      const json = JSON.stringify(courses.map(toCourseOutline));
-      return `export default JSON.parse(${JSON.stringify(json)});\n`;
+      // Store repeated field names once; decoding preserves the exact outline model.
+      return compactJsonModule(courses.map(toCourseOutline));
     },
   };
 }
