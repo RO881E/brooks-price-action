@@ -138,6 +138,47 @@ export const CHAPTER_TWELVE_SCENARIOS = [
 
 export type ChapterTwelveScenarioId = (typeof CHAPTER_TWELVE_SCENARIOS)[number];
 
+export const CHAPTER_THIRTEEN_SCENARIOS = [
+  "c13-01",
+  "c13-02",
+  "c13-03",
+  "c13-04",
+  "c13-05",
+  "c13-06",
+  "c13-07",
+  "c13-08",
+  "c13-09",
+  "c13-10",
+  "c13-11",
+  "c13-12",
+  "c13-13",
+  "c13-14",
+  "c13-15",
+  "c13-16",
+  "c13-17",
+  "c13-18",
+  "c13-19",
+  "c13-20",
+  "c13-21",
+  "c13-22",
+  "c13-23",
+  "c13-24",
+  "c13-25",
+  "c13-26",
+  "c13-27",
+  "c13-28",
+  "c13-29",
+  "c13-30",
+  "c13-31",
+  "c13-32",
+  "c13-33",
+  "c13-34",
+  "c13-35",
+  "c13-36"
+] as const;
+
+export type ChapterThirteenScenarioId = (typeof CHAPTER_THIRTEEN_SCENARIOS)[number];
+
 export type ChartScenarioId =
   | 'auction-balance'
   | 'institutional-flow'
@@ -250,7 +291,8 @@ export type ChartScenarioId =
   | ChapterNineScenarioId
   | ChapterTenScenarioId
   | ChapterElevenScenarioId
-  | ChapterTwelveScenarioId;
+  | ChapterTwelveScenarioId
+  | ChapterThirteenScenarioId;
 
 export type LessonStep =
   | {

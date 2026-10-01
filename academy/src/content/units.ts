@@ -180,4 +180,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 21,
     load: () => import('./courses/price-action-trends/chapter-12').then((module) => module.chapterTwelveLessons),
   },
+  {
+    id: 'price-action-trends.chapter-13', order: 15, kind: 'chapter', label: 'Kapitel 13',
+    title: 'Trendlinien und ihre Tests',
+    description: 'Swinglinien, Gegenbrüche, Extremtests und parallele Kanalgrenzen – mit sieben Chartfällen, vertiefter Einordnung und einem klaren Beobachtungsplan.',
+    estimatedLessonCount: 36,
+    load: () => import('./courses/price-action-trends/chapter-13').then((module) => module.chapterThirteenLessons),
+  },
 ];
