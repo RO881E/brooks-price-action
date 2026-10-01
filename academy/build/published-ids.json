@@ -2429,6 +2429,155 @@
           ]
         }
       ]
+    },
+    {
+      "id": "price-action-trends.chapter-11",
+      "lessons": [
+        {
+          "id": "price-action-trends.chapter-11.lesson-01",
+          "steps": [
+            "chapter-11-01-explain",
+            "chapter-11-01-diagram",
+            "chapter-11-01-question",
+            "chapter-11-01-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-02",
+          "steps": [
+            "chapter-11-02-explain",
+            "chapter-11-02-diagram",
+            "chapter-11-02-question",
+            "chapter-11-02-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-03",
+          "steps": [
+            "chapter-11-03-explain",
+            "chapter-11-03-diagram",
+            "chapter-11-03-question",
+            "chapter-11-03-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-04",
+          "steps": [
+            "chapter-11-04-explain",
+            "chapter-11-04-diagram",
+            "chapter-11-04-question",
+            "chapter-11-04-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-05",
+          "steps": [
+            "chapter-11-05-explain",
+            "chapter-11-05-diagram",
+            "chapter-11-05-question",
+            "chapter-11-05-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-06",
+          "steps": [
+            "chapter-11-06-explain",
+            "chapter-11-06-diagram",
+            "chapter-11-06-question",
+            "chapter-11-06-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-07",
+          "steps": [
+            "chapter-11-07-explain",
+            "chapter-11-07-diagram",
+            "chapter-11-07-question",
+            "chapter-11-07-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-08",
+          "steps": [
+            "chapter-11-08-explain",
+            "chapter-11-08-diagram",
+            "chapter-11-08-question",
+            "chapter-11-08-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-09",
+          "steps": [
+            "chapter-11-09-explain",
+            "chapter-11-09-diagram",
+            "chapter-11-09-question",
+            "chapter-11-09-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-10",
+          "steps": [
+            "chapter-11-10-explain",
+            "chapter-11-10-diagram",
+            "chapter-11-10-question",
+            "chapter-11-10-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-11",
+          "steps": [
+            "chapter-11-11-explain",
+            "chapter-11-11-diagram",
+            "chapter-11-11-question",
+            "chapter-11-11-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-12",
+          "steps": [
+            "chapter-11-12-explain",
+            "chapter-11-12-diagram",
+            "chapter-11-12-question",
+            "chapter-11-12-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-13",
+          "steps": [
+            "chapter-11-13-explain",
+            "chapter-11-13-diagram",
+            "chapter-11-13-question",
+            "chapter-11-13-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-14",
+          "steps": [
+            "chapter-11-14-explain",
+            "chapter-11-14-diagram",
+            "chapter-11-14-question",
+            "chapter-11-14-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-15",
+          "steps": [
+            "chapter-11-15-explain",
+            "chapter-11-15-diagram",
+            "chapter-11-15-question",
+            "chapter-11-15-recap"
+          ]
+        },
+        {
+          "id": "price-action-trends.chapter-11.lesson-16",
+          "steps": [
+            "chapter-11-16-explain",
+            "chapter-11-16-diagram",
+            "chapter-11-16-question",
+            "chapter-11-16-recap"
+          ]
+        }
+      ]
     }
   ]
 }

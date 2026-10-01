@@ -166,4 +166,11 @@ export const unitDefinitions: UnitDefinition[] = [
     load: () =>
       import('./courses/price-action-trends/chapter-10').then((module) => module.chapterTenLessons),
   },
+  {
+    id: 'price-action-trends.chapter-11', order: 13, kind: 'chapter', label: 'Kapitel 11',
+    title: 'Verpasste und späte Einstiege',
+    description: 'Späte Trendteilnahme, Haltefrage, Stop-Abstand, Positionsgröße und Aufstocken – mit einem Chartfall und vertiefter Kanal- und Durchschnittslogik.',
+    estimatedLessonCount: 16,
+    load: () => import('./courses/price-action-trends/chapter-11').then((module) => module.chapterElevenLessons),
+  },
 ];
