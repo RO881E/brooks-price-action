@@ -33,6 +33,15 @@ describe('compact course outline wire format', () => {
     expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
   });
 
+  it('interns long text used only twice while leaving short pairs inline', () => {
+    const text = 'Ein langer wiederholter Gliederungstext für zwei Stellen';
+    const input = [text, text, 'kurz', 'kurz'];
+    const packed = packJson(input);
+    expect(packed.strings).toEqual([text]);
+    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(input).length);
+  });
+
   it('rejects invalid string references instead of silently losing text', () => {
     expect(() => unpackJson({ $: 2 }, [], ['only zero'])).toThrow('Invalid compact JSON string');
     expect(() => unpackJson({ $: -1 }, [], ['only zero'])).toThrow('Invalid compact JSON string');

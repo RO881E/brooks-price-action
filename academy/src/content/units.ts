@@ -250,4 +250,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 48,
     load: () => import('./courses/price-action-trends/chapter-22').then((module) => module.chapterTwentyTwoLessons),
   },
+  {
+    id: 'price-action-trends.chapter-23', order: 25, kind: 'chapter', label: 'Kapitel 23',
+    title: 'Trends ab Eröffnung und kleine Rücksetzer',
+    description: 'Frühe Trendhypothesen, Gap-Kontext, kleine Gegenstrecken, erste Rücksetzer, Stopführung und spätere Umkehr – mit elf Lernfällen und eigenen OHLC-Diagrammen.',
+    estimatedLessonCount: 40,
+    load: () => import('./courses/price-action-trends/chapter-23').then((module) => module.chapterTwentyThreeLessons),
+  },
 ];

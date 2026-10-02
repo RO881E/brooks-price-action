@@ -11,7 +11,7 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
     else if (value !== null && typeof value === 'object') Object.values(value).forEach(count);
   };
   count(normalized);
-  const strings = [...counts].filter(([text, times]) => text.length > 12 && times >= 3).map(([text]) => text);
+  const strings = [...counts].filter(([text, times]) => (text.length > 12 && times >= 3) || (text.length > 24 && times >= 2)).map(([text]) => text);
   const stringIndices = new Map(strings.map((text, index) => [text, index]));
   const keys: string[] = [];
   const indices = new Map<string, string>();
