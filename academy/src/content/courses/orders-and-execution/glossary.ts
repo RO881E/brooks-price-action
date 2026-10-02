@@ -480,4 +480,68 @@ export const ordersGlossary: GlossaryEntry[] = [
     "aliases": [],
     "firstUnit": "Kapitel 7"
   },
+  {
+    "term": "Explizite Kosten",
+    "definition": "Zusätzliche Geldbuchungen wie vereinbarte Anbieter- und Handelsplatzgebühren. Ihre Grundlage ist vom tatsächlichen Handelswert zu unterscheiden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Implizite Kosten",
+    "definition": "In Preisen oder ihrer Abweichung zur Referenz enthaltene Handelsnachteile. Sie dürfen nicht als zusätzliche Gebühr auf bereits verwendete Ausführungspreise aufgeschlagen werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Preisverbesserung",
+    "definition": "Eine günstigere Ausführung gegenüber einem genau genannten zeitgleichen Vergleichsangebot. Andere Referenzen können dieselbe Ausführung anders bewerten.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Stückgebühr",
+    "definition": "Eine Gebühr je ausgeführtem Stück nach der vereinbarten Tarifregel. Die beauftragte, aber nicht ausgeführte Menge kann anders behandelt werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Mindestgebühr",
+    "definition": "Eine tarifliche Gebührenuntergrenze für eine bestimmte Abrechnungseinheit. Ob sie statt einer kleineren Berechnung gilt, muss im Tarif feststehen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Nettogewinn",
+    "definition": "Gewinn aus tatsächlichen Handelswerten nach den berücksichtigten zusätzlichen Kosten. Welche Gebühren, Steuern und weiteren Kosten enthalten sind, muss genannt sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Gewinnschwelle",
+    "definition": "Der Wert, bei dem die Rechnung unter den genannten Mengen- und Kostenannahmen weder Nettogewinn noch Nettoverlust ergibt. Keine Zusage eines ausführbaren Preises.",
+    "aliases": [
+      "Break-even"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Ausführungsquote",
+    "definition": "Der ausgeführte Anteil einer gewünschten Menge im angegebenen Zeitraum. Offene und beendete Reste müssen zusätzlich erkennbar bleiben.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Opportunitätskosten",
+    "definition": "Eine hypothetische Bewertung einer entgangenen Möglichkeit gegen ausdrücklich festgelegte Annahmen. Keine automatisch entstandene Geldgebühr.",
+    "aliases": [
+      "Entgangener Vergleich"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Ausführungslatenz",
+    "definition": "Eine Zeitspanne zwischen ausdrücklich genannten Auftrags- oder Ausführungsereignissen. Dafür sind vergleichbare Uhren und Zeitstempel nötig.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
 ];
