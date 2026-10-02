@@ -19,7 +19,7 @@ const BUDGET = {
   outlineGzipKb: 120,
   // Schaubilder (ChartFocus), gzip – erst beim ersten Diagramm geladen
   chartsGzipKb: 150,
-  // Größtes einzelnes Kapitel, gzip
+  // Größtes einzelnes Kapitel bzw. separat nachgeladenes Kapitel-Schaubild, gzip
   chapterGzipKb: 40,
   // Offline-Vorladung laut Service Worker, so wie sie übertragen wird (gzip)
   precacheGzipMb: 1.5,
@@ -34,7 +34,7 @@ function files(dir) {
 
 /** Bereich einer Datei: Kursinhalte wachsen mit dem Kurs, alles andere ist App-Grundgerüst. */
 function area(path) {
-  if (/^assets\/(chapter|introduction|part)-.*\.js$/.test(path)) return 'chapter';
+  if (/^assets\/(chapter|introduction|part|ChapterChart)-.*\.js$/.test(path)) return 'chapter';
   if (/^assets\/course-outline-.*\.js$/.test(path)) return 'outline';
   if (/^assets\/ChartFocus-.*\.js$/.test(path)) return 'charts';
   return 'app';

@@ -211,5 +211,79 @@ export const chartsGlossary: GlossaryEntry[] = [
     "definition": "Eine Zeitangabe zu Daten oder einem Bar. Ob sie Anfang, Ende oder einen einzelnen Geschäftszeitpunkt meint, muss erklärt sein.",
     "aliases": [],
     "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Range-Bar",
+    "definition": "Ein nach einer erklärten Hoch-Tief-Preisregel gebildeter Bar. Regeln für Erreichen, Überschreiten, Sprünge und Neustart sind gesondert anzugeben.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Range-Schwelle",
+    "definition": "Die Preisentfernung zwischen Hoch und Tief, die im eigenen Ganzgeschäftsmodell mindestens erreicht werden muss. Kein zwingend exakter Höhenwert jedes fertigen Bars.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Renko",
+    "definition": "Eine preisbasierte Darstellung berechneter Steine. Größe, Anker, Eingangsfolge und Umkehrregel bestimmen die Konstruktion.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Renko-Stein",
+    "definition": "Ein nach der erklärten Renko-Regel gezeichnetes Preiselement. Mehrere Steine können denselben Geschäftsauslöser haben.",
+    "aliases": [
+      "Brick"
+    ],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Steingröße",
+    "definition": "Die erklärte Preisentfernung eines Renko-Steins. Im festen Lernmodell 0,20 Euro; eine Umkehr kann mehr Preisbewegung erfordern.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Preisanker",
+    "definition": "Der Ausgangspreis des verwendeten Rasters. Ein anderer Anker kann bei gleichen Meldungen andere Steine erzeugen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Umkehrschwelle",
+    "definition": "Die nach einer Regel nötige Preisgrenze für das erste Element der Gegenrichtung. Im Renko-Modell zwei Steingrößen vom letzten Steinschluss entfernt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Synthetischer Preis",
+    "definition": "Ein nach einer Darstellungsregel berechneter Wert. Er ist nicht automatisch als einzelner Handel oder ausführbares Angebot belegt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Projektion",
+    "definition": "Ein vorläufig gezeigtes Element, das nach der erklärten Eingangs- und Abschlussregel noch verändert werden oder entfallen kann.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Virtueller Bar",
+    "definition": "Ein durch eine Zeichenregel ergänzter Bar, etwa innerhalb eines Preissprungs. Er beweist keine zusätzliche Geschäftsmeldung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Preissprung",
+    "definition": "Ein größerer Abstand zwischen beobachteten Preisen. Die dazwischen liegenden Rasterwerte sind dadurch nicht sämtlich als Geschäfte belegt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "ATR",
+    "definition": "Eine Kennzahl für durchschnittliche vergangene Preisbewegung unter Berücksichtigung von Abständen zum vorherigen Schluss. Eingaben, Zeitraum und Berechnung müssen genannt sein; hier keine Größenempfehlung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
   }
 ];

@@ -8,7 +8,7 @@ abgeschlossene andere Kurse; Sprache nach MARKTGRUNDLAGEN_SPRACHE.md.
 | 1 | Vom Geschäft zum Chartbild | 20 Lektionen verfügbar |
 | 2 | Linien, Balken und Kerzen sicher vergleichen | 20 Lektionen verfügbar |
 | 3 | Zeit-Bars, Tick-Bars und Volumen-Bars | 24 Lektionen verfügbar |
-| 4 | Range-Bars und Renko | Geplant |
+| 4 | Range-Bars und Renko | 24 Lektionen verfügbar |
 | 5 | Heikin-Ashi und berechnete Preise | Geplant |
 | 6 | Point & Figure und regelbasierte Verdichtung | Geplant |
 | 7 | Zeitebenen und gemeinsame Daten | Geplant |
@@ -148,3 +148,62 @@ unterschiedliche Zeilenanzahl. Keine universelle Feed-Behauptung.
 24 neue Lektionen, zehn neue Glossarbegriffe; Kurs gesamt64/32. Eigenständige
 Formulierungen, Daten und Bilder; keine Buchpassagen oder Bilder übernommen.
 Bestehende Kurs-/Schrittkennungen und Fortschrittsschlüssel bleiben erhalten.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 4
+
+Murphy-EPUB auf eigene Renko-Abschnitte geprüft: keine gefunden. Kapitel3 liefert
+nur den bereits geprüften OHLC-/Spannenhintergrund. Renko- und Range-Regeln
+werden nicht als Buchinhalt ausgegeben. Fachbegriffe ergänzend anhand folgender
+Primärdokumentation geprüft am2026-10-02:
+- https://www.tradingview.com/support/solutions/43000502284-understanding-renko-charts/
+- https://www.tradingview.com/support/solutions/43000474007-understanding-range-charts/
+- https://static.ninjatrader.com/support/helpGuides/nt8/bar_types.htm
+
+Allgemeiner Hintergrund: preisabhängige Bildung, virtuelle Zwischenstufen,
+vorläufige Projektionen, Datenauflösung und Grenzen synthetischer Preise.
+Keine Buch-/Webformulierungen, Beispiele, Bilder oder Prognosebehauptungen
+übernommen. Alle Regeln und Beispiele ausdrücklich eigene Lehrmodelle,
+keine Simulation der vollständigen Plattformimplementierungen.
+
+Eigene Arvo-Liste: Sekunden seit09:00/Cent jeAktie/Aktien:
+1:5/10000/2;2:20/10010/1;3:35/9990/3;4:50/10020/2;5:65/10030/1;
+6:80/10020/2;7:100/10000/3;8:120/10010/1;9:125/10050/4;
+10:150/10040/2;11:175/10030/1;12:205/10040/2;13:245/10000/3;
+14:260/9960/1;15:290/9970/2. Gesamt15Meldungen/30Aktien.
+Aufnahme nachG15, keine weiteren Meldungen und kein Sitzungsneustart.
+Erfundenes Preisraster10Cent, Range-Schwelle30Cent, Renko-Größe20Cent.
+
+Range: erstes H−L>=30 schließt mit ganzer auslösender Meldung; nächste
+Meldung startet neu. Gruppen1–4/5–7/8–9/10–13/14–15;
+OHLC beziehungsweise aktuelles O/H/L/Letzter inCent:
+10000/10020/9990/10020;10030/10030/10000/10000;
+10010/10050/10010/10050;10040/10040/10000/10000;
+9960/9970/9960/9970. Spannen30/30/40/40/10, Mengen8/6/5/8/3.
+Letzte Gruppe offen. Keine Interpolation, Grenzvervielfachung oder erfundenen
+Geschäfte; deshalb sind abgeschlossene Spannen nicht immer exakt30.
+
+Renko: Anker10000, festeGröße20, inklusive Schwellen, Einzelmeldungen in
+Reihenfolge, ersteRichtung ab±20, Fortsetzung je20, Umkehr erst ab40 vom
+letztenSteinschluss. ErsterGegenstein startet eineGröße vom letztenSchluss
+in Gegenrichtung, keine überlappende Zwischenbox. Keine Schatten/Projektionen.
+Steine(O→C/Auslöser):10000→10020/G4;10020→10040/G9;
+10020→10000/G13;10000→9980/G14;9980→9960/G14.
+Letzter gehandelt9970, letzterSteinschluss9960; nächste Aufwärtsumkehr10000.
+Keine Meldung bei9980. Keine Volumenzuteilung an berechnete Steine.
+Zwischenbild bisG11: letzterStein10020→10040, beobachtet10030,
+Fortsetzung10060, Umkehr10000. Eigene SVGs mit fixer linearer Preisachse,
+expliziten Einheiten und offenerRestkennzeichnung; Bar-/Steinfolge ordinal.
+
+Getrennte Varianten ohne Hauptbild: Range50 ersteGruppe1–9/Spanne60;
+RenkoAnker10010 ersteAbwärtsschwelle9990/G3; Größe40 ersterAufwärtsschwelle10040.
+IdentischesOHLC10000/10040/9980/10020 bei Folgen
+A:10000,10040,9980,10020 => fünfSteine(↑↑↓↓↑),
+B:10000,9980,10040,10020 => dreiSteine(↓↑↑).
+ATR/Prozent nur Methodenbegriffe, keine behauptete dynamische Implementierung.
+Minutenschluss-Projektionen getrennt vom bestätigten Einzelmeldungsmodell.
+
+24 neue Lektionen, zwölf Glossarbegriffe; Kurs gesamt88/44. Neue Diagramme
+werden separat nachgeladen. Gemeinsamer Zoom-/Fokusrahmen bleibt derselbe;
+ältere Diagrammaufrufe behalten ihre Schnittstelle und ihre Bedienung.
+Separat geladene Kapitelgrafiken unterliegen dem bestehenden40kB-Kapitelbudget;
+keine bestehenden Größenlimits erhöht. IDs und Fortschrittsschlüssel erhalten.
