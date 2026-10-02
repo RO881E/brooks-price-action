@@ -13,7 +13,7 @@ Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 | 6 | Positionen schließen, OCO und Brackets | 22 Lektionen verfügbar |
 | 7 | Trailing Stops und bedingte Aufträge | 22 Lektionen verfügbar |
 | 8 | Slippage, Gebühren und Ausführungsqualität | 22 Lektionen verfügbar |
-| 9 | Handelswege, Technik und Fehlerfälle | Geplant |
+| 9 | Handelswege, Technik und Fehlerfälle | 22 Lektionen verfügbar |
 | 10 | Einen Ausführungsplan selbst prüfen | Geplant |
 
 ## Quellen und Modellgrenzen
@@ -384,3 +384,54 @@ für acht, Durchschnitt25,175, Abweichung zur gemeinsamen vorherigen25,00
 insgesamt1,40. Keine Rundung der tatsächlichen Einzelwerte durch gerundete
 Durchschnitte. Bewertungsrahmen umfasst Referenz, Kosten, Vollständigkeit,
 Zeit und vergleichbare Orderarten/Marktphasen. Alternativen nicht vermischt.
+
+
+## Kapitel 9: Handelswege, Technik und Fehlerfälle
+
+22 eigene Lektionen und zehn neue Begriffe. Gesamt: 196 Lektionen,
+90 Glossarbegriffe. Die bereitgestellte Harris-PDF wurde in Kapitel 5,
+Einleitung und Abschnitt 5.1, Druckseiten 5-1 bis 5-2 geprüft: Informations-
+und Auftragswege, Rückmeldungen, offene Orders und Marktdaten als eigene Systeme.
+Die ältere Draft-Fassung begründet keine aktuellen Anbieterregeln.
+Ergänzende Primärquellen geprüft am 2026-10-02:
+- Interactive Brokers, Order Placement Considerations:
+  https://www.interactivebrokers.com/docs/tws-api/doc/orders/place-order/order-placement-considerations
+- Interactive Brokers, Error Codes:
+  https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/error-codes
+- Interactive Brokers, dokumentierte Verbindungs- und Statusmeldungen:
+  https://interactivebrokers.github.io/tws-api/message_codes.html
+
+Die Quellen wurden zur Abgrenzung von Meldungen, Fehlern, Auftragsannahme,
+Verbindungsabbruch und Ausführung geprüft. Sichtbare Texte, Firmen, Aufträge,
+Tarife und Ereignisse sind vollständig eigenständig. Keine API-Codes oder
+aktuellen Anbieterzusagen werden in den Lernfällen behauptet.
+
+Hauptfall Mira/Elva: Startgeld 500,00; vorher bestätigter Kauf sieben zu40,00,
+Gebühr0,50 => Geld219,50, Bestand7. Verkaufsorder S17 sieben, Limit40,20.
+Brokerannahme und Platzannahme getrennt; App-Verbindung bricht ab, im Modell
+kein automatischer Storno. E1 zwei zu40,30; Stornoanfrage; E2 drei zu40,20 vor
+wirksamem Storno; Rest2 bestätigt storniert. Identische Wiederholung E1 ist
+kein neuer Handel; keine Handelskorrekturen im Modell. Kumulierte Stände2 und5
+sind nicht zu7 zu addieren; neu hinzu3. Verkauf80,60+120,60=201,20,
+Gebühr einmal0,40+fünf*0,01=0,45; Gutschrift200,75. Endgeld420,25,
+Bestand2, Orderrest0. Geldstand ist kein Gesamtgewinn bei offenen Aktien.
+Empfangszeit und Ereigniszeit werden unterschieden, fehlende Zeiten nicht erfunden.
+
+Eigenständige Alternativen: vier Rila-Käufe auf West/Ost zu je2*25,00 und
+2*25,10 =>100,20; je Teilauftrag0,20 plus0,01 je Aktie =>0,44 Gebühren,
+Belastung100,64. Feste erfundene Routing-Aufteilung, kein Optimalitätsanspruch.
+Direkter Süd-Weg nur1zu25,00, drei weiter offen; kein vergleichbarer voller Kauf.
+Timeout-Startvariante kennt weder Annahme noch Ausführung und bleibt ungeklärt.
+Noah kauft nach doppeltem Versand K21/K22 jeweils7 =>14 statt Ziel7; keine
+vorausgesetzte Wiederholungserkennung. Datenalter10:01:10 minus10:00:40=30s,
+gleiche Uhrzeitbasis; keine allgemeine Fehlergrenze. Abgelehnte Änderung auf40,50
+lässt laut eigener Regel fünf offene Verkäufe bei40,20 bestehen. Separat R31
+Limit18,03 abgelehnt bei0,05-Preisstufe, keine automatische Rundung oder Ausführung.
+
+Eigene Handelspause erlaubt Annahme, keine Ausführung. Lokale Prüfung L fällt
+mit Laptop aus; entfernte Prüfung S bleibt im Modell aktiv und kann bei38,90
+unter Schwelle39,00 eine Folgeorder erzeugen, ohne Ausführungs-/Preisgarantie.
+Zwei Geräte im selben Konto zeigen denselben S17; neue Klicks können neue
+Orders erzeugen. Simulation bleibt getrennt vom Live-Konto. Ersatzweg nur mit
+vorher verifizierten Möglichkeiten; keine Sofortbearbeitung zugesagt, kein
+Versand an reale Personen, keine Passwörter in Protokollen.

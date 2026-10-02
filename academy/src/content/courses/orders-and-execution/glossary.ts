@@ -544,4 +544,66 @@ export const ordersGlossary: GlossaryEntry[] = [
     "aliases": [],
     "firstUnit": "Kapitel 8"
   },
+{
+  "term": "Ungeklärter Auftragszustand",
+  "definition": "Ein Zustand, für den noch ausreichende Bestätigungen fehlen. Fehlende Antwort beweist weder Ablehnung noch Ausführung.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Teilauftrag",
+  "definition": "Ein zu einer Gesamtorder gehörender Auftrag über einen Teil der gewünschten Menge. Gebühren und Kennungen können je Teilauftrag eigene Regeln haben.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Marktdatenstrom",
+  "definition": "Eine Folge von Meldungen über Kurse oder Angebote. Sie ist von den Meldungen zu eigenen Aufträgen zu unterscheiden.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Datenalter",
+  "definition": "Die vergangene Zeit seit dem angegebenen Datenzeitpunkt. Zum Vergleich braucht man passende Zeitangaben und Uhren.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Timeout",
+  "definition": "Eine erwartete Antwort ist nicht innerhalb der vorgesehenen Zeit eingetroffen. Daraus allein folgt kein bestimmter Auftragszustand.",
+  "aliases": [
+    "Zeitüberschreitung"
+  ],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Ausführungskennung",
+  "definition": "Eine Kennung, die einen bestätigten Handel im angegebenen System eindeutig zuordnet. Korrekturen und Kennungsbereiche brauchen eigene Regeln.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Kumulierter Stand",
+  "definition": "Eine bis zum genannten Zeitpunkt bereits aufsummierte Gesamtmenge. Sie ist nicht nochmals als neue Teilmenge zu addieren.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Handelspause",
+  "definition": "Eine Unterbrechung des Handels in einem bestimmten Produkt oder Bereich. Ob Aufträge angenommen oder gelöscht werden, hängt von den Regeln ab.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Lokale Überwachung",
+  "definition": "Eine Bedingungsprüfung auf dem eigenen Gerät. Ohne laufendes Gerät und passende Daten kann sie im entsprechenden Modell keine neue Bedingung prüfen.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
+{
+  "term": "Ersatzweg",
+  "definition": "Ein vorher geprüfter anderer Kontakt- oder Zugangsweg bei einer Störung. Seine Möglichkeiten und Bestätigungen sind separat zu prüfen.",
+  "aliases": [],
+  "firstUnit": "Kapitel 9"
+},
 ];

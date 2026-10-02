@@ -3,10 +3,10 @@ import { ordersGlossary } from './glossary';
 export const ordersDefinition: CourseDefinition = {
   info: {
     id: 'orders-and-execution',
-    eyebrow: 'Trading von null · Kapitel 1–8 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–9 verfügbar',
     title: 'Orders und Ausführung',
-    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände. Kapitel 6 verbindet Positionsausstiege, OCO-Regeln und Brackets. Kapitel 7 ergänzt nachziehende Schwellen und bedingte Aktivierung. Kapitel 8 verbindet Preisvergleiche, Gebühren und Ausführungsqualität.',
-    sourceOrderNotice: 'Kapitel 1 bis 8 sind verfügbar. Die weiteren zwei Kapitel werden schrittweise ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
+    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände. Kapitel 6 verbindet Positionsausstiege, OCO-Regeln und Brackets. Kapitel 7 ergänzt nachziehende Schwellen und bedingte Aktivierung. Kapitel 8 verbindet Preisvergleiche, Gebühren und Ausführungsqualität. Kapitel 9 ergänzt Handelswege, technische Störungen und den Abgleich bestätigter Zustände.',
+    sourceOrderNotice: 'Kapitel 1 bis 9 sind verfügbar. Das letzte Kapitel wird als Nächstes ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
   },
   units: [{
     id: 'orders-and-execution.chapter-01', order: 1, kind: 'chapter',
@@ -56,6 +56,12 @@ export const ordersDefinition: CourseDefinition = {
     description: 'Vorherige Preisreferenzen, tatsächliche Geldbuchungen, Nettogewinn, Mengenabdeckung und Ausführungszeiten gemeinsam prüfen.',
     estimatedLessonCount: 22,
     load: () => import('./chapter-08').then((module) => module.ordersChapterEightLessons),
+  }, {
+    id: 'orders-and-execution.chapter-09', order: 9, kind: 'chapter',
+    label: 'Kapitel 9', title: 'Handelswege, Technik und Fehlerfälle',
+    description: 'Weiterleitung, Datenwege, ungeklärte Zustände und den Abgleich nach Störungen mit bestätigten Mengen und Geld prüfen.',
+    estimatedLessonCount: 22,
+    load: () => import('./chapter-09').then((module) => module.ordersChapterNineLessons),
   }],
   glossary: { title: 'Orders-Glossar', entries: ordersGlossary },
 };
