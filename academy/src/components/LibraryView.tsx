@@ -97,24 +97,35 @@ export function LibraryView({
   onNavigate,
   onContinue,
   subjects = allSubjects,
+  embedded = false,
 }: {
   progress: AcademyProgress;
   activeCourseId: string;
   onNavigate: Navigate;
   onContinue: () => void;
   subjects?: readonly LibrarySubject[];
+  /** Eingebettet im Lernpfad („Weitere Kurse und Themen“): ohne eigene Überschrift, Einleitung und „Weiterlernen“. */
+  embedded?: boolean;
 }) {
   const ids = useId();
   const counts = libraryCounts(subjects);
 
   return (
-    <section className="library-view" aria-labelledby={`${ids}-title`}>
-      <h1 id={`${ids}-title`}>Alle Kurse</h1>
-      <p className="library-intro">
-        Hier stehen alle Themen, die du lernen kannst: {counts.subjects} Themengebiete mit {counts.courses} Kursen. Kurse
-        mit Inhalt kannst du starten und jederzeit wechseln – jeder behält seinen eigenen Stand. Alles andere ist
-        „Geplant“ und kommt nach und nach dazu.
-      </p>
+    <section
+      className={embedded ? 'library-view embedded' : 'library-view'}
+      aria-labelledby={embedded ? undefined : `${ids}-title`}
+      aria-label={embedded ? 'Weitere Kurse und Themen' : undefined}
+    >
+      {embedded ? null : (
+        <>
+          <h1 id={`${ids}-title`}>Alle Kurse</h1>
+          <p className="library-intro">
+            Hier stehen alle Themen, die du lernen kannst: {counts.subjects} Themengebiete mit {counts.courses} Kursen.
+            Kurse mit Inhalt kannst du starten und jederzeit wechseln – jeder behält seinen eigenen Stand. Alles andere
+            ist „Geplant“ und kommt nach und nach dazu.
+          </p>
+        </>
+      )}
 
       <section className="library-section" aria-labelledby={`${ids}-mine`}>
         <h2 id={`${ids}-mine`}>Deine Kurse</h2>
@@ -138,7 +149,7 @@ export function LibraryView({
                     <span style={{ width: `${standing.percent}%` }} />
                   </div>
                 </div>
-                {active ? (
+                {active && !embedded ? (
                   <button type="button" className="primary-button" onClick={onContinue}>
                     <Icon name="path" size={18} /> Weiterlernen
                   </button>

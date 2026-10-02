@@ -560,7 +560,7 @@ Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](d
   die Lektion für heute und die fälligen Lernkarten (mit Anzahl bzw. nächstem Termin), dazu Kurz
   lernen und die Woche. Der **Lernpfad** (`#/path`) zeigt nur noch den Kurs.
 - **Level und XP** stehen immer oben in der Kopfzeile (Klick öffnet den Fortschritt).
-- Die frühere „Bibliothek“ heißt **Alle Kurse** (Adresse `#/library` bleibt).
+- Die frühere „Bibliothek“ heißt **Alle Kurse** und hängt am Lernpfad: unter dem Kapitel klappt „Weitere Kurse und Themen“ auf (lädt erst dann). Einen eigenen Menüpunkt gibt es nicht mehr; die Adressen `#/library`, `#/library/<gebiet>` und `#/course/<kurs>` bleiben, der Lernpfad bleibt dabei markiert.
 
 ## Bibliothek: alle Themen auf eigenen Seiten
 
