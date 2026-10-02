@@ -2,9 +2,9 @@ import type { CourseDefinition } from '../../registry';
 import { chartsGlossary } from './glossary';
 export const chartsDefinition: CourseDefinition = {
   info: {
-    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–3 verfügbar', title: 'Charts lesen',
-    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–3 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick- und Volumen-Gruppierungen.',
-    sourceOrderNotice: 'Kapitel 1–3 sind verfügbar. Die weiteren sieben Kapitel werden schrittweise ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
+    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–4 verfügbar', title: 'Charts lesen',
+    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–4 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen.',
+    sourceOrderNotice: 'Kapitel 1–4 sind verfügbar. Die weiteren sechs Kapitel werden schrittweise ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
   },
   units: [{
     id: 'reading-charts.chapter-01', order: 1, kind: 'chapter', label: 'Kapitel 1', title: 'Vom Geschäft zum Chartbild',
@@ -21,6 +21,11 @@ export const chartsDefinition: CourseDefinition = {
     description: 'Zwölf eigene Geschäfte nach Zeit, Meldungszahl und Menge gruppieren; Schwellen, offene Reste und Datenanforderungen prüfen.',
     estimatedLessonCount: 24,
     load: () => import('./chapter-03').then(module => module.chartsChapterThreeLessons),
+  }, {
+    id: 'reading-charts.chapter-04', order: 4, kind: 'chapter', label: 'Kapitel 4', title: 'Range-Bars und Renko',
+    description: 'Preisbasierte Gruppen, feste Steine, Umkehrschwellen und synthetische Grenzen mit eigenen Daten prüfen.',
+    estimatedLessonCount: 24,
+    load: () => import('./chapter-04').then(module => module.chartsChapterFourLessons),
   }],
   glossary: { title: 'Charts-Glossar', entries: chartsGlossary },
 };
