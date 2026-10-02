@@ -7,7 +7,7 @@ Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 | --- | --- | --- |
 | 1 | Vom Handelswunsch zum Auftrag | 20 Lektionen verfügbar |
 | 2 | Market-Orders und verfügbare Angebote | 22 Lektionen verfügbar |
-| 3 | Limit-Orders und Warteschlangen | Geplant |
+| 3 | Limit-Orders und Warteschlangen | 22 Lektionen verfügbar |
 | 4 | Stop- und Stop-Limit-Orders | Geplant |
 | 5 | Gültigkeit und Mengenbedingungen | Geplant |
 | 6 | Positionen schließen, OCO und Brackets | Geplant |
@@ -69,3 +69,43 @@ versteckten Angebote oder Zwischenänderungen an. Zeitfolgefälle nennen
 Buchänderungen ausdrücklich. Restlöschung bei unzureichender Menge und
 Systemschutzgrenze 50,25 Euro sind erfundene Übungsregeln.
 Marktphase, Annahme, Ausführung und endgültiger Reststatus bleiben getrennt.
+
+
+## Kapitel 3: Limit-Orders und Warteschlangen
+
+22 neue Lektionen, zehn neue Glossarbegriffe. Gesamt: 64 Lektionen, 31 Begriffe.
+Geprüfte bereitgestellte Quelle: Trading and Exchanges, PDF-Druckseiten 2-3
+(Limitgrenze), 4-1 bis 4-3 (Auftrag/Rest/Änderungsrisiken), 6-1 bis 6-3
+(Regelunterschiede, Preisvorrang und Zeitvorrang im dortigen Oral-Auction-Kontext).
+Die elektronisch lesbare Draft-Datei enthält dort keinen vollständig ausgeführten
+Abschnitt zum modernen elektronischen Matching. Die folgenden Regeln sind daher
+bewusst eigene Lernmodelle, keine Behauptung über einen bestimmten Handelsplatz.
+Keine Buchnamen oder Autorennamen in sichtbaren Lerntexten.
+
+Hauptmodell: höherer Bid/niedrigerer Ask zuerst, innerhalb derselben Stufe
+frühere Annahme zuerst, Ausführung zum Preis des ruhenden Auftrags.
+Nur sichtbare Mengen, keine Reserven, keine gleichzeitigen Ankünfte.
+A drei, B zwei, Lea vier Stück bei 40,00 Euro. Der erste Verkäufer liefert vier:
+A drei, B eins, Lea null. Der nächste liefert drei: B eins, Lea zwei.
+Lea kauft zwei für 80,00 Euro und storniert ihren Rest von zwei bestätigt.
+Kein Zwischenhandel während dieser Stornierung. Einmalige Kaufgebühr 0,60 Euro:
+80,60 Euro belastet. Zeitfolgen und getrennte Alternativen ausdrücklich bezeichnet.
+
+Separater sofortiger Kauf: zwei Stück 39,90 plus zwei 40,00 = 159,80 Euro,
+Durchschnitt 39,95 Euro. Separater Teilkauf: zwei 39,90 plus eines 40,00 =
+119,80 Euro, ein Stück ruht. Separater Verkauf: zwei 40,10 plus zwei 40,00 =
+160,20 Euro. Neuer besserer Bid D zwei bei 40,10 vor niedrigeren alten Geboten.
+Neuer C am gleichen Preis liegt hinten. Bestätigte B-Stornierung verringert
+Wartemenge von fünf auf drei ohne Trade. Preisänderung erhält im Lernmodell
+neue Annahmezeit. Separates Proportionalmodell: A sechs, Lea vier, Verkäufer
+fünf, daher A drei und Lea zwei; keine Rundung nötig. Erfundenes Tickmodell:
+0,10 Euro, ungültige 40,03 werden abgelehnt. Diese Regeln nicht generalisieren.
+
+
+Die zusätzliche Gliederung überschritt zunächst das bestehende 120-kB-gzip-Budget.
+Der Build kodiert Objektfelder nun als flache Schlüsselindex/Wert-Paare statt
+als wiederholte JSON-Objektschlüssel. Der Decoder stellt dieselben öffentlichen
+Gliederungen vollständig wieder her und liest weiterhin die ältere Form.
+Keine Änderung an gespeicherten Fortschritten oder Kurs-/Schrittkennungen.
+Roundtrip-Tests aller Produktions- und Testkurse, Marker-/Prototyp-Schlüssel
+und fehlerhafter Paarfolgen prüfen die Änderung. Das Größenlimit bleibt gleich.

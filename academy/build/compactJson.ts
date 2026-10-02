@@ -43,15 +43,17 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
     }
     if (Array.isArray(value)) return value.map(pack);
     if (value === null || typeof value !== 'object') return value;
-    return Object.fromEntries(Object.entries(value).map(([key, child]) => {
+    // Flat key-index/value pairs avoid repeating JSON object-key quotes.
+    // Source keys, including # and $, are dictionary-indexed as ordinary data.
+    return { "#": Object.entries(value).flatMap(([key, child]) => {
       let index = indices.get(key);
       if (index === undefined) {
         index = String(keys.length);
         indices.set(key, index);
         keys.push(key);
       }
-      return [index, pack(child)];
-    }));
+      return [Number(index), pack(child)];
+    }) };
   };
   return { keys, strings, value: pack(normalized) };
 }
@@ -67,6 +69,19 @@ export function unpackJson(value: JsonValue, keys: readonly string[], strings: r
   }
   if (Array.isArray(value)) return value.map((child) => unpackJson(child, keys, strings));
   if (value === null || typeof value !== 'object') return value;
+  if (Object.hasOwn(value, '#')) {
+    const entries = value['#'];
+    if (Object.keys(value).length !== 1 || !Array.isArray(entries) || entries.length % 2 !== 0) throw new Error('Invalid compact JSON object');
+    const result: [string, JsonValue][] = [];
+    const seen = new Set<number>();
+    for (let i = 0; i < entries.length; i += 2) {
+      const index = entries[i];
+      if (typeof index !== 'number' || !Number.isSafeInteger(index) || index < 0 || keys[index] === undefined || seen.has(index)) throw new Error('Invalid compact JSON key');
+      seen.add(index);
+      result.push([keys[index], unpackJson(entries[i + 1], keys, strings)]);
+    }
+    return Object.fromEntries(result);
+  }
   if (Object.hasOwn(value, '$')) {
     const reference = value.$;
     const index = Array.isArray(reference) ? reference[0] : reference;

@@ -42,7 +42,7 @@ describe('Market-Orders: chapter two', () => {
     expect(await ordersDefinition.units[1].load()).toEqual(lessons);
     expect(lessons).toHaveLength(22);
     expect(ordersDefinition.units[1].estimatedLessonCount).toBe(22);
-    expect(course.units.flatMap((unit) => unit.lessons)).toHaveLength(42);
+    expect(course.units.slice(0, 2).flatMap((unit) => unit.lessons)).toHaveLength(42);
     const outline = toCourseOutline(course);
     const prior = ordersChapterOneLessons.map((lesson) => lesson.id);
     expect(lessonAccessState(outline, lessons[0], prior.slice(1))).toBe('locked');
@@ -50,7 +50,7 @@ describe('Market-Orders: chapter two', () => {
     expect(lessonAccessState(outline, lessons[1], prior)).toBe('locked');
     expect(lessonAccessState(outline, lessons[1], [...prior, lessons[0].id])).toBe('available');
     for (const lesson of lessons) expect(courseOfLesson(lesson.id)?.id).toBe(course.id);
-    expect(ordersGlossary).toHaveLength(21);
+    expect(ordersGlossary.filter((entry) => ['Kapitel 1', 'Kapitel 2'].includes(entry.firstUnit ?? ''))).toHaveLength(21);
   });
 
   it('matches the main buy, weighted average, book remainder and costs', () => {

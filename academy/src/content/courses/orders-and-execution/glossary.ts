@@ -141,5 +141,73 @@ export const ordersGlossary: GlossaryEntry[] = [
     "definition": "Der Geldbetrag, der für den Kauf und seine zusätzlichen Kosten vom Konto abgezogen wird. Enthaltene Kosten dürfen nicht doppelt gerechnet werden.",
     "aliases": [],
     "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Limit-Order",
+    "definition": "Ein Auftrag mit Preisgrenze. Käufe dürfen höchstens, Verkäufe mindestens zum Limitpreis ausgeführt werden. Eine Ausführung ist nicht garantiert.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Ruhender Auftrag",
+    "definition": "Ein angenommener Auftrag, der auf passende Gegenaufträge wartet. Er kann später handeln oder nach seinen Regeln enden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Sofort ausführbares Limit",
+    "definition": "Ein Limit, das bei Ankunft passende vorhandene Gegenangebote innerhalb seiner Preisgrenze annehmen kann.",
+    "aliases": [
+      "Marketable Limit"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Preisvorrang",
+    "definition": "Eine Ausführungsregel, die günstigere Gegenangebote zuerst berücksichtigt: höhere Kaufgebote oder niedrigere Verkaufsangebote.",
+    "aliases": [
+      "Preispriorität"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Zeitvorrang",
+    "definition": "Eine Regel, die bei gleichem Preis früher angenommene Aufträge zuerst berücksichtigt. Ob sie gilt, hängt vom Handelsplatz ab.",
+    "aliases": [
+      "Zeitpriorität"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Wartemenge",
+    "definition": "Die bekannte Stückmenge vor deinem Auftrag unter den genannten Zuteilungsregeln. Sie sagt nicht, wie viele Minuten du wartest.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Zuteilung",
+    "definition": "Der Anteil einer verfügbaren Gegenmenge, der deinem Auftrag tatsächlich zugeordnet wird.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Aggregierte Menge",
+    "definition": "Die zusammengezählte Menge mehrerer Aufträge auf einer Preisstufe. Sie verrät allein keine einzelnen Annahmezeiten.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Proportionale Zuteilung",
+    "definition": "Eine Verteilung nach Mengenanteilen. Reale Systeme können zusätzliche Vorrang- und Rundungsregeln haben.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Tick",
+    "definition": "Der erlaubte Preisschritt eines Produkts. Die konkrete Schrittweite muss aus den Produktregeln hervorgehen.",
+    "aliases": [
+      "Preisschritt"
+    ],
+    "firstUnit": "Kapitel 3"
   }
 ];
