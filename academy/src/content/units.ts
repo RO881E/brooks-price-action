@@ -243,4 +243,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 60,
     load: () => import('./courses/price-action-trends/chapter-21').then((module) => module.chapterTwentyOneLessons),
   },
+  {
+    id: 'price-action-trends.chapter-22', order: 24, kind: 'chapter', label: 'Kapitel 22',
+    title: 'Trendtage aus mehreren Ranges',
+    description: 'Versetzte Handelsbereiche, Ausbrüche, Zielprojektionen, Rücktests und späte Umkehr – mit zehn Lernfällen, eigenen OHLC-Beispielen und genauer Trennung von Breite, Wahrscheinlichkeit und Orderstatus.',
+    estimatedLessonCount: 48,
+    load: () => import('./courses/price-action-trends/chapter-22').then((module) => module.chapterTwentyTwoLessons),
+  },
 ];
