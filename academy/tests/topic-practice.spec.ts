@@ -3,6 +3,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { priceActionTrendsCourse } from '../src/content/course';
 import { priceActionTopics } from '../src/content/topicMap';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
+import { openPractice } from './practiceTab';
 
 /*
  * F-27: Nach Thema üben. Nutzt nur die Themenkarte (C-03) und die vorhandene
@@ -45,26 +46,20 @@ const stored = (page: Page) =>
   page.evaluate(() => JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'));
 
 test.describe('F-27 Nach Thema üben', () => {
-  test('neuer Stand: erklärter Leerzustand mit Lernlink, keine Runde aus gesperrtem Inhalt', async ({ page }) => {
+  test('neuer Stand: kein Reiter „Nach Thema“, solange nichts davon freigeschaltet ist', async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await seed(page, []);
     await page.goto('/#/practice');
-    await expect(section(page).getByRole('article')).toHaveCount(priceActionTopics.length);
-    await expect(section(page).getByRole('button', { name: /Runde starten/ })).toHaveCount(0);
-    const views = card(page, chartViews.title);
-    await expect(views.getByText('0 Fragen bereit')).toBeVisible();
-    await expect(views.getByText(/noch gesperrt/).first()).toBeVisible();
-    await expect(views.getByRole('button', { name: /Weiter im Lernpfad:/ })).toBeVisible();
-    // Ein Klick auf den Lernlink öffnet die nächste freigeschaltete Lektion, nicht die gesperrte.
-    await views.getByRole('button', { name: /Weiter im Lernpfad:/ }).click();
-    await expect(page).toHaveURL(new RegExp(`#/lesson/${published()[0].id}`));
+    await expect(page.getByRole('heading', { name: 'Analyse-Training' })).toBeVisible();
+    await expect(page.getByRole('tab', { name: 'Nach Thema' })).toHaveCount(0);
+    await expect(section(page)).toHaveCount(0);
     expect(errors).toEqual([]);
   });
 
   test('Runde: Thema, Erstversuch, Nachlesen mit Fundstelle, Reload, keine neuen Fragen', async ({ page }) => {
     await seed(page, published('price-action-trends.chapter-05').map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Nach Thema');
     const topic = card(page, reversal.title);
     await expect(topic.getByText(/\d+ Fragen bereit \(\d+ fällig\)/)).toBeVisible();
     await topic.getByRole('button', { name: /Runde starten \(10 Fragen\)/ }).click();
@@ -107,7 +102,7 @@ test.describe('F-27 Nach Thema üben', () => {
 
   test('freigeschaltete Fälle erscheinen, gesperrte nur als Zahl', async ({ page }) => {
     await seed(page, published('price-action-trends.chapter-01').map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Nach Thema');
     const breakout = card(page, 'Ausbruch, Follow-through und Test');
     await expect(breakout.getByRole('button', { name: 'Fall: Eine überlappende Spanne' })).toBeVisible();
     await expect(breakout.locator('.topic-facts')).toContainText(/\+ \d+ noch gesperrt\)/);
@@ -118,7 +113,7 @@ test.describe('F-27 Nach Thema üben', () => {
 
   test('Lehrstellen zeigen den Zugang und öffnen nur freigeschaltete Lektionen', async ({ page }) => {
     await seed(page, published('price-action-trends.chapter-01').map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Nach Thema');
     const topic = card(page, reversal.title);
     await topic.locator('summary').click();
     await expect(topic.getByText('(noch gesperrt)').first()).toBeVisible();
@@ -128,7 +123,7 @@ test.describe('F-27 Nach Thema üben', () => {
 
   test('Tastatur, 360 px ohne Überlauf und keine Axe-Verstöße', async ({ page }) => {
     await seed(page, published('price-action-trends.chapter-05').map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Nach Thema');
     const start = card(page, reversal.title).getByRole('button', { name: /Runde starten/ });
     await start.focus();
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -143,7 +138,7 @@ test.describe('F-27 Nach Thema üben', () => {
 
   test('Transferfälle zum Thema: Hinweis mit Sprung in die Transferprüfung, kein Trainerfall, ohne Axe-Befund', async ({ page }) => {
     await seed(page, published().map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Nach Thema');
     const trend = card(page, 'Trendstärke und Trendbars');
     await expect(trend.getByText(/2 neue Transferfälle zu diesem Thema/)).toBeVisible();
     // Kein Fall wird hier im gewöhnlichen Trainer angeboten.
@@ -157,11 +152,10 @@ test.describe('F-27 Nach Thema üben', () => {
     expect(JSON.stringify((await stored(page)).caseRuns ?? {})).toBe(before);
   });
 
-  test('neuer Stand: Transferfälle sind nur als „noch gesperrt“ erwähnt, ohne Sprung', async ({ page }) => {
-    await seed(page, []);
-    await page.goto('/#/practice');
+  test('früher Stand: noch gesperrte Fälle sind nur als „noch gesperrt“ erwähnt', async ({ page }) => {
+    await seed(page, published('price-action-trends.chapter-01').map((lesson) => lesson.id));
+    await openPractice(page, 'Nach Thema');
     const trend = card(page, 'Trendstärke und Trendbars');
-    await expect(trend.getByText(/noch gesperrt/).first()).toBeVisible();
-    await expect(trend.getByRole('button', { name: /Zur Transferprüfung/ })).toHaveCount(0);
+    await expect(trend).toContainText(/noch gesperrt/);
   });
 });

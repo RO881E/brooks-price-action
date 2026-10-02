@@ -50,21 +50,24 @@ export function LevelPanel({ xp }: { xp: number }) {
         Lernweg, nicht wie gut du handelst.
         {info.nextRank ? ` Nächster Rang: „${info.nextRank.title}“ ab Level ${info.nextRank.fromLevel}.` : ''}
       </p>
-      <ol className="level-ranks" aria-label="Ränge">
-        {RANKS.map((rank) => {
-          const reached = info.level >= rank.fromLevel;
-          const current = info.rank === rank;
-          return (
-            <li key={rank.title} data-reached={reached || undefined} aria-current={current ? 'step' : undefined}>
-              <strong>{rank.title}</strong>
-              <small>
-                ab Level {rank.fromLevel} · {xpForLevel(rank.fromLevel)} XP
-                {current ? ' · aktuell' : reached ? ' · erreicht' : ''}
-              </small>
-            </li>
-          );
-        })}
-      </ol>
+      <details className="level-ladder">
+        <summary>Alle Ränge</summary>
+        <ol className="level-ranks" aria-label="Ränge">
+          {RANKS.map((rank) => {
+            const reached = info.level >= rank.fromLevel;
+            const current = info.rank === rank;
+            return (
+              <li key={rank.title} data-reached={reached || undefined} aria-current={current ? 'step' : undefined}>
+                <strong>{rank.title}</strong>
+                <small>
+                  ab Level {rank.fromLevel} · {xpForLevel(rank.fromLevel)} XP
+                  {current ? ' · aktuell' : reached ? ' · erreicht' : ''}
+                </small>
+              </li>
+            );
+          })}
+        </ol>
+      </details>
     </section>
   );
 }

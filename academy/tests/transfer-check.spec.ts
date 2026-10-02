@@ -3,6 +3,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { c02BarCases } from '../src/content/barCases/c02';
 import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
+import { openPractice } from './practiceTab';
 
 /*
  * F-17: Transferprüfung mit C-02-Fällen. Die Fälle sind bis zur fachlichen Freigabe
@@ -89,7 +90,7 @@ test.describe('F-17 Transferprüfung', () => {
     page.on('pageerror', (error) => errors.push(error.message));
     await approveTransferCases(page);
     await seed(page, published());
-    await page.goto('/#/practice');
+    await openPractice(page, 'Chart-Trainer');
     const entry = page.getByRole('region', { name: 'Transferprüfung' });
     await expect(entry.getByText(`${c02BarCases.length} neue Fälle`)).toBeVisible();
     const before = await stored(page);

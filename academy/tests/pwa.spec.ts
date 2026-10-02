@@ -414,19 +414,16 @@ test('Fehlerbericht offline erstellen (F-28)', async ({ page, context }) => {
   expect(errors).toEqual([]);
 });
 
-test('Nach Thema üben offline: Themenliste und Lernlink (F-27)', async ({ page, context }) => {
+test('Üben offline: neuer Stand zeigt nur die Wiederholung, ohne leere Bereiche (F-27)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   await firstVisit(page);
   await page.getByRole('button', { name: 'Einführung schließen' }).click();
   serverState.down = true;
   await context.setOffline(true);
   await page.goto(`${origin}/academy/#/practice`);
-  const section = page.getByRole('region', { name: 'Nach Thema üben' });
-  await expect(section).toBeVisible();
-  await expect(section.getByRole('article').first()).toBeVisible();
-  await expect(section.getByRole('button', { name: /Runde starten/ })).toHaveCount(0);
-  await section.getByRole('button', { name: /^(Lektion starten|Weiter im Lernpfad):/ }).first().click();
-  await expect(page).toHaveURL(/#\/lesson\//);
+  await expect(page.getByRole('heading', { name: 'Analyse-Training' })).toBeVisible();
+  await expect(page.getByRole('tab')).toHaveCount(0);
+  await expect(page.getByRole('region', { name: 'Nach Thema üben' })).toHaveCount(0);
   serverState.down = false;
   await context.setOffline(false);
   expect(errors).toEqual([]);

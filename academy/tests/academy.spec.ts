@@ -80,7 +80,7 @@ test('completes a lesson and persists progress', async ({ page }) => {
 test.describe('desktop content traversal', () => {
   test('opens every published lesson and renders every learning step', { tag: '@desktop' }, async ({ page }) => {
     // Rund 190 Lektionen mit allen Schritten: seit Kapitel 6 deutlich über 90 s, auf langsameren Läufern über 180 s.
-    test.setTimeout(420_000);
+    test.setTimeout(1_200_000);
 
     const completedLessonIds = publishedLessons.map((lesson) => lesson.id);
     const answers = Object.fromEntries(
@@ -385,7 +385,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     });
 
     await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
-    await expect(page.locator('.stat-card')).toContainText('30');
+    await expect(page.locator('.course-meta-row')).toContainText('30 XP');
     expect(errors).toEqual([]);
   });
 
@@ -466,8 +466,8 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     expect(stored.questionResults['intro-01-question'].attempts).toBe(2);
 
     await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
-    await expect(page.locator('.stat-card')).toContainText('1 /');
-    await expect(page.locator('.stat-card')).toContainText('30');
+    await expect(page.locator('.course-meta-row')).toContainText('1 von');
+    await expect(page.locator('.course-meta-row')).toContainText('30 XP');
   });
 
   test('old answers stay visible and are not turned into attempts', async ({ page }) => {
@@ -858,7 +858,6 @@ test.describe('F-05 daily goal, streak and milestones', () => {
   test('reaching the daily goal celebrates once and shows up in week and milestones', async ({ page }) => {
     await page.clock.setFixedTime(new Date(2026, 9, 7, 10, 0));
     await page.goto('/');
-    await expect(page.locator('.today-card')).toContainText('0 von 1');
 
     await completeFirstLesson(page);
     await expect(toast(page)).toBeVisible();

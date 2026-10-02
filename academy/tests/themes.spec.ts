@@ -3,6 +3,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
 import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
+import { openCollection } from './practiceTab';
 
 /*
  * Stufe 5b/5c: Farbschema. Dunkel, Bunt (und „wie im System“) für alle Kernansichten und wichtige
@@ -150,10 +151,12 @@ for (const theme of ['dark', 'bunt'] as const) {
     await axe('Trainer-Auflösung');
     // Fortschritt: Bar-Album
     await page.goto('/#/progress');
+    await openCollection(page);
     await expect(page.locator('.bar-album')).toBeVisible();
     await axe('Bar-Album', '.bar-album');
     // Üben: Spiele
     await page.goto('/#/practice');
+    await page.getByRole('tab', { name: 'Spiele' }).click();
     await page.locator('.match-game').getByRole('button', { name: /^Spielen/ }).click();
     await axe('Begriffe-Memory', '.match-game');
     await page.getByRole('button', { name: 'Beenden' }).first().click();

@@ -5,7 +5,6 @@ import {
   nextAvailableLesson,
   type LessonAccessState,
 } from '../features/courseAccess';
-import { goalLabel, type GoalProgress, type StreakStats } from '../features/goals';
 import { earnedXp } from '../features/lessonResults';
 import { LevelLine } from './LevelCard';
 import type { ResumeTarget } from '../features/navigation';
@@ -22,9 +21,6 @@ interface PathViewProps {
   /** Hinweis nach einem ungültigen oder veralteten Link. */
   notice?: string | null;
   onDismissNotice?: () => void;
-  /** Tagesziel und Serie für die Karte „Heute“. */
-  goal?: GoalProgress;
-  streak?: StreakStats;
   /** XP aus allen Kursen (mehrere Kurse zählen gemeinsam); ohne Angabe die dieses Kurses. */
   totalXp?: number;
   onOpenLesson: (lesson: LessonOutline) => void;
@@ -86,8 +82,6 @@ export function PathView({
   resume,
   notice,
   onDismissNotice,
-  goal,
-  streak,
   totalXp,
   onOpenLesson,
 }: PathViewProps) {
@@ -147,9 +141,9 @@ export function PathView({
             <h1>{course.title}</h1>
             <p>{course.subtitle}</p>
             <div className="course-meta-row">
+              <span>{completedCount} von {published.length} {published.length === 1 ? 'Lektion' : 'Lektionen'}</span>
+              <span>{totalXp ?? earnedXp(progress, published)} XP</span>
               <span>{course.units.length} {course.units.length === 1 ? 'Kursabschnitt' : 'Kursabschnitte'}</span>
-              <span>{published.length} {published.length === 1 ? 'Lektion' : 'Lektionen'}</span>
-              <span>Reihenfolge geschützt</span>
             </div>
             <LevelLine xp={totalXp ?? earnedXp(progress, published)} />
           </div>
@@ -160,11 +154,6 @@ export function PathView({
             </div>
           </div>
         </section>
-
-        <div className="source-order-note">
-          <span aria-hidden="true">↳</span>
-          <p>{course.sourceOrderNotice}</p>
-        </div>
 
         {resume ? (
           <section className="mobile-next-card resume">
@@ -254,7 +243,7 @@ export function PathView({
                         {unit.title}
                       </button>
                     </h2>
-                    <span>{unit.description}</span>
+                    {isOpen ? <span>{unit.description}</span> : null}
                     <span className={`station-chip ${station}`}>
                       {stationLabels[station]}
                       {publishedInUnit > 0 && station !== 'done' && station !== 'locked'
@@ -263,8 +252,8 @@ export function PathView({
                     </span>
                   </div>
                   <div className="unit-count">
-                    <strong>{publishedInUnit}</strong>
-                    <span>von ca. {unit.estimatedLessonCount}</span>
+                    <strong>{completeInUnit}/{publishedInUnit}</strong>
+                    <span>Lektionen</span>
                     <span className="unit-chevron" aria-hidden="true">
                       <Icon name="chevron" size={22} />
                     </span>
@@ -336,79 +325,6 @@ export function PathView({
         </div>
       </div>
 
-      <aside className="path-rail">
-        <section className="rail-card continue-card">
-          {resume ? (
-            <>
-              <p className="eyebrow">Begonnene Lektion</p>
-              <h2>{resume.lesson.title}</h2>
-              <p>
-                Du warst bei Schritt {resume.stepIndex + 1} von {resume.lesson.steps.length}.
-              </p>
-              <button
-                className="primary-button full"
-                type="button"
-                onClick={() => onOpenLesson(resume.lesson)}
-              >
-                Weiterlernen
-              </button>
-            </>
-          ) : nextLesson ? (
-            <>
-              <p className="eyebrow">Nächste Lektion</p>
-              <h2>{nextLesson.title}</h2>
-              <p>{nextLesson.summary}</p>
-              <button className="primary-button full" type="button" onClick={() => onOpenLesson(nextLesson)}>
-                Nächste Lektion starten
-              </button>
-            </>
-          ) : (
-            <>
-              <p className="eyebrow">Nächster Schritt</p>
-              <h2>Pilot abgeschlossen</h2>
-              <p>Alle aktuell veröffentlichten Lektionen sind erledigt.</p>
-            </>
-          )}
-        </section>
-
-        {goal && streak ? (
-          <section className="rail-card today-card" aria-labelledby="today-card-heading">
-            <p className="eyebrow" id="today-card-heading">
-              Heute
-            </p>
-            <p>
-              Tagesziel {goalLabel(goal.goal)}:{' '}
-              <strong>{goal.met ? 'erreicht' : `${goal.value} von ${goal.goal.target}`}</strong>
-            </p>
-            <div className="stat-meter" aria-hidden="true">
-              <span style={{ width: `${goal.percent}%` }} />
-            </div>
-            <small>
-              Serie: {streak.current} {streak.current === 1 ? 'Tag' : 'Tage'}
-            </small>
-          </section>
-        ) : null}
-
-        <section className="rail-card stat-card">
-          <div>
-            <span>Pilot-Lektionen</span>
-            <strong>{completedCount} / {published.length}</strong>
-          </div>
-          <div>
-            <span>Gesammelte XP</span>
-            <strong>{totalXp ?? earnedXp(progress, published)}</strong>
-          </div>
-        </section>
-
-        <section className="rail-card quality-card">
-          <p className="eyebrow">Qualitätsversprechen</p>
-          <ul>
-            <li>Reihenfolge der Kapitel bleibt erhalten</li>
-            <li>Grafiken werden eigenständig erstellt</li>
-            <li>Fehler führen zu Erklärung, nicht zu Strafe</li>
-          </ul>
-        </section>
-      </aside>
     </div>
   );
 }

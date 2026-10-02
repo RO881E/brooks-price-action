@@ -2,6 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { priceActionTrendsCourse } from '../src/content/course';
 import { glossaryEntries } from '../src/content/glossary';
+import { openPractice } from './practiceTab';
 
 /*
  * Stufe 4b: Begriffe-Memory. Reine Übung ohne Einfluss auf den Lernstand.
@@ -25,7 +26,7 @@ async function seed(page: Page, ids: string[]) {
 const stored = (page: Page) => page.evaluate(() => localStorage.getItem('wqt-academy-progress-v1'));
 
 async function play(page: Page) {
-  await page.goto('/#/practice');
+  await openPractice(page, 'Spiele');
   await page.getByRole('button', { name: /^Spielen/ }).click();
   await expect(page.locator('.match-terms button')).toHaveCount(5);
 }
@@ -34,14 +35,13 @@ test.describe('Begriffe-Memory', () => {
   test('neuer Stand: erklärt, warum noch nicht spielbar', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/practice');
-    const game = page.locator('.match-game');
-    await expect(game).toContainText('Noch 0 von mindestens 4 Begriffen bereit');
-    await expect(game.getByRole('button', { name: /^Spielen/ })).toHaveCount(0);
+    await expect(page.getByRole('tab', { name: 'Spiele' })).toHaveCount(0);
+    await expect(page.locator('.match-game')).toHaveCount(0);
   });
 
   test('Runde spielen: Paare finden, Ergebnis mit Bulle, Lernstand bleibt unverändert', async ({ page }) => {
     await seed(page, intro.map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     const before = await stored(page);
     await play(page);
     const terms = await page.locator('.match-terms button span:first-child').allTextContents();

@@ -1022,8 +1022,6 @@ export default function App() {
               resume={resume}
               notice={notice}
               onDismissNotice={() => setNotice(null)}
-              goal={goalProgress(progress, today)}
-              streak={goalOverview(progress, today).streak}
               totalXp={totalXp}
               onOpenLesson={openLesson}
             />

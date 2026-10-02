@@ -226,8 +226,6 @@ export function ProgressView({
 
       <GoalSection goals={goals} onGoalChange={onGoalChange} />
 
-      <MissionList missions={missions} onStart={onMission} />
-
       {overview.state === 'new' ? (
         <div className="empty-state progress-empty">
           <strong>Noch keine Lerndaten</strong>
@@ -336,9 +334,13 @@ export function ProgressView({
         </>
       )}
 
-      <BadgeGrid goals={goals} />
-
-      {album ? <BarAlbum album={album} onOpenLesson={onOpenLesson} /> : null}
+      {/* Spielerisches liegt eingeklappt: Wer es sucht, findet es – es verdrängt den Lernstand nicht. */}
+      <details className="progress-collection">
+        <summary>Sammlung: Vorschläge, Meilensteine{album ? ', Bar-Album' : ''}</summary>
+        <MissionList missions={missions} onStart={onMission} />
+        <BadgeGrid goals={goals} />
+        {album ? <BarAlbum album={album} onOpenLesson={onOpenLesson} /> : null}
+      </details>
     </div>
   );
 }

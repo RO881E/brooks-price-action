@@ -4,6 +4,7 @@ import { barCases } from '../src/content/barCases';
 import { priceActionTrendsCourse, publishedLessons } from '../src/content/course';
 import type { Lesson } from '../src/content/types';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
+import { openPractice } from './practiceTab';
 
 /*
  * P09: Charts zum Entdecken – Diagramm-Fokus mobil, Beobachtungen einzeln, Fallvergleich,
@@ -96,7 +97,7 @@ test.describe('P09 Fallvergleich', () => {
 
   test('ohne zwei gespielte Fälle: Hinweis statt Vergleich (nichts wird verraten)', async ({ page }) => {
     await seed(page, all, record({ caseRuns: { [caseA.id]: run('run-a') } }));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Chart-Trainer');
     const section = page.getByRole('region', { name: 'Zwei Fälle vergleichen' });
     await expect(section.getByText(/sobald du zwei Fälle abgeschlossen hast/)).toBeVisible();
     await expect(section.getByRole('combobox')).toHaveCount(0);
@@ -104,7 +105,7 @@ test.describe('P09 Fallvergleich', () => {
 
   test('zwei gespielte Fälle: Gegenüberstellung mit bester Wahl und Begründung; Transferfälle fehlen', async ({ page }) => {
     await seed(page, all, record({ caseRuns: { [caseA.id]: run('run-a'), [caseB.id]: run('run-b') } }));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Chart-Trainer');
     const section = page.getByRole('region', { name: 'Zwei Fälle vergleichen' });
     const first = section.getByLabel('Erster Fall');
     await expect(first.locator('option')).toHaveCount(3);
@@ -126,7 +127,7 @@ test.describe('P09 Fallvergleich', () => {
 
   test('360 px: kein Überlauf und keine Axe-Verstöße im Vergleich', async ({ page }) => {
     await seed(page, all, record({ caseRuns: { [caseA.id]: run('run-a'), [caseB.id]: run('run-b') } }));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Chart-Trainer');
     const section = page.getByRole('region', { name: 'Zwei Fälle vergleichen' });
     await section.getByLabel('Erster Fall').selectOption(caseA.id);
     await section.getByLabel('Zweiter Fall').selectOption(caseB.id);
@@ -166,7 +167,7 @@ test.describe('P09 Chart und Tabelle', () => {
     await page.getByRole('button', { name: 'Tabelle', exact: true }).click();
     await expect(rows).toHaveCount(visible);
     // Die Wahl bleibt beim Wechsel in andere Ansichten und zurück (nur im Arbeitsspeicher).
-    await page.goto('/#/practice');
+    await openPractice(page, 'Chart-Trainer');
     await page.goto(`/#/train/${barCase.id}`);
     await expect(page.getByRole('button', { name: 'Tabelle', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await page.reload();

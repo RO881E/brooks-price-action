@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { priceActionTrendsCourse } from '../src/content/course';
+import { openPractice } from './practiceTab';
 
 /*
  * Stufe 4c: Blitzrunde. Freiwillig, Zeit zuschaltbar (gleichwertig ohne Zeit), Pause,
@@ -38,13 +39,13 @@ test.describe('Blitzrunde', () => {
   test('neuer Stand: erklärt, warum noch nicht spielbar', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/practice');
-    await expect(game(page)).toContainText('Noch 0 von mindestens 3 Fragen bereit');
-    await expect(game(page).getByRole('button', { name: /Sekunden|Ohne Zeit/ })).toHaveCount(0);
+    await expect(page.getByRole('tab', { name: 'Spiele' })).toHaveCount(0);
+    await expect(game(page)).toHaveCount(0);
   });
 
   test('ohne Zeit: bis zum Ende spielen, Ergebnis mit Bulle, Lernstand unverändert', async ({ page }) => {
     await seed(page, intro.map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     const before = await stored(page);
     await game(page).getByRole('button', { name: 'Ohne Zeit spielen' }).click();
     await expect(game(page).locator('.blitz-timer')).toHaveText('ohne Zeit');
@@ -62,7 +63,7 @@ test.describe('Blitzrunde', () => {
   test('mit Zeit: Anzeige, Ansagen nur zu wenigen Zeitpunkten, Pause hält die Zeit an, Ende nach 60 s', async ({ page }) => {
     await page.clock.install();
     await seed(page, intro.map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     const before = await stored(page);
     await game(page).getByRole('button', { name: 'Mit 60 Sekunden' }).click();
     const timer = game(page).locator('.blitz-timer');
@@ -87,7 +88,7 @@ test.describe('Blitzrunde', () => {
 
   test('Falsche Antworten werden erklärt und führen zur Lektion; Tastatur, 360 px, axe', async ({ page }) => {
     await seed(page, intro.map((lesson) => lesson.id));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     await game(page).getByRole('button', { name: 'Ohne Zeit spielen' }).click();
     // Bewusst die letzte Antwort wählen, bis ein Fehler dabei ist.
     let sawWrong = false;

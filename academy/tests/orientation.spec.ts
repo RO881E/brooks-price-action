@@ -35,7 +35,7 @@ test.describe('P06 Orientierung', () => {
     await expect(panel.getByRole('heading', { name: published[0].title, level: 3 })).toBeVisible();
     await expect(panel.getByRole('button', { name: 'Nächste Lektion beginnen' })).toHaveCount(1);
     await expect(panel.getByRole('button', { name: '≈ 10 Minuten' })).toBeVisible();
-    await expect(panel.getByText('Heute ist nichts fällig.')).toBeVisible();
+    await expect(panel.getByText('Heute ist nichts fällig.')).toHaveCount(0);
     await panel.getByRole('button', { name: 'Nächste Lektion beginnen' }).click();
     await expect(page).toHaveURL(new RegExp(`#/lesson/${published[0].id}`));
   });

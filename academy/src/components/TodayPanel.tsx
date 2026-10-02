@@ -108,13 +108,16 @@ export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrai
         <div className="today-tile today-study" data-mode="practice">
           <StudyEntry onChoose={onStudy} />
         </div>
-        <article className="today-tile" data-mode="review" aria-labelledby={`${ids}-review`}>
-          <h3 id={`${ids}-review`}>Wiederholen</h3>
-          <p>{plan.dueCount > 0 ? (plan.dueCount === 1 ? '1 Frage ist heute fällig.' : `${plan.dueCount} Fragen sind heute fällig.`) : 'Heute ist nichts fällig.'}</p>
-          <button type="button" className="secondary-button" onClick={onPractice}>
-            Zum Üben
-          </button>
-        </article>
+        {/* Nur mit etwas Fälligem: „Heute ist nichts fällig.“ ist kein Angebot. */}
+        {plan.dueCount > 0 ? (
+          <article className="today-tile" data-mode="review" aria-labelledby={`${ids}-review`}>
+            <h3 id={`${ids}-review`}>Wiederholen</h3>
+            <p>{plan.dueCount === 1 ? '1 Frage ist heute fällig.' : `${plan.dueCount} Fragen sind heute fällig.`}</p>
+            <button type="button" className="secondary-button" onClick={onPractice}>
+              Zum Üben
+            </button>
+          </article>
+        ) : null}
       </div>
     </section>
   );

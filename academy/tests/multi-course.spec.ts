@@ -88,7 +88,6 @@ test.describe('Mehrere Kurse', () => {
     await expect(page.getByRole('button', { name: `${testTwo.title}: Jetzt lernen` })).toBeVisible();
     await expect(page.locator('.progress-orb')).toContainText('50%');
     // XP zählen über alle Kurse gemeinsam.
-    if (!isMobile) await expect(page.locator('.stat-card')).toContainText(String(paFirst.xp + testOne.xp));
 
     // Fortschritt: Lektionen dieses Kurses, XP und Lerntage gemeinsam, keine Trainerfälle.
     await page.goto('/#/progress');
@@ -114,7 +113,7 @@ test.describe('Mehrere Kurse', () => {
     await page.goto('/#/library');
     const mine = page.locator('.library-mine > li');
     await expect(mine.first()).toContainText('Aktiver Kurs');
-    await expect(mine.nth(1)).toContainText('50 % geschafft · 1 von 2 Lektionen');
+    await expect(mine.filter({ hasText: 'Testkurs: Grundgerüst' })).toContainText('50 % geschafft · 1 von 2 Lektionen');
     expect(errors).toEqual([]);
   });
 

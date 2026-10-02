@@ -2,6 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { barAlbum } from '../src/content/barAlbum';
 import { priceActionTrendsCourse } from '../src/content/course';
+import { openCollection } from './practiceTab';
 
 /*
  * Stufe 3 „spielerischer“: Wochenblick und Ziel-Ring auf „Heute“, Missionstruhe und
@@ -61,6 +62,7 @@ test.describe('Fortschritt: Missionstruhe und Bar-Album', () => {
   test('neuer Stand: Truhe geschlossen, Album 0 Karten, alle Karten mit Hinweis gesperrt', async ({ page }) => {
     await seed(page);
     await page.goto('/#/progress');
+    await openCollection(page);
     await expect(page.getByText(/dann öffnet sich die Truhe/)).toBeVisible();
     const album = page.locator('.bar-album');
     await expect(album.getByText(`0 von ${barAlbum.length} Karten`)).toBeVisible();
@@ -73,6 +75,7 @@ test.describe('Fortschritt: Missionstruhe und Bar-Album', () => {
   test('Lektion abgeschlossen: genau diese Karte ist frei, mit Definition und Sprung zur Lektion', async ({ page }) => {
     await seed(page, { completedLessonIds: [firstLesson.id] });
     await page.goto('/#/progress');
+    await openCollection(page);
     const album = page.locator('.bar-album');
     const cards = barAlbum.filter((entry) => entry.lessonId === firstLesson.id).length;
     await expect(album.locator('li.unlocked')).toHaveCount(cards);
@@ -85,6 +88,7 @@ test.describe('Fortschritt: Missionstruhe und Bar-Album', () => {
   test('Album: 360 px ohne Überlauf, axe ohne Befund, Tastatur erreicht den Link', async ({ page }) => {
     await seed(page, { completedLessonIds: [firstLesson.id] });
     await page.goto('/#/progress');
+    await openCollection(page);
     await page.locator('.bar-album').scrollIntoViewIfNeeded();
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
     await axe(page, '.bar-album');

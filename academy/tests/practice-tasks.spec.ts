@@ -2,6 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { priceActionTrendsCourse } from '../src/content/course';
 import { orderTasks, signalBarTasks } from '../src/content/practiceTasks';
+import { openPractice } from './practiceTab';
 
 /*
  * Stufe 4d: „Finde den Bar“ und „Ordne die Schritte“ (Content-Pack C-04). Reine Übung ohne
@@ -43,14 +44,13 @@ test.describe('Übungsaufgaben C-04', () => {
   test('neuer Stand: erklärt, dass noch keine Aufgabe offen ist', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/practice');
-    if (signal.length) await expect(page.locator('.signal-game')).toContainText('Noch keine Aufgabe freigeschaltet');
-    if (order.length) await expect(page.locator('.order-game')).toContainText('Noch keine Aufgabe freigeschaltet');
+    await expect(page.locator('.signal-game, .order-game')).toHaveCount(0);
   });
 
   test('Finde den Bar: falscher Tipp erklärt, richtiger Tipp löst auf, Lernstand bleibt gleich', async ({ page }) => {
     test.skip(signal.length === 0);
     await seed(page, allLessonIds);
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     const before = await stored(page);
     const game = page.locator('.signal-game');
     await game.getByRole('button', { name: /^Spielen/ }).click();
@@ -74,7 +74,7 @@ test.describe('Übungsaufgaben C-04', () => {
   test('Finde den Bar: nach zwei Fehlversuchen gibt es die Lösung', async ({ page }) => {
     test.skip(signal.length === 0);
     await seed(page, allLessonIds);
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     const game = page.locator('.signal-game');
     await game.getByRole('button', { name: /^Spielen/ }).click();
     const title = (await game.locator('.task-title').textContent())!;
@@ -90,7 +90,7 @@ test.describe('Übungsaufgaben C-04', () => {
   test('Ordne die Schritte: prüfen, verschieben, lösen', async ({ page }) => {
     test.skip(order.length === 0);
     await seed(page, allLessonIds);
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     const before = await stored(page);
     const game = page.locator('.order-game');
     await game.getByRole('button', { name: /^Spielen/ }).click();
@@ -119,7 +119,7 @@ test.describe('Übungsaufgaben C-04', () => {
   test('Ordne die Schritte: Verschieben per Tastatur behält den Fokus', async ({ page }) => {
     test.skip(order.length === 0);
     await seed(page, allLessonIds);
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     const game = page.locator('.order-game');
     await game.getByRole('button', { name: /^Spielen/ }).click();
     const button = game.locator('.order-step').nth(1).locator('button[data-dir="down"]');
@@ -133,7 +133,7 @@ test.describe('Übungsaufgaben C-04', () => {
   test('schmal (360 px): kein Überlauf, Ziele groß genug', async ({ page }) => {
     await seed(page, allLessonIds);
     await page.setViewportSize({ width: 360, height: 740 });
-    await page.goto('/#/practice');
+    await openPractice(page, 'Spiele');
     if (signal.length) await page.locator('.signal-game').getByRole('button', { name: /^Spielen/ }).click();
     if (order.length) await page.locator('.order-game').getByRole('button', { name: /^Spielen/ }).click();
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
