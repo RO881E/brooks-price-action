@@ -1,3 +1,4 @@
+import { ChapterTwentySixChart, chapterTwentySixDescriptions } from './ChapterTwentySixCharts';
 import { ChapterTwentyFiveChart, chapterTwentyFiveDescriptions } from './ChapterTwentyFiveCharts';
 import { ChapterTwentyFourChart, chapterTwentyFourDescriptions } from './ChapterTwentyFourCharts';
 import { ChapterTwentyThreeChart, chapterTwentyThreeDescriptions } from './ChapterTwentyThreeCharts';
@@ -275,6 +276,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
   ...chapterTwentyOneDescriptions,
   ...chapterTwentyTwoDescriptions,
   ...chapterTwentyThreeDescriptions,
+  ...chapterTwentySixDescriptions,
   ...chapterTwentyFiveDescriptions,
   ...chapterTwentyFourDescriptions,
 };
@@ -1552,6 +1554,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
         <ChapterTwentyOneChart scenario={scenario} />
         <ChapterTwentyTwoChart scenario={scenario} />
         <ChapterTwentyThreeChart scenario={scenario} />
+        <ChapterTwentySixChart scenario={scenario} />
         <ChapterTwentyFiveChart scenario={scenario} />
         <ChapterTwentyFourChart scenario={scenario} />
       </svg>

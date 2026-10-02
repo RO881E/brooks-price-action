@@ -758,3 +758,5 @@ getestet und als separater Pull Request eingereicht. Die Roadmap verändert
 keine Buchinhalte und bindet keine WQT-Fachbände ein.
 
 Kapitel 25 ergänzt 24 Mikro-Lektionen zur Trendwiederaufnahme nach langer Pause: Gap-Tests, Fehlausbrüche, Signal und Trigger, Rücktests, Positionsgröße, späte Ausbrüche und mehrtägige Varianten. Eigene OHLC-Folgen trennen Replay-Zustände; Gegenbeispiele und konkrete Risikorechnungen verhindern Rückschaufehler.
+
+Kapitel 26 ergänzt 30 Mikro-Lektionen zu Treppen und breiten Kanälen. Eigene OHLC-Folgen zeigen Überlappung, Kanalnäherung, Gegenbewegungen, Beschleunigung, schrumpfende Extensions und begrenzte Orderpläne. Dreierbar-Aggregation und der Vergleich normaler, schneller und schrumpfender Stufen halten Zeitebene und Informationsstand auseinander.
