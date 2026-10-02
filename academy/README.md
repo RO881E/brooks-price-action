@@ -782,3 +782,5 @@ Kapitel 9 ergänzt 24 Lektionen zu Handelszeiten und Sessions. Eigene Kalenderf�
 Kapitel 10 ergänzt 22 Lektionen zu besonderen Handelsphasen: Eröffnungs- und Schlussauktion, Schutzmechanismen, Unterbrechung und Wiederaufnahme. Eigene Modelle prüfen Preiswahl, Überhang, Zuteilung und Auftragsstatus. Der Einführungskurs umfasst zehn Kapitel mit 215 Lektionen.
 
 Kapitel 11 ergänzt 24 Lektionen zur Abwicklung nach dem Trade. Eigene Beispiele verbinden Ausführungsberichte, Gebühren, Clearing, Netting, Settlement, Verwahrung und Derivate-Sicherheiten. Trade, Position, geplante Lieferung, bestätigte Abwicklung und Auszahlbarkeit bleiben getrennt. Der Einführungskurs umfasst elf Kapitel mit 239 Lektionen.
+
+Kapitel 12 schließt den vereinbarten Einführungskurs mit 24 Lektionen ab. Eigene Aktien-, Auktions- und Future-Fälle verbinden Einheiten, Quellen, Zeit, Angebote, Ausführung, Kosten und Abwicklung. Marktberichte trennen Beobachtung, Annahme und Hypothese. Alle zwölf Kapitel sind mit insgesamt 263 Lektionen verfügbar. Der Kursabschluss ist keine Zusage einer Handelsrendite.

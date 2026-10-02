@@ -4,10 +4,10 @@ import { marketBasicsGlossary } from './glossary';
 export const marketBasicsDefinition: CourseDefinition = {
   info: {
     id: 'how-exchanges-work',
-    eyebrow: 'Trading von null · Kapitel 1–11 verfügbar',
+    eyebrow: 'Trading von null · Alle 12 Kapitel verfügbar',
     title: 'Wie Börsen funktionieren',
-    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen, Orderbuch, Liquidität, Preisbewegungen, Handelszeiten, besondere Handelsphasen und Abwicklung; weitere Kapitel folgen.',
-    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 11 verfügbar; der Kurs wird weiter aufgebaut.',
+    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen, Orderbuch, Liquidität, Preisbewegungen, Handelszeiten, besondere Handelsphasen und Abwicklung. Verbinde die Grundlagen in eigenen Abschlussfällen.',
+    sourceOrderNotice: 'Alle zwölf Kapitel des Einführungskurses sind verfügbar. Lerne die Grundlagen schrittweise und verbinde sie zum Schluss in eigenen Marktberichten.',
   },
   units: [{
     id: 'how-exchanges-work.chapter-01',
@@ -108,6 +108,15 @@ export const marketBasicsDefinition: CourseDefinition = {
     description: 'Ausführungsbericht, Clearing, Verrechnung und Settlement: eigene Mengen-, Geld- und Kalenderrechnungen, Verwahrung, Sicherheiten und bestätigte Abwicklungszustände.',
     estimatedLessonCount: 24,
     load: () => import('./chapter-11').then((m) => m.marketBasicsChapterElevenLessons),
+  }, {
+    id: 'how-exchanges-work.chapter-12',
+    order: 12,
+    kind: 'chapter',
+    label: 'Kapitel 12',
+    title: 'Einen Markt selbst erklären',
+    description: 'Eigene Abschlussfälle verbinden Produkt, Quelle, Zeit, Angebote, Ausführung und Abwicklung. Rechne Mengen und Kosten, prüfe Erklärungen und benenne offene Fragen.',
+    estimatedLessonCount: 24,
+    load: () => import('./chapter-12').then((m) => m.marketBasicsChapterTwelveLessons),
   }],
   glossary: { title: 'Marktgrundlagen-Glossar', entries: marketBasicsGlossary },
 };

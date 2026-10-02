@@ -1177,5 +1177,59 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
       "Cash Settlement"
     ],
     "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Marktsteckbrief",
+    "definition": "Eine kurze Übersicht mit Produkt, Einheit, Währung, Handelsplatz und wichtigen Regeln des betrachteten Markts.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
+  },
+  {
+    "term": "Datenquelle",
+    "definition": "Die Stelle oder der Datenstrom, aus dem eine bestimmte Angabe stammt. Quelle, Zeitpunkt und Bedeutung müssen zur Erklärung passen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
+  },
+  {
+    "term": "Vergleichsbasis",
+    "definition": "Die Bedingungen, unter denen Angaben verglichen werden, etwa dasselbe Produkt, dieselbe Menge, vergleichbare Zeitpunkte und Zugang.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
+  },
+  {
+    "term": "Beobachtung",
+    "definition": "Eine Angabe aus den betrachteten Daten. Sie ist von einer gesetzten Annahme und einem vermuteten Grund zu unterscheiden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
+  },
+  {
+    "term": "Annahme",
+    "definition": "Eine ausdrücklich gesetzte Voraussetzung für einen Fall oder ein Modell. Sie ist nicht automatisch eine bestätigte Tatsache der Wirklichkeit.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
+  },
+  {
+    "term": "Hypothese",
+    "definition": "Eine mögliche Erklärung, die noch weitere geeignete Belege braucht.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
+  },
+  {
+    "term": "Gegenprobe",
+    "definition": "Ein Vergleichsfall mit gezielt veränderter Bedingung. Welche Angaben gleich bleiben und welche geändert werden, muss ausdrücklich genannt werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
+  },
+  {
+    "term": "Gegenbeispiel",
+    "definition": "Ein Fall, der einer allgemeinen Behauptung widerspricht. Es muss tatsächlich die genannte Behauptung prüfen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
+  },
+  {
+    "term": "Ausführungsnachweis",
+    "definition": "Eine bestätigte Meldung über eine tatsächliche Ausführung. Eine Vorschau, Auftragsannahme oder Gesamtvolumenmeldung ist nicht automatisch der Nachweis der eigenen Füllung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 12"
   }
 ];
