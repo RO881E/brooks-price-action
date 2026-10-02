@@ -1,3 +1,4 @@
+import { ReadingChartsBasics, readingChartDescriptions } from './ReadingChartsBasics';
 import { ChapterTwentySixChart, chapterTwentySixDescriptions } from './ChapterTwentySixCharts';
 import { ChapterTwentyFiveChart, chapterTwentyFiveDescriptions } from './ChapterTwentyFiveCharts';
 import { ChapterTwentyFourChart, chapterTwentyFourDescriptions } from './ChapterTwentyFourCharts';
@@ -49,6 +50,7 @@ const PAD_X = 48;
 const PAD_Y = 36;
 
 const scenarioDescriptions: Record<ChartScenarioId, string> = {
+  ...readingChartDescriptions,
   'auction-balance':
     'Ein großer Bar mit markiertem Hoch, Tief, Eröffnung und Schluss sowie Pfeilen für aggressives Kaufen und Verkaufen.',
   'institutional-flow':
@@ -1532,6 +1534,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
         {scenario === 'two-leg-labels' ? <TwoLegLabels /> : null}
         {scenario === 'failed-open-breakout' ? <FailedOpenBreakout /> : null}
         {scenario === 'midday-false-breakout' ? <MiddayFalseBreakout /> : null}
+        <ReadingChartsBasics scenario={scenario} />
         <ChapterTwoChart scenario={scenario} />
         <ChapterThreeChart scenario={scenario} />
         <ChapterFourChart scenario={scenario} />
