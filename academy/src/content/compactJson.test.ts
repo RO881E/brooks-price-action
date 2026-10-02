@@ -95,4 +95,24 @@ describe('compact course outline wire format', () => {
     expect(unpackJson('@0:01-explain',[],['chapter-26-'])).toBe('chapter-26-01-explain');
   });
 
+  it('roundtrips flat object pairs with marker keys, nested arrays and prototype-like source keys', () => {
+    const input = JSON.parse('{"#":[1,"literal"],"$":{"#":"@0"},"__proto__":{"safe":true},"constructor":"literal","nested":[{"0":null},[]]}');
+    const packed = packJson(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
+    expect(Object.getPrototypeOf(unpackJson(packed.value, packed.keys, packed.strings))).toBe(Object.prototype);
+  });
+
+  it('rejects malformed flat pairs rather than dropping object fields', () => {
+    const malformed: Parameters<typeof unpackJson>[0][] = [
+      { '#': [0] }, { '#': 'bad' }, { '#': [0, 1, 0, 2] },
+      { '#': [-1, 'bad'] }, { '#': [0.5, 'bad'] }, { '#': [2, 'bad'] },
+      { '#': [0, 'ok'], extra: 'ignored' },
+    ];
+    for (const encoded of malformed) expect(() => unpackJson(encoded, ['field'], [])).toThrow(/Invalid compact JSON/);
+    expect(unpackJson({ '#': [] }, [], [])).toEqual({});
+    // Previous object encoding remains decodable.
+    expect(unpackJson({ '0': 'legacy' }, ['field'], [])).toEqual({ field: 'legacy' });
+  });
+
 });
