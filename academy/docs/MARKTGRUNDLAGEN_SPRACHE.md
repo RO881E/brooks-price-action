@@ -31,3 +31,7 @@ Fragenlösungen sowie gespeicherte Lernfortschritte behalten ihre Bedeutung.
 
 Automatische Tests prüfen Struktur, Rechenfälle und bestehende Funktionen.
 Sie messen keine tatsächliche Verständlichkeit für eine Altersgruppe.
+
+Kapitel 6 wurde anschließend mit 24 neuen Lektionen und 17 Glossareinträgen
+nach diesen Sprachregeln erstellt. Seine Preis-, Zeit- und Reserveregeln
+sind ausdrücklich vereinfachte Lernfälle, keine universellen Börsenregeln.
