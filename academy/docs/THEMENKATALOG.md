@@ -44,9 +44,9 @@ Wie Börsen, Orders und Charts funktionieren – das Fundament für alles Weiter
 
 *Passende Übungen:* Fragen, Begriffe-Memory, „Ordne die Schritte“ (z. B. Weg einer Order).
 
-### Wie Börsen funktionieren (Trading von null · Kapitel 1 verfügbar) **[aktiv]**
+### Wie Börsen funktionieren (Trading von null · Kapitel 1–2 verfügbar) **[aktiv]**
 
-Erstes Kapitel: Instrumente, Teilnehmer und Preisbildung. Weitere Kapitel folgen.
+Kapitel 1 und 2: Handel, Teilnehmer, Preisbildung und Produktarten. Weitere Kapitel folgen.
 
 - Börse, außerbörslicher Handel (OTC), Market Maker
 - Auktionsprinzip: Angebot, Nachfrage, Preisfindung
