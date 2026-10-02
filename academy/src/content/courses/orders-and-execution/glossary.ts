@@ -209,5 +209,65 @@ export const ordersGlossary: GlossaryEntry[] = [
       "Preisschritt"
     ],
     "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Stoppreis",
+    "definition": "Die Schwelle einer ausdrücklich festgelegten Auslösebedingung. Sie ist kein garantierter Ausführungspreis.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Stop-Market-Order",
+    "definition": "Ein bedingter Auftrag, der nach Auslösung eine Market-Order aktiviert. Die tatsächlichen Ausführungen können vom Stoppreis abweichen.",
+    "aliases": [
+      "Stop-Order"
+    ],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Stop-Limit-Order",
+    "definition": "Ein bedingter Auftrag, der nach Auslösung eine Limitorder aktiviert. Die Grenze kann eine vollständige Ausführung verhindern.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Auslösequelle",
+    "definition": "Die festgelegten Preisdaten oder Ereignisse, anhand derer ein System die Bedingung eines Auftrags prüft.",
+    "aliases": [
+      "Triggerquelle"
+    ],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Auslösung",
+    "definition": "Das Erfüllen einer überwachten Bedingung, durch das eine Folgeorder aktiviert wird. Es ist noch keine Bestätigung einer Ausführung.",
+    "aliases": [
+      "Trigger"
+    ],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Folgeorder",
+    "definition": "Die Order, die nach Erfüllung einer Bedingung aktiv wird. Ihre eigenen Preis-, Mengen- und Zeitregeln gelten weiter.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Restbestand",
+    "definition": "Der nach den bestätigten Ausführungen noch gehaltene Bestand. Eine offene Order ist etwas anderes als dieser Bestand.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Preissprung",
+    "definition": "In einem beschriebenen Ablauf liegt der nächste Preis deutlich vom vorherigen entfernt. Eine übersprungene Schwelle kann trotzdem auslösen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Überwachungsort",
+    "definition": "Das System, das eine bedingte Anweisung hält und ihre Auslösung prüft. Sein Verhalten bei Verbindungsproblemen muss bekannt sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
   }
 ];

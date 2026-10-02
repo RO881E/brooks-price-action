@@ -8,7 +8,7 @@ Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 | 1 | Vom Handelswunsch zum Auftrag | 20 Lektionen verfügbar |
 | 2 | Market-Orders und verfügbare Angebote | 22 Lektionen verfügbar |
 | 3 | Limit-Orders und Warteschlangen | 22 Lektionen verfügbar |
-| 4 | Stop- und Stop-Limit-Orders | Geplant |
+| 4 | Stop- und Stop-Limit-Orders | 22 Lektionen verfügbar |
 | 5 | Gültigkeit und Mengenbedingungen | Geplant |
 | 6 | Positionen schließen, OCO und Brackets | Geplant |
 | 7 | Trailing Stops und bedingte Aufträge | Geplant |
@@ -109,3 +109,52 @@ Gliederungen vollständig wieder her und liest weiterhin die ältere Form.
 Keine Änderung an gespeicherten Fortschritten oder Kurs-/Schrittkennungen.
 Roundtrip-Tests aller Produktions- und Testkurse, Marker-/Prototyp-Schlüssel
 und fehlerhafter Paarfolgen prüfen die Änderung. Das Größenlimit bleibt gleich.
+
+
+## Kapitel 4: Stop und Stop-Limit
+
+22 neue Lektionen und neun Begriffe; Gesamt: 86 Lektionen, 40 Begriffe.
+Die bereitgestellte Murphy-EPUB wurde in OEBPS/xhtml/26_chapter016.xhtml,
+Abschnitt Types of Orders, geprüft (Index verweist auf Druckseite 404):
+Stop als neue Position/Verlustbegrenzungsabsicht/Gewinnschutzabsicht,
+Kauf oberhalb und Verkauf unterhalb des aktuellen Markts. Alte allgemeine
+Formulierungen werden nicht als Ausführungsgarantie übernommen.
+Die bereitgestellte Harris-Draft-PDF enthält lediglich verstreute Stop-Nennungen;
+sie ist hier nicht als ausführliche Stopmechanik-Quelle ausgewiesen.
+
+Ergänzende Primärquellen, geprüft 2026-10-02:
+- Investor.gov, Stop, Stop-Limit, and Trailing Stop Orders – Investor Bulletin:
+  https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15
+- FINRA Rule 5350:
+  https://www.finra.org/rules-guidance/rulebooks/finra-rules/5350
+
+Grundprüfung: Stop aktiviert Market, Stop-Limit aktiviert Limit. Der Stoppreis
+ist keine Preiszusage; ein Limit kann ungefüllt bleiben. Der US-Wertpapierkontext
+von FINRA definiert die Bezeichnung Stop anhand von Transaktionen; anders
+getriggerte bedingte Aufträge benötigen dort eine unterscheidbare Bezeichnung.
+Keine allgemeine Übertragung dieser Namensregel auf Futures oder andere Länder.
+Texte, Zahlen, Unternehmen und Fragen sind eigenständig; keine Buch- oder
+Autorennamen in sichtbaren Lerntexten.
+
+Hauptmodell: neue bestätigte Trades nach Annahme derselben Quelle;
+Sell bei Trade <= Stop, Buy bei Trade >= Stop; zuverlässige Überwachung.
+Ausführung erst anschließend zum unveränderten angegebenen Buch, keine
+weiteren Aufträge oder Reserven. Hauptverkauf vier Stück, Stop 58, Trade 57,90;
+zwei Bid-Stücke 57,80, zwei 57,50: 230,60 Euro, Durchschnitt 57,65.
+Kauf vier zu 60 plus 0,80 Kaufgebühr; Verkauf minus 0,80 Verkaufsgebühr:
+229,80 minus 240,80 = minus 11,00 Euro. 1,40 Euro Abweichung zur Stopreferenz
+steckt bereits im Erlös, keine zusätzliche Gebühr.
+
+Separate Stop-Limit-Alternative: Stop 58, Limit 57,80; zunächst nur zwei
+für 115,60 verkauft, zwei gehalten und offen. Bei ausdrücklich späteren
+Geboten 57,90 werden diese für 115,80 verkauft: 231,40 Gesamterlös.
+Bereits aktivierte Limits kehren im Modell bei Erholung nicht zum Stop zurück.
+Sprungfall separat: Trade 55, danach zwei Bid-Stücke 54,90, zwei 54,50:
+218,80 Erlös. Stop-Limit bleibt bei Geboten unter 57,80 vollständig ungefüllt.
+Kaufalternative: Stop 61, Trade 61,20; Ask eins 61,30 und zwei 61,50:
+184,30 Wert, gerundet 61,43 Durchschnitt. Kauflimit 61,40 kauft dagegen nur eins.
+
+Restregel: aktive Limits dürfen weiter ruhen. Ablauf 17 Uhr und Überwachung
+9–17 Uhr sind eigene Übungsbedingungen. Kein universeller Handelskalender,
+keine zugesicherte Plattformüberwachung. Manuelle Schließung löscht andere
+Aufträge nur nach ausdrücklich bestehender und bestätigter Verknüpfung.
