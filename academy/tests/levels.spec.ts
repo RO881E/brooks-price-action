@@ -55,9 +55,9 @@ test.describe('Level-System', () => {
     await page.goto('/#/progress');
     const panel = page.getByRole('region', { name: 'Dein Level' });
     await expect(panel).toContainText('Level 2');
-    await expect(panel.locator('.level-ranks li')).toHaveCount(9);
+    await expect(panel.locator('.level-ranks li')).toHaveCount(12);
     await expect(panel.locator('[aria-current="step"]')).toContainText('Neuling');
-    await expect(panel).toContainText('Nächster Rang: „Chartleser“ ab Level 5');
+    await expect(panel).toContainText('Nächster Rang: „Beobachter“ ab Level 10');
   });
 
   test('barrierefrei und schmal (360 px), auch dunkel', async ({ page }) => {

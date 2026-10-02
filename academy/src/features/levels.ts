@@ -2,7 +2,7 @@
  * Level-System: Aus den gesammelten XP (alle Kurse gemeinsam) ergibt sich ein Level. Kein eigener
  * gespeicherter Zustand – das Level wird immer aus dem Lernstand berechnet, alte Stände und
  * Sicherungen bleiben unverändert. Am Anfang geht es zügig (Level 2 nach etwa drei Lektionen),
- * danach braucht jedes Level 50 XP mehr als das vorige. Die Ränge beschreiben den Lernweg und
+ * danach braucht jedes Level 50 XP mehr als das vorige (Level 100 ab rund 250.000 XP). Die Ränge beschreiben den Lernweg und
  * versprechen keinen Tradingerfolg.
  */
 
@@ -23,17 +23,23 @@ export interface Rank {
   title: string;
 }
 
-/** Alle fünf Level ein neuer Rang. */
+/**
+ * Alle zehn Level ein neuer Rang – bis Level 120, damit auch viele weitere Kurse und Lektionen
+ * noch einen nächsten Rang haben. Ab Level 110 bleibt der letzte Rang.
+ */
 export const RANKS: readonly Rank[] = [
   { fromLevel: 1, title: 'Neuling' },
-  { fromLevel: 5, title: 'Chartleser' },
-  { fromLevel: 10, title: 'Kontextleser' },
-  { fromLevel: 15, title: 'Setup-Kenner' },
-  { fromLevel: 20, title: 'Trendleser' },
-  { fromLevel: 25, title: 'Marktleser' },
-  { fromLevel: 30, title: 'Strukturkenner' },
-  { fromLevel: 35, title: 'Lernpfad-Meister' },
-  { fromLevel: 40, title: 'Lernpfad-Legende' },
+  { fromLevel: 10, title: 'Beobachter' },
+  { fromLevel: 20, title: 'Chartleser' },
+  { fromLevel: 30, title: 'Kontextleser' },
+  { fromLevel: 40, title: 'Setup-Kenner' },
+  { fromLevel: 50, title: 'Trendleser' },
+  { fromLevel: 60, title: 'Marktleser' },
+  { fromLevel: 70, title: 'Strukturkenner' },
+  { fromLevel: 80, title: 'Analyst' },
+  { fromLevel: 90, title: 'Stratege' },
+  { fromLevel: 100, title: 'Lernpfad-Meister' },
+  { fromLevel: 110, title: 'Lernpfad-Legende' },
 ];
 
 export function rankFor(level: number): Rank {

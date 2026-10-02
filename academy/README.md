@@ -610,9 +610,10 @@ Details: [`docs/DESIGN_BIBLIOTHEK.md`](docs/DESIGN_BIBLIOTHEK.md).
 ## Level-System
 
 Aus den gesammelten XP aller Kurse ergibt sich ein Level (`src/features/levels.ts`): Level 2 nach etwa drei
-Lektionen, danach kostet jedes Level 50 XP mehr (100, 150, 200 …). Alle fünf Level wechselt der Rang – Neuling,
-Chartleser, Kontextleser, Setup-Kenner, Trendleser, Marktleser, Strukturkenner, Lernpfad-Meister,
-Lernpfad-Legende; mit dem ganzen heutigen Kurs reicht es bis etwa Level 35. Der Lernpfad zeigt Level, Rang und die
+Lektionen, danach kostet jedes Level 50 XP mehr (100, 150, 200 …). Alle zehn Level wechselt der Rang, bis Level 120:
+Neuling, Beobachter, Chartleser, Kontextleser, Setup-Kenner, Trendleser, Marktleser, Strukturkenner, Analyst,
+Stratege, Lernpfad-Meister (ab 100) und Lernpfad-Legende (ab 110). Mit dem heutigen Kurs reicht es bis etwa Level 35;
+weitere Kurse und Lektionen tragen weiter. Der Lernpfad zeigt Level, Rang und die
 fehlenden XP, „Fortschritt“ die Karte „Dein Level“ mit Rangleiter. Ein Aufstieg erscheint in der Erfolgsmeldung
 (nie beim Laden, Import oder Zurücksetzen). Kein neuer gespeicherter Zustand – das Level wird immer aus dem
 Lernstand berechnet. Tests: `levels.test.ts`, `tests/levels.spec.ts`.
