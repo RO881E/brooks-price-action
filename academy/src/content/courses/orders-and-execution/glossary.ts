@@ -335,5 +335,81 @@ export const ordersGlossary: GlossaryEntry[] = [
     "definition": "Ein zulässiger Zeitraum oder Marktabschnitt, in dem ein Auftrag tatsächlich handeln darf. Eine längere Gültigkeit erweitert ihn nicht automatisch.",
     "aliases": [],
     "firstUnit": "Kapitel 5"
-  }
+  },
+  {
+    "term": "Long-Position",
+    "definition": "Ein positiver Bestand im Lernmodell. Bestätigte Verkäufe verkleinern ihn.",
+    "aliases": [
+      "Long"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Short-Position",
+    "definition": "Eine offene Verkaufsverpflichtung, im Lernmodell als negative Position angezeigt. Bestätigte Rückkäufe verkleinern sie.",
+    "aliases": [
+      "Short"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "OCO",
+    "definition": "Verknüpfte Orders, bei denen ein festgelegtes Ereignis die Stornierung des anderen Auftrags auslösen soll. Teilmengen und Löschablauf brauchen eigene Regeln.",
+    "aliases": [
+      "One Cancels Other"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Bracket",
+    "definition": "Eine Verbindung aus einem Einstiegsauftrag und vorgesehenen Ausstiegen, meist Ziel und Stop. Die Aktivierung der Ausstiege hängt von der Anbieterregel ab.",
+    "aliases": [
+      "Bracket-Order"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Parent-Order",
+    "definition": "Der übergeordnete Auftrag in einer Verbindung. Im Bracket-Lernfall ist dies der Einstieg.",
+    "aliases": [
+      "Parent"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Child-Order",
+    "definition": "Ein angehängter Auftrag mit eigener Menge und eigenem Status. Seine Aktivierung richtet sich nach der Verbindung zum Parent.",
+    "aliases": [
+      "Child"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Zielorder",
+    "definition": "Ein vorgesehener Ausstieg am Ziel. Im Long-Lernfall ist dies ein Verkaufslimit; die Ausführung ist nicht garantiert.",
+    "aliases": [
+      "Take-Profit"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Restposition",
+    "definition": "Der nach bestätigten Ausführungen verbliebene Bestand oder die verbleibende Verpflichtung. Sie ist von offenen Auftragsmengen zu unterscheiden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Reduce-only",
+    "definition": "Eine anbieterabhängige Bedingung, nach der ein Auftrag eine bestehende Position nur verkleinern soll. Verarbeitung und Restbehandlung müssen genau geprüft werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Überausführung",
+    "definition": "Mehr ausgeführte Ausstiegsmenge als zur vorgesehenen Schließung nötig. Je nach Kontoregel kann dadurch eine neue Gegenposition entstehen.",
+    "aliases": [
+      "Overfill"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
 ];

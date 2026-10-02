@@ -55,9 +55,9 @@ Alle zwölf Kapitel: Produkte, Teilnehmer, Handelsplätze, Auktion, Orderbuch, L
 - Handelszeiten und Sessions (Asien, Europa, USA), vor- und nachbörslicher Handel
 - Eröffnungs- und Schlussauktion, Handelsunterbrechungen bei starken Schwankungen
 
-### Orders und Ausführung (Trading von null · Kapitel 1–5 verfügbar) **[aktiv]**
+### Orders und Ausführung (Trading von null · Kapitel 1–6 verfügbar) **[aktiv]**
 
-Kapitel 1–5: Handelswünsche, Market-, Limit- und Stop-Orders verstehen. Gültigkeit und Mengenbedingungen ergänzen eigene Fälle zu Ausführung, Warteschlangen, Kosten und Reststatus. Weitere Kapitel folgen.
+Kapitel 1–6: Handelswünsche, Market-, Limit- und Stop-Orders verstehen. Gültigkeit und Mengenbedingungen ergänzen eigene Fälle zu Ausführung, Warteschlangen, Kosten und Reststatus. Kapitel 6 ergänzt Positionsausstiege, OCO und Brackets. Weitere Kapitel folgen.
 
 - Market-, Limit-, Stop- und Stop-Limit-Order
 - OCO- und Bracket-Order, Trailing Stop

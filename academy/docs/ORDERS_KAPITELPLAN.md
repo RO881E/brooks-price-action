@@ -10,7 +10,7 @@ Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 | 3 | Limit-Orders und Warteschlangen | 22 Lektionen verfügbar |
 | 4 | Stop- und Stop-Limit-Orders | 22 Lektionen verfügbar |
 | 5 | Gültigkeit und Mengenbedingungen | 22 Lektionen verfügbar |
-| 6 | Positionen schließen, OCO und Brackets | Geplant |
+| 6 | Positionen schließen, OCO und Brackets | 22 Lektionen verfügbar |
 | 7 | Trailing Stops und bedingte Aufträge | Geplant |
 | 8 | Slippage, Gebühren und Ausführungsqualität | Geplant |
 | 9 | Handelswege, Technik und Fehlerfälle | Geplant |
@@ -199,3 +199,57 @@ Tagesfall ein kleiner Einserrest noch handeln. Diese Regel nicht verallgemeinern
 Einzelweg-FOK mit A drei/B drei darf im Modell nicht zusammenführen und kauft null.
 FOK darf im normalen Buchmodell mehrere zulässige Preisstufen nutzen.
 IOC/FOK während einer Pause im eigenen Modell abgelehnt, kein universeller Ablauf.
+
+
+## Kapitel 6: Positionen schließen, OCO und Brackets
+
+22 eigene Lektionen, zehn Begriffe. Gesamt: 130 Lektionen, 60 Glossarbegriffe.
+Die bereitgestellte Harris-PDF behandelt in Abschnitt 4.1–4.2 Auftragsbedingungen
+und in 26.1 (Druckseite 26-3) verknüpfte, von anderen Ausführungen abhängige Orders.
+Sie ist hier Hintergrund für Auftrags- und Statusdenken, keine Quelle für heutige
+OCO-/Bracket-Plattformregeln. Ergänzende Primärquellen geprüft 2026-10-02:
+- Fidelity, Conditional order types:
+  https://www.fidelity.com/learning-center/trading-investing/trading/conditional-order-types
+- IBKR, Define Order Preset Value, OCA Group Defaults:
+  https://ibkrguides.com/traderworkstation/define-order-preset-value.htm
+- Schwab, How to Use Advanced Stock Order Types:
+  https://www.schwab.com/learn/story/how-to-use-advanced-stock-order-types
+- IBKR TWS API, Placing Orders (ältere, als deprecated markierte Dokumentation;
+  nur Beleg einer möglichen Aktivierung nach vollständigem Parent-Fill):
+  https://interactivebrokers.github.io/tws-api/order_submission.html
+
+Alle Firmen, Zahlen, Texte und konkreten Abläufe eigenständig. Keine Buch- oder
+Autorennamen in sichtbaren Lerntexten. Keine aktuellen Futuresplattformzusagen.
+
+Hauptposition sechs Nera-Aktien zu 40,00, Kaufwert 240,00 Euro. Zielverkaufslimit
+42,00; Stop-Market-Schwelle 38,00, neuer zulässiger letzter Handel <= 38,00;
+Session 9–17 Uhr Marktzeit. Eigene Gebühr einmal 0,60 je ausgeführtem Kauf- bzw.
+Ausstiegsauftrag, auch bei mehreren Teilfills; keine Löschgebühr, Steuern oder
+weiteren Kosten im Modell. Zielzweig: Bids zwei 42,20 und vier 42,00 ergeben
+252,40 Erlös, 12,40 brutto, 11,20 netto. Getrennter Stopzweig: Last 37,90 löst
+aus, Bids zwei 37,80 und vier 37,60 ergeben 226,00 Erlös, -14,00 brutto,
+-15,20 netto. Schwellenannahme zu 38,00 ergibt -13,20 netto, Differenz 2,00.
+
+Haupt-OCO: Teilfill reduziert Gegenmenge, voller Ausstieg löscht Gegenorder.
+Der eigene Lernanbieter bestätigt Gruppenänderungen vor weiterem möglichen
+Handel. Das ist eine ausdrückliche geordnete Übungsannahme, keine allgemeine
+Garantie atomarer Verarbeitung. Zwei Zielverkäufe => Position vier, Zielrest
+vier, bestätigter Stop vier. Getrennte Alternative: erster Fill löscht Stop,
+Zielrest vier bleibt. Getrenntes Verzögerungsmodell erlaubt beide Verkäufe vor
+Löschbestätigung: sechs - sechs - sechs = Short minus sechs. In Short- und
+Umkehrfällen sind Kontoerlaubnis und erforderliche Leihe ausdrücklich gegeben.
+
+Bracket-Hauptregel: Parent sechs Limit 40,00; Children zunächst inaktiv und erst
+nach vollem Parent-Fill aktiv, danach Haupt-OCO. Zwei Parent-Fills lassen zwei
+Aktien ohne aktive Children stehen. Parentrest vier löschen => Bestand zwei;
+eigene Zusatzregel beendet auch die inaktiven Children. Getrenntes Fehlermodell:
+Parent voll, Ziel angenommen, Stop abgelehnt, kein Kauf-Rollback. Manuelle
+zusätzliche Ausstiege sind im jeweiligen Modell unabhängig und löschen alte
+Children nicht. Bei manueller Teilmenge zwei bleiben vier Aktien; bestätigte
+Änderung beider Children von sechs auf vier nur unter expliziter Annahme ohne
+weiteren Trade im Änderungsfenster. Reduce-only beim eigenen Anbieter prüft
+jede Verarbeitung gegen den aktuellen Bestand und beendet Überschuss; keine
+Aussage universeller Produktunterstützung. Stop-Limit-Alternative 38,00/37,80,
+Last 37,70, Bids nur 37,60 => null Verkäufe, Position sechs. OCO erst bei Fill,
+nicht bei Trigger, bleibt im Modell nach Umwandlung erhalten. Alternativen
+beginnen unabhängig; keine Vermischung ihrer Trades oder Kosten.

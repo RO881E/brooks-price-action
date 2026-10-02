@@ -3,10 +3,10 @@ import { ordersGlossary } from './glossary';
 export const ordersDefinition: CourseDefinition = {
   info: {
     id: 'orders-and-execution',
-    eyebrow: 'Trading von null · Kapitel 1–5 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–6 verfügbar',
     title: 'Orders und Ausführung',
-    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände.',
-    sourceOrderNotice: 'Kapitel 1 bis 5 sind verfügbar. Die weiteren fünf Kapitel werden schrittweise ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
+    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände. Kapitel 6 verbindet Positionsausstiege, OCO-Regeln und Brackets.',
+    sourceOrderNotice: 'Kapitel 1 bis 6 sind verfügbar. Die weiteren vier Kapitel werden schrittweise ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
   },
   units: [{
     id: 'orders-and-execution.chapter-01', order: 1, kind: 'chapter',
@@ -38,6 +38,12 @@ export const ordersDefinition: CourseDefinition = {
     description: 'Tagesende, GTC, GTD, IOC, FOK, AON und Mindestmengen anhand eigener Mengen- und Geldbilanzen vergleichen.',
     estimatedLessonCount: 22,
     load: () => import('./chapter-05').then((module) => module.ordersChapterFiveLessons),
+  }, {
+    id: 'orders-and-execution.chapter-06', order: 6, kind: 'chapter',
+    label: 'Kapitel 6', title: 'Positionen schließen, OCO und Brackets',
+    description: 'Bestandsbilanzen, verknüpfte Ausstiege, Parent- und Child-Aktivierung, Teilmengen und verbleibende Orders prüfen.',
+    estimatedLessonCount: 22,
+    load: () => import('./chapter-06').then((module) => module.ordersChapterSixLessons),
   }],
   glossary: { title: 'Orders-Glossar', entries: ordersGlossary },
 };

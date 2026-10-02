@@ -7,7 +7,7 @@ describe('compact course outline wire format', () => {
   it('restores the exact outlines for all production and browser-test courses', () => {
     const outlines = [...baseCourses, ...testCourses].map(toCourseOutline);
     const packed = packJson(outlines);
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(JSON.parse(JSON.stringify(outlines)));
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(JSON.parse(JSON.stringify(outlines)));
     expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(outlines).length);
   });
 
@@ -15,7 +15,7 @@ describe('compact course outline wire format', () => {
     const input = [{ '0': 'Gruß \\n', nested: [{ title: '„Tief“', missing: undefined, no: null,
       yes: true, value: 0, empty: [] }], '__proto__': 'ignored object-literal setter' }];
     const packed = packJson(input);
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(JSON.parse(JSON.stringify(input)));
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(JSON.parse(JSON.stringify(input)));
   });
 
   it('emits a standalone module with the same data and no external decoder dependency', () => {
@@ -29,7 +29,7 @@ describe('compact course outline wire format', () => {
     const input = [{ '$': 0, '0': text, nested: [text, { '$': text }] }, text];
     const packed = packJson(input);
     expect(packed.strings).toEqual([text]);
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(input);
     expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
   });
 
@@ -38,7 +38,7 @@ describe('compact course outline wire format', () => {
     const input = [text, text, 'kurz', 'kurz'];
     const packed = packJson(input);
     expect(packed.strings).toEqual([text]);
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(input);
     expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(input).length);
   });
 
@@ -49,7 +49,7 @@ describe('compact course outline wire format', () => {
     const packed = packJson(input);
     expect(packed.strings).toContain(prefix);
     expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(input).length);
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(input);
     expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
     expect(() => unpackJson({ $: [0, 2] }, [], [prefix])).toThrow('Invalid compact JSON suffix');
     expect(() => unpackJson({ $: [0, '01', 'extra'] }, [], [prefix])).toThrow('Invalid compact JSON suffix');
@@ -64,14 +64,14 @@ describe('compact course outline wire format', () => {
   it('escapes literal string markers at every nesting level without changing user text', () => {
     const input = ['@', '@0', '@0:suffix', '@@literal', '@12:\n„Text“', { '@key': '@999', '$': ['@0', '@@'] }];
     const packed = packJson(input);
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(input);
     expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
   });
   it('interns numbered step stems with exact suffix restoration and a smaller encoding', () => {
     const ids = Array.from({length:30}, (_,i) => `chapter-26-${String(i+1).padStart(2,'0')}-explain`);
     const packed = packJson(ids);
     expect(packed.strings).toContain('chapter-26-');
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(ids);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(ids);
     expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(ids).length);
   });
   it('shares course-scoped lesson and dotted step prefixes without changing IDs', () => {
@@ -79,7 +79,7 @@ describe('compact course outline wire format', () => {
     const input = Array.from({ length: 22 }, (_, i) => ['explain', 'compare', 'question', 'recap'].map((kind) => `${prefix}${String(i + 1).padStart(2, '0')}.${kind}`)).flat();
     const packed = packJson(input);
     expect(packed.strings).toContain(prefix);
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(input);
     expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
     expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(input).length);
   });
@@ -87,7 +87,7 @@ describe('compact course outline wire format', () => {
   it('handles dictionary strings beginning with markers without recursively decoding them', () => {
     const text = '@0:literal long text that must stay literal';
     const input = [text,text,text];const packed=packJson(input);
-    expect(unpackJson(packed.value,packed.keys,packed.strings)).toEqual(input);
+    expect(unpackJson(packed.value,packed.keys,packed.strings,packed.shapes)).toEqual(input);
   });
   it('rejects invalid compact string references and preserves escaped malformed literals', () => {
     for(const value of ['@999','@-1','@0.5','@01','@9007199254740992','@broken']) expect(()=>unpackJson(value,[],['zero'])).toThrow('Invalid compact JSON string');
@@ -98,9 +98,9 @@ describe('compact course outline wire format', () => {
   it('roundtrips flat object pairs with marker keys, nested arrays and prototype-like source keys', () => {
     const input = JSON.parse('{"#":[1,"literal"],"$":{"#":"@0"},"__proto__":{"safe":true},"constructor":"literal","nested":[{"0":null},[]]}');
     const packed = packJson(input);
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(input);
     expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
-    expect(Object.getPrototypeOf(unpackJson(packed.value, packed.keys, packed.strings))).toBe(Object.prototype);
+    expect(Object.getPrototypeOf(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes))).toBe(Object.prototype);
   });
 
   it('rejects malformed flat pairs rather than dropping object fields', () => {
@@ -121,8 +121,34 @@ describe('compact course outline wire format', () => {
     const packed = packJson(input);
     expect(packed.strings).toEqual(expect.arrayContaining(['question', 'choice-0', 'recap']));
     expect(packed.strings).not.toContain('kurz');
-    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(input);
     expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
   });
 
+});
+
+
+describe('shared compact object layouts', () => {
+  it('preserves ordered layouts, nested arrays, marker keys and optional fields', () => {
+    const input = [
+      { '%': 'literal', '__proto__': null, title: 'One', active: true, count: 0, plain: null, optional: undefined },
+      { '%': 'literal', '__proto__': null, title: ['Two', { deep: true }], active: false, count: 1, plain: null },
+      { '%': 'literal', '__proto__': null, title: 'Three', active: true, count: 2, plain: [] },
+      { title: 'Different order', '%': 'literal' },
+      JSON.parse('{"__proto__":"ordinary field","%":"source"}'),
+    ];
+    const packed = packJson(input);
+    expect(packed.shapes.length).toBeGreaterThan(0);
+    expect(unpackJson(packed.value, packed.keys, packed.strings, packed.shapes)).toEqual(JSON.parse(JSON.stringify(input)));
+    expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(JSON.parse(JSON.stringify(input)));
+  });
+
+  it('rejects missing, fractional, negative, wrong-length and duplicate-key layouts', () => {
+    const malformed: Parameters<typeof unpackJson>[0][] = [{ '%': [] }, { '%': [-1, 'x'] }, { '%': [0.5, 'x'] }, { '%': [2, 'x'] }, { '%': [0] }, { '%': [0, 'x'], '#': [] }];
+    for (const encoded of malformed) {
+      expect(() => unpackJson(encoded, ['field'], [], [[0]])).toThrow('Invalid compact JSON shape');
+    }
+    expect(() => unpackJson({ '%': [0, 'a', 'b'] }, ['field'], [], [[0, 0]])).toThrow('Invalid compact JSON shape');
+    for (const keyIndex of [-1, 0.5, 9]) expect(() => unpackJson({ '%': [0, 'a'] }, ['field'], [], [[keyIndex]])).toThrow('Invalid compact JSON key');
+  });
 });
