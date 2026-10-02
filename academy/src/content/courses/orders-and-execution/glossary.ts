@@ -412,4 +412,72 @@ export const ordersGlossary: GlossaryEntry[] = [
     ],
     "firstUnit": "Kapitel 6"
   },
+  {
+    "term": "Trailing Stop",
+    "definition": "Ein Stop mit einer nach einer Referenzregel bewegten Auslöseschwelle. Ein Verkaufstrail folgt günstigen Höchstwerten; ein Kauftrail folgt günstigen Tiefstwerten.",
+    "aliases": [
+      "Nachziehender Stop"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Nachziehabstand",
+    "definition": "Der festgelegte Betrag oder Prozentsatz zwischen der gemerkten Referenz und der berechneten Stopschwelle.",
+    "aliases": [
+      "Trailing-Abstand"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Referenzhoch",
+    "definition": "Der höchste zulässige Referenzwert seit dem festgelegten Beginn. Ein Verkaufstrail kann seine Schwelle daraus berechnen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Referenztief",
+    "definition": "Der niedrigste zulässige Referenzwert seit dem festgelegten Beginn. Ein Kauftrail kann seine Schwelle daraus berechnen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Prozentabstand",
+    "definition": "Ein Abstand, der als Anteil einer ausdrücklich angegebenen Basis berechnet wird. Sein Geldbetrag verändert sich mit dieser Basis.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Trailing-Stop-Limit",
+    "definition": "Ein nachziehender Stop, der bei Auslösung eine Limitorder aktiviert. Preisgrenze, Versatz und Restregel müssen feststehen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Limitversatz",
+    "definition": "Der festgelegte Abstand zwischen Stopschwelle und Folgelimit. Er ist vom Nachziehabstand zur Referenz zu unterscheiden.",
+    "aliases": [
+      "Limit-Offset"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Bedingter Auftrag",
+    "definition": "Eine vorbereitete Handelsorder, deren Aktivierung von einer festgelegten Bedingung abhängt. Ein erfülltes Signal beweist noch keine Ausführung.",
+    "aliases": [
+      "Conditional Order"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "UND-Verknüpfung",
+    "definition": "Eine Regel, nach der alle verbundenen Teilbedingungen gemeinsam erfüllt sein müssen. Datenzeitpunkt und Speicherung früherer Wahr-Werte müssen klar sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Einmalaktivierung",
+    "definition": "Eine Regel, nach der eine erfüllte Bedingung genau eine Folgeorder erzeugen darf. Weitere passende Meldungen starten ohne eigene Wiederholungsregel keinen neuen Auftrag.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
 ];
