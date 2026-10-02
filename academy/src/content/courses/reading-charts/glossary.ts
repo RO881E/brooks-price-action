@@ -285,5 +285,89 @@ export const chartsGlossary: GlossaryEntry[] = [
     "definition": "Eine Kennzahl für durchschnittliche vergangene Preisbewegung unter Berücksichtigung von Abständen zum vorherigen Schluss. Eingaben, Zeitraum und Berechnung müssen genannt sein; hier keine Größenempfehlung.",
     "aliases": [],
     "firstUnit": "Kapitel 4"
+  },
+
+  {
+    "term": "Heikin-Ashi",
+    "definition": "Eine Kerzendarstellung mit berechneten Werten aus Original-OHLC und dem vorherigen HA-Körper. Die Zeichenwerte sind keine Ausführungsbestätigung.",
+    "aliases": [
+      "HA"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "HA-Eröffnung",
+    "definition": "Ab der zweiten Kerze die Mitte aus HA-O und HA-C des Vorgängers. Die erste Kerze braucht eine erklärte Startregel.",
+    "aliases": [
+      "HA-O"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "HA-Schluss",
+    "definition": "Der gleich gewichtete Mittelwert der aktuellen Originalwerte O, H, L und C. Kein Durchschnitt aller Geschäfte.",
+    "aliases": [
+      "HA-C"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "HA-Hoch",
+    "definition": "Das Maximum aus aktuellem Original-Hoch, HA-Eröffnung und HA-Schluss.",
+    "aliases": [
+      "HA-H"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "HA-Tief",
+    "definition": "Das Minimum aus aktuellem Original-Tief, HA-Eröffnung und HA-Schluss. Es kann außerhalb der Originalspanne liegen.",
+    "aliases": [
+      "HA-L"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Initialisierung",
+    "definition": "Das Festlegen des ersten Rechenzustands, beispielsweise einer HA-Eröffnung ohne verfügbaren HA-Vorgänger.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Körpermittelpunkt",
+    "definition": "Die Mitte zwischen Eröffnung und Schluss der bezeichneten Kerze. Bei HA Eingabe der nächsten HA-Eröffnung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Glättung",
+    "definition": "Eine Rechenregel, die Werte zusammenfasst oder frühere Werte einbezieht. Sie verändert die Darstellung, sichert aber keine zukünftige Richtung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Rekursive Berechnung",
+    "definition": "Eine Rechenkette, in der ein bereits berechneter Wert in die nächste Rechnung eingeht. Bei HA betrifft dies die Eröffnung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Zwischenrundung",
+    "definition": "Rundung vor Abschluss einer Rechenkette. Sie kann spätere Ergebnisse verändern; unser HA-Lernmodell vermeidet sie.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Preisquelle",
+    "definition": "Die erklärten Eingabepreise einer Berechnung, etwa Originalschlüsse oder HA-Schlüsse. Unterschiedliche Quellen können unterschiedliche Kennzahlen ergeben.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Indikator",
+    "definition": "Eine zusätzliche Kennzahl aus erklärten Daten und Rechenregeln. Name oder Chartart allein legen ihre Preisquelle nicht fest.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
   }
+
 ];

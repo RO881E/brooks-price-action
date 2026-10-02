@@ -66,8 +66,8 @@ describe('Charts chapter 4: explicit price rules',()=>{
   });
   it('preserves published IDs and unlocks after all three course prerequisites',async()=>{
     expect(await chartsDefinition.units[3].load()).toEqual(lessons);
-    expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(44);
-    expect(course.units.flatMap(u=>u.lessons)).toHaveLength(88);
+    expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(56);
+    expect(course.units.flatMap(u=>u.lessons)).toHaveLength(112);
     const prior=course.units.slice(0,3).flatMap(u=>u.lessons.map(l=>l.id)),outline=toCourseOutline(course);
     expect(lessonAccessState(outline,lessons[0],prior)).toBe('available');
     expect(lessonAccessState(outline,lessons[0],prior.slice(0,-1))).toBe('locked');

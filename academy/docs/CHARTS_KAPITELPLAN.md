@@ -9,7 +9,7 @@ abgeschlossene andere Kurse; Sprache nach MARKTGRUNDLAGEN_SPRACHE.md.
 | 2 | Linien, Balken und Kerzen sicher vergleichen | 20 Lektionen verfügbar |
 | 3 | Zeit-Bars, Tick-Bars und Volumen-Bars | 24 Lektionen verfügbar |
 | 4 | Range-Bars und Renko | 24 Lektionen verfügbar |
-| 5 | Heikin-Ashi und berechnete Preise | Geplant |
+| 5 | Heikin-Ashi und berechnete Preise | 24 Lektionen verfügbar |
 | 6 | Point & Figure und regelbasierte Verdichtung | Geplant |
 | 7 | Zeitebenen und gemeinsame Daten | Geplant |
 | 8 | Lineare und logarithmische Skalen | Geplant |
@@ -207,3 +207,48 @@ werden separat nachgeladen. Gemeinsamer Zoom-/Fokusrahmen bleibt derselbe;
 ältere Diagrammaufrufe behalten ihre Schnittstelle und ihre Bedienung.
 Separat geladene Kapitelgrafiken unterliegen dem bestehenden40kB-Kapitelbudget;
 keine bestehenden Größenlimits erhöht. IDs und Fortschrittsschlüssel erhalten.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 5
+
+Murphy-EPUB vollständig auf Heikin-/Heiken-Ashi-Erwähnungen geprüft: keine
+gefunden. Allgemeiner OHLC-/Kerzenhintergrund stammt aus dem bereits geprüften
+Kapitel3. HA wird nicht als eigener Murphy-Abschnitt dargestellt.
+Primärdokumentation geprüft am2026-10-02:
+- https://www.tradingview.com/support/solutions/43000619436-understanding-heikin-ashi-charts/
+- https://static.ninjatrader.com/support/helpGuides/nt8/bar_types.htm
+
+Fachlicher Hintergrund: berechnete Kerzenwerte, rekursive Eröffnung,
+Original-/HA-Preislabels und unterschiedliche Rundungs-/Farbregeln.
+Keine Prognoseversprechen, Quellenbilder oder Quellformulierungen übernommen.
+Eigenständige Erklärungen, Rechnungen, Vergleiche und drei native SVGs.
+
+Neuer eigenständiger Luma-OHLC-Datensatz, keine Fortsetzung der Geschäftsliste
+in Kapitel3: vier abgeschlossene Minuten ab09:00, Intervalle links inklusive,
+rechts exklusiv, Euro je Aktie. Keine Einzelgeschäftsfolge oder Mengen bekannt.
+Original(O/H/L/C):100/104/98/102;102/108/100/104;
+104/106/100/101;112/114/110/113.
+Initialisierung HA-O1=(Original-O1+Original-C1)/2=101 ausdrücklich Lernregel,
+nicht universell. Später HA-O=(vorheriges HA-O+vorheriges HA-C)/2;
+HA-C=(aktuelles Original-O+H+L+C)/4;
+HA-H=max(Original-H,HA-O,HA-C),HA-L=min(Original-L,HA-O,HA-C).
+Keine Zwischenrundung. HA(O/H/L/C):101/104/98/101;
+101/108/100/103,50;102,25/106/100/102,75;
+102,50/114/102,50/112,25.
+
+Minute3:Originalkörper−3,HA-Körper+0,50,HA-Schlussänderung−0,75.
+Minute4:Original-C3→O4 Abstand11;Original-H3→L4 Spannenlücke4.
+HA-Spannen3/4 überlappen102,50–106;HA-L4 unter Original-L4.
+Keine Geschäftsbehauptung bei102,50 inMinute4. HA-Schatten2 oben4,50/unten1;
+HA-UntererSchatten4 null aus Berechnung, keine Order-/Prognoseaussage.
+Getrennte Variante Start100:HA-O100/100,50/102/102,375;
+HA-C unverändert, Startunterschied halbiert sich pro Schritt.
+Getrennter früher Zwischenstand Minute4 Original112/112/112/112:
+HA-O102,50,HA-C112,HA-H112,HA-L102,50;keine Zukunftsdaten benötigt.
+Zwei-Schluss-Mittel Minuten3/4:Original107,HA107,50.
+
+Alle Grafiken feste lineare Preisabbildung, Original und HA auf derselben
+Skala. Körperrichtung durch Textpfeile und Gleichheitszeichen, nicht nur Farbe.
+Formelgrafik trennt Vorgänger-HA von aktuellen Originaldaten. Vorhandene
+Vergrößerungs-/Zoomoberfläche mit eigenem lazy geladenem Grafikmodul.
+Keine Budgeterhöhung. Bestehende IDs und Fortschrittsschlüssel erhalten.
+24 neue Lektionen, zwölf Glossarbegriffe; Kurs gesamt112/56.
