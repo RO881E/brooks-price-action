@@ -23,6 +23,8 @@ export default defineConfig({
             // Baustein lädt sie beim Start parallel (modulepreload) und bleibt im Cache, solange sich
             // nur App-Code ändert – und umgekehrt. Das Hauptbündel enthält so nur App-Code.
             { name: 'course-outline', test: /virtual:wqt-course-outline/ },
+            // Keep the growing chart collection below the per-chunk size warning.
+            { name: 'ChartFocus-phase', test: /ChapterTwentyOneCharts\.tsx$/ },
           ],
         },
       },
