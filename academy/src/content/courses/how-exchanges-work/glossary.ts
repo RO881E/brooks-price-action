@@ -779,5 +779,91 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
       "Handelskosten"
     ],
     "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Preisart",
+    "definition": "Die Bedeutung einer Preiszahl, zum Beispiel letzter Trade, Kaufangebot, Verkaufsangebot oder berechneter Mittelwert. Verschiedene Preisarten können sich getrennt verändern.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Kaufdruck",
+    "definition": "Eine Kurzbeschreibung etwa für Käufer, die Verkaufsangebote annehmen oder höhere Preise erlauben. Für eine genaue Aussage müssen die beobachteten Aufträge genannt werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Verkaufsdruck",
+    "definition": "Eine Kurzbeschreibung etwa für Verkäufer, die vorhandene Kaufgebote annehmen. Es werden trotzdem gleich viele Einheiten verkauft und gekauft.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Bid-Ask-Bounce",
+    "definition": "Der letzte Trade wechselt durch Ausführungen auf unterschiedlichen Angebotsseiten, etwa zuerst am Ask und dann am Bid. Die Angebote können dabei unverändert bleiben.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Nachrichtenüberraschung",
+    "definition": "Ein neuer gemeldeter Wert wird mit einer vorher festgehaltenen Erwartung verglichen. Hier rechnen wir erste Meldung minus Erwartung. Das ergibt keine sichere Kursprognose.",
+    "aliases": [
+      "Surprise"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Erwartung",
+    "definition": "Eine Einschätzung über einen noch nicht bekannten Ausgang. Sie ist keine feste Zusage und kann zwischen Personen verschieden sein.",
+    "aliases": [
+      "Prognose"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Konsens",
+    "definition": "Eine zusammengefasste Erwartungsumfrage nach den Regeln eines Anbieters. Sie ist weder die Meinung aller Menschen noch eine sichere Wahrheit.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Revision",
+    "definition": "Eine spätere Änderung eines bereits veröffentlichten Werts. Sie ist ein neues Informationsereignis und nicht still die frühere Erstmeldung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Abzinsen",
+    "definition": "Ein späterer Geldbetrag wird mit einem genannten Rechenzins auf einen heutigen Modellwert zurückgerechnet. Annahmen über Zeit und Zahlung gehören dazu.",
+    "aliases": [
+      "Diskontierung"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Barwert",
+    "definition": "Der berechnete heutige Wert einer späteren Zahlung nach einem Bewertungsmodell. Er ist nicht automatisch ein tatsächlich handelbarer Preis.",
+    "aliases": [
+      "Present Value"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Korrelation",
+    "definition": "Ein statistischer Zusammenhang zwischen Größen über mehrere Beobachtungen. Er beweist allein nicht, dass eine Größe die andere verursacht.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Kausalität",
+    "definition": "Ein ursächlicher Zusammenhang. Ein zeitliches Zusammentreffen oder eine gemeinsame Bewegung allein reicht nicht als Beweis dafür.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Informationsstand",
+    "definition": "Die Informationen, die zum betrachteten Zeitpunkt bekannt waren oder bekannt sein konnten. Späteres Wissen darf nicht als früher bekannt behandelt werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
   }
 ];
