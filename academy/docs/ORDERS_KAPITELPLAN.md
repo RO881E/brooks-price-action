@@ -12,7 +12,7 @@ Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 | 5 | Gültigkeit und Mengenbedingungen | 22 Lektionen verfügbar |
 | 6 | Positionen schließen, OCO und Brackets | 22 Lektionen verfügbar |
 | 7 | Trailing Stops und bedingte Aufträge | 22 Lektionen verfügbar |
-| 8 | Slippage, Gebühren und Ausführungsqualität | Geplant |
+| 8 | Slippage, Gebühren und Ausführungsqualität | 22 Lektionen verfügbar |
 | 9 | Handelswege, Technik und Fehlerfälle | Geplant |
 | 10 | Einen Ausführungsplan selbst prüfen | Geplant |
 
@@ -327,3 +327,60 @@ verfügbar. Das 120-kB-gzip-Limit gilt für jeden Kursbaustein; die gemeinsame
 Offline-Grenze von 1,5 MB bleibt ebenfalls unverändert. Die Prüfung zeigt auch
 Gesamtsumme und größtes Kursstück. Tests vergleichen den zusammengefügten
 Produktions- und E2E-Katalog exakt mit den vollständigen Inhaltsgliederungen.
+
+
+## Kapitel 8: Slippage, Gebühren und Ausführungsqualität
+
+22 eigene Lektionen, zehn neue Begriffe. Gesamt: 174 Lektionen, 80 Glossarbegriffe.
+Bereitgestellte Harris-PDF: Kapitel 21, Einleitung und Abschnitt 21.1,
+Druckseiten 21-1 bis 21-2. Geprüft auf explizite/implizite Kosten, hypothetische
+entgangene Möglichkeiten und die Abgrenzung von Strategie und Umsetzung.
+Ergänzende Primärquellen geprüft 2026-10-02:
+- Fidelity, Commitment to Execution Quality:
+  https://www.fidelity.com/trading/execution-quality/overview
+- FINRA, Best Execution, historischer Bericht 2021 (nur zur Einordnung mehrerer
+  Qualitätsdimensionen und Interessenkonflikte, keine aktuelle Rechtsdarstellung):
+  https://www.finra.org/rules-guidance/guidance/reports/2021-finras-examination-and-risk-monitoring-program/best-execution
+- Investor.gov, Understanding Fees:
+  https://www.investor.gov/introduction-investing/getting-started/understanding-fees
+
+Firmen, Texte, Zahlen und Tarife vollständig eigenständig. Keine Anbieterpreise,
+Werbekennzahlen oder Quellenbeispiele übernommen. Kein rechtlicher Anbieter-
+vergleich. Keine Buch-/Autorennamen in sichtbaren Lerntexten.
+
+Hauptkauf: sechs Arvo-Aktien; Entscheidungsbild Bid24,90/Ask25,10, Mitte25,00.
+Asks zwei25,10/vier25,25 => Kaufwert151,20, Durchschnitt25,20. Abweichung zur
+Mitte1,20, zum Ausgangsask0,60. Zerlegung0,60 Mitte->Ask plus0,60 Ask->Fill:
+keine Addition überlappender Benchmarks. Haupttarif je ausgeführtem Auftrag
+0,30 fest +0,02 je ausgeführter Aktie, plus vollständig weitergereichte
+Handelsplatzgebühr0,01 je Aktie. Kein Entgelt für vollständig unausgeführte
+Orders im Modell; Teilfills verändern feste Auftragsgebühr nicht. Kaufgebühren
+0,42+0,06=0,48, Belastung151,68. Hauptverkauf drei25,60/drei25,50 =>153,30,
+Durchschnitt25,55; Verkaufsreferenz25,60 =>0,30 ungünstige Abweichung. Dieselben
+Gebühren0,48, Gutschrift152,82. Brutto2,10, netto1,14, Bestandnull, keine Reste.
+Gewinnschwelle (151,20+0,96)/6=25,36 bei vollständigem Verkauf und gleichem
+Tarif. Keine weiteren Kosten oder Steuern im Modell. Historischer Spread oder
+Slippage wird niemals zusätzlich von tatsächlich berechneten Handelswerten
+abgezogen; Preisvergleich ist keine neue Kontobuchung.
+
+Unabhängige Alternativen: sechs Käufe24,98 =>149,88, zur Mitte0,12 günstiger,
+eigenes verändertes Angebot, nicht unverändertes Hauptbuch. Sechs Käufe25,08
+gegen zeitgleichen Vergleichsask25,10 verbessern0,12, gegen Mitte25,00 kosten
+sie0,48 mehr. Ankunftsmitte25,15 vs Entscheidung25,00 beobachtete Bewegung0,15,
+kein Kausalitätsnachweis. Dieselben Hauptfills auf zwei Kennungen => Gebühren
+0,78, Belastung151,98, Unterschied0,30; keine Zusage, dass echtes Orderteilen
+die Preise unverändert lässt. Separater Mindesttarif max(0,30;0,05*q), ohne
+weitere Gebühren: zwei=>0,30, acht=>0,40. Nullprovision mit weiterhin0,01
+Handelsplatz je Stück =>151,26. Unausgeführtes Limit25,00, spätere Referenz26,00:
+gedachte sechs Käufe und Verkäufe=>6,00 vor Kosten, Ausführbarkeit nicht
+bewiesen, kein tatsächlicher Gewinn/Abzug. Teilbericht zwei von sechs25,10,
+vier offen, Quote1/3; kein vollständiger Vergleich mit Hauptausführung.
+
+Eigene synchronisierte Uhr: Senden100ms, Annahme120ms, erster Fill170ms,
+letzter230ms =>70ms bis erstem,130ms bis letztem. Wegvergleich gleicher Menge:
+A sechs Durchschnitt25,20+Gebühren0,48=>151,68; B sechs25,15+0,90=>151,80,
+A um0,12 geringere Belastung. Sammelbericht sechs25,20 und zwei25,10=>201,40
+für acht, Durchschnitt25,175, Abweichung zur gemeinsamen vorherigen25,00
+insgesamt1,40. Keine Rundung der tatsächlichen Einzelwerte durch gerundete
+Durchschnitte. Bewertungsrahmen umfasst Referenz, Kosten, Vollständigkeit,
+Zeit und vergleichbare Orderarten/Marktphasen. Alternativen nicht vermischt.
