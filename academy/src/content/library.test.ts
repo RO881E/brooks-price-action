@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { courseInfo } from './units';
+import { baseCourseDefinitions } from './registry';
 import { DEFAULT_COURSE_ID } from './registry';
 import {
   libraryCounts,
@@ -9,7 +10,7 @@ import {
   type LibrarySubject,
 } from './library';
 
-const registered = [courseInfo.id];
+const registered = baseCourseDefinitions.map((course) => course.info.id);
 
 describe('Bibliothek (Themenliste)', () => {
   it('die echte Liste ist gültig und der Standardkurs ist der registrierte', () => {
@@ -17,7 +18,7 @@ describe('Bibliothek (Themenliste)', () => {
     expect(DEFAULT_COURSE_ID).toBe(courseInfo.id);
   });
 
-  it('enthält alle Themengebiete; nur der Kurs mit Inhalt ist verfügbar, alles andere geplant', () => {
+  it('enthält alle Themengebiete; nur Kurse mit Inhalt sind verfügbar, alles andere geplant', () => {
     const titles = librarySubjects.map((subject) => subject.title);
     expect(titles).toEqual(
       expect.arrayContaining([
@@ -28,10 +29,10 @@ describe('Bibliothek (Themenliste)', () => {
       ]),
     );
     const counts = libraryCounts(librarySubjects);
-    expect(counts.available).toBe(1);
+    expect(counts.available).toBe(2);
     expect(counts.courses).toBeGreaterThan(counts.subjects);
     const withContent = librarySubjects.filter((subject) => subjectStatus(subject) === 'available');
-    expect(withContent.map((subject) => subject.id)).toEqual(['price-action']);
+    expect(withContent.map((subject) => subject.id)).toEqual(['market-basics', 'price-action']);
     // Jedes Thema nennt mögliche Unterthemen.
     for (const course of librarySubjects.flatMap((subject) => subject.courses)) {
       expect(course.subtopics.length, course.id).toBeGreaterThan(0);

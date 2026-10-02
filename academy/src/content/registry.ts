@@ -1,3 +1,4 @@
+import { marketBasicsDefinition } from './courses/how-exchanges-work';
 import { glossaryEntries, type GlossaryEntry } from './glossary';
 import type { LibrarySubject } from './library';
 import type { Course } from './types';
@@ -28,6 +29,7 @@ export interface CourseDefinition {
 /** Kurse der veröffentlichten App. Der erste ist der Standardkurs. */
 export const baseCourseDefinitions: CourseDefinition[] = [
   { info: courseInfo, units: unitDefinitions, glossary: { title: 'Price-Action-Glossar', entries: glossaryEntries } },
+  marketBasicsDefinition,
 ];
 
 /** Nur in den Browser-Tests (Modus `e2e`): ein kleiner Testkurs, um mehrere Kurse zu prüfen. */

@@ -13,12 +13,12 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
   count(normalized);
   const strings = [...counts].filter(([text, times]) => (text.length > 12 && times >= 3) || (text.length > 24 && times >= 2)).map(([text]) => text);
   const stringIndices = new Map(strings.map((text, index) => [text, index]));
-  // Stable numbered IDs share long prefixes even when the full IDs are unique.
+  // Numbered lesson and step IDs share prefixes even when full IDs are unique.
   // Intern those prefixes in the existing dictionary, preserving the exact suffix.
   const prefixCounts = new Map<string, number>();
   for (const [text, times] of counts) {
-    const match = text.match(/^(.+[.-])(\d{2,})$/);
-    if (match && match[1].length > 24 && !stringIndices.has(text)) {
+    const match = text.match(/^(.+[.-])(\d{2,}(?:-[a-z][a-z-]*)?)$/);
+    if (match && match[1].length > 8 && !stringIndices.has(text)) {
       prefixCounts.set(match[1], (prefixCounts.get(match[1]) ?? 0) + times);
     }
   }
@@ -34,11 +34,11 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
   const pack = (value: JsonValue): JsonValue => {
     if (typeof value === 'string') {
       const index = stringIndices.get(value);
-      // Packed source objects have numeric keys only, so this marker cannot collide.
-      if (index !== undefined) return { $: index };
-      const match = value.match(/^(.+[.-])(\d{2,})$/);
+      // Inline strings starting with @ are escaped; references are unambiguous.
+      if (index !== undefined) return `@${index}`;
+      const match = value.match(/^(.+[.-])(\d{2,}(?:-[a-z][a-z-]*)?)$/);
       const prefixIndex = match ? prefixIndices.get(match[1]) : undefined;
-      return prefixIndex === undefined ? value : { $: [prefixIndex, match![2]] };
+      return prefixIndex === undefined ? (value.startsWith("@") ? "@" + value : value) : `@${prefixIndex}:${match![2]}`;
     }
     if (Array.isArray(value)) return value.map(pack);
     if (value === null || typeof value !== 'object') return value;
@@ -57,6 +57,13 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
 
 // Self-contained so its emitted function can restore the virtual module without imports.
 export function unpackJson(value: JsonValue, keys: readonly string[], strings: readonly string[] = []): JsonValue {
+  if (typeof value === 'string' && value.startsWith('@')) {
+    if (value.startsWith('@@')) return value.slice(1);
+    const match = value.match(/^@(0|[1-9]\d*)(?::([\s\S]*))?$/);
+    const index = match ? Number(match[1]) : -1;
+    if (!Number.isSafeInteger(index) || strings[index] === undefined) throw new Error('Invalid compact JSON string');
+    return strings[index] + (match![2] ?? '');
+  }
   if (Array.isArray(value)) return value.map((child) => unpackJson(child, keys, strings));
   if (value === null || typeof value !== 'object') return value;
   if (Object.hasOwn(value, '$')) {

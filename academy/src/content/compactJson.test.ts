@@ -61,4 +61,28 @@ describe('compact course outline wire format', () => {
     expect(() => unpackJson({ $: -1 }, [], ['only zero'])).toThrow('Invalid compact JSON string');
     expect(() => unpackJson({ $: 0.5 }, [], ['only zero'])).toThrow('Invalid compact JSON string');
   });
+  it('escapes literal string markers at every nesting level without changing user text', () => {
+    const input = ['@', '@0', '@0:suffix', '@@literal', '@12:\n„Text“', { '@key': '@999', '$': ['@0', '@@'] }];
+    const packed = packJson(input);
+    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
+  });
+  it('interns numbered step stems with exact suffix restoration and a smaller encoding', () => {
+    const ids = Array.from({length:30}, (_,i) => `chapter-26-${String(i+1).padStart(2,'0')}-explain`);
+    const packed = packJson(ids);
+    expect(packed.strings).toContain('chapter-26-');
+    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(ids);
+    expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(ids).length);
+  });
+  it('handles dictionary strings beginning with markers without recursively decoding them', () => {
+    const text = '@0:literal long text that must stay literal';
+    const input = [text,text,text];const packed=packJson(input);
+    expect(unpackJson(packed.value,packed.keys,packed.strings)).toEqual(input);
+  });
+  it('rejects invalid compact string references and preserves escaped malformed literals', () => {
+    for(const value of ['@999','@-1','@0.5','@01','@9007199254740992','@broken']) expect(()=>unpackJson(value,[],['zero'])).toThrow('Invalid compact JSON string');
+    expect(unpackJson('@@broken',[],[])).toBe('@broken');
+    expect(unpackJson('@0:01-explain',[],['chapter-26-'])).toBe('chapter-26-01-explain');
+  });
+
 });
