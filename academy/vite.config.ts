@@ -24,7 +24,7 @@ export default defineConfig({
             // nur App-Code ändert – und umgekehrt. Das Hauptbündel enthält so nur App-Code.
             { name: 'course-outline', test: /virtual:wqt-course-outline/ },
             // Keep the growing chart collection below the per-chunk size warning.
-            { name: 'ChartFocus-phase', test: /ChapterTwenty(?:One|Two)Charts\.tsx$/ },
+            { name: 'ChartFocus-phase', test: /ChapterTwenty(?:One|Two|Three)Charts\.tsx$/ },
           ],
         },
       },
