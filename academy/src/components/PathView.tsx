@@ -24,6 +24,8 @@ interface PathViewProps {
   /** XP aus allen Kursen (mehrere Kurse zählen gemeinsam); ohne Angabe die dieses Kurses. */
   totalXp?: number;
   onOpenLesson: (lesson: LessonOutline) => void;
+  /** Inhalt von „Weitere Kurse und Themen“; wird erst beim Aufklappen erzeugt (lädt die Kursdaten nach). */
+  moreCourses?: () => React.ReactNode;
 }
 
 /** Etappenstatus eines Buchteils: nur aus echtem Fortschritt und Freischaltung. */
@@ -64,6 +66,7 @@ export function PathView({
   onDismissNotice,
   totalXp,
   onOpenLesson,
+  moreCourses,
 }: PathViewProps) {
   const published = course.units.flatMap((unit) =>
     unit.lessons.filter((lesson) => lesson.status === 'published'),
@@ -84,6 +87,7 @@ export function PathView({
   const currentUnitId = course.units.find((unit) => unit.lessons.some((lesson) => lesson.id === focusLessonId))?.id;
   const [chosenId, setChosenId] = useState<string | null>(null);
   const [listOpen, setListOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   // Weiter im Kurs (z. B. nach einer Lektion): Die Anzeige folgt dem aktuellen Kapitel.
   useEffect(() => setChosenId(null), [currentUnitId, course.id]);
   const shownIndex = Math.max(
@@ -335,6 +339,12 @@ export function PathView({
             );
           })}
         </div>
+        {moreCourses ? (
+          <details className="more-courses" onToggle={(event) => setMoreOpen(event.currentTarget.open)}>
+            <summary>Weitere Kurse und Themen</summary>
+            {moreOpen ? moreCourses() : null}
+          </details>
+        ) : null}
       </div>
 
     </div>

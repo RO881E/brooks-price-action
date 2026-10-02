@@ -111,13 +111,29 @@ test.describe('Bibliothek: Seiten', () => {
     await expect(page.getByRole('heading', { level: 1, name: 'Kurs nicht gefunden' })).toBeVisible();
   });
 
-  test('Navigationseintrag „Alle Kurse“ bleibt auf allen Bibliotheksseiten markiert @desktop', async ({ page }) => {
-    const item = page.getByRole('navigation', { name: 'Hauptnavigation' }).getByRole('button', { name: 'Alle Kurse' });
+  test('Lernpfad bleibt auf allen Kursseiten markiert; „Alle Kurse“ hat keinen eigenen Menüpunkt @desktop', async ({ page }) => {
+    const nav = page.getByRole('navigation', { name: 'Hauptnavigation' });
+    await expect(nav.getByRole('button', { name: 'Alle Kurse' })).toHaveCount(0);
     for (const hash of ['#/library', '#/library/volume', '#/course/vwap']) {
       await page.goto(`/${hash}`);
       await expect(page.locator('.view-container h1')).toBeVisible();
-      await expect(item).toHaveAttribute('aria-current', 'page');
+      await expect(nav.getByRole('button', { name: 'Lernpfad', exact: true })).toHaveAttribute('aria-current', 'page');
     }
+  });
+
+  test('Lernpfad: „Weitere Kurse und Themen“ ist eingeklappt, lädt beim Öffnen und führt zu Gebiet und Kurs', async ({ page }) => {
+    await page.goto('/#/path');
+    const more = page.locator('details.more-courses');
+    await expect(more).not.toHaveAttribute('open', '');
+    // Eingeklappt gibt es keine Kachel und keine zweite Hauptüberschrift.
+    await expect(page.locator('.library-tile')).toHaveCount(0);
+    await more.locator('summary').click();
+    await expect(page.locator('.library-tile').first()).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
+    await expect(more.getByRole('heading', { name: 'Deine Kurse' })).toBeVisible();
+    await expectAccessible(page);
+    await more.getByRole('link', { name: 'Volumen', exact: true }).click();
+    await expect(page).toHaveURL(/#\/library\/volume$/);
   });
 
   test('barrierefrei und schmal (360 px) ohne Überlauf – alle drei Seiten', async ({ page }) => {

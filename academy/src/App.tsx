@@ -220,7 +220,7 @@ function isTypingTarget(target: EventTarget | null): boolean {
 /** Lernmodus je Bereich: bestimmt Akzentfarbe (Designgrundlage P05); Farbe nie allein als Träger. */
 type NavMode = 'read' | 'practice' | 'review' | 'progress' | 'neutral';
 
-const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boolean; mode: NavMode }> = [
+const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boolean; mode: NavMode; hidden?: boolean }> = [
   { id: 'home', label: 'Start', icon: 'home', mobile: true, mode: 'neutral' },
   { id: 'path', label: 'Lernpfad', icon: 'path', mobile: true, mode: 'read' },
   { id: 'practice', label: 'Üben', icon: 'practice', mobile: true, mode: 'practice' },
@@ -229,7 +229,7 @@ const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boole
   { id: 'saved', label: 'Gespeichert', icon: 'saved', mobile: false, mode: 'review' },
   { id: 'glossary', label: 'Glossar', icon: 'glossary', mobile: true, mode: 'read' },
   // Themenübersicht; auf Mobilgeräten über das Menü und den Kursblock erreichbar.
-  { id: 'library', label: 'Alle Kurse', icon: 'library', mobile: false, mode: 'neutral' },
+  { id: 'library', label: 'Alle Kurse', icon: 'library', mobile: false, mode: 'neutral', hidden: true },
   { id: 'settings', label: 'Einstellungen', icon: 'settings', mobile: false, mode: 'neutral' },
 ];
 
@@ -334,6 +334,8 @@ export default function App() {
             : librarySubject !== null || libraryCourse !== null
               ? 'library'
               : lastView;
+  // „Alle Kurse“ gehört zum Lernpfad: dort ist es der aufklappbare Bereich, die Seiten bleiben als Links erreichbar.
+  const navActive: View = view === 'library' ? 'path' : view;
   const glossaryTerm = resolved?.kind === 'view' ? resolved.term : undefined;
 
   useEffect(() => {
@@ -870,13 +872,13 @@ export default function App() {
         </div>
 
         <nav className="sidebar-nav" aria-label="Hauptnavigation">
-          {navigation.map((item) => (
+          {navigation.filter((item) => !item.hidden).map((item) => (
             <button
               type="button"
               key={item.id}
-              className={view === item.id ? 'active' : ''}
+              className={navActive === item.id ? 'active' : ''}
               data-mode={item.mode}
-              aria-current={view === item.id ? 'page' : undefined}
+              aria-current={navActive === item.id ? 'page' : undefined}
               onClick={() => chooseView(item.id)}
             >
               <span aria-hidden="true">
@@ -1057,6 +1059,15 @@ export default function App() {
               onDismissNotice={() => setNotice(null)}
               totalXp={totalXp}
               onOpenLesson={openLesson}
+              moreCourses={() => (
+                <LibraryView
+                  embedded
+                  progress={progress}
+                  activeCourseId={course.id}
+                  onNavigate={openLibraryPage}
+                  onContinue={() => chooseView('path')}
+                />
+              )}
             />
           ) : null}
           {training ? (
@@ -1230,9 +1241,9 @@ export default function App() {
           <button
             type="button"
             key={item.id}
-            className={view === item.id ? 'active' : ''}
+            className={navActive === item.id ? 'active' : ''}
             data-mode={item.mode}
-            aria-current={view === item.id ? 'page' : undefined}
+            aria-current={navActive === item.id ? 'page' : undefined}
             onClick={() => chooseView(item.id)}
           >
             <span aria-hidden="true">
