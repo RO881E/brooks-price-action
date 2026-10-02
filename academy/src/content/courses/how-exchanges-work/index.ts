@@ -4,10 +4,10 @@ import { marketBasicsGlossary } from './glossary';
 export const marketBasicsDefinition: CourseDefinition = {
   info: {
     id: 'how-exchanges-work',
-    eyebrow: 'Trading von null · Kapitel 1–8 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–9 verfügbar',
     title: 'Wie Börsen funktionieren',
-    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen, Orderbuch, Liquidität und Preisbewegungen; weitere Kapitel folgen.',
-    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 8 verfügbar; der Kurs wird weiter aufgebaut.',
+    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen, Orderbuch, Liquidität, Preisbewegungen und Handelszeiten; weitere Kapitel folgen.',
+    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 9 verfügbar; der Kurs wird weiter aufgebaut.',
   },
   units: [{
     id: 'how-exchanges-work.chapter-01',
@@ -81,6 +81,15 @@ export const marketBasicsDefinition: CourseDefinition = {
     description: 'Aufträge, Nachrichten und Erwartungen: Preisarten, Rechenfälle und Zeitfolgen unterscheiden, ohne unbekannte Motive oder sichere Kursrichtungen zu erfinden.',
     estimatedLessonCount: 24,
     load: () => import('./chapter-08').then((m) => m.marketBasicsChapterEightLessons),
+  }, {
+    id: 'how-exchanges-work.chapter-09',
+    order: 9,
+    kind: 'chapter',
+    label: 'Kapitel 9',
+    title: 'Handelszeiten und Sessions',
+    description: 'Kalender, Zeitzonen und Sommerzeit: eigene Zeitrechnungen, Sessiongrenzen und die Unterschiede zwischen App-Zugang, Auftragsannahme und Ausführung.',
+    estimatedLessonCount: 24,
+    load: () => import('./chapter-09').then((m) => m.marketBasicsChapterNineLessons),
   }],
   glossary: { title: 'Marktgrundlagen-Glossar', entries: marketBasicsGlossary },
 };

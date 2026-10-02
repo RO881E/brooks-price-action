@@ -44,3 +44,5 @@ Kapitel 8 ergänzt 24 Lektionen und 13 Glossarbegriffe nach denselben Regeln.
 Beobachtete Preisarten, bekannte Abläufe und vermutete Ursachen bleiben
 getrennt. Erwartungsvergleiche verwenden nur vorher bekannte Angaben;
 Bewertungsmodelle nennen ihre Annahmen und sind keine Marktpreisgarantien.
+
+Kapitel 9 ergänzt 24 Lektionen und 17 Glossarbegriffe. Rechenwege gehen in kleinen Schritten über UTC. Erfundenen Handelskalendern werden keine realen Börsennamen zugewiesen. Echte Zeitzonenfälle nennen das Jahr 2026 und das genaue Datum. App-Zugang, Auftragsannahme und Ausführung bleiben getrennt.

@@ -865,5 +865,117 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
     "definition": "Die Informationen, die zum betrachteten Zeitpunkt bekannt waren oder bekannt sein konnten. Späteres Wissen darf nicht als früher bekannt behandelt werden.",
     "aliases": [],
     "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Handelssession",
+    "definition": "Ein abgegrenzter Handelsabschnitt. Umfang und Grenzen richten sich nach der angegebenen Platz- oder Datenregel.",
+    "aliases": [
+      "Session"
+    ],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Handelstag",
+    "definition": "Ein nach den Regeln des Handelsplatzes zugeordneter Tag. Er kann schon am Vorabend des gleichnamigen Kalendertags beginnen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Zeitzone",
+    "definition": "Regeln für die Ortszeit eines Gebiets. Der Abstand zur UTC kann je nach Datum wechseln.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "UTC",
+    "definition": "Koordinierte Weltzeit als gemeinsame Bezugszeit. UTC wechselt nicht zur Sommerzeit.",
+    "aliases": [
+      "Koordinierte Weltzeit"
+    ],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "UTC-Offset",
+    "definition": "Der für einen Zeitpunkt geltende Abstand einer Ortszeit zur UTC, zum Beispiel +02:00.",
+    "aliases": [
+      "Offset"
+    ],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Sommerzeit",
+    "definition": "Eine saisonale Änderung der Ortszeit. Ob und wann sie gilt, hängt von Ort und Datum ab.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "MEZ",
+    "definition": "Mitteleuropäische Zeit mit UTC+01:00. In Berlin ist dies die Normalzeit.",
+    "aliases": [
+      "Mitteleuropäische Zeit"
+    ],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "MESZ",
+    "definition": "Mitteleuropäische Sommerzeit mit UTC+02:00.",
+    "aliases": [
+      "Mitteleuropäische Sommerzeit"
+    ],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Handelskalender",
+    "definition": "Die für Produkt und Handelsplatz geltenden Handelstage, Zeitfenster und Ausnahmen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Handelspause",
+    "definition": "Ein Zeitraum ohne Ausführungen nach der betreffenden Platzregel. Auftragseingabe kann gesondert geregelt sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Verkürzter Handelstag",
+    "definition": "Ein Tag mit weniger Handelsstunden als im regelmäßigen Kalender.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Reguläre Handelszeit",
+    "definition": "Ein nach den Regeln des betrachteten Platzes festgelegtes Hauptfenster.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Erweiterte Handelszeit",
+    "definition": "Ein zusätzliches Fenster außerhalb der regulären Handelszeit mit eigenen Zugangs- und Auftragsregeln.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Vorbörslicher Handel",
+    "definition": "Handel vor dem angegebenen regulären Hauptfenster. Der tatsächliche Zugang hängt von Produkt, Platz und Broker ab.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Nachbörslicher Handel",
+    "definition": "Handel nach dem angegebenen regulären Hauptfenster. Er verlängert eine Tagesorder nicht automatisch.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Sessionüberlappung",
+    "definition": "Die gemeinsame Zeit zweier genannter Handels- oder Aktivitätsfenster. Sie beweist allein keine günstige Ausführung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Zeitstempel",
+    "definition": "Eine gespeicherte Zeitangabe zu einem bestimmten Ereignis, etwa Ausführung oder Datenempfang. Ihre Bedeutung und Bezugszeit gehören dazu.",
+    "aliases": [],
+    "firstUnit": "Kapitel 9"
   }
 ];
