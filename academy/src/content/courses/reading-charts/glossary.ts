@@ -97,5 +97,55 @@ export const chartsGlossary: GlossaryEntry[] = [
     "definition": "Ein Bereich mit fehlenden Daten. Seine Ursache ist zu prüfen; fehlende Meldungen beweisen keinen unveränderten Markt.",
     "aliases": [],
     "firstUnit": "Kapitel 1"
+  },
+  {
+    "term": "Schlusslinie",
+    "definition": "Eine Linie, die die Schlusswerte aufeinanderfolgender Abschnitte verbindet. Die Verbindung belegt keine genaue Zwischenfolge.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "HLC",
+    "definition": "Eine Darstellung mit Hoch, Tief und Schluss, ohne Eröffnungsangabe.",
+    "aliases": [
+      "HLC-Balken"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Legende",
+    "definition": "Die Erklärung der Zeichen, Farben und Abkürzungen einer Darstellung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Körperanteil",
+    "definition": "Die Körperhöhe geteilt durch die gesamte Hoch-Tief-Spanne. Ein Formanteil, keine Gewinnwahrscheinlichkeit; bei Spanne null nicht definiert.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Schlusslage",
+    "definition": "Die Entfernung des Schlusses vom Tief geteilt durch die gesamte Spanne. Null Prozent bedeutet am Tief, hundert Prozent am Hoch; bei Spanne null nicht definiert.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Eröffnungslücke",
+    "definition": "Hier der Abstand der neuen Eröffnung vom vorherigen Schluss. Die Definition nennt diese beiden Bezugspreise; vollständige Spannen können trotzdem überlappen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Spannenüberlappung",
+    "definition": "Der gemeinsame Bereich zweier Hoch-Tief-Spannen. Seine Breite gibt weder Aufenthaltsdauer noch tatsächlich gehandelte Mengen an.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Verdichtung",
+    "definition": "Das Zusammenfassen mehrerer Daten durch eine kleinere Auswahl. Weggelassene Werte lassen sich daraus meist nicht eindeutig zurückrechnen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
   }
 ];
