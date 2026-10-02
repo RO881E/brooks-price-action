@@ -29,7 +29,7 @@ describe('Bibliothek (Themenliste)', () => {
       ]),
     );
     const counts = libraryCounts(librarySubjects);
-    expect(counts.available).toBe(2);
+    expect(counts.available).toBe(3);
     expect(counts.courses).toBeGreaterThan(counts.subjects);
     const withContent = librarySubjects.filter((subject) => subjectStatus(subject) === 'available');
     expect(withContent.map((subject) => subject.id)).toEqual(['market-basics', 'price-action']);
