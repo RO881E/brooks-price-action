@@ -490,7 +490,7 @@ const drafts = [
     "paragraphs": [
       "Für einen ersten Marktcheck brauchst du noch keine Trendlinie. Du musst verstehen, welches Produkt du siehst, was die angezeigte Zahl bedeutet und welche Angebote für deine gewünschte Menge verfügbar sind. Erst danach wird eine Preisbewegung sinnvoll einzuordnen.",
       "Der letzte Trade zeigt 50. Aktuell liegen Bid 49 und Ask 51 vor; am Ask steht eine Einheit bereit. Du möchtest zwei kaufen. Der letzte Kurs und die erste Angebotsstufe reichen deshalb nicht aus, um einen sicheren Gesamtpreis für deine zwei Einheiten zu behaupten.",
-      "Gehe in dieser Reihenfolge vor: Instrument erkennen, Preisbezug lesen, Angebotsseite prüfen, Menge berücksichtigen. Das nächste Kapitel vertieft Handelsplätze, außerbörslichen Handel und den Weg einer Order. Die übrigen Kapitel werden nach und nach ergänzt."
+      "Gehe in dieser Reihenfolge vor: Instrument erkennen, Preisbezug lesen, Angebotsseite prüfen, Menge berücksichtigen. Das nächste Kapitel erklärt die Produktarten genauer: Aktien, Anleihen, Fonds, Währungen und Derivate. Die übrigen Kapitel werden nach und nach ergänzt."
     ],
     "columns": [
       {

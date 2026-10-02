@@ -4,10 +4,10 @@ import { marketBasicsGlossary } from './glossary';
 export const marketBasicsDefinition: CourseDefinition = {
   info: {
     id: 'how-exchanges-work',
-    eyebrow: 'Trading von null · Kapitel 1 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–2 verfügbar',
     title: 'Wie Börsen funktionieren',
-    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Starte mit Instrumenten, Handelsmotiven und Preisbildung; weitere Kapitel folgen.',
-    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell ist Kapitel 1 verfügbar; der Kurs wird weiter aufgebaut.',
+    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Handel, Preisbildung und Produktarten wie Aktien, Anleihen, Fonds, Währungen und Derivate; weitere Kapitel folgen.',
+    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 und 2 verfügbar; der Kurs wird weiter aufgebaut.',
   },
   units: [{
     id: 'how-exchanges-work.chapter-01',
@@ -18,6 +18,15 @@ export const marketBasicsDefinition: CourseDefinition = {
     description: 'Was gehandelt wird, warum Menschen handeln und wie Angebote, Preise und verfügbare Menge zusammenhängen.',
     estimatedLessonCount: 12,
     load: () => import('./chapter-01').then((m) => m.marketBasicsChapterOneLessons),
+  }, {
+    id: 'how-exchanges-work.chapter-02',
+    order: 2,
+    kind: 'chapter',
+    label: 'Kapitel 2',
+    title: 'Was genau wird gehandelt?',
+    description: 'Aktien, Anleihen, Fonds und ETFs, Währungen sowie Derivate von Grund auf: Rechte, Pflichten, Preisbezug und eigene Rechenbeispiele.',
+    estimatedLessonCount: 24,
+    load: () => import('./chapter-02').then((m) => m.marketBasicsChapterTwoLessons),
   }],
   glossary: { title: 'Marktgrundlagen-Glossar', entries: marketBasicsGlossary },
 };

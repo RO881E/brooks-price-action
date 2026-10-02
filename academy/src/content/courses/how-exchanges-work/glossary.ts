@@ -1,4 +1,5 @@
 import type { GlossaryEntry } from '../../glossary';
+
 export const marketBasicsGlossary: GlossaryEntry[] = [
   {
     "term": "Finanzinstrument",
@@ -79,5 +80,231 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
     "definition": "Tatsächlich zustande gekommener Handel zu einem bestimmten Preis und mit einer bestimmten Menge.",
     "aliases": [],
     "firstUnit": "Kapitel 1"
+  },
+  {
+    "term": "Aktie",
+    "definition": "Anteil am Eigenkapital eines Unternehmens; Rechte hängen von der Aktienart ab.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Dividende",
+    "definition": "Beschlossene Ausschüttung an Aktionäre; keine garantierte künftige Zahlung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Anleihe",
+    "definition": "Schuldverschreibung mit vertraglich festgelegten Zahlungsbedingungen.",
+    "aliases": [
+      "Bond"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Emittent",
+    "definition": "Herausgeber eines Wertpapiers, beispielsweise eines Unternehmensanteils oder einer Anleihe.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Nennwert",
+    "definition": "Vertraglicher Bezugsbetrag, etwa für Zinszahlungen und Rückzahlung einer Anleihe.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Kupon",
+    "definition": "Vertraglicher Zins einer Anleihe; nicht automatisch die Rendite auf den gezahlten Kaufpreis.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Rendite",
+    "definition": "Ertrag im Verhältnis zum eingesetzten Kapital und zum betrachteten Zeitraum; die Rechenweise muss angegeben werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Fälligkeit",
+    "definition": "Zeitpunkt, zu dem eine vertragliche Zahlung oder Erfüllung vorgesehen ist.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Fonds",
+    "definition": "Anlageprodukt, das Vermögen nach bestimmten Anlagebedingungen bündelt.",
+    "aliases": [
+      "Investmentfonds"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Nettoinventarwert",
+    "definition": "Wert der Fondsanlagen abzüglich Verpflichtungen je ausgegebenem Anteil.",
+    "aliases": [
+      "NAV"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "ETF",
+    "definition": "Börsengehandelter Fonds; Inhalt, Umsetzung und Risiken sind zusätzlich zu prüfen.",
+    "aliases": [
+      "Exchange Traded Fund"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Index",
+    "definition": "Nach Regeln berechnete Kennzahl für die Entwicklung ausgewählter Werte; selbst kein gewöhnlicher Unternehmensanteil.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Thesaurierung",
+    "definition": "Wiederanlage von Erträgen im Fonds statt ihrer Auszahlung.",
+    "aliases": [
+      "thesaurierend"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Wechselkurs",
+    "definition": "Wertverhältnis zweier Währungen in einer angegebenen Paarreihenfolge.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Basiswährung",
+    "definition": "Erste Währung eines Währungspaares, für deren eine Einheit der Kurs angegeben wird.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Preiswährung",
+    "definition": "Zweite Währung eines Währungspaares, in der der Wert einer Einheit der Basiswährung angegeben wird.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Basiswert",
+    "definition": "Bezugsgröße eines Derivats, beispielsweise Aktie, Währung, Rohstoff oder Index.",
+    "aliases": [
+      "Underlying"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Derivat",
+    "definition": "Vertrag, dessen Wert oder Zahlungen von einer Bezugsgröße abhängen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Future",
+    "definition": "Standardisierter, an einer Terminbörse gehandelter Terminkontrakt mit festgelegten Bedingungen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Forward",
+    "definition": "Typischerweise individuell vereinbartes Termingeschäft zwischen Beteiligten.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Nominalwert",
+    "definition": "Rechnerischer wirtschaftlicher Bezug einer Position; bei einem einfachen Index-Future Indexstand mal Multiplikator.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Multiplikator",
+    "definition": "Faktor, der eine Preisbewegung in den Geldbetrag je Kontrakt übersetzt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Margin",
+    "definition": "Sicherheitsleistung für vertragliche Verpflichtungen; allein keine maximale Verlustgrenze.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Hebel",
+    "definition": "Verhältnis des wirtschaftlichen Bezugs zum gebundenen Kapital; verstärkt relativ dazu Gewinne und Verluste.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Rollen",
+    "definition": "Schließen einer Futures-Position und Eröffnen einer neuen Position in einer anderen Laufzeit.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Option",
+    "definition": "Vertragliches Recht des Käufers nach festgelegten Bedingungen; der Verkäufer übernimmt die entsprechende Verpflichtung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Call",
+    "definition": "Option mit einem Kaufrecht nach den Vertragsbedingungen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Put",
+    "definition": "Option mit einem Verkaufsrecht nach den Vertragsbedingungen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Ausübungspreis",
+    "definition": "Festgelegter Preis für die Ausübung einer Option.",
+    "aliases": [
+      "Strike"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Optionsprämie",
+    "definition": "Preis für den Kauf eines Optionsrechts.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Stillhalter",
+    "definition": "Verkäufer einer Option, der eine vertragliche Verpflichtung übernimmt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "CFD",
+    "definition": "Differenzkontrakt mit vertraglicher Abrechnung einer Preisänderung; kein automatischer Besitz am Basiswert.",
+    "aliases": [
+      "Contract for Difference"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Tick",
+    "definition": "Kleinster erlaubter Preisschritt eines Instruments.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Tickwert",
+    "definition": "Geldwert eines Ticks je gehandelter Einheit beziehungsweise Kontrakt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Währungsrisiko",
+    "definition": "Mögliche Wertänderung durch den Wechselkurs zwischen Anlagen- und Bewertungswährung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
   }
 ];
