@@ -73,8 +73,8 @@ export const librarySubjects: LibrarySubject[] = [
         'Slippage, Gebühren, Ausführungsqualität, Wahl des Handelsplatzes',
       ] },
       {
-        id: 'reading-charts', title: 'Charts lesen', label: 'Trading von null · Kapitel 1–2 verfügbar',
-        description: 'Kapitel 1–2 erklären Geschäftsdaten, vier Kennwerte und den sicheren Vergleich von Linie, Balken und Kerze mit eigenen Schaubildern. Weitere Kapitel ergänzen Charttypen, Bar-Arten, Zeitebenen, Skalen und Datenbedingungen.',
+        id: 'reading-charts', title: 'Charts lesen', label: 'Trading von null · Kapitel 1–3 verfügbar',
+        description: 'Kapitel 1–3 erklären Geschäftsdaten, vier Kennwerte, Linie, Balken und Kerze sowie Zeit-, Tick- und Volumen-Bars mit eigenen Schaubildern. Weitere Kapitel ergänzen Charttypen, Bar-Arten, Zeitebenen, Skalen und Datenbedingungen.',
         status: 'available',
         subtopics: [
           'Charttypen: Linie, Balken, Kerzen, Heikin-Ashi, Renko, Point & Figure',

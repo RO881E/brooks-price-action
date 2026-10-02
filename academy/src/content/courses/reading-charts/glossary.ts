@@ -147,5 +147,69 @@ export const chartsGlossary: GlossaryEntry[] = [
     "definition": "Das Zusammenfassen mehrerer Daten durch eine kleinere Auswahl. Weggelassene Werte lassen sich daraus meist nicht eindeutig zurückrechnen.",
     "aliases": [],
     "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Zeit-Bar",
+    "definition": "Eine Zusammenfassung von Preisen innerhalb eines festgelegten Zeitfensters. Die Dauer legt keine feste Anzahl von Meldungen oder Aktien fest.",
+    "aliases": [
+      "Minuten-Bar"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Geschäftstick",
+    "definition": "Hier eine einzelne Geschäftsmeldung der angegebenen Datenliste. Auch eine weitere Meldung zum gleichen Preis zählt; die Eingangseinheit muss bekannt sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Preis-Tick",
+    "definition": "Der kleinste erlaubte Preisschritt eines Produkts. Eine Preisentfernung, keine Geschäftszahl.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Tick-Bar",
+    "definition": "Ein Bar, der nach einer festgelegten Zahl von Meldungen gebildet wird. Die benötigte Zeit und gehandelte Menge können variieren.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Volumen-Bar",
+    "definition": "Ein Bar, dessen Bildung von einer festgelegten gehandelten Stückmenge abhängt. Die konkrete Regel für Schwelle, Aufteilung und Rest muss angegeben sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Volumenschwelle",
+    "definition": "Die Stückmenge, die nach der erklärten Regel erreicht werden muss, damit ein Mengen-Bar vollständig wird.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Ganzgeschäftsregel",
+    "definition": "Die eigene Lernregel, nach der jede Meldung mit ihrer gesamten Menge im laufenden Volumen-Bar bleibt. Bei Erreichen oder Überschreiten der Schwelle schließt er; die nächste Meldung startet bei null.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Laufender Bar",
+    "definition": "Eine bereits begonnene Gruppe, deren Abschlussbedingung noch nicht erfüllt ist. Der letzte Preis ist noch kein endgültiger Schluss.",
+    "aliases": [
+      "Offener Bar"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Sitzungsneustart",
+    "definition": "Das erneute Beginnen der Gruppenzählung an einer festgelegten Grenze des Handelsabschnitts. Offene Reste brauchen eine ausdrücklich genannte Behandlung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Zeitstempel",
+    "definition": "Eine Zeitangabe zu Daten oder einem Bar. Ob sie Anfang, Ende oder einen einzelnen Geschäftszeitpunkt meint, muss erklärt sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
   }
 ];

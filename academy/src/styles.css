@@ -3656,6 +3656,10 @@ button:disabled {
     font-size: 15px;
   }
 
+  .learning-chart .reading-charts-grouping .chart-small {
+    font-size: 12px;
+  }
+
   .learning-chart .chapter-four-chart .chart-kicker,
   .learning-chart .chapter-four-chart .chart-region-label,
   .learning-chart .chapter-five-chart .chart-kicker,
@@ -8764,4 +8768,9 @@ button:disabled {
 
 .more-courses .library-view.embedded {
   padding: 16px;
+}
+
+.reading-charts-grouping line:not(.chart-grid) {
+  stroke: currentColor;
+  stroke-width: 3;
 }
