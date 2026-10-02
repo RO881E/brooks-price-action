@@ -404,5 +404,99 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
     "definition": "Institution mit geldpolitischen Aufgaben, die im Rahmen ihrer Instrumente auch am Finanzmarkt tätig werden kann.",
     "aliases": [],
     "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Handelsplatz",
+    "definition": "Ort oder System, an dem Handelswünsche nach festgelegten Bedingungen zusammenkommen.",
+    "aliases": [
+      "Ausführungsort"
+    ],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Matching",
+    "definition": "Zusammenführen passender Kauf- und Verkaufsaufträge nach den Regeln eines Handelssystems.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "OTC",
+    "definition": "Außerbörslicher Handel, etwa direkt mit einem Händler oder über eine entsprechende Plattform.",
+    "aliases": [
+      "Over the Counter"
+    ],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Indikativer Preis",
+    "definition": "Orientierende Preisangabe; nicht automatisch ein verbindlich ausführbares Angebot.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "RFQ",
+    "definition": "Anfrage nach einem Preisangebot für ein beschriebenes Geschäft; allein noch keine Ausführung.",
+    "aliases": [
+      "Request for Quote"
+    ],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Vorhandelstransparenz",
+    "definition": "Sichtbarkeit von Informationen über Angebote vor einer Ausführung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Nachhandelstransparenz",
+    "definition": "Verfügbarkeit von Informationen über bereits erfolgte Geschäfte.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Dark Pool",
+    "definition": "Handelssystem mit begrenzter öffentlicher Sichtbarkeit von Vorhandelsangeboten; spätere Veröffentlichung und Regeln sind gesondert zu prüfen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Orderrouting",
+    "definition": "Weiterleitung eines Auftrags an einen Ausführungsort nach den verfügbaren Wegen und Bedingungen.",
+    "aliases": [
+      "Routing"
+    ],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Teilausführung",
+    "definition": "Ausführung nur eines Teils der gewünschten Ordermenge.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Latenz",
+    "definition": "Zeitverzögerung bei der Übermittlung oder Verarbeitung von Nachrichten.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Clearing",
+    "definition": "Organisation und Behandlung der nach einem Geschäft entstandenen Verpflichtungen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Settlement",
+    "definition": "Erfüllung eines Geschäfts, beispielsweise Übertragung von Wertpapieren und Geld.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Zentrale Gegenpartei",
+    "definition": "Stelle, die in bestimmten Abwicklungsstrukturen zwischen ursprüngliche Handelsparteien tritt.",
+    "aliases": [
+      "CCP"
+    ],
+    "firstUnit": "Kapitel 4"
   }
 ];
