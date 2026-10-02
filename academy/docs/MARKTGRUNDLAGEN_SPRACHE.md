@@ -35,3 +35,7 @@ Sie messen keine tatsächliche Verständlichkeit für eine Altersgruppe.
 Kapitel 6 wurde anschließend mit 24 neuen Lektionen und 17 Glossareinträgen
 nach diesen Sprachregeln erstellt. Seine Preis-, Zeit- und Reserveregeln
 sind ausdrücklich vereinfachte Lernfälle, keine universellen Börsenregeln.
+
+Kapitel 7 führt diese Regeln mit 22 Lektionen und 14 neuen Glossarbegriffen
+fort. Preisvergleiche nennen ihre Referenz und Menge; tatsächliche Preise
+und zusätzliche Gebühren werden vollständig, aber nicht doppelt gerechnet.
