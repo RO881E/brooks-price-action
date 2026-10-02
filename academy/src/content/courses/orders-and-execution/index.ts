@@ -3,10 +3,10 @@ import { ordersGlossary } from './glossary';
 export const ordersDefinition: CourseDefinition = {
   info: {
     id: 'orders-and-execution',
-    eyebrow: 'Trading von null · Kapitel 1–4 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–5 verfügbar',
     title: 'Orders und Ausführung',
-    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung, aktive Folgeorders und tatsächlichen Restbestand.',
-    sourceOrderNotice: 'Kapitel 1 bis 4 sind verfügbar. Die weiteren sechs Kapitel werden schrittweise ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
+    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände.',
+    sourceOrderNotice: 'Kapitel 1 bis 5 sind verfügbar. Die weiteren fünf Kapitel werden schrittweise ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
   },
   units: [{
     id: 'orders-and-execution.chapter-01', order: 1, kind: 'chapter',
@@ -32,6 +32,12 @@ export const ordersDefinition: CourseDefinition = {
     description: 'Auslösequelle, Schwelle, aktive Folgeorder, Ausführungen und Restbestand bei Stop-Market und Stop-Limit Schritt für Schritt unterscheiden.',
     estimatedLessonCount: 22,
     load: () => import('./chapter-04').then((module) => module.ordersChapterFourLessons),
+  }, {
+    id: 'orders-and-execution.chapter-05', order: 5, kind: 'chapter',
+    label: 'Kapitel 5', title: 'Gültigkeit und Mengenbedingungen',
+    description: 'Tagesende, GTC, GTD, IOC, FOK, AON und Mindestmengen anhand eigener Mengen- und Geldbilanzen vergleichen.',
+    estimatedLessonCount: 22,
+    load: () => import('./chapter-05').then((module) => module.ordersChapterFiveLessons),
   }],
   glossary: { title: 'Orders-Glossar', entries: ordersGlossary },
 };

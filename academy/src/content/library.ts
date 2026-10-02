@@ -64,8 +64,8 @@ export const librarySubjects: LibrarySubject[] = [
         ],
       },
       { id: 'orders-and-execution', title: 'Orders und Ausführung',
-        label: 'Trading von null · Kapitel 1–4 verfügbar',
-        description: 'Kapitel 1–4: Handelswünsche, Market-, Limit- und Stop-Orders verstehen. Eigene Fälle erklären Auslösung, Ausführung, Preisgrenzen, Warteschlangen, Kosten und Restbestand. Weitere Kapitel folgen.',
+        label: 'Trading von null · Kapitel 1–5 verfügbar',
+        description: 'Kapitel 1–5: Handelswünsche, Market-, Limit- und Stop-Orders verstehen. Gültigkeit und Mengenbedingungen ergänzen eigene Fälle zu Ausführung, Warteschlangen, Kosten und Reststatus. Weitere Kapitel folgen.',
         status: 'available', subtopics: [
         'Market-, Limit-, Stop- und Stop-Limit-Order',
         'OCO- und Bracket-Order, Trailing Stop',
