@@ -564,30 +564,31 @@ button:disabled {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin: 0 0 24px;
-  padding: 17px 18px;
-  color: var(--c-ffffff);
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
   border-radius: 16px;
-  background: var(--navy-900);
-  box-shadow: var(--shadow-md);
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
 }
 
 .mobile-next-card .eyebrow {
   margin-bottom: 4px;
-  color: var(--c-d9b46f);
 }
 
 .mobile-next-card h2 {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .mobile-next-card div > span {
   display: block;
   margin-top: 5px;
-  color: var(--c-9da8b7);
-  font-size: 10px;
+  color: var(--ink-soft);
+  font-size: 12px;
 }
 
 .mobile-next-card button {
@@ -599,7 +600,8 @@ button:disabled {
   color: var(--c-ffffff);
   border: 0;
   border-radius: 13px;
-  background: var(--gold);
+  background: var(--gold-dark);
+  cursor: pointer;
 }
 
 .learning-road {
@@ -3453,19 +3455,6 @@ button:disabled {
     padding: 22px 16px 50px;
   }
 
-  .mobile-next-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin: -20px 0 24px;
-    padding: 17px 18px;
-    color: var(--c-ffffff);
-    border-radius: 16px;
-    background: var(--navy-900);
-    box-shadow: var(--shadow-md);
-  }
-
   .path-rail .continue-card {
     display: none;
   }
@@ -3516,16 +3505,31 @@ button:disabled {
   .course-hero {
     grid-template-columns: 1fr;
     min-height: 0;
-    padding: 28px 24px;
+    margin-bottom: 16px;
+    padding: 22px 20px;
   }
 
   .course-hero h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
+  .course-hero > div:first-child > p:not(.eyebrow) {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .course-meta-row {
+    margin-top: 16px;
+  }
+
+  /* Der Fortschritt steht schon in den Angaben und im Level – der Ring braucht hier keinen eigenen Platz. */
   .progress-orb {
-    width: 94px;
-    height: 94px;
+    display: none;
+  }
+
+  .road-controls p {
+    flex: 1 0 100%;
   }
 
   .progress-orb strong {
