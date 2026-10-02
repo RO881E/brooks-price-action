@@ -257,4 +257,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 40,
     load: () => import('./courses/price-action-trends/chapter-23').then((module) => module.chapterTwentyThreeLessons),
   },
+  {
+    id: 'price-action-trends.chapter-24', order: 26, kind: 'chapter', label: 'Kapitel 24',
+    title: 'Umkehrtage',
+    description: 'Früher Trend, spätere Gegenkontrolle, Klimax, Rangeübergänge und wachsende Rücksetzer – mit drei Lernfällen, eigenen OHLC-Diagrammen und echter 3-/5-Minuten-Aggregation.',
+    estimatedLessonCount: 24,
+    load: () => import('./courses/price-action-trends/chapter-24').then((module) => module.chapterTwentyFourLessons),
+  },
 ];
