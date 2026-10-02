@@ -4,10 +4,10 @@ import { marketBasicsGlossary } from './glossary';
 export const marketBasicsDefinition: CourseDefinition = {
   info: {
     id: 'how-exchanges-work',
-    eyebrow: 'Trading von null · Kapitel 1–3 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–4 verfügbar',
     title: 'Wie Börsen funktionieren',
-    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Handel, Preisbildung, Produktarten und die unterschiedlichen Aufgaben der Marktteilnehmer; weitere Kapitel folgen.',
-    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 3 verfügbar; der Kurs wird weiter aufgebaut.',
+    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Handel, Produktarten, Marktteilnehmer und Handelsplätze; weitere Kapitel folgen.',
+    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 4 verfügbar; der Kurs wird weiter aufgebaut.',
   },
   units: [{
     id: 'how-exchanges-work.chapter-01',
@@ -36,6 +36,15 @@ export const marketBasicsDefinition: CourseDefinition = {
     description: 'Privatanleger, Fonds, Unternehmen, Banken, Market Maker und weitere Rollen: Handelsmotive, Zeithorizonte und eigene Fallbeispiele.',
     estimatedLessonCount: 22,
     load: () => import('./chapter-03').then((m) => m.marketBasicsChapterThreeLessons),
+  }, {
+    id: 'how-exchanges-work.chapter-04',
+    order: 4,
+    kind: 'chapter',
+    label: 'Kapitel 4',
+    title: 'Wo findet Handel statt?',
+    description: 'Börsen, außerbörslicher Handel und verschiedene Ausführungswege: Zugang, Datenquelle, Angebote, Mengen und Kosten richtig unterscheiden.',
+    estimatedLessonCount: 21,
+    load: () => import('./chapter-04').then((m) => m.marketBasicsChapterFourLessons),
   }],
   glossary: { title: 'Marktgrundlagen-Glossar', entries: marketBasicsGlossary },
 };
