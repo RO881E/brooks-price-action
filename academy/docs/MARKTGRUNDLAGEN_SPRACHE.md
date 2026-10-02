@@ -39,3 +39,8 @@ sind ausdrücklich vereinfachte Lernfälle, keine universellen Börsenregeln.
 Kapitel 7 führt diese Regeln mit 22 Lektionen und 14 neuen Glossarbegriffen
 fort. Preisvergleiche nennen ihre Referenz und Menge; tatsächliche Preise
 und zusätzliche Gebühren werden vollständig, aber nicht doppelt gerechnet.
+
+Kapitel 8 ergänzt 24 Lektionen und 13 Glossarbegriffe nach denselben Regeln.
+Beobachtete Preisarten, bekannte Abläufe und vermutete Ursachen bleiben
+getrennt. Erwartungsvergleiche verwenden nur vorher bekannte Angaben;
+Bewertungsmodelle nennen ihre Annahmen und sind keine Marktpreisgarantien.
