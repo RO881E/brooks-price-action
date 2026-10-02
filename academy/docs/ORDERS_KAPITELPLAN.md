@@ -1,6 +1,6 @@
 # Kapitelplan: Orders und Ausführung
 
-Eigenständiger zweiter Kurs der Marktgrundlagen. Zehn geplante Kapitel.
+Eigenständiger zweiter Kurs der Marktgrundlagen. Alle zehn vereinbarten Kapitel sind verfügbar.
 Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 
 | Kapitel | Thema | Stand |
@@ -14,7 +14,7 @@ Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 | 7 | Trailing Stops und bedingte Aufträge | 22 Lektionen verfügbar |
 | 8 | Slippage, Gebühren und Ausführungsqualität | 22 Lektionen verfügbar |
 | 9 | Handelswege, Technik und Fehlerfälle | 22 Lektionen verfügbar |
-| 10 | Einen Ausführungsplan selbst prüfen | Geplant |
+| 10 | Einen Ausführungsplan selbst prüfen | 24 Lektionen verfügbar |
 
 ## Quellen und Modellgrenzen
 
@@ -435,3 +435,65 @@ Zwei Geräte im selben Konto zeigen denselben S17; neue Klicks können neue
 Orders erzeugen. Simulation bleibt getrennt vom Live-Konto. Ersatzweg nur mit
 vorher verifizierten Möglichkeiten; keine Sofortbearbeitung zugesagt, kein
 Versand an reale Personen, keine Passwörter in Protokollen.
+
+
+## Kapitel 10: Einen Ausführungsplan selbst prüfen
+
+24 eigene Abschlusslektionen, acht neue Begriffe. Der Kurs ist mit zehn Kapiteln,
+220 Lektionen und 98 Glossarbegriffen vollständig. Die bestehenden Kapitel-,
+Lektions- und Schrittkennungen behalten ihre Bedeutung.
+
+Bereitgestellte Harris-PDF erneut geprüft: Abschnitt4.1 (Druckseiten4-1/4-2),
+18.1 (18-2) und21.1 (21-2): präzise Orderanweisungen, Preis-/Ausführungs-
+abwägung und unterschiedliche Kostenarten. Keine Quellenbeispiele, Passagen
+oder nahen Umschreibungen übernommen. Ergänzende Primärquellen geprüft2026-10-02:
+- Investor.gov, Stop, Stop-Limit, and Trailing Stop Orders – Investor Bulletin:
+  https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15
+- FINRA, Order Types:
+  https://www.finra.org/investors/investing/investment-products/stocks/order-types
+
+Alle Firmen, Texte, Zahlen, Tarife und Regeln sind eigene Lernmodelle.
+Keine Produkt-/Kontogrößenempfehlung oder Gewinn-/Preisgarantie.
+
+Jana/Olin startet mit Geld1000, Bestand0. K10: bis5 kaufen, Limit30,10,
+Teilkäufe erlaubt, eigene Frist17Uhr. Eigener Tarif je ausgeführter Order
+0,30 fest+0,02 je Aktie, Teilfills keine weiteren festen Gebühren,
+vollständig unausgeführt gebührenfrei; keine weiteren Kosten/Steuern.
+Planpreis30,10, Stop29,50, angenommener Puffer0,10; Budget5,00.
+Modellrechnung q*(0,60+0,10+2*0,02)+2*0,30 =0,74q+0,60:
+q5=>4,30; q6=>5,04. Höchstens5 unter diesen Annahmen, keine harte Verlustgrenze.
+Kaufgeld5*30,10+0,40=150,90 bei1000verfügbar, Aktien ohne Kredit.
+
+Hauptbuch im Verarbeitungsschritt: Asks2*30,00,1*30,10,4*30,20,
+keine Konkurrenz/Änderung in diesem Schritt. K10 kauft3 für90,10,
+Gebühr0,36=>Belastung90,46, Geld909,54, Bestand3, Rest2offen.
+Storno der2 ohne weitere Zwischenkäufe bestätigt, Rest0. Erst danach
+Ausstiegsgruppe für3 bestätigt aktiv; Wartephase vorher ausdrücklich
+kein automatischer Schutz. Ziel-Verkaufslimit30,60 und Stop-Market29,50,
+Quelle bester Geldkurs. Eigene koordinierte Regel: Stopaktivierung entfernt
+zuerst Zielrest und erzeugt einmal Market-Verkauf für Bestand. Ziel-Teilfills
+reduzieren sofort Stopmenge; nach vollständigem Zielverkauf endet Bedingung.
+Keine pauschale Zusage für reale OCO/Bracket-Systeme.
+
+Hauptpfad: Bid29,50 aktiviert, keine früheren Zielfills. Bei Verarbeitung
+Bids1*29,45 und2*29,40 =>Verkauf88,25, Gebühr0,36=>Gutschrift87,89.
+Verlust brutto1,85+Gebühren0,72=2,57, Geld997,43. Bestand und Kauf-/Ziel-/
+Verkaufsreste0, Bedingungbeendet. Schwellenabweichung88,50-88,25=0,25
+bereits im Preis enthalten, weder diese noch Spread/Puffer extra abziehen.
+B1(2*30,00),B2(1*30,10),identische WiederholungB1 und Gesamtstand3:
+3Käufe,90,10Handelswert; keine Korrekturen im Modell, Kennungen eindeutig.
+
+Getrennte Alternativen: Ziel2*30,70+1*30,60=>92,00, Gebühr0,36,
+Gutschrift91,64, Gewinn1,18, Geld1001,18. Teilzielverkauf2 von3:
+Bestand/Zielrest/Stopmenge1, kein vollständiges Dreierergebnis.
+Stress-Vollkauf5*30,10+0,40=>150,90, Gapverkauf5*28,50-0,40=>142,10,
+Verlust8,80 über Planung/Budget; keine Häufigkeits- oder Worst-Case-Zusage.
+Stop-Limit separat3, Stop29,50, Folgelimit29,40 bei nurBids28,50:
+0verkäufe, Bestand3 und Verkaufsrest3. Separater Zeitfall: Zielrest endet17Uhr
+bestätigt ohne Verkäufe, Bestand3 bleibt, Stopstatus unabhängigzuprüfen.
+Unbeantwortete Änderung bleibtungeklärt; Abgleich statt zusätzlicher Ersatzorder.
+
+Plan, Prozess und Ergebnis getrennt beurteilt; erlaubter Teilkauf ist kein
+Planfehler. Neue Handlungen außerhalb der Regeln als Abweichungen mit Grund
+und Folgen dokumentieren. Andere Produkte brauchen eigene Einheiten,
+Geldwerte und Kontobedingungen; keine Aktiengröße direkt auf Futures übertragen.
