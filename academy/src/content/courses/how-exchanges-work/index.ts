@@ -4,10 +4,10 @@ import { marketBasicsGlossary } from './glossary';
 export const marketBasicsDefinition: CourseDefinition = {
   info: {
     id: 'how-exchanges-work',
-    eyebrow: 'Trading von null · Kapitel 1–5 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–6 verfügbar',
     title: 'Wie Börsen funktionieren',
-    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze und das Zusammenkommen von Kauf- und Verkaufswünschen; weitere Kapitel folgen.',
-    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 5 verfügbar; der Kurs wird weiter aufgebaut.',
+    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen und das Orderbuch; weitere Kapitel folgen.',
+    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 6 verfügbar; der Kurs wird weiter aufgebaut.',
   },
   units: [{
     id: 'how-exchanges-work.chapter-01',
@@ -54,6 +54,15 @@ export const marketBasicsDefinition: CourseDefinition = {
     description: 'Handelswünsche, Preisgrenzen, verfügbare Mengen und Ausführungen: fortlaufender Handel und eine eigene Sammelauktion Schritt für Schritt.',
     estimatedLessonCount: 20,
     load: () => import('./chapter-05').then((m) => m.marketBasicsChapterFiveLessons),
+  }, {
+    id: 'how-exchanges-work.chapter-06',
+    order: 6,
+    kind: 'chapter',
+    label: 'Kapitel 6',
+    title: 'Das Orderbuch verstehen',
+    description: 'Kauf- und Verkaufsseite, Markttiefe und Warteschlange: eigene Mengenrechnungen, Buchänderungen und die Grenzen sichtbarer Daten.',
+    estimatedLessonCount: 24,
+    load: () => import('./chapter-06').then((m) => m.marketBasicsChapterSixLessons),
   }],
   glossary: { title: 'Marktgrundlagen-Glossar', entries: marketBasicsGlossary },
 };

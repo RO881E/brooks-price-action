@@ -558,5 +558,130 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
     "definition": "Eine Einschätzung, was etwas unter bestimmten Annahmen wert sein könnte. Sie ist etwas anderes als ein beobachteter Handelspreis.",
     "aliases": [],
     "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Orderbuch",
+    "definition": "Eine Übersicht über wartende Kauf- und Verkaufsaufträge für ein bestimmtes Produkt und Handelssystem. Die sichtbaren Angebote sind noch keine abgeschlossenen Geschäfte.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Preisstufe",
+    "definition": "Ein bestimmter Preis im Orderbuch. Dort können die sichtbaren Mengen mehrerer Aufträge zusammengefasst sein.",
+    "aliases": [
+      "Preislevel"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Preisleiter",
+    "definition": "Eine Anzeige, die erlaubte Preisstufen untereinander anordnet. Nicht jede Stufe muss ein Angebot enthalten.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Markttiefe",
+    "definition": "Die sichtbaren Mengen auf zusätzlichen Preisstufen eines Orderbuchs. Sie gelten nur für den gezeigten Datenausschnitt.",
+    "aliases": [
+      "Depth"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Top of Book",
+    "definition": "Die besten sichtbaren Kauf- und Verkaufsangebote mit ihren Mengen. Diese Sicht zeigt noch nicht die tieferen Preisstufen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Kumulierte Menge",
+    "definition": "Eine aufaddierte Menge. Zum Beispiel werden alle sichtbaren Verkaufsangebote bis zu einer genannten Preisgrenze zusammengezählt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Liquidität",
+    "definition": "Hier: Wie gut eine bestimmte Menge zu erreichbaren Preisen handelbar ist, ohne den Preis stark zu verändern. Spread, Tiefe und Zeitpunkt sind dabei wichtig.",
+    "aliases": [
+      "Handelsliquidität"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Preisvorrang",
+    "definition": "Eine Regel, die bessere Preise zuerst berücksichtigt. In unserem Modell nutzt ein Käufer zuerst den niedrigsten Ask und ein Verkäufer den höchsten Bid.",
+    "aliases": [
+      "Preispriorität"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Zeitvorrang",
+    "definition": "Eine Regel, die am selben Preis früher eingetroffene Aufträge zuerst bedient. Welche Änderungen den Vorrang erhalten, bestimmen die jeweiligen Regeln.",
+    "aliases": [
+      "Zeitpriorität",
+      "FIFO"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Warteschlange",
+    "definition": "Die Reihenfolge von Aufträgen an einem Preis nach den geltenden Regeln. Ein passender Preis garantiert noch nicht, dass dein Auftrag schon an der Reihe ist.",
+    "aliases": [
+      "Queue"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Snapshot",
+    "definition": "Eine Momentaufnahme eines Zustands. Zwei Bilder zeigen nicht automatisch alle Ereignisse zwischen den Aufnahmen.",
+    "aliases": [
+      "Momentaufnahme"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Reserve",
+    "definition": "Der nicht angezeigte Rest einer dafür vorgesehenen Order. Ob und wie er sichtbar nachgefüllt wird, hängt von den Regeln ab.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Iceberg-Order",
+    "definition": "Ein Auftrag, der nur einen Teil seiner Gesamtmenge zeigt. Aus nachkommender Menge allein lässt sich ein solcher Auftrag nicht sicher nachweisen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Market by Price",
+    "definition": "Eine Datensicht, die sichtbare Auftragsmengen je Preis zusammenfasst. Einzelne Aufträge und ihre Reihenfolge fehlen dabei.",
+    "aliases": [
+      "MBP"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Market by Order",
+    "definition": "Eine Datensicht mit Details zu einzelnen Aufträgen, etwa anonymen Kennungen. Die konkreten Felder hängen vom Datenangebot ab; Eigentümer sind nicht automatisch bekannt.",
+    "aliases": [
+      "MBO"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Time and Sales",
+    "definition": "Eine Liste bereits ausgeführter Geschäfte mit Angaben wie Zeit, Preis und Menge. Sie ist keine Liste der wartenden Angebote.",
+    "aliases": [
+      "Handelsliste"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Book Imbalance",
+    "definition": "Ein Vergleich der sichtbaren Mengen auf Kauf- und Verkaufsseite. Er hängt von den gezählten Stufen ab und garantiert keine bestimmte Kursrichtung.",
+    "aliases": [
+      "Orderbuch-Ungleichgewicht"
+    ],
+    "firstUnit": "Kapitel 6"
   }
 ];
