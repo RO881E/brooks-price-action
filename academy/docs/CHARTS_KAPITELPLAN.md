@@ -7,7 +7,7 @@ abgeschlossene andere Kurse; Sprache nach MARKTGRUNDLAGEN_SPRACHE.md.
 | --- | --- | --- |
 | 1 | Vom Geschäft zum Chartbild | 20 Lektionen verfügbar |
 | 2 | Linien, Balken und Kerzen sicher vergleichen | 20 Lektionen verfügbar |
-| 3 | Zeit-Bars, Tick-Bars und Volumen-Bars | Geplant |
+| 3 | Zeit-Bars, Tick-Bars und Volumen-Bars | 24 Lektionen verfügbar |
 | 4 | Range-Bars und Renko | Geplant |
 | 5 | Heikin-Ashi und berechnete Preise | Geplant |
 | 6 | Point & Figure und regelbasierte Verdichtung | Geplant |
@@ -91,3 +91,60 @@ als erklärte Varianten behandelt, keine pauschale Plattformbehauptung.
 20 neue Lektionen, acht neue Glossarbegriffe; Kurs gesamt40/22. Kapitel2 wird
 separat nachgeladen, Freischaltung folgt ausschließlich dem eigenen Kursfortschritt.
 Bestehende Kennungen und Fortschrittsschlüssel bleiben unverändert.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 3
+
+Murphy-EPUB, Kapitel3, Construction of the Daily Bar Chart und Volume geprüft:
+Begriffshintergrund zu zeitlich zugeordnetem OHLC und gehandelter Stückmenge.
+Die detaillierten Ereignisgruppen sind eigene Modelle, keine Buchbeispiele.
+
+Primärdokumentation geprüft am 2026-10-02:
+- https://www.tradingview.com/support/solutions/43000709225-what-are-tick-based-intervals/
+- https://ninjatrader.com/support/helpguides/nt8/bar_types.htm
+- https://ninjatrader.com/support/helpGuides/nt8/break_at_eod.htm
+
+Übernommen werden nur allgemeine Begriffe: Zeitfenster versus Meldungszahl
+versus Stücksumme; Preis-Tick ist nicht Geschäftstick; Sitzungsgrenzen und
+Zeitstempelregeln müssen bekannt sein. Keine Plattformfunktionen, Tarifangaben,
+Prognosebehauptungen oder spezifische Aufteilungsimplementierung versprochen.
+Ganzgeschäftsregel ausdrücklich eigenes Lehrmodell, keine NinjaTrader-Regel.
+
+Originale Luma-Liste: Sekunden seit09:00 / Cent je Aktie / Aktien:
+1:5/2000/2;2:12/2010/1;3:20/1995/3;4:45/2005/2;
+5:60/2015/4;6:70/2020/1;7:110/2000/2;8:125/1990/1;
+9:130/1995/5;10:155/2010/2;11:185/2025/3;12:205/2015/1.
+Zwölf Meldungen,27 Aktien. Aufnahme beiSekunde240=09:04. Gleiche Uhr,
+gehandelte Preise, keine Sitzungsgrenze im Hauptfall. Zeitfenster [start,end),
+leere Fenster ohne erfundene OHLC-Bars. Uhrzeit im Zeitbild nennt Fensterbeginn;
+unter jedem Bar separat erste/letzte tatsächlich zugehörige Meldung.
+
+Minutengruppen1–4,5–7,8–10,11–12; Volumen8/7/8/4, alle abgeschlossen.
+OHLC inCent:2000/2010/1995/2005;2015/2020/2000/2000;
+1990/2010/1990/2010;2025/2025/2015/2015.
+Tick3-Gruppen1–3,4–6,7–9,10–12; Volumen6/7/8/6, alle abgeschlossen.
+OHLC:2000/2010/1995/1995;2005/2020/2005/2020;
+2000/2000/1990/1995;2010/2025/2010/2015.
+Abstand erste/letzte Meldung15/25/20/50Sekunden; nicht mit Fensterdauer oder
+Zeit zwischen Bar-Abschlüssen gleichgesetzt.
+
+Volumen5-Ganzgeschäftsregel: bei >=5 mit ganzer auslösender Meldung schließen,
+nächste Meldung beginnt bei0; kein Überschussübertrag oder Doppelzählen.
+Gruppen1–3,4–5,6–9,10–11,12; Mengen6/6/9/5/1. Letzte Gruppe offen.
+OHLC:2000/2010/1995/1995;2005/2015/2005/2015;
+2020/2020/1990/1995;2010/2025/2010/2025;
+2015/2015/2015/2015 aktuell, letzterPreis kein endgültigerSchluss.
+Drei native OHLC-SVGs, gleiche lineare Preisachse. Ereignis-Bar-Abstände ordinal,
+keine gleichmäßige Zeitdauer. Offener Rest zusätzlich textlich gekennzeichnet.
+
+Getrennte Fälle ohne unpassendes Hauptfallbild: AufnahmeSekunde75 nutzt nur
+Geschäfte1–6, Minute2 O2015/H2020/L2015/letzter2020, Menge5.
+Aufteilung bereits3 + neu7 => Bar5 und Bar5 statt Ganzgeschäftsbar10;
+zehn Gesamtaktien, keine neue tatsächliche Ausführung durch Aufteilung.
+Beginn beiGeschäft2 => ersteTickgruppe2–4 O2010/H2010/L1995/C2005.
+Drei Ein-Aktien-Meldungen bei30,00 => Tick3 fertig,Spanne0.
+Zwei Einzelmeldungen gegenüber einer Mengen-Zusammenfassung => gleicheMenge,
+unterschiedliche Zeilenanzahl. Keine universelle Feed-Behauptung.
+
+24 neue Lektionen, zehn neue Glossarbegriffe; Kurs gesamt64/32. Eigenständige
+Formulierungen, Daten und Bilder; keine Buchpassagen oder Bilder übernommen.
+Bestehende Kurs-/Schrittkennungen und Fortschrittsschlüssel bleiben erhalten.

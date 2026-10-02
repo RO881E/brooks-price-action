@@ -27,7 +27,7 @@ export default defineConfig({
               return start < 0 ? null : `course-outline-${id.slice(start + prefix.length)}`;
             }, test: /virtual:wqt-course-outline\//, includeDependenciesRecursively: false },
             // Keep the growing chart collection below the per-chunk size warning.
-            { name: 'ChartFocus-basics', test: /ReadingChartsBasics\.tsx$/, includeDependenciesRecursively: false },
+            { name: 'ChartFocus-basics', test: /(?:ReadingCharts(?:Basics|Grouping)\.tsx|chapter-03-model\.ts)$/, includeDependenciesRecursively: false },
             { name: 'ChartFocus-phase', test: /ChapterTwenty(?:One|Two|Three|Four|Five|Six)Charts\.tsx$/ },
           ],
         },
