@@ -2,9 +2,9 @@ import type { CourseDefinition } from '../../registry';
 import { chartsGlossary } from './glossary';
 export const chartsDefinition: CourseDefinition = {
   info: {
-    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–7 verfügbar', title: 'Charts lesen',
-    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–7 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen, berechnete Heikin-Ashi-Kerzen und Point & Figure sowie gemeinsame Daten auf verschiedenen Zeitebenen.',
-    sourceOrderNotice: 'Kapitel 1–7 sind verfügbar. Die weiteren drei Kapitel werden schrittweise ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
+    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–8 verfügbar', title: 'Charts lesen',
+    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–8 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen, berechnete Heikin-Ashi-Kerzen und Point & Figure sowie gemeinsame Daten auf verschiedenen Zeitebenen und lineare oder logarithmische Preisabbildungen.',
+    sourceOrderNotice: 'Kapitel 1–8 sind verfügbar. Die weiteren zwei Kapitel werden schrittweise ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
   },
   units: [{
     id: 'reading-charts.chapter-01', order: 1, kind: 'chapter', label: 'Kapitel 1', title: 'Vom Geschäft zum Chartbild',
@@ -41,6 +41,11 @@ export const chartsDefinition: CourseDefinition = {
     description:'Dieselben Geschäfte in Ein-, Drei- und Sechs-Minuten-Fenstern prüfen; Aggregation, Informationsverlust und laufende Werte verstehen.',
     estimatedLessonCount:24,
     load:()=>import('./chapter-07').then(module=>module.chartsChapterSevenLessons),
+  }, {
+    id:'reading-charts.chapter-08',order:8,kind:'chapter',label:'Kapitel 8',title:'Lineare und logarithmische Skalen',
+    description:'Gleiche Daten mit Euro- und Verhältnisabständen darstellen; Prozentbasis, Indexierung, Kerzenformen und Achsengrenzen prüfen.',
+    estimatedLessonCount:24,
+    load:()=>import('./chapter-08').then(module=>module.chartsChapterEightLessons),
   }],
   glossary: { title: 'Charts-Glossar', entries: chartsGlossary },
 };

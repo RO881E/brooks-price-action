@@ -39,6 +39,7 @@ function StepHeading({
 // Die Schaubilder sind der größte Code-Block; sie werden erst beim ersten
 // Diagramm-Schritt geladen (und vom Service Worker für offline vorgehalten).
 // Zusammen mit dem Diagramm-Fokus (F-11), der dieselben Schaubilder nutzt.
+const ScalesWithFocus = lazy(() => import('./ReadingScalesFocus').then(module => ({ default: module.ScalesWithFocus })));
 const TimeframesWithFocus = lazy(() => import('./ReadingTimeframesFocus').then(module => ({ default: module.TimeframesWithFocus })));
 const PFWithFocus = lazy(() => import('./ReadingPFFocus').then(module => ({ default: module.PFWithFocus })));
 const HAWithFocus = lazy(() => import('./ReadingHAFocus').then(module => ({ default: module.HAWithFocus })));
@@ -80,7 +81,7 @@ function ChartLoadError() {
 }
 
 export function StepChart({ step }: { step: Extract<LessonStep, { type: 'diagram' }> }) {
-  const Chart = step.scenario.startsWith('rc7-') ? TimeframesWithFocus : step.scenario.startsWith('rc6-') ? PFWithFocus : step.scenario.startsWith('rc5-') ? HAWithFocus : step.scenario.startsWith('rc4-') ? PriceStepsWithFocus : ChartWithFocus;
+  const Chart = step.scenario.startsWith('rc8-') ? ScalesWithFocus : step.scenario.startsWith('rc7-') ? TimeframesWithFocus : step.scenario.startsWith('rc6-') ? PFWithFocus : step.scenario.startsWith('rc5-') ? HAWithFocus : step.scenario.startsWith('rc4-') ? PriceStepsWithFocus : ChartWithFocus;
   return (
     <ErrorBoundary fallback={() => <ChartLoadError />}>
       <Suspense fallback={<ChartPlaceholder />}>

@@ -56,8 +56,8 @@ describe('Heikin-Ashi: original inputs, recurrence and interpretation',()=>{
  });
  it('preserves IDs, validates all new content and unlocks after preceding chapters',async()=>{
    expect(await chartsDefinition.units[4].load()).toEqual(lessons);
-   expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(80);
-   expect(course.units.flatMap(u=>u.lessons)).toHaveLength(160);
+   expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(92);
+   expect(course.units.flatMap(u=>u.lessons)).toHaveLength(184);
    const prior=course.units.slice(0,4).flatMap(u=>u.lessons.map(l=>l.id)),outline=toCourseOutline(course);
    expect(lessonAccessState(outline,lessons[0],prior)).toBe('available');
    expect(lessonAccessState(outline,lessons[0],prior.slice(0,-1))).toBe('locked');

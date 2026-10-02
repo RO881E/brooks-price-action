@@ -28,7 +28,7 @@ const summarize = (ticks: typeof events) => ({ open: ticks[0].cents, high: Math.
 describe('Charts lesen: independent beginner course', () => {
   it('loads independently and advances only from its own progress', async () => {
     expect(await chartsDefinition.units[0].load()).toEqual(lessons);
-    expect(lessons).toHaveLength(20); expect(chartsGlossary).toHaveLength(80);
+    expect(lessons).toHaveLength(20); expect(chartsGlossary).toHaveLength(92);
     const entry = librarySubjects.flatMap((subject) => subject.courses).find((entry) => entry.id === course.id)!;
     expect(entry.status).toBe('available'); expect(entry.label).toBe(chartsDefinition.info.eyebrow);
     const outline = toCourseOutline(course);
