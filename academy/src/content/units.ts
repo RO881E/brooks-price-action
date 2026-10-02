@@ -271,4 +271,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 24,
     load: () => import('./courses/price-action-trends/chapter-25').then((module) => module.chapterTwentyFiveLessons),
   },
+  {
+    id: 'price-action-trends.chapter-26', order: 28, kind: 'chapter', label: 'Kapitel 26',
+    title: 'Treppenstrukturen und breite Kanäle',
+    description: 'Überlappende Swings, Kanalgrenzen, zweiseitige Pläne, Beschleunigung, schrumpfende Stufen und Schutzführung – mit eigenen OHLC-Beispielen, echter Aggregation und Replay-Vergleich.',
+    estimatedLessonCount: 30,
+    load: () => import('./courses/price-action-trends/chapter-26').then((module) => module.chapterTwentySixLessons),
+  },
 ];
