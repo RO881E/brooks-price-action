@@ -184,6 +184,209 @@
           ]
         }
       ]
+    },
+    {
+      "id": "orders-and-execution.chapter-02",
+      "lessons": [
+        {
+          "id": "orders-and-execution.chapter-02.lesson-01",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-01.explain",
+            "orders-and-execution.chapter-02.lesson-01.compare",
+            "orders-and-execution.chapter-02.lesson-01.question",
+            "orders-and-execution.chapter-02.lesson-01.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-02",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-02.explain",
+            "orders-and-execution.chapter-02.lesson-02.compare",
+            "orders-and-execution.chapter-02.lesson-02.question",
+            "orders-and-execution.chapter-02.lesson-02.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-03",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-03.explain",
+            "orders-and-execution.chapter-02.lesson-03.compare",
+            "orders-and-execution.chapter-02.lesson-03.question",
+            "orders-and-execution.chapter-02.lesson-03.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-04",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-04.explain",
+            "orders-and-execution.chapter-02.lesson-04.compare",
+            "orders-and-execution.chapter-02.lesson-04.question",
+            "orders-and-execution.chapter-02.lesson-04.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-05",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-05.explain",
+            "orders-and-execution.chapter-02.lesson-05.compare",
+            "orders-and-execution.chapter-02.lesson-05.question",
+            "orders-and-execution.chapter-02.lesson-05.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-06",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-06.explain",
+            "orders-and-execution.chapter-02.lesson-06.compare",
+            "orders-and-execution.chapter-02.lesson-06.question",
+            "orders-and-execution.chapter-02.lesson-06.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-07",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-07.explain",
+            "orders-and-execution.chapter-02.lesson-07.compare",
+            "orders-and-execution.chapter-02.lesson-07.question",
+            "orders-and-execution.chapter-02.lesson-07.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-08",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-08.explain",
+            "orders-and-execution.chapter-02.lesson-08.compare",
+            "orders-and-execution.chapter-02.lesson-08.question",
+            "orders-and-execution.chapter-02.lesson-08.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-09",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-09.explain",
+            "orders-and-execution.chapter-02.lesson-09.compare",
+            "orders-and-execution.chapter-02.lesson-09.question",
+            "orders-and-execution.chapter-02.lesson-09.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-10",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-10.explain",
+            "orders-and-execution.chapter-02.lesson-10.compare",
+            "orders-and-execution.chapter-02.lesson-10.question",
+            "orders-and-execution.chapter-02.lesson-10.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-11",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-11.explain",
+            "orders-and-execution.chapter-02.lesson-11.compare",
+            "orders-and-execution.chapter-02.lesson-11.question",
+            "orders-and-execution.chapter-02.lesson-11.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-12",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-12.explain",
+            "orders-and-execution.chapter-02.lesson-12.compare",
+            "orders-and-execution.chapter-02.lesson-12.question",
+            "orders-and-execution.chapter-02.lesson-12.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-13",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-13.explain",
+            "orders-and-execution.chapter-02.lesson-13.compare",
+            "orders-and-execution.chapter-02.lesson-13.question",
+            "orders-and-execution.chapter-02.lesson-13.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-14",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-14.explain",
+            "orders-and-execution.chapter-02.lesson-14.compare",
+            "orders-and-execution.chapter-02.lesson-14.question",
+            "orders-and-execution.chapter-02.lesson-14.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-15",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-15.explain",
+            "orders-and-execution.chapter-02.lesson-15.compare",
+            "orders-and-execution.chapter-02.lesson-15.question",
+            "orders-and-execution.chapter-02.lesson-15.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-16",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-16.explain",
+            "orders-and-execution.chapter-02.lesson-16.compare",
+            "orders-and-execution.chapter-02.lesson-16.question",
+            "orders-and-execution.chapter-02.lesson-16.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-17",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-17.explain",
+            "orders-and-execution.chapter-02.lesson-17.compare",
+            "orders-and-execution.chapter-02.lesson-17.question",
+            "orders-and-execution.chapter-02.lesson-17.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-18",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-18.explain",
+            "orders-and-execution.chapter-02.lesson-18.compare",
+            "orders-and-execution.chapter-02.lesson-18.question",
+            "orders-and-execution.chapter-02.lesson-18.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-19",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-19.explain",
+            "orders-and-execution.chapter-02.lesson-19.compare",
+            "orders-and-execution.chapter-02.lesson-19.question",
+            "orders-and-execution.chapter-02.lesson-19.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-20",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-20.explain",
+            "orders-and-execution.chapter-02.lesson-20.compare",
+            "orders-and-execution.chapter-02.lesson-20.question",
+            "orders-and-execution.chapter-02.lesson-20.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-21",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-21.explain",
+            "orders-and-execution.chapter-02.lesson-21.compare",
+            "orders-and-execution.chapter-02.lesson-21.question",
+            "orders-and-execution.chapter-02.lesson-21.recap"
+          ]
+        },
+        {
+          "id": "orders-and-execution.chapter-02.lesson-22",
+          "steps": [
+            "orders-and-execution.chapter-02.lesson-22.explain",
+            "orders-and-execution.chapter-02.lesson-22.compare",
+            "orders-and-execution.chapter-02.lesson-22.question",
+            "orders-and-execution.chapter-02.lesson-22.recap"
+          ]
+        }
+      ]
     }
   ]
 }

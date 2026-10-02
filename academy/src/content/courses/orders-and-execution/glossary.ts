@@ -77,5 +77,69 @@ export const ordersGlossary: GlossaryEntry[] = [
     "definition": "Die noch nicht ausgeführte und weiterhin aktive Menge einer Order.",
     "aliases": [],
     "firstUnit": "Kapitel 1"
+  },
+  {
+    "term": "Geldkurs",
+    "definition": "Das beste gemeldete Kaufangebot einer betrachteten Quelle und Zeit. Ein sofortiger Verkäufer braucht diese Seite.",
+    "aliases": [
+      "Bid"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Briefkurs",
+    "definition": "Das beste gemeldete Verkaufsangebot einer betrachteten Quelle und Zeit. Ein sofortiger Käufer braucht diese Seite.",
+    "aliases": [
+      "Ask"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Spread",
+    "definition": "Die Spanne zwischen bestem Verkaufsangebot und bestem Kaufangebot. Eine enge Spanne sagt noch nicht, wie viel auf diesen Stufen verfügbar ist.",
+    "aliases": [
+      "Geld-Brief-Spanne"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Preisstufe",
+    "definition": "Ein Preis im Orderbuch mit der dazu gemeldeten Menge.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Markttiefe",
+    "definition": "Die gemeldeten Mengen auf mehreren Preisstufen einer Buchseite. Die Anzeige ist eine Momentaufnahme.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Slippage",
+    "definition": "Die Abweichung der tatsächlichen Ausführung von einem ausdrücklich genannten Vergleichspreis. Zeitpunkt, Menge und Richtung gehören zum Vergleich.",
+    "aliases": [
+      "Preisabweichung"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Vergleichspreis",
+    "definition": "Der Preis, gegen den du eine Ausführung prüfst. Seine Quelle und sein Zeitpunkt müssen bekannt sein.",
+    "aliases": [
+      "Preisreferenz"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Systemschutzgrenze",
+    "definition": "Eine Grenze nach Anbieter- oder Handelsplatzregeln, die eine Ausführung beschränken kann. Sie ist keine selbst gesetzte Limitanweisung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Kontobelastung",
+    "definition": "Der Geldbetrag, der für den Kauf und seine zusätzlichen Kosten vom Konto abgezogen wird. Enthaltene Kosten dürfen nicht doppelt gerechnet werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
   }
 ];
