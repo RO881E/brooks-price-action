@@ -764,3 +764,5 @@ Der Einführungskurs „Wie Börsen funktionieren“ startet mit zwölf Mikro-Le
 Kapitel 2 des Einführungskurses „Wie Börsen funktionieren“ ergänzt 24 Lektionen zu Aktien, Anleihen, Fonds und ETFs, Indizes, Währungen, Futures, Optionen, CFDs und Rohstoffen. Eigene Produktvergleiche, Rechenbeispiele und Verständnisfragen trennen Rechte, Pflichten, Nominalwert, Margin und tatsächliche Preiswirkung.
 
 Kapitel 26 ergänzt 30 Mikro-Lektionen zu Treppen und breiten Kanälen. Eigene OHLC-Folgen zeigen Überlappung, Kanalnäherung, Gegenbewegungen, Beschleunigung, schrumpfende Extensions und begrenzte Orderpläne. Dreierbar-Aggregation und der Vergleich normaler, schneller und schrumpfender Stufen halten Zeitebene und Informationsstand auseinander.
+
+Kapitel 3 des Einführungskurses „Wie Börsen funktionieren“ ergänzt 22 Lektionen zu Marktteilnehmern, Rollen, Handelsmotiven und Zeithorizonten. Eigene Fälle erklären Zahlungsbedarf, Absicherung, Fondsmandate, Rebalancing, Market Making, Arbitrage und automatisierte Ausführung; sichtbare Transaktionen werden von unbekannten Absichten getrennt.

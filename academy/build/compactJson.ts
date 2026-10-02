@@ -11,13 +11,14 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
     else if (value !== null && typeof value === 'object') Object.values(value).forEach(count);
   };
   count(normalized);
-  const strings = [...counts].filter(([text, times]) => (text.length > 12 && times >= 3) || (text.length > 24 && times >= 2)).map(([text]) => text);
+  const strings = [...counts].filter(([text, times]) => (text.length > 12 && times >= 3) || (text.length > 16 && times >= 2)).map(([text]) => text);
   const stringIndices = new Map(strings.map((text, index) => [text, index]));
   // Numbered lesson and step IDs share prefixes even when full IDs are unique.
   // Intern those prefixes in the existing dictionary, preserving the exact suffix.
+  // Course-scoped step IDs also use a dot before the step kind (01.explain).
   const prefixCounts = new Map<string, number>();
   for (const [text, times] of counts) {
-    const match = text.match(/^(.+[.-])(\d{2,}(?:-[a-z][a-z-]*)?)$/);
+    const match = text.match(/^(.+[.-])(\d{2,}(?:-[a-z][a-z-]*)?(?:\.[a-z][a-z-]*)?)$/);
     if (match && match[1].length > 8 && !stringIndices.has(text)) {
       prefixCounts.set(match[1], (prefixCounts.get(match[1]) ?? 0) + times);
     }
@@ -36,7 +37,7 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
       const index = stringIndices.get(value);
       // Inline strings starting with @ are escaped; references are unambiguous.
       if (index !== undefined) return `@${index}`;
-      const match = value.match(/^(.+[.-])(\d{2,}(?:-[a-z][a-z-]*)?)$/);
+      const match = value.match(/^(.+[.-])(\d{2,}(?:-[a-z][a-z-]*)?(?:\.[a-z][a-z-]*)?)$/);
       const prefixIndex = match ? prefixIndices.get(match[1]) : undefined;
       return prefixIndex === undefined ? (value.startsWith("@") ? "@" + value : value) : `@${prefixIndex}:${match![2]}`;
     }

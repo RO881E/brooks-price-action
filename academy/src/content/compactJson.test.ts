@@ -74,6 +74,16 @@ describe('compact course outline wire format', () => {
     expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(ids);
     expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(ids).length);
   });
+  it('shares course-scoped lesson and dotted step prefixes without changing IDs', () => {
+    const prefix = 'how-exchanges-work.chapter-03.lesson-';
+    const input = Array.from({ length: 22 }, (_, i) => ['explain', 'compare', 'question', 'recap'].map((kind) => `${prefix}${String(i + 1).padStart(2, '0')}.${kind}`)).flat();
+    const packed = packJson(input);
+    expect(packed.strings).toContain(prefix);
+    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
+    expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(input).length);
+  });
+
   it('handles dictionary strings beginning with markers without recursively decoding them', () => {
     const text = '@0:literal long text that must stay literal';
     const input = [text,text,text];const packed=packJson(input);

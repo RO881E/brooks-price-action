@@ -306,5 +306,103 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
     "definition": "Mögliche Wertänderung durch den Wechselkurs zwischen Anlagen- und Bewertungswährung.",
     "aliases": [],
     "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Privatanleger",
+    "definition": "Person, die mit privatem Vermögen investiert oder handelt; der Begriff legt keinen Zeithorizont fest.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Zeithorizont",
+    "definition": "Zeitraum, für den eine Anlage- oder Handelsentscheidung gedacht ist.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Treasury",
+    "definition": "Finanzfunktion eines Unternehmens, die unter anderem Zahlungen, verfügbare Mittel und Finanzrisiken steuert.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Basisrisiko",
+    "definition": "Risiko, dass sich der Preisbezug einer Absicherung und der Preis des ursprünglichen Geschäfts unterschiedlich verändern.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Mandat",
+    "definition": "Vereinbarter Anlageauftrag mit Zielen, zulässigen Anlagen und Grenzen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Portfolio",
+    "definition": "Gesamtheit der betrachteten Anlagen oder Positionen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Rebalancing",
+    "definition": "Anpassen einer Portfoliomischung an festgelegte Zielgewichte.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Liquiditätsbedarf",
+    "definition": "Bedarf an verfügbaren Mitteln für Zahlungen; hier von der Handelbarkeit eines Instruments zu unterscheiden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Pensionsfonds",
+    "definition": "Kapitalgedeckte Organisation, die Vermögen zur Finanzierung späterer Versorgungszahlungen anlegt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Dealer",
+    "definition": "Händler auf eigene Rechnung, der selbst Gegenpartei eines Geschäfts sein kann.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Bestand",
+    "definition": "Aktuell gehaltene Position eines Marktteilnehmers; kann durch weitere Geschäfte verändert werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Arbitrage",
+    "definition": "Ausnutzen zusammenhängender Preisunterschiede durch passende Gegengeschäfte; Kosten und tatsächliche Ausführbarkeit sind entscheidend.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Algorithmischer Handel",
+    "definition": "Handel, bei dem Programme nach Regeln Teile der Entscheidung oder Ausführung übernehmen; kein einheitliches Motiv.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Hochfrequenzhandel",
+    "definition": "Bestimmte besonders schnelle, technisch organisierte Handelsweisen; nicht gleichbedeutend mit jeder Automatisierung.",
+    "aliases": [
+      "HFT"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Eindecken",
+    "definition": "Schließen oder Verringern einer Verkaufsposition durch passende Käufe.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Zentralbank",
+    "definition": "Institution mit geldpolitischen Aufgaben, die im Rahmen ihrer Instrumente auch am Finanzmarkt tätig werden kann.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
   }
 ];
