@@ -15,7 +15,7 @@ separaten Price-Action-Kurs. Neue Kapitel verwenden die Regeln aus
 | 7 | Liquidität und Markttiefe | 22 Lektionen |
 | 8 | Warum bewegen sich Preise? | 24 Lektionen |
 | 9 | Handelszeiten und Sessions | 24 Lektionen |
-| 10 | Besondere Handelsphasen | geplant |
+| 10 | Besondere Handelsphasen | 22 Lektionen |
 | 11 | Was passiert nach dem Trade? | geplant |
 | 12 | Einen Markt selbst erklären | geplant |
 

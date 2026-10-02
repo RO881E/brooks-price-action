@@ -46,3 +46,5 @@ getrennt. Erwartungsvergleiche verwenden nur vorher bekannte Angaben;
 Bewertungsmodelle nennen ihre Annahmen und sind keine Marktpreisgarantien.
 
 Kapitel 9 ergänzt 24 Lektionen und 17 Glossarbegriffe. Rechenwege gehen in kleinen Schritten über UTC. Erfundenen Handelskalendern werden keine realen Börsennamen zugewiesen. Echte Zeitzonenfälle nennen das Jahr 2026 und das genaue Datum. App-Zugang, Auftragsannahme und Ausführung bleiben getrennt.
+
+Kapitel 10 ergänzt 22 Lektionen und 13 Glossarbegriffe. Jeder Rechenfall nennt zulässige Preise und Auswahlregeln. Vorschau, endgültiger Auktionspreis, eigene Zuteilung und Reststatus bleiben getrennt. Schutzgrenzen und Zeitfenster sind ausdrücklich erfundene Regeln. Neue Begriffe werden in kurzen Sätzen erklärt.

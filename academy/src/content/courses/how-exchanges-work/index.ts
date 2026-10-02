@@ -4,10 +4,10 @@ import { marketBasicsGlossary } from './glossary';
 export const marketBasicsDefinition: CourseDefinition = {
   info: {
     id: 'how-exchanges-work',
-    eyebrow: 'Trading von null · Kapitel 1–9 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–10 verfügbar',
     title: 'Wie Börsen funktionieren',
-    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen, Orderbuch, Liquidität, Preisbewegungen und Handelszeiten; weitere Kapitel folgen.',
-    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 9 verfügbar; der Kurs wird weiter aufgebaut.',
+    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen, Orderbuch, Liquidität, Preisbewegungen, Handelszeiten und besondere Handelsphasen; weitere Kapitel folgen.',
+    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 10 verfügbar; der Kurs wird weiter aufgebaut.',
   },
   units: [{
     id: 'how-exchanges-work.chapter-01',
@@ -90,6 +90,15 @@ export const marketBasicsDefinition: CourseDefinition = {
     description: 'Kalender, Zeitzonen und Sommerzeit: eigene Zeitrechnungen, Sessiongrenzen und die Unterschiede zwischen App-Zugang, Auftragsannahme und Ausführung.',
     estimatedLessonCount: 24,
     load: () => import('./chapter-09').then((m) => m.marketBasicsChapterNineLessons),
+  }, {
+    id: 'how-exchanges-work.chapter-10',
+    order: 10,
+    kind: 'chapter',
+    label: 'Kapitel 10',
+    title: 'Besondere Handelsphasen',
+    description: 'Eröffnungs- und Schlussauktion, Schutzphasen und Wiederaufnahme: eigene Preis- und Mengenrechnungen, vorläufige Anzeigen, Zuteilung und bestätigten Auftragsstatus unterscheiden.',
+    estimatedLessonCount: 22,
+    load: () => import('./chapter-10').then((m) => m.marketBasicsChapterTenLessons),
   }],
   glossary: { title: 'Marktgrundlagen-Glossar', entries: marketBasicsGlossary },
 };
