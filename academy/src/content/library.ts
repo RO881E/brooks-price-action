@@ -72,13 +72,18 @@ export const librarySubjects: LibrarySubject[] = [
         'Gültigkeit (Tag, bis auf Widerruf), Teilausführung',
         'Slippage, Gebühren, Ausführungsqualität, Wahl des Handelsplatzes',
       ] },
-      planned('reading-charts', 'Charts lesen', 'Charttypen, Bar-Arten, Zeitebenen und Skalen im Überblick.', [
-        'Charttypen: Linie, Balken, Kerzen, Heikin-Ashi, Renko, Point & Figure',
-        'Zeit-, Tick-, Volumen- und Range-Bars',
-        'Zeitebenen und wie sie zusammenhängen',
-        'Lineare und logarithmische Skala',
-        'Bereinigte Kurse (Splits, Dividenden), fortlaufende Futures-Charts',
-      ]),
+      {
+        id: 'reading-charts', title: 'Charts lesen', label: 'Trading von null · Kapitel 1 verfügbar',
+        description: 'Kapitel 1 erklärt Geschäftsdaten, vier Kennwerte und Linie, Balken und Kerze mit eigenen Schaubildern. Weitere Kapitel ergänzen Charttypen, Bar-Arten, Zeitebenen, Skalen und Datenbedingungen.',
+        status: 'available',
+        subtopics: [
+          'Charttypen: Linie, Balken, Kerzen, Heikin-Ashi, Renko, Point & Figure',
+          'Zeit-, Tick-, Volumen- und Range-Bars',
+          'Zeitebenen und wie sie zusammenhängen',
+          'Lineare und logarithmische Skala',
+          'Bereinigte Kurse (Splits, Dividenden), fortlaufende Futures-Charts',
+        ],
+      },
     ],
   },
   {

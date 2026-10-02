@@ -32,11 +32,18 @@ const [{ priceActionTrendsCourse }, { glossaryEntries }, chart, { barCases, allB
     load('build/contentCheck.ts'),
   ]);
 
+// The report validates the default course, but diagrams used by another
+// published course are not orphaned. Shared diagrams remain in its validation.
+const { baseCourses } = await load('src/content/allCourses.ts');
+const diagramIds = (course) => course.units.flatMap((unit) => unit.lessons.flatMap((lesson) =>
+  lesson.steps.filter((step) => step.type === 'diagram').map((step) => step.scenario)));
+const defaultDiagrams = new Set(diagramIds(priceActionTrendsCourse));
+const otherDiagrams = new Set(baseCourses.filter((course) => course.id !== priceActionTrendsCourse.id).flatMap(diagramIds));
 const known = JSON.parse(readFileSync(knownPath, 'utf8'));
 const input = {
   course: priceActionTrendsCourse,
   glossary: glossaryEntries,
-  scenarioIds: chart.chartScenarioIds(),
+  scenarioIds: chart.chartScenarioIds().filter((id) => defaultDiagrams.has(id) || !otherDiagrams.has(id)),
   describe: (scenario) => chart.chartDescription(scenario),
   caseIssues: validateBarCases(allBarCases, priceActionTrendsCourse),
   topicIssues: validateTopicMap(priceActionTopics, priceActionTrendsCourse, barCases, transferCases),

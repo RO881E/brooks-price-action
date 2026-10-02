@@ -7,7 +7,7 @@ zu Unternehmensbewertung und Makroökonomie. Jedes Thema steht in der **Biblioth
 „Geplant“-Karte; nur was mit **[aktiv]** markiert ist, hat schon Inhalt. Die Liste darf wachsen.
 
 - **Aufbau:** Themengebiet → Thema (ein möglicher Kurs) → Unterthemen (mögliche Kapitel oder Lektionen).
-- **Umfang:** 18 Themengebiete, 106 Themen, davon 3 aktiv.
+- **Umfang:** 18 Themengebiete, 106 Themen, davon 4 aktiv.
 - **Übungen:** Je Gebiet steht, welche Übungsformen passen. Vorhanden sind Fragen, Chart-Trainer,
   „Finde den Bar“, „Ordne die Schritte“, Begriffe-Memory und Blitzrunde. Manche Gebiete bräuchten neue
   Formen (siehe ganz unten).
@@ -17,7 +17,7 @@ zu Unternehmensbewertung und Makroökonomie. Jedes Thema steht in der **Biblioth
 
 ## Überblick
 
-1. Marktgrundlagen (3 Themen, 2 aktiv)
+1. Marktgrundlagen (3 Themen, 3 aktiv)
 2. Price Action und Marktstruktur (9 Themen, 1 aktiv)
 3. Technische Indikatoren (6 Themen)
 4. Volumen (5 Themen)
@@ -64,9 +64,9 @@ Kapitel 1–10: Handelswünsche, Market-, Limit- und Stop-Orders verstehen. Gül
 - Gültigkeit (Tag, bis auf Widerruf), Teilausführung
 - Slippage, Gebühren, Ausführungsqualität, Wahl des Handelsplatzes
 
-### Charts lesen
+### Charts lesen (Trading von null · Kapitel 1 verfügbar) **[aktiv]**
 
-Charttypen, Bar-Arten, Zeitebenen und Skalen im Überblick.
+Kapitel 1 erklärt Geschäftsdaten, vier Kennwerte und Linie, Balken und Kerze mit eigenen Schaubildern. Weitere Kapitel ergänzen Charttypen, Bar-Arten, Zeitebenen, Skalen und Datenbedingungen.
 
 - Charttypen: Linie, Balken, Kerzen, Heikin-Ashi, Renko, Point & Figure
 - Zeit-, Tick-, Volumen- und Range-Bars
