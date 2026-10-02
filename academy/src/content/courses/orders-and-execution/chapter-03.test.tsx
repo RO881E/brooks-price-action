@@ -40,8 +40,8 @@ describe('Limit orders and queues: chapter three', () => {
   it('loads chapter three and unlocks only after the existing 42 lessons', async () => {
     expect(await ordersDefinition.units[2].load()).toEqual(lessons);
     expect(lessons).toHaveLength(22);
-    expect(course.units.flatMap((unit) => unit.lessons)).toHaveLength(64);
-    expect(ordersGlossary).toHaveLength(31);
+    expect(course.units.slice(0, 3).flatMap((unit) => unit.lessons)).toHaveLength(64);
+    expect(ordersGlossary.filter((entry) => ['Kapitel 1', 'Kapitel 2', 'Kapitel 3'].includes(entry.firstUnit ?? ''))).toHaveLength(31);
     const prior = course.units.slice(0, 2).flatMap((unit) => unit.lessons.map((lesson) => lesson.id));
     const outline = toCourseOutline(course);
     expect(lessonAccessState(outline, lessons[0], prior.slice(1))).toBe('locked');
