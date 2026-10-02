@@ -4,9 +4,9 @@ const drafts = [
     "title": "Was wird an einem Finanzmarkt gehandelt?",
     "summary": "Ein Markt bringt Handelswünsche zusammen.",
     "paragraphs": [
-      "Stell dir einen Marktplatz vor: Eine Person möchte etwas kaufen, eine andere verkaufen. Ein Finanzmarkt bringt solche Wünsche für finanzielle Instrumente zusammen. Ein Instrument ist das, worüber sich beide einigen – etwa ein Unternehmensanteil oder ein Vertrag.",
-      "Eine Aktie ist ein Anteil an einem Unternehmen. Eine Anleihe ist eine Schuldverschreibung mit vertraglich festgelegten Zahlungsbedingungen. Ein Future ist ein standardisierter Vertrag über einen künftigen Austausch beziehungsweise eine Abrechnung. Diese Dinge können im Chart ähnlich aussehen, besitzen aber unterschiedliche Rechte und Risiken.",
-      "Bevor du einen Preis beurteilst, frage deshalb: Was genau wird gehandelt? Für den Einstieg genügt diese Unterscheidung; die Einzelheiten der Instrumente kommen später."
+      "Stell dir einen Marktplatz vor. Eine Person möchte kaufen, eine andere verkaufen. Auf einem Finanzmarkt werden zum Beispiel Unternehmensanteile oder Verträge gehandelt. Das gehandelte Produkt nennt man auch Finanzinstrument. Ein Chart ist eine Grafik, die zeigt, wie sich sein Preis verändert.",
+      "Eine Aktie ist ein Anteil an einem Unternehmen. Bei einer Anleihe verleihst du Geld nach festgelegten Regeln. Ein Future ist ein Vertrag für einen späteren Austausch oder eine Geldzahlung. Für die jeweilige Art von Future gelten weitgehend einheitliche Bedingungen. Das heißt standardisiert. Ähnliche Preisgrafiken können also ganz verschiedene Produkte zeigen.",
+      "Frage zuerst: Was kaufe ich hier eigentlich? Jedes Produkt bringt eigene Rechte mit. Manche Verträge bringen auch Pflichten mit. Zum Beispiel kann eine spätere Zahlung nötig sein. Der Chart allein erklärt diese Regeln nicht. Die Produktarten lernst du in Kapitel 2 genauer kennen."
     ],
     "columns": [
       {
@@ -48,9 +48,9 @@ const drafts = [
     "title": "Eine Aktie kaufen: Was wechselt den Besitzer?",
     "summary": "Besitzwechsel und Kapitalaufnahme.",
     "paragraphs": [
-      "Beim Kauf einer bereits ausgegebenen Aktie von einem anderen Anleger wechseln Anteil und Kaufpreis zwischen diesen Beteiligten. Das Unternehmen erhält bei diesem gewöhnlichen Weiterverkauf nicht automatisch neues Geld. Dieser Handel gehört zum Sekundärmarkt.",
-      "Wenn ein Unternehmen neue Aktien ausgibt, kann es dadurch Kapital aufnehmen. Das gehört zum Primärmarkt. Stell dir eine Konzertkarte vor: Beim ersten Verkauf erhält der Veranstalter Geld; beim späteren Weiterverkauf zwischen Besuchern wechselt die bereits ausgegebene Karte den Besitzer.",
-      "Die Kartenidee erklärt nur den Unterschied der Verkaufswege. Eine Aktie hat zusätzliche Rechte und wirtschaftliche Eigenschaften. Merke dir: Neuer Ausgabevorgang und Weiterverkauf sind unterschiedliche Ereignisse."
+      "Du kaufst eine vorhandene Aktie von einer anderen Person. Dein Geld erhält diese Person. Die Aktie gehört danach dir. Das Unternehmen bekommt durch diesen Weiterverkauf nicht automatisch neues Geld. Diesen Handel nennt man Sekundärmarkt: Bereits vorhandene Wertpapiere wechseln den Besitzer.",
+      "Ein Unternehmen kann auch neue Aktien ausgeben. So kann es Geld für seine Arbeit sammeln. Das nennt man Primärmarkt. Stell dir eine Konzertkarte vor: Beim ersten Verkauf erhält der Veranstalter Geld. Beim Weiterverkauf bekommt der bisherige Kartenbesitzer den Kaufpreis.",
+      "Der Vergleich erklärt nur den Verkaufsweg. Eine Aktie ist natürlich keine Eintrittskarte. Sie gibt dir einen Unternehmensanteil mit eigenen Rechten. Merke dir die zwei Vorgänge: Ein neues Wertpapier ausgeben und ein vorhandenes weiterverkaufen. Nicht jeder Aktienkauf finanziert das Unternehmen direkt."
     ],
     "columns": [
       {
@@ -92,9 +92,9 @@ const drafts = [
     "title": "Warum handeln Menschen überhaupt?",
     "summary": "Unterschiedliche Ziele am selben Markt.",
     "paragraphs": [
-      "Nicht jeder Marktteilnehmer versucht, aus dem nächsten kleinen Preissprung Gewinn zu erzielen. Manche investieren für spätere Ausgaben. Andere benötigen Geld heute, tauschen Vermögenswerte oder wollen ein bestehendes Preisrisiko verringern.",
-      "Ein langfristiger Anleger kauft für ein späteres Sparziel. Ein Unternehmen kann einen Vertrag nutzen, um das Preisrisiko eines geplanten Einkaufs abzusichern. Ein kurzfristiger Trader handelt eine erwartete Preisbewegung. Diese Ziele unterscheiden sich, obwohl sich die Beteiligten am selben Markt treffen können.",
-      "Von einem einzelnen Kauf kannst du das Motiv des Käufers nicht sicher ablesen. Die sichtbare Transaktion zeigt den Austausch; sie verrät nicht automatisch Zeithorizont, Gesamtportfolio oder persönliche Absicht."
+      "Menschen handeln aus verschiedenen Gründen. Manche sparen für eine spätere Ausgabe. Andere brauchen ihr Geld schon heute. Wieder andere wollen das Risiko aus einem bestehenden Geschäft kleiner machen. Nicht jeder versucht, den nächsten kleinen Preissprung vorherzusagen.",
+      "Ein Anleger kauft für ein Sparziel in vielen Jahren. Ein Unternehmen nutzt einen Vertrag gegen mögliche Preisänderungen beim nächsten Einkauf. Ein kurzfristiger Trader versucht, aus einer baldigen Preisbewegung Gewinn zu erzielen. Trader ist das englische Wort für Händler. Diese Personen können trotzdem am selben Markt handeln.",
+      "Ein sichtbarer Kauf verrät dir das Ziel des Käufers nicht sicher. Du siehst vielleicht Produkt, Menge und Preis. Du weißt aber nicht automatisch, wie lange die Person halten möchte. Auch ihre anderen Anlagen kennst du meist nicht. Der einzelne Trade, also das ausgeführte Geschäft, zeigt nur einen Teil."
     ],
     "columns": [
       {
@@ -136,9 +136,9 @@ const drafts = [
     "title": "Absichern und Spekulieren unterscheiden",
     "summary": "Die Position gehört zum Gesamtzusammenhang.",
     "paragraphs": [
-      "Absichern heißt, ein schon vorhandenes wirtschaftliches Risiko durch eine weitere Position zu verändern. Spekulieren heißt hier, ein Preisrisiko gezielt einzugehen, um von einer erwarteten Veränderung zu profitieren. Dieselbe Vertragsart kann für beide Zwecke verwendet werden.",
-      "Ein Produzent fürchtet sinkende Verkaufspreise seiner Ware und vereinbart einen späteren Verkaufspreis. Ein anderer Händler besitzt diese Ware nicht und handelt denselben Vertrag wegen seiner Preisprognose. Die äußere Order kann ähnlich sein, ihr Zusammenhang ist verschieden.",
-      "Eine Absicherung entfernt nicht unbedingt alle Risiken. Menge, Zeitpunkt und Vertragsbedingungen können vom tatsächlichen Geschäft abweichen. Für diese erste Lektion zählt: Bewerte das Motiv im Zusammenhang mit dem bereits vorhandenen Risiko."
+      "Absichern heißt: Ein Risiko besteht bereits. Eine weitere Anlage oder ein Vertrag soll dagegen wirken. Spekulieren heißt hier: Jemand geht bewusst ein Preisrisiko ein, um Gewinn zu erzielen. Die gleiche Vertragsart kann für beide Zwecke verwendet werden. Ein gehaltenes Geschäft mit seinen Rechten und Pflichten nennt man Position.",
+      "Ein Produzent will später seine Ware verkaufen. Er fürchtet, dass ihr Preis bis dahin fällt. Deshalb vereinbart er heute einen späteren Verkaufspreis. Ein anderer Händler besitzt die Ware nicht. Er handelt einen ähnlichen Vertrag, weil er eine Preisbewegung erwartet. Die Aufträge sehen ähnlich aus. Der Anlass ist verschieden.",
+      "Auch eine Absicherung kann Kosten oder Verluste verursachen. Vielleicht passen Menge, Termin oder Ware nicht genau zum Vertrag. Dann bleibt ein Teil des Risikos bestehen. Frage deshalb: Welches Risiko gab es vorher? Wie soll der zusätzliche Vertrag darauf wirken? Der Vertragsname allein beantwortet das nicht."
     ],
     "columns": [
       {
@@ -161,7 +161,7 @@ const drafts = [
     "prompt": "Was macht eine Position in diesem Beispiel zur Absicherung?",
     "answers": [
       {
-        "label": "Ihr Zusammenhang mit einem schon bestehenden wirtschaftlichen Risiko.",
+        "label": "Sie soll einem Risiko entgegenwirken, das schon vorher bestand.",
         "explanation": "Richtig: Entscheidend ist der Gesamtzusammenhang, nicht bloß der Name des Vertrags."
       },
       {
@@ -180,9 +180,9 @@ const drafts = [
     "title": "Für jeden ausgeführten Kauf gibt es eine Gegenseite",
     "summary": "Ausführungen brauchen passende Angebote.",
     "paragraphs": [
-      "Ein Handel kommt zustande, wenn passende Kauf- und Verkaufsbedingungen zusammenfinden. Zu jeder ausgeführten gekauften Einheit gehört eine verkaufte Einheit. Trotzdem kann sich der Preis bewegen: Nicht alle Beteiligten akzeptieren jeden Preis gleich bereitwillig.",
-      "Eine Verkäuferin bietet zwei Einheiten für je 100 an. Ein Käufer akzeptiert diesen Preis für zwei Einheiten. Es werden zwei gekauft und zwei verkauft. Ob dafür ein Käufer auf zwei Verkäufer oder zwei Käufer auf einen Verkäufer treffen, sagt die bloße Stückzahl nicht.",
-      "Die Anzahl gekaufter und verkaufter Einheiten erklärt daher allein keine Preisrichtung. Interessant wird, welche Seite verfügbare Preise akzeptiert und welche Angebote auf den nächsten Niveaus noch vorhanden sind."
+      "Bei einem Trade passen ein Kaufwunsch und ein Verkaufswunsch zusammen. Für jede gekaufte Einheit wird dieselbe Einheit verkauft. Der Preis kann sich trotzdem ändern. Denn nicht jeder möchte zu jedem Preis handeln. Die angebotenen Mengen sind ebenfalls begrenzt.",
+      "Eine Verkäuferin bietet zwei Einheiten für jeweils 100 an. Ein Käufer akzeptiert das Angebot. Zwei Einheiten werden gekauft und dieselben zwei verkauft. Es könnten auch zwei Käufer je eine Einheit nehmen. Oder ein Käufer kauft je eine von zwei Verkäuferinnen.",
+      "Die ausgeführten Mengen sind auf beiden Seiten gleich. Die Zahl der Personen muss nicht gleich sein. Aus der Stückzahl allein folgt deshalb keine Preisrichtung. Dafür ist wichtig, welche Preise jemand akzeptiert. Ebenso wichtig ist, wie viel zu diesen Preisen noch verfügbar ist."
     ],
     "columns": [
       {
@@ -224,9 +224,9 @@ const drafts = [
     "title": "Der letzte Preis ist ein vergangener Handel",
     "summary": "Letzter Kurs und nächstes Angebot.",
     "paragraphs": [
-      "Wenn ein Bildschirm den letzten gehandelten Preis zeigt, beschreibt er einen bereits erfolgten Austausch. Er garantiert nicht, dass du jetzt zum gleichen Preis handeln kannst. Angebote können inzwischen verändert oder aufgebraucht sein.",
-      "Der letzte Trade fand zu 100 statt. Aktuell bietet ein Käufer 99, während eine Verkäuferin 101 verlangt. In diesem vereinfachten Moment gibt es keinen passenden sofort verfügbaren Handel zu 100, nur weil dieser Wert zuletzt angezeigt wurde.",
-      "Unterscheide gehandelten Preis, aktuell angezeigte Angebote und tatsächliche Ausführung. Welche Zahl eine Plattform hervorhebt, muss man an der Beschriftung erkennen; nicht jede große Zahl bedeutet denselben Preisbezug."
+      "Der letzte gehandelte Preis gehört zu einem vergangenen Geschäft. Er sagt: Zu diesem Preis fand der bisher letzte Trade statt. Er verspricht dir keinen neuen Kauf zum selben Preis. Inzwischen können andere Angebote gelten.",
+      "Der letzte Trade war bei 100. Nun bietet ein Käufer 99. Eine Verkäuferin verlangt 101. Ein Angebot für einen sofortigen Kauf zu 100 gibt es in diesem einfachen Fall nicht. Die frühere Zahl schafft kein neues Angebot.",
+      "Unterscheide drei Dinge: einen vergangenen Trade, ein aktuelles Angebot und deinen tatsächlich ausgeführten Auftrag. Ausführung heißt: Der Handel hat wirklich stattgefunden. Lies die Beschriftung der Anzeige. Eine große Zahl auf dem Bildschirm kann verschiedene Preisarten meinen."
     ],
     "columns": [
       {
@@ -268,9 +268,9 @@ const drafts = [
     "title": "Geld und Brief: zwei Seiten des Angebots",
     "summary": "Bid und Ask einfach übersetzen.",
     "paragraphs": [
-      "Der Geldkurs, auch Bid genannt, ist ein angezeigtes Kaufangebot. Der Briefkurs, auch Ask genannt, ist ein angezeigtes Verkaufsangebot. In unserem einfachen Orderbuch ist der beste Bid das höchste Kaufangebot und der beste Ask das niedrigste Verkaufsangebot.",
-      "Ein Käufer bietet 99, eine Verkäuferin verlangt 101. Wer sofort kaufen möchte, muss in diesem vereinfachten Beispiel ein verfügbares Verkaufsangebot akzeptieren. Wer sofort verkaufen möchte, trifft auf ein verfügbares Kaufangebot.",
-      "Die Wörter beschreiben die Sicht des Angebots: Bid bietet zu kaufen, Ask bietet zu verkaufen. Lies Menge und Preis zusammen. Angezeigte Angebote können verschwinden, bevor deine Order sie tatsächlich erreicht."
+      "Der Geldkurs heißt auf Englisch Bid. Er zeigt ein Kaufangebot. Der Briefkurs heißt Ask und zeigt ein Verkaufsangebot. Im einfachen Orderbuch ist der beste Bid das höchste Kaufgebot. Der beste Ask ist der niedrigste angebotene Verkaufspreis. Das Orderbuch ist eine Übersicht über wartende Aufträge.",
+      "Ein Käufer bietet 99. Eine Verkäuferin verlangt 101. Möchtest du sofort kaufen, brauchst du eine verkaufsbereite Person. Im Beispiel akzeptierst du dafür das Angebot bei 101. Möchtest du sofort verkaufen, brauchst du einen Käufer. Dessen Angebot liegt hier bei 99.",
+      "Die Wörter beschreiben die Angebotsseite: Bid will kaufen, Ask will verkaufen. Achte auch auf die angebotene Menge. Ein Preis gilt nicht automatisch für unbegrenzt viele Einheiten. Angebote können außerdem verschwinden, bevor dein Auftrag ankommt."
     ],
     "columns": [
       {
@@ -312,9 +312,9 @@ const drafts = [
     "title": "Der Spread ist der Abstand zwischen den Seiten",
     "summary": "101 minus 99 ergibt zwei.",
     "paragraphs": [
-      "Die Geld-Brief-Spanne heißt Spread. In unserem Beispiel berechnen wir sie als besten Ask minus besten Bid. Sie beschreibt den Abstand zwischen den beiden Angeboten, nicht den gesamten Gewinn oder Verlust einer Strategie.",
-      "Bei Bid 99 und Ask 101 beträgt der Spread zwei Preiseinheiten. Wenn jemand eine Einheit sofort zu 101 kauft und bei unveränderten Angeboten sofort zu 99 verkauft, verliert er dadurch zwei Einheiten vor zusätzlichen Gebühren.",
-      "Das ist eine vereinfachte Rechnung mit unveränderten Angeboten und genügend Menge. In Wirklichkeit können Preisbewegung, Gebühren und abweichende Ausführung hinzukommen. Merke dir zuerst die Differenz und die Richtung des Austauschs."
+      "Der Abstand zwischen bestem Ask und bestem Bid heißt Spread. Du rechnest: Ask minus Bid. Das Minuszeichen bedeutet, dass du den Bid vom Ask abziehst. Der Spread beschreibt zwei Angebote. Er ist nicht der gesamte Gewinn oder Verlust einer Handelsidee.",
+      "Im Beispiel steht der Bid bei 99 und der Ask bei 101. Also: 101 − 99 = 2. Du kaufst eine Einheit sofort für 101. Danach verkaufst du sie bei unveränderten Angeboten sofort für 99. Du bekommst 2 weniger zurück, als du bezahlt hast.",
+      "Wir nehmen für diese Rechnung genug Menge und unveränderte Angebote an. Gebühren sind noch nicht enthalten. In echten Geschäften können Preise wechseln und weitere Kosten entstehen. Zuerst sollst du nur verstehen: Sofort kaufen und sofort verkaufen können verschiedene Preise haben."
     ],
     "columns": [
       {
@@ -356,9 +356,9 @@ const drafts = [
     "title": "Warum der Preis beim Kaufen höher werden kann",
     "summary": "Verfügbare Menge auf Preisstufen.",
     "paragraphs": [
-      "Ein einzelnes Preisniveau besitzt nicht unbegrenzt verfügbare Menge. Wenn ein Käufer mehr Einheiten sofort möchte, als dort angeboten werden, kann der nächste Teil auf einer höheren Stufe gehandelt werden. So kann der letzte Preis steigen, obwohl jede Einheit weiterhin Käufer und Verkäufer besitzt.",
-      "In unserem vereinfachten Verkaufsangebot liegen zwei Einheiten zu 100 und zwei zu 101. Ein sofortiger Kauf von drei Einheiten nimmt zwei zu 100 und eine zu 101. Der Durchschnittspreis beträgt 301 geteilt durch drei, also rund 100,33.",
-      "Das Beispiel unterstellt unveränderte Angebote ohne zusätzliche Gebühren. Es zeigt den Unterschied zwischen erster verfügbarer Stufe, durchschnittlichem Ausführungspreis und letztem gehandelten Preis. Reale Ausführungen müssen anhand ihrer eigenen Daten geprüft werden."
+      "Ein günstiger Preis gilt oft nur für eine begrenzte Menge. Möchtest du mehr sofort kaufen, musst du vielleicht das nächste Angebot nutzen. Dieses kann teurer sein. So kann der letzte Trade steigen, obwohl jede Einheit weiterhin gekauft und verkauft wird.",
+      "Hier gibt es zwei Einheiten zu 100 und zwei zu 101. Du kaufst drei. Zwei kosten zusammen 200. Die dritte kostet 101. Insgesamt bezahlst du 301. Für den Durchschnitt teilst du durch drei: 301 / 3 ≈ 100,33. Das Zeichen ≈ bedeutet ungefähr gleich.",
+      "Die Rechnung nimmt unveränderte Angebote an und enthält keine Gebühren. Der erste Preis war 100. Dein Durchschnitt ist etwa 100,33. Der letzte Teil des Kaufs liegt bei 101. Das sind drei verschiedene Angaben. Prüfe bei einem echten Kauf die tatsächlichen Ausführungen."
     ],
     "columns": [
       {
@@ -400,9 +400,9 @@ const drafts = [
     "title": "Börse und Broker haben verschiedene Aufgaben",
     "summary": "Handelsplatz und Zugang unterscheiden.",
     "paragraphs": [
-      "Die Börse organisiert einen Handelsplatz mit definierten Regeln. Ein Broker vermittelt seinem Kunden Zugang beziehungsweise führt dessen Aufträge im vorgesehenen Rahmen aus. Die Oberfläche auf deinem Handy und der Ort, an dem die Order gehandelt wird, müssen daher nicht identisch sein.",
-      "Du gibst einen Auftrag in einer Brokeroberfläche ein. Der Auftrag kann anschließend an einen Handelsplatz geleitet werden. Manche Anbieter übernehmen je nach Geschäftsmodell zusätzlich andere Rollen; der Name der App erklärt diese Rollen nicht vollständig.",
-      "Für den Anfang trenne Zugang, Handelsplatz und Gegenpartei. Später prüfen wir Orderwege genauer. Welche Funktion ein konkreter Anbieter ausübt, muss aus dessen aktueller Ausführungsbeschreibung hervorgehen."
+      "Eine Börse organisiert einen Handelsplatz mit festen Regeln. Ein Broker gibt Kunden Zugang und bearbeitet ihre Aufträge. Broker und Börse übernehmen also verschiedene Aufgaben. Die App auf deinem Handy kann vom Broker kommen. Der eigentliche Handel kann woanders stattfinden.",
+      "Du gibst einen Auftrag in der App ein. Der Broker kann ihn an einen Handelsplatz weiterleiten. Manche Anbieter übernehmen mehrere Aufgaben. Der Appname allein erklärt deshalb nicht den vollständigen Weg. Die Gegenpartei ist die Person oder Stelle auf der anderen Seite deines Geschäfts.",
+      "Trenne Zugang, Handelsplatz und Gegenpartei. Wer ermöglicht dir den Auftrag? Wo wird gehandelt? Wer kauft von dir oder verkauft an dich? Die genaue Rolle eines Anbieters steht in seinen aktuellen Ausführungsbedingungen. Kapitel 4 erklärt die möglichen Wege genauer."
     ],
     "columns": [
       {
@@ -425,7 +425,7 @@ const drafts = [
     "prompt": "Sind Brokeroberfläche und Börse automatisch dasselbe?",
     "answers": [
       {
-        "label": "Nein, Zugang und Handelsplatz sind verschiedene Funktionen.",
+        "label": "Nein, der Zugang und der Handelsplatz haben verschiedene Aufgaben.",
         "explanation": "Richtig: Ein Auftrag kann über die Oberfläche an einen anderen Ort geleitet werden."
       },
       {
@@ -444,9 +444,9 @@ const drafts = [
     "title": "Market Maker: Angebote sind eine Dienstleistung",
     "summary": "Handel auf eigene Rechnung.",
     "paragraphs": [
-      "Ein Market Maker stellt Kauf- und Verkaufsangebote und kann bei einem Handel selbst Gegenpartei werden. Das unterscheidet diese Rolle vom bloßen Vermitteln fremder Aufträge. Ein Unternehmen kann unterschiedliche Rollen übernehmen; die Rollen müssen trotzdem getrennt beschrieben werden.",
-      "Im Beispiel bietet ein Händler an, zu 99 zu kaufen und zu 101 zu verkaufen. Die Spanne kann zu seinen Einnahmen beitragen. Wenn sich der Preis gegen seinen Bestand bewegt, entsteht aber Risiko. Ein sichtbarer Spread ist deshalb kein garantierter Reingewinn.",
-      "Begriffe wie Market Maker, Broker und Börse erklären Funktionen. Sie sind keine automatischen Qualitätsurteile über Personen oder Anbieter. Für diesen Einstieg genügt: Vermitteln und selbst handeln sind unterschiedliche Aufgaben."
+      "Ein Market Maker stellt Kauf- und Verkaufsangebote. Der englische Begriff bezeichnet hier einen Händler, der andere mit eigenen Angeboten handeln lässt. Er kann selbst deine Gegenpartei werden. Er handelt dann für seinen eigenen Bestand. Bestand meint seine gerade gehaltenen Anlagen oder Positionen.",
+      "Im Beispiel kauft der Händler zu 99 und bietet einen Verkauf zu 101 an. Gelingt beides, entsteht eine Differenz von 2 vor Kosten. Doch vielleicht fällt der Preis, bevor er wieder verkauft. Dann kann er verlieren. Zwei Angebote sind noch kein sicherer Gewinn.",
+      "Ein Broker vermittelt Aufträge. Ein Market Maker bietet eigene Geschäfte an. Eine Börse organisiert den Handelsplatz. Eine Firma kann mehrere dieser Aufgaben übernehmen. Die Bezeichnungen erklären ihre Rollen. Sie sagen allein nicht, ob die Firma gute Preise bietet."
     ],
     "columns": [
       {
@@ -473,7 +473,7 @@ const drafts = [
         "explanation": "Gerade das Handeln auf eigene Rechnung gehört zu dieser Rolle."
       },
       {
-        "label": "Bestandsrisiken und weitere Kosten können dagegen wirken.",
+        "label": "Der gehaltene Bestand kann an Wert verlieren. Dazu können weitere Kosten kommen.",
         "explanation": "Richtig: Zwei Angebote sind noch kein abgeschlossener risikofreier Kreislauf."
       },
       {
@@ -488,9 +488,9 @@ const drafts = [
     "title": "Dein erster Marktcheck ohne Chartwissen",
     "summary": "Instrument, Bezug, Angebot und Menge.",
     "paragraphs": [
-      "Für einen ersten Marktcheck brauchst du noch keine Trendlinie. Du musst verstehen, welches Produkt du siehst, was die angezeigte Zahl bedeutet und welche Angebote für deine gewünschte Menge verfügbar sind. Erst danach wird eine Preisbewegung sinnvoll einzuordnen.",
-      "Der letzte Trade zeigt 50. Aktuell liegen Bid 49 und Ask 51 vor; am Ask steht eine Einheit bereit. Du möchtest zwei kaufen. Der letzte Kurs und die erste Angebotsstufe reichen deshalb nicht aus, um einen sicheren Gesamtpreis für deine zwei Einheiten zu behaupten.",
-      "Gehe in dieser Reihenfolge vor: Instrument erkennen, Preisbezug lesen, Angebotsseite prüfen, Menge berücksichtigen. Das nächste Kapitel erklärt die Produktarten genauer: Aktien, Anleihen, Fonds, Währungen und Derivate. Die übrigen Kapitel werden nach und nach ergänzt."
+      "Für deinen ersten Marktcheck brauchst du noch keine Linien im Chart. Prüfe zuerst das Produkt. Dann lies, welchen Preis die Anzeige meint. Suche danach die passende Angebotsseite und die verfügbare Menge. So wird klarer, was ein möglicher Handel bedeuten würde.",
+      "Der letzte Trade lag bei 50. Nun ist der Bid 49 und der Ask 51. Am Ask steht nur eine Einheit bereit. Du möchtest zwei kaufen. Der letzte Trade sagt nicht, dass du zu 50 kaufen kannst. Die einzelne Einheit bei 51 sagt auch noch nichts über den Preis der zweiten.",
+      "Gehe Schritt für Schritt vor: Produkt, Preisart, Angebotsseite, Menge. Fehlt eine Angabe, bleibt eine Frage offen. In Kapitel 2 lernst du die Produktarten genauer kennen: Aktien, Anleihen, Fonds, Währungen und Derivate. Derivate sind Verträge, die sich auf etwas anderes beziehen, etwa einen Aktienpreis."
     ],
     "columns": [
       {

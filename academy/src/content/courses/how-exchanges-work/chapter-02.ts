@@ -6,9 +6,9 @@ const drafts = [
     "title": "Ein Produkt erkennen, bevor du den Preis beurteilst",
     "summary": "Name, Rechte und Pflichten gehören zusammen.",
     "paragraphs": [
-      "Auf einem Bildschirm können Aktie, ETF und Future wie ähnliche Linien aussehen. Trotzdem kaufst du unterschiedliche Dinge. Bei einer Aktie beteiligst du dich an einem Unternehmen. Bei einem Fonds erwirbst du einen Fondsanteil. Bei einem Future gehst du einen Vertrag ein. Die Linie beschreibt Preise; das Produkt bestimmt, was diese Preise wirtschaftlich bedeuten.",
-      "Stell dir drei Anzeigen mit dem Wort „Gold“ vor: ein Goldbarren, ein Anteil an einem Anlageprodukt und ein Terminkontrakt. Alle können mit dem Goldpreis zusammenhängen. Daraus folgt weder derselbe Besitz noch dieselbe Abrechnung. Auch Einheit, Währung und Laufzeit können verschieden sein.",
-      "In diesem Kapitel lernst du deshalb einen Produktcheck: Was ist es? Welche Rechte oder Pflichten entstehen? Worauf bezieht sich der Preis? In welcher Einheit wird gehandelt? Gibt es eine Laufzeit? Welche Risiken bleiben? Die Beispiele sind bewusst vereinfacht und ohne Gebühren, sofern nichts anderes angegeben ist."
+      "Aktie, ETF und Future können im Chart wie ähnliche Linien aussehen. Trotzdem sind es verschiedene Produkte. Eine Aktie gibt dir einen Unternehmensanteil. Mit einem Fondsanteil bist du an einem gemeinsamen Anlageprodukt beteiligt. Ein Future ist ein Vertrag. Der Chart zeigt die Preise, aber nicht alle Rechte und Pflichten.",
+      "Drei Anzeigen tragen das Wort Gold. Die erste meint einen Goldbarren. Die zweite einen Anteil an einem Anlageprodukt. Die dritte einen Vertrag mit Goldbezug. Nur beim Barren besitzt du hier direkt die Ware. Menge, Währung und Laufzeit können bei den drei Angeboten verschieden sein.",
+      "Nutze einen Produktcheck: Was ist es? Was darf oder muss ich damit tun? Worauf bezieht sich der Preis? Welche Einheit und Währung gelten? Gibt es ein Enddatum? Welche Verluste sind möglich? Unsere Beispiele sind vereinfacht. Gebühren lassen wir weg, wenn nichts anderes dasteht."
     ],
     "columns": [
       {
@@ -50,9 +50,9 @@ const drafts = [
     "title": "Aktien: ein Anteil an einem Unternehmen",
     "summary": "Beteiligung ist etwas anderes als ein Kredit.",
     "paragraphs": [
-      "Eine Aktie steht für einen Anteil am Eigenkapital eines Unternehmens. Eigenkapital ist das Kapital der Eigentümer. Mit der Aktie sind Rechte verbunden, die von der Aktienart abhängen können, etwa Beteiligung an beschlossenen Ausschüttungen oder ein Stimmrecht. Du besitzt dadurch nicht ein frei herausnehmbares Stück des Firmengebäudes.",
-      "Unser erfundenes Unternehmen hat 10.000 gleichartige Aktien. Du hältst 100 davon und damit 1 % dieser Aktien. Das sagt zunächst etwas über deinen Anteil aus. Es verspricht dir weder 1 % der Einnahmen auf deinem Konto noch eine bestimmte jährliche Auszahlung. Einnahmen, Kosten, Gewinne und Ausschüttungen sind verschiedene Größen.",
-      "Eine gewöhnliche Aktie besitzt keinen festen Rückzahlungstermin wie ein zeitlich begrenzter Kredit. Willst du aussteigen, verkaufst du sie gewöhnlich am Markt, sofern eine Ausführung zustande kommt. Dein Verkaufspreis kann höher oder niedriger als dein Kaufpreis sein."
+      "Eine Aktie ist ein Anteil am Eigenkapital eines Unternehmens. Eigenkapital meint hier das Kapital seiner Eigentümer. Je nach Aktienart hast du bestimmte Rechte. Du darfst vielleicht abstimmen oder erhältst eine beschlossene Auszahlung. Du kannst dir aber kein Stück des Firmengebäudes mitnehmen.",
+      "Unser erfundenes Unternehmen hat 10.000 gleichartige Aktien. Dir gehören 100. Rechne 100 / 10.000 = 0,01, also 1 %. Du hältst damit 1 % dieser Aktien. Das verspricht dir nicht 1 % der Einnahmen als Auszahlung. Einnahmen, Kosten, Gewinn und Auszahlungen sind verschiedene Dinge.",
+      "Eine gewöhnliche Aktie hat keinen festen Rückzahlungstag. Möchtest du aussteigen, verkaufst du sie normalerweise an einen anderen Käufer. Dafür muss ein Handel zustande kommen. Der neue Preis kann über oder unter deinem Kaufpreis liegen."
     ],
     "columns": [
       {
@@ -94,9 +94,9 @@ const drafts = [
     "title": "Aktien: Kursgewinn und Dividende unterscheiden",
     "summary": "Die gesamte Veränderung hat mehrere Bestandteile.",
     "paragraphs": [
-      "Der Kurs ist der gehandelte Preis einer Aktie. Eine Dividende ist eine beschlossene Ausschüttung an Aktionäre. Unternehmen können Gewinne behalten, ausschütten oder zeitweise keine Dividende zahlen. Ein hoher früherer Ausschüttungsbetrag garantiert keinen gleich hohen künftigen Betrag.",
-      "Du kaufst in einem erfundenen Beispiel eine Aktie für 40 Euro, erhältst während deiner Haltedauer 1 Euro Dividende und verkaufst später für 43 Euro. Ohne Gebühren und Steuern beträgt das Ergebnis 43 − 40 + 1 = 4 Euro. Bezogen auf die eingesetzten 40 Euro sind das 10 %. Das ist eine Gesamtrechnung für diesen Beispielzeitraum.",
-      "Die Dividende ist kein zusätzliches Geschenk ohne Preisbezug. Wenn eine Aktie ohne den bevorstehenden Ausschüttungsanspruch gehandelt wird, wirkt sich das unter sonst gleichen Bedingungen auf ihren Wert aus. Gleichzeitig können andere Nachrichten den Kurs bewegen. Betrachte deshalb Kursveränderung und erhaltene Zahlungen gemeinsam."
+      "Der Kurs ist der gehandelte Preis einer Aktie. Eine Dividende ist eine beschlossene Auszahlung an Aktionäre. Aktionäre sind Menschen oder Organisationen mit Aktien. Ein Unternehmen kann Gewinne behalten oder einen Teil auszahlen. Frühere Dividenden garantieren keine späteren Zahlungen.",
+      "Du kaufst eine Aktie für 40 Euro. Später erhältst du 1 Euro Dividende und verkaufst für 43. Der Kursgewinn ist 43 − 40 = 3 Euro. Dazu kommt 1 Euro Auszahlung. Zusammen sind es 4 Euro vor Gebühren und Steuern. Rechne 4 / 40 = 0,10: Das sind 10 % deines Kaufpreises.",
+      "Eine Dividende entsteht nicht ohne Einfluss auf den Wert der Aktie. Nach dem Wegfall des Auszahlungsanspruchs ist die Aktie unter sonst gleichen Bedingungen weniger wert. Gleichzeitig können Nachrichten den Kurs ändern. Betrachte deshalb Kursveränderung und erhaltene Auszahlungen gemeinsam. Die 10 % gelten nur für diesen Beispielzeitraum."
     ],
     "columns": [
       {
@@ -138,9 +138,9 @@ const drafts = [
     "title": "Anleihen: Geld leihen statt Miteigentümer werden",
     "summary": "Eine Schuldverschreibung hat Zahlungsbedingungen.",
     "paragraphs": [
-      "Eine Anleihe ist eine Schuldverschreibung. Ihr Herausgeber, der Emittent, verpflichtet sich zu Zahlungen nach den Vertragsbedingungen. Unternehmen oder Staaten können so Geld aufnehmen. Als Anleihehalter bist du Gläubiger: Du hast einen Zahlungsanspruch, keine gewöhnliche Beteiligung am Eigenkapital.",
-      "Eine einfache festverzinsliche Beispielanleihe hat 1.000 Euro Nennwert, einen jährlichen Kupon von 3 % und eine Laufzeit von fünf Jahren. Nennwert ist hier der Betrag, auf den sich die vereinbarte Zinszahlung und Rückzahlung beziehen. Kupon bezeichnet den vertraglichen Zins. Bei vertragsgemäßer Zahlung sind das 30 Euro pro Jahr und am Laufzeitende 1.000 Euro Rückzahlung.",
-      "Das Beispiel gilt für diesen einfachen Vertrag. Es gibt auch Anleihen mit anderen Zins- oder Rückzahlungsregeln. Und ein vertraglicher Anspruch garantiert nicht, dass der Emittent tatsächlich zahlen kann. Preis, Vertrag und Zahlungsfähigkeit müssen getrennt beurteilt werden."
+      "Mit einer Anleihe verleihst du Geld nach festen Vertragsbedingungen. Der Herausgeber heißt Emittent. Das kann ein Unternehmen oder Staat sein. Du bist dann Gläubiger: Jemand schuldet dir Zahlungen. Du wirst dadurch nicht zum gewöhnlichen Miteigentümer des Unternehmens.",
+      "Unsere einfache Anleihe hat 1.000 Euro Nennwert. Nennwert ist der vertragliche Grundbetrag. Der jährliche Zins heißt Kupon und beträgt 3 %. Also sind 1.000 × 0,03 = 30 Euro Zins pro Jahr vorgesehen. Nach fünf Jahren sollen die 1.000 Euro zurückgezahlt werden.",
+      "Die Zahlungen gelten nach den Regeln dieses Vertrags. Andere Anleihen können anders funktionieren. Ein Vertrag garantiert außerdem nicht, dass der Schuldner zahlen kann. Prüfe deshalb Vertragsregeln, Marktpreis und Zahlungsfähigkeit getrennt. Ein Anspruch auf Geld ist nicht schon das erhaltene Geld."
     ],
     "columns": [
       {
@@ -182,9 +182,9 @@ const drafts = [
     "title": "Kupon und Rendite sind nicht dieselbe Zahl",
     "summary": "Der Kaufpreis verändert das Verhältnis.",
     "paragraphs": [
-      "Der Kupon unserer Beispielanleihe wird aus dem Nennwert berechnet. Der Marktpreis kann davon abweichen. Deshalb beschreibt der Kupon allein nicht deine Rendite auf den tatsächlich gezahlten Betrag. Rendite setzt Ertrag und eingesetztes Kapital ins Verhältnis; für eine vollständige Rechnung spielt auch der Zeitpunkt der Zahlungen eine Rolle.",
-      "Eine Anleihe mit 1.000 Euro Nennwert und 30 Euro jährlichem Kupon wird im vereinfachten Beispiel für 950 Euro gekauft. Die laufende Verzinsung aus dem Kupon beträgt 30 / 950, also rund 3,16 %. Das ist noch keine vollständige Rendite bis zum Laufzeitende: Die mögliche Rückzahlung zu 1.000, Restlaufzeit und weitere Zahlungsdetails gehören ebenfalls dazu.",
-      "Anleihekurse werden häufig in Prozent des Nennwerts angezeigt. Ein Kurs von 95 bedeutet dann 95 % und bei 1.000 Euro Nennwert 950 Euro, nicht 95 Euro. Unsere Rechnung lässt Stückzinsen, also bereits aufgelaufene Zinsen zwischen Zahlungsterminen, und Kosten ausdrücklich weg."
+      "Der Kupon ist der vereinbarte Zins einer Anleihe. Er wird hier vom Nennwert berechnet. Dein Kaufpreis kann aber höher oder niedriger sein. Deshalb ist der Kupon nicht automatisch deine Rendite. Rendite setzt einen Ertrag ins Verhältnis zum eingesetzten Geld und zum Zeitraum.",
+      "Die Anleihe hat 1.000 Euro Nennwert und zahlt jährlich 30 Euro. Du kaufst sie für 950. Rechne 30 / 950 ≈ 0,0316: Der Jahreszins beträgt etwa 3,16 % deines Kaufpreises. Das heißt laufende Verzinsung. Für die vollständige Rendite fehlen noch Restlaufzeit und mögliche Rückzahlung zu 1.000.",
+      "Ein Anleihekurs von 95 kann 95 % des Nennwerts meinen. Bei 1.000 Euro sind das 950, nicht 95 Euro. Unsere Rechnung lässt Gebühren und Stückzinsen weg. Stückzinsen sind Zinsen, die seit dem letzten Zahlungstermin bereits angelaufen sind. Auch der Zahlungszeitpunkt zählt für eine vollständige Rechnung."
     ],
     "columns": [
       {
@@ -226,9 +226,9 @@ const drafts = [
     "title": "Anleihen können trotz festem Zins im Preis fallen",
     "summary": "Zinsänderung und Ausfall sind unterschiedliche Risiken.",
     "paragraphs": [
-      "Ein fester Kupon macht den Marktpreis einer Anleihe nicht fest. Stell dir eine alte Anleihe mit 30 Euro Jahreszins vor. Neue, ansonsten vergleichbare Anleihen bieten jetzt 50 Euro auf denselben Nennwert. Die alte Zahlung ist relativ weniger attraktiv; ihr Preis kann fallen. Wie stark, hängt unter anderem von Restlaufzeit und Zahlungsstruktur ab.",
-      "Das ist Zinsänderungsrisiko. Daneben steht das Ausfallrisiko: Der Emittent kann Zahlungen verspätet, teilweise oder gar nicht leisten. Auch ein staatlicher Emittent beseitigt dieses Risiko nicht automatisch. Zusätzlich kann der Verkauf schwierig sein, wenn nur wenig handelbare Menge verfügbar ist.",
-      "Wer vor Fälligkeit verkauft, erhält den tatsächlich ausführbaren Marktpreis. Wer bis zur Fälligkeit hält, ist weiterhin auf die vertraglichen Zahlungen angewiesen. „Festverzinslich“ beschreibt bestimmte Zinsbedingungen; es bedeutet nicht „jederzeit ohne Wertverlust verkäuflich“."
+      "Ein fester Zins macht den Verkaufspreis einer Anleihe nicht fest. Die alte Anleihe zahlt zum Beispiel 30 Euro pro Jahr. Neue, sonst vergleichbare Anleihen zahlen nun 50. Dann ist die alte Zahlung weniger attraktiv. Ihr Marktpreis kann fallen. Restlaufzeit und weitere Zahlungsregeln beeinflussen, wie stark.",
+      "Das heißt Zinsänderungsrisiko. Daneben gibt es Ausfallrisiko: Der Schuldner zahlt vielleicht zu spät, nur teilweise oder gar nicht. Auch ein Staat kann Zahlungsschwierigkeiten haben. Außerdem brauchst du für einen Verkauf einen passenden Käufer. Wenige Angebote können den Verkauf erschweren.",
+      "Verkaufst du vor dem Endtermin, bekommst du den tatsächlich möglichen Marktpreis. Hältst du bis zum Ende, bist du weiterhin auf die vereinbarten Zahlungen angewiesen. Festverzinslich beschreibt die Zinsregeln. Es bedeutet nicht, dass du jederzeit ohne Verlust verkaufen kannst."
     ],
     "columns": [
       {
@@ -270,9 +270,9 @@ const drafts = [
     "title": "Fonds: viele Anlagen in einem gemeinsamen Produkt",
     "summary": "Du kaufst einen Fondsanteil.",
     "paragraphs": [
-      "Ein Investmentfonds bündelt Geld und setzt es nach seinen Anlagebedingungen ein. Er kann beispielsweise Aktien, Anleihen oder eine Mischung halten. Du erwirbst einen Fondsanteil. Damit bist du wirtschaftlich an der Entwicklung des Fonds beteiligt; du hältst nicht automatisch jede enthaltene Aktie als einzelnen eigenen Depotposten.",
-      "Unser erfundener Fonds hat Vermögenswerte von 100.000 Euro und Verpflichtungen von 2.000 Euro. Sein Nettovermögen beträgt 98.000 Euro. Sind 1.000 Anteile ausgegeben, ergibt das rechnerisch 98 Euro Nettovermögen je Anteil. Der Nettoinventarwert beschreibt dieses Verhältnis. Ein tatsächlicher Kauf- oder Verkaufspreis kann je nach Fonds und Handelsweg davon abweichen.",
-      "Die Mischung kann Risiken verteilen, beseitigt aber keine gemeinsamen Risiken. Ein Fonds mit vielen ähnlichen Technologieunternehmen bleibt stark von diesem Bereich abhängig. Lies deshalb Anlageziel, enthaltene Risiken und Kosten. Die Zahl der Positionen allein sagt nicht, wie breit wirklich gestreut wird."
+      "Ein Investmentfonds sammelt Geld und legt es nach bestimmten Regeln an. Er kann etwa Aktien, Anleihen oder beides halten. Du kaufst einen Fondsanteil. Seine Entwicklung hängt vom Fonds ab. Die einzelnen enthaltenen Aktien stehen dadurch nicht automatisch als deine eigenen Aktien im Depot. Das Depot ist dein Wertpapierkonto.",
+      "Unser Fonds hat Anlagen für 100.000 Euro und schuldet 2.000. Ziehe die Schulden ab: 98.000 bleiben. Das ist sein Nettovermögen. Bei 1.000 Anteilen entfallen 98.000 / 1.000 = 98 Euro auf jeden Anteil. Dieser rechnerische Wert heißt Nettoinventarwert. Ein tatsächlicher Handelspreis kann davon abweichen.",
+      "Viele Anlagen können Risiken verteilen. Sie beseitigen sie nicht. Ein Fonds mit vielen Technikfirmen hängt weiterhin stark von dieser Branche ab. Prüfe deshalb, was er kauft und was es kostet. Die bloße Zahl der Anlagen zeigt noch nicht, wie verschieden ihre Risiken sind."
     ],
     "columns": [
       {
@@ -314,9 +314,9 @@ const drafts = [
     "title": "ETFs: Fondsanteile, die an der Börse handeln",
     "summary": "Die Handelsform sagt nicht alles über den Inhalt.",
     "paragraphs": [
-      "ETF steht für Exchange Traded Fund, also börsengehandelter Fonds. Seine Anteile können während der jeweiligen Handelszeiten an der Börse gekauft oder verkauft werden. Der Preis entsteht im Handel. Der Nettoinventarwert ist dagegen der rechnerische Wert der Fondsanlagen abzüglich Verpflichtungen je Anteil; beide Größen müssen nicht jederzeit identisch sein.",
-      "Viele ETFs verfolgen einen Index. Andere werden aktiv verwaltet, also nach Entscheidungen einer Verwaltung statt einer reinen Indexnachbildung. Ein ETF kann Aktien, Anleihen oder andere Anlagekonzepte betreffen. Das Wort ETF erklärt daher zunächst eine Produkt- und Handelsform; es sagt nicht automatisch „breiter Aktienmarkt“.",
-      "Auch die Nachbildung kann unterschiedlich erfolgen: Ein Fonds kann Anlagen direkt halten oder für Teile der gewünschten Wertentwicklung Verträge einsetzen. Das verändert seine Struktur und Risiken. Für den Einstieg reichen drei Fragen: Was verfolgt der Fonds? Wie setzt er es um? Welche laufenden Kosten und Handelskosten entstehen?"
+      "ETF steht für Exchange Traded Fund. Auf Deutsch: börsengehandelter Fonds. Seine Anteile können während der passenden Handelszeiten an der Börse gekauft und verkauft werden. Dort entsteht der Handelspreis. Der Nettoinventarwert ist dagegen der berechnete Anteilwert. Beide Zahlen können voneinander abweichen.",
+      "Viele ETFs folgen einem Index. Das ist eine Kennzahl für eine Gruppe von Anlagen. Andere ETFs werden aktiv verwaltet: Menschen entscheiden über ihre Anlagen. ETFs können Aktien, Anleihen oder andere Konzepte betreffen. ETF heißt deshalb nicht automatisch breit gemischter Aktienfonds.",
+      "Ein Fonds kann passende Anlagen direkt halten. Er kann auch Verträge für Teile der gewünschten Wertentwicklung einsetzen. Das sind verschiedene Wege mit eigenen Risiken. Frage deshalb: Was möchte der Fonds abbilden? Wie macht er das? Welche laufenden Gebühren und Handelskosten entstehen? Auch der Spread, der Abstand zwischen Kauf- und Verkaufsangebot, gehört dazu."
     ],
     "columns": [
       {
@@ -358,9 +358,9 @@ const drafts = [
     "title": "Ein Index misst; ein Produkt macht ihn handelbar",
     "summary": "Kennzahl und Finanzinstrument sind verschieden.",
     "paragraphs": [
-      "Ein Index fasst die Entwicklung ausgewählter Werte nach bestimmten Regeln zusammen. Diese Regeln bestimmen Auswahl, Gewichtung und Berechnung. Der angezeigte Indexstand ist eine Kennzahl. Du kannst die Kennzahl selbst nicht wie eine gewöhnliche Aktie besitzen.",
-      "Denk an ein Thermometer: Der Messwert beschreibt eine Situation, ist aber kein Gegenstand, den du als „23 Grad“ kaufen kannst. Beim Index können Fonds oder Verträge die gemessene Entwicklung als Bezug verwenden. Ein Index-ETF, ein Index-Future und ein Index-CFD sind dabei verschiedene Produkte.",
-      "Ein Preisindex erfasst im Grundsatz die Kursentwicklung; ein Gesamtertragsindex berücksichtigt nach seinen Regeln zusätzlich Ausschüttungen. Deshalb können selbst Indizes auf ähnliche Unternehmen unterschiedlich verlaufen. Lies, welche Berechnung gemeint ist, bevor du Zahlen vergleichst."
+      "Ein Index ist eine berechnete Kennzahl. Er fasst die Entwicklung ausgewählter Anlagen zusammen. Regeln legen fest, welche dazugehören und wie stark jede zählt. Diese Stärke heißt Gewichtung. Der Indexstand ist keine Aktie, die du direkt besitzen kannst.",
+      "Denk an ein Thermometer. Es zeigt zum Beispiel 23 Grad. Die Zahl beschreibt etwas, ist aber kein Gegenstand zum Kaufen. Ähnlich verwenden Finanzprodukte einen Index als Bezug. Ein Index-ETF ist ein Fonds. Ein Index-Future oder Index-CFD ist dagegen ein Vertrag. Die genaue Bedeutung dieser Verträge folgt noch.",
+      "Ein Preisindex zeigt grundsätzlich die Kursentwicklung. Ein Gesamtertragsindex berücksichtigt nach seinen Regeln auch Auszahlungen. Deshalb können zwei Indizes auf ähnliche Firmen verschieden verlaufen. Prüfe die Berechnung, bevor du ihre Zahlen vergleichst."
     ],
     "columns": [
       {
@@ -402,9 +402,9 @@ const drafts = [
     "title": "Ausschütten oder wiederanlegen",
     "summary": "Die Verwendung von Erträgen verändert nicht ihre Herkunft.",
     "paragraphs": [
-      "Ein ausschüttender Fonds zahlt nach seinen Bedingungen Erträge an seine Anteilhalter aus. Ein thesaurierender Fonds behält Erträge im Fonds und legt sie wieder an. Thesaurieren bedeutet hier also Wiederanlegen. Beide Wege ändern die Verwendung der Erträge, nicht die ursprünglichen Risiken der Anlagen.",
-      "Im vereinfachten Beispiel hat ein Anteil vor einer Ausschüttung einen Wert von 100 Euro. Werden 2 Euro ausgezahlt, läge sein Wert unter sonst gleichen Bedingungen danach bei 98 Euro; daneben besitzt du 2 Euro ausgezahltes Geld. Bei Wiederanlage verbleibt der Ertrag im Fonds. Die Ausschüttung schafft nicht aus dem Nichts 2 Euro zusätzlichen Gesamtwert.",
-      "In der Realität können gleichzeitig Kurse schwanken. Deshalb lässt sich die ganze Tagesbewegung nicht immer nur der Auszahlung zuschreiben. Vergleiche für deine Lerngrafiken Gesamtwert und Zahlungen gemeinsam. Steuern und konkrete Abwicklung behandeln wir in dieser vereinfachten Produktübersicht nicht."
+      "Ein Fonds kann Erträge auszahlen oder im Fonds behalten. Erträge sind zum Beispiel erhaltene Zinsen oder Dividenden. Beim Behalten werden sie wieder angelegt. Das Fachwort dafür ist thesaurieren. Beide Wege nutzen Erträge. Keiner entfernt die Risiken der Anlagen.",
+      "Ein Anteil ist im Beispiel vor einer Auszahlung 100 Euro wert. Der Fonds zahlt 2 Euro aus. Wenn sich sonst nichts ändert, ist der Anteil danach 98 wert. Dazu hast du 2 Euro Geld erhalten. Zusammen bleiben 100. Bei Wiederanlage bleibt der Ertrag im Fonds.",
+      "In Wirklichkeit können gleichzeitig die Kurse schwanken. Die Tagesveränderung liegt deshalb nicht immer nur an der Auszahlung. Vergleiche Anteilwert und erhaltenes Geld gemeinsam. Steuern und die genauen Zahlungsschritte lassen wir in diesem einfachen Beispiel weg."
     ],
     "columns": [
       {
@@ -446,9 +446,9 @@ const drafts = [
     "title": "Währungen: immer eine Währung gegen eine andere",
     "summary": "Ein Wechselkurs ist ein Verhältnis.",
     "paragraphs": [
-      "Beim Währungstausch gibst du eine Währung ab und erhältst eine andere. Darum wird ein Wechselkurs als Paar angegeben. In EUR/USD ist der Euro die Basiswährung und der US-Dollar die Preiswährung. Ein Kurs von 1,20 bedeutet: Ein Euro entspricht 1,20 US-Dollar in dieser Kursangabe.",
-      "Ohne Spread und Kosten ergeben 100 Euro bei 1,20 genau 120 US-Dollar. Steigt EUR/USD auf 1,25, entspricht ein Euro mehr US-Dollar als zuvor. In dieser Paarangabe ist der Euro relativ zum Dollar stärker geworden. Das sagt nicht, dass der Euro gleichzeitig gegen jede andere Währung stärker ist.",
-      "Die Reihenfolge ist entscheidend. Das umgekehrte Verhältnis USD/EUR wäre bei EUR/USD 1,20 ungefähr 0,8333, also 1 / 1,20. Ein anderer Zahlenwert muss daher nicht eine andere wirtschaftliche Situation bedeuten. Lies immer, welche Währung als eine Einheit gesetzt wird."
+      "Bei einem Währungstausch gibst du eine Währung ab und bekommst eine andere. Der Wechselkurs zeigt ihr Verhältnis. In EUR/USD steht der Euro zuerst. Er heißt Basiswährung. Der Dollar steht danach und heißt Preiswährung. Ein Kurs von 1,20 bedeutet: Ein Euro entspricht 1,20 US-Dollar.",
+      "Ohne Gebühren ergeben 100 Euro bei diesem Kurs 120 Dollar. Steigt EUR/USD auf 1,25, erhältst du rechnerisch mehr Dollar für einen Euro. Der Euro ist gegenüber dem Dollar stärker geworden. Das sagt noch nichts über sein Verhältnis zu anderen Währungen.",
+      "Die Reihenfolge ist wichtig. Umgekehrt wäre USD/EUR etwa 0,8333. Du rechnest 1 / 1,20. Dann entspricht ein Dollar etwa 0,8333 Euro. Die andere Zahl beschreibt hier dieselbe Lage aus der umgekehrten Sicht."
     ],
     "columns": [
       {
@@ -490,9 +490,9 @@ const drafts = [
     "title": "Devisentausch und Devisentrading unterscheiden",
     "summary": "Derselbe Wechselkurs kann in verschiedene Produkte eingehen.",
     "paragraphs": [
-      "Du kannst Euro in Dollar tauschen, um später eine Rechnung in Dollar zu bezahlen. In diesem einfachen Kassageschäft erhältst du die andere Währung nach der vereinbarten Abwicklung. Kassa beschreibt hier das gewöhnliche Geschäft mit zeitnaher Erfüllung, nicht zwingend einen physischen Bargeldtausch.",
-      "Eine Tradingplattform kann dagegen einen Vertrag auf das Währungspaar anbieten. Das kann beispielsweise ein Future oder ein CFD sein. Dann bestimmt der Vertrag, wie Gewinne und Verluste abgerechnet werden. Der sichtbare Wechselkurs allein beweist nicht, dass ein frei verwendbares Dollar-Guthaben entsteht.",
-      "Beispiel: Miriam tauscht Geld für eine Reise. Robert handelt einen Vertrag mit Bezug auf EUR/USD. Beide interessieren sich für dasselbe Verhältnis, gehen aber unterschiedliche Geschäfte ein. Prüfe deshalb ausdrücklich, ob du Währung erhältst oder eine Position in einem Vertrag eingehst."
+      "Du tauschst Euro in Dollar, um später etwas in Dollar zu bezahlen. Dann bekommst du die andere Währung nach der vereinbarten Abwicklung. Abwicklung bedeutet: Die vereinbarten Leistungen werden erbracht. Dieses zeitnah erfüllte Geschäft heißt Kassageschäft. Es muss kein Austausch von Geldscheinen sein.",
+      "Eine Tradingplattform kann stattdessen einen Vertrag auf das Währungspaar anbieten. Beispiele sind Future und CFD. Dann regelt der Vertrag, wie Gewinne und Verluste bezahlt werden. Der Wechselkurs auf dem Bildschirm beweist nicht, dass du frei verwendbare Dollar bekommst.",
+      "Miriam tauscht Geld für ihre Reise. Robert handelt einen Vertrag mit Bezug auf EUR/USD. Beide schauen auf denselben Wechselkurs, machen aber verschiedene Geschäfte. Prüfe: Erhalte ich die Währung? Oder gehe ich eine Vertragsposition ein? Eine Position meint hier ein gehaltenes Geschäft mit seinen Rechten und Pflichten."
     ],
     "columns": [
       {
@@ -534,9 +534,9 @@ const drafts = [
     "title": "Derivate: Verträge mit einer Bezugsgröße",
     "summary": "Ein Bezug ist noch kein Besitz.",
     "paragraphs": [
-      "Ein Derivat ist ein Vertrag, dessen Wert oder Zahlungen von einer Bezugsgröße abhängen. Diese Bezugsgröße wird häufig Basiswert genannt. Das kann eine Aktie, ein Rohstoff oder eine Währung sein, aber auch eine Kennzahl wie ein Index oder Zinssatz.",
-      "Stell dir einen Vertrag vor, der bei einer Änderung eines Aktienindex Zahlungen vorsieht. Du hältst damit nicht automatisch alle im Index enthaltenen Unternehmensanteile. Du hältst eine Vertragsposition. Ob Rechte, Pflichten, Lieferung oder Geldzahlung entstehen, steht in den Bedingungen.",
-      "Derivate können zur Absicherung oder zum bewussten Eingehen von Preisrisiken genutzt werden. Sie sind nicht allein durch ihren Namen eine bestimmte Strategie. Für dieses Kapitel unterscheiden wir vor allem Futures, Optionen und CFDs. Jeder dieser Verträge besitzt eigene Regeln."
+      "Ein Derivat ist ein Vertrag, dessen Wert von etwas anderem abhängt. Das kann zum Beispiel eine Aktie, ein Index oder eine Währung sein. Diese Bezugsgröße heißt Basiswert. Du kannst einen Vertrag auf eine Aktie halten, ohne die Aktie selbst zu besitzen.",
+      "Stell dir einen Vertrag vor, dessen Auszahlung vom Goldpreis abhängt. Die Vertragsregeln legen fest, wie Preisänderungen in Geld umgerechnet werden. Sie bestimmen auch Laufzeit und Pflichten. Der Name des Basiswerts reicht deshalb nicht aus, um das Geschäft zu verstehen.",
+      "Futures, Optionen und CFDs sind verschiedene Arten solcher Verträge. Sie haben unterschiedliche Regeln. Frage zuerst: Worauf bezieht sich der Vertrag? Was darf oder muss ich tun? Wann endet er? Wie entstehen Gewinne und Verluste? Ein ähnlicher Basiswert bedeutet nicht dasselbe Risiko."
     ],
     "columns": [
       {
@@ -578,9 +578,9 @@ const drafts = [
     "title": "Futures: standardisierte Terminkontrakte",
     "summary": "Bedingungen werden für die Kontraktart festgelegt.",
     "paragraphs": [
-      "Ein Future ist ein standardisierter, an einer Terminbörse gehandelter Vertrag. Seine Bedingungen legen unter anderem Basiswert, Kontraktgröße, Preisraster und Abrechnung fest. Standardisiert heißt: Du handelst nicht bei jeder Order eine individuelle Vertragsgröße neu aus.",
-      "Ein erfundener Index-Future hat einen Multiplikator von 2 Euro je Indexpunkt. Bei einem Stand von 5.000 Punkten beträgt sein rechnerischer Nominalwert 10.000 Euro. Der Nominalwert beschreibt hier den wirtschaftlichen Bezug der Position; er ist nicht automatisch der Betrag, den du als Sicherheitsleistung hinterlegen musst.",
-      "Ein Forward ist ebenfalls ein Termingeschäft, wird aber typischerweise zwischen Beteiligten mit individuell vereinbarten Bedingungen geschlossen. Diese erste Abgrenzung reicht hier: Terminvereinbarung ist die gemeinsame Idee, Standardisierung und Handelsorganisation unterscheiden die Formen."
+      "Ein Future ist ein Vertrag für einen späteren Termin. Seine Bedingungen sind weitgehend festgelegt. Das heißt standardisiert. Zu den Bedingungen gehören die Bezugsgröße, die Größe eines Vertrags und der Termin. Solche Verträge werden an dafür vorgesehenen Börsen gehandelt.",
+      "Unser erfundener Index-Future steht bei 5.000 Punkten. Für jeden Punkt gelten 2 Euro je Vertrag. Dieser Umrechnungsfaktor heißt Multiplikator. Dieser rechnerische Vertragswert heißt Nominalwert. Er beträgt deshalb 5.000 × 2 = 10.000 Euro. Ein Vertrag bezieht sich also auf diesen Wert.",
+      "Die 10.000 Euro sind nicht automatisch der Betrag, den du sofort auf das Konto einzahlen musst. Dafür gibt es eigene Regeln zur Sicherheitsleistung. Trotzdem können Preisänderungen große Geldbeträge bewegen. Prüfe deshalb immer, wie viel ein Punkt bei genau diesem Vertrag wert ist."
     ],
     "columns": [
       {
@@ -607,7 +607,7 @@ const drafts = [
         "explanation": "Nominalwert und Margin werden unterschiedlich bestimmt."
       },
       {
-        "label": "10.000 Euro wirtschaftlicher Bezug.",
+        "label": "10.000 Euro rechnerischer Vertragswert.",
         "explanation": "Richtig: Indexstand mal Multiplikator ergibt den Nominalwert."
       },
       {
@@ -622,9 +622,9 @@ const drafts = [
     "title": "Futures: Laufzeit und Abrechnung gehören zum Produkt",
     "summary": "Lieferung und Geldabrechnung sind verschiedene Formen.",
     "paragraphs": [
-      "Ein Terminkontrakt gehört zu einer festgelegten Laufzeit beziehungsweise einem Abrechnungstermin. Je nach Produkt sehen die Bedingungen eine Lieferung oder eine Geldabrechnung vor. Geldabrechnung bedeutet: Der vereinbarte Wertausgleich erfolgt in Geld. Lieferung bedeutet: Die vertraglich bestimmte Sache oder das Instrument wird nach den Regeln übertragen.",
-      "Bei einem Rohstoff-Future kann die Erfüllung eine konkrete Ware mit bestimmten Qualitäts- und Lieferbedingungen betreffen. Ein Index-Future kann dagegen in Geld abgerechnet werden; einen Index als Kennzahl kann niemand in einer Kiste liefern. Maßgeblich sind stets die konkreten Bedingungen.",
-      "Eine Position kann häufig vor dem Ende durch ein Gegengeschäft im selben Kontrakt geschlossen werden. Wer in eine spätere Laufzeit wechseln möchte, schließt die alte Position und eröffnet eine neue; das heißt Rollen. Es ist kein kostenloses Verlängern desselben Vertrags. Preise, Kosten und Handelsfähigkeit können sich unterscheiden."
+      "Ein Future hat einen festgelegten Endtermin. Dann wird er nach seinen Vertragsregeln abgerechnet. Manche Verträge verlangen eine Lieferung, etwa von einer Ware. Andere rechnen nur einen Geldbetrag ab. Das heißt Barausgleich. Ein Index lässt sich zum Beispiel nicht als Gegenstand liefern.",
+      "Du kannst eine Position oft schon vorher durch ein entgegengesetztes Geschäft schließen. Das bedeutet: Du beendest das gehaltene Geschäft nach den geltenden Regeln. Ob und zu welchem Preis das gelingt, hängt vom Markt ab. Der Endtermin bleibt wichtig, solange die Position offen ist.",
+      "Willst du über den Endtermin hinaus weiter handeln, kannst du einen später endenden Vertrag nutzen. Den Wechsel nennt man Rollen. Dabei wird der alte Vertrag geschlossen und ein neuer eröffnet. Beide können verschiedene Preise haben. Der Wechsel kann Kosten verursachen und ist keine kostenlose Verlängerung."
     ],
     "columns": [
       {
@@ -666,9 +666,9 @@ const drafts = [
     "title": "Margin: Sicherheitsleistung statt Kaufpreis",
     "summary": "Der hinterlegte Betrag ist keine Verlustobergrenze.",
     "paragraphs": [
-      "Bei einem Future wird eine Sicherheitsleistung verlangt, die Margin heißt. Sie dient zur Absicherung der Verpflichtungen. Sie ist weder eine Anzahlung auf ein gewöhnliches Eigentumsrecht noch eine Garantie, dass Verluste auf diesen Betrag begrenzt bleiben.",
-      "Unser erfundener Future bewegt 2 Euro je Punkt. Für die Beispielposition werden 500 Euro Margin verlangt. Ein Rückgang um 100 Punkte verursacht bei einer Kaufposition 200 Euro Verlust vor Kosten. Ein Rückgang um 300 Punkte verursacht 600 Euro. Die Preiswirkung kommt vom Multiplikator, nicht von der Höhe der hinterlegten Margin.",
-      "Gewinne und Verluste werden nach den Abrechnungsregeln berücksichtigt; Anforderungen können sich ändern. Zusätzliche Mittel oder eine Schließung können nötig werden. Hebel beschreibt hier, dass der wirtschaftliche Bezug größer als das gebundene Kapital sein kann. Er verstärkt relativ zum eingesetzten Kapital sowohl Gewinne als auch Verluste."
+      "Bei einem Future musst du eine Sicherheitsleistung bereitstellen. Sie heißt Margin. Sie soll helfen, Verluste abzudecken. Sie ist kein Kaufpreis und begrenzt deinen möglichen Verlust nicht automatisch. Bei Verlusten kann zusätzliche Sicherheit nötig werden.",
+      "Unser Beispiel verlangt 500 Euro Margin für einen Vertrag. Ein Punkt ist 2 Euro wert. Bewegt sich der Kurs um 100 Punkte gegen dich, verlierst du 100 × 2 = 200 Euro. Bei 300 Punkten sind es 300 × 2 = 600 Euro. Das ist mehr als die anfänglichen 500 Euro.",
+      "Ein großer Vertragswert kann somit einer kleineren Sicherheitsleistung gegenüberstehen. Das nennt man Hebelwirkung. Schon eine kleine Preisänderung kann im Verhältnis zur eingezahlten Sicherheit viel ausmachen. Das gilt für Gewinne und Verluste. Berechne das Risiko aus dem Vertrag, nicht nur aus der Margin."
     ],
     "columns": [
       {
@@ -710,9 +710,9 @@ const drafts = [
     "title": "Optionen: ein Recht auf bestimmte Bedingungen",
     "summary": "Käufer und Verkäufer tragen unterschiedliche Rollen.",
     "paragraphs": [
-      "Eine Option gibt ihrem Käufer ein Recht nach festgelegten Bedingungen. Ein Call bezieht sich auf das Recht zu kaufen, ein Put auf das Recht zu verkaufen. Der festgelegte Preis heißt Ausübungspreis oder Strike. Welche Ausübung und Abrechnung möglich sind, hängt vom konkreten Vertrag ab.",
-      "Der Käufer zahlt für das Recht eine Prämie. Er ist grundsätzlich nicht verpflichtet, das Recht auszuüben. Der Optionsverkäufer, auch Stillhalter genannt, übernimmt dagegen die entsprechende Verpflichtung, wenn nach den Bedingungen ausgeübt beziehungsweise abgerechnet wird. Kauf und Verkauf einer Option sind daher keine austauschbaren Rollen.",
-      "Ein steigender Basiswert kann einen Call wertvoller machen; ein fallender einen Put. Doch auch Restlaufzeit und die erwartete Schwankung beeinflussen den Optionspreis. Deshalb reicht ein kleines Plus der Aktie nicht immer, damit ein gekaufter Call insgesamt Gewinn bringt."
+      "Eine Option gibt dem Käufer ein Recht. Ein Call gibt das Recht, den Basiswert zu einem vereinbarten Preis zu kaufen. Ein Put gibt das Recht, ihn zu verkaufen. Der vereinbarte Preis heißt Ausübungspreis. Das Recht gilt nach den Regeln der Option nur für eine bestimmte Zeit.",
+      "Für dieses Recht bezahlt der Käufer einen Preis: die Optionsprämie. Er muss sein Recht nicht nutzen. Der Verkäufer der Option erhält die Prämie. Dafür übernimmt er die Pflicht, den Vertrag zu erfüllen, wenn die Regeln das verlangen. Käufer und Verkäufer haben deshalb unterschiedliche Risiken.",
+      "Der Wert einer Option hängt nicht nur vom aktuellen Preis des Basiswerts ab. Auch die verbleibende Zeit ist wichtig. Hinzu kommen Erwartungen darüber, wie stark der Preis schwanken könnte. Eine richtige Vermutung über die Kursrichtung allein garantiert deshalb keinen Gewinn mit einer Option."
     ],
     "columns": [
       {
@@ -754,9 +754,9 @@ const drafts = [
     "title": "Optionsprämie: ein richtiger Ausblick kann trotzdem Verlust ergeben",
     "summary": "Am Ende zählt der Wert abzüglich des gezahlten Preises.",
     "paragraphs": [
-      "Wir betrachten eine erfundene, vollständig bezahlte Call-Option am Verfallstag. Sie bezieht sich zur einfachen Rechnung auf genau eine Aktie, hat Strike 50 Euro und kostet 3 Euro Prämie. Eine echte Option kann sich auf mehrere Einheiten beziehen; diese Vertragsgröße müsstest du zusätzlich berücksichtigen.",
-      "Steht die Aktie am Ende bei 52 Euro, ist das Kaufrecht rechnerisch 2 Euro wert: 52 − 50. Nach der gezahlten Prämie ergibt das 2 − 3 = −1 Euro vor Kosten. Bei 55 Euro wären es 5 − 3 = +2 Euro. Der rechnerische Ausgleichspunkt liegt am Verfall bei 53 Euro, nicht schon bei 50.",
-      "Bei einem Aktienpreis von höchstens 50 hat dieses Call-Recht am Ende keinen positiven Ausübungswert; die bezahlten 3 Euro können vollständig verloren sein. Vor dem Verfall ist der Marktwert anders zusammengesetzt. Der begrenzte Verlust der bezahlten Option beschreibt außerdem nicht automatisch das Risiko einer anschließend durch Ausübung entstandenen Aktienposition."
+      "Unser erfundener Call gilt für eine Aktie. Du darfst sie für 50 Euro kaufen und zahlst dafür 3 Euro Prämie. Der Endtermin heißt auch Verfall. Wir betrachten nur diesen Termin und lassen Gebühren weg. Die folgenden Zahlen gelten genau für dieses vereinfachte Beispiel.",
+      "Steht die Aktie am Ende bei 52 Euro, ist das Kaufrecht 2 Euro wert: 52 − 50 = 2. Du hast aber 3 Euro bezahlt. Dein Ergebnis ist deshalb 2 − 3 = −1 Euro. Bei einem Aktienpreis von 55 Euro ist das Recht 5 Euro wert. Nach Abzug der Prämie bleiben 2 Euro Gewinn.",
+      "Erst bei 53 Euro deckt der Wert des Rechts die Prämie. Bei höchstens 50 Euro endet dieser Call ohne Wert. Dann verlierst du die gezahlten 3 Euro. Dieser begrenzte Verlust betrifft die gekaufte Option. Wenn du das Recht nutzt und die Aktie kaufst, entstehen neue Risiken aus der Aktie."
     ],
     "columns": [
       {
@@ -798,9 +798,9 @@ const drafts = [
     "title": "CFDs: eine vertragliche Preisdifferenz",
     "summary": "Du kaufst nicht automatisch den Basiswert.",
     "paragraphs": [
-      "CFD steht für Contract for Difference, also Differenzkontrakt. Die Beteiligten vereinbaren einen Ausgleich aus einer Preisänderung nach den Produktbedingungen. Ein CFD auf eine Aktie ist daher nicht die Aktie selbst. Er vermittelt nicht automatisch deren Eigentums- oder Stimmrechte.",
-      "Ein erfundener CFD bewegt 1 Euro je Preiseinheit. Du eröffnest eine Kaufposition bei 100 und schließt bei 106. Die reine Preisdifferenz ergibt +6 Euro; bei einer Schließung bei 96 sind es −4 Euro. Spread, weitere Gebühren und mögliche Finanzierungskosten kommen je nach Bedingungen hinzu.",
-      "CFDs werden typischerweise außerbörslich mit einem Anbieter als Vertragspartner gehandelt. Preisstellung, Gegenpartei und Bedingungen sind deshalb wichtige Teile des Produktchecks. Hinterlegte Margin und wirtschaftlicher Bezug können auseinanderliegen. Welche zusätzlichen Schutzregeln gelten, hängt vom konkreten Rahmen ab; aus dem Namen CFD allein lässt sich keine universelle Verlustgrenze ableiten."
+      "Ein CFD ist ein Vertrag über einen Preisunterschied. Du vereinbarst mit einem Anbieter, wie eine Veränderung des Basiswerts abgerechnet wird. Du besitzt dadurch nicht automatisch den Basiswert. Solche Geschäfte finden gewöhnlich außerhalb einer Börse direkt mit dem Anbieter statt.",
+      "Im Beispiel bedeutet eine Einheit: 1 Euro je Preispunkt. Du eröffnest eine Kaufposition bei 100. Beim Schließen bei 106 ergeben sich 6 Euro Gewinn. Beim Schließen bei 96 entstehen 4 Euro Verlust. Gebühren und Kosten für das Halten der Position lassen wir hier weg.",
+      "In echten Angeboten können diese Kosten wichtig sein. Auch die Preisstellung und die Vertragsbedingungen hängen vom Angebot ab. Prüfe deshalb Einheit, Abrechnung und Risiko. Verlasse dich nicht auf eine allgemeine Verlustgrenze, die du nur vom Namen CFD ableitest."
     ],
     "columns": [
       {
@@ -842,9 +842,9 @@ const drafts = [
     "title": "Future und CFD: gleicher Bezug, verschiedene Verträge",
     "summary": "Ein ähnlicher Chart ersetzt keine Vertragsprüfung.",
     "paragraphs": [
-      "Ein Index-Future und ein Index-CFD können beide auf denselben Aktienmarkt Bezug nehmen. Trotzdem unterscheiden sie sich in ihrer Organisation: Der Future ist ein standardisierter Börsenkontrakt; der CFD ist typischerweise ein Vertrag mit einem Anbieter außerhalb einer Börse. Der konkrete Preisbezug kann ebenfalls abweichen.",
-      "Beim Future prüfst du etwa Laufzeit, Multiplikator und Abrechnung. Beim CFD prüfst du unter anderem Mengeneinheit, Preisbildung und Finanzierung. Ein CFD kann sich auf einen Kassapreis oder einen Futures-Preis beziehen und entsprechende Anpassungen besitzen. Eine ähnliche Produktbezeichnung verrät diese Details noch nicht.",
-      "Auch Margin, Gebühren und Anforderungen sind gesondert zu lesen. Ein kleiner angezeigter Preis pro Einheit beweist nicht, dass die gesamte Position kleiner oder günstiger ist. Vergleiche gleiche wirtschaftliche Mengen und vollständige Kosten, bevor du Produkte als gleichwertig behandelst. Hier geht es um Verständnis, noch nicht um die Auswahl eines Anbieters."
+      "Ein Future und ein CFD können sich auf denselben Index beziehen. Trotzdem sind es verschiedene Verträge. Beim Future sind viele Bedingungen für den Börsenhandel festgelegt. Beim CFD gelten die Bedingungen des jeweiligen Anbieters. Der gemeinsame Index macht diese Unterschiede nicht unsichtbar.",
+      "Vergleiche zuerst die Einheit: Wie viele Euro bedeutet ein Punkt? Prüfe dann Laufzeit und Abrechnung. Auch Preise und Handelszeiten können sich unterscheiden. Ein Future kann einen anderen Preis haben als der aktuell angezeigte Index. Ein CFD muss ebenfalls nicht genau diesen Indexstand zeigen.",
+      "Vergleiche außerdem Gebühren und laufende Kosten. Gleiche Punktbewegungen können bei verschiedenen Vertragsgrößen verschiedene Geldbeträge ergeben. Beurteile deshalb den ganzen Vertrag. Zwei ähnlich aussehende Linien sagen noch nicht, ob Kosten, Rechte und Risiken gleich sind."
     ],
     "columns": [
       {
@@ -886,9 +886,9 @@ const drafts = [
     "title": "Rohstoffe: Ware, Fonds und Vertrag auseinanderhalten",
     "summary": "Lagerung und Vertrag sind unterschiedliche Aufgaben.",
     "paragraphs": [
-      "Bei Rohstoffen kannst du eine Ware selbst erwerben, etwa einen Goldbarren, oder ein Anlageprodukt beziehungsweise einen Vertrag mit Rohstoffbezug halten. Beim direkten Besitz sind Lagerung, Versicherung und Qualität relevant. Beim Vertrag sind es beispielsweise Kontraktgröße, Laufzeit und Erfüllung.",
-      "Ein erfundenes Ölgeschäft kann sich auf eine bestimmte Sorte, einen Lieferort und einen Termin beziehen. „Ölpreis“ ist daher keine einzige Zahl für jede Art von Öl überall und jederzeit. Ebenso ist ein Rohstoff-Anlageprodukt mit Futures-Bezug nicht identisch mit einem Tank voller Ware.",
-      "Ein Produkt, das seine Rohstoffposition regelmäßig in neue Futures-Laufzeiten verlagert, kann anders verlaufen als der heute beobachtete Kassapreis. Die Preise verschiedener Liefertermine und die Wechselkosten tragen dazu bei. Für den Anfang genügt: Ware, Bezugsgröße und Produktstruktur getrennt benennen."
+      "Rohstoffe sind zum Beispiel Gold, Öl oder Weizen. Wer die Ware selbst besitzt, muss sich auch um praktische Fragen kümmern. Bei Weizen gehören dazu Qualität und Lagerung. Bei Öl spielen Transport und Lieferort eine Rolle. Ein Preis ohne diese Angaben beschreibt die Ware nur unvollständig.",
+      "Ein Rohstoffvertrag legt fest, auf welche Ware er sich bezieht. Dazu können eine bestimmte Qualität, ein Lieferort und ein Termin gehören. Du kannst einen solchen Vertrag handeln, ohne heute die Ware im Lager zu haben. Die Pflichten bei Lieferung musst du trotzdem verstehen.",
+      "Ein später endender Vertrag kann einen anderen Preis haben als die heute verfügbare Ware. Deren aktueller Preis heißt hier Kassapreis. Auch verschiedene Liefertermine können verschiedene Preise haben. Wenn du zwischen Verträgen wechselst, beeinflusst dieser Wechsel dein Ergebnis. Ein Anlageprodukt auf Öl bildet deshalb nicht automatisch jede Veränderung des heutigen Ölpreises genau nach."
     ],
     "columns": [
       {
@@ -930,9 +930,9 @@ const drafts = [
     "title": "Punkte, Stücke und Kontrakte in Geld übersetzen",
     "summary": "Der Zahlenwert auf dem Chart ist noch kein Geldbetrag.",
     "paragraphs": [
-      "Aktien werden in Stückzahlen gehandelt, Futures in Kontrakten. Bei einem Indexvertrag sind Punkte die Preisbewegung; ein Multiplikator übersetzt sie in Geld. Ein Tick ist der kleinste erlaubte Preisschritt dieses Instruments. Wie viel er wert ist, hängt von den Bedingungen ab.",
-      "Unser erfundener Future hat 2 Euro je Punkt und eine Tickgröße von 0,25 Punkten. Ein Tick ist damit 0,25 × 2 = 0,50 Euro je Kontrakt wert. Bei drei Kontrakten und einer Bewegung von acht Ticks beträgt die reine Preiswirkung 3 × 8 × 0,50 = 12 Euro. Ob Gewinn oder Verlust entsteht, hängt von Positionsrichtung und Bewegung ab.",
-      "Ein CFD desselben Namens kann einen anderen Wert je Einheit haben. Ein Chartanstieg um zehn Punkte ist deshalb allein keine Aussage über zehn Euro Gewinn. Schreibe bei jeder Rechnung Menge, Preisschritt und Geldwert dazu. Konkrete Positionsgrößen und Ordereingabe vertiefen wir später im Kurs zu Orders und Ausführung."
+      "Die kleinste erlaubte Preisänderung heißt Tick. Ihre Größe hängt vom Produkt ab. Ein Tick von 0,25 bedeutet, dass Preise in Schritten von einem Viertelpunkt wechseln. Das sagt noch nicht, wie viele Euro ein solcher Schritt wert ist.",
+      "In unserem Vertrag ist ein ganzer Punkt 2 Euro wert. Ein Tick ist deshalb 0,25 × 2 = 0,50 Euro wert. Du hältst drei Verträge. Der Preis bewegt sich um acht Ticks. Für einen Vertrag macht das 8 × 0,50 = 4 Euro aus.",
+      "Für drei Verträge sind es 3 × 4 = 12 Euro. Ob das Gewinn oder Verlust ist, hängt von der Richtung deiner Position und der Bewegung ab. Gebühren fehlen hier. Rechne zuerst den Wert eines Ticks aus und danach die Zahl der Ticks und Verträge."
     ],
     "columns": [
       {
@@ -974,9 +974,9 @@ const drafts = [
     "title": "Fremdwährung: zwei Veränderungen können zusammenwirken",
     "summary": "Anlagepreis und Wechselkurs getrennt rechnen.",
     "paragraphs": [
-      "Wenn du eine Anlage in einer anderen Währung hältst und ihren Wert später in Euro betrachtest, wirken Anlagepreis und Wechselkurs zusammen. Ein unveränderter Dollarpreis bedeutet daher nicht automatisch einen unveränderten Eurowert. Das ist Währungsrisiko aus deiner Betrachtungswährung.",
-      "Eine erfundene Anlage kostet 120 US-Dollar. Bei EUR/USD 1,20 entspricht das 100 Euro. Später bleibt die Anlage bei 120 Dollar, aber EUR/USD steigt auf 1,25. Nun entsprechen 120 Dollar nur 120 / 1,25 = 96 Euro. Ohne Kosten hast du in Dollar keine Preisänderung, in Euro aber 4 Euro weniger Wert.",
-      "Die Währung, in der ein Fondsanteil an einer Börse angezeigt wird, sagt noch nicht allein, welche Währungsrisiken seine Anlagen tragen. Auch eine Absicherung muss ausdrücklich Teil der Bedingungen sein. Trenne deshalb Handelswährung, wirtschaftliche Anlagen und deine eigene Bewertungswährung."
+      "Eine Anlage kann in Dollar bewertet werden, während du ihr Ergebnis in Euro betrachtest. Dann beeinflusst auch der Wechselkurs den Eurobetrag. Der Preis der Anlage und der Wechselkurs sind zwei verschiedene Größen. Beide können sich verändern.",
+      "Deine Anlage bleibt im Beispiel 120 US-Dollar wert. Bei EUR/USD 1,20 sind das 120 / 1,20 = 100 Euro. Später steht EUR/USD bei 1,25. Nun sind dieselben 120 Dollar nur 120 / 1,25 = 96 Euro wert. Der Dollarwert blieb gleich, der Eurobetrag sank.",
+      "Die Währung, in der du einen Fondsanteil kaufst, verrät nicht allein sein Währungsrisiko. Entscheidend sind auch die Anlagen im Fonds und eine mögliche Absicherung. Eine Absicherung soll ein bestimmtes Risiko verringern. Prüfe deshalb, welche Währungen das Ergebnis tatsächlich beeinflussen."
     ],
     "columns": [
       {
@@ -1018,9 +1018,9 @@ const drafts = [
     "title": "Dein vollständiger Produktpass",
     "summary": "Sechs Angaben machen einen Namen verständlich.",
     "paragraphs": [
-      "Jetzt kannst du aus einem bloßen Symbol einen verständlichen Produktpass machen. Er nennt Produktart, Rechte oder Pflichten, Bezugsgröße, Mengeneinheit, Währung und Laufzeit beziehungsweise Abrechnung. Danach kannst du typische Preis-, Ausfall-, Währungs- und Kostenrisiken hinzufügen.",
-      "Beispiel A: Eine gewöhnliche Aktie ist ein Unternehmensanteil, gehandelt in Stück und einer Preiswährung, ohne gewöhnlichen festen Rückzahlungstermin. Beispiel B: Unser erfundener Future ist ein Vertragsverhältnis mit Indexbezug, 2 Euro je Punkt, festgelegter Laufzeit und vertraglicher Abrechnung. Die Angaben dürfen nicht vom einen Produkt auf das andere übertragen werden.",
-      "Fehlt dir eine Angabe, wird daraus eine offene Frage. Ein vertrauter Chart füllt die Lücke nicht. Im nächsten Kapitel „Wer handelt und warum?“ ordnen wir die Teilnehmer und ihre Ziele genauer ein. Für jetzt lautet dein Abschlusscheck: Kannst du erklären, was du tatsächlich hältst, wie ein Preisschritt wirkt und welche Verpflichtungen entstehen können?"
+      "Stell dir für jedes Produkt einen kurzen Steckbrief vor. Darin stehen die Produktart, deine Rechte und Pflichten sowie die Bezugsgröße des Preises. Dazu gehören Einheit, Währung und ein möglicher Endtermin. Erst zusammen erklären diese Angaben das Geschäft.",
+      "Bei einer Aktie hältst du einen Unternehmensanteil. Bei einem Future hältst du einen Vertrag mit festgelegten Bedingungen. Beide Preise können steigen und fallen. Die Bedeutung eines Preispunkts und die entstehenden Pflichten sind aber verschieden. Eine Linie auf dem Bildschirm erklärt das nicht von selbst.",
+      "Dieser Steckbrief hilft dir bei neuen Produkten. Kläre die Angaben, bevor du Gewinne oder Verluste ausrechnest. Frage auch, welche Kosten und Risiken bleiben. Im nächsten Kapitel betrachten wir die Menschen und Organisationen, die solche Produkte handeln, und ihre unterschiedlichen Gründe."
     ],
     "columns": [
       {

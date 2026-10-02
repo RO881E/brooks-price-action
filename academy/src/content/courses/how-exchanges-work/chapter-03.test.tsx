@@ -67,7 +67,7 @@ describe('Marktgrundlagen: Teilnehmer und Handelsmotive', () => {
   it('separates an observed buy from its prior position and inferred motive', () => {
     expect(comparison(18).columns[0].points).toContain('Danach 0: Verkaufsposition geschlossen.');
     expect(comparison(18).columns[1].points).toContain('Danach +5: Kaufposition eröffnet.');
-    expect(correctAnswer(20).label).toBe('Die ausgeführte Kauftransaktion, nicht das vollständige Motiv.');
+    expect(correctAnswer(20).label).toBe('Der Kauf wurde ausgeführt. Der vollständige Grund ist damit noch nicht bekannt.');
     expect(correctAnswer(21).label).toBe('Der Fonds muss seine Gewichtungsgrenze wieder einhalten.');
   });
 

@@ -6,9 +6,9 @@ const drafts = [
     "title": "Auktion: Handelswünsche nach Regeln zusammenbringen",
     "summary": "Eine Auktion ist mehr als ein steigendes Gebot.",
     "paragraphs": [
-      "Das Wort Auktion erinnert oft an einen Gegenstand, dessen Käufer immer höhere Gebote abgeben. Ein Finanzmarkt kann anders organisiert sein: Mehrere Käufer und Verkäufer geben gleichzeitig Preis- und Mengenbedingungen an. Ein Handelssystem verbindet passende Wünsche nach seinen Regeln.",
-      "Wir betrachten in diesem Kapitel einen vereinfachten Markt für identische Einheiten eines Instruments. Käufer nennen, was sie höchstens zahlen wollen; Verkäufer, was sie mindestens erhalten wollen. Es gibt keine Gebühren, keine Währungsunterschiede und keine Sonderbedingungen, sofern der jeweilige Fall nichts anderes sagt.",
-      "Eine Auktion garantiert weder einen objektiv richtigen Wert noch einen Handel für jeden Teilnehmer. Sie organisiert das Zusammenkommen von Bedingungen. Erst wenn passende Aufträge tatsächlich verbunden werden, entsteht eine Ausführung. Die folgenden Beispiele sind Lernfälle, keine Beschreibung jeder realen Börsenregel."
+      "Bei einer Auktion denkst du vielleicht an einen Gegenstand und immer höhere Gebote. Ein Finanzmarkt kann anders funktionieren. Viele Käufer und Verkäufer nennen gleichzeitig Preise und Mengen. Ein Handelssystem verbindet passende Wünsche nach seinen Regeln.",
+      "Wir betrachten gleiche Einheiten desselben Produkts. Käufer nennen, was sie höchstens zahlen wollen. Verkäufer nennen, was sie mindestens erhalten wollen. Wenn wir nichts anderes sagen, gibt es keine Gebühren, Währungsunterschiede oder Sonderbedingungen. So können wir den Ablauf einfacher erklären.",
+      "Eine Auktion verspricht keinen einzig richtigen Wert und keinen Handel für jeden. Sie bringt passende Bedingungen zusammen. Erst wenn Aufträge tatsächlich verbunden werden, kommt ein Geschäft zustande. Unsere Beispiele erklären die Grundidee. Sie beschreiben nicht jede echte Börsenregel."
     ],
     "columns": [
       {
@@ -50,9 +50,9 @@ const drafts = [
     "title": "Zwei Seiten: höchste Kaufbereitschaft und niedrigste Verkaufsforderung",
     "summary": "Geld und Brief zeigen unterschiedliche Bedingungen.",
     "paragraphs": [
-      "Ein Kaufangebot nennt einen Preis, zu dem jemand kaufen möchte. Ein Verkaufsangebot nennt einen Preis, zu dem jemand verkaufen möchte. Im einfachen Orderbuch ist der beste Bid das höchste Kaufangebot, der beste Ask das niedrigste Verkaufsangebot. Diese Wörter kennst du bereits; jetzt verwenden wir sie im Ablauf der Auktion.",
-      "Unser Beispiel zeigt Käufer mit 98 und 99 Euro sowie Verkäufer mit 101 und 102 Euro. Der beste Bid liegt bei 99, der beste Ask bei 101. Die beiden besten Bedingungen passen noch nicht unmittelbar zusammen. Es gibt deshalb nicht automatisch einen Trade in der Mitte bei 100.",
-      "Der Mittelwert aus Bid und Ask kann als Referenz berechnet werden. Er ist jedoch nicht allein deshalb ein ausführbares Angebot. Für eine tatsächliche Ausführung müssen Beteiligte passende Bedingungen akzeptieren und die Handelsregeln erfüllt sein."
+      "Ein Kaufangebot sagt, zu welchem Preis jemand kaufen will. Ein Verkaufsangebot sagt, zu welchem Preis jemand verkaufen will. Das höchste Kaufangebot heißt bester Bid. Das niedrigste Verkaufsangebot heißt bester Ask. Diese beiden Preise zeigen die besten Bedingungen auf den zwei Seiten.",
+      "Unsere Käufer bieten 98 und 99 Euro. Verkäufer verlangen 101 und 102 Euro. Der beste Bid ist 99, der beste Ask 101. Die Bedingungen passen noch nicht: Niemand bietet hier so viel, wie der günstigste Verkäufer verlangt. Es entsteht nicht automatisch ein Handel bei 100 Euro.",
+      "100 ist zwar der Mittelwert von 99 und 101. Ein berechneter Mittelwert ist aber noch kein nutzbares Angebot. Für einen Handel braucht es passende Bedingungen auf beiden Seiten. Außerdem müssen die Regeln des Handelsplatzes erfüllt sein."
     ],
     "columns": [
       {
@@ -94,9 +94,9 @@ const drafts = [
     "title": "Preisgrenzen: passend ist nicht immer derselbe Wunschpreis",
     "summary": "Eine Grenze erlaubt einen Bereich, keinen beliebigen Preis.",
     "paragraphs": [
-      "Im Lernmodell will ein Käufer eine Einheit für höchstens 101 Euro. Ein Verkäufer will mindestens 100 Euro. Ihre Bedingungen besitzen einen gemeinsamen Bereich von 100 bis 101. Das bedeutet zunächst, dass ein Preis in diesem Bereich beide Grenzen einhalten könnte.",
-      "Welcher Preis tatsächlich verwendet wird, hängt von den Handelsregeln und der Reihenfolge ab. Wir legen für den nächsten Fall fest: Ein vorhandenes Verkaufsangebot bei 100 wird von einem späteren Kaufauftrag mit ausreichender Preisgrenze akzeptiert. Dann wird in diesem vereinfachten Modell zu 100 ausgeführt.",
-      "Die Kaufgrenze 101 ist also nicht automatisch der Ausführungspreis. Umgekehrt darf sie im Modell nicht einfach überschritten werden. Orderarten und ihre genauen Bedingungen werden im späteren Kurs zu Orders und Ausführung vertieft. Hier zählt, dass Wunschgrenze, passende Gegenbedingung und tatsächlicher Trade verschieden sind."
+      "Ein Käufer will höchstens 101 Euro für eine Einheit zahlen. Ein Verkäufer will mindestens 100 Euro erhalten. Zwischen 100 und 101 liegen Preise, die beide Grenzen einhalten. Beide könnten dort grundsätzlich zusammenkommen. Ihre Grenzen allein bestimmen aber noch nicht den tatsächlichen Preis.",
+      "Für unser Beispiel gilt folgende Regel: Ein Verkaufsangebot zu 100 liegt bereits vor. Danach kommt ein Kaufauftrag, der diesen Preis erlaubt. Er nimmt das Angebot an. Unter dieser festgelegten Regel wird die Einheit zu 100 gehandelt.",
+      "Der Käufer zahlt also nicht automatisch seine Höchstgrenze von 101. Diese Grenze darf im Modell aber auch nicht überschritten werden. Unterscheide deshalb Preisgrenze, Gegenangebot und tatsächlichen Handelspreis. Verschiedene Auftragsarten und ihre genauen Bedingungen erklären wir später ausführlicher."
     ],
     "columns": [
       {
@@ -127,7 +127,7 @@ const drafts = [
         "explanation": "105 läge über seiner festgelegten Kaufgrenze."
       },
       {
-        "label": "Nein, im beschriebenen Ablauf erhält er die vorhandenen 100 Euro.",
+        "label": "Nein, er zahlt hier den vorhandenen Angebotspreis von 100 Euro.",
         "explanation": "Richtig: Preisgrenze und Ausführungspreis sind verschieden."
       }
     ],
@@ -138,9 +138,9 @@ const drafts = [
     "title": "Ein Kauf akzeptiert ein Verkaufsangebot",
     "summary": "Erst die Ausführung verwandelt Wünsche in einen Trade.",
     "paragraphs": [
-      "Eine Verkäuferin stellt im Lernfall zwei Einheiten zu 100 Euro bereit. Ein späterer Käufer möchte genau zwei Einheiten sofort zu diesem verfügbaren Preis kaufen. Unter den festgelegten Regeln und bei unveränderten Bedingungen werden zwei Einheiten ausgetauscht.",
-      "Der Preisbetrag beträgt 2 × 100 = 200 Euro vor Kosten. Der Käufer hat zwei Einheiten gekauft; die Verkäuferin hat dieselben zwei verkauft. Es sind nicht vier verschiedene Einheiten gehandelt worden, nur weil wir den Vorgang aus beiden Blickrichtungen beschreiben.",
-      "Nach diesem vollständigen Austausch ist das beschriebene Verkaufsangebot verbraucht. Was als Nächstes verfügbar ist, muss neu geprüft werden. Der letzte Trade zu 100 beschreibt den abgeschlossenen Vorgang und garantiert keine weitere Menge zu diesem Preis."
+      "Eine Verkäuferin bietet zwei Einheiten für je 100 Euro an. Ein späterer Käufer möchte genau diese zwei sofort zu diesem Preis kaufen. Wir nehmen an, dass das Angebot unverändert bleibt. Unter unseren Regeln kommen zwei gehandelte Einheiten zustande.",
+      "Der Preisbetrag ist 2 × 100 = 200 Euro vor Kosten. Der Käufer kauft zwei Einheiten. Die Verkäuferin verkauft dieselben zwei. Es sind insgesamt zwei Einheiten, nicht vier. Wir beschreiben denselben Austausch nur von zwei Seiten.",
+      "Das Verkaufsangebot ist damit vollständig genutzt. Welche Angebote danach verfügbar sind, musst du neu prüfen. Der letzte Handel bei 100 erklärt einen abgeschlossenen Vorgang. Er verspricht nicht, dass du noch weitere Einheiten für 100 kaufen kannst."
     ],
     "columns": [
       {
@@ -182,9 +182,9 @@ const drafts = [
     "title": "Teilmenge: nicht jeder Wunsch passt vollständig",
     "summary": "Die kleinere verfügbare Menge begrenzt den ersten Austausch.",
     "paragraphs": [
-      "Eine Käuferin möchte fünf Einheiten zu höchstens 100 Euro. Im Lernfall sind nur drei Einheiten zu 100 verfügbar; weitere passende Angebote fehlen. Unter unseren Regeln werden zunächst drei gehandelt. Die übrigen zwei sind damit noch nicht ausgeführt.",
-      "Es entstehen 3 × 100 = 300 Euro Preisbetrag vor Kosten. Wie es mit den zwei übrigen Einheiten weitergeht, hängt von der Auftragsgültigkeit und weiteren Angeboten ab. In diesem Fall legen wir fest, dass der verbleibende Kaufauftrag im Markt wartet.",
-      "Die Anzeige „teilweise ausgeführt“ ist deshalb eine Mengeninformation. Sie verspricht weder, dass der Rest später gefüllt wird, noch zu welchem Zeitpunkt. Das geplante Gesamtgeschäft und die bisherige Ausführung müssen getrennt aufgeschrieben werden."
+      "Eine Käuferin möchte fünf Einheiten für höchstens 100 Euro. Es gibt aber nur drei passende Einheiten zu 100. Weitere passende Angebote fehlen. Nach unseren Beispielregeln werden zunächst drei gekauft. Zwei der gewünschten Einheiten sind noch nicht gekauft.",
+      "Für die drei entstehen 3 × 100 = 300 Euro Preisbetrag vor Kosten. In diesem Fall legen wir fest, dass der restliche Auftrag wartet. Wie es weitergeht, hängt von seiner Gültigkeit und neuen Angeboten ab. In anderen Fällen können andere Bedingungen gelten.",
+      "Teilweise ausgeführt bedeutet hier: Ein Teil der Menge wurde gehandelt. Die Meldung verspricht nicht, dass der Rest später folgt oder wann das geschieht. Halte deshalb geplante Menge und tatsächlich gekaufte Menge getrennt fest. Ein Wunsch ist noch kein vollständiges Geschäft."
     ],
     "columns": [
       {
@@ -226,9 +226,9 @@ const drafts = [
     "title": "Bereitstellen oder akzeptieren: zwei Tätigkeiten",
     "summary": "Aggressiv beschreibt hier die Ausführung, nicht ein Gefühl.",
     "paragraphs": [
-      "Wer ein Angebot im einfachen Orderbuch bereitstellt und auf eine Gegenseite wartet, stellt handelbare Menge bereit. Wer ein verfügbares Gegenangebot akzeptiert, nimmt diese Menge in Anspruch. Im Marktsprachgebrauch wird das unmittelbare Akzeptieren häufig aggressives Handeln genannt.",
-      "Eine Person stellt eine Kaufbedingung unterhalb des aktuellen Ask ein und wartet. Eine andere kauft unmittelbar gegen einen vorhandenen Ask. Beide möchten kaufen, unterscheiden sich aber im Ablauf. Eine Preisgrenze kann je nach Lage entweder warten oder bereits passende Gegenangebote akzeptieren.",
-      "Aggressiv bedeutet hier nicht wütend, unvernünftig oder groß. Es beschreibt die Beziehung zu vorhandenen Gegenangeboten. Der tatsächliche Handelsmechanismus kann komplexer sein; die Unterscheidung hilft zunächst dabei, Angebot und Ausführung im Lernmodell auseinanderzuhalten."
+      "Du kannst ein Angebot einstellen und warten. Damit stellst du handelbare Menge bereit. Oder du nimmst ein vorhandenes Gegenangebot an. Damit nutzt du die bereitgestellte Menge. Das unmittelbare Annehmen heißt in der Handelssprache oft aggressives Handeln.",
+      "Eine Person bietet einen Kaufpreis unter dem aktuellen Ask an und wartet. Eine andere kauft sofort zum verfügbaren Ask. Der Ask ist das Verkaufsangebot. Beide wollen kaufen, gehen aber unterschiedlich vor. Auch ein Auftrag mit Preisgrenze kann je nach Lage warten oder sofort passende Angebote nutzen.",
+      "Aggressiv bedeutet hier nicht wütend oder unvernünftig. Es sagt auch nichts über die Größe des Auftrags. Das Wort beschreibt nur den Umgang mit vorhandenen Gegenangeboten. Echte Abläufe können komplizierter sein. Hier hilft dir die Unterscheidung, Angebot und tatsächlichen Handel auseinanderzuhalten."
     ],
     "columns": [
       {
@@ -270,9 +270,9 @@ const drafts = [
     "title": "Besserer Bid: ein Angebot kann sich ohne Trade verändern",
     "summary": "Quote und letzter Handel können auseinanderlaufen.",
     "paragraphs": [
-      "In unserem Ausgangsmarkt liegt der beste Bid bei 99 und der Ask bei 101. Eine neue Kauforder bietet 100 Euro. Da der Verkäufer weiterhin mindestens 101 verlangt, entsteht noch kein passender Austausch. Der beste Bid steigt aber bereits von 99 auf 100.",
-      "Die Spanne sinkt von 101 − 99 = 2 Euro auf 101 − 100 = 1 Euro. Der letzte Trade kann währenddessen weiterhin bei einem früheren Wert liegen. Ein geändertes Angebot ist daher eine andere Datenart als eine geänderte Ausführung.",
-      "Das höhere Kaufangebot zeigt Bereitschaft unter einer Preisbedingung. Es beweist nicht, dass diese Menge dauerhaft bleibt oder der Käufer den nächsten Kursverlauf kennt. Für diesen Zustand notieren wir: Bid verbessert, Spread kleiner, noch kein neuer Trade."
+      "Der beste Bid liegt zunächst bei 99. Der beste Ask liegt bei 101. Nun bietet ein neuer Kaufauftrag 100. Der günstigste Verkäufer verlangt weiter 101. Deshalb entsteht noch kein Handel. Das beste Kaufangebot steigt trotzdem von 99 auf 100.",
+      "Die Differenz zwischen Ask und Bid heißt Spread. Vorher waren es 101 − 99 = 2 Euro. Jetzt sind es 101 − 100 = 1 Euro. Der Spread wird kleiner. Der letzte Handel kann aber weiterhin bei seinem früheren Preis bleiben.",
+      "Ein verändertes Angebot ist also etwas anderes als ein neuer Handel. Der Käufer zeigt Kaufbereitschaft zu seiner Preisgrenze. Das beweist weder, dass sein Angebot lange bleibt, noch dass er den nächsten Kurs kennt. Wir notieren: höherer Bid, kleinerer Spread, noch kein neuer Trade."
     ],
     "columns": [
       {
@@ -314,9 +314,9 @@ const drafts = [
     "title": "Ein Angebot verschwindet: nicht jeder Abgang ist ein Trade",
     "summary": "Stornieren und ausführen unterscheiden.",
     "paragraphs": [
-      "Ein Anbieter kann einen wartenden Auftrag nach den Regeln ändern oder stornieren. Verschwindet dadurch eine Menge aus der sichtbaren Anzeige, bedeutet das nicht automatisch, dass sie gehandelt wurde. Eine Ausführung und eine Stornierung sind unterschiedliche Ereignisse.",
-      "Im Lernfall gibt es einen Bid mit zwei Einheiten zu 100 Euro und darunter einen Bid zu 99. Der erste Auftrag wird vor einer Ausführung vollständig storniert. Danach ist der beste Bid 99, ohne dass die zwei Einheiten verkauft wurden. Die Angebotsseite verändert sich, der letzte Trade muss sich dadurch nicht ändern.",
-      "Wenn ein Datenausschnitt nur die neue Anzeige zeigt, kann der konkrete Grund offenbleiben. Für eine sichere Einordnung werden passende Ereignis- oder Ausführungsdaten benötigt. Erfinde deshalb weder einen Käufer noch einen Verkäufer allein aus einer verschwundenen Zeile."
+      "Ein wartender Auftrag kann nach den Regeln geändert oder zurückgezogen werden. Zurückziehen heißt auch Stornieren. Wenn eine Menge dadurch aus der Anzeige verschwindet, wurde sie nicht automatisch gehandelt. Eine Stornierung und eine Ausführung sind verschiedene Ereignisse.",
+      "Es gibt ein Kaufangebot für zwei Einheiten zu 100 Euro. Das nächstniedrige Kaufangebot liegt bei 99. Der erste Auftrag wird vollständig storniert, bevor ein Handel entsteht. Nun ist der beste Bid 99. Die zwei Einheiten wurden dabei nicht verkauft.",
+      "Der letzte Handel muss sich durch diese Änderung nicht ändern. Siehst du nur die neue Anzeige, kennst du den Grund möglicherweise nicht. Für Sicherheit brauchst du passende Ereignis- oder Ausführungsdaten. Erfinde deshalb keinen Handel allein deshalb, weil eine Zeile verschwunden ist."
     ],
     "columns": [
       {
@@ -358,9 +358,9 @@ const drafts = [
     "title": "Ein größerer Kauf erreicht mehrere Preisstufen",
     "summary": "Der letzte Teilpreis ist nicht der Durchschnitt.",
     "paragraphs": [
-      "Im vereinfachten Verkaufsangebot liegen zwei Einheiten zu 100 und drei zu 101 Euro. Ein Kauf möchte vier Einheiten unmittelbar gegen diese Angebote handeln und erlaubt beide Preise. Wir unterstellen unveränderte Angebote und die Ausführung zuerst auf der günstigeren Stufe.",
-      "Dann werden zwei Einheiten zu 100 und zwei zu 101 gekauft. Der Preisbetrag ist 2 × 100 + 2 × 101 = 402 Euro. Der Durchschnitt beträgt 402 / 4 = 100,50 Euro. Die letzte gehandelte Einheit liegt bei 101; dort bleibt im beschriebenen Angebot noch eine Einheit übrig.",
-      "Jede dieser vier Einheiten hat eine kaufende und eine verkaufende Seite. Der höhere letzte Preis entsteht durch die verfügbaren Bedingungen auf den Stufen, nicht durch mehr gekaufte als verkaufte Einheiten. Menge, Durchschnitt und letzter Trade sind drei unterschiedliche Angaben."
+      "Es gibt zwei Einheiten für je 100 Euro und drei für je 101 Euro. Ein Käufer möchte sofort vier Einheiten kaufen und erlaubt beide Preise. Wir nehmen unveränderte Angebote an. Nach unseren Regeln wird zuerst das günstigere Angebot genutzt.",
+      "Er kauft zwei Einheiten zu 100 und zwei zu 101. Die ersten kosten 200 Euro, die anderen 202 Euro. Zusammen sind das 402 Euro. Der Durchschnitt ist 402 / 4 = 100,50 Euro. Der letzte Teil wird bei 101 gehandelt. Dort bleibt eine der angebotenen Einheiten übrig.",
+      "Alle vier gekauften Einheiten werden auch verkauft. Es gibt nicht mehr Käufe als Verkäufe. Der höhere letzte Preis entsteht hier, weil die günstigere Menge nicht für den ganzen Auftrag reicht. Gehandelte Menge, Durchschnittspreis und letzter Handelspreis sind drei verschiedene Angaben."
     ],
     "columns": [
       {
@@ -402,9 +402,9 @@ const drafts = [
     "title": "Ein größerer Verkauf erreicht niedrigere Gebote",
     "summary": "Die Gegenrichtung folgt derselben Mengenlogik.",
     "paragraphs": [
-      "Jetzt liegen auf der Kaufseite zwei Einheiten zu 99 und drei zu 98 Euro. Ein Verkäufer möchte vier Einheiten sofort abgeben und akzeptiert beide Preise. Wir nehmen für den Lernfall unveränderte Angebote an und bedienen zuerst das höhere Kaufgebot.",
-      "Es werden zwei Einheiten zu 99 und zwei zu 98 verkauft. Der Preisbetrag beträgt 2 × 99 + 2 × 98 = 394 Euro. Der Durchschnitt liegt bei 98,50. Der letzte Teilpreis ist 98; dort bleibt eine Einheit des beschriebenen Kaufangebots übrig.",
-      "Auch hier gibt es nicht mehr verkaufte als gekaufte Einheiten. Die sofort verkaufsbereite Seite nimmt Gebote auf mehreren Preisstufen in Anspruch. Der fallende letzte Preis beschreibt die Reihenfolge der Ausführungen, nicht eine ungleiche Zahl ausgeführter Stücke auf beiden Seiten."
+      "Käufer bieten für zwei Einheiten je 99 Euro und für drei weitere je 98 Euro. Ein Verkäufer will sofort vier Einheiten abgeben und erlaubt beide Preise. Die Angebote bleiben in unserem Fall unverändert. Wir nutzen zuerst das höhere Kaufangebot.",
+      "Zwei Einheiten werden zu 99 und zwei zu 98 verkauft. Das ergibt 198 + 196 = 394 Euro. Der Durchschnitt ist 394 / 4 = 98,50 Euro. Der letzte Teilpreis ist 98. Dort bleibt eine Einheit des Kaufangebots übrig.",
+      "Auch hier werden genauso viele Einheiten gekauft wie verkauft. Der Verkäufer nutzt mehrere Preisstufen, weil die höchste Stufe nicht genug Menge bietet. Der sinkende letzte Preis beschreibt die Reihenfolge der Geschäfte. Er bedeutet nicht, dass mehr Einheiten verkauft als gekauft wurden."
     ],
     "columns": [
       {
@@ -446,9 +446,9 @@ const drafts = [
     "title": "Gleich viele gehandelte Einheiten, unterschiedliche Bereitschaft",
     "summary": "Handelsvolumen ist kein Zählen von Meinungen.",
     "paragraphs": [
-      "Zu jeder ausgeführten gekauften Einheit gehört eine verkaufte Einheit. Trotzdem können Käufer und Verkäufer unterschiedlich dringend handeln wollen und verschiedene Preisgrenzen besitzen. Diese Unterschiede betreffen die Bedingungen des nächsten möglichen Austauschs.",
-      "In der vorigen Kaufrechnung wurden vier Einheiten gekauft und vier verkauft. Die kaufende Seite akzeptierte zuerst 100, dann 101 Euro. Das letzte Niveau stieg, obwohl die ausgeführten Mengen auf beiden Seiten gleich waren. Die Anzahl beteiligter Personen kann ebenfalls verschieden sein: Ein Auftrag kann mehrere Gegenparteien treffen.",
-      "„Kaufdruck“ wird oft als Kurzbeschreibung verwendet. Für eine genaue Erklärung musst du jedoch angeben, welche beobachteten Aufträge, Angebote oder Ausführungen gemeint sind. Die bloße Stückzahl beweist keine zusätzlichen Käufer ohne Verkäufer und keine bestimmte Identität."
+      "Bei jedem abgeschlossenen Geschäft gehört zu einer gekauften Einheit eine verkaufte Einheit. Trotzdem können die Beteiligten unterschiedlich dringend handeln wollen. Sie können auch verschiedene Preisgrenzen setzen. Das beeinflusst, unter welchen Bedingungen der nächste Austausch möglich ist.",
+      "Im vorigen Kaufbeispiel wurden vier Einheiten gekauft und vier verkauft. Der Käufer akzeptierte zuerst 100 und dann 101 Euro. Der letzte Preis stieg bei gleichen gehandelten Mengen auf beiden Seiten. Auch die Zahl der Personen muss nicht gleich sein. Ein Auftrag kann mehrere Gegenparteien treffen.",
+      "Das Wort Kaufdruck ist oft eine kurze Beschreibung. Für eine genaue Erklärung musst du sagen, welche Aufträge, Angebote oder Geschäfte du beobachtet hast. Die Stückzahl allein beweist keine zusätzlichen Käufe ohne Verkäufe. Sie verrät auch nicht sicher, welche Personen gehandelt haben."
     ],
     "columns": [
       {
@@ -490,9 +490,9 @@ const drafts = [
     "title": "Sammelauktion: Wünsche bündeln statt sofort nacheinander handeln",
     "summary": "Ein gemeinsamer Zeitpunkt verändert den Ablauf.",
     "paragraphs": [
-      "In einer Sammelauktion werden Handelswünsche für einen gemeinsamen Ausführungsablauf gebündelt. Ein Regelwerk bestimmt den Auktionspreis und die Zuordnung der passenden Mengen. Das unterscheidet sich von unseren bisherigen fortlaufenden Beispielen mit nacheinander eintreffenden Aufträgen.",
-      "Für die nächsten Lernfälle verwenden wir nur preisbegrenzte Aufträge für identische Einheiten und drei mögliche Preise: 100, 101 und 102 Euro. Unsere ausdrücklich vereinfachte Preisregel wählt den Preis mit der größten zusammenführbaren Menge. Wir betrachten einen Fall mit einem eindeutigen Maximum.",
-      "Echte Plätze können zusätzliche Auftragsarten, Preisraster und Regeln zur Auflösung gleich guter Kandidaten verwenden. Unsere Rechnung ersetzt diese Regeln nicht. Sie zeigt nur, warum zuerst die erlaubten Kauf- und Verkaufsbedingungen je Preis gezählt werden müssen."
+      "Eine Sammelauktion bündelt Handelswünsche für einen gemeinsamen Ablauf. Ihre Regeln bestimmen den Preis und welche passenden Mengen zugeteilt werden. Das unterscheidet sich vom fortlaufenden Handel. Dort können Aufträge nacheinander eintreffen und sofort passende Angebote nutzen.",
+      "Wir verwenden nur Aufträge mit Preisgrenzen für gleiche Einheiten. Es gibt drei mögliche Preise: 100, 101 und 102 Euro. Unsere vereinfachte Regel wählt den Preis, bei dem die größte Menge zusammenkommt. In unserem Fall gewinnt genau ein Preis eindeutig.",
+      "Echte Plätze können weitere Auftragsarten und Preisstufen nutzen. Sie brauchen auch Regeln, falls mehrere Preise gleich gut passen. Unsere Rechnung ersetzt diese Regeln nicht. Sie zeigt dir zunächst, wie du bei jedem möglichen Preis die erlaubten Kauf- und Verkaufsmengen zählst."
     ],
     "columns": [
       {
@@ -523,7 +523,7 @@ const drafts = [
         "explanation": "Reale Plätze können zusätzliche Regeln besitzen."
       },
       {
-        "label": "Das eindeutige Maximum der zusammenführbaren Menge unter den drei Kandidaten.",
+        "label": "Wir wählen den Preis, bei dem eindeutig die größte Menge gehandelt werden kann.",
         "explanation": "Richtig: Diese Regel ist für unser Lernmodell ausdrücklich festgelegt."
       }
     ],
@@ -534,9 +534,9 @@ const drafts = [
     "title": "Welche Kaufmenge ist bei einem Preis erlaubt?",
     "summary": "Käufer dürfen ihre Höchstgrenze nicht überschreiten.",
     "paragraphs": [
-      "Unsere Sammelauktion enthält drei Kaufaufträge: zwei Einheiten bis höchstens 102 Euro, drei bis höchstens 101 und vier bis höchstens 100. Bei einem möglichen Preis zählen nur die Mengen, deren Kaufgrenze diesen Preis zulässt.",
-      "Bei 100 Euro dürfen alle drei Aufträge kaufen: 2 + 3 + 4 = 9 Einheiten. Bei 101 dürfen die Aufträge mit Grenzen 102 und 101 kaufen: 2 + 3 = 5. Bei 102 bleiben nur die zwei Einheiten mit Grenze 102. Die Kaufmenge fällt also, wenn der geprüfte Preis mehr Grenzen überschreitet.",
-      "Diese Mengen sind in diesem Schritt erlaubte Kaufwünsche, noch keine Ausführungen. Welche Menge tatsächlich gehandelt werden kann, hängt zusätzlich von der passenden Verkaufsseite ab. Vergleiche deshalb nicht die Grenze eines Einzelauftrags mit dem ganzen Markt."
+      "In unserer Sammelauktion liegen drei Kaufaufträge vor. Der erste will zwei Einheiten für höchstens 102 Euro. Der zweite will drei für höchstens 101. Der dritte will vier für höchstens 100. Bei jedem möglichen Preis prüfen wir: Welche Grenzen erlauben diesen Kauf?",
+      "Bei 100 dürfen alle kaufen: 2 + 3 + 4 = 9 Einheiten. Bei 101 ist die dritte Grenze zu niedrig. Es bleiben 2 + 3 = 5 Einheiten. Bei 102 darf nur der erste Auftrag kaufen: zwei Einheiten. Höhere Preise überschreiten hier mehr Kaufgrenzen.",
+      "Diese Mengen sind bisher nur erlaubte Kaufwünsche. Es sind noch keine abgeschlossenen Geschäfte. Dazu muss auch genug passende Verkaufsmenge vorhanden sein. Prüfe deshalb beide Seiten. Die Grenze eines einzelnen Auftrags beschreibt nicht den gesamten Markt."
     ],
     "columns": [
       {
@@ -578,9 +578,9 @@ const drafts = [
     "title": "Welche Verkaufsmenge ist bei einem Preis erlaubt?",
     "summary": "Verkäufer dürfen untere Grenzen nicht unterschreiten.",
     "paragraphs": [
-      "Zur selben Sammelauktion gehören drei Verkaufsaufträge: drei Einheiten ab mindestens 99 Euro, vier ab mindestens 101 und zwei ab mindestens 102. Bei einem Kandidaten zählen die Mengen, deren Mindestforderung höchstens so hoch wie dieser Preis ist.",
-      "Bei 100 Euro dürfen nur die drei Einheiten mit Mindestpreis 99 verkaufen. Bei 101 kommen die vier mit Mindestpreis 101 hinzu: 3 + 4 = 7. Bei 102 passen alle drei Aufträge: 3 + 4 + 2 = 9. Ein höherer geprüfter Preis lässt hier also mehr Verkaufsbedingungen zu.",
-      "Die Mindestforderung 99 verlangt nicht, dass der Verkäufer ausschließlich zu 99 handelt. Ein Preis von 101 erfüllt diese untere Grenze ebenfalls. Wir zählen weiterhin nur erlaubte Wünsche; die Gegenseite begrenzt die tatsächlich mögliche gemeinsame Menge."
+      "Auf der Verkaufsseite liegen ebenfalls drei Aufträge. Der erste bietet drei Einheiten für mindestens 99 Euro. Der zweite bietet vier für mindestens 101. Der dritte bietet zwei für mindestens 102. Bei jedem möglichen Preis zählen nur die erfüllten Mindestpreise.",
+      "Bei 100 dürfen die drei Einheiten mit Mindestpreis 99 verkaufen. Bei 101 kommen vier hinzu: 3 + 4 = 7. Bei 102 dürfen alle verkaufen: 3 + 4 + 2 = 9. Ein höherer Preis erfüllt hier mehr Verkaufsbedingungen.",
+      "Mindestens 99 bedeutet nicht ausschließlich 99. Auch 101 liegt über dieser Grenze und ist erlaubt. Trotzdem sind diese Mengen noch keine ausgeführten Verkäufe. Erst eine passende Kaufseite macht den Austausch möglich. Die kleinere passende Seite begrenzt die gemeinsam handelbare Menge."
     ],
     "columns": [
       {
@@ -622,9 +622,9 @@ const drafts = [
     "title": "Auktionspreis berechnen: die kleinere Seite begrenzt den Austausch",
     "summary": "Die größte gemeinsame Menge liegt hier bei 101.",
     "paragraphs": [
-      "Bei jedem Kandidaten kann höchstens die kleinere der erlaubten Kauf- und Verkaufsmengen gehandelt werden. Wenn neun gekauft werden dürfen, aber nur drei verkauft, sind höchstens drei passende Einheiten austauschbar. Wunschmengen werden nicht addiert, sondern zusammengeführt.",
-      "Bei 100 Euro stehen 9 Kauf- und 3 Verkaufseinheiten gegenüber: möglich sind 3. Bei 101 stehen 5 und 7 gegenüber: möglich sind 5. Bei 102 stehen 2 und 9 gegenüber: möglich sind 2. Nach unserer festgelegten Regel besitzt 101 Euro damit das eindeutige Maximum von fünf Einheiten.",
-      "Im Lernmodell werden diese fünf zu einem gemeinsamen Preis von 101 ausgeführt. Der Preisbetrag beträgt 5 × 101 = 505 Euro. Dass auf der Verkaufsseite sieben erlaubt waren, macht daraus nicht sieben Ausführungen: Zwei dieser erlaubten Einheiten finden hier keine passende Kaufmenge."
+      "Für jeden Preis vergleichen wir erlaubte Kauf- und Verkaufsmengen. Höchstens die kleinere Menge kann gehandelt werden. Wenn Käufer neun Einheiten wollen, Verkäufer aber nur drei anbieten, können nur drei zusammenkommen. Du darfst die Wünsche nicht zu zwölf gehandelten Einheiten addieren.",
+      "Bei 100 Euro stehen neun Kaufwünsche drei Verkaufswünschen gegenüber: möglich sind drei Einheiten. Bei 101 sind es fünf und sieben: möglich sind fünf. Bei 102 sind es zwei und neun: möglich sind zwei. Nach unserer Regel gewinnt 101 Euro mit fünf Einheiten.",
+      "Diese fünf werden im Modell gemeinsam zu 101 ausgeführt. Der Preisbetrag ist 5 × 101 = 505 Euro. Von den sieben erlaubten Verkaufseinheiten werden nur fünf gehandelt. Für zwei fehlt hier eine passende Kaufmenge. Erlaubt heißt deshalb noch nicht ausgeführt."
     ],
     "columns": [
       {
@@ -655,7 +655,7 @@ const drafts = [
         "explanation": "Kauf- und Verkaufsmenge werden nicht als getrennte gehandelte Stücke addiert."
       },
       {
-        "label": "101 Euro mit fünf zusammenführbaren Einheiten.",
+        "label": "101 Euro. Bei diesem Preis können fünf Einheiten gehandelt werden.",
         "explanation": "Richtig: Fünf ist das eindeutige Maximum unter drei, fünf und zwei."
       }
     ],
@@ -666,9 +666,9 @@ const drafts = [
     "title": "Nicht jeder bekommt alles: Restmengen und Zuteilung",
     "summary": "Preiswahl und Auftragszuordnung sind eigene Regeln.",
     "paragraphs": [
-      "Am gewählten Preis 101 dürfen im Beispiel fünf Einheiten gekauft und sieben verkauft werden. Es werden fünf ausgetauscht; zwei erlaubte Verkaufseinheiten bleiben ohne Ausführung. Welche konkreten Verkäufer die fünf erhalten, hängt von den Zuteilungsregeln ab.",
-      "Für diesen Lernfall ergänzen wir ausdrücklich: Niedrigere Mindestforderungen auf der Verkaufsseite kommen zuerst. Dann verkaufen die drei Einheiten ab 99 vollständig und zwei der vier Einheiten ab 101. Die beiden anderen Einheiten ab 101 bleiben übrig. Die Aufträge ab 102 sind bei diesem Preis ohnehin nicht erlaubt.",
-      "Diese Zuordnung ist eine festgelegte Beispielregel, keine allgemeine Aussage zu allen Börsen. Bei gleichrangigen Aufträgen wären weitere Regeln erforderlich. Ein Preis, der die größte gemeinsame Menge ermöglicht, garantiert daher nicht jedem einzelnen Auftrag eine volle Ausführung."
+      "Bei unserem gewählten Preis von 101 sind fünf Kauf- und sieben Verkaufseinheiten erlaubt. Fünf werden gehandelt. Zwei erlaubte Verkaufseinheiten bleiben übrig. Welche Verkäufer tatsächlich verkaufen, bestimmt eine weitere Regel: die Zuteilung.",
+      "Nur für unser Beispiel gilt: Niedrigere Mindestpreise werden zuerst bedient. Deshalb verkaufen die drei Einheiten mit Mindestpreis 99 vollständig. Dazu kommen zwei der vier Einheiten mit Mindestpreis 101. Zwei dieser Einheiten bleiben übrig. Die Aufträge mit Mindestpreis 102 sind bei 101 gar nicht erlaubt.",
+      "Das ist unsere festgelegte Beispielregel. Sie gilt nicht automatisch an jeder Börse. Bei gleichrangigen Aufträgen wären weitere Regeln nötig. Der Preis mit der größten gemeinsam handelbaren Menge verspricht deshalb keinem einzelnen Auftrag, dass seine ganze Menge ausgeführt wird."
     ],
     "columns": [
       {
@@ -710,9 +710,9 @@ const drafts = [
     "title": "Vorläufiger Auktionspreis: neue Aufträge können das Ergebnis ändern",
     "summary": "Ein Zwischenstand ist noch keine abgeschlossene Auktion.",
     "paragraphs": [
-      "Eine vorläufige Anzeige kann berechnen, welcher Preis mit den aktuell bekannten Aufträgen herauskäme. Sie ist ein Zwischenstand. Wenn weitere Aufträge eingehen oder vorhandene sich ändern, können sich mögliche Menge und Preis verändern. Die genaue Anzeige und ihre Regeln hängen vom System ab.",
-      "Im bisherigen Lernmodell gewinnt 101 mit fünf Einheiten. Nun kommen vier zusätzliche Kaufseinheiten mit Höchstgrenze 102 hinzu, während alle Verkäufer unverändert bleiben. Die gemeinsame Menge wird bei 100 weiter 3, bei 101 nun 7 und bei 102 nun 6. Das Maximum bleibt 101, aber die mögliche Ausführung steigt von fünf auf sieben.",
-      "Weitere andere Änderungen könnten auch den gewählten Preis verändern. Unser konkretes Beispiel zeigt bewusst: Mehr Menge bedeutet nicht zwangsläufig einen anderen Auktionspreis. Erst der endgültige Ablauf und seine bestätigten Geschäfte belegen das Ergebnis."
+      "Eine vorläufige Anzeige zeigt, welches Auktionsergebnis mit den aktuell bekannten Aufträgen herauskäme. Sie ist ein Zwischenstand. Neue oder geänderte Aufträge können das Ergebnis beeinflussen. Was genau angezeigt wird, hängt vom jeweiligen System und seinen Regeln ab.",
+      "Bisher gewinnt 101 mit fünf Einheiten. Nun kommen vier Kaufwünsche mit Höchstpreis 102 hinzu. Die Verkäufer bleiben gleich. Die gemeinsam mögliche Menge beträgt bei 100 weiter drei Einheiten. Bei 101 steigt sie auf sieben. Bei 102 steigt sie auf sechs. Der beste Preis bleibt 101, aber die mögliche Menge wächst.",
+      "Andere Änderungen könnten auch den Preis verändern. Unser Fall zeigt: Mehr handelbare Menge bedeutet nicht automatisch einen anderen Auktionspreis. Erst der endgültige Ablauf und die bestätigten Geschäfte belegen das tatsächliche Ergebnis. Der Zwischenstand ist noch keine feste Ausführung."
     ],
     "columns": [
       {
@@ -754,9 +754,9 @@ const drafts = [
     "title": "Handelspreis und Werturteil sind nicht dieselbe Sache",
     "summary": "Ein Trade beweist Einigung, keine objektive Wahrheit.",
     "paragraphs": [
-      "Ein ausgeführter Preis zeigt, zu welchen Bedingungen ein Austausch zustande gekommen ist. Ein Werturteil ist dagegen eine Einschätzung, was ein Instrument unter bestimmten Annahmen wirtschaftlich wert sein könnte. Unterschiedliche Personen können verschiedene Horizonte, Verpflichtungen und Erwartungen haben.",
-      "Ein Käufer und ein Verkäufer handeln bei 101. Der Käufer kann langfristig anlegen, der Verkäufer Geld für eine Rechnung benötigen. Dass beide handeln, bedeutet nicht, dass beide 101 für denselben objektiv richtigen Zukunftswert halten. Es reicht, dass der Austausch in ihren jeweiligen Zusammenhang passt.",
-      "Auch der Preis unserer Sammelauktion ist zunächst ein Ergebnis der bekannten Aufträge und Modellregeln. Daraus folgt kein garantiertes Ziel für spätere Preise. Verwende Preisbeobachtungen als Daten, ohne ihnen unbelegte sichere Werturteile oder Absichten zuzuschreiben."
+      "Ein Handelspreis zeigt, zu welchem Preis ein Austausch zustande kam. Ein Werturteil ist dagegen eine Einschätzung: Was könnte das Produkt unter bestimmten Annahmen wert sein? Menschen können dafür andere Zeiträume, Erwartungen und Pflichten berücksichtigen. Preis und Werturteil sind deshalb verschiedene Dinge.",
+      "Ein Käufer und ein Verkäufer handeln bei 101. Der Käufer will vielleicht langfristig anlegen. Der Verkäufer braucht vielleicht Geld für eine Rechnung. Beide müssen 101 nicht für denselben richtigen Zukunftswert halten. Es reicht, dass das Geschäft zu ihren jeweiligen Aufgaben passt.",
+      "Auch unser Auktionspreis entsteht zunächst aus den bekannten Aufträgen und den Modellregeln. Er verspricht kein späteres Kursziel. Nutze beobachtete Preise als Daten. Schreibe ihnen aber keine sicheren Werturteile oder Absichten zu, für die dir Belege fehlen."
     ],
     "columns": [
       {
@@ -787,7 +787,7 @@ const drafts = [
         "explanation": "Ein Ausführungspreis ist keine garantierte Zukunftsmarke."
       },
       {
-        "label": "Dass ein entsprechender Austausch zustande kam.",
+        "label": "Dass zu diesem Preis ein Geschäft zustande kam.",
         "explanation": "Richtig: Wertschätzung und Motive der Beteiligten bleiben zusätzliche Fragen."
       }
     ],
@@ -798,9 +798,9 @@ const drafts = [
     "title": "Neue Information: Angebote können reagieren, bevor gehandelt wird",
     "summary": "Die Reaktion ist ein Ablauf, keine sichere Prognose.",
     "paragraphs": [
-      "Neue Informationen können Kauf- und Verkaufsbedingungen verändern. Teilnehmer können neue Angebote stellen, Preise ändern oder Aufträge zurückziehen. Bereits dadurch kann sich die sichtbare Spanne verändern, auch bevor ein neuer Trade zustande kommt.",
-      "Unser Lernfall startet bei Bid 99 und Ask 101. Nach einer Nachricht werden diese Angebote ersetzt: Nun steht der Bid bei 102 und der Ask bei 103. Wir legen ausdrücklich fest, dass dieser Wechsel zunächst nur durch Änderungen der Angebote geschieht. Der letzte Trade bleibt bis zu einer neuen Ausführung unverändert.",
-      "Die Reaktion beweist nicht, wie viele Menschen die Nachricht gleich interpretieren oder welcher Preis später folgt. Eine Nachricht, eine Angebotsänderung und eine Ausführung sind getrennte Ereignisse. Ihre Reihenfolge hilft, Beobachtungen korrekt zu beschreiben, ersetzt aber keine Zukunftskenntnis."
+      "Neue Nachrichten können Handelswünsche verändern. Teilnehmer können Angebote einstellen, ändern oder zurückziehen. Dadurch können sich die sichtbaren Kauf- und Verkaufspreise ändern. Dafür muss noch kein neuer Handel stattgefunden haben. Angebote und Ausführungen bleiben verschiedene Ereignisse.",
+      "Unser bester Bid liegt zuerst bei 99, der beste Ask bei 101. Nach einer Nachricht werden beide Angebote ersetzt. Nun sind es 102 und 103. Wir legen fest: Bis jetzt wurden nur Angebote verändert. Der letzte Handel behält daher seinen bisherigen Preis.",
+      "Die Reaktion beweist nicht, dass alle die Nachricht gleich verstehen. Sie verrät auch keinen sicheren späteren Kurs. Nachricht, Angebotsänderung und Ausführung sind drei getrennte Schritte. Ihre Reihenfolge hilft dir beim Beschreiben. Sie macht die Zukunft aber nicht vorhersehbar."
     ],
     "columns": [
       {
@@ -842,9 +842,9 @@ const drafts = [
     "title": "Dein Auktionscheck: Bedingungen, Ereignis, Ergebnis",
     "summary": "Einen Handelsablauf ohne erfundene Gewissheit erklären.",
     "paragraphs": [
-      "Für einen Auktionscheck beschreibst du zuerst das Instrument und die Regeln. Dann notierst du Angebote mit Preis, Menge und Zeitpunkt. Als Nächstes unterscheidest du neue Aufträge, Änderungen, Stornierungen und tatsächliche Trades. Zuletzt rechnest du ausgeführte Menge, Preisbetrag und gegebenenfalls Durchschnitt.",
-      "Abschlussfall: Zwei Einheiten stehen zu 100 und drei zu 101 bereit. Ein Kauf von vier akzeptiert beide Stufen bei unveränderten Angeboten. Ergebnis: zwei zu 100 und zwei zu 101, insgesamt vier gehandelt, 402 Preisbetrag, 100,50 Durchschnitt. Der letzte Teilpreis ist 101 und dort bleibt eine angebotene Einheit übrig.",
-      "Wenn eine Regel, Zeitangabe oder Gegenmenge fehlt, bleibt die entsprechende Aussage offen. Du kannst jetzt eine Auktion als Ablauf erklären, statt nur „mehr Käufer“ oder „die Linie steigt“ zu sagen. Im nächsten Kapitel „Das Orderbuch verstehen“ vertiefen wir Preisstufen, Mengenanzeigen und den Unterschied zwischen sichtbaren Angeboten und ausgeführten Geschäften."
+      "Für deinen Auktionscheck beschreibst du zuerst Produkt und Regeln. Notiere dann Angebote mit Preis, Menge und Zeitpunkt. Unterscheide neue Aufträge, Änderungen, Stornierungen und tatsächliche Geschäfte. Berechne zuletzt die gehandelte Menge, den Preisbetrag und bei Bedarf den Durchschnitt.",
+      "Es gibt zwei Einheiten zu 100 und drei zu 101. Ein Käufer will vier und erlaubt beide Preise. Die Angebote bleiben gleich. Er kauft zwei zu 100 und zwei zu 101: zusammen vier Einheiten für 402. Der Durchschnitt ist 100,50. Der letzte Teilpreis ist 101. Dort bleibt eine angebotene Einheit übrig.",
+      "Fehlen Regeln, Zeitangaben oder passende Gegenmengen, lässt du die entsprechende Antwort offen. Du kannst die Auktion jetzt als Ablauf erklären. Im nächsten Kapitel über das Orderbuch betrachten wir Preisstufen und Mengen genauer. Dabei unterscheiden wir weiter sichtbare Angebote von tatsächlich abgeschlossenen Geschäften."
     ],
     "columns": [
       {
