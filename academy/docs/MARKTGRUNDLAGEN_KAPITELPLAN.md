@@ -16,7 +16,7 @@ separaten Price-Action-Kurs. Neue Kapitel verwenden die Regeln aus
 | 8 | Warum bewegen sich Preise? | 24 Lektionen |
 | 9 | Handelszeiten und Sessions | 24 Lektionen |
 | 10 | Besondere Handelsphasen | 22 Lektionen |
-| 11 | Was passiert nach dem Trade? | geplant |
+| 11 | Was passiert nach dem Trade? | 24 Lektionen |
 | 12 | Einen Markt selbst erklären | geplant |
 
 Kapitel 7 vertieft die Handelbarkeit einer konkreten Menge. Kapitel 8

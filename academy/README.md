@@ -780,3 +780,5 @@ Kapitel 8 des Einführungskurses „Wie Börsen funktionieren“ ergänzt 24 Lek
 Kapitel 9 ergänzt 24 Lektionen zu Handelszeiten und Sessions. Eigene Kalenderfälle erklären Zeitfenster, Feiertage, Auftragsgültigkeit und Zugang. Datierte Zeitzonenbeispiele erklären UTC, Datumswechsel und Sommerzeit. Der Einführungskurs umfasst neun Kapitel mit 193 Lektionen.
 
 Kapitel 10 ergänzt 22 Lektionen zu besonderen Handelsphasen: Eröffnungs- und Schlussauktion, Schutzmechanismen, Unterbrechung und Wiederaufnahme. Eigene Modelle prüfen Preiswahl, Überhang, Zuteilung und Auftragsstatus. Der Einführungskurs umfasst zehn Kapitel mit 215 Lektionen.
+
+Kapitel 11 ergänzt 24 Lektionen zur Abwicklung nach dem Trade. Eigene Beispiele verbinden Ausführungsberichte, Gebühren, Clearing, Netting, Settlement, Verwahrung und Derivate-Sicherheiten. Trade, Position, geplante Lieferung, bestätigte Abwicklung und Auszahlbarkeit bleiben getrennt. Der Einführungskurs umfasst elf Kapitel mit 239 Lektionen.
