@@ -72,8 +72,8 @@ describe('Price scales: original prices, ratios and display geometry',()=>{
  });
  it('preserves published IDs and course access after seven prerequisite chapters',async()=>{
    expect(await chartsDefinition.units[7].load()).toEqual(lessons);
-   expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(92);
-   expect(course.units.flatMap(u=>u.lessons)).toHaveLength(184);
+   expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(104);
+   expect(course.units.flatMap(u=>u.lessons)).toHaveLength(208);
    const prior=course.units.slice(0,7).flatMap(u=>u.lessons.map(l=>l.id)),outline=toCourseOutline(course);
    expect(lessonAccessState(outline,lessons[0],prior)).toBe('available');
    expect(lessonAccessState(outline,lessons[0],prior.slice(0,-1))).toBe('locked');

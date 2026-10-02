@@ -23,7 +23,7 @@ describe('Charts chapter 2: reading equivalent representations', () => {
     expect(await chartsDefinition.units[1].load()).toEqual(lessons);
     expect(lessons).toHaveLength(20);
     const course = baseCourses.find(c => c.id === 'reading-charts')!;
-    expect(course.units.flatMap(u => u.lessons)).toHaveLength(184);
+    expect(course.units.flatMap(u => u.lessons)).toHaveLength(208);
     const outline = toCourseOutline(course);
     expect(lessonAccessState(outline, lessons[0], [])).toBe('locked');
     expect(lessonAccessState(outline, lessons[0], ['orders-and-execution.chapter-10.lesson-24'])).toBe('locked');

@@ -1784,6 +1784,234 @@
           ]
         }
       ]
+    },
+    {
+      "id": "reading-charts.chapter-09",
+      "lessons": [
+        {
+          "id": "reading-charts.chapter-09.lesson-01",
+          "steps": [
+            "reading-charts.chapter-09.lesson-01.explain",
+            "reading-charts.chapter-09.lesson-01.compare",
+            "reading-charts.chapter-09.lesson-01.question",
+            "reading-charts.chapter-09.lesson-01.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-02",
+          "steps": [
+            "reading-charts.chapter-09.lesson-02.explain",
+            "reading-charts.chapter-09.lesson-02.compare",
+            "reading-charts.chapter-09.lesson-02.question",
+            "reading-charts.chapter-09.lesson-02.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-03",
+          "steps": [
+            "reading-charts.chapter-09.lesson-03.explain",
+            "reading-charts.chapter-09.lesson-03.compare",
+            "reading-charts.chapter-09.lesson-03.question",
+            "reading-charts.chapter-09.lesson-03.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-04",
+          "steps": [
+            "reading-charts.chapter-09.lesson-04.explain",
+            "reading-charts.chapter-09.lesson-04.compare",
+            "reading-charts.chapter-09.lesson-04.question",
+            "reading-charts.chapter-09.lesson-04.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-05",
+          "steps": [
+            "reading-charts.chapter-09.lesson-05.explain",
+            "reading-charts.chapter-09.lesson-05.compare",
+            "reading-charts.chapter-09.lesson-05.question",
+            "reading-charts.chapter-09.lesson-05.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-06",
+          "steps": [
+            "reading-charts.chapter-09.lesson-06.explain",
+            "reading-charts.chapter-09.lesson-06.compare",
+            "reading-charts.chapter-09.lesson-06.question",
+            "reading-charts.chapter-09.lesson-06.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-07",
+          "steps": [
+            "reading-charts.chapter-09.lesson-07.explain",
+            "reading-charts.chapter-09.lesson-07.diagram",
+            "reading-charts.chapter-09.lesson-07.compare",
+            "reading-charts.chapter-09.lesson-07.question",
+            "reading-charts.chapter-09.lesson-07.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-08",
+          "steps": [
+            "reading-charts.chapter-09.lesson-08.explain",
+            "reading-charts.chapter-09.lesson-08.diagram",
+            "reading-charts.chapter-09.lesson-08.compare",
+            "reading-charts.chapter-09.lesson-08.question",
+            "reading-charts.chapter-09.lesson-08.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-09",
+          "steps": [
+            "reading-charts.chapter-09.lesson-09.explain",
+            "reading-charts.chapter-09.lesson-09.compare",
+            "reading-charts.chapter-09.lesson-09.question",
+            "reading-charts.chapter-09.lesson-09.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-10",
+          "steps": [
+            "reading-charts.chapter-09.lesson-10.explain",
+            "reading-charts.chapter-09.lesson-10.compare",
+            "reading-charts.chapter-09.lesson-10.question",
+            "reading-charts.chapter-09.lesson-10.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-11",
+          "steps": [
+            "reading-charts.chapter-09.lesson-11.explain",
+            "reading-charts.chapter-09.lesson-11.diagram",
+            "reading-charts.chapter-09.lesson-11.compare",
+            "reading-charts.chapter-09.lesson-11.question",
+            "reading-charts.chapter-09.lesson-11.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-12",
+          "steps": [
+            "reading-charts.chapter-09.lesson-12.explain",
+            "reading-charts.chapter-09.lesson-12.compare",
+            "reading-charts.chapter-09.lesson-12.question",
+            "reading-charts.chapter-09.lesson-12.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-13",
+          "steps": [
+            "reading-charts.chapter-09.lesson-13.explain",
+            "reading-charts.chapter-09.lesson-13.diagram",
+            "reading-charts.chapter-09.lesson-13.compare",
+            "reading-charts.chapter-09.lesson-13.question",
+            "reading-charts.chapter-09.lesson-13.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-14",
+          "steps": [
+            "reading-charts.chapter-09.lesson-14.explain",
+            "reading-charts.chapter-09.lesson-14.diagram",
+            "reading-charts.chapter-09.lesson-14.compare",
+            "reading-charts.chapter-09.lesson-14.question",
+            "reading-charts.chapter-09.lesson-14.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-15",
+          "steps": [
+            "reading-charts.chapter-09.lesson-15.explain",
+            "reading-charts.chapter-09.lesson-15.compare",
+            "reading-charts.chapter-09.lesson-15.question",
+            "reading-charts.chapter-09.lesson-15.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-16",
+          "steps": [
+            "reading-charts.chapter-09.lesson-16.explain",
+            "reading-charts.chapter-09.lesson-16.compare",
+            "reading-charts.chapter-09.lesson-16.question",
+            "reading-charts.chapter-09.lesson-16.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-17",
+          "steps": [
+            "reading-charts.chapter-09.lesson-17.explain",
+            "reading-charts.chapter-09.lesson-17.compare",
+            "reading-charts.chapter-09.lesson-17.question",
+            "reading-charts.chapter-09.lesson-17.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-18",
+          "steps": [
+            "reading-charts.chapter-09.lesson-18.explain",
+            "reading-charts.chapter-09.lesson-18.compare",
+            "reading-charts.chapter-09.lesson-18.question",
+            "reading-charts.chapter-09.lesson-18.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-19",
+          "steps": [
+            "reading-charts.chapter-09.lesson-19.explain",
+            "reading-charts.chapter-09.lesson-19.diagram",
+            "reading-charts.chapter-09.lesson-19.compare",
+            "reading-charts.chapter-09.lesson-19.question",
+            "reading-charts.chapter-09.lesson-19.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-20",
+          "steps": [
+            "reading-charts.chapter-09.lesson-20.explain",
+            "reading-charts.chapter-09.lesson-20.diagram",
+            "reading-charts.chapter-09.lesson-20.compare",
+            "reading-charts.chapter-09.lesson-20.question",
+            "reading-charts.chapter-09.lesson-20.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-21",
+          "steps": [
+            "reading-charts.chapter-09.lesson-21.explain",
+            "reading-charts.chapter-09.lesson-21.compare",
+            "reading-charts.chapter-09.lesson-21.question",
+            "reading-charts.chapter-09.lesson-21.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-22",
+          "steps": [
+            "reading-charts.chapter-09.lesson-22.explain",
+            "reading-charts.chapter-09.lesson-22.compare",
+            "reading-charts.chapter-09.lesson-22.question",
+            "reading-charts.chapter-09.lesson-22.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-23",
+          "steps": [
+            "reading-charts.chapter-09.lesson-23.explain",
+            "reading-charts.chapter-09.lesson-23.compare",
+            "reading-charts.chapter-09.lesson-23.question",
+            "reading-charts.chapter-09.lesson-23.recap"
+          ]
+        },
+        {
+          "id": "reading-charts.chapter-09.lesson-24",
+          "steps": [
+            "reading-charts.chapter-09.lesson-24.explain",
+            "reading-charts.chapter-09.lesson-24.compare",
+            "reading-charts.chapter-09.lesson-24.question",
+            "reading-charts.chapter-09.lesson-24.recap"
+          ]
+        }
+      ]
     }
   ]
 }

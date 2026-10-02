@@ -448,3 +448,48 @@ zugängliche Beschreibungen,Einheiten,Textpfeile statt reiner Farbe.
 Bestehender Fokus-/Zoomrahmen und eigenes lazy geladenes Grafikmodul.
 24 neue Lektionen,zwölf Glossarbegriffe;Kurs gesamt184/92.
 IDs,Fortschrittsschlüssel und bestehende Größenbudgets erhalten.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 9
+
+„Datenquellen, Bereinigungen und fortlaufende Kontrakte“ ergänzt24 eigene
+Lektionen, zwölf Glossarbegriffe und drei native SVG-Schaubilder. Gesamt208
+Lektionen und104 Begriffe. Bestehende IDs bleiben erhalten.
+
+Fachprüfung am02.10.2026:
+
+- Nutzerseitige Murphy-Ausgabe, Appendix D: Konstruktionen fortlaufender
+  Futures-Reihen und Wechselregeln. Keine Empfehlungen oder Beispiele übernommen.
+- https://www.tradingview.com/support/solutions/43000685266-how-can-i-enable-backadjustment-for-continuous-futures/
+  Additive historische Anpassung anhand eines Kontraktabstands; kein universeller Standard.
+- https://www.tradingview.com/support/solutions/43000765406-what-are-stock-splits/
+  Stück- und theoretische Preisänderung bei Splits.
+- https://www.tradingview.com/support/solutions/43000590597-how-to-adjust-data-for-dividends/
+  Historische Dividendenbereinigungen. Keine zwingende Marktpreisänderung oder stets
+  steigende Gesamtrendite aus den Anbieterformulierungen abgeleitet.
+- https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and
+  Ex-Tag, Anspruch und Zahlung getrennt; keine US-Kalenderregeln verallgemeinert.
+
+Alle Lehrtexte und Beispiele eigenständig. Keine WQT-Fachbände verwendet.
+
+Eigene Modelle:
+
+- Split:4 ×80 =8 ×40 =320 Euro. Später8 ×41 =328 Euro, +8 Euro bzw.+2,5%.
+  Roh80 →41 =−48,75% wechselt die Stückbasis. OHLC78/82/76/80 wird39/41/38/40.
+  Menge10 ×80 =20 ×40 =800 Euro ist eine erklärte Umrechnung, keine Anbieterregel.
+- Separater Dividendenfall:8 ×51 =408 Euro; Ex:8 ×50 +8 Euro Anspruch =408 Euro.
+  Zahlung ersetzt Anspruch durch Bargeld. Keine anderen Markteinflüsse, Steuern
+  oder Kosten; realer Preisabschlag nicht zwingend exakt. Eigener historischer
+  Faktor50/51 erklärt eine Preisumrechnung, keine Zahlung oder Wiederanlage.
+- Futures: F-A72/74/76; F-B83 gleichzeitig an T3, danach84. Wechsel nach T3.
+  Roh72/74/76/84: letzter Schritt8 =7 Kontraktabstand +1 Bewegung.
+  Additiv alte Werte+7:79/81/83/84. Faktor83/76 erhält alte Verhältnisse,
+  verändert Punktdifferenzen. Weitere Rückbereinigungen können die Geschichte
+  erneut verändern; Regel, Datenstand und Export aufbewahren.
+- Bestätigte eigene Ausführungen F-A72 →76, F-B83 →84 mit je einem Kontrakt:
+  5 Punkte ×10 Euro/Punkt =50 Euro; vier Gebühren à2 Euro ergeben42 Euro.
+  Die Kontraktlücke ist kein Haltegewinn. Produkt und Ausführungen sind fiktiv.
+
+Modelle und Grafiken werden bei Bedarf geladen. Alle Bilder besitzen vollständige
+Textbeschreibungen und die vorhandene Tastatur-/Vergrößerungsansicht. Tests prüfen
+Werterhaltung, Anspruch/Geld-Trennung, Bereinigungsinvarianten und Kontraktpaare.
+Browserprüfungen bei fehlendem Chromium ausdrücklich nicht ausgeführt.
