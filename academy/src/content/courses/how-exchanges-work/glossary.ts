@@ -977,5 +977,85 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
     "definition": "Eine gespeicherte Zeitangabe zu einem bestimmten Ereignis, etwa Ausführung oder Datenempfang. Ihre Bedeutung und Bezugszeit gehören dazu.",
     "aliases": [],
     "firstUnit": "Kapitel 9"
+  },
+  {
+    "term": "Handelsphase",
+    "definition": "Ein Handelsabschnitt mit bestimmten Regeln für Annahme, Sammlung oder Ausführung von Aufträgen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Eröffnungsauktion",
+    "definition": "Eine Sammelauktion am Beginn eines Handelsabschnitts. Ihre Preisermittlung folgt dem konkreten Handelsmodell.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Schlussauktion",
+    "definition": "Eine Sammelauktion zum Ende eines Handelsabschnitts. Ihr Ergebnis muss nicht dem letzten fortlaufenden Trade entsprechen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Aufrufphase",
+    "definition": "Ein Abschnitt einer Auktion, in dem Aufträge für die spätere Preisermittlung gesammelt werden. Änderungsregeln und Ende hängen vom Modell ab.",
+    "aliases": [
+      "Sammelphase"
+    ],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Preisermittlung",
+    "definition": "Der Schritt, in dem aus dem maßgeblichen Auftragsstand nach den genannten Regeln ein Preis bestimmt wird.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Auftragsüberhang",
+    "definition": "Die am betrachteten Preis zulässige Menge einer Seite, die keine passende Gegenmenge findet. Sie ist kein zusätzliches Handelsvolumen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Restauftrag",
+    "definition": "Die noch nicht ausgeführte Menge eines Auftrags. Übernahme oder Verfall hängen von Gültigkeit und Phasenregeln ab.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Auction Only",
+    "definition": "Eine Beschränkung auf die in der Auftragsregel genannte Auktion. Sie garantiert keine Ausführung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Handelsunterbrechung",
+    "definition": "Oberbegriff für einen unterbrochenen Handelsablauf. Grund, Umfang und weitere Regeln müssen aus dem konkreten Status hervorgehen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Handelsaussetzung",
+    "definition": "Ein ausdrücklich gemeldeter Ausschluss vom Handel, etwa für ein bestimmtes Produkt, bis zur zuständigen Wiederaufnahmeregel.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Preiskorridor",
+    "definition": "Ein festgelegter Preisbereich für eine Schutzprüfung. Referenz, Grenzen und Folgen richten sich nach dem konkreten Modell.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Volatilitätsunterbrechung",
+    "definition": "Eine Schutzphase bei einem zu weit entfernten möglichen Preis. In manchen Modellen wechselt der fortlaufende Handel dafür in eine zusätzliche Auktion.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Wiederaufnahmeauktion",
+    "definition": "Eine Auktion zum erneuten Start nach einer Unterbrechung. Sie verwendet den dann gültigen Auftragsstand und die geltenden Regeln.",
+    "aliases": [],
+    "firstUnit": "Kapitel 10"
   }
 ];
