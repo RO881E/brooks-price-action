@@ -71,12 +71,14 @@ test.describe('P06 Orientierung', () => {
   test('Etappen: Status als Text, gesperrte Teile ohne Zugang', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/path');
-    const stations = page.locator('.unit-section');
-    await expect(stations.first().locator('.station-chip')).toContainText('Hier geht es weiter');
-    await expect(stations.nth(2).locator('.station-chip')).toContainText('Noch gesperrt');
-    // Gesperrte Kapitel sind zugeklappt; nach dem Öffnen sind ihre Lektionen sichtbar, aber nicht bedienbar.
-    await stations.nth(2).getByRole('button', { expanded: false }).click();
-    await expect(stations.nth(2).getByRole('button', { name: /Noch gesperrt/ }).first()).toBeDisabled();
+    const station = page.locator('.unit-section');
+    await expect(station.locator('.station-chip')).toContainText('Hier geht es weiter');
+    // Gesperrte Kapitel: Stand in der Kapitelliste; angesehen sind ihre Lektionen sichtbar, aber nicht bedienbar.
+    await page.getByRole('button', { name: /Alle Kapitel/ }).click();
+    await expect(page.locator('.chapter-list button').nth(2)).toHaveAttribute('data-station', 'locked');
+    await page.locator('.chapter-list button').nth(2).click();
+    await expect(station.locator('.station-chip')).toContainText('Noch gesperrt');
+    await expect(station.getByRole('button', { name: /Noch gesperrt/ }).first()).toBeDisabled();
     // Nach Abschluss der ersten Einheit ist sie „Abgeschlossen“.
     const firstUnit = priceActionTrendsCourse.units[0].lessons.filter((lesson) => lesson.status === 'published').map((lesson) => lesson.id);
     await page.evaluate((ids) => {
@@ -85,7 +87,9 @@ test.describe('P06 Orientierung', () => {
       localStorage.setItem('wqt-academy-progress-v1', JSON.stringify(value));
     }, firstUnit);
     await page.reload();
-    await expect(page.locator('.unit-section').first().locator('.station-chip')).toContainText('Abgeschlossen');
+    await expect(page.locator('.unit-section .station-chip')).toContainText('Hier geht es weiter');
+    await page.getByRole('button', { name: 'Vorheriges Kapitel' }).click();
+    await expect(page.locator('.unit-section .station-chip')).toContainText('Abgeschlossen');
   });
 
   test('Lektion aus dem Lernpfad: nach dem Abschluss „Weiter“ und „Zurück zum Lernpfad“', async ({ page }) => {

@@ -75,7 +75,8 @@ test.describe('F-12 kapitelweises Laden', () => {
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     // Gliederung genügt für Pfad, Fortschritt und Freischaltung.
     await expect(page.getByRole('button', { name: `${deepLesson.title}: Jetzt lernen` }).first()).toBeVisible();
-    await page.getByRole('button', { name: 'Alle öffnen' }).click();
+    await page.getByRole('button', { name: /Alle Kapitel/ }).click();
+    await page.locator('.chapter-list button').last().click();
     await expect(page.getByRole('button', { name: `${lastUnit.lessons.at(-1)!.title}: Noch gesperrt` })).toBeDisabled();
     // Im Leerlauf nur die Einheit der nächsten Lektion.
     await expect.poll(() => [...units]).toEqual(['chapter-03']);
