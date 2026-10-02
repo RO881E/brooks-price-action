@@ -8,11 +8,8 @@ import {
   MAX_REASONING_LENGTH,
   REASONING_CONFIDENCES,
   MILESTONE_IDS,
-  READING_SIZES,
-  READING_SPACINGS,
   isCourseId,
   loadProgress,
-  sameReadingOptions,
   tidyCaseRuns,
   migrateProgress,
   savedKey,
@@ -61,12 +58,13 @@ export const BACKUP_FIELDS = [
   'settings',
   'lastLessonId',
   'lessonPositions',
-  'readerPositions',
-  'readingOptions',
   'caseRuns',
   'guideSeenAt',
   'activeCourseId',
 ] as const;
+
+/** Felder des gestrichenen Buchmodus: in Sicherungen bis v16 noch vorhanden, werden beim Import ignoriert. */
+const RETIRED_FIELDS = ['readerPositions', 'readingOptions'] as const;
 
 export type BackupField = (typeof BACKUP_FIELDS)[number];
 
@@ -75,8 +73,6 @@ export type BackupField = (typeof BACKUP_FIELDS)[number];
  * Sicherungen ohne sie bleiben gültig; die Migration ergänzt leere Werte.
  */
 const FIELD_SINCE: Partial<Record<BackupField, number>> = {
-  readerPositions: 9,
-  readingOptions: 10,
   caseRuns: 11,
   guideSeenAt: 13,
   activeCourseId: 16,
@@ -189,7 +185,6 @@ const DAILY_KEYS = ['lessons', 'reviewSessions', 'xp'];
 const BOOKMARK_KEYS = ['lessonId', 'stepId', 'createdAt'];
 const NOTE_KEYS = ['lessonId', 'stepId', 'text', 'updatedAt'];
 const POSITION_KEYS = ['stepIndex', 'updatedAt'];
-const READER_POSITION_KEYS = ['lessonId', 'stepId', 'updatedAt'];
 const CASE_RUN_KEYS = ['sessionId', 'completedAt', 'best', 'defensible', 'mistake', 'missedCues'];
 
 function validRunReasoning(value: unknown): boolean {
@@ -317,14 +312,6 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
       typeof value.compact === 'boolean';
     if (!valid) errors.push('„settings“ hat das falsche Format.');
   },
-  readingOptions(value, errors) {
-    const valid =
-      isRecord(value) &&
-      hasExactKeys(value, ['size', 'spacing']) &&
-      (READING_SIZES as readonly unknown[]).includes(value.size) &&
-      (READING_SPACINGS as readonly unknown[]).includes(value.spacing);
-    if (!valid) errors.push('„readingOptions“ hat das falsche Format.');
-  },
   caseRuns(value, errors) {
     checkRecord('caseRuns', value, errors, (_key, runs) => {
       if (!Array.isArray(runs)) return 'keine Liste';
@@ -359,13 +346,6 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
     checkRecord('lessonPositions', value, errors, (_key, entry) => {
       if (!isRecord(entry) || !hasExactKeys(entry, POSITION_KEYS)) return 'unvollständig';
       return isCount(entry.stepIndex) && isIsoDate(entry.updatedAt) ? null : 'Position ungültig';
-    });
-  },
-  readerPositions(value, errors) {
-    checkRecord('readerPositions', value, errors, (_key, entry) => {
-      if (!isRecord(entry) || !hasExactKeys(entry, READER_POSITION_KEYS)) return 'unvollständig';
-      const stepOk = entry.stepId === null || isId(entry.stepId);
-      return isId(entry.lessonId) && stepOk && isIsoDate(entry.updatedAt) ? null : 'Lesestelle ungültig';
     });
   },
 };
@@ -444,9 +424,10 @@ export function parseBackup(text: string): ParsedBackup {
     }
   }
   for (const key of Object.keys(data)) {
-    if (!(BACKUP_FIELDS as readonly string[]).includes(key)) {
-      errors.push(`Unbekanntes Datenfeld „${key.slice(0, 60)}“.`);
-    }
+    if ((BACKUP_FIELDS as readonly string[]).includes(key)) continue;
+    // Sicherungen bis v16 enthalten noch die Felder des früheren Buchmodus; sie werden ignoriert.
+    const retired = (RETIRED_FIELDS as readonly string[]).includes(key) && typeof dataVersion === 'number' && dataVersion <= 16;
+    if (!(retired && isRecord(data[key]))) errors.push(`Unbekanntes Datenfeld „${key.slice(0, 60)}“.`);
   }
 
   if (errors.length > 0) return { ok: false, errors };
@@ -541,7 +522,6 @@ export interface MergeOptions {
  * - Versuchsdaten: der Datensatz mit mehr Versuchen; Antworten: lokal vor Import
  * - Wiederholungsplan: jüngerer Stand; Lektionspositionen: jüngerer Stand,
  *   entfällt für abgeschlossene Lektionen
- * - Lesestellen im Buchleser (je Einheit): jüngerer Stand
  * - Tageszählwerte: je Feld der größere Wert – nie eine Summe, damit dieselbe
  *   Sicherung nichts doppelt zählt
  * - Notizen: neuere Fassung
@@ -587,14 +567,9 @@ export function mergeProgress(
     lessonPositions: Object.fromEntries(
       Object.entries(positions).filter(([lessonId]) => !completed.has(lessonId)),
     ),
-    // Lesestelle je Einheit: die zuletzt gesetzte gewinnt.
-    readerPositions: mergeRecords(local.readerPositions, incoming.readerPositions, (a, b) =>
-      time(b.updatedAt) > time(a.updatedAt) ? b : a,
-    ),
     lastLessonId: local.lastLessonId ?? incoming.lastLessonId,
     dailyGoal: options.keepLocalPreferences ? local.dailyGoal : incoming.dailyGoal,
     settings: options.keepLocalPreferences ? local.settings : incoming.settings,
-    readingOptions: options.keepLocalPreferences ? local.readingOptions : incoming.readingOptions,
     // Abgeschlossene Trainerrunden: Vereinigung je Runden-ID, nichts doppelt.
     caseRuns: mergeCaseRuns(local.caseRuns, incoming.caseRuns),
     // Einmal geschlossen bleibt geschlossen.
@@ -764,8 +739,7 @@ export function previewImport(
     local.dailyGoal.target !== incoming.dailyGoal.target;
   const settingsChange =
     local.settings.motion !== incoming.settings.motion ||
-    local.settings.compact !== incoming.settings.compact ||
-    !sameReadingOptions(local.readingOptions, incoming.readingOptions);
+    local.settings.compact !== incoming.settings.compact;
   merge.preferencesDiffer = goalChanges || settingsChange;
 
   return {

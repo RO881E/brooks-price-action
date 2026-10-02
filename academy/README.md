@@ -54,11 +54,6 @@ Kapitel 24 ergänzt 24 Mikro-Lektionen zu Umkehrtagen: neue Gegenkontrolle, wach
 ## Was der Pilot bereits kann
 
 - Lernpfad mit aufeinander aufbauenden Mikro-Lektionen
-- Buchmodus mit Kapitelübersicht und echtem Buchleser (`#/read/<einheit>?lesson=<id>&step=<n>`):
-  „Kapitel lesen“ zeigt die veröffentlichten Abschnitte in Buchreihenfolge als zusammenhängenden
-  Text mit Schaubildern (inkl. Diagramm-Fokus), Vergleichen, Fragen und Zusammenfassung;
-  Kapitelgliederung, Lesefortschritt als Zählung, „Weiterlesen“ an der gemerkten Stelle und klare
-  Hinweise auf gesperrte Abschnitte
 - Erklärungen, eigene interaktive Schaubilder, Verständnisfragen und Zusammenfassungen
 - Review-Zentrale unter „Üben“ mit „Heute fällig“, „Fehler trainieren“, „Kapitel auswählen“
   und „Alles mischen“ (nur Fragen aus abgeschlossenen Lektionen, bis zu 10 pro Runde)
@@ -123,11 +118,6 @@ seit „Mehrere Kurse“ `version: 16`:
 - `bookmarks` und `notes` (seit F-07): Lesezeichen und Klartextnotizen (höchstens 5000 Zeichen)
   je Lektion bzw. Schritt, Schlüssel `lessonId` oder `lessonId::stepId`
 - `settings` (seit F-08): `motion` (`system` oder `reduce`) und `compact`
-- `readerPositions` (seit F-13, v9): Lesestelle im Buchleser je Einheit –
-  `{ lessonId, stepId, updatedAt }`, Schlüssel ist die Einheit-ID. Sie ist unabhängig vom
-  Lektionsabschluss und von `lessonPositions`.
-- `readingOptions` (seit F-22, v10): Leseoptionen im Buchmodus – `size` (`standard`, `large`,
-  `larger`) und `spacing` (`standard`, `relaxed`, `wide`)
 - `caseSessions` (seit F-15, v11): laufende Runde im Bar-für-Bar-Trainer je Fall –
   `{ sessionId, startedAt, updatedAt, session }`, Schlüssel ist die Fall-ID; `session` ist der
   Zustand der Engine und wird beim Öffnen gegen den Fall geprüft
@@ -146,13 +136,11 @@ seit „Mehrere Kurse“ `version: 16`:
   getrennt; XP, Lerntage, Tagesziel und Meilensteine gelten für alle Kurse gemeinsam
   ([`docs/DESIGN_MEHRERE_KURSE.md`](docs/DESIGN_MEHRERE_KURSE.md))
 
-Ältere Datensätze (v1–v15) werden beim Laden verlustfrei migriert (vor v16 ohne gewählten Kurs, also im
-Standardkurs); der Wiederholungsplan
-startet leer, ebenso die Lesestellen (vor v9) und die Trainerrunden (vor v11); Leseoptionen
-beginnen vor v10 bei „Standard“, unbekannte Stufen werden einzeln zu „Standard“. Defekte
-Trainerrunden oder -sitzungen entfallen einzeln. Defekte Lesestellen (ohne Einheit oder Lektion)
-entfallen, ein ungültiger Schritt wird zum Abschnittsanfang; eine Lesestelle auf eine unbekannte
-oder gesperrte Lektion bleibt gespeichert, der Leser öffnet dann den nächsten lesbaren Abschnitt. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
+Ältere Datensätze (v1–v16) werden beim Laden verlustfrei migriert (vor v16 ohne gewählten Kurs, also im
+Standardkurs); der Wiederholungsplan startet leer, ebenso die Trainerrunden (vor v11). Defekte
+Trainerrunden oder -sitzungen entfallen einzeln. Seit v17 gibt es keinen Buchmodus mehr: Seine Felder
+`readerPositions` (Lesestellen) und `readingOptions` (Leseoptionen) aus v9–v16 werden beim Laden verworfen und
+nicht zurückgeschrieben; alles andere bleibt unverändert. Unbekannte Zusatzfelder bleiben erhalten. Alte Antworten werden nicht in Versuche
 umgedeutet: Ihr Erstversuch gilt als „nicht erfasst“. Ein unlesbarer Datensatz wird vor dem Ersetzen unter
 `wqt-academy-progress-backup` gesichert.
 
@@ -164,19 +152,18 @@ nicht aber eine laufende Wiederholungs- oder Trainerrunde und unbekannte Zusatzf
 
 Der Import prüft streng (`src/features/backup.ts`): höchstens 10 MB, gültiges JSON, bekanntes
 Format und keine neuere Version, alle Pflichtfelder, keine unbekannten Felder, gültige Einträge
-und keine gefährlichen Schlüssel wie `__proto__`. Sicherungen aus v8 (vor dem Buchleser), v9 (vor den
-Leseoptionen) und v10 (vor dem Trainer) bleiben gültig: Ihnen fehlen nur `readerPositions`,
-`readingOptions` bzw. `caseRuns`, die leer bzw. mit „Standard“ ergänzt werden; Sicherungen vor v16 fehlt
-`activeCourseId` (Standardkurs). Beim Zusammenführen bleibt der hier gewählte Kurs. Eine abgelehnte Datei ändert nichts. Vor jeder
+und keine gefährlichen Schlüssel wie `__proto__`. Ältere Sicherungen bleiben gültig: Vor v11 (dem Trainer) fehlt
+`caseRuns` (leer ergänzt), vor v16 `activeCourseId` (Standardkurs). Sicherungen bis v16 enthalten noch die Felder
+des früheren Buchmodus (`readerPositions`, `readingOptions`); sie werden beim Import ignoriert, in neuen
+Sicherungen stehen sie nicht mehr. Beim Zusammenführen bleibt der hier gewählte Kurs. Eine abgelehnte Datei ändert nichts. Vor jeder
 Änderung erscheint eine Vorschau.
 
 - **Zusammenführen** (Standard) ergänzt den Stand, ohne etwas doppelt zu zählen: Vereinigung von
   Lektionen, Lerntagen, Lesezeichen und Meilensteinen; früherer Erstabschluss samt XP;
   Datensatz mit mehr Versuchen; jüngerer Wiederholungsstand und jüngere Lektionsposition;
-  Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; je Einheit die
-  zuletzt gesetzte Lesestelle; abgeschlossene Trainerrunden vereinigt je `sessionId` (eine
+  Tageszählwerte je Feld mit dem größeren Wert; neuere Fassung einer Notiz; abgeschlossene Trainerrunden vereinigt je `sessionId` (eine
   laufende lokale Runde bleibt); Antworten lokal vor Import. Tagesziel und Darstellung
-  (einschließlich Leseoptionen) kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
+  kommen aus der Sicherung, auf Wunsch bleiben die eigenen.
 - **Vollständig ersetzen** braucht eine ausdrückliche Bestätigung; vorher wird ein Download des
   aktuellen Stands angeboten. Laufende Wiederholungs- und Trainerrunden enden dabei.
 - **Zurücksetzen** löscht nur `wqt-academy-progress-v1`.
@@ -260,8 +247,7 @@ Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/t
 - Angezeigt werden nur Fälle mit `status: 'approved'`. Ein Fall ist frei, sobald alle ihm
   zugeordneten Lektionen im Lernpfad zugänglich sind; vorher nennt die Karte die Lektion, die
   zuerst erreicht werden muss. Gesperrte oder unbekannte Fall-Links fallen sicher auf den
-  Lernpfad zurück. Nach einer passenden Lektion (Auswertung im Lektionsmodus, abgeschlossener
-  Abschnitt im Buchmodus) erscheint ein Link „Chart trainieren“.
+  Lernpfad zurück. Nach einer passenden Lektion (Auswertung im Lektionsmodus) erscheint ein Link „Chart trainieren“.
 - Je Entscheidung: Chart nur mit den bekannten Bars (Maßstab nur aus ihnen), Frage, Long/Short/
   Abwarten als Optionsfelder, Hinweise als Kontrollkästchen (mindestens einer). Erst nach
   „Entscheidung abgeben“ erscheinen Einordnung aller drei Optionen, Erklärung der Hinweise
@@ -306,7 +292,7 @@ Die Oberfläche (F-15) steht unter **Üben → Chart trainieren** und unter `#/t
 
 Beim ersten echten Besuch – ohne jeden Lernstand – steht
 oben im Lernpfad ein eingebetteter Abschnitt „So lernst du in der WQT Academy“ (kein Overlay,
-keine Tour). Er erklärt je Weg in einem Satz Lernpfad, Buchmodus, Üben und – nur wenn es
+keine Tour). Er erklärt je Weg in einem Satz Lernpfad, Üben und – nur wenn es
 freigegebene Fälle gibt – Chart trainieren (sind alle gesperrt, sagt der Text das), dazu die
 lokale Speicherung und die JSON-Sicherung in den Einstellungen. Aktionen: „Erste Lektion
 starten: …“ und „Einführung schließen“. Beides vermerkt `guideSeenAt`; danach erscheint die
@@ -328,20 +314,13 @@ zählt weder als Lerntag noch bringt es XP.
 - **Einführung:** Die Erklärung zeigt den Lernrhythmus **Lesen → Anwenden → Wiederholen** und den
   sofortigen Start („Erste Lektion starten“). Sie ist überspringbar, jederzeit über „Hilfe“ erreichbar
   und macht keine Ergebnis- oder Gewinnversprechen.
-- **Einstellungen:** Reihenfolge Darstellung (Bewegung reduzieren, kompakte Ansicht, Schrift) →
+- **Einstellungen:** Reihenfolge Darstellung (Bewegung reduzieren, kompakte Ansicht) →
   Tagesziel → Offline & App → Datensicherung → Zurücksetzen. Jede Darstellungsoption nennt kurz ihre
-  Wirkung; die Schrift stellst du hier mit demselben Zustand ein wie im Buchmodus. Alle Optionen sind
+  Wirkung. Alle Optionen sind
   per Tastatur erreichbar; Werte und Sicherungsformat bleiben unverändert.
 
-## Lesen und Wiederfinden (P10)
+## Wiederfinden (P10)
 
-- **Buchseite:** Jeder Schritt trägt am Rand eine kleine Beschriftung seiner Art (Lesetext, Schaubild,
-  Vergleich, Frage, Zusammengefasst) samt Akzent; Fragen stehen als abgesetzte Karte, Schaubilder
-  im eigenen Rahmen. Ein Balken zeigt den Abschnittsfortschritt („Abschnitt n von N“ bleibt als
-  Text). Es wird nichts gekürzt; Leseoptionen, Scrollposition und Kapitelreihenfolge sind unverändert.
-- **Begriffe am Lernort:** Begriffe, „Im Glossar öffnen“ und „Schließen“ sind mindestens 44 px hoch,
-  auf schmalen Geräten volle Breite; die Definition stammt weiter aus dem einen Glossareintrag und
-  der Fokus geht beim Schließen zum Begriff zurück.
 - **Suche:** Treffer stehen in den Gruppen Lektion, Schritt und Glossar mit sichtbarer Trefferart und
   gut lesbarem Fundort. Die Trefferart-Chips sind rein dekorativ (`aria-hidden`), zugängliche Namen,
   gesperrte Vorschau, Hash-Links und der `/`-Shortcut bleiben unverändert.
@@ -423,7 +402,7 @@ Stelle, sonst der nächste Abschnitt), **Kurz lernen** (10/20 Minuten) und **Wie
   aus Fortschritt und Freischaltung. Reihenfolge und Freischaltungen bleiben unverändert.
 - **Übergänge:** Nach einer Lektion zeigt die Abschlussansicht „Weiter: <nächste Lektion>“
   (nur wenn sie freigeschaltet ist) und den Rückweg dorthin, woher die Lektion geöffnet wurde
-  („Zurück zum Üben“, „… zum Buchmodus“ oder „… zum Lernpfad“). Nach einem Reload gilt
+  („Zurück zum Üben“ oder „… zum Lernpfad“). Nach einem Reload gilt
   wieder der Lernpfad.
 - **Navigation:** Untere Leiste mit Kurzlabels und mindestens 44 px Touch-Zielen; der aktive
   Ort steht in `aria-current`.
@@ -537,31 +516,6 @@ Prozentwert. Die Berechnung liegt in reinen Funktionen (`src/features/mistakeIns
 - Hinweise nennen ältere Antworten ohne Erstversuch, Runden ohne Einzelantworten (v11) und
   Runden zu nicht mehr angebotenen Fällen – gezählt, nicht gedeutet.
 
-## Leseoptionen im Buchmodus (F-22)
-
-Oben im Buchmodus öffnet „Leseansicht“ zwei Gruppen von Optionsfeldern: Schriftgröße
-(Standard, Groß, Sehr groß) und Zeilenabstand (Standard, Weit, Sehr weit). Die Wahl wirkt sofort,
-gilt nur für den Lesetext (Absätze, Hinweise, Vergleiche, Fragen, Antworten, Bildunterschriften,
-Zusammenfassungen, Überschriften moderat) und wird in `readingOptions` gespeichert. „Standard“
-setzt nur diese beiden Optionen zurück. Umgesetzt über CSS-Variablen und Datenattribute an
-`.reader-page`; die Stufe „Standard“ lässt alle bisherigen Maße unverändert, größere Stufen
-rechnen in `rem`, damit Browser-Schriftgröße und Zoom weiter wirken. Bedienelemente, Diagramme
-und der Lektionsmodus bleiben unverändert.
-
-## Begriffe am Lernort (F-21)
-
-Unter ausgewählten Leseabschnitten im Buchmodus stehen wenige Begriffe zum Nachschlagen. Ein
-Klick öffnet ein kleines Panel mit der bestehenden Glossardefinition, den Aliassen und dem Link
-„Im Glossar öffnen“ (`#/glossary?term=…`). „Schließen“ oder Escape bringt Fokus und
-Leseposition zum Begriff zurück; Browser-Zurück aus dem Glossar führt an die Lesestelle.
-Nichts davon wird gespeichert, Fragen, Abschluss und XP bleiben unberührt.
-
-Die Zuordnung steht ausdrücklich in `src/content/stepTerms.ts` (Lektions-ID, Schritt-ID,
-Glossarbegriffe) – keine automatische Wortsuche. Regeln: veröffentlichter Schritt, keine Frage,
-höchstens drei Begriffe, nur vorhandene Glossarbegriffe (Feld `term`), und der Begriff steht als
-eigenes Wort im Text des Schritts. Verstöße melden `npm test` und `npm run check:content`
-(Regel `begriff-am-lernort`); unbekannte Begriffe blendet die Oberfläche sicher aus.
-
 ## Spielerischer: Bulle „Bo“ (Stufe 1)
 
 Ein freundlicher Bulle begleitet „Heute“, die Antwort-Rückmeldung und das Lektionsergebnis; Knöpfe
@@ -620,7 +574,7 @@ Lernstand berechnet. Tests: `levels.test.ts`, `tests/levels.spec.ts`.
 
 ## Mehrere Kurse parallel
 
-Jeder Kurs mit Inhalt lässt sich starten und jederzeit wechseln. Lernpfad, Buchmodus, Üben, Fortschritt, Glossar,
+Jeder Kurs mit Inhalt lässt sich starten und jederzeit wechseln. Lernpfad, Üben, Fortschritt, Glossar,
 Suche und Gespeichert zeigen den gewählten Kurs; jeder Kurs behält seinen eigenen Stand. XP, Lerntage, Tagesziel
 und Meilensteine zählen für alle Kurse gemeinsam. Kurse stehen im Kursregister `src/content/registry.ts`. Die
 Browser-Tests laufen im Vite-Modus `e2e` mit einem kleinen Testkurs, den es im Build nicht gibt.
@@ -679,9 +633,6 @@ einem nicht ladbaren Schaubild. Vor jedem Release gilt die
 `tests/pwa.spec.ts` baut zusätzlich den Produktions-Build nach `.wqt-playwright-tmp/`, liefert
 ihn unter `/academy/` aus und prüft Registrierung, Offline-Betrieb, Updates, fehlgeschlagene
 Dateien und dass weder PDFs noch fremde Ressourcen im Cache landen.
-`tests/reader.spec.ts` (F-13) prüft Lesen mit Pflichtfrage (falsch, dann richtig, per Tastatur),
-Weiterlesen, XP genau einmal, gesperrte Abschnitte und Kapitel, unbekannte IDs, Reload an der
-Lesestelle, Wechsel über den Lernpfad, Diagramm-Fokus, Export/Import und 360 px mit axe.
 `tests/chapter-loading.spec.ts` (F-12) prüft, dass der Lernpfad ohne Kapitelinhalte startet,
 Direktlinks, Zurück/Vorwärts, gesperrte und unbekannte Lektionen, Suche über noch nicht
 geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Laden.
@@ -726,8 +677,7 @@ Bezeichnung, Status, XP, Schrittüberschrift, Bildunterschrift) und veröffentli
 ohne Schritte; ungültige Fragen (weniger als zwei Antworten, doppelte Antwort-IDs, fehlende
 Erklärung, richtige Antwort gibt es nicht); Diagramme mit unbekanntem Szenario oder ohne
 Bildbeschreibung; Glossareinträge mit doppeltem Begriff oder einer `firstUnit`, die keine
-Einheit ist; Verstöße der Bar-für-Bar-Fälle gegen den F-14-Vertrag; ungültige
-Begriffszuordnungen am Lernort (F-21); Abweichungen von `build/published-ids.json` (bekannte
+Einheit ist; Verstöße der Bar-für-Bar-Fälle gegen den F-14-Vertrag; Abweichungen von `build/published-ids.json` (bekannte
 Einheit, Lektion oder Schritt gelöscht, umbenannt, umgezogen, nicht mehr veröffentlicht oder
 umsortiert) sowie neue veröffentlichte IDs, die noch nicht aufgenommen sind.
 
@@ -739,7 +689,7 @@ Rechtschreibung, Länge oder Wörtlichkeit von Texten, Bildrechte und inhaltlich
 Bildbeschreibungen.
 
 `build/published-ids.json` ist die Liste der einmal veröffentlichten IDs, an denen Fortschritt,
-Lesezeichen und Lesestellen hängen. Neue Lektionen oder Schritte werden nur mit `--accept-new`
+Lesezeichen und Notizen hängen. Neue Lektionen oder Schritte werden nur mit `--accept-new`
 ergänzt; das hängt ausschließlich an, entfernt nichts und verweigert die Aufnahme, solange
 bekannte IDs fehlen oder verschoben sind. Die Änderung der Datei ist im Diff des PRs sichtbar.
 

@@ -76,10 +76,7 @@ function courseStanding(outline: CourseOutline, progress: AcademyProgress) {
   const lessonIds = publishedLessonIdsOf(outline);
   const completed = new Set(progress.completedLessonIds);
   const done = lessonIds.filter((id) => completed.has(id)).length;
-  const started =
-    done > 0 ||
-    lessonIds.some((id) => id in progress.lessonPositions) ||
-    outline.units.some((unit) => unit.id in progress.readerPositions);
+  const started = done > 0 || lessonIds.some((id) => id in progress.lessonPositions);
   return { percent: progressPercent(progress, lessonIds), done, total: lessonIds.length, started };
 }
 

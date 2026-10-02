@@ -27,7 +27,7 @@ async function seed(page: Page, ids: string[] = [], extra: Record<string, unknow
 const stored = (page: Page) => page.evaluate(() => JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}'));
 
 test.describe('P11 Einstellungen', () => {
-  test('Darstellung zuerst, jede Option erklärt ihre Wirkung, Schrift dort einstellbar und gespeichert', async ({ page }) => {
+  test('Darstellung zuerst, jede Option erklärt ihre Wirkung, jede Wirkung steht dabei', async ({ page }) => {
     await seed(page);
     await page.goto('/#/settings');
     await expect(page.getByRole('heading', { name: 'Einstellungen', level: 1 })).toBeVisible();
@@ -36,14 +36,6 @@ test.describe('P11 Einstellungen', () => {
     expect(headings.indexOf('Tagesziel')).toBeLessThan(headings.indexOf('Datensicherung'));
     await expect(page.getByText(/Wirkung: sofort in der ganzen App/)).toBeVisible();
     await expect(page.getByText(/Wirkung: weniger Abstände/)).toBeVisible();
-    await expect(page.getByText(/Wirkung der Schrift:/)).toBeVisible();
-
-    // Schrift: derselbe Zustand wie im Buchmodus.
-    await page.getByText('Leseansicht').click();
-    await page.getByRole('radio', { name: 'Groß', exact: true }).check();
-    expect((await stored(page)).readingOptions.size).toBe('large');
-    await page.goto(`/#/read/${priceActionTrendsCourse.units[0].id}`);
-    await expect(page.locator('.reader-page')).toHaveAttribute('data-reading-size', 'large');
 
     // Bewegung reduzieren und kompakte Ansicht bleiben unverändert wirksam.
     await page.goto('/#/settings');
@@ -105,7 +97,7 @@ test.describe('P11 Einführung', () => {
 });
 
 test.describe('P11 Sichere Adressen', () => {
-  const bad = ['/#/train/gibt-es-nicht', '/#/lesson/price-action-trends.gibt-es', '/#/read/gibt-es-nicht', '/#/study/15'];
+  const bad = ['/#/train/gibt-es-nicht', '/#/lesson/price-action-trends.gibt-es', '/#/read/gibt-es-nicht', '/#/chapters', '/#/study/15'];
 
   test('unbekannte oder nicht freigegebene Ziele führen mit Hinweis zurück statt auf eine leere Seite', async ({ page }) => {
     await seed(page, published.slice(0, 2).map((lesson) => lesson.id));

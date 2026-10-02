@@ -41,8 +41,6 @@ const attr = (page: Page) => page.evaluate(() => document.documentElement.getAtt
 
 const VIEWS: Array<[string, string]> = [
   ['Lernpfad', '/#/'],
-  ['Buchmodus', '/#/chapters'],
-  ['Leser', `/#/read/${priceActionTrendsCourse.units[1].id}`],
   ['Üben', '/#/practice'],
   ['Kurzlernen', '/#/study/20'],
   ['Trainer', `/#/train/${caseA.id}`],

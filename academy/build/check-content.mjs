@@ -20,14 +20,13 @@ async function load(path) {
   return module;
 }
 
-const [{ priceActionTrendsCourse }, { glossaryEntries }, chart, { barCases, allBarCases, transferCases }, { validateBarCases }, { validateStepTermLinks }, { priceActionTopics }, { validateTopicMap }, check] =
+const [{ priceActionTrendsCourse }, { glossaryEntries }, chart, { barCases, allBarCases, transferCases }, { validateBarCases }, { priceActionTopics }, { validateTopicMap }, check] =
   await Promise.all([
     load('src/content/course.ts'),
     load('src/content/glossary.ts'),
     load('src/components/LearningChart.tsx'),
     load('src/content/barCases.ts'),
     load('src/features/barCaseValidation.ts'),
-    load('src/content/stepTerms.ts'),
     load('src/content/topicMap.ts'),
     load('src/features/topicMapValidation.ts'),
     load('build/contentCheck.ts'),
@@ -40,7 +39,6 @@ const input = {
   scenarioIds: chart.chartScenarioIds(),
   describe: (scenario) => chart.chartDescription(scenario),
   caseIssues: validateBarCases(allBarCases, priceActionTrendsCourse),
-  termLinkIssues: validateStepTermLinks(priceActionTrendsCourse, glossaryEntries),
   topicIssues: validateTopicMap(priceActionTopics, priceActionTrendsCourse, barCases, transferCases),
   known,
 };
@@ -65,7 +63,6 @@ function unitEntry(unitId) {
 function locate(issue) {
   if (issue.area === 'glossary') return 'src/content/glossary.ts';
   if (issue.area === 'case') return 'src/content/barCases.ts';
-  if (issue.area === 'term-link') return 'src/content/stepTerms.ts';
   if (issue.area === 'topic') return 'src/content/topicMap.ts';
   if (issue.area === 'known-ids' && !issue.lessonId) return 'build/published-ids.json';
   if (issue.area === 'diagram' && !issue.lessonId) return 'src/components/LearningChart.tsx';

@@ -10,7 +10,7 @@ Nur Darstellung: Buchreihenfolge, Sperrlogik, Texte, XP und Lernstand bleiben un
 | Lernpfad | Jede Lektion ist eine **runde Station** auf einem geschwungenen Weg; die Karte mit Titel, Kurztext, Dauer und XP steht rechts daneben. Abgeschlossene Abschnitte des Weges sind durchgezogen blau, der Rest gepunktet. |
 | Aktuelle Station | Die nächste bzw. begonnene Lektion leuchtet (Ring, farbige Karte, kurzes Pulsen) und hat den **Bullen** an der Karte. |
 | Kapitel | Die Kapitelnummer sitzt in einer **Medaille mit Fortschrittsring** (Anteil abgeschlossener Lektionen). Ist das Kapitel fertig, wird sie golden mit Stern. Die Beschriftung („✓ Abgeschlossen“, „▶ Hier geht es weiter“ …) bleibt. |
-| Icons | Navigation (Lernpfad, Buchmodus, Üben, Fortschritt, Gespeichert, Glossar, Einstellungen) und Stationen (Häkchen, Play, Schloss, Punkte) nutzen einen **einheitlichen Satz Linien-Icons** (`src/components/Icon.tsx`) statt Zeichen. |
+| Icons | Navigation (Lernpfad, Üben, Fortschritt, Gespeichert, Glossar, Einstellungen) und Stationen (Häkchen, Play, Schloss, Punkte) nutzen einen **einheitlichen Satz Linien-Icons** (`src/components/Icon.tsx`) statt Zeichen. |
 | Lektionsbalken | Der Fortschrittsbalken hat **Schritt-Marken** je Schritt der Lektion. Wert und Beschriftung („Schritt 2 von 5“) bleiben. |
 
 Die Kapitel-Medaillen sind bewusst schlicht (Nummer, Ring, Stern). Eigene Illustrationen je Thema

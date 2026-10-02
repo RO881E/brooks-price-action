@@ -27,20 +27,15 @@ const stored = (page: Page) => page.evaluate(() => JSON.parse(localStorage.getIt
 const today = (page: Page) => page.getByRole('region', { name: 'Dein nächster Schritt' });
 
 test.describe('P06 Orientierung', () => {
-  test('neuer Nutzer: eine klare primäre Aktion, Lesen/Kurzlernen/Wiederholen darunter', async ({ page }) => {
+  test('neuer Nutzer: eine klare primäre Aktion, Kurzlernen/Wiederholen darunter', async ({ page }) => {
     await seed(page, []);
     await page.goto('/');
     const panel = today(page);
     await expect(panel.getByText('Jetzt dran')).toBeVisible();
     await expect(panel.getByRole('heading', { name: published[0].title, level: 3 })).toBeVisible();
     await expect(panel.getByRole('button', { name: 'Nächste Lektion beginnen' })).toHaveCount(1);
-    await expect(panel.getByRole('button', { name: 'Weiter im Buchmodus' })).toBeVisible();
     await expect(panel.getByRole('button', { name: '≈ 10 Minuten' })).toBeVisible();
     await expect(panel.getByText('Heute ist nichts fällig.')).toBeVisible();
-    // Kein Vorschlag führt zu einer gesperrten Stelle: die Lesestelle ist die erste Lektion.
-    await panel.getByRole('button', { name: 'Weiter im Buchmodus' }).click();
-    await expect(page).toHaveURL(new RegExp(`#/read/.*lesson=${encodeURIComponent(published[0].id)}`));
-    await page.goBack();
     await panel.getByRole('button', { name: 'Nächste Lektion beginnen' }).click();
     await expect(page).toHaveURL(new RegExp(`#/lesson/${published[0].id}`));
   });
@@ -93,10 +88,10 @@ test.describe('P06 Orientierung', () => {
     await expect(page.locator('.unit-section').first().locator('.station-chip')).toContainText('Abgeschlossen');
   });
 
-  test('Lektion aus dem Buchmodus: nach dem Abschluss „Weiter“ und „Zurück zum Buchmodus“', async ({ page }) => {
+  test('Lektion aus dem Lernpfad: nach dem Abschluss „Weiter“ und „Zurück zum Lernpfad“', async ({ page }) => {
     await seed(page, []);
-    await page.goto('/#/chapters');
-    await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Verfügbar/ }).click();
+    await page.goto('/#/path');
+    await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ }).click();
     await page.getByRole('button', { name: 'Weiter' }).click();
     await page.getByRole('button', { name: 'Weiter' }).click();
     await page.getByRole('button', { name: 'Weiter' }).click();
@@ -105,8 +100,8 @@ test.describe('P06 Orientierung', () => {
     await page.getByRole('button', { name: 'Lektion abschließen' }).click();
     await expect(page.getByText('Lektion abgeschlossen')).toBeVisible();
     await expect(page.getByRole('button', { name: `Weiter: ${published[1].title}` })).toBeVisible();
-    await page.getByRole('button', { name: 'Zurück zum Buchmodus' }).click();
-    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
+    await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
   });
 
   test('360 px: kein Überlauf, Tastatur und axe für „Heute“ und Lernpfad', async ({ page }) => {
@@ -129,7 +124,7 @@ test.describe('P06 Orientierung', () => {
     await seed(page, published.slice(0, 3).map((lesson) => lesson.id));
     await page.goto('/');
     const nav = page.getByRole('navigation', { name: isMobile ? 'Mobile Navigation' : 'Hauptnavigation' });
-    for (const label of ['Lernpfad', 'Buchmodus', 'Üben', 'Fortschritt', 'Glossar']) {
+    for (const label of ['Lernpfad', 'Üben', 'Fortschritt', 'Glossar']) {
       const button = nav.getByRole('button', { name: label });
       await expect(button).toBeVisible();
       const box = (await button.boundingBox())!;

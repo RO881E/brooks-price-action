@@ -75,9 +75,8 @@ test.describe('F-12 kapitelweises Laden', () => {
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     // Gliederung genügt für Pfad, Fortschritt und Freischaltung.
     await expect(page.getByRole('button', { name: `${deepLesson.title}: Jetzt lernen` }).first()).toBeVisible();
-    await page.goto('/#/chapters');
-    await expect(page.getByRole('button', { name: `${deepLesson.title}: Verfügbar` })).toBeVisible();
-    await expect(page.getByRole('button', { name: `${lastUnit.lessons.at(-1)!.title}: Gesperrt` })).toBeDisabled();
+    await page.getByRole('button', { name: 'Alle öffnen' }).click();
+    await expect(page.getByRole('button', { name: `${lastUnit.lessons.at(-1)!.title}: Noch gesperrt` })).toBeDisabled();
     // Im Leerlauf nur die Einheit der nächsten Lektion.
     await expect.poll(() => [...units]).toEqual(['chapter-03']);
     expect(errors).toEqual([]);
@@ -180,12 +179,13 @@ test.describe('F-12 kapitelweises Laden', () => {
     await seedCompletedUntil(page, deepLesson);
     const blocked = `**/src/content/courses/price-action-trends/${UNIT_FILES[unitOf(deepLesson).id]}*.ts*`;
     await page.route(blocked, (route) => route.abort());
-    await page.goto('/#/chapters');
-    await page.getByRole('button', { name: `${deepLesson.title}: Verfügbar` }).click();
+    await page.goto('/#/path');
+    await page.getByRole('button', { name: `${deepLesson.title}: Jetzt lernen` }).first().click();
     await page.getByRole('alert').getByRole('button', { name: 'Zurück zur Übersicht' }).click();
     // Zurück in die Ansicht, aus der die Lektion geöffnet wurde.
-    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
-    await expect(page.getByRole('button', { name: `${deepLesson.title}: Verfügbar` })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
+    // Die geöffnete Lektion gilt jetzt als begonnen.
+    await expect(page.getByRole('button', { name: `${deepLesson.title}: Begonnen · Schritt 1`, exact: false }).first()).toBeVisible();
     expect(JSON.parse((await stored(page))!).completedLessonIds.length).toBeGreaterThan(0);
   });
 });

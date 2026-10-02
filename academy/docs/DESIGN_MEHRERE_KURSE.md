@@ -8,7 +8,7 @@ Browser-Tests mit einem kleinen **Testkurs** geprüft, den es nur dort gibt.
 
 | Bereich | gilt für |
 | --- | --- |
-| Lernpfad, Buchmodus, „Weiterlernen“, Kurz lernen, Heute-Karte | den gewählten Kurs |
+| Lernpfad, „Weiterlernen“, Kurz lernen, Heute-Karte | den gewählten Kurs |
 | Üben: Wiederholung, Fehlerübersicht, Nach Thema üben, Spiele, Aufgaben, Chart trainieren, Transferprüfung | den gewählten Kurs |
 | Fortschritt: Lektionen, Kapitel, fällige Fragen, Album, Missionen | den gewählten Kurs |
 | Glossar, Suche, Gespeichert (Lesezeichen und Notizen) | den gewählten Kurs |
@@ -33,7 +33,7 @@ Browser-Tests mit einem kleinen **Testkurs** geprüft, den es nur dort gibt.
   Kurse über einen gemeinsamen Katalog.
 - **IDs sind kursübergreifend eindeutig:** Einheiten und Lektionen tragen die Kurs-ID als Präfix
   (`<kurs>.<einheit>.<lektion>`), Schritt-IDs sind ebenfalls eindeutig (Test `registry.test.ts`). Deshalb trennt
-  sich der Lernstand ohne eigene Speicher je Kurs: Abschlüsse, Antworten, Wiederholungsplan, Lesestellen und
+  sich der Lernstand ohne eigene Speicher je Kurs: Abschlüsse, Antworten, Wiederholungsplan und
   Trainerrunden hängen an diesen IDs. Was zu einem Kurs gehört, ergibt sich daraus: Fälle, Aufgaben und
   Albumkarten über ihre Einheit bzw. Lektion, Themen über ihre Lehrstellen, Lesezeichen und Notizen über das
   Präfix der Lektions-ID (Einträge ohne bekannten Kurs bleiben im angezeigten Kurs als „Nicht mehr verfügbar“

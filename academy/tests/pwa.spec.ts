@@ -6,6 +6,8 @@ import { extname, join, normalize } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
 import { priceActionTrendsCourse, publishedLessons } from '../src/content/course';
+import { marketBasicsDefinition } from '../src/content/courses/how-exchanges-work';
+import { unitDefinitions } from '../src/content/units';
 import { librarySubjects } from '../src/content/library';
 
 /*
@@ -266,9 +268,9 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
   }, publishedLessons.map((lesson) => lesson.id));
   await firstVisit(page);
 
-  // Jede Einheit liegt als eigener Chunk im Vorab-Cache.
-  const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-\d\d|chapter-\d\d)-.*\.js$/.test(path));
-  expect(chunks).toHaveLength(priceActionTrendsCourse.units.length);
+  // Jede Einheit jedes Kurses liegt als eigener Chunk im Vorab-Cache.
+  const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-\d\d|chapter-\d\d)-[A-Za-z0-9_-]{8}\.js$/.test(path));
+  expect(chunks).toHaveLength(unitDefinitions.length + marketBasicsDefinition.units.length);
 
   serverState.down = true;
   await context.setOffline(true);
@@ -282,77 +284,6 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
   await page.keyboard.press('/');
   await page.keyboard.type(priceActionTrendsCourse.units[5].lessons[1].title);
   await expect(page.getByRole('option').first()).toBeVisible();
-
-  serverState.down = false;
-  await context.setOffline(false);
-  expect(errors).toEqual([]);
-});
-
-test('Buchleser offline: Kapitel lesen und Lesestelle halten (F-13)', async ({ page, context }) => {
-  const errors = trackConsoleErrors(page);
-  const intro = priceActionTrendsCourse.units[0];
-  const [first, second] = intro.lessons;
-  await page.addInitScript((id) => {
-    if (localStorage.getItem('wqt-academy-progress-v1')) return;
-    localStorage.setItem(
-      'wqt-academy-progress-v1',
-      JSON.stringify({ version: 2, completedLessonIds: [id], answers: {} }),
-    );
-  }, first.id);
-  await firstVisit(page);
-
-  serverState.down = true;
-  await context.setOffline(true);
-  await page.goto(`${origin}/academy/#/read/${intro.id}`);
-  await expect(page.getByRole('heading', { name: second.title, level: 2 })).toBeVisible();
-  for (const step of second.steps) {
-    await expect(page.getByRole('heading', { name: step.title, level: 3 })).toBeVisible();
-  }
-  await expect
-    .poll(() =>
-      page.evaluate(() => JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}').readerPositions),
-    )
-    .toMatchObject({ [intro.id]: { lessonId: second.id } });
-
-  serverState.down = false;
-  await context.setOffline(false);
-  expect(errors).toEqual([]);
-});
-
-test('Begriffe am Lernort offline: Panel und Glossar-Link (F-21)', async ({ page, context }) => {
-  const errors = trackConsoleErrors(page);
-  const intro = priceActionTrendsCourse.units[0];
-  const [first] = intro.lessons;
-  await firstVisit(page);
-
-  serverState.down = true;
-  await context.setOffline(true);
-  await page.goto(`${origin}/academy/#/read/${intro.id}`);
-  await expect(page.getByRole('heading', { name: first.title, level: 2 })).toBeVisible();
-  await page.getByRole('button', { name: 'Price Action', exact: true }).click();
-  const panel = page.getByRole('region', { name: 'Price Action', exact: true });
-  await expect(panel).toBeVisible();
-  await panel.getByRole('link', { name: 'Im Glossar öffnen' }).click();
-  await expect(page.getByRole('heading', { name: 'Price Action', level: 2, exact: true })).toBeVisible();
-
-  serverState.down = false;
-  await context.setOffline(false);
-  expect(errors).toEqual([]);
-});
-
-test('Leseoptionen offline ändern und nach Neustart behalten (F-22)', async ({ page, context }) => {
-  const errors = trackConsoleErrors(page);
-  const intro = priceActionTrendsCourse.units[0];
-  await firstVisit(page);
-
-  serverState.down = true;
-  await context.setOffline(true);
-  await page.goto(`${origin}/academy/#/read/${intro.id}`);
-  await expect(page.getByRole('heading', { name: intro.lessons[0].title, level: 2 })).toBeVisible();
-  await page.locator('.reading-options summary').click();
-  await page.getByRole('group', { name: 'Schriftgröße' }).getByRole('radio', { name: 'Groß', exact: true }).check();
-  await page.reload();
-  await expect(page.locator('.reader-page')).toHaveAttribute('data-reading-size', 'large');
 
   serverState.down = false;
   await context.setOffline(false);

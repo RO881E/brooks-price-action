@@ -23,11 +23,9 @@ import {
   createEmptyProgress,
   loadProgress,
   logActivity,
-  recordReaderPosition,
   MAX_NOTE_LENGTH,
   saveProgress,
   setDailyGoal,
-  updateReadingOptions,
   updateSettings,
   type AcademyProgress,
 } from './progress';
@@ -390,257 +388,6 @@ describe('preview', () => {
   });
 });
 
-describe('Lesestellen im Buchleser (F-13, v9)', () => {
-  const withPosition = (progress: AcademyProgress, lessonId: string, stepId: string | null, at: string) =>
-    recordReaderPosition(progress, 'price-action-trends.chapter-01', lessonId, stepId, at);
-
-  it('sichert und liest die Lesestellen mit', () => {
-    const progress = withPosition(createEmptyProgress(), 'lesson-a', 'step-2', '2026-09-29T08:00:00.000Z');
-    const result = parseBackup(serializeBackup(createBackup(progress)));
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.imported.readerPositions).toEqual(progress.readerPositions);
-    }
-  });
-
-  it('nimmt Sicherungen aus v8 ohne Lesestellen weiterhin an', () => {
-    const text = backupText(createEmptyProgress(), (backup) => {
-      backup.dataVersion = 8;
-      delete (backup.data as Record<string, unknown>).readerPositions;
-    });
-    const result = parseBackup(text);
-    expect(result.ok).toBe(true);
-    if (result.ok) expect(result.imported.readerPositions).toEqual({});
-  });
-
-  it('verlangt das Feld ab v9 und prüft jeden Eintrag streng', () => {
-    expectRejected(
-      backupText(createEmptyProgress(), (backup) => {
-        delete (backup.data as Record<string, unknown>).readerPositions;
-      }),
-      /Pflichtfeld fehlt: „readerPositions“/,
-    );
-    const broken = (entry: unknown) =>
-      backupText(createEmptyProgress(), (backup) => {
-        (backup.data as Record<string, unknown>).readerPositions = { 'price-action-trends.chapter-01': entry };
-      });
-    expectRejected(broken({ lessonId: '', stepId: null, updatedAt: '2026-09-29T08:00:00.000Z' }), /readerPositions/);
-    expectRejected(broken({ lessonId: 'a', stepId: 3, updatedAt: '2026-09-29T08:00:00.000Z' }), /readerPositions/);
-    expectRejected(broken({ lessonId: 'a', stepId: null }), /readerPositions/);
-    expectRejected(broken({ lessonId: 'a', stepId: null, updatedAt: 'gestern', extra: 1 }), /readerPositions/);
-  });
-
-  it('führt zusammen: die zuletzt gesetzte Lesestelle je Einheit gewinnt', () => {
-    const older = withPosition(createEmptyProgress(), 'lesson-a', null, '2026-09-01T08:00:00.000Z');
-    const newer = withPosition(createEmptyProgress(), 'lesson-b', 'step-1', '2026-09-20T08:00:00.000Z');
-    const other = recordReaderPosition(createEmptyProgress(), 'price-action-trends.chapter-02', 'lesson-x', null, '2026-09-02T08:00:00.000Z');
-    expect(mergeProgress(older, newer).readerPositions['price-action-trends.chapter-01'].lessonId).toBe('lesson-b');
-    expect(mergeProgress(newer, older).readerPositions['price-action-trends.chapter-01'].lessonId).toBe('lesson-b');
-    const merged = mergeProgress(older, other);
-    expect(Object.keys(merged.readerPositions).sort()).toEqual(['price-action-trends.chapter-01', 'price-action-trends.chapter-02']);
-    // Derselbe Import zweimal ändert nichts.
-    expect(mergeProgress(merged, merged).readerPositions).toEqual(merged.readerPositions);
-  });
-
-  it('ersetzt beim vollständigen Import und leert beim Zurücksetzen', () => {
-    const local = withPosition(createEmptyProgress(), 'lesson-a', null, '2026-09-01T08:00:00.000Z');
-    expect(replaceProgress(local, createEmptyProgress()).readerPositions).toEqual({});
-    const storage = new MemoryStorage();
-    saveProgress(storage, local);
-    resetAcademyData(storage);
-    expect(loadProgress(storage).readerPositions).toEqual({});
-  });
-});
-
-describe('Leseoptionen im Buchmodus (F-22, v10)', () => {
-  const larger = () => updateReadingOptions(createEmptyProgress(), { size: 'larger', spacing: 'wide' });
-
-  it('sichert und liest die Leseoptionen mit', () => {
-    const backup = createBackup(larger());
-    expect(backup.dataVersion).toBe(ACADEMY_PROGRESS_VERSION);
-    expect(backup.data.readingOptions).toEqual({ size: 'larger', spacing: 'wide' });
-    const result = parseBackup(serializeBackup(backup));
-    expect(result.ok).toBe(true);
-    if (result.ok) expect(result.imported.readingOptions).toEqual({ size: 'larger', spacing: 'wide' });
-  });
-
-  it('nimmt Sicherungen aus v8 und v9 ohne Leseoptionen weiterhin an', () => {
-    for (const version of [8, 9]) {
-      const text = backupText(createEmptyProgress(), (backup) => {
-        backup.dataVersion = version;
-        delete (backup.data as Record<string, unknown>).readingOptions;
-        if (version === 8) delete (backup.data as Record<string, unknown>).readerPositions;
-      });
-      const result = parseBackup(text);
-      expect(result.ok, `v${version}`).toBe(true);
-      if (result.ok) expect(result.imported.readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
-    }
-  });
-
-  it('verlangt das Feld ab v10 und prüft es streng', () => {
-    expectRejected(
-      backupText(createEmptyProgress(), (backup) => {
-        delete (backup.data as Record<string, unknown>).readingOptions;
-      }),
-      /Pflichtfeld fehlt: „readingOptions“/,
-    );
-    const broken = (value: unknown) =>
-      backupText(createEmptyProgress(), (backup) => {
-        (backup.data as Record<string, unknown>).readingOptions = value;
-      });
-    expectRejected(broken({ size: 'riesig', spacing: 'standard' }), /„readingOptions“ hat das falsche Format/);
-    expectRejected(broken({ size: 'large' }), /readingOptions/);
-    expectRejected(broken({ size: 'large', spacing: 'wide', extra: 1 }), /readingOptions/);
-    expectRejected(broken('large'), /readingOptions/);
-  });
-
-  it('Zusammenführen: Leseoptionen zählen zur Darstellung und können lokal bleiben', () => {
-    const local = createEmptyProgress();
-    const incoming = larger();
-    expect(mergeProgress(local, incoming).readingOptions).toEqual(incoming.readingOptions);
-    expect(mergeProgress(local, incoming, { keepLocalPreferences: true }).readingOptions).toEqual(local.readingOptions);
-    const preview = previewImport(local, incoming, '2026-09-29T08:00:00.000Z');
-    expect(preview.merge.preferencesDiffer).toBe(true);
-    expect(preview.replace.settingsChange).toBe(true);
-    expect(previewImport(local, createEmptyProgress(), 'x').merge.preferencesDiffer).toBe(false);
-  });
-
-  it('ersetzt beim vollständigen Import und setzt beim Zurücksetzen auf „Standard“', () => {
-    expect(replaceProgress(createEmptyProgress(), larger()).readingOptions).toEqual({ size: 'larger', spacing: 'wide' });
-    const storage = new MemoryStorage();
-    saveProgress(storage, larger());
-    resetAcademyData(storage);
-    expect(loadProgress(storage).readingOptions).toEqual({ size: 'standard', spacing: 'standard' });
-  });
-});
-
-describe('Trainerrunden (F-15, v11)', () => {
-  const run = (sessionId: string, completedAt: string) => ({
-    sessionId,
-    completedAt,
-    best: 1,
-    defensible: 0,
-    mistake: 1,
-    missedCues: 1,
-  });
-  const withRuns = (runs: ReturnType<typeof run>[]): AcademyProgress => ({
-    ...createEmptyProgress(),
-    caseRuns: { 'bar-case.chapter-01.range-high-test': runs },
-  });
-  const withSession = (progress: AcademyProgress): AcademyProgress => ({
-    ...progress,
-    caseSessions: {
-      'bar-case.chapter-01.range-high-test': {
-        sessionId: 'run-open',
-        startedAt: '2026-09-29T08:00:00.000Z',
-        updatedAt: '2026-09-29T08:00:00.000Z',
-        session: {
-          caseId: 'bar-case.chapter-01.range-high-test',
-          index: 0,
-          draft: { decision: null, cueIds: [] },
-          answers: {},
-          revealed: false,
-          finished: false,
-        },
-      },
-    },
-  });
-
-  it('sichert abgeschlossene Runden, aber keine laufende Runde', () => {
-    const progress = withSession(withRuns([run('run-a', '2026-09-29T08:00:00.000Z')]));
-    const backup = createBackup(progress);
-    expect(backup.data.caseRuns).toEqual(progress.caseRuns);
-    expect('caseSessions' in backup.data).toBe(false);
-    const result = parseBackup(serializeBackup(backup));
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.imported.caseRuns).toEqual(progress.caseRuns);
-      expect(result.imported.caseSessions).toEqual({});
-    }
-  });
-
-  it('nimmt Sicherungen aus v10 ohne Trainerrunden weiterhin an', () => {
-    const result = parseBackup(
-      backupText(createEmptyProgress(), (backup) => {
-        backup.dataVersion = 10;
-        delete (backup.data as Record<string, unknown>).caseRuns;
-      }),
-    );
-    expect(result.ok).toBe(true);
-    if (result.ok) expect(result.imported.caseRuns).toEqual({});
-  });
-
-  it('verlangt das Feld ab v11 und prüft jede Runde streng', () => {
-    expectRejected(
-      backupText(createEmptyProgress(), (backup) => {
-        delete (backup.data as Record<string, unknown>).caseRuns;
-      }),
-      /Pflichtfeld fehlt: „caseRuns“/,
-    );
-    const broken = (runs: unknown) =>
-      backupText(createEmptyProgress(), (backup) => {
-        (backup.data as Record<string, unknown>).caseRuns = { 'bar-case.x': runs };
-      });
-    expectRejected(broken('x'), /caseRuns/);
-    expectRejected(broken([{ ...run('a', '2026-09-29T08:00:00.000Z'), best: -1 }]), /caseRuns/);
-    expectRejected(broken([{ ...run('a', '2026-09-29T08:00:00.000Z'), extra: 1 }]), /caseRuns/);
-    expectRejected(broken([run('a', 'gestern')]), /caseRuns/);
-    expectRejected(broken([run('a', '2026-09-29T08:00:00.000Z'), run('a', '2026-09-29T09:00:00.000Z')]), /doppelt/);
-  });
-
-  it('führt zusammen, ohne Runden doppelt zu zählen, und behält die lokale laufende Runde', () => {
-    const local = withSession(withRuns([run('run-a', '2026-09-29T08:00:00.000Z')]));
-    const incoming = withRuns([run('run-a', '2026-09-29T08:00:00.000Z'), run('run-b', '2026-09-29T09:00:00.000Z')]);
-    const merged = mergeProgress(local, incoming);
-    expect(merged.caseRuns['bar-case.chapter-01.range-high-test'].map((item) => item.sessionId)).toEqual(['run-a', 'run-b']);
-    expect(merged.caseSessions).toEqual(local.caseSessions);
-    expect(mergeProgress(merged, incoming).caseRuns).toEqual(merged.caseRuns);
-    const preview = previewImport(local, incoming, '2026-09-29T10:00:00.000Z');
-    expect(preview.file.caseRuns).toBe(2);
-    expect(preview.merge.newCaseRuns).toBe(1);
-    expect(preview.merge.changes).toBe(true);
-    expect(previewImport(local, withRuns([]), 'x').replace.lostCaseRuns).toBe(1);
-  });
-
-  it('Ersetzen übernimmt die Runden der Sicherung und beendet laufende; Zurücksetzen leert beides', () => {
-    const local = withSession(withRuns([run('run-a', '2026-09-29T08:00:00.000Z')]));
-    const replaced = replaceProgress(local, withRuns([run('run-z', '2026-09-29T09:00:00.000Z')]));
-    expect(Object.values(replaced.caseRuns).flat().map((item) => item.sessionId)).toEqual(['run-z']);
-    expect(replaced.caseSessions).toEqual({});
-    const storage = new MemoryStorage();
-    saveProgress(storage, local);
-    resetAcademyData(storage);
-    const reset = loadProgress(storage);
-    expect(reset.caseRuns).toEqual({});
-    expect(reset.caseSessions).toEqual({});
-  });
-});
-
-describe('Einzelantworten je Trainerrunde (F-16, v12)', () => {
-  const base = { sessionId: 'run-a', completedAt: '2026-09-29T08:00:00.000Z', best: 1, defensible: 0, mistake: 0, missedCues: 0 };
-  const withRun = (runEntry: Record<string, unknown>) =>
-    backupText(createEmptyProgress(), (backup) => {
-      (backup.data as Record<string, unknown>).caseRuns = { 'bar-case.x': [runEntry] };
-    });
-
-  it('sichert Antworten und liest sie wieder ein; Runden ohne Antworten bleiben gültig', () => {
-    const answers = { 'decision-1': { decision: 'wait', cueIds: ['cue-a'] } };
-    const withAnswers = parseBackup(withRun({ ...base, answers }));
-    expect(withAnswers.ok).toBe(true);
-    if (withAnswers.ok) expect(withAnswers.imported.caseRuns['bar-case.x'][0].answers).toEqual(answers);
-    const without = parseBackup(withRun(base));
-    expect(without.ok).toBe(true);
-    if (without.ok) expect(without.imported.caseRuns['bar-case.x'][0].answers).toBeUndefined();
-  });
-
-  it('prüft Antworten streng', () => {
-    expectRejected(withRun({ ...base, answers: { d: { decision: 'kaufen', cueIds: [] } } }), /Antworten ungültig/);
-    expectRejected(withRun({ ...base, answers: { d: { decision: 'wait', cueIds: [1] } } }), /Antworten ungültig/);
-    expectRejected(withRun({ ...base, answers: { d: { decision: 'wait', cueIds: [], extra: 1 } } }), /Antworten ungültig/);
-    expectRejected(withRun({ ...base, answers: 'x' }), /Antworten ungültig/);
-  });
-});
-
 describe('Einführung gesehen (F-18, v13)', () => {
   it('wird gesichert, streng geprüft und beim Zusammenführen beibehalten', async () => {
     const { markGuideSeen } = await import('./progress');
@@ -732,5 +479,47 @@ describe('Gewählter Kurs (Mehrkurs, v16)', () => {
     expect(mergeProgress(chosen, other).activeCourseId).toBe('test-course');
     expect(mergeProgress(createEmptyProgress(), chosen).activeCourseId).toBe('test-course');
     expect(applyImport(chosen, other, 'replace').activeCourseId).toBe('price-action-trends');
+  });
+});
+
+describe('Gestrichener Buchmodus (v17)', () => {
+  const retired = (progress = createEmptyProgress()) =>
+    backupText(progress, (backup) => {
+      backup.dataVersion = 16;
+      const data = backup.data as Record<string, unknown>;
+      data.readerPositions = { 'price-action-trends.chapter-01': { lessonId: 'a', stepId: null, updatedAt: '2026-09-29T08:00:00.000Z' } };
+      data.readingOptions = { size: 'large', spacing: 'wide' };
+    });
+
+  it('nimmt Sicherungen bis v16 mit den alten Feldern an und ignoriert sie', () => {
+    const result = parseBackup(retired());
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.imported).not.toHaveProperty('readerPositions');
+      expect(result.imported).not.toHaveProperty('readingOptions');
+      expect(result.imported.preservedFields).toEqual({});
+    }
+  });
+
+  it('neue Sicherungen enthalten die Felder nicht und lehnen sie ab', () => {
+    const backup = createBackup(createEmptyProgress());
+    expect(Object.keys(backup.data)).not.toContain('readerPositions');
+    expect(Object.keys(backup.data)).not.toContain('readingOptions');
+    expectRejected(
+      backupText(createEmptyProgress(), (b) => {
+        (b.data as Record<string, unknown>).readerPositions = {};
+      }),
+      /Unbekanntes Datenfeld „readerPositions“/,
+    );
+  });
+
+  it('die alten Felder müssen auch in alten Sicherungen Objekte sein', () => {
+    expectRejected(
+      backupText(createEmptyProgress(), (b) => {
+        b.dataVersion = 16;
+        (b.data as Record<string, unknown>).readingOptions = 'riesig';
+      }),
+      /Unbekanntes Datenfeld „readingOptions“/,
+    );
   });
 });

@@ -62,8 +62,6 @@ async function approveTransfer(page: Page) {
 
 const VIEWS: Array<[string, string]> = [
   ['Lernpfad', '/#/'],
-  ['Buchmodus', '/#/chapters'],
-  ['Leser', `/#/read/${priceActionTrendsCourse.units[1].id}`],
   ['Üben', '/#/practice'],
   ['Kurzlernen', '/#/study/20'],
   ['Trainer', `/#/train/${caseA.id}`],

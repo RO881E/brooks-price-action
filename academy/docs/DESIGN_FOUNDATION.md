@@ -30,7 +30,7 @@ Bilder: [`docs/design/p05`](design/p05) (`before-*` / `after-*`).
 
 | Modus | Ink (Text) | Base (Kante, Balken) | Soft (Fläche) | Wo |
 |---|---|---|---|---|
-| Lesen (`read`) | `#1d4f91` | `#2f6fbd` | `#e6eefb` | Lernpfad, Buchmodus, Glossar |
+| Lesen (`read`) | `#1d4f91` | `#2f6fbd` | `#e6eefb` | Lernpfad, Glossar |
 | Üben (`practice`) | `#0b6b63` | `#14a094` | `#dff3f0` | Üben, Kurzlernen |
 | Wiederholen (`review`) | `#5b3fb0` | `#7c5ce0` | `#ece8fb` | Gespeichert, „Heute fällig“ |
 | Chart trainieren (`train`) | `#a8410f` | `#e2662f` | `#fdebe1` | Trainer, Rückblick, „Fehler trainieren“ |

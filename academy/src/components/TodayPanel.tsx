@@ -18,7 +18,6 @@ interface Props {
   /** Öffnet nur die Übersicht „Üben“. */
   onPractice: () => void;
   onTrain: (caseId: string) => void;
-  onRead: (unit: UnitOutline, lesson: LessonOutline) => void;
   onStudy: (minutes: StudyMinutes) => void;
 }
 
@@ -63,7 +62,7 @@ function describe(action: TodayAction): { title: string; detail: string; label: 
  * Startansicht „Heute“ (P06): eine primäre nächste Aktion aus dem echten
  * Lernstand, darunter Lesen, Kurzlernen und Fälliges.
  */
-export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrain, onRead, onStudy }: Props) {
+export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrain, onStudy }: Props) {
   const ids = useId();
   const info = describe(plan.primary);
   const greeting = bullGreeting(plan.primary);
@@ -106,15 +105,6 @@ export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrai
         ) : null}
       </div>
       <div className="today-grid">
-        {plan.reading ? (
-          <article className="today-tile" data-mode="read" aria-labelledby={`${ids}-read`}>
-            <h3 id={`${ids}-read`}>Lesen</h3>
-            <p>{plan.reading.resume ? 'Zuletzt gelesen' : 'Nächster Abschnitt'}: {plan.reading.unit.label} · {plan.reading.unit.title}</p>
-            <button type="button" className="secondary-button" onClick={() => onRead(plan.reading!.unit, plan.reading!.lesson)}>
-              Weiter im Buchmodus
-            </button>
-          </article>
-        ) : null}
         <div className="today-tile today-study" data-mode="practice">
           <StudyEntry onChoose={onStudy} />
         </div>
