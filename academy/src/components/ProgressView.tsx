@@ -5,6 +5,7 @@ import type { ProgressSummary as Summary } from '../features/progressSummary';
 import type { LessonOutline } from '../content/types';
 import type { AlbumOverview } from '../features/barAlbum';
 import { BarAlbum } from './BarAlbum';
+import { LevelPanel } from './LevelCard';
 import { BadgeGrid, MissionList, ProgressSummary } from './MotivationPanels';
 import { DAILY_GOAL_OPTIONS, type DailyGoal } from '../features/progress';
 import type { NextAction, ProgressOverview } from '../features/progressStats';
@@ -220,6 +221,8 @@ export function ProgressView({
       </section>
 
       <ProgressSummary overview={overview} summary={summary} goals={goals} />
+
+      <LevelPanel xp={overview.xp} />
 
       <GoalSection goals={goals} onGoalChange={onGoalChange} />
 

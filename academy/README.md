@@ -607,6 +607,16 @@ Inhalt – „Kurs starten“ bzw. „Zu diesem Kurs wechseln“. Insgesamt 106 
 daraus erzeugt `npm run catalog` den [Themenkatalog](docs/THEMENKATALOG.md).
 Details: [`docs/DESIGN_BIBLIOTHEK.md`](docs/DESIGN_BIBLIOTHEK.md).
 
+## Level-System
+
+Aus den gesammelten XP aller Kurse ergibt sich ein Level (`src/features/levels.ts`): Level 2 nach etwa drei
+Lektionen, danach kostet jedes Level 50 XP mehr (100, 150, 200 …). Alle fünf Level wechselt der Rang – Neuling,
+Chartleser, Kontextleser, Setup-Kenner, Trendleser, Marktleser, Strukturkenner, Lernpfad-Meister,
+Lernpfad-Legende; mit dem ganzen heutigen Kurs reicht es bis etwa Level 35. Der Lernpfad zeigt Level, Rang und die
+fehlenden XP, „Fortschritt“ die Karte „Dein Level“ mit Rangleiter. Ein Aufstieg erscheint in der Erfolgsmeldung
+(nie beim Laden, Import oder Zurücksetzen). Kein neuer gespeicherter Zustand – das Level wird immer aus dem
+Lernstand berechnet. Tests: `levels.test.ts`, `tests/levels.spec.ts`.
+
 ## Mehrere Kurse parallel
 
 Jeder Kurs mit Inhalt lässt sich starten und jederzeit wechseln. Lernpfad, Buchmodus, Üben, Fortschritt, Glossar,

@@ -129,6 +129,7 @@ import {
 } from './features/savedItems';
 import { buildSearchIndex, type SearchResult } from './features/search';
 import { earnedXp } from './features/lessonResults';
+import { levelsGained, rankFor } from './features/levels';
 import { localDayKey, seededRandom } from './features/reviewScheduler';
 import {
   advanceSession,
@@ -430,6 +431,11 @@ export default function App() {
     const reached = newMilestones(before, progress).map(
       (milestone) => `Meilenstein: ${milestone.title}`,
     );
+    // Level aus den XP aller Kurse: ein Aufstieg wird wie ein Meilenstein gemeldet.
+    const levels = levelsGained(earnedXp(before, allPublishedLessons), earnedXp(progress, allPublishedLessons)).map(
+      (level) => `Level ${level}: ${rankFor(level).title}`,
+    );
+    reached.unshift(...levels);
     const goalReached =
       before.dailyGoal === progress.dailyGoal &&
       !goalProgress(before, today).met &&
@@ -448,7 +454,9 @@ export default function App() {
           title:
             goalReached || current?.title === 'Tagesziel erreicht'
               ? 'Tagesziel erreicht'
-              : 'Meilenstein erreicht',
+              : levels.length > 0 || current?.title === 'Level aufgestiegen'
+                ? 'Level aufgestiegen'
+                : 'Meilenstein erreicht',
           details: [...new Set(details)],
         };
       });
