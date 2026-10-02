@@ -599,6 +599,17 @@ export const chartsGlossary: GlossaryEntry[] = [
     "definition": "Das Verhältnis von Bildbreite zu Bildhöhe. Es kann den sichtbaren Winkel einer unveränderten Bewegung beeinflussen.",
     "aliases": [],
     "firstUnit": "Kapitel 8"
-  }
-
+  },
+{"term": "Metadaten", "definition": "Angaben über Daten, zum Beispiel Quelle, Preisart, Währung, Zeitzone und Abrufzeit.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Datenabdeckung", "definition": "Welche Handelsplätze, Zeiten und Meldungen eine Datenquelle erfasst.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Datenstand", "definition": "Version und Abrufzeit einer verwendeten Datenreihe; spätere Korrekturen können sie verändern.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Aktiensplit", "definition": "Änderung der Stückeinheit einer Aktie. Im reinen Zwei-für-eins-Modell verdoppelt sich die Stückzahl bei halbiertem Vergleichspreis.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Splitbereinigung", "definition": "Umrechnung historischer Preise auf eine erklärte Stückbasis nach einem Split.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Dividende", "definition": "Ausschüttung eines Unternehmens; Anspruch, Marktpreis und tatsächliche Zahlung werden getrennt geprüft.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Ex-Tag", "definition": "Tag, an dem die Aktie ohne den betreffenden Ausschüttungsanspruch gehandelt wird. Die konkreten Anspruchsregeln sind gesondert zu prüfen.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Auszahlungstag", "definition": "Tag der tatsächlichen Zahlung einer Ausschüttung; ein bestehender Anspruch ist zuvor noch keine Kontogutschrift.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Fortlaufender Futures-Chart", "definition": "Verbindung ausgewählter Abschnitte mehrerer Futures-Kontrakte zu einer langen Datenreihe.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Rollregel", "definition": "Regel, die festlegt, wann eine fortlaufende Reihe zum folgenden Kontrakt wechselt.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Additive Rückbereinigung", "definition": "Historische Preise werden um einen festen Betrag verschoben; Punktdifferenzen innerhalb desselben angepassten Abschnitts bleiben erhalten.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Verhältnisbereinigung", "definition": "Historische Preise werden mit einem erklärten positiven Faktor multipliziert; Verhältnisse innerhalb desselben angepassten Abschnitts bleiben erhalten.", "aliases": [], "firstUnit": "Kapitel 9"}
 ];

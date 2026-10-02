@@ -1,0 +1,5 @@
+export const dataDescriptions={
+ 'rc9-split':'Eigene Taro-Aktie: vier alte Aktien zu80 Euro sind320 Euro wert. Zwei-für-eins-Split: acht neue Aktien zu theoretisch40 Euro bleiben320 Euro. Später41 Euro je neuer Aktie ergeben328 Euro, also+2,5% Wertänderung vor Kosten. Roher Preisvergleich80 zu41 wechselt die Stückbasis; bereinigt40 zu41 verwendet dieselbe Basis.',
+ 'rc9-dividend':'Getrenntes eigenes Modell ohne weitere Markteinflüsse, Steuern und Gebühren: acht Aktien zu51 Euro ergeben408 Euro. Am Ex-Tag: acht zu50 gleich400 Euro plus8 Euro Anspruch, zusammen408. Zahlung:400 Euro Aktien plus8 Euro Bargeld, Anspruch null. Der tatsächliche Marktpreis muss nicht genau um die Ausschüttung fallen.',
+ 'rc9-roll':'Eigene Futures-Schlüsse in Punkten: F-A72/74/76 an T1/T2/T3; gleichzeitig F-B83 an T3 und84 an T4. Wechsel nach T3. Rohe Reihe72/74/76/84: letzter Schritt8 gleich7 Kontraktunterschied plus1 Bewegung in F-B. Additiv rückbereinigt mit+7 auf alte F-A-Werte:79/81/83/84. Bereinigte alte Werte sind keine ursprünglichen Ausführungspreise.',
+} as const;
