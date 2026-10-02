@@ -26,26 +26,6 @@ interface PathViewProps {
   onOpenLesson: (lesson: LessonOutline) => void;
 }
 
-/** Geöffnete Kapitel merkt sich nur dieser Browser-Tab (Sitzung), damit der Weg nach einer Lektion so aussieht wie vorher. */
-const OPEN_UNITS_KEY = 'wqt-academy-path-open';
-
-function readOpenUnits(): Set<string> {
-  try {
-    const stored = JSON.parse(window.sessionStorage.getItem(OPEN_UNITS_KEY) ?? '[]') as unknown;
-    return new Set(Array.isArray(stored) ? stored.filter((id): id is string => typeof id === 'string') : []);
-  } catch {
-    return new Set();
-  }
-}
-
-function writeOpenUnits(open: ReadonlySet<string>): void {
-  try {
-    window.sessionStorage.setItem(OPEN_UNITS_KEY, JSON.stringify([...open]));
-  } catch {
-    // Speicher gesperrt: der Weg funktioniert trotzdem, nur ohne Merken.
-  }
-}
-
 /** Etappenstatus eines Buchteils: nur aus echtem Fortschritt und Freischaltung. */
 type StationState = 'done' | 'current' | 'open' | 'locked' | 'planned';
 
@@ -99,27 +79,39 @@ export function PathView({
       : statusLabels[state];
 
   const nextLesson = nextAvailableLesson(course, completed);
-  // Nur das Kapitel mit dem nächsten Schritt ist von Anfang an offen; alle anderen sind zugeklappt.
+  // Gezeigt wird immer nur ein Kapitel: das mit dem nächsten Schritt; per Kapitelwahl lässt sich ein anderes ansehen.
   const focusLessonId = resume?.lesson.id ?? nextLesson?.id;
   const currentUnitId = course.units.find((unit) => unit.lessons.some((lesson) => lesson.id === focusLessonId))?.id;
-  const [open, setOpen] = useState<Set<string>>(() => {
-    const initial = readOpenUnits();
-    if (currentUnitId) initial.add(currentUnitId);
-    return initial;
-  });
-  useEffect(() => writeOpenUnits(open), [open]);
-  useEffect(() => {
-    if (currentUnitId) setOpen((previous) => (previous.has(currentUnitId) ? previous : new Set(previous).add(currentUnitId)));
-  }, [currentUnitId]);
-  const toggleUnit = (id: string) =>
-    setOpen((previous) => {
-      const next = new Set(previous);
-      if (!next.delete(id)) next.add(id);
-      return next;
-    });
+  const [chosenId, setChosenId] = useState<string | null>(null);
+  const [listOpen, setListOpen] = useState(false);
+  // Weiter im Kurs (z. B. nach einer Lektion): Die Anzeige folgt dem aktuellen Kapitel.
+  useEffect(() => setChosenId(null), [currentUnitId, course.id]);
+  const shownIndex = Math.max(
+    0,
+    course.units.findIndex((unit) => unit.id === (chosenId ?? currentUnitId ?? course.units[0]?.id)),
+  );
   const completedCount = published.filter((lesson) => completed.has(lesson.id)).length;
-  // Gemerkt werden Kapitel aller Kurse; gezählt werden nur die dieses Kurses.
-  const openCount = course.units.filter((unit) => open.has(unit.id)).length;
+  const unitStats = (unit: CourseOutline['units'][number]) => {
+    const publishedInUnit = unit.lessons.filter((lesson) => lesson.status === 'published').length;
+    const states = unit.lessons.map((lesson) => lessonState(lesson));
+    const completeInUnit = states.filter((state) => state === 'complete').length;
+    const station: StationState =
+      publishedInUnit === 0
+        ? 'planned'
+        : completeInUnit === publishedInUnit
+          ? 'done'
+          : states.includes('available')
+            ? unit.id === currentUnitId
+              ? 'current'
+              : 'open'
+            : 'locked';
+    return { publishedInUnit, completeInUnit, station };
+  };
+  const chooseUnit = (index: number) => {
+    const unit = course.units[index];
+    if (unit) setChosenId(unit.id === currentUnitId ? null : unit.id);
+    setListOpen(false);
+  };
 
   return (
     <div className="path-layout">
@@ -183,37 +175,70 @@ export function PathView({
           </section>
         ) : null}
 
-        <div className="road-controls">
-          <p>
-            {openCount === 0 ? 'Alle Kapitel sind zugeklappt.' : `${openCount} von ${course.units.length} Kapiteln geöffnet.`}
-          </p>
-          <button type="button" className="link-button" onClick={() => setOpen(new Set(course.units.map((unit) => unit.id)))}>
-            Alle öffnen
+        <nav className="chapter-switcher" aria-label="Kapitel wählen">
+          <button
+            type="button"
+            className="chapter-step"
+            aria-label="Vorheriges Kapitel"
+            disabled={shownIndex <= 0}
+            onClick={() => chooseUnit(shownIndex - 1)}
+          >
+            ‹
           </button>
-          <button type="button" className="link-button" onClick={() => setOpen(new Set())}>
-            Alle schließen
+          <button
+            type="button"
+            className="chapter-switcher-current"
+            aria-expanded={listOpen}
+            aria-controls="chapter-list"
+            onClick={() => setListOpen((value) => !value)}
+          >
+            <span>
+              Kapitel {shownIndex + 1} von {course.units.length}
+            </span>
+            <strong>{course.units[shownIndex]?.title}</strong>
+            <small>{listOpen ? 'Liste schließen' : 'Alle Kapitel'}</small>
           </button>
-        </div>
+          <button
+            type="button"
+            className="chapter-step"
+            aria-label="Nächstes Kapitel"
+            disabled={shownIndex >= course.units.length - 1}
+            onClick={() => chooseUnit(shownIndex + 1)}
+          >
+            ›
+          </button>
+        </nav>
+
+        {listOpen ? (
+          <ol className="chapter-list" id="chapter-list" aria-label="Alle Kapitel">
+            {course.units.map((unit, index) => {
+              const { publishedInUnit, completeInUnit, station } = unitStats(unit);
+              return (
+                <li key={unit.id}>
+                  <button
+                    type="button"
+                    data-station={station}
+                    aria-current={index === shownIndex ? 'true' : undefined}
+                    onClick={() => chooseUnit(index)}
+                  >
+                    <span className="chapter-list-number">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="chapter-list-title">{unit.title}</span>
+                    <small>
+                      {station === 'done' ? '✓ ' : station === 'locked' ? '◆ ' : ''}
+                      {completeInUnit}/{publishedInUnit}
+                    </small>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+        ) : null}
 
         <div className="learning-road" aria-label="Lernpfad">
           {course.units.map((unit, unitIndex) => {
-            const publishedInUnit = unit.lessons.filter(
-              (lesson) => lesson.status === 'published',
-            ).length;
-            const states = unit.lessons.map((lesson) => lessonState(lesson));
-            const completeInUnit = states.filter((state) => state === 'complete').length;
-            const station: StationState =
-              publishedInUnit === 0
-                ? 'planned'
-                : completeInUnit === publishedInUnit
-                  ? 'done'
-                  : states.includes('available')
-                    ? unit.lessons.some((lesson) => lesson.id === (resume?.lesson.id ?? nextLesson?.id))
-                      ? 'current'
-                      : 'open'
-                    : 'locked';
-
-            const isOpen = open.has(unit.id);
+            if (unitIndex !== shownIndex) return null;
+            const { publishedInUnit, completeInUnit, station } = unitStats(unit);
+            const isOpen = true;
 
             return (
               <section className="unit-section" key={unit.id} data-station={station} data-open={isOpen}>
@@ -232,18 +257,8 @@ export function PathView({
                   </div>
                   <div>
                     <p>{unit.label}</p>
-                    <h2>
-                      <button
-                        type="button"
-                        className="unit-toggle"
-                        aria-expanded={isOpen}
-                        aria-controls={`unit-lessons-${unit.id}`}
-                        onClick={() => toggleUnit(unit.id)}
-                      >
-                        {unit.title}
-                      </button>
-                    </h2>
-                    {isOpen ? <span>{unit.description}</span> : null}
+                    <h2>{unit.title}</h2>
+                    <span>{unit.description}</span>
                     <span className={`station-chip ${station}`}>
                       {stationLabels[station]}
                       {publishedInUnit > 0 && station !== 'done' && station !== 'locked'
@@ -254,9 +269,6 @@ export function PathView({
                   <div className="unit-count">
                     <strong>{completeInUnit}/{publishedInUnit}</strong>
                     <span>Lektionen</span>
-                    <span className="unit-chevron" aria-hidden="true">
-                      <Icon name="chevron" size={22} />
-                    </span>
                   </div>
                 </header>
 

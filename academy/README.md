@@ -56,8 +56,7 @@ Kapitel 24 ergänzt 24 Mikro-Lektionen zu Umkehrtagen: neue Gegenkontrolle, wach
 - Lernpfad mit aufeinander aufbauenden Mikro-Lektionen
 - Erklärungen, eigene interaktive Schaubilder, Verständnisfragen und Zusammenfassungen
 - Aufgeräumte Oberfläche: „Üben“ zeigt nur Reiter mit echtem Angebot (Wiederholen, Nach Thema,
-  Spiele, Chart-Trainer); der Lernpfad öffnet nur das aktuelle Kapitel, die übrigen stehen als
-  schlanke Zeilen darunter; im Fortschritt stehen Überblick, Level und Tagesziel oben, die
+  Spiele, Chart-Trainer); der Lernpfad zeigt nur das aktuelle Kapitel (Wechsel per Pfeilen oder Kapitelliste „Alle Kapitel“); im Fortschritt stehen Überblick, Level und Tagesziel oben, die
   „Sammlung“ (Vorschläge, Meilensteine, Bar-Album) ist eingeklappt. Den Buchmodus gibt es
   nicht mehr (Datenmodell v17, alte Sicherungen bleiben importierbar).
 - Review-Zentrale unter „Üben“ mit „Heute fällig“, „Fehler trainieren“, „Kapitel auswählen“

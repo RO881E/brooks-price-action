@@ -48,26 +48,30 @@ test.describe('Lernpfad als Wanderweg', () => {
   test('Fortschritt: Abgeschlossenes trägt Häkchen, Kapitel-Medaille zeigt Ring und Stern', async ({ page }) => {
     await seed(page, firstUnit.map((lesson) => lesson.id));
     await page.goto('/#/path');
-    await page.getByRole('button', { name: 'Alle öffnen' }).click();
+    // Gezeigt wird das aktuelle (zweite) Kapitel; sein Ring steht zwischen 0 und 100 %.
+    const ring = await page.locator('.unit-number[data-station="current"]').first().evaluate((el) => el.style.getPropertyValue('--ring'));
+    expect(parseInt(ring, 10)).toBeGreaterThanOrEqual(0);
+    expect(parseInt(ring, 10)).toBeLessThan(100);
+    // Das vorige Kapitel ist abgeschlossen: Häkchen an den Stationen, Medaille mit Stern.
+    await page.getByRole('button', { name: 'Vorheriges Kapitel' }).click();
     const firstDone = page.locator('.lesson-node.complete').first();
     await expect(firstDone.locator('.node-copy small')).toHaveText('Abgeschlossen');
     await expect(firstDone.locator('svg.icon')).toBeVisible();
     const medal = page.locator('.unit-number[data-station="done"]').first();
     await expect(medal).toBeVisible();
     await expect(medal.locator('.medal-star')).toBeVisible();
-    // Der Kapitelring einer begonnenen Einheit steht auf einem Wert zwischen 0 und 100 %.
-    const ring = await page.locator('.unit-number[data-station="current"]').first().evaluate((el) => el.style.getPropertyValue('--ring'));
-    expect(parseInt(ring, 10)).toBeGreaterThanOrEqual(0);
-    expect(parseInt(ring, 10)).toBeLessThan(100);
   });
 
   test('Öffnen per Klick und Tastatur; Reihenfolge der Stationen bleibt die Kapitelreihenfolge', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/path');
-    await page.getByRole('button', { name: 'Alle öffnen' }).click();
+    // Die Lektionen des ersten Kapitels stehen in Kursreihenfolge, die Kapitelliste in Kapitelreihenfolge.
     const titles = await page.locator('.lesson-node .node-copy strong').allTextContents();
-    const expected = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => lesson.title);
-    expect(titles).toEqual(expected);
+    expect(titles).toEqual(priceActionTrendsCourse.units[0].lessons.map((lesson) => lesson.title));
+    await page.getByRole('button', { name: /Alle Kapitel/ }).click();
+    const chapters = await page.locator('.chapter-list .chapter-list-title').allTextContents();
+    expect(chapters).toEqual(priceActionTrendsCourse.units.map((unit) => unit.title));
+    await page.getByRole('button', { name: /Liste schließen/ }).click();
     const next = page.locator('.lesson-node-row.next .lesson-node');
     await next.focus();
     await page.keyboard.press('Enter');
@@ -114,64 +118,59 @@ test.describe('Lernpfad als Wanderweg', () => {
   });
 });
 
-test.describe('Aufklappbare Kapitel', () => {
-  test('nur das Kapitel mit dem nächsten Schritt ist offen; die übrigen zeigen nur den Kopf', async ({ page }) => {
+test.describe('Ein Kapitel zur Zeit', () => {
+  test('gezeigt wird nur das Kapitel mit dem nächsten Schritt; die Kapitelzeile nennt die Position', async ({ page }) => {
     await seed(page, firstUnit.map((lesson) => lesson.id));
     await page.goto('/#/path');
-    const units = page.locator('.unit-section');
-    await expect(units).toHaveCount(priceActionTrendsCourse.units.length);
-    // Nach der ersten Einheit ist die zweite die aktuelle: genau sie ist offen.
-    await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(1);
-    await expect(units.nth(1)).toHaveAttribute('data-open', 'true');
-    await expect(units.nth(0).getByRole('button', { name: priceActionTrendsCourse.units[0].title })).toHaveAttribute('aria-expanded', 'false');
-    await expect(units.nth(0).locator('.lesson-node')).toHaveCount(0);
-    expect(await page.locator('.lesson-node').count()).toBeLessThan(priceActionTrendsCourse.units[1].lessons.length + 1);
-    await expect(page.getByText(`1 von ${priceActionTrendsCourse.units.length} Kapiteln geöffnet.`)).toBeVisible();
+    await expect(page.locator('.unit-section')).toHaveCount(1);
+    // Nach der ersten Einheit ist die zweite die aktuelle.
+    await expect(page.locator('.unit-section .unit-header h2')).toHaveText(priceActionTrendsCourse.units[1].title);
+    await expect(page.locator('.chapter-switcher-current')).toContainText(`Kapitel 2 von ${priceActionTrendsCourse.units.length}`);
+    expect(await page.locator('.lesson-node').count()).toBe(priceActionTrendsCourse.units[1].lessons.length);
   });
 
-  test('Klick auf die Kopfzeile und Tastatur (Enter/Leertaste) klappen auf und zu', async ({ page }) => {
+  test('Pfeile wechseln das Kapitel; am Anfang und Ende sind sie gesperrt; nach einer Lektion geht es zurück zum aktuellen', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/path');
-    const second = page.locator('.unit-section').nth(1);
-    const toggle = second.getByRole('button', { name: priceActionTrendsCourse.units[1].title });
-    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
-    await second.locator('.unit-header').click({ position: { x: 300, y: 30 } });
-    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-    await expect(second.locator('.lesson-node').first()).toBeVisible();
-    await toggle.focus();
-    await page.keyboard.press('Enter');
-    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
-    await page.keyboard.press('Space');
-    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-    await expect(toggle).toHaveAttribute('aria-controls', `unit-lessons-${priceActionTrendsCourse.units[1].id}`);
-  });
-
-  test('„Alle öffnen“ und „Alle schließen“; Zustand bleibt nach einer Lektion und zurück erhalten', async ({ page }) => {
-    await seed(page, []);
-    await page.goto('/#/path');
-    await page.getByRole('button', { name: 'Alle öffnen' }).click();
-    await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(priceActionTrendsCourse.units.length);
-    await page.getByRole('button', { name: 'Alle schließen' }).click();
-    await expect(page.getByText('Alle Kapitel sind zugeklappt.')).toBeVisible();
-    await expect(page.locator('.lesson-node')).toHaveCount(0);
-    // Ein Kapitel öffnen, eine Lektion starten, zurück: das Kapitel ist noch offen.
-    const first = page.locator('.unit-section').first();
-    await first.getByRole('button', { name: priceActionTrendsCourse.units[0].title }).click();
+    const prev = page.getByRole('button', { name: 'Vorheriges Kapitel' });
+    const next = page.getByRole('button', { name: 'Nächstes Kapitel' });
+    await expect(prev).toBeDisabled();
+    await next.click();
+    await expect(page.locator('.unit-section .unit-header h2')).toHaveText(priceActionTrendsCourse.units[1].title);
+    await expect(page.locator('.chapter-switcher-current')).toContainText('Kapitel 2 von');
+    await prev.click();
+    await expect(page.locator('.unit-section .unit-header h2')).toHaveText(priceActionTrendsCourse.units[0].title);
     await page.locator('.lesson-node-row.next .lesson-node').click();
     await expect(page).toHaveURL(/#\/lesson\//);
-    await page.goBack();
-    await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(1);
-    await expect(first).toHaveAttribute('data-open', 'true');
+  });
+
+  test('Kapitelliste: alle Kapitel mit Stand, Auswahl zeigt das Kapitel; Tastatur und Auswahlzustand', async ({ page }) => {
+    await seed(page, firstUnit.map((lesson) => lesson.id));
+    await page.goto('/#/path');
+    const toggle = page.locator('.chapter-switcher-current');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await toggle.focus();
+    await page.keyboard.press('Enter');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    const items = page.locator('.chapter-list button');
+    await expect(items).toHaveCount(priceActionTrendsCourse.units.length);
+    await expect(items.nth(1)).toHaveAttribute('aria-current', 'true');
+    await expect(items.nth(0)).toContainText('✓');
+    await items.nth(3).click();
+    await expect(page.locator('.chapter-list')).toHaveCount(0);
+    await expect(page.locator('.unit-section .unit-header h2')).toHaveText(priceActionTrendsCourse.units[3].title);
   });
 
   test('gesperrte Kapitel lassen sich ansehen, ihre Lektionen bleiben gesperrt; axe und 360 px', async ({ page }) => {
     await seed(page, []);
     await page.goto('/#/path');
-    const locked = page.locator('.unit-section[data-station="locked"]').first();
-    await locked.getByRole('button', { name: /./ , expanded: false }).click();
+    await page.getByRole('button', { name: 'Nächstes Kapitel' }).click();
+    await page.getByRole('button', { name: 'Nächstes Kapitel' }).click();
+    const locked = page.locator('.unit-section[data-station="locked"]');
+    await expect(locked).toHaveCount(1);
     await expect(locked.locator('.lesson-node').first()).toBeDisabled();
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
     await axe(page, '.learning-road');
-    await axe(page, '.road-controls');
+    await axe(page, '.chapter-switcher');
   });
 });

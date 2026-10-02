@@ -3513,10 +3513,9 @@ button:disabled {
     font-size: 28px;
   }
 
+  /* Mobil nur das Wesentliche: die Beschreibung steht auf der Kursseite. */
   .course-hero > div:first-child > p:not(.eyebrow) {
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.55;
+    display: none;
   }
 
   .course-meta-row {
@@ -8627,4 +8626,117 @@ button:disabled {
   .topbar-actions {
     gap: 8px;
   }
+}
+
+/* Lernpfad: immer nur ein Kapitel; Wechsel per Pfeilen oder Kapitelliste. */
+.chapter-switcher {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  gap: 8px;
+  align-items: stretch;
+  margin: 0 0 14px;
+}
+
+.chapter-step,
+.chapter-switcher-current {
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.chapter-step {
+  min-height: 52px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.chapter-step:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.chapter-switcher-current {
+  display: grid;
+  gap: 2px;
+  padding: 8px 14px;
+  text-align: left;
+}
+
+.chapter-switcher-current span {
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.chapter-switcher-current strong {
+  overflow: hidden;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chapter-switcher-current small {
+  color: var(--gold-dark);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.chapter-list {
+  display: grid;
+  gap: 4px;
+  max-height: 360px;
+  margin: 0 0 16px;
+  padding: 6px;
+  overflow-y: auto;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.chapter-list button {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 10px;
+  color: var(--ink);
+  text-align: left;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.chapter-list button[aria-current='true'] {
+  background: var(--progress-soft);
+  font-weight: 700;
+}
+
+.chapter-list-number {
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.chapter-list-title {
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chapter-list small {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.chapter-list button[data-station='locked'] {
+  color: var(--ink-soft);
 }
