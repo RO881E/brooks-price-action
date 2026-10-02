@@ -264,4 +264,11 @@ export const unitDefinitions: UnitDefinition[] = [
     estimatedLessonCount: 24,
     load: () => import('./courses/price-action-trends/chapter-24').then((module) => module.chapterTwentyFourLessons),
   },
+  {
+    id: 'price-action-trends.chapter-25', order: 27, kind: 'chapter', label: 'Kapitel 25',
+    title: 'Trendwiederaufnahme nach einer langen Pause',
+    description: 'Impuls, Zeitkorrektur, Gap-Test, enge Balance, Fehlausbruch, späte Fortsetzung und mehrtägige Varianten – mit eigenen OHLC-Diagrammen, Replay und konkreten Risikorechnungen.',
+    estimatedLessonCount: 24,
+    load: () => import('./courses/price-action-trends/chapter-25').then((module) => module.chapterTwentyFiveLessons),
+  },
 ];

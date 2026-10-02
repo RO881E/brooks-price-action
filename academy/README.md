@@ -756,3 +756,5 @@ bekannte IDs fehlen oder verschoben sind. Die Änderung der Datei ist im Diff de
 Jedes Arbeitspaket wird auf einem eigenen Branch umgesetzt, vollständig
 getestet und als separater Pull Request eingereicht. Die Roadmap verändert
 keine Buchinhalte und bindet keine WQT-Fachbände ein.
+
+Kapitel 25 ergänzt 24 Mikro-Lektionen zur Trendwiederaufnahme nach langer Pause: Gap-Tests, Fehlausbrüche, Signal und Trigger, Rücktests, Positionsgröße, späte Ausbrüche und mehrtägige Varianten. Eigene OHLC-Folgen trennen Replay-Zustände; Gegenbeispiele und konkrete Risikorechnungen verhindern Rückschaufehler.
