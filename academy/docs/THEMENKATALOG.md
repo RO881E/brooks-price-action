@@ -64,9 +64,9 @@ Kapitel 1–10: Handelswünsche, Market-, Limit- und Stop-Orders verstehen. Gül
 - Gültigkeit (Tag, bis auf Widerruf), Teilausführung
 - Slippage, Gebühren, Ausführungsqualität, Wahl des Handelsplatzes
 
-### Charts lesen (Trading von null · Kapitel 1 verfügbar) **[aktiv]**
+### Charts lesen (Trading von null · Kapitel 1–2 verfügbar) **[aktiv]**
 
-Kapitel 1 erklärt Geschäftsdaten, vier Kennwerte und Linie, Balken und Kerze mit eigenen Schaubildern. Weitere Kapitel ergänzen Charttypen, Bar-Arten, Zeitebenen, Skalen und Datenbedingungen.
+Kapitel 1–2 erklären Geschäftsdaten, vier Kennwerte und den sicheren Vergleich von Linie, Balken und Kerze mit eigenen Schaubildern. Weitere Kapitel ergänzen Charttypen, Bar-Arten, Zeitebenen, Skalen und Datenbedingungen.
 
 - Charttypen: Linie, Balken, Kerzen, Heikin-Ashi, Renko, Point & Figure
 - Zeit-, Tick-, Volumen- und Range-Bars

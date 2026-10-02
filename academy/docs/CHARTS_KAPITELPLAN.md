@@ -6,7 +6,7 @@ abgeschlossene andere Kurse; Sprache nach MARKTGRUNDLAGEN_SPRACHE.md.
 | Kapitel | Thema | Stand |
 | --- | --- | --- |
 | 1 | Vom Geschäft zum Chartbild | 20 Lektionen verfügbar |
-| 2 | Linien, Balken und Kerzen sicher vergleichen | Geplant |
+| 2 | Linien, Balken und Kerzen sicher vergleichen | 20 Lektionen verfügbar |
 | 3 | Zeit-Bars, Tick-Bars und Volumen-Bars | Geplant |
 | 4 | Range-Bars und Renko | Geplant |
 | 5 | Heikin-Ashi und berechnete Preise | Geplant |
@@ -59,3 +59,35 @@ oder sichere künftige Richtung aus vergangenen Preisen.
 
 20 Lektionen, 14 Glossarbegriffe. Neue eigene Kurs-/Lektions-/Schrittkennungen;
 vorhandene Kennungen, Standardkurs und Fortschrittsschlüssel unverändert.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 2
+
+Murphy-EPUB, Kapitel 3 (Chart Construction), Abschnitte Types of Charts
+Available, Candlesticks und Construction of the Daily Bar Chart erneut geprüft.
+Allgemeiner Begriffshintergrund: Schlusslinien sowie OHLC in Balken und normalen
+Kerzen. Keine Buchformulierungen, Beispiele, Abbildungen oder Prognosebehauptungen
+übernommen. Alle Lektionen, Fragen und Tabellen eigenständig formuliert.
+
+Kapitel 2 verwendet dieselben drei ausdrücklich abgeschlossenen Vela-Minuten
+und die vorhandenen eigenen SVG-Schaubilder aus Kapitel 1. Jede Bildbeobachtung
+bezieht sich auf diese Originaldaten; getrennte Beispiele und alternative
+Zeichenregeln erhalten kein unpassendes Vela-Diagramm.
+
+Unabhängige Rechnungen in Cent: Schlussfolge 5020/5015/5010; Änderung −10.
+Körper/Spannen 20/50,25/40,0/30; Körperanteile 40%,62,5%,0%.
+Schlusslagen (5020−4980)/50=80%,(5015−5010)/40=12,5%,
+(5010−4990)/30≈66,7%. Bei Spanne null sind beide Verhältnisse undefiniert.
+Eröffnungslücke Minute2:5040−5020=20; gemeinsame Spanne [5010,5030],
+Breite20; Anteil erste Spanne40%,zweite50%. Spannenintervalle beweisen keine
+vollständige Liste tatsächlich gehandelter Preise oder Aufenthaltsdauer.
+
+Getrennte Fälle: VorigerC80,00/O79,00/C79,50 => intern+0,50,
+gegen vorigenC−0,50. GleicherC10,20 bei OHLC10,00/10,40/9,80/10,20
+und10,20/10,25/10,15/10,20 => gleiche Schlusslinie, Spannen0,60/0,10.
+Alternative Eröffnungslinie50,00/50,40/50,10 wird ausschließlich textlich erklärt.
+HLC lässt O aus; keine Rekonstruktion ohne zusätzliche Daten. Farbregeln werden
+als erklärte Varianten behandelt, keine pauschale Plattformbehauptung.
+
+20 neue Lektionen, acht neue Glossarbegriffe; Kurs gesamt40/22. Kapitel2 wird
+separat nachgeladen, Freischaltung folgt ausschließlich dem eigenen Kursfortschritt.
+Bestehende Kennungen und Fortschrittsschlüssel bleiben unverändert.
