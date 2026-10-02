@@ -17,9 +17,13 @@ separaten Price-Action-Kurs. Neue Kapitel verwenden die Regeln aus
 | 9 | Handelszeiten und Sessions | 24 Lektionen |
 | 10 | Besondere Handelsphasen | 22 Lektionen |
 | 11 | Was passiert nach dem Trade? | 24 Lektionen |
-| 12 | Einen Markt selbst erklären | geplant |
+| 12 | Einen Markt selbst erklären | 24 Lektionen |
 
 Kapitel 7 vertieft die Handelbarkeit einer konkreten Menge. Kapitel 8
 verbindet diese Grundlagen anschließend mit Aufträgen, Informationen und
 Preisbewegungen. Detaillierte Auftragsarten gehören zum eigenständigen
 Kurs „Orders und Ausführung“ im Themenkatalog.
+
+Alle zwölf vereinbarten Kapitel sind verfügbar: insgesamt 263 Lektionen.
+Kapitel 12 verbindet die vorherigen Bausteine in eigenen Abschlussfällen.
+Weitere Vertiefungen bleiben eigenständige Kurse im Themenkatalog.

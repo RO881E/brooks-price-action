@@ -50,3 +50,5 @@ Kapitel 9 ergänzt 24 Lektionen und 17 Glossarbegriffe. Rechenwege gehen in klei
 Kapitel 10 ergänzt 22 Lektionen und 13 Glossarbegriffe. Jeder Rechenfall nennt zulässige Preise und Auswahlregeln. Vorschau, endgültiger Auktionspreis, eigene Zuteilung und Reststatus bleiben getrennt. Schutzgrenzen und Zeitfenster sind ausdrücklich erfundene Regeln. Neue Begriffe werden in kurzen Sätzen erklärt.
 
 Kapitel 11 ergänzt 24 Lektionen und 18 Glossarbegriffe. Neue Rollen werden unmittelbar erklärt. Stückpflichten und Geldpflichten haben getrennte Rechnungen. Kalender sind ausdrücklich Übungsregeln, keine pauschalen Länderfristen. Sicherheitsleistung, Wertausgleich und Positionsschließung werden getrennt behandelt.
+
+Kapitel 12 ergänzt 24 Abschlusslektionen und neun Glossarbegriffe. Neue Methodenbegriffe werden direkt erklärt. Ein Hauptfall wird wieder aufgenommen; Gegenproben und alternative Aufträge sind ausdrücklich getrennte Szenarien. Gesamtvolumen, eigene Zuteilung, Stücknetto und Geldnetto bleiben getrennt. Der vereinbarte Kurs ist mit zwölf Kapiteln vollständig.
