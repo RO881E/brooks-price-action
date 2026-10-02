@@ -30,14 +30,17 @@ describe('Level-System', () => {
     expect(levelInfo(34_000).level).toBeLessThanOrEqual(37);
   });
 
-  it('Ränge wechseln alle fünf Level', () => {
+  it('Ränge wechseln alle zehn Level und reichen bis Level 120', () => {
     expect(rankFor(1).title).toBe('Neuling');
-    expect(rankFor(4).title).toBe('Neuling');
-    expect(rankFor(5).title).toBe('Chartleser');
-    expect(rankFor(99).title).toBe(RANKS.at(-1)!.title);
-    expect(levelInfo(xpForLevel(5)).rank.title).toBe('Chartleser');
-    expect(levelInfo(0).nextRank?.title).toBe('Chartleser');
-    expect(levelInfo(xpForLevel(40)).nextRank).toBeUndefined();
+    expect(rankFor(9).title).toBe('Neuling');
+    expect(rankFor(10).title).toBe('Beobachter');
+    expect(rankFor(100).title).toBe('Lernpfad-Meister');
+    expect(rankFor(120).title).toBe('Lernpfad-Legende');
+    expect(rankFor(500).title).toBe(RANKS.at(-1)!.title);
+    expect(RANKS).toHaveLength(12);
+    expect(levelInfo(xpForLevel(10)).rank.title).toBe('Beobachter');
+    expect(levelInfo(0).nextRank?.title).toBe('Beobachter');
+    expect(levelInfo(xpForLevel(110)).nextRank).toBeUndefined();
   });
 
   it('meldet neu erreichte Level – auch mehrere auf einmal', () => {
