@@ -26,6 +26,7 @@ export default defineConfig({
               const start = id.indexOf(prefix);
               return start < 0 ? null : `course-outline-${id.slice(start + prefix.length)}`;
             }, test: /virtual:wqt-course-outline\//, includeDependenciesRecursively: false },
+            { name: 'ChapterChart-reading-scale', test: /(?:ReadingScales(?:Focus|Charts)\.tsx|chapter-08-model\.ts)$/, includeDependenciesRecursively: false },
             { name: 'ChapterChart-reading-time', test: /(?:ReadingTimeframes(?:Focus|Charts)\.tsx|chapter-07-model\.ts)$/, includeDependenciesRecursively: false },
             { name: 'ChapterChart-reading-pf', test: /(?:ReadingPF(?:Focus|Charts)\.tsx|chapter-06-model\.ts)$/, includeDependenciesRecursively: false },
             { name: 'ChapterChart-reading-ha', test: /(?:ReadingHA(?:Focus|Charts)\.tsx|chapter-05-model\.ts)$/, includeDependenciesRecursively: false },

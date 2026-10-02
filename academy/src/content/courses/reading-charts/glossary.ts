@@ -522,6 +522,83 @@ export const chartsGlossary: GlossaryEntry[] = [
     "definition": "Verwendung von Werten, die bei einer früheren Entscheidung noch unbekannt waren, etwa der spätere endgültige Schluss einer laufenden größeren Kerze.",
     "aliases": [],
     "firstUnit": "Kapitel 7"
+  },
+
+  {
+    "term": "Lineare Skala",
+    "definition": "Eine Preisabbildung, bei der gleiche Preis-Differenzen unter denselben Grenzen gleiche Bildabstände ergeben.",
+    "aliases": [
+      "Arithmetische Skala"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Logarithmische Skala",
+    "definition": "Unsere reine positive Preisabbildung: gleiche Preisverhältnisse ergeben gleiche Bildabstände. Null und negative Preise sind ausgeschlossen.",
+    "aliases": [
+      "Log-Skala"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Absolute Preisänderung",
+    "definition": "Endpreis minus Anfangspreis in der genannten Preiseinheit, hier mit Vorzeichen. Der Betrag bezeichnet die Größe ohne Vorzeichen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Relative Preisänderung",
+    "definition": "Die Preisänderung geteilt durch die erklärte positive Anfangsbasis. Mal100 ergibt die einfache prozentuale Änderung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Basiswert",
+    "definition": "Der erklärte Ausgangswert einer Verhältnis- oder Prozentrechnung. Eine andere Basis kann eine andere Prozentzahl ergeben.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Preisfaktor",
+    "definition": "Endpreis geteilt durch positiven Anfangspreis. Faktor2 bedeutet Verdopplung und+100% einfachen Zuwachs.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Semilogarithmischer Chart",
+    "definition": "Hier ein Bild mit logarithmischer Preisachse und unverändert gleichmäßiger Zeitzuordnung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Indexierung auf100",
+    "definition": "Eine Umrechnung: Preis geteilt durch positive Anfangsbasis mal100. Der Indexstand ist nicht automatisch der prozentuale Zuwachs.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Prozentpunkt",
+    "definition": "Die Differenz zwischen zwei Prozentangaben mit passender gemeinsamer Bezugsdefinition. Nicht automatisch dieselbe Größe wie eine Preisänderung zum Vorgänger.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Geometrische Mitte",
+    "definition": "Für zwei positive Preise die positive Quadratwurzel ihres Produkts. Sie liegt in der Mitte ihrer logarithmischen Bildpositionen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Achsenbereich",
+    "definition": "Die erklärten unteren und oberen Grenzen einer dargestellten Achse. Andere Grenzen können dieselbe Bewegung unterschiedlich groß erscheinen lassen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Seitenverhältnis",
+    "definition": "Das Verhältnis von Bildbreite zu Bildhöhe. Es kann den sichtbaren Winkel einer unveränderten Bewegung beeinflussen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
   }
 
 ];

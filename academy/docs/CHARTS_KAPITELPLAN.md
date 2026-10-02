@@ -12,7 +12,7 @@ abgeschlossene andere Kurse; Sprache nach MARKTGRUNDLAGEN_SPRACHE.md.
 | 5 | Heikin-Ashi und berechnete Preise | 24 Lektionen verfügbar |
 | 6 | Point & Figure und regelbasierte Verdichtung | 24 Lektionen verfügbar |
 | 7 | Zeitebenen und gemeinsame Daten | 24 Lektionen verfügbar |
-| 8 | Lineare und logarithmische Skalen | Geplant |
+| 8 | Lineare und logarithmische Skalen | 24 Lektionen verfügbar |
 | 9 | Datenquellen, Bereinigungen und fortlaufende Kontrakte | Geplant |
 | 10 | Einen Chartbericht selbst prüfen | Geplant |
 
@@ -381,3 +381,70 @@ Aktueller letzter Preis ausdrücklich kein endgültiger Schluss. Beschreibungen
 und Fokus-/Zoomrahmen erhalten, eigenes lazy geladenes Grafikmodul.
 24 neue Lektionen, zwölf Glossarbegriffe; Kurs gesamt160/80.
 Bestehende IDs, Fortschrittsschlüssel und Größenbudgets erhalten.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 8
+
+Bereitgestellte Murphy-EPUB, Kapitel3, Arithmetic versus Logarithmic Scale
+geprüft. Allgemeiner Hintergrund: Preis-Differenzen versus Preisverhältnisse,
+lineare/arithmetic und logarithmische Preisabbildung. Buchbeispiele, Bilder,
+Aussagen über typische Plattform-/Marktnutzung und Prognosen nicht übernommen.
+Alle Lerntexte, Zahlen, Fragen und SVGs eigenständig erstellt.
+
+Primärdokumentation ergänzend geprüft am2026-10-02:
+- https://chartschool.stockcharts.com/table-of-contents/chart-analysis/what-are-charts
+- https://www.tradingview.com/support/solutions/43000748166-how-to-configure-your-supercharts/
+
+Übernommen nur allgemeine Unterscheidung zwischen linearer, logarithmischer,
+fester Basis-Prozentdarstellung und Indexierung. Keine Plattformimplementierung
+oder Erfolgsbehauptung zugesagt. Insbesondere keine pauschale lineare Proportionalität
+zwischen Prozentwert und Log-Höhe behauptet: Log-Abstände entsprechen log(Ende/Anfang).
+Die konkrete ungenaue Verhältnisbehauptung in der zweiten Webquelle wird nicht
+übernommen. Unabhängige Modellrechnungen und mathematische Abbildungsregeln geprüft.
+
+Neuer eigener Sora-Hauptfall: vier abgeschlossene gleich lange Abschnitte mit
+Schlüssen15/30/60/120 Euro je Aktie, keine OHLC/Mengen/Einzelgeschäftsfolge.
+Beide Vergleichsbilder gleiche Höhe und Grenzen15–120;waagerechte Abstände gleich.
+Euro-Differenzen15/30/60;Faktoren2/2/2;einfacher Zuwachs je100%.
+Gesamtfaktor8,Gesamtzuwachs700%;feste Startbasis15 ergibt0/100/300/700%.
+Index auf100 ergibt100/200/400/800. Keine Zusage einer weiteren Verdopplung.
+
+Getrennte additive Folge15/30/45/60, Grenzen15–60:
+Euro-Schritte je15,Faktoren2/1,5/4/3,Änderungen100/50/33,333…%.
+Linear gleiche Höhen,logarithmisch abnehmende Höhen.
+Getrennte25%-Beispiele16→20 und64→80:Faktor1,25,Euro-Schritte4 und16.
+15→30 ergibt+100%;30→15 ergibt−50%,gleiche Log-Entfernung in Gegenrichtung.
++20% dann−20% ergibt Faktor0,96,kein vollständiges Aufheben.
+
+Getrennte normale OHLC-Beispiele A15/30/12/24 undB60/120/48/96:
+B vierfache Preise,beide Körperfaktor1,6(+60%). Gemeinsamer Bereich12–120.
+Körperhöhen inEuro9/36,Spannen18/72,Preis-Körperanteil jeweils50%.
+Log-Körperanteil log(1,6)/log(2,5)≈51,294159%;keine Pixelmessung als Ersatz
+für den inEuro-Abständen definierten Körperanteil. O/H/L/C und Körperrichtung
+bei reinem Skalenwechsel unverändert,keine HA-Neuberechnung.
+
+Reines Log-Modell nur positive endliche Preise und Grenzen;Null/negative Werte
+abgewiesen. Lineare Zahlenabbildung erlaubt negative Zahlen undNull. Einfache
+Prozentberechnung braucht positive Anfangsbasis,aber Endpreis0 ist gültig(−100%);
+Index0 ebenfalls gültig. Darstellbarkeit nicht mit gültiger Division verwechseln.
+Spezielle Vorzeichen-/Übergangsverfahren nicht als reine Log-Skala ausgegeben.
+
+Geometrische Zwischenposition zwischen30/120 bei60;linearer Mittelpunkt75.
+Gedachte gerade Endpunktlinien15→120 über drei Schritte:
+linear15/50/85/120,logarithmisch15/30/60/120. Kein belegter Zwischenhandel.
+Lineare Höhe30→60 im Bereich15–120:30/105≈28,6%derZeichenhöhe;
+im Bereich15–75:30/60=50%,unveränderte Euro-Differenz.
+Seitenverhältnis/Achsengrenzen verändern sichtbare Winkel,nicht Originaldaten.
+Zeitachse unverändert;semilogarithmisch bedeutet hier nur Preisachse logarithmisch.
+
+Zwei getrennte gedachte bestätigte Aktienkäufe,je2Aktien:
+15→30 Kaufbetrag30,Differenz vorKosten30Euro;
+60→120 Kaufbetrag120,Differenz vorKosten120Euro. Gleiches+100% bedeutet nicht
+gleichen Eurobetrag. Chartschlüsse bestätigen keine eigene Ausführung;
+Kosten/Produktregeln für echte Ergebnisse gesondert nötig.
+
+Drei native Vergleichs-SVGs,je zwei klar bezeichnete Panels mit gleichen
+Preisgrenzen und Höhe. Nur senkrechte Abbildung geändert;positive Werte,
+zugängliche Beschreibungen,Einheiten,Textpfeile statt reiner Farbe.
+Bestehender Fokus-/Zoomrahmen und eigenes lazy geladenes Grafikmodul.
+24 neue Lektionen,zwölf Glossarbegriffe;Kurs gesamt184/92.
+IDs,Fortschrittsschlüssel und bestehende Größenbudgets erhalten.
