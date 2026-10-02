@@ -498,5 +498,65 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
       "CCP"
     ],
     "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Auktion",
+    "definition": "Handelsprozess, der Kauf- und Verkaufswünsche nach festgelegten Regeln zusammenführt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Sammelauktion",
+    "definition": "Bündelung von Handelswünschen für einen gemeinsamen Ausführungsablauf nach festgelegten Preis- und Zuteilungsregeln.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Fortlaufender Handel",
+    "definition": "Handelsphase, in der passende Aufträge nach den Regeln laufend zusammenkommen können.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Preisgrenze",
+    "definition": "Festgelegter höchster Kaufpreis oder niedrigster Verkaufspreis eines preisbegrenzten Auftrags.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Aggressives Handeln",
+    "definition": "Hier: unmittelbares Akzeptieren verfügbarer Gegenangebote; keine Aussage über Emotion oder Größe.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Stornierung",
+    "definition": "Entfernen eines noch offenen Auftrags nach den geltenden Regeln; selbst keine Ausführung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Auktionspreis",
+    "definition": "Nach den jeweiligen Regeln ermittelter Preis eines Auktionsablaufs; keine objektive Wert- oder Zukunftsgarantie.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Zuteilung",
+    "definition": "Zuordnung ausführbarer Mengen zu einzelnen Aufträgen nach den festgelegten Regeln.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Vorläufiger Auktionspreis",
+    "definition": "Preisberechnung anhand eines Zwischenstands; kann sich durch weitere Aufträge oder Änderungen verändern.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Werturteil",
+    "definition": "Einschätzung des wirtschaftlichen Werts unter Annahmen; nicht dasselbe wie ein beobachteter Handelspreis.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
   }
 ];

@@ -768,3 +768,5 @@ Kapitel 26 ergänzt 30 Mikro-Lektionen zu Treppen und breiten Kanälen. Eigene O
 Kapitel 3 des Einführungskurses „Wie Börsen funktionieren“ ergänzt 22 Lektionen zu Marktteilnehmern, Rollen, Handelsmotiven und Zeithorizonten. Eigene Fälle erklären Zahlungsbedarf, Absicherung, Fondsmandate, Rebalancing, Market Making, Arbitrage und automatisierte Ausführung; sichtbare Transaktionen werden von unbekannten Absichten getrennt.
 
 Kapitel 4 des Einführungskurses „Wie Börsen funktionieren“ ergänzt 21 Lektionen zu Börsen, OTC-Handel, Dealer-Angeboten, RFQ, Transparenz und Auftragswegen. Eigene Platzvergleiche trennen Datenquelle, Zugang und Ausführung; Mengen-, Gebühren-, Währungs- und Durchschnittsrechnungen zeigen vollständige Vergleichsbedingungen.
+
+Kapitel 5 des Einführungskurses „Wie Börsen funktionieren“ ergänzt 20 Lektionen zum Markt als Auktion. Eigene fortlaufende Fälle und eine vollständig berechnete Sammelauktion trennen Angebote, Stornierungen, Ausführungen, Preisgrenzen und Zuteilung; vorläufige Anzeigen und Werturteile werden nicht als garantierte Ergebnisse behandelt.

@@ -4,10 +4,10 @@ import { marketBasicsGlossary } from './glossary';
 export const marketBasicsDefinition: CourseDefinition = {
   info: {
     id: 'how-exchanges-work',
-    eyebrow: 'Trading von null · Kapitel 1–4 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–5 verfügbar',
     title: 'Wie Börsen funktionieren',
-    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Handel, Produktarten, Marktteilnehmer und Handelsplätze; weitere Kapitel folgen.',
-    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 4 verfügbar; der Kurs wird weiter aufgebaut.',
+    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze und das Zusammenkommen von Kauf- und Verkaufswünschen; weitere Kapitel folgen.',
+    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 5 verfügbar; der Kurs wird weiter aufgebaut.',
   },
   units: [{
     id: 'how-exchanges-work.chapter-01',
@@ -45,6 +45,15 @@ export const marketBasicsDefinition: CourseDefinition = {
     description: 'Börsen, außerbörslicher Handel und verschiedene Ausführungswege: Zugang, Datenquelle, Angebote, Mengen und Kosten richtig unterscheiden.',
     estimatedLessonCount: 21,
     load: () => import('./chapter-04').then((m) => m.marketBasicsChapterFourLessons),
+  }, {
+    id: 'how-exchanges-work.chapter-05',
+    order: 5,
+    kind: 'chapter',
+    label: 'Kapitel 5',
+    title: 'Der Markt als Auktion',
+    description: 'Handelswünsche, Preisgrenzen, verfügbare Mengen und Ausführungen: fortlaufender Handel und eine eigene Sammelauktion Schritt für Schritt.',
+    estimatedLessonCount: 20,
+    load: () => import('./chapter-05').then((m) => m.marketBasicsChapterFiveLessons),
   }],
   glossary: { title: 'Marktgrundlagen-Glossar', entries: marketBasicsGlossary },
 };
