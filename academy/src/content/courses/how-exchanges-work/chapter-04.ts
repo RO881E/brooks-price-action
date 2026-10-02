@@ -6,9 +6,9 @@ const drafts = [
     "title": "Die App ist dein Zugang, nicht automatisch der Handelsplatz",
     "summary": "Oberfläche, Auftrag und Ausführung unterscheiden.",
     "paragraphs": [
-      "Du öffnest eine Handelsapp und siehst eine Aktie. Das zeigt zunächst deinen Zugang zu Informationen und zur Auftragseingabe. Der Ort, an dem dein Auftrag mit einer passenden Gegenseite zusammenkommt, kann ein anderer sein. Diesen Ort beziehungsweise dieses System nennen wir Handelsplatz.",
-      "In unserem erfundenen Fall nimmt eine Brokeroberfläche Miriams Auftrag an und leitet ihn an Platz A weiter. Die Preisgrafik in der Oberfläche verwendet dagegen Daten von Platz B. Ein Chart, eine Auftragseingabe und eine Ausführung können also verschiedene Wege haben. Das bedeutet nicht automatisch, dass etwas fehlerhaft ist; es muss verständlich beschriftet sein.",
-      "Für den Einstieg trenne vier Angaben: Wer stellt die Oberfläche? Woher kommen die Daten? Wohin wird der Auftrag geleitet? Wo wird tatsächlich ausgeführt? Die Ausführungsbestätigung beantwortet eine andere Frage als der Name oben auf dem Chart."
+      "Du öffnest eine Handelsapp und siehst eine Aktie. Die App zeigt Informationen und nimmt deinen Auftrag entgegen. Das System, in dem dein Auftrag mit einer passenden anderen Seite zusammenkommt, heißt Handelsplatz. Die App und dieser Handelsplatz müssen nicht dasselbe sein.",
+      "In unserem Beispiel leitet die Brokeroberfläche Miriams Auftrag an Platz A weiter. Die Preisgrafik nutzt dagegen Daten von Platz B. Eine Preisgrafik heißt auch Chart. Auftrag und Chart können also verschiedene Wege haben. Die Angaben müssen verständlich beschriftet sein, damit du das erkennen kannst.",
+      "Prüfe vier Fragen: Wer betreibt die Oberfläche? Woher kommen die Daten? Wohin wird der Auftrag geschickt? Wo kommt das Geschäft tatsächlich zustande? Die Ausführungsbestätigung meldet den tatsächlichen Abschluss. Sie beantwortet eine andere Frage als der Name über dem Chart."
     ],
     "columns": [
       {
@@ -50,9 +50,9 @@ const drafts = [
     "title": "Börsen: Handel nach festgelegten Regeln organisieren",
     "summary": "Die Regeln bestimmen das Zusammenkommen von Aufträgen.",
     "paragraphs": [
-      "Eine Börse organisiert Handel unter festgelegten Regeln. Dazu können Zulassung von Teilnehmern, handelbare Instrumente, Handelsphasen und Regeln für das Zusammenführen von Aufträgen gehören. Zusammenführen wird auch Matching genannt: Passende Handelswünsche werden nach den vorgesehenen Bedingungen miteinander ausgeführt.",
-      "Unser erfundener Handelsplatz akzeptiert Aufträge nur für bestimmte Instrumente und Mengenraster. Eine Kauforder über ein dort nicht handelbares Produkt kann nicht allein durch einen Klick passend gemacht werden. Auch eine angenommene Order ist noch kein abgeschlossener Handel: Sie braucht eine passende Gegenseite und muss die Ausführungsbedingungen erfüllen.",
-      "Die Börse ist dabei nicht automatisch der Verkäufer jedes Instruments. In einem einfachen Orderbuchhandel treffen Aufträge verschiedener Teilnehmer aufeinander. Die genaue Marktorganisation kann variieren. Verstehe zuerst die Aufgabe des Platzes, bevor du aus seinem Namen eine Gegenpartei ableitest."
+      "Eine Börse organisiert Handel nach festgelegten Regeln. Diese Regeln bestimmen zum Beispiel, wer teilnehmen darf und welche Produkte handelbar sind. Sie regeln auch, wie passende Aufträge zusammenkommen. Dieses Zusammenführen heißt Matching. Ein passender Auftrag kann so tatsächlich ausgeführt werden.",
+      "Unser Platz erlaubt nur bestimmte Produkte und Mengen. Ein Klick macht ein dort nicht handelbares Produkt nicht handelbar. Auch ein angenommener Auftrag ist noch kein abgeschlossenes Geschäft. Dafür braucht es eine passende andere Seite und erfüllte Ausführungsbedingungen.",
+      "Die Börse verkauft deshalb nicht automatisch selbst jedes Produkt. Im einfachen Orderbuchhandel treffen Aufträge verschiedener Teilnehmer aufeinander. Ein Orderbuch sammelt Kauf- und Verkaufsaufträge. Die Organisation kann je nach Platz anders aussehen. Kläre zuerst, was der Platz macht und wer dein Geschäftspartner ist."
     ],
     "columns": [
       {
@@ -94,9 +94,9 @@ const drafts = [
     "title": "Elektronischer Handel braucht keinen gemeinsamen Raum",
     "summary": "Ein Marktplatz kann ein vernetztes System sein.",
     "paragraphs": [
-      "Viele Handelsplätze arbeiten elektronisch. Teilnehmer übermitteln Aufträge über technische Verbindungen; Systeme prüfen und verarbeiten sie. Ein physischer Börsensaal ist dafür nicht erforderlich. Andere Handelsformen können menschliche Kommunikation oder Verhandlung nutzen. „Wo?“ meint daher häufig ein Handelssystem, nicht einen Raum.",
-      "Stell dir zwei Teilnehmer in unterschiedlichen Städten vor. Ihre Aufträge treffen im selben elektronischen System ein. Das System führt passende Bedingungen nach seinen Regeln zusammen. Die räumliche Entfernung der Menschen erklärt noch nicht, welcher Auftrag zuerst verarbeitet wird oder wie gut eine Ausführung ist.",
-      "Die Übermittlung braucht Zeit und kann technische Grenzen besitzen. Senden, Empfangen, Annehmen und Ausführen sind verschiedene Ereignisse. Die Meldung „gesendet“ auf einem Bildschirm bedeutet deshalb nicht automatisch, dass am Handelsplatz bereits ein Trade erfolgt ist."
+      "Viele Handelsplätze arbeiten elektronisch. Teilnehmer senden ihre Aufträge über technische Verbindungen. Systeme prüfen und verarbeiten sie. Dafür müssen die Menschen nicht in einem gemeinsamen Börsensaal sitzen. Andere Handelsformen können Gespräche oder Verhandlungen nutzen. Der Handelsort ist also oft ein System statt eines Raums.",
+      "Zwei Personen wohnen in verschiedenen Städten. Ihre Aufträge kommen im selben elektronischen System an. Dort werden passende Bedingungen nach den Regeln zusammengeführt. Die Entfernung allein verrät nicht, welcher Auftrag zuerst verarbeitet wird oder welchen Preis jemand erhält.",
+      "Die Übertragung braucht Zeit. Senden, Empfangen, Annehmen und Ausführen sind verschiedene Schritte. Ausführen heißt, dass ein Geschäft zustande kommt. Die Bildschirmmeldung gesendet beweist deshalb noch keinen Handel. Prüfe, welchen Schritt eine Meldung tatsächlich bestätigt."
     ],
     "columns": [
       {
@@ -138,9 +138,9 @@ const drafts = [
     "title": "Dasselbe Wertpapier kann an mehreren Plätzen handeln",
     "summary": "Ein Instrument, unterschiedliche verfügbare Angebote.",
     "paragraphs": [
-      "Ein identisches Wertpapier kann an mehreren Handelsplätzen gehandelt werden. Seine Rechte ändern sich dadurch nicht automatisch. Die aktuell verfügbaren Angebote, Mengen, Handelsphasen und Kosten können jedoch zwischen den Plätzen verschieden sein. Es gibt daher nicht zwingend einen einzigen gleichzeitig ausführbaren Preis für jede Menge.",
-      "Unser erfundenes Wertpapier kostet am ersten Verkaufsangebot auf Platz A 50,00 Euro und auf Platz B 50,05 Euro. Das sind zwei Angebote für denselben Zeitpunkt im vereinfachten Beispiel. Um zu vergleichen, müssen zusätzlich Menge, Zugriffsmöglichkeit und Kosten bekannt sein. Ein günstiges Angebot hilft nicht, wenn es nicht erreichbar oder nicht mehr verfügbar ist.",
-      "Die Kennung des Wertpapiers hilft beim Erkennen, ersetzt aber nicht jede Prüfung. Instrument, Währung und Rechte müssen tatsächlich passen. Ähnliche Namen können auch verschiedene Aktienarten oder verschiedene Produkte mit demselben Bezug meinen."
+      "Dasselbe Wertpapier kann an mehreren Plätzen gehandelt werden. Seine Rechte ändern sich dadurch nicht automatisch. Die verfügbaren Preise und Mengen können aber verschieden sein. Auch Kosten und Handelsphasen können sich unterscheiden. Nicht jede Menge ist deshalb überall gleichzeitig zum selben Preis handelbar.",
+      "Für unser identisches Wertpapier zeigt A ein Verkaufsangebot von 50,00 Euro. B zeigt zur selben Zeit 50,05 Euro. Für einen Vergleich brauchen wir auch die verfügbaren Mengen und die Kosten. Ein günstigeres Angebot hilft nur, wenn du es erreichen kannst und es noch verfügbar ist.",
+      "Eine Wertpapierkennung hilft dir beim Erkennen. Prüfe trotzdem Produkt, Währung und Rechte. Ähnliche Namen können verschiedene Aktienarten oder Produkte meinen. Vergleiche nur wirklich passende Dinge. Erst dann lässt sich ein Preisunterschied sinnvoll beurteilen."
     ],
     "columns": [
       {
@@ -182,9 +182,9 @@ const drafts = [
     "title": "Nicht jeder Platz bietet jedes Instrument",
     "summary": "Produktart und Handelsorganisation zusammen prüfen.",
     "paragraphs": [
-      "Ein Aktienhandelsplatz und eine Terminbörse können sehr unterschiedliche Instrumente und Vertragsbedingungen anbieten. Ein Aktienindex als Kennzahl, ein Fonds mit Indexbezug und ein Future auf den Index sind verschiedene Dinge. Ihr gemeinsamer Bezug macht sie nicht an jedem Ort austauschbar handelbar.",
-      "In unserem erfundenen Fall bietet Platz A Anteile eines Indexfonds an. Platz B bietet einen standardisierten Index-Future mit Laufzeit und Multiplikator an. Die Kurslinien können ähnlich verlaufen, trotzdem wird einmal ein Fondsanteil und einmal ein Vertragsverhältnis gehandelt.",
-      "Ein brokerseitiger Zugang zu einem Platz beweist außerdem nicht, dass jedes dort grundsätzlich gelistete Produkt für diesen Kunden zugänglich ist. Produktangebot, Konto und Auftragsbedingungen sind zusätzliche Angaben. Prüfe deshalb Instrument und Handelsweg gemeinsam."
+      "Nicht jeder Platz bietet jedes Produkt an. An einem Aktienhandelsplatz findest du andere Produkte als an einer Terminbörse. Ein Index ist eine Kennzahl. Ein Fondsanteil mit Indexbezug und ein Future auf den Index sind handelbare Produkte mit unterschiedlichen Regeln.",
+      "Unser Platz A bietet Anteile eines Indexfonds an. Platz B bietet einen Index-Future. Beim Future sind die Bedingungen festgelegt, darunter Endtermin und Wert je Punkt. Die Kurslinien können ähnlich verlaufen. Trotzdem kaufst du bei A einen Fondsanteil und gehst bei B einen Vertrag ein.",
+      "Auch ein Brokerzugang zu einem Platz gibt dir nicht automatisch Zugang zu jedem dort angebotenen Produkt. Das Angebot für dein Konto und die Auftragsbedingungen spielen ebenfalls mit. Prüfe deshalb gemeinsam, was du handeln möchtest und auf welchem Weg das möglich ist."
     ],
     "columns": [
       {
@@ -226,9 +226,9 @@ const drafts = [
     "title": "Außerbörslicher Handel: eine Vereinbarung außerhalb einer Börse",
     "summary": "OTC beschreibt den Handelsweg.",
     "paragraphs": [
-      "OTC steht für Over the Counter und bezeichnet außerbörslichen Handel. Beteiligte schließen ein Geschäft außerhalb einer Börse, etwa direkt mit einem Händler oder über eine dafür genutzte Plattform. Es können Wertpapiere oder Verträge gehandelt werden. Außerbörslich heißt daher nicht automatisch „nur CFDs“.",
-      "Eine Firma vereinbart mit einer Bank ein individuell passendes Währungstermingeschäft für eine spätere Rechnung. Das ist unser vereinfachtes Beispiel für einen direkten Vertrag. Produktgröße und Termin können auf den Bedarf abgestimmt werden. Ein standardisierter Börsenkontrakt könnte diesen Bedarf anders abdecken.",
-      "OTC sagt allein nichts Vollständiges über Regeln, Regulierung oder Qualität. Entscheidend sind Vertragspartner, Bedingungen, Preisbildung, Abwicklung und bestehende Risiken. Auch elektronisch organisierter Handel kann außerbörslich sein. „Elektronisch“ und „Börse“ sind keine gleichbedeutenden Wörter."
+      "OTC bedeutet außerbörslicher Handel. Die englische Abkürzung steht für Over the Counter. Die Beteiligten schließen ein Geschäft außerhalb einer Börse ab. Das kann direkt mit einem Händler oder über eine Plattform geschehen. Dabei können Wertpapiere und verschiedene Verträge gehandelt werden.",
+      "Unsere Firma vereinbart mit einer Bank einen Währungstausch für einen späteren Termin. Menge und Termin passen genau zur künftigen Rechnung. Dieser direkte Vertrag ist unser Beispiel. Ein Börsenvertrag mit festgelegten Bedingungen könnte den Bedarf anders abdecken.",
+      "Außerbörslich bedeutet weder nur CFDs noch automatisch ohne Regeln. Prüfe Geschäftspartner, Bedingungen, Preisbildung und Abwicklung. Dazu gehören auch die Risiken. Ein elektronisches System kann ebenfalls außerbörslich sein. Elektronisch beschreibt die Technik; Börse beschreibt eine bestimmte Organisation des Handels."
     ],
     "columns": [
       {
@@ -270,9 +270,9 @@ const drafts = [
     "title": "Dealer-Angebote: der Händler kann selbst Gegenpartei sein",
     "summary": "Preis anfragen und Handel bestätigen unterscheiden.",
     "paragraphs": [
-      "In einem dealerbasierten Lernfall stellt ein Händler ein Kauf- oder Verkaufsangebot auf eigene Rechnung. Nimmt der Kunde ein passendes Angebot an und kommt der Handel zustande, ist der Händler selbst die Gegenseite. Das unterscheidet sich vom bloßen Weiterleiten an andere Teilnehmer.",
-      "Miriam möchte im Beispiel 20 Einheiten kaufen. Der Händler nennt 50,10 Euro je Einheit für genau diese Menge und die dazugehörigen Bedingungen. Daraus kann ein Handel mit einem Preisbetrag von 1.002 Euro entstehen: 20 × 50,10. Das gilt nur, wenn die Bedingungen tatsächlich angenommen und der Handel bestätigt werden.",
-      "Eine indikative Preisangabe dient zunächst zur Orientierung und ist noch kein festes ausführbares Angebot. Auch bei einem konkreten Angebot sind Gültigkeit und Annahmebedingungen wichtig. Verwechsle eine Preisnachricht nicht mit einer Ausführungsbestätigung."
+      "Ein Dealer ist ein Händler, der auf eigene Rechnung handelt. In unserem Beispiel stellt er selbst ein Angebot. Nimmt die Kundin es gültig an und kommt das Geschäft zustande, ist er ihre Gegenpartei. Er vermittelt hier also nicht nur an andere Teilnehmer.",
+      "Miriam möchte 20 Einheiten kaufen. Der Händler bietet diese Menge zu 50,10 Euro je Einheit an. Der Preisbetrag wäre 20 × 50,10 = 1.002 Euro. Das Geschäft steht aber erst fest, wenn die Bedingungen angenommen wurden und die Ausführung bestätigt ist.",
+      "Eine indikative Preisangabe dient nur zur Orientierung. Sie ist noch kein festes Angebot, das du so nutzen kannst. Bei einem konkreten Angebot musst du Gültigkeit und Annahmebedingungen prüfen. Eine Nachricht mit einem Preis ist noch keine Bestätigung eines abgeschlossenen Kaufs."
     ],
     "columns": [
       {
@@ -314,9 +314,9 @@ const drafts = [
     "title": "Orderbuch und Dealer-System: zwei Organisationsideen",
     "summary": "Angebote können aus unterschiedlichen Prozessen kommen.",
     "paragraphs": [
-      "In einem einfachen orderbuchbasierten Markt sammeln sich Aufträge auf Preisstufen. Handelsregeln bestimmen, wann passende Bedingungen zusammenkommen. In unserem einfachen dealerbasierten Fall stellt dagegen ein Händler ein eigenes Angebot für den Kunden. Beide Formen können zu einem Kauf führen, organisieren ihn aber unterschiedlich.",
-      "Der orderbuchbasierte Lernfall zeigt einen besten Ask von 50 Euro für zwei Einheiten. Ein weiterer Auftrag kann das Angebot nutzen oder verändern. Im Dealer-Lernfall erhält die Kundin ein Angebot für ihre konkret angefragte Menge. Wie lange es gilt und wie es angenommen wird, hängt von den Bedingungen ab.",
-      "Reale Märkte können mehrere Mechanismen kombinieren; eigene Händlerangebote können auch in Orderbüchern stehen. Die Gegenüberstellung beschreibt deshalb Grundideen und keine vollständige Schublade für jeden Platz. Frage nach dem tatsächlichen Ablauf statt nur nach einem bekannten Namen."
+      "Ein Orderbuch sammelt Aufträge auf verschiedenen Preisstufen. Die Regeln bestimmen, wann passende Kauf- und Verkaufsaufträge zusammenkommen. In unserem Dealer-Beispiel macht dagegen ein Händler selbst ein Angebot für die Kundin. Beide Wege können zu einem Kauf führen.",
+      "Im Orderbuch steht ein bestes Verkaufsangebot von 50 Euro für zwei Einheiten. Dieses Verkaufsangebot heißt Ask. Ein weiterer Auftrag kann es nutzen oder die Lage verändern. Beim Dealer erhält die Kundin ein Angebot für ihre angefragte Menge. Wie sie es annehmen kann, bestimmen die Bedingungen.",
+      "Echte Märkte können beide Ideen verbinden. Auch Angebote von Händlern können in einem Orderbuch stehen. Die Beispiele erklären deshalb Grundformen. Sie ordnen nicht jeden Platz vollständig ein. Frage immer, wie das konkrete Geschäft tatsächlich zustande kommt."
     ],
     "columns": [
       {
@@ -343,7 +343,7 @@ const drafts = [
         "explanation": "Auch Händler können eigene Angebote in ein Orderbuch geben."
       },
       {
-        "label": "Unterschiedliche Mechanismen können Geschäfte organisieren und auch kombiniert werden.",
+        "label": "Geschäfte können auf verschiedenen Wegen zustande kommen. Diese Wege können auch kombiniert werden.",
         "explanation": "Richtig: Die zwei Lernformen sind keine starre Einteilung aller realen Märkte."
       },
       {
@@ -358,9 +358,9 @@ const drafts = [
     "title": "Preis anfragen: RFQ statt sofortiger Ausführung",
     "summary": "Eine Anfrage ist noch keine Annahme.",
     "paragraphs": [
-      "RFQ steht für Request for Quote, also eine Bitte um ein Preisangebot. Eine Person nennt beispielsweise Instrument, Menge und Kauf- oder Verkaufswunsch. Ein oder mehrere Händler können Angebote zurückgeben. Der genaue Ablauf hängt vom verwendeten System und seinen Regeln ab.",
-      "Unser erfundenes Beispiel fragt 100 Einheiten an. Händler A nennt einen Verkaufspreis von 20,10 Euro, Händler B 20,08 Euro, jeweils unter vergleichbaren Bedingungen. Die Kundin kann die Angebote prüfen. Die Anfrage allein kauft noch nichts; eine gültige Annahme und tatsächliche Bestätigung müssen hinzukommen.",
-      "Angebote können unterschiedliche Gültigkeiten, Mengen und Kosten besitzen. Die Auswahl sollte deshalb gleichartige Bedingungen vergleichen. Eine Zahl in der Antwort ist kein Beweis, dass die gesamte gewünschte Menge bereits ausgeführt oder später noch verfügbar ist."
+      "RFQ bedeutet eine Anfrage nach einem Preisangebot. Die Abkürzung steht für Request for Quote. Du nennst zum Beispiel das Produkt, die Menge und deinen Kaufwunsch. Ein oder mehrere Händler können darauf antworten. Der genaue Ablauf hängt vom System ab.",
+      "Unsere Kundin fragt 100 Einheiten an. Händler A bietet sie für 20,10 Euro je Einheit an. Händler B nennt 20,08 Euro unter vergleichbaren Bedingungen. Die Kundin kann beide Angebote prüfen. Mit der Anfrage allein hat sie noch nichts gekauft.",
+      "Zum Kauf braucht es eine gültige Annahme und eine tatsächliche Bestätigung. Vergleiche auch Menge, Gültigkeit und Kosten. Ein Preis in der Antwort bedeutet nicht, dass die ganze Menge schon gehandelt wurde. Ebenso wenig verspricht er, dass das Angebot später noch gilt."
     ],
     "columns": [
       {
@@ -402,9 +402,9 @@ const drafts = [
     "title": "Transparenz: nicht jedes Angebot ist vorher sichtbar",
     "summary": "Vor dem Handel und nach dem Handel sind verschiedene Zeitpunkte.",
     "paragraphs": [
-      "Vorhandelstransparenz beschreibt hier, welche Informationen über Angebote vor einer Ausführung sichtbar sind. Nachhandelstransparenz beschreibt Informationen über bereits erfolgte Geschäfte. Ein System kann vor dem Handel wenig zeigen und trotzdem nachher bestimmte Ausführungsdaten veröffentlichen. Umfang und Zeitpunkt hängen vom konkreten Rahmen ab.",
-      "Ein sogenannter Dark Pool zeigt üblicherweise keine vollständig öffentlichen Vorhandelsangebote wie ein offenes Orderbuch. Das Wort „dark“ beschreibt diese begrenzte Sichtbarkeit, nicht automatisch fehlende Regeln oder garantierte Geheimhaltung jedes späteren Trades. Auch dort braucht eine Ausführung passende Bedingungen.",
-      "Wenn du nur ein öffentliches Orderbuch siehst, kennst du deshalb nicht zwingend alle Handelsinteressen im gesamten Markt. Aus fehlender Sichtbarkeit darf aber auch kein bestimmter unbekannter Auftrag erfunden werden. Halte fest, was die Daten zeigen und welche Teile sie nicht abbilden."
+      "Welche Angebote kannst du vor einem Handel sehen? Diese Frage betrifft die Vorhandelstransparenz. Welche abgeschlossenen Geschäfte werden danach sichtbar? Das betrifft die Nachhandelstransparenz. Ein System kann vorher wenig zeigen und danach bestimmte Geschäftsdaten veröffentlichen. Umfang und Zeitpunkt hängen von seinen Regeln ab.",
+      "Ein Dark Pool ist ein Handelssystem mit begrenzter öffentlicher Sicht auf Angebote vor dem Handel. Du siehst dort üblicherweise kein vollständig öffentliches Orderbuch. Das Wort dark bedeutet aber nicht automatisch ohne Regeln. Es verspricht auch nicht, dass jeder spätere Handel geheim bleibt.",
+      "Ein öffentliches Orderbuch zeigt deshalb nicht zwingend alle Handelswünsche im gesamten Markt. Du darfst aus fehlenden Angaben aber keinen bestimmten unsichtbaren Auftrag erfinden. Halte fest, was deine Daten zeigen. Benenne ebenso klar, welche Informationen fehlen."
     ],
     "columns": [
       {
@@ -424,7 +424,7 @@ const drafts = [
         ]
       }
     ],
-    "prompt": "Beweist ein wenig transparentes Vorhandelssystem automatisch, dass nie Ausführungsdaten veröffentlicht werden?",
+    "prompt": "Vor dem Handel ist wenig sichtbar. Beweist das, dass auch später keine Geschäftsdaten veröffentlicht werden?",
     "answers": [
       {
         "label": "Nein, Sichtbarkeit vor und nach dem Handel sind verschiedene Fragen.",
@@ -446,9 +446,9 @@ const drafts = [
     "title": "Orderrouting: wohin der Auftrag geschickt wird",
     "summary": "Der Weg hängt von Zugang und Bedingungen ab.",
     "paragraphs": [
-      "Orderrouting bezeichnet die Weiterleitung von Aufträgen an einen Ausführungsort. Ein Broker kann einen Auftrag an einen Platz senden, verschiedene Orte berücksichtigen oder je nach Modell selbst eine Rolle in der Ausführung übernehmen. Welche Wege möglich sind, ergibt sich nicht allein aus dem Symbol des Instruments.",
-      "In unserem erfundenen Fall kann der Broker nur die Plätze A und B erreichen. Platz C zeigt auf einer fremden Website einen günstigeren Preis, ist für diesen Auftrag aber nicht zugänglich. Das sichtbare Angebot auf C ist damit keine automatische Ausführungsmöglichkeit in dieser Brokeroberfläche.",
-      "Ein automatisch ausgewählter Weg ist nicht zwangsläufig ein beliebiger oder ein garantierter Bestpreis. Menge, Bedingungen, Kosten, Geschwindigkeit und verfügbare Orte können eine Rolle spielen. Die konkreten Ausführungsregeln sind nachzulesen. Später vertiefen wir Orderarten; hier genügt die Trennung zwischen möglichem Weg und bestätigtem Ergebnis."
+      "Orderrouting bedeutet, Aufträge an einen Ausführungsort weiterzuleiten. Ein Broker kann einen Platz nutzen oder mehrere berücksichtigen. Je nach Angebot kann er auch selbst an der Ausführung beteiligt sein. Das Produktsymbol allein verrät den möglichen Weg nicht.",
+      "Unser Broker erreicht nur A und B. Auf einer fremden Website siehst du bei C einen günstigeren Preis. Dein Auftrag kann C aber nicht erreichen. Der sichtbare Preis auf C ist deshalb keine automatische Kaufmöglichkeit über deine Brokeroberfläche.",
+      "Eine automatische Auswahl verspricht nicht allein den besten denkbaren Preis. Menge, Kosten, Bedingungen, Tempo und erreichbare Orte können wichtig sein. Lies die konkreten Ausführungsregeln. Unterscheide den möglichen Auftragsweg von dem tatsächlich bestätigten Ergebnis. Verschiedene Auftragsarten vertiefen wir später."
     ],
     "columns": [
       {
@@ -490,9 +490,9 @@ const drafts = [
     "title": "Menge vergleichen: der erste Ask ist nicht die ganze Rechnung",
     "summary": "Ein günstiger Startpreis kann für wenig Menge gelten.",
     "paragraphs": [
-      "Du möchtest fünf identische Einheiten kaufen. Auf Platz A liegen zwei bei 100 Euro und drei bei 101 Euro. Auf Platz B sind fünf bei 100,40 Euro verfügbar. Wir unterstellen für die Rechnung erreichbare, unveränderte Angebote und lassen Kosten zunächst weg.",
-      "Auf A beträgt der Preisbetrag 2 × 100 + 3 × 101 = 503 Euro. Der Durchschnitt je Einheit liegt bei 503 / 5 = 100,60 Euro. Auf B sind es 5 × 100,40 = 502 Euro, also 100,40 je Einheit. Der erste Ask auf A ist günstiger; die vollständige gewünschte Menge ist in diesem Lernfall auf B günstiger.",
-      "Das Beispiel erklärt den Unterschied zwischen bester sichtbarer Preisstufe und durchschnittlicher Ausführung für eine Menge. Es sagt nicht voraus, dass reale Angebote bis zur Order unverändert bleiben. Auch Gebühren und Zeitbezug gehören später in den vollständigen Vergleich."
+      "Du willst fünf gleiche Einheiten kaufen. Auf A werden zwei für je 100 Euro und drei für je 101 Euro angeboten. Auf B gibt es fünf für je 100,40 Euro. Wir nehmen an, dass du die Angebote erreichen kannst und sie unverändert bleiben. Kosten fehlen zunächst.",
+      "Auf A kosten die ersten zwei 2 × 100 = 200 Euro. Die anderen drei kosten 3 × 101 = 303 Euro. Zusammen sind das 503 Euro. Je Einheit sind es im Durchschnitt 503 / 5 = 100,60 Euro. Auf B kosten alle fünf 5 × 100,40 = 502 Euro: im Durchschnitt 100,40 Euro.",
+      "Der günstigste erste Preis steht auf A. Für alle fünf Einheiten ist in unserem Fall aber B günstiger. Der erste Ask, also das beste Verkaufsangebot, erklärt nicht die ganze Menge. In echten Fällen können sich Angebote ändern. Gebühren und Zeitpunkte gehören ebenfalls in den Vergleich."
     ],
     "columns": [
       {
@@ -534,9 +534,9 @@ const drafts = [
     "title": "Gebühren vergleichen: der Preis allein ist nicht die Gesamtsumme",
     "summary": "Gleichartige Kosten vollständig addieren.",
     "paragraphs": [
-      "Ein Kaufbetrag und die zusätzlichen Kosten gehören in eine gemeinsame Rechnung. In unserem vereinfachten Beispiel kostet dieselbe Menge identischer Einheiten auf Platz A 500 Euro vor Gebühren. Auf Platz B kostet sie 500,50 Euro. Die vollständigen zusätzlichen Kaufkosten betragen 2 Euro auf A und 0,50 Euro auf B.",
-      "Die Gesamtausgabe ist damit auf A 500 + 2 = 502 Euro. Auf B beträgt sie 500,50 + 0,50 = 501 Euro. Platz B hat den höheren Preisbetrag, aber die niedrigere gesamte Ausgabe. Wir betrachten ausdrücklich nur diesen Kauf, nicht einen späteren Verkauf oder laufende Finanzierung.",
-      "In echten Vergleichen können Kosten anders aufgebaut sein, etwa abhängig von Menge, Mindestgebühr oder Währung. Eine Werbeaussage zu einer einzelnen Gebühr erklärt nicht alle Kosten. Rechne denselben Geschäftsumfang unter denselben Annahmen, bevor du von „günstiger“ sprichst."
+      "Zum Preisbetrag eines Kaufs kommen möglicherweise weitere Kosten. Dieselbe Menge kostet auf A 500 Euro vor Gebühren. Auf B kostet sie 500,50 Euro. Die gesamten zusätzlichen Kaufkosten betragen in unserem Beispiel 2 Euro bei A und 0,50 Euro bei B.",
+      "Bei A gibst du insgesamt 500 + 2 = 502 Euro aus. Bei B sind es 500,50 + 0,50 = 501 Euro. Obwohl der reine Preisbetrag bei B höher ist, kostet der gesamte Kauf dort weniger. Wir betrachten nur diesen Kauf.",
+      "Ein späterer Verkauf und laufende Finanzierungskosten gehören nicht zu dieser Beispielrechnung. In echten Angeboten können Kosten von der Menge oder Währung abhängen. Es kann auch Mindestgebühren geben. Eine Werbung für eine einzelne Gebühr erklärt nicht alle Kosten. Vergleiche deshalb denselben Umfang unter denselben Annahmen."
     ],
     "columns": [
       {
@@ -578,9 +578,9 @@ const drafts = [
     "title": "Teilausführungen und mehrere Orte",
     "summary": "Ein Auftrag kann mehrere Ausführungsmeldungen erzeugen.",
     "paragraphs": [
-      "Eine Order muss nicht in einem einzigen Geschäft vollständig ausgeführt werden. Teile können zu verschiedenen Zeiten und Preisen zustande kommen. Je nach Auftragsweg können auch mehrere Ausführungsorte beteiligt sein. Eine erste Meldung erklärt deshalb nicht automatisch den gesamten Auftrag.",
-      "Unser erfundener Auftrag möchte zehn Einheiten kaufen. Drei werden auf A zu 20 Euro ausgeführt und sieben auf B zu 20,20 Euro. Der Preisbetrag beträgt 3 × 20 + 7 × 20,20 = 201,40 Euro. Der mengenbezogene Durchschnitt ist 201,40 / 10 = 20,14 Euro vor Kosten.",
-      "Wenn zunächst nur drei ausgeführt sind, bleiben sieben noch offen, sofern sie nicht anderweitig beendet wurden. Der Status muss anhand der Meldungen gelesen werden. Gewichtete Durchschnittspreise verwenden die Menge jeder Ausführung; ein einfacher Mittelwert der beiden Preise wäre hier falsch."
+      "Ein Auftrag kann in mehreren Teilen ausgeführt werden. Die Teile können verschiedene Preise und Zeitpunkte haben. Je nach Auftragsweg können auch mehrere Plätze beteiligt sein. Eine erste Ausführungsnachricht sagt deshalb noch nicht, dass der ganze Auftrag erledigt ist.",
+      "Du möchtest zehn Einheiten kaufen. Drei kaufst du auf A für je 20 Euro: zusammen 60 Euro. Sieben kaufst du auf B für je 20,20 Euro: zusammen 141,40 Euro. Insgesamt sind das 201,40 Euro. Geteilt durch zehn ergibt das 20,14 Euro je Einheit vor Kosten.",
+      "Nach den ersten drei Käufen bleiben zunächst sieben Einheiten offen, sofern der Rest nicht anders beendet wurde. Prüfe den Status in den Meldungen. Für den Durchschnitt zählt die Menge bei jedem Preis mit. Einfach 20 und 20,20 zu mitteln wäre hier falsch."
     ],
     "columns": [
       {
@@ -622,9 +622,9 @@ const drafts = [
     "title": "Währungen und Bedingungen bei Platzvergleichen",
     "summary": "Ähnliche Zahlen können verschiedene Einheiten meinen.",
     "paragraphs": [
-      "Bevor zwei Angebote verglichen werden, müssen Instrument, Menge, Währung und Bedingungen zusammenpassen. Ein Europreis und ein Dollarpreis sind nicht direkt dieselbe Einheit. Auch verschiedene Anteilsarten oder Vertragsgrößen dürfen nicht allein wegen ähnlicher Namen gleichgesetzt werden.",
-      "Unser identischer Beispielwert wird auf A zu 100 Euro und auf B zu 120 US-Dollar angeboten. Bei EUR/USD 1,20 entsprechen 120 Dollar rechnerisch 100 Euro. Vor Tauschkosten und anderen Kosten sind die Angebote in dieser einfachen Umrechnung gleich, obwohl die angezeigten Zahlen verschieden sind.",
-      "Eine reale Währungsumrechnung benötigt ausführbare Wechselbedingungen, nicht nur einen beliebigen Referenzkurs. Zusätzlich können Handels- und Abwicklungsbedingungen abweichen. Nutze die Umrechnung zur korrekten Einordnung, aber behandle sie nicht als automatische Zusage für den tatsächlichen Gesamtpreis."
+      "Vergleiche zwei Angebote erst, wenn Produkt, Menge, Währung und Bedingungen zusammenpassen. 100 Euro und 100 Dollar sind unterschiedliche Geldbeträge. Auch verschiedene Anteilsarten oder Vertragsgrößen sind nicht allein wegen ähnlicher Namen gleich. Die Zahl auf dem Bildschirm reicht nicht.",
+      "Unsere gleiche Anlage kostet auf A 100 Euro und auf B 120 US-Dollar. Bei EUR/USD 1,20 entspricht ein Euro 1,20 Dollar. Daher sind 120 / 1,20 = 100 Euro. Ohne Tauschkosten und andere Kosten sind die Angebote in dieser Rechnung gleich.",
+      "Ein echter Währungstausch braucht tatsächlich nutzbare Wechselbedingungen. Ein beliebiger Vergleichskurs reicht dafür nicht. Auch Handel und Abwicklung können verschieden geregelt sein. Die Umrechnung hilft, die Zahlen richtig einzuordnen. Sie verspricht noch keinen tatsächlichen Gesamtpreis."
     ],
     "columns": [
       {
@@ -666,9 +666,9 @@ const drafts = [
     "title": "Datenquelle: letzter Trade oder aktuelles Angebot?",
     "summary": "Ein Chart muss nicht jede mögliche Ausführung zeigen.",
     "paragraphs": [
-      "Eine Datenquelle kann Trades eines einzelnen Platzes, ausgewählte Angebote oder zusammengeführte Informationen darstellen. Auch Zeitverzögerungen und Datenfilter können eine Rolle spielen. Deshalb muss die Beschriftung erklären, welches Instrument und welchen Preisbezug die Anzeige verwendet.",
-      "Im erfundenen Fall zeigt der Chart den letzten Trade auf A zu 50 Euro. Dein Kauf wird auf B zu 50,08 Euro bestätigt. Aus der Abweichung allein folgt kein Datenfehler und kein falsch ausgeführter Auftrag. Es sind zunächst ein vergangener Trade an einem Ort und eine neue Ausführung an einem anderen.",
-      "Prüfe zuerst Quelle, Zeit und Preisart: letzter Trade, Kaufangebot oder Verkaufsangebot. Dann prüfe Menge und Ausführungsbedingungen. Ein unbekannter Unterschied darf weder sofort als Fehler erklärt noch ungeprüft als unproblematisch abgetan werden. Die Angaben müssen denselben Vorgang beschreiben, bevor sie direkt vergleichbar sind."
+      "Eine Datenquelle kann Geschäfte eines einzelnen Platzes zeigen. Sie kann auch Angebote oder Daten mehrerer Plätze zusammenfassen. Manche Daten kommen verzögert an oder werden gefiltert. Die Beschriftung muss erklären, welches Produkt und welche Preisart du siehst.",
+      "Unser Chart zeigt den letzten Handel auf A für 50 Euro. Dein neuer Kauf auf B wird für 50,08 Euro bestätigt. Das sind zunächst verschiedene Vorgänge: ein früherer Handel auf A und ein neuer auf B. Der Unterschied allein beweist keinen Fehler.",
+      "Prüfe Quelle, Zeit und Preisart. Ist es ein letzter Handel, ein Kaufangebot oder ein Verkaufsangebot? Prüfe danach Menge und Ausführungsbedingungen. Erkläre einen unbekannten Unterschied weder sofort zum Fehler noch ungeprüft für harmlos. Erst passende Angaben ermöglichen einen direkten Vergleich."
     ],
     "columns": [
       {
@@ -710,9 +710,9 @@ const drafts = [
     "title": "Handelsphasen: offen ist nicht immer derselbe Ablauf",
     "summary": "Erreichbarkeit und Handelsmechanismus können wechseln.",
     "paragraphs": [
-      "Ein Platz kann unterschiedliche Handelsphasen besitzen. Im fortlaufenden Handel können passende Aufträge laufend zusammenkommen. In einer Auktion werden Handelswünsche nach den Regeln zu einem bestimmten Ablauf zusammengeführt. Die Phasen bestimmen damit nicht nur die Uhrzeit, sondern auch den Ausführungsmechanismus.",
-      "Unser erfundener Platz A befindet sich in einer Auktionsphase, Platz B handelt fortlaufend. Eine eingereichte Order kann deshalb auf A anders verarbeitet werden als auf B. Eine angezeigte Zahl während der Auktion ist nicht automatisch derselbe Preisbezug wie ein bereits ausgeführter Trade auf B.",
-      "Eine erreichbare App beweist nicht, dass der gewünschte Platz gerade fortlaufend handelt. Konkrete Kalender, Zeitzonen, Feiertage und Handelsphasen müssen für den tatsächlichen Platz geprüft werden. Diese Übersicht nennt bewusst keine aktuellen Öffnungszeiten; Sessions und besondere Phasen folgen später im Kurs ausführlich."
+      "Ein Handelsplatz kann verschiedene Phasen haben. Im fortlaufenden Handel können passende Aufträge laufend zusammenkommen. In einer Auktion werden Handelswünsche nach einem festgelegten Ablauf gesammelt und zusammengeführt. Die Phase bestimmt also auch, wie Geschäfte zustande kommen.",
+      "Unser Platz A ist gerade in einer Auktionsphase. B handelt fortlaufend. Derselbe eingereichte Auftrag kann deshalb anders verarbeitet werden. Eine angezeigte Zahl während der Auktion muss nicht dieselbe Bedeutung haben wie der Preis eines bereits abgeschlossenen Geschäfts auf B.",
+      "Eine erreichbare App beweist nicht, dass der Platz gerade fortlaufend handelt. Prüfe den Kalender, die Zeitzone, Feiertage und die jeweilige Phase. Hier nennen wir keine aktuellen Öffnungszeiten. Handelszeiten und besondere Phasen betrachten wir später genauer."
     ],
     "columns": [
       {
@@ -739,7 +739,7 @@ const drafts = [
         "explanation": "Verschiedene Plätze können unterschiedliche Phasen haben."
       },
       {
-        "label": "Nein, die aktuelle Handelsphase des Platzes ist gesondert zu prüfen.",
+        "label": "Nein, ich muss prüfen, in welcher Handelsphase der Platz gerade ist.",
         "explanation": "Richtig: Zugang zur Oberfläche und Ausführungsmechanismus sind verschieden."
       },
       {
@@ -754,9 +754,9 @@ const drafts = [
     "title": "Angebote können sich auf dem Weg ändern",
     "summary": "Eine Momentaufnahme bleibt keine Reservierung.",
     "paragraphs": [
-      "Zwischen dem Anzeigen eines Angebots und dem Eintreffen deiner Order vergeht Zeit. Andere Aufträge können die verfügbare Menge handeln; Anbieter können ihre Angebote nach den Regeln ändern. Latenz bezeichnet die Verzögerung einer Übertragung oder Verarbeitung. Sie ist ein Grund, weshalb eine Anzeige keine sichere spätere Ausführung verspricht.",
-      "Zum Beobachtungszeitpunkt zeigt A einen Ask von 50 Euro für eine Einheit. Bevor deine Order dort eintrifft, wird diese Einheit anderweitig gehandelt. Das nächste Angebot liegt im Beispiel bei 50,10. Ob deine Order dort ausgeführt wird oder unausgeführt bleibt, hängt von ihrer Preisbedingung und den geltenden Regeln ab.",
-      "Das Beispiel behauptet keine bestimmte Verzögerung in Millisekunden. Es trennt nur die Zeitpunkte: angezeigt, gesendet, eingetroffen, ausgeführt. Ein Screenshot kann eine frühere Situation belegen, aber nicht allein die tatsächlich erreichbaren Bedingungen deiner späteren Order."
+      "Zwischen einer Anzeige und dem Eintreffen deines Auftrags vergeht Zeit. Andere können inzwischen das Angebot nutzen. Anbieter können es nach den Regeln auch ändern. Die Verzögerung beim Übertragen oder Verarbeiten heißt Latenz. Deshalb ist ein angezeigter Preis keine sichere spätere Ausführung.",
+      "Du siehst eine Einheit zu 50 Euro auf A. Bevor dein Auftrag ankommt, kauft jemand anderes diese Einheit. Das nächste Angebot liegt bei 50,10 Euro. Ob du dort kaufst oder dein Auftrag offen bleibt, hängt von deiner Preisbedingung und den Regeln ab.",
+      "Wir behaupten hier keine bestimmte Verzögerung in Millisekunden. Wichtig sind die getrennten Schritte: angezeigt, gesendet, eingetroffen und ausgeführt. Ein Bildschirmfoto kann eine frühere Lage zeigen. Es beweist aber allein nicht, welche Bedingungen dein späterer Auftrag erreichen konnte."
     ],
     "columns": [
       {
@@ -798,9 +798,9 @@ const drafts = [
     "title": "Handelsunterbrechung: der genaue Umfang zählt",
     "summary": "Ein einzelner Platz ist nicht automatisch der ganze Markt.",
     "paragraphs": [
-      "Ein Handelsplatz kann den Handel eines Instruments oder bestimmter Bereiche zeitweise unterbrechen. Gründe und Abläufe hängen von seinen Regeln und der konkreten Situation ab. Eine Unterbrechung auf einem Platz beweist nicht allein, dass alle anderen Plätze unverändert weiterhandeln oder ebenfalls geschlossen sind.",
-      "In unserem Lernfall meldet A eine Unterbrechung für eine Aktie. Auf B siehst du weiterhin eine Preisanzeige. Diese Anzeige kann aktuell, veraltet oder auf einen anderen Bezug gerichtet sein. Erst eine Prüfung von Instrument, Zeit und Handelsstatus erklärt, ob dort tatsächlich weiter gehandelt werden kann.",
-      "Auch der Orderstatus ist getrennt zu prüfen. Eine Unterbrechung bedeutet nicht automatisch, dass jede bestehende Order gelöscht ist. Welche Aufträge bleiben, angenommen oder ausgeführt werden können, ergibt sich aus den Regeln. Aus einer einzelnen Meldung darf kein globaler Handelszustand erfunden werden."
+      "Ein Platz kann den Handel zeitweise unterbrechen. Das kann ein Produkt oder bestimmte Bereiche betreffen. Gründe und Ablauf hängen von den Regeln ab. Eine Meldung über Platz A erklärt deshalb nicht automatisch den Handelsstatus aller anderen Plätze.",
+      "A meldet in unserem Fall eine Unterbrechung für eine Aktie. Bei B siehst du weiter einen Preis. Er könnte aktuell oder veraltet sein. Er könnte sich auch auf etwas anderes beziehen. Prüfe Produkt, Zeit und Handelsstatus, bevor du annimmst, dass du dort handeln kannst.",
+      "Prüfe außerdem den Status deiner Aufträge. Eine Unterbrechung löscht nicht automatisch jeden Auftrag. Ob Aufträge bleiben, angenommen werden oder ausführbar sind, bestimmen die Regeln. Eine einzelne Meldung reicht nicht, um den Zustand des gesamten Marktes zu erklären."
     ],
     "columns": [
       {
@@ -823,7 +823,7 @@ const drafts = [
     "prompt": "Was folgt aus der Unterbrechung auf A sicher?",
     "answers": [
       {
-        "label": "Zunächst nur die gemeldete Unterbrechung in ihrem angegebenen Umfang.",
+        "label": "Nur die gemeldete Unterbrechung auf A in ihrem angegebenen Umfang.",
         "explanation": "Richtig: Der Status anderer Plätze und eigener Orders muss zusätzlich geprüft werden."
       },
       {
@@ -842,9 +842,9 @@ const drafts = [
     "title": "Handeln und danach erfüllen sind zwei Aufgaben",
     "summary": "Ausführungsort und Abwicklung nicht verwechseln.",
     "paragraphs": [
-      "Ein Trade beschreibt die zustande gekommene Vereinbarung über Instrument, Menge und Preis. Danach müssen die daraus entstehenden Verpflichtungen abgewickelt werden. Clearing betrifft unter anderem die Organisation und Behandlung dieser Verpflichtungen; Settlement meint ihre Erfüllung, etwa den Austausch von Wertpapieren und Geld.",
-      "Unser einfacher Aktienkauf wird auf einem Handelsplatz ausgeführt. Die weiteren Abwicklungsschritte können durch andere Stellen organisiert werden. Der Name des Ausführungsplatzes bezeichnet deshalb nicht automatisch jede beteiligte Organisation nach dem Trade.",
-      "Eine zentrale Gegenpartei kann in bestimmten Strukturen zwischen die ursprünglichen Handelsparteien treten. Ob das geschieht, hängt vom Geschäft und seiner Organisation ab. Börsenhandel und zentrale Abwicklung sind daher getrennte Angaben; OTC-Handel bedeutet umgekehrt nicht zwingend, dass niemals eine zentrale Gegenpartei beteiligt ist. Die Abwicklung vertiefen wir in Kapitel 11."
+      "Ein Trade ist ein abgeschlossenes Geschäft über ein Produkt, eine Menge und einen Preis. Danach müssen die Beteiligten ihre Pflichten erfüllen. Clearing betrifft die Organisation und Behandlung dieser Pflichten. Settlement bedeutet ihre tatsächliche Erfüllung, zum Beispiel den Austausch von Geld und Wertpapieren.",
+      "Unser Aktienkauf kommt an einem Handelsplatz zustande. Weitere Stellen können anschließend die Abwicklung organisieren. Der Name des Handelsplatzes verrät deshalb nicht automatisch alle Organisationen, die nach dem Kauf beteiligt sind. Handeln und Erfüllen sind verschiedene Aufgaben.",
+      "Manchmal tritt eine zentrale Gegenpartei zwischen die ursprünglichen Beteiligten. Das hängt von der Organisation des Geschäfts ab. Börsenhandel und zentrale Abwicklung sind getrennte Angaben. Auch ein außerbörsliches Geschäft kann eine zentrale Gegenpartei nutzen. Die einzelnen Abwicklungsschritte erklären wir in Kapitel 11 genauer."
     ],
     "columns": [
       {
@@ -886,9 +886,9 @@ const drafts = [
     "title": "Dein Handelsplatzcheck: den Weg vollständig erklären",
     "summary": "Produkt, Zugang, Daten und Bestätigung zusammenführen.",
     "paragraphs": [
-      "Für einen Handelsplatzcheck gehst du diese Fragen durch: Welches Instrument und welche Menge sind gemeint? Welche Orte sind über den Zugang erreichbar? Nach welchem Mechanismus wird gehandelt? Woher stammen die angezeigten Daten? Welchen Ort, Preis und Status nennt die tatsächliche Ausführungsbestätigung?",
-      "Abschlussfall: Der Chart zeigt den letzten Trade auf A zu 100. Dein Broker kann B erreichen. Dort sind fünf Einheiten zu 100,40 verfügbar; bei einer vollständigen unveränderten Ausführung wären das 502 vor zusätzlichen Kosten. Erst die Bestätigung sagt, welche Menge tatsächlich zu welchen Preisen ausgeführt wurde. Der Chartpreis auf A garantiert keinen Kauf auf B zu 100.",
-      "Jetzt kannst du erklären, weshalb ein Markt mehr als eine Oberfläche oder eine einzelne Zahl ist. Handelsplätze verbinden Aufgaben und Aufträge nach Regeln, während Daten eine ausgewählte Sicht zeigen. Im nächsten Kapitel „Der Markt als Auktion“ vertiefen wir, wie Handelswünsche zusammenkommen und Preise entstehen."
+      "Prüfe beim Handelsplatz zuerst Produkt und Menge. Welche Orte kannst du erreichen? Wie kommen Geschäfte dort zustande? Woher stammen deine Daten? Lies dann die Ausführungsbestätigung. Sie nennt, wo und zu welchem Preis tatsächlich gehandelt wurde und welchen Status der Auftrag hat.",
+      "Unser Chart zeigt den letzten Handel auf A bei 100. Dein Broker erreicht B. Dort gibt es fünf Einheiten für je 100,40. Werden alle unverändert gekauft, beträgt der Preisbetrag 5 × 100,40 = 502 vor Zusatzkosten. Erst die Bestätigung nennt die tatsächlich gekaufte Menge und ihre Preise.",
+      "Der Chartpreis auf A verspricht keinen Kauf auf B für 100. Du kannst jetzt erklären, warum ein Markt mehr als eine Oberfläche oder eine Zahl ist. Plätze verbinden Aufträge nach Regeln; Daten zeigen eine ausgewählte Sicht. Im nächsten Kapitel betrachten wir den Markt als Auktion."
     ],
     "columns": [
       {

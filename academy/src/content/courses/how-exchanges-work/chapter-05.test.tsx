@@ -79,7 +79,7 @@ describe('Marktgrundlagen: Auktionsprozess', () => {
   it('distinguishes quote improvement, cancellation, trade and uncertain value', () => {
     expect(correctAnswer(6).label).toBe('Nein, im Beispiel verbessert sich nur das Kaufangebot.');
     expect(correctAnswer(7).label).toBe('Keine.');
-    expect(correctAnswer(17).label).toBe('Dass ein entsprechender Austausch zustande kam.');
+    expect(correctAnswer(17).label).toBe('Dass zu diesem Preis ein Geschäft zustande kam.');
     expect(correctAnswer(18).label).toBe('Nein, erst eine neue Ausführung verändert den letzten Trade.');
     const terms = marketBasicsGlossary.filter((entry) => entry.firstUnit === 'Kapitel 5').map((entry) => entry.term);
     expect(terms).toHaveLength(10);

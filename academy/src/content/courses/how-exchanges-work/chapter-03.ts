@@ -6,9 +6,9 @@ const drafts = [
     "title": "Teilnehmer, Rolle und Motiv sind drei Fragen",
     "summary": "Ein Name erklärt noch keinen Auftrag.",
     "paragraphs": [
-      "Wer handelt? Eine Privatperson, ein Fonds oder eine Bank. Welche Rolle übernimmt die Person oder Organisation? Sie kann für sich handeln, einen Kundenauftrag vermitteln oder selbst Gegenangebote stellen. Warum handelt sie? Sie kann investieren, ein Risiko absichern oder auf eine Preisbewegung spekulieren. Diese drei Fragen sind miteinander verbunden, aber nicht identisch.",
-      "Eine Bank kann morgens einen Kundenauftrag vermitteln und später das Risiko aus einem eigenen Geschäft absichern. „Bank“ bezeichnet in beiden Fällen die Organisation. Vermittlung und Absicherung sind aber unterschiedliche Tätigkeiten. Selbst ein einzelner Marktteilnehmer muss also nicht bei jedem Auftrag denselben Zweck verfolgen.",
-      "In diesem Kapitel lernst du typische Zusammenhänge kennen. Sie helfen beim Verständnis des Marktes, identifizieren aber nicht sicher das Motiv hinter einer unbekannten Transaktion. Wir verwenden eigene, vereinfachte Fälle. Wo Angaben fehlen, bleibt die Absicht offen."
+      "Beim Handel helfen dir drei Fragen. Wer handelt: eine Person, ein Fonds oder eine Bank? Welche Aufgabe übernimmt sie: selbst handeln, einen Auftrag vermitteln oder Angebote stellen? Warum handelt sie: Geld anlegen, ein Risiko verringern oder auf eine Preisänderung setzen?",
+      "Eine Bank kann morgens einen Kundenauftrag weitergeben. Später kann sie ein eigenes Risiko absichern. Absichern bedeutet, einem vorhandenen Risiko gezielt entgegenzuwirken. In beiden Fällen handelt dieselbe Organisation. Ihre Aufgabe und ihr Grund sind aber verschieden.",
+      "Du lernst hier typische Gründe kennen. Sie helfen dir, ein Geschäft einzuordnen. Sie verraten dir aber nicht sicher, warum jemand einen unbekannten Auftrag erteilt hat. Unsere Fälle sind erfunden und vereinfacht. Wenn eine Angabe fehlt, lassen wir die Antwort offen."
     ],
     "columns": [
       {
@@ -28,7 +28,7 @@ const drafts = [
         ]
       }
     ],
-    "prompt": "Eine Bank kauft einen Vertrag. Kennst du allein daraus ihr Motiv?",
+    "prompt": "Eine Bank kauft einen Vertrag. Kennst du allein daraus den Grund?",
     "answers": [
       {
         "label": "Nein, dazu brauche ich den Zusammenhang des Geschäfts.",
@@ -50,9 +50,9 @@ const drafts = [
     "title": "Privatanleger: Sparziel oder kurzfristige Idee?",
     "summary": "Privat bedeutet nicht automatisch kurzfristig.",
     "paragraphs": [
-      "Privatanleger handeln oder investieren mit ihrem privaten Vermögen. Hinter diesem Sammelbegriff können sehr verschiedene Ziele stehen: ein langfristiges Sparziel, späterer Geldbedarf, ein geplanter Kauf oder eine kurzfristige Preisidee. Die Bezeichnung sagt weder etwas Sicheres über Erfahrung noch über Haltedauer aus.",
-      "Miriam kauft jeden Monat Fondsanteile für ein weit entferntes Sparziel. Robert handelt eine erwartete Bewegung während einer Börsensitzung. Beide sind in diesem Beispiel Privatpersonen. Trotzdem unterscheiden sich ihr Zeithorizont, ihre Häufigkeit und die Frage, wann sie das Geld wieder benötigen.",
-      "Kleines Kapital macht einen Auftrag nicht bedeutungslos für seinen Besitzer. Eine Preisbewegung kann für jemanden mit kurzfristigem Geldbedarf unangenehm sein, auch wenn ein anderer die Anlage lange halten möchte. Beurteile den Plan deshalb anhand von Zweck, Zeit und möglichen Verlusten, nicht nur anhand des Etiketts „privat“."
+      "Privatanleger nutzen ihr eigenes privates Vermögen. Manche sparen lange für ein Ziel. Andere brauchen ihr Geld bald wieder oder handeln eine kurzfristige Idee. Die Bezeichnung Privatanleger sagt nicht, wie erfahren jemand ist oder wie lange er eine Anlage halten will.",
+      "Miriam kauft jeden Monat Fondsanteile für ein weit entferntes Sparziel. Robert will eine Preisbewegung während eines Börsentags handeln. Beide sind Privatpersonen. Ihre Pläne unterscheiden sich aber: Miriam plant für lange Zeit, Robert für einen kurzen Zeitraum.",
+      "Auch ein kleiner Geldbetrag kann für seinen Besitzer sehr wichtig sein. Wer das Geld bald braucht, kann einen Verlust vielleicht schlecht verkraften. Prüfe deshalb das Ziel, die verfügbare Zeit und die möglichen Verluste. Das Wort privat allein erklärt den Plan nicht."
     ],
     "columns": [
       {
@@ -94,9 +94,9 @@ const drafts = [
     "title": "Zeithorizonte: derselbe Preis, andere Aufgabe",
     "summary": "Zeit bis zum Ziel und Zeit der Ausführung unterscheiden.",
     "paragraphs": [
-      "Der Zeithorizont ist der Zeitraum, für den eine Entscheidung gedacht ist. Ein Anleger kann viele Jahre planen, ein kurzfristiger Trader nur Minuten. Trotzdem müssen beide ihre Aufträge zu einem bestimmten Zeitpunkt ausführen. Lange Haltedauer und kurzfristige Ausführung kommen deshalb auch zusammen vor.",
-      "Ein Fonds möchte eine Beteiligung mehrere Jahre halten. Er verteilt seinen Kauf auf mehrere kleinere Aufträge innerhalb eines Tages. Der Tag beschreibt die Ausführung; die Jahre beschreiben die geplante Anlage. Wer nur die kurzen Einzelaufträge sieht, könnte den langfristigen Plan leicht falsch einordnen.",
-      "Verschiedene Horizonte können unterschiedliche Toleranzen gegenüber zwischenzeitlichen Bewegungen bedeuten. Ein langer Horizont macht Verluste aber nicht automatisch harmlos. Zahlungsbedarf, Risikogrenzen und veränderte Informationen bleiben wichtig. Beobachtete Handelsgeschwindigkeit und Anlagehorizont sind daher zwei eigene Angaben."
+      "Der Zeithorizont ist der Zeitraum, für den jemand plant. Ein Anleger kann für viele Jahre planen. Ein kurzfristiger Trader plant vielleicht nur für Minuten. Beide müssen ihre Aufträge trotzdem zu einem bestimmten Zeitpunkt ausführen lassen. Ausführen heißt: Das Geschäft kommt tatsächlich zustande.",
+      "Ein Fonds möchte Aktien mehrere Jahre halten. Er teilt den Kauf auf kleine Aufträge an einem Tag auf. Der Tag beschreibt, wann er kauft. Die Jahre beschreiben, wie lange er die Anlage halten möchte. Wer nur die kleinen Aufträge sieht, kennt den langfristigen Plan noch nicht.",
+      "Wer lange plant, kann manche Schwankung anders beurteilen als jemand mit wenig Zeit. Eine lange Haltedauer macht Verluste aber nicht automatisch harmlos. Geldbedarf, Risikogrenzen und neue Informationen bleiben wichtig. Handelsgeschwindigkeit und geplanter Anlagezeitraum sind deshalb zwei verschiedene Angaben."
     ],
     "columns": [
       {
@@ -138,9 +138,9 @@ const drafts = [
     "title": "Emittenten: Kapital aufnehmen statt einen Chart handeln",
     "summary": "Neue Wertpapiere finanzieren ein Vorhaben.",
     "paragraphs": [
-      "Ein Emittent gibt ein Wertpapier heraus. Ein Unternehmen kann beispielsweise neue Aktien oder eine Anleihe ausgeben, um ein Vorhaben zu finanzieren. Bei Aktien entstehen Beteiligungsrechte; bei einer Anleihe entstehen Zahlungsansprüche nach dem Vertrag. Die Produktarten kennst du aus Kapitel 2.",
-      "Unser erfundenes Unternehmen plant eine neue Produktionshalle. Es gibt eine Anleihe mit insgesamt 1 Million Euro Nennwert aus. Anleger stellen Kapital nach den Bedingungen zur Verfügung. Die spätere Weitergabe einer vorhandenen Anleihe zwischen zwei Anlegern bringt dem Unternehmen nicht erneut automatisch den Kaufpreis ein.",
-      "Ein staatlicher Emittent kann ebenfalls Geld aufnehmen, etwa zur Finanzierung seiner Ausgaben. Ausgabe, späterer Handel und Rückzahlung sind dabei unterschiedliche Vorgänge. Deshalb ist nicht jeder sichtbare Handel mit einem Unternehmenspapier eine neue Finanzierungsentscheidung dieses Unternehmens."
+      "Ein Emittent ist der Herausgeber eines Wertpapiers. Ein Unternehmen kann neue Aktien oder Anleihen ausgeben, um Geld für ein Vorhaben zu erhalten. Aktien geben Beteiligungsrechte. Anleihen geben Ansprüche auf Zahlungen nach ihren Vertragsregeln. Diese Produkte kennst du aus Kapitel 2.",
+      "Unser erfundenes Unternehmen plant eine neue Halle. Es gibt Anleihen mit insgesamt 1 Million Euro Nennwert aus. Anleger stellen ihm dafür Geld nach den Bedingungen zur Verfügung. Der Nennwert ist die im Vertrag festgelegte Bezugsgröße für die Zahlungen.",
+      "Verkauft später ein Anleger seine vorhandene Anleihe an einen anderen, erhält das Unternehmen den Kaufpreis nicht automatisch noch einmal. Auch Staaten können Wertpapiere zur Finanzierung ausgeben. Ausgabe, späterer Handel und Rückzahlung sind verschiedene Vorgänge. Ein sichtbarer Handel bedeutet deshalb nicht immer neue Finanzierung."
     ],
     "columns": [
       {
@@ -182,9 +182,9 @@ const drafts = [
     "title": "Unternehmen: Geld für ein echtes Geschäft bewegen",
     "summary": "Ein Währungskauf kann eine Rechnung bezahlen.",
     "paragraphs": [
-      "Unternehmen handeln nicht nur, weil sie eine Marktbewegung erwarten. Sie können Währungen für Zahlungen benötigen, kurzfristig freie Mittel anlegen oder bestehende Risiken verändern. Die zuständige Finanzfunktion wird häufig Treasury genannt. Ihre Aufgabe hängt am Geschäft des Unternehmens.",
-      "Eine erfundene Importfirma muss eine Rechnung über 12.000 US-Dollar bezahlen. Bei EUR/USD 1,20 benötigt sie vereinfacht 10.000 Euro, denn 12.000 / 1,20 = 10.000. Der Dollarkauf kann schlicht der Zahlung dienen. Er beweist nicht, dass die Firma Dollar wegen eines erwarteten Kurssprungs kauft.",
-      "Liegt die Zahlung erst in der Zukunft, kann eine Kursänderung den späteren Eurobedarf verändern. Die Firma kann dieses Risiko offenlassen oder vertraglich beeinflussen. Zum Verständnis trenne die Warenrechnung, den erforderlichen Währungstausch und eine mögliche Absicherung: Das sind verbundene, aber eigene Vorgänge."
+      "Unternehmen handeln nicht nur wegen einer erwarteten Preisänderung. Sie können fremde Währungen für Rechnungen brauchen. Sie können auch vorübergehend freies Geld anlegen oder Risiken absichern. Die zuständige Finanzabteilung heißt häufig Treasury. Sie kümmert sich um solche Geldfragen des Unternehmens.",
+      "Eine Importfirma muss 12.000 US-Dollar bezahlen. Bei EUR/USD 1,20 entspricht ein Euro 1,20 Dollar. Die Firma benötigt daher 12.000 / 1,20 = 10.000 Euro. Gebühren lassen wir weg. Der Dollarkauf kann einfach dazu dienen, die Rechnung zu bezahlen.",
+      "Ist die Rechnung erst später fällig, kann der Wechselkurs bis dahin den Eurobedarf verändern. Die Firma kann dieses Risiko bestehen lassen oder durch einen Vertrag beeinflussen. Trenne deshalb drei Dinge: die Warenrechnung, den Währungstausch und eine mögliche Absicherung. Ein Dollarkauf beweist noch keine Erwartung steigender Kurse."
     ],
     "columns": [
       {
@@ -226,9 +226,9 @@ const drafts = [
     "title": "Absichern: bestehendes Risiko und Gegenwirkung",
     "summary": "Der zusätzliche Vertrag gehört zur Gesamtposition.",
     "paragraphs": [
-      "Eine Absicherung soll ein bereits vorhandenes wirtschaftliches Risiko verändern. Ein Produzent, der später verkaufen wird, kann sinkende Preise fürchten. Ein Käufer, der später einkaufen muss, kann steigende Preise fürchten. Beide nutzen möglicherweise dieselbe Vertragsart, benötigen aber unterschiedliche Gegenwirkungen.",
-      "Unser erfundener Produzent erwartet 100 Einheiten Ware. Fällt ihr Verkaufspreis um 5 Euro je Einheit, sinkt der Erlös um 500 Euro. Eine passende Verkaufsposition in einem vereinfachten Vertrag gewinnt gleichzeitig 500 Euro. Zusammengenommen gleichen sich diese Preiswirkungen im Beispiel vor Kosten aus.",
-      "Die Absicherung soll hier den zukünftigen Erlös berechenbarer machen, nicht die maximale Freude über jede Preisbewegung liefern. Steigt der Warenpreis, kann der Vertrag verlieren, während das Warengeschäft gewinnt. Der Verlust in einer Teilposition zeigt deshalb allein noch nicht, ob die Absicherung ihren Zweck erfüllt hat."
+      "Eine Absicherung wirkt einem bereits vorhandenen Risiko entgegen. Ein Produzent will später Ware verkaufen. Sinkende Preise wären für ihn ungünstig. Ein Käufer muss später Ware kaufen. Für ihn wären steigende Preise ungünstig. Beide brauchen deshalb unterschiedliche Gegenwirkungen.",
+      "Unser Produzent erwartet 100 Einheiten Ware. Sinkt der Verkaufspreis um 5 Euro je Einheit, erhält er 100 × 5 = 500 Euro weniger. Eine passende Verkaufsposition in unserem vereinfachten Vertrag gewinnt gleichzeitig 500 Euro. Zusammen gleichen sich die Preiswirkungen vor Kosten aus.",
+      "Steigt der Warenpreis, kann der Vertrag stattdessen verlieren. Dafür bringt die Ware mehr Geld ein. Die Absicherung soll den Erlös planbarer machen. Sie soll nicht aus jeder Teilposition einen Gewinn machen. Betrachte deshalb Ware und Vertrag gemeinsam, bevor du die Wirkung beurteilst."
     ],
     "columns": [
       {
@@ -270,9 +270,9 @@ const drafts = [
     "title": "Absicherungen passen nicht immer genau",
     "summary": "Menge, Termin und Bezug können abweichen.",
     "paragraphs": [
-      "Das perfekte Gegenbeispiel aus der vorigen Lektion setzt passend gewählte Bedingungen voraus. In der Praxis können die Menge des Vertrags, der Zahlungstermin oder der Preisbezug vom echten Geschäft abweichen. Das verbleibende Risiko verschwindet nicht durch die Bezeichnung „abgesichert“.",
-      "Unser Produzent erwartet 100 Einheiten, kann im Beispiel aber nur 80 Einheiten passend absichern. Sinkt der Warenpreis um 5 Euro, verändert sich der Erlös um −500 Euro. Der Vertrag wirkt mit +400 Euro dagegen. Es bleiben −100 Euro gemeinsame Preiswirkung vor Kosten. Die Absicherung ist hier teilweise, nicht vollständig.",
-      "Ein anderer Fall: Der Vertrag bezieht sich auf eine andere Warensorte als die verkaufte Ware. Ihre Preise können sich ähnlich, aber nicht identisch entwickeln. Die Veränderung des Preisabstands erzeugt Basisrisiko. Für den Einstieg reichen drei Prüfungen: Passt die Menge? Passt der Zeitpunkt? Passt der Preisbezug?"
+      "Eine Absicherung passt nicht immer genau zum echten Geschäft. Die abgesicherte Menge kann abweichen. Auch der Termin oder die Art der Ware kann anders sein. Das Wort abgesichert bedeutet deshalb nicht automatisch, dass kein Risiko mehr übrig ist.",
+      "Unser Produzent erwartet 100 Einheiten, sichert aber nur 80 ab. Der Warenpreis fällt um 5 Euro. Mit der Ware erhält er 100 × 5 = 500 Euro weniger. Der Vertrag gewinnt 80 × 5 = 400 Euro. Zusammen bleiben 100 Euro Verlust vor Kosten. Die Absicherung deckt nur einen Teil ab.",
+      "Ein Vertrag kann sich auch auf eine andere Warensorte beziehen. Beide Preise können sich unterschiedlich bewegen. Ändert sich ihr Preisabstand, passt die Gegenwirkung nicht mehr genau. Dieses Risiko heißt Basisrisiko. Prüfe deshalb: Passt die Menge? Passt der Zeitpunkt? Passt die Ware oder andere Bezugsgröße?"
     ],
     "columns": [
       {
@@ -314,9 +314,9 @@ const drafts = [
     "title": "Fondsverwaltung: innerhalb eines Auftrags handeln",
     "summary": "Ein Mandat setzt Ziele und Grenzen.",
     "paragraphs": [
-      "Eine Fondsverwaltung handelt für das Vermögen eines Fonds nach dessen Anlagebedingungen. Ein Mandat ist der vereinbarte Auftrag mit Zielen und Grenzen. Es kann beispielsweise festlegen, welche Anlagen infrage kommen, wie breit gestreut werden soll und welche Risiken zulässig sind.",
-      "Ein erfundener Fonds darf höchstens 10 % seines Vermögens in einer einzelnen Aktie halten. Diese Aktie steigt stark; ihre Gewichtung erreicht 12 %. Die Verwaltung verkauft einen Teil, um die vorgegebene Grenze wieder einzuhalten. Das ist keine zwingende Aussage, dass sie das Unternehmen jetzt für schlecht hält.",
-      "Institutionell bedeutet hier, dass eine Organisation professionell und im Rahmen ihrer Aufgaben handelt. Es garantiert weder Gewinn noch ein überlegenes Urteil bei jedem Auftrag. Um einen Fondsauftrag zu verstehen, sind Anlagebedingungen, aktuelle Bestände und mögliche Zahlungsflüsse oft hilfreicher als eine vermutete Chartmeinung."
+      "Eine Fondsverwaltung betreut die Anlagen eines Fonds. Dabei muss sie vereinbarte Ziele und Grenzen beachten. Diesen Auftrag nennt man Mandat. Darin kann stehen, welche Anlagen erlaubt sind, wie das Geld verteilt werden soll und welche Risiken zulässig sind.",
+      "Unser Fonds darf höchstens 10 % seines Vermögens in einer Aktie halten. Die Aktie steigt stark. Nun macht sie 12 % des Fondsvermögens aus. Die Verwaltung verkauft einen Teil, um wieder die Grenze einzuhalten. Das muss nicht bedeuten, dass sie das Unternehmen schlecht findet.",
+      "Eine Organisation kann professionell im Rahmen ihrer Aufgaben handeln. Dafür verwenden wir hier das Wort institutionell. Das verspricht keinen Gewinn und keine stets richtige Entscheidung. Prüfe bei einem Fonds deshalb seine Regeln, seine vorhandenen Anlagen und seinen Geldbedarf. Vermute nicht automatisch eine bestimmte Meinung zum Kurs."
     ],
     "columns": [
       {
@@ -343,7 +343,7 @@ const drafts = [
         "explanation": "Die Teilnehmerart verspricht keine sichere Prognose."
       },
       {
-        "label": "Um seine vorgegebene Gewichtungsgrenze einzuhalten.",
+        "label": "Um die vorgeschriebene Grenze für den Anteil dieser Aktie einzuhalten.",
         "explanation": "Richtig: Eine Regel kann den Verkauf auslösen, ohne dass eine negative Prognose nötig ist."
       },
       {
@@ -358,9 +358,9 @@ const drafts = [
     "title": "Aktiv und indexorientiert: verschiedene Entscheidungsregeln",
     "summary": "Nachbilden braucht ebenfalls tatsächliche Geschäfte.",
     "paragraphs": [
-      "Eine aktive Verwaltung wählt Anlagen nach ihren Entscheidungen innerhalb des vereinbarten Rahmens. Eine indexorientierte Verwaltung versucht dagegen, eine festgelegte Indexentwicklung nachzubilden. Welche Geschäfte nötig sind, hängt von der Umsetzung ab: Anlagen können direkt gehalten oder vertraglich abgebildet werden.",
-      "Ein vereinfachter Fonds hält die Aktien eines erfundenen Index direkt. Wenn die Indexregeln eine Aktie aufnehmen und eine andere entfernen, muss die Verwaltung ihre Zusammensetzung entsprechend anpassen. Der Kauf der neuen Aktie kann damit aus den Indexregeln stammen, nicht aus einer eigenen kurzfristigen Prognose.",
-      "Indexorientiert heißt nicht „macht niemals eine Order“. Zahlungszuflüsse, Auszahlungen und Änderungen der Zusammensetzung können Handel erforderlich machen. Aktiv heißt wiederum nicht automatisch erfolgreich. Beide Beschreibungen sagen etwas über die Entscheidungsregeln; das spätere Ergebnis muss getrennt beurteilt werden."
+      "Eine aktive Fondsverwaltung entscheidet selbst, welche erlaubten Anlagen sie auswählt. Eine indexorientierte Verwaltung möchte die Entwicklung eines festgelegten Index nachbilden. Dafür kann sie Anlagen direkt halten oder passende Verträge verwenden. Die genaue Methode bestimmt, welche Geschäfte nötig sind.",
+      "Unser vereinfachter Fonds hält die Aktien eines erfundenen Index direkt. Der Index nimmt eine neue Aktie auf und entfernt eine andere. Die Verwaltung passt die Anlagen daran an. Ihr Kauf kann also aus einer Indexregel entstehen. Er muss keine eigene kurzfristige Kursvorhersage ausdrücken.",
+      "Auch ein indexorientierter Fonds erteilt Aufträge. Neue Einzahlungen, Auszahlungen und Änderungen im Index können Handel nötig machen. Aktiv bedeutet umgekehrt nicht automatisch erfolgreich. Diese Wörter beschreiben, wie Entscheidungen getroffen werden. Ob die Anlage später Gewinn bringt, ist eine eigene Frage."
     ],
     "columns": [
       {
@@ -402,9 +402,9 @@ const drafts = [
     "title": "Rebalancing: die Mischung wiederherstellen",
     "summary": "Gewichte ändern sich auch ohne neue Einzahlung.",
     "paragraphs": [
-      "Rebalancing bedeutet, eine Portfoliomischung wieder an gewünschte Gewichte anzupassen. Ein Portfolio ist die Gesamtheit der betrachteten Anlagen. Wenn sich deren Preise unterschiedlich verändern, verschieben sich ihre Anteile am Gesamtwert, auch ohne neue Einzahlung.",
-      "Unser erfundenes Portfolio beginnt mit 6.000 Euro Aktien und 4.000 Euro Anleihen: insgesamt 10.000 Euro, also 60 % und 40 %. Der Aktienwert steigt auf 7.000 Euro, die Anleihen bleiben bei 4.000. Das Portfolio hat nun 11.000 Euro. Für eine erneute 60/40-Mischung sollen 6.600 Euro in Aktien und 4.400 in Anleihen liegen.",
-      "Im vereinfachten Fall werden 400 Euro Aktien verkauft und 400 Euro Anleihen gekauft. Das Rebalancing verkauft hier einen Teil der gestiegenen Anlage. Es braucht keine Prognose, dass diese Anlage morgen fallen wird. Andere Portfolios nutzen Einzahlungen oder andere Regeln; Kosten und reale Ausführung kommen hinzu."
+      "Ein Portfolio ist die Gesamtheit der Anlagen, die wir betrachten. Rebalancing bedeutet: Die gewünschte Mischung dieser Anlagen wird wiederhergestellt. Steigen ihre Preise unterschiedlich stark, verändern sich ihre Anteile am Gesamtwert. Dazu braucht es keine neue Einzahlung.",
+      "Wir starten mit 6.000 Euro Aktien und 4.000 Euro Anleihen. Zusammen sind das 10.000 Euro: 60 % Aktien und 40 % Anleihen. Die Aktien steigen auf 7.000 Euro. Die Anleihen bleiben bei 4.000. Zusammen sind es nun 11.000 Euro. Davon sind 60 % gleich 6.600 Euro und 40 % gleich 4.400 Euro.",
+      "Für diese Mischung verkaufen wir 400 Euro Aktien und kaufen 400 Euro Anleihen. So erreichen wir wieder die gewünschten Anteile. Dafür müssen wir keinen Kursrückgang vorhersagen. Andere Portfolios können Einzahlungen oder andere Regeln nutzen. Kosten und die tatsächliche Ausführung kommen in echten Fällen hinzu."
     ],
     "columns": [
       {
@@ -446,9 +446,9 @@ const drafts = [
     "title": "Zu- und Abflüsse: handeln, weil Geld bewegt wird",
     "summary": "Ein Verkauf kann eine Auszahlung ermöglichen.",
     "paragraphs": [
-      "Fonds erhalten neue Einzahlungen und müssen gegebenenfalls Geld für Rückgaben von Anteilen bereitstellen. Bei einem Zufluss können Anlagen gekauft werden. Bei einem Abfluss können vorhandene liquide Mittel genutzt oder Anlagen verkauft werden. Der konkrete Weg hängt von den Bedingungen und der Umsetzung ab.",
-      "Unser vereinfachter Fonds soll 10.000 Euro auszahlen und verfügt bereits über 3.000 Euro frei verfügbare Kasse. Wenn er den übrigen Bedarf durch Verkäufe deckt, benötigt er 7.000 Euro Nettoerlös. Hier ist die Auszahlung der Anlass des Verkaufs. Er beweist allein keine negative Meinung über die verkauften Anlagen.",
-      "Ob ein Zufluss oder Abfluss sofort bestimmte Orders erzeugt, lässt sich nicht aus einer einzelnen Meldung garantieren. Bestand, Reserven und Abwicklung spielen mit. Merke dir für die Marktbeobachtung: Liquiditätsbedarf, also der Bedarf an verfügbarer Zahlungsfähigkeit, ist ein eigenes Motiv neben der Preisprognose."
+      "Fonds können neue Einzahlungen erhalten. Sie müssen unter Umständen auch Geld auszahlen, wenn Anleger Anteile zurückgeben. Einzahlungen können Käufe ermöglichen. Für Auszahlungen kann der Fonds vorhandenes Geld verwenden oder Anlagen verkaufen. Der genaue Weg hängt von seinen Bedingungen ab.",
+      "Unser Fonds soll 10.000 Euro auszahlen. Er hat schon 3.000 Euro frei verfügbares Geld. Es fehlen also 10.000 − 3.000 = 7.000 Euro. Deckt er den Rest durch Verkäufe, müssen ihm daraus 7.000 Euro nach Abzug der Kosten bleiben. Die Auszahlung erklärt hier den Verkauf.",
+      "Der Verkauf beweist keine schlechte Meinung über die verkaufte Anlage. Ebenso führt nicht jede Einzahlung sofort zu einem bestimmten Kauf. Vorhandene Anlagen, Geldreserven und die Abwicklung spielen mit. Der Bedarf an verfügbarem Geld heißt Liquiditätsbedarf. Er ist ein eigener Handelsgrund neben einer Kursvorhersage."
     ],
     "columns": [
       {
@@ -490,9 +490,9 @@ const drafts = [
     "title": "Pensionsfonds und Versicherer: heutige Anlagen, spätere Zahlungen",
     "summary": "Verpflichtungen beeinflussen die Auswahl.",
     "paragraphs": [
-      "Ein kapitalgedeckter Pensionsfonds legt Mittel für spätere Versorgungszahlungen an. Ein Versicherer hält Anlagen, aus denen unter anderem spätere Leistungszahlungen finanziert werden sollen. Diese Organisationen beachten daher nicht allein mögliche Kursgewinne, sondern auch Termine, Zahlungsfähigkeit und die Art ihrer Verpflichtungen.",
-      "Eine erfundene Organisation erwartet in fünf Jahren eine Zahlung von 100.000 Euro. Eine Anleihe mit passenden Zahlungsbedingungen kann helfen, diesen Bedarf zeitlich einzuordnen. Ob sie dafür geeignet ist, hängt aber auch von Ausfallrisiko, Währung und tatsächlichen Zahlungen ab. Der Fälligkeitstermin allein reicht nicht.",
-      "Ein langer Verpflichtungshorizont bedeutet nicht, dass die Organisation nie früher handeln muss. Neue Verpflichtungen, geänderte Risiken oder Mittelabflüsse können Anpassungen auslösen. Nicht jede Altersversorgung ist zudem als Anlagefonds organisiert. Wir betrachten hier ausdrücklich die kapitalgedeckte Form mit angelegtem Vermögen."
+      "Ein kapitalgedeckter Pensionsfonds legt Geld für spätere Versorgungszahlungen an. Kapitalgedeckt heißt hier: Dafür ist Vermögen angelegt. Auch Versicherer halten Anlagen für spätere Zahlungen. Sie achten deshalb auf Zahlungstermine und verfügbares Geld, nicht nur auf mögliche Kursgewinne.",
+      "Unsere Organisation muss voraussichtlich in fünf Jahren 100.000 Euro zahlen. Eine Anleihe mit passenden Zahlungsterminen kann helfen, diesen Bedarf zu planen. Doch der Termin allein reicht nicht. Wichtig sind auch die Währung und das Risiko, dass der Schuldner nicht wie vereinbart zahlt.",
+      "Auch bei langfristigen Pflichten kann früherer Handel nötig werden. Neue Pflichten, veränderte Risiken oder Auszahlungen können den Plan verändern. Nicht jede Altersversorgung funktioniert mit einem Anlagefonds. Hier betrachten wir nur die Form, bei der Vermögen für spätere Zahlungen angelegt wird."
     ],
     "columns": [
       {
@@ -523,7 +523,7 @@ const drafts = [
         "explanation": "Verpflichtungen und Bedingungen können sich ändern."
       },
       {
-        "label": "Weil deren Zahlungsstruktur zum späteren Bedarf passen kann.",
+        "label": "Weil die vereinbarten Zahlungen zum späteren Geldbedarf passen können.",
         "explanation": "Richtig: Der Bezug zu Verpflichtungen ist ein möglicher Anlagegrund."
       }
     ],
@@ -534,9 +534,9 @@ const drafts = [
     "title": "Banken: mehrere Tätigkeiten unter einem Namen",
     "summary": "Kundenservice und eigenes Risiko getrennt betrachten.",
     "paragraphs": [
-      "Banken können Zahlungen abwickeln, Kredite vergeben, Kunden bei Wertpapiergeschäften unterstützen und eigene Finanzrisiken steuern. Welche Tätigkeiten eine konkrete Bank betreibt, hängt von ihrem Geschäftsmodell ab. Der Name „Bank“ benennt daher noch keinen bestimmten Handelsstil.",
-      "Im Beispiel übernimmt eine Bank zunächst einen Währungstausch für eine Firmenkundin. Aus dem Geschäft kann bei ihr eine eigene Währungsposition entstehen. Sie schließt anschließend ein weiteres Geschäft, um diese Position zu verringern. Dieses zweite Geschäft kann eine Absicherung sein, obwohl die erste Kundin einen Zahlungszweck hatte.",
-      "Aus einer Banktransaktion kannst du nicht sicher die Meinung aller Kunden oder die Gesamtmeinung der Bank ableiten. Verschiedene Aufgaben, Bestände und Abteilungen können zusammenwirken. Behandle die Organisation deshalb nicht wie einen einzelnen Menschen mit genau einer Marktprognose."
+      "Banken können unterschiedliche Aufgaben haben. Sie können Zahlungen bearbeiten, Kredite vergeben und Kunden beim Wertpapierhandel helfen. Sie können auch eigene Risiken steuern. Welche Aufgaben eine Bank tatsächlich übernimmt, hängt von ihrem Geschäft ab. Ihr Name allein erklärt ihren Handelsstil nicht.",
+      "Unsere Bank tauscht zunächst eine Währung für eine Firmenkundin. Dadurch kann bei der Bank eine eigene Währungsposition entstehen. Das ist ein gehaltenes Geschäft, dessen Wert vom Wechselkurs abhängt. Die Bank macht anschließend ein weiteres Geschäft, um dieses Risiko zu verringern.",
+      "Die Kundin wollte vielleicht nur eine Rechnung bezahlen. Das zweite Geschäft der Bank kann dagegen eine Absicherung sein. Aus einem Bankgeschäft erkennst du deshalb nicht sicher die Meinung aller Kunden oder Abteilungen. Eine Bank ist keine einzelne Person mit nur einer Kursvorhersage."
     ],
     "columns": [
       {
@@ -556,7 +556,7 @@ const drafts = [
         ]
       }
     ],
-    "prompt": "Warum kann die Bank nach einem Kundengeschäft eine weitere Transaktion tätigen?",
+    "prompt": "Warum kann die Bank nach einem Kundengeschäft ein weiteres Geschäft machen?",
     "answers": [
       {
         "label": "Um das eigene entstandene Risiko zu verändern.",
@@ -578,9 +578,9 @@ const drafts = [
     "title": "Broker und Dealer: vermitteln oder selbst Gegenpartei sein",
     "summary": "Die Rollen können in einer Organisation zusammenkommen.",
     "paragraphs": [
-      "Ein Broker vermittelt beziehungsweise bearbeitet Kundenaufträge im vorgesehenen Rahmen. Ein Dealer handelt auf eigene Rechnung und kann selbst Gegenpartei eines Kunden werden. „Auf eigene Rechnung“ bedeutet, dass das Geschäft zum eigenen Bestand und Ergebnis gehört. Diese Rollen unterscheiden sich, auch wenn eine Organisation beide Aufgaben übernehmen kann.",
-      "In Fall A sucht der Vermittler eine passende verkaufende Seite für Miriams Kaufauftrag. In Fall B verkauft ein Händler aus eigener Position direkt an sie. Miriam erhält in beiden Fällen einen Kauf, aber die Rolle des Anbieters und der Weg zur Gegenpartei unterscheiden sich.",
-      "Die sichtbare Oberfläche allein erklärt nicht die konkrete Rolle. Dafür müssen Auftragsweg und Ausführungsbedingungen gelesen werden. Keine der Rollen garantiert einen guten Preis oder beschreibt automatisch unredliches Verhalten. Es geht hier darum, Vermittlung und eigenes Handeln korrekt auseinanderzuhalten."
+      "Ein Broker bearbeitet oder vermittelt Kundenaufträge nach den geltenden Bedingungen. Ein Dealer handelt dagegen auf eigene Rechnung. Das Geschäft gehört dann zu seinem eigenen Bestand und Ergebnis. Er kann selbst die andere Seite eines Kundengeschäfts sein. Diese andere Seite heißt Gegenpartei.",
+      "In Fall A sucht ein Vermittler jemanden, der an Miriam verkauft. In Fall B verkauft ein Händler direkt aus seinem eigenen Bestand an sie. Miriam kauft in beiden Fällen. Die Rolle ihres Anbieters und der Weg zur verkaufenden Seite unterscheiden sich aber.",
+      "Eine Organisation kann beide Aufgaben übernehmen. Der Bildschirm zeigt dir nicht unbedingt, welche Rolle sie bei deinem Auftrag hat. Lies dafür die Angaben zum Auftragsweg und zur Ausführung. Keine Rolle garantiert allein einen guten Preis. Die Begriffe helfen dir, den Ablauf zu verstehen."
     ],
     "columns": [
       {
@@ -622,9 +622,9 @@ const drafts = [
     "title": "Market Maker: Handel ermöglichen und Bestand steuern",
     "summary": "Zwei Angebote sind noch kein risikofreier Gewinn.",
     "paragraphs": [
-      "Ein Market Maker stellt Kauf- und Verkaufsangebote und kann selbst Gegenpartei werden. So hilft er anderen, Handelswünsche umzusetzen. Im Gegenzug versucht er, seine Tätigkeit wirtschaftlich zu betreiben. Die Spanne zwischen Angeboten kann zu Einnahmen beitragen, aber Preisänderungen und andere Kosten können dagegen wirken.",
-      "Unser erfundener Händler bietet an, zu 99 Euro zu kaufen und zu 101 Euro zu verkaufen. Werden beide Seiten für je eine Einheit ohne weitere Veränderungen ausgeführt, entsteht 2 Euro Differenz vor Kosten. Kauft er aber erst zu 99 und verkauft den Bestand nach einer Marktbewegung nur zu 96, beträgt die Differenz −3 Euro.",
-      "Bestand ist die aktuell gehaltene Position. Ein Händler kann Menge und Preise seiner Angebote verändern, um Bestandsrisiko zu steuern. Daraus lässt sich nicht sicher folgern, dass er den nächsten Marktverlauf kennt. Auch angezeigte Angebote sind keine Zusage für eine spätere Ausführung."
+      "Ein Market Maker stellt Kauf- und Verkaufsangebote. Er kann selbst Geschäfte mit anderen abschließen. Damit hilft er ihnen beim Handeln. Die Differenz zwischen seinen Preisen kann ihm Einnahmen bringen. Preisänderungen und Kosten können aber auch Verluste verursachen.",
+      "Unser Händler kauft zu 99 Euro und verkauft zu 101 Euro. Gelingt beides für je eine Einheit ohne weitere Änderungen, bleiben 101 − 99 = 2 Euro vor Kosten. Kauft er zuerst für 99 und kann später nur für 96 verkaufen, entstehen dagegen 3 Euro Verlust.",
+      "Sein Bestand ist die aktuell gehaltene Position. Er kann Preise und Mengen seiner Angebote ändern, um das Risiko dieses Bestands zu steuern. Das beweist nicht, dass er den nächsten Kurs kennt. Ein jetzt angezeigtes Angebot verspricht auch keinen späteren Abschluss zu demselben Preis."
     ],
     "columns": [
       {
@@ -666,9 +666,9 @@ const drafts = [
     "title": "Arbitrage: Preisunterschiede zwischen verbundenen Geschäften",
     "summary": "Ein sichtbarer Abstand muss tatsächlich nutzbar sein.",
     "paragraphs": [
-      "Arbitrage versucht, zusammenhängende Preisunterschiede durch passende Gegengeschäfte auszunutzen. Im einfachsten Lernfall kann derselbe übertragbare Vermögenswert an einem Ort billiger gekauft und an einem anderen teurer verkauft werden. Dazu müssen die Bedingungen wirklich zusammenpassen.",
-      "Unser erfundenes, gleichzeitig ausführbares Beispiel bietet den identischen Vermögenswert am Ort A zum Kauf für 100 Euro und am Ort B zum Verkauf für 101 Euro. Die Bruttodifferenz ist 1 Euro. Betragen die gesamten Kosten 0,60 Euro, verbleiben rechnerisch 0,40 Euro. Kosten von 1,20 Euro würden die Differenz dagegen übersteigen.",
-      "Die einfache Rechnung setzt identische Rechte, passende Mengen und tatsächlich erreichbare Ausführungen voraus. Ändert sich eine Seite, bevor sie ausgeführt ist, kann ein Risiko entstehen. Unterschiedliche Währungen, Abwicklung oder Lieferbedingungen können ebenfalls relevant sein. Zwei ähnliche Namen und zwei angezeigte Preise reichen nicht als Beweis für einen nutzbaren Vorteil."
+      "Arbitrage bedeutet, passende Preisunterschiede mit verbundenen Geschäften zu nutzen. Im einfachsten Fall kaufst du genau dieselbe Anlage an einem Ort billiger und verkaufst sie an einem anderen teurer. Damit das funktioniert, müssen die Bedingungen wirklich zusammenpassen.",
+      "In unserem erfundenen Fall sind beide Geschäfte gleichzeitig möglich. Die gleiche Anlage kostet bei A 100 Euro. Bei B kannst du sie für 101 Euro verkaufen. Die Differenz beträgt 1 Euro. Bei Gesamtkosten von 0,60 Euro bleiben 0,40 Euro. Kosten von 1,20 Euro würden die Differenz übersteigen.",
+      "Die Rechnung setzt gleiche Rechte und passende Mengen voraus. Beide Geschäfte müssen tatsächlich erreichbar sein. Ändert sich ein Preis vor dem Abschluss, entsteht ein Risiko. Auch Währung, Lieferung und Abwicklung können wichtig sein. Zwei ähnliche Namen und zwei Bildschirmpreise beweisen deshalb noch keinen nutzbaren Vorteil."
     ],
     "columns": [
       {
@@ -691,7 +691,7 @@ const drafts = [
     "prompt": "Was bleibt bei 0,60 Euro Gesamtkosten im vollständig passenden Beispiel?",
     "answers": [
       {
-        "label": "0,40 Euro rechnerische Nettodifferenz.",
+        "label": "0,40 Euro nach Abzug der Kosten.",
         "explanation": "Richtig: Die Kosten werden von der Bruttodifferenz abgezogen."
       },
       {
@@ -710,9 +710,9 @@ const drafts = [
     "title": "Algorithmischer Handel: eine Methode, kein einziges Motiv",
     "summary": "Automatisierung kann viele Aufgaben übernehmen.",
     "paragraphs": [
-      "Algorithmischer Handel verwendet festgelegte Rechenregeln für Teile des Handels. Ein Programm kann einen großen Kundenauftrag aufteilen, Angebote stellen oder nach Signalen eigene Positionen eröffnen. Automatisierung beschreibt die Arbeitsweise, nicht automatisch den wirtschaftlichen Zweck.",
-      "Ein Fonds möchte 1.000 Einheiten kaufen. Ein Ausführungsprogramm verteilt das Vorhaben im vereinfachten Beispiel auf zehn Teilaufträge von je 100 Einheiten. Das Programm muss deshalb keine neue Meinung über den Wert der Anlage entwickeln. Es bearbeitet einen Auftrag, dessen Entscheidung bereits getroffen wurde.",
-      "Hochfrequenzhandel bezeichnet bestimmte besonders schnelle, technisch organisierte Handelsweisen. Nicht jeder Algorithmus arbeitet so und nicht jeder schnelle Auftrag verfolgt dieselbe Strategie. Geschwindigkeit ersetzt weder ein wirtschaftlich tragfähiges Verfahren noch die Prüfung von Kosten und Risiken."
+      "Beim algorithmischen Handel erledigt ein Programm Teile des Handels nach festgelegten Rechenregeln. Es kann einen großen Auftrag aufteilen. Es kann auch Angebote stellen oder eigene Geschäfte nach Signalen beginnen. Das Programm beschreibt die Arbeitsweise. Sein Handelsgrund kann unterschiedlich sein.",
+      "Ein Fonds will 1.000 Einheiten kaufen. Unser Programm teilt den Auftrag in zehn Aufträge zu je 100 Einheiten auf. Die Kaufentscheidung steht bereits fest. Das Programm muss dafür keine neue Meinung über den Wert der Anlage entwickeln. Es setzt die Entscheidung um.",
+      "Besonders schnelle, technisch organisierte Handelsweisen nennt man Hochfrequenzhandel. Nicht jeder Algorithmus arbeitet so. Auch schnelle Aufträge können verschiedene Ziele haben. Ein hohes Tempo garantiert kein gutes Verfahren und keinen Gewinn. Kosten und Risiken bleiben wichtig."
     ],
     "columns": [
       {
@@ -754,9 +754,9 @@ const drafts = [
     "title": "Information, Einschätzung und Unsicherheit",
     "summary": "Eine begründete Meinung bleibt eine Hypothese.",
     "paragraphs": [
-      "Manche Marktteilnehmer handeln, weil sie Informationen anders beurteilen als andere. Sie erwarten etwa eine Veränderung von Unternehmensgewinnen oder eine andere Nachfrage nach einem Rohstoff. Informiert handeln heißt hier, eine Einschätzung auf Informationen zu stützen. Es heißt nicht, über sichere Zukunftskenntnis zu verfügen.",
-      "Zwei Personen lesen denselben veröffentlichten Unternehmensbericht. Eine hält die Aussichten für besser als im Preis berücksichtigt, die andere sieht hohe künftige Kosten. Beide können ihre Sicht begründen. Ein Kauf oder Verkauf beweist daher allein nicht, wer später recht haben wird.",
-      "Auch ein großes Team kann Prognosefehler machen, Kosten übersehen oder bereits eingepreiste Informationen neu entdecken. Prüfe deshalb die Aussage, ihre Grundlage und ihre Grenzen. Aus „professionell“, „groß“ oder „gut informiert“ darf keine automatische Trefferquote abgeleitet werden."
+      "Manche Menschen handeln, weil sie Informationen anders bewerten als andere. Sie erwarten vielleicht höhere Unternehmensgewinne oder eine größere Nachfrage nach einer Ware. Ihre Einschätzung stützt sich auf Informationen. Das heißt aber nicht, dass sie die Zukunft sicher kennen.",
+      "Zwei Personen lesen denselben öffentlichen Unternehmensbericht. Eine findet die Aussichten besser, als der aktuelle Preis vermuten lässt. Die andere erwartet hohe Kosten. Beide können Gründe nennen. Ihr Kauf oder Verkauf beweist noch nicht, wer später recht haben wird.",
+      "Auch große, professionelle Teams können sich irren. Sie können Kosten übersehen oder eine Nachricht beachten, die andere schon im Preis berücksichtigt haben. Prüfe deshalb Aussage, Grundlage und Unsicherheit. Die Wörter groß, professionell und informiert versprechen keine automatische Erfolgsquote."
     ],
     "columns": [
       {
@@ -798,9 +798,9 @@ const drafts = [
     "title": "Positionen schließen: Kauf ist nicht immer Einstieg",
     "summary": "Die Wirkung hängt am Bestand vor dem Trade.",
     "paragraphs": [
-      "Ein Kauf kann eine neue Kaufposition eröffnen, eine bestehende vergrößern oder eine Verkaufsposition schließen. Ein Verkauf kann eine Kaufposition reduzieren oder eine neue Verkaufsposition eingehen. Die Transaktion wird erst zusammen mit dem vorherigen Bestand verständlich.",
-      "In unserem einfachen Vertragsbeispiel hält Person A fünf Verkaufskontrakte, also eine Position von −5. Sie kauft fünf identische Kontrakte und steht danach bei null: −5 + 5 = 0. Person B startet ohne Position und kauft ebenfalls fünf. Sie steht danach bei +5. Gleiche Kaufmenge, unterschiedliche Wirkung.",
-      "Das Schließen einer Verkaufsposition nennt man Eindecken. Die Entscheidung kann aus Gewinnmitnahme, einer Risikogrenze oder einem geänderten Plan stammen. Ohne Vorbestand kannst du nicht sicher unterscheiden, ob ein beobachteter Kauf einen neuen positiven Ausblick ausdrückt oder nur eine vorhandene Position beendet."
+      "Ein Kauf kann eine neue Kaufposition eröffnen oder eine bestehende vergrößern. Er kann aber auch eine Verkaufsposition beenden. Ein Verkauf kann ebenfalls eine vorhandene Kaufposition verringern oder eine neue Verkaufsposition eröffnen. Zum Verständnis brauchst du den Bestand vor dem Geschäft.",
+      "Person A hält in unserem Vertragsbeispiel fünf Verkaufskontrakte. Wir schreiben dafür −5. Sie kauft fünf gleiche Kontrakte: −5 + 5 = 0. Ihre Position ist geschlossen. Person B startet bei null und kauft ebenfalls fünf: 0 + 5 = 5. Sie hat nun eine neue Kaufposition.",
+      "Eine Verkaufsposition durch einen Kauf zu schließen heißt Eindecken. Der Anlass kann ein Gewinn, eine Risikogrenze oder ein neuer Plan sein. Ohne den vorherigen Bestand weißt du nicht sicher, was der Kauf verändert. Gleiche Kaufmengen können daher sehr unterschiedliche Bedeutungen haben."
     ],
     "columns": [
       {
@@ -842,9 +842,9 @@ const drafts = [
     "title": "Zentralbanken: geldpolitische Aufgaben statt privates Trading",
     "summary": "Ankündigung und tatsächlicher Auftrag sind verschieden.",
     "paragraphs": [
-      "Zentralbanken übernehmen geldpolitische Aufgaben und können im Rahmen ihrer Instrumente am Finanzmarkt tätig werden. Sie können beispielsweise Liquidität bereitstellen oder Wertpapiergeschäfte durchführen. Welche Maßnahmen eine bestimmte Zentralbank einsetzen darf und tatsächlich nutzt, hängt von ihrem Rahmen und der jeweiligen Entscheidung ab.",
-      "Für unser Verständnis reicht ein allgemeiner Fall: Eine Zentralbank kündigt eine Maßnahme an, und andere Marktteilnehmer ändern ihre Einschätzungen und Angebote. Schon die Ankündigung kann damit Preise beeinflussen, bevor die angekündigten Geschäfte stattfinden. Nachricht, Erwartungsänderung und ausgeführter Auftrag sind verschiedene Ereignisse.",
-      "Die Aufgabe einer Zentralbank ist nicht dieselbe wie das persönliche Gewinnziel eines kurzfristigen Traders. Aus einer Ankündigung folgt außerdem kein garantierter Kursverlauf. Wirkung, Umsetzung und Reaktion können unterschiedlich ausfallen. Dieses Kapitel erklärt die Rolle; aktuelle Entscheidungen werden hier nicht als unveränderliche Fakten dargestellt."
+      "Zentralbanken kümmern sich um geldpolitische Aufgaben. Dabei geht es unter anderem um Geld und die Bedingungen seiner Bereitstellung. Sie können zum Beispiel Geldmittel bereitstellen oder Wertpapiergeschäfte machen. Ihre erlaubten und tatsächlich genutzten Maßnahmen hängen vom jeweiligen Rahmen ab.",
+      "In unserem allgemeinen Beispiel kündigt eine Zentralbank eine Maßnahme an. Andere Teilnehmer ändern daraufhin ihre Erwartungen und Angebote. So kann schon die Nachricht Preise beeinflussen. Die angekündigten Geschäfte müssen zu diesem Zeitpunkt noch nicht stattgefunden haben.",
+      "Die Aufgabe der Zentralbank unterscheidet sich vom persönlichen Gewinnziel eines kurzfristigen Traders. Eine Ankündigung verspricht keinen bestimmten Kursverlauf. Umsetzung und Reaktionen können verschieden ausfallen. Wir erklären hier die allgemeine Rolle. Eine aktuelle Einzelentscheidung ist keine dauerhaft feste Regel."
     ],
     "columns": [
       {
@@ -886,9 +886,9 @@ const drafts = [
     "title": "Drei Käufer: gleiche Order, andere Geschichten",
     "summary": "Zahlung, Anlage und Schließung können gleich aussehen.",
     "paragraphs": [
-      "Drei Personen kaufen im Beispiel jeweils dieselbe Menge einer Währung. Die erste muss eine Firmenrechnung bezahlen. Die zweite möchte langfristig einen Teil ihres Vermögens in dieser Währung halten. Die dritte kauft, um eine zuvor eingegangene Verkaufsposition zu schließen. Der äußere Vorgang lautet jeweils Kauf.",
-      "Das bekannte Motiv hilft, den jeweiligen Zusammenhang zu erklären. Fehlt es, zeigt der Kauf zunächst nur eine ausgeführte Menge und einen Preis. Du darfst Möglichkeiten sammeln, aber keine davon ohne weitere Belege zur sicheren Erklärung machen. Eine plausible Geschichte ist noch keine nachgewiesene Ursache.",
-      "In einem anonymen Markt sind Identität, Vorbestand und restliches Portfolio häufig nicht vollständig sichtbar. Der Kursverlauf zeigt die Veränderung gehandelter Preise, nicht automatisch die Absichten aller Beteiligten. Für deinen Lernprozess ist das eine praktische Regel: Beobachtung aufschreiben, mögliche Erklärung daneben und Unbekanntes ausdrücklich offenlassen."
+      "Drei Personen kaufen dieselbe Menge einer Währung. Die erste braucht sie für eine Firmenrechnung. Die zweite möchte langfristig Vermögen in dieser Währung halten. Die dritte schließt mit dem Kauf eine vorhandene Verkaufsposition. Von außen sieht man dreimal einen Kauf.",
+      "Kennst du den Grund, kannst du den Zusammenhang erklären. Fehlt er, kennst du zunächst nur die gehandelte Menge und den Preis. Du kannst mögliche Gründe nennen. Du solltest aber keinen davon ohne weitere Belege als sicher darstellen. Eine plausible Geschichte ist noch kein Nachweis.",
+      "In einem anonymen Markt weißt du oft nicht, wer handelt. Auch vorherige Positionen und andere Anlagen bleiben häufig unbekannt. Der Kurs zeigt gehandelte Preise, nicht alle Absichten. Schreibe deshalb getrennt auf, was du beobachtest, was du vermutest und was du noch nicht weißt."
     ],
     "columns": [
       {
@@ -919,7 +919,7 @@ const drafts = [
         "explanation": "Die Größe eines Trades identifiziert den Teilnehmer nicht sicher."
       },
       {
-        "label": "Die ausgeführte Kauftransaktion, nicht das vollständige Motiv.",
+        "label": "Der Kauf wurde ausgeführt. Der vollständige Grund ist damit noch nicht bekannt.",
         "explanation": "Richtig: Mehrere verschiedene Geschichten sind mit dem Kauf vereinbar."
       }
     ],
@@ -930,9 +930,9 @@ const drafts = [
     "title": "Dein Teilnehmercheck: wer, wofür und wie lange?",
     "summary": "Die Marktrolle im Zusammenhang erklären.",
     "paragraphs": [
-      "Für einen Teilnehmercheck gehst du vier Fragen durch: Welche Person oder Organisation ist beschrieben? Handelt sie für sich, vermittelt sie oder stellt sie eigene Angebote? Welcher wirtschaftliche Anlass ist bekannt? Welcher Zeithorizont oder welche Verpflichtung gehört dazu? Ergänze die Vorposition, wenn du sie kennst.",
-      "Abschlussfall: Ein Fonds verkauft nach einem starken Kursanstieg einen Teil seiner größten Aktie. Sein Mandat begrenzt deren Gewicht auf 10 %, aktuell sind es 12 %. Beobachtet ist der Verkauf; als Anlass ist die Gewichtungsgrenze ausdrücklich angegeben. Eine zusätzliche negative Prognose über die Aktie bleibt ohne weitere Information unbekannt.",
-      "Du kannst jetzt den Markt als Begegnung unterschiedlicher Aufgaben erklären. Nicht jeder verfolgt deinen Zeithorizont oder bewertet einen einzelnen Trade nach demselben Ziel. Im nächsten Kapitel „Wo findet Handel statt?“ betrachten wir Börsen, außerbörslichen Handel und verschiedene Handelsplätze. Die Teilnehmer und ihre Aufgaben bleiben dabei unser Ausgangspunkt."
+      "Prüfe bei einem Teilnehmer zuerst, wer beschrieben ist. Handelt er selbst, vermittelt er oder stellt er eigene Angebote? Welcher Grund ist bekannt? Für welchen Zeitraum plant er, und welche Zahlungen muss er leisten? Wenn du die vorherige Position kennst, gehört sie ebenfalls dazu.",
+      "Ein Fonds verkauft nach einem starken Anstieg einen Teil seiner größten Aktie. Seine Regeln erlauben höchstens 10 % Fondsanteil in dieser Aktie. Aktuell sind es 12 %. Der Verkauf und die einzuhaltende Grenze sind bekannt. Eine zusätzliche Erwartung fallender Kurse ist damit noch nicht belegt.",
+      "Du kannst den Markt nun als Begegnung verschiedener Aufgaben verstehen. Nicht alle planen für denselben Zeitraum oder verfolgen dasselbe Ziel. Im nächsten Kapitel geht es darum, wo Handel stattfindet. Wir betrachten Börsen, Geschäfte außerhalb von Börsen und verschiedene Handelsplätze."
     ],
     "columns": [
       {
