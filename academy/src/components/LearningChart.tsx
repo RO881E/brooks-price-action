@@ -14,6 +14,8 @@ import { ChapterSixteenChart, chapterSixteenDescriptions } from './ChapterSixtee
 import { ChapterFifteenChart, chapterFifteenDescriptions } from './ChapterFifteenCharts';
 import { ChapterFourteenChart, chapterFourteenDescriptions } from './ChapterFourteenCharts';
 import { useId, lazy, Suspense } from 'react';
+import { pfDescriptions } from './ReadingPFDescriptions';
+const PFMarks = lazy(() => import('./ReadingPFCharts').then(module => ({ default: module.PFMarks })));
 import { haDescriptions } from './ReadingHADescriptions';
 const HAMarks = lazy(() => import('./ReadingHACharts').then(module => ({ default: module.HAMarks })));
 import { priceStepDescriptions } from './ReadingPriceStepsDescriptions';
@@ -59,6 +61,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
   ...groupingChartDescriptions,
   ...priceStepDescriptions,
   ...haDescriptions,
+  ...pfDescriptions,
   'auction-balance':
     'Ein großer Bar mit markiertem Hoch, Tief, Eröffnung und Schluss sowie Pfeilen für aggressives Kaufen und Verkaufen.',
   'institutional-flow':
@@ -1542,6 +1545,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
         {scenario === 'two-leg-labels' ? <TwoLegLabels /> : null}
         {scenario === 'failed-open-breakout' ? <FailedOpenBreakout /> : null}
         {scenario === 'midday-false-breakout' ? <MiddayFalseBreakout /> : null}
+        {scenario.startsWith('rc6-') ? <Suspense fallback={null}><PFMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('rc5-') ? <Suspense fallback={null}><HAMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('rc4-') ? <Suspense fallback={null}><PriceStepMarks scenario={scenario}/></Suspense> : null}
         <ReadingChartsBasics scenario={scenario} />

@@ -10,7 +10,7 @@ abgeschlossene andere Kurse; Sprache nach MARKTGRUNDLAGEN_SPRACHE.md.
 | 3 | Zeit-Bars, Tick-Bars und Volumen-Bars | 24 Lektionen verfügbar |
 | 4 | Range-Bars und Renko | 24 Lektionen verfügbar |
 | 5 | Heikin-Ashi und berechnete Preise | 24 Lektionen verfügbar |
-| 6 | Point & Figure und regelbasierte Verdichtung | Geplant |
+| 6 | Point & Figure und regelbasierte Verdichtung | 24 Lektionen verfügbar |
 | 7 | Zeitebenen und gemeinsame Daten | Geplant |
 | 8 | Lineare und logarithmische Skalen | Geplant |
 | 9 | Datenquellen, Bereinigungen und fortlaufende Kontrakte | Geplant |
@@ -252,3 +252,62 @@ Formelgrafik trennt Vorgänger-HA von aktuellen Originaldaten. Vorhandene
 Vergrößerungs-/Zoomoberfläche mit eigenem lazy geladenem Grafikmodul.
 Keine Budgeterhöhung. Bestehende IDs und Fortschrittsschlüssel erhalten.
 24 neue Lektionen, zwölf Glossarbegriffe; Kurs gesamt112/56.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 6
+
+Bereitgestellte Murphy-EPUB, Kapitel11 (Point and Figure Charting):
+The Point and Figure versus the Bar Chart, Construction of the Intraday
+Point and Figure Chart sowie Construction of the 3 Point Reversal Chart
+geprüft. Fachlicher Hintergrund: Preisraster statt gleichmäßiger Zeitachse,
+X-/O-Spalten, volle Kästchen, Umkehrzahl, Eingabemethoden und Reihenfolge.
+Ein-Kästchen-Sonderkonventionen, Buchbeispiele, Muster-Prognosen, Kursziele
+und Handelsregeln werden nicht übernommen. Alle Texte und Daten eigenständig.
+
+Primärdokumentation ergänzend geprüft am2026-10-02:
+- https://chartschool.stockcharts.com/table-of-contents/chart-analysis/point-and-figure-charts/point-and-figure-basics/introduction-to-point-and-figure-charts
+- https://chartschool.stockcharts.com/table-of-contents/chart-analysis/point-and-figure-charts/point-and-figure-basics/point-and-figure-scaling-and-timeframes
+
+Übernommen nur allgemeine Begriffe zu Kästchen, Umkehr, Preisquellen und
+Hoch-Tief-Fortsetzungspriorität. Plattformabhängige Raster-/Rundungsdetails,
+Monatskodierungen oder Erfolgsversprechen werden nicht als universell erklärt.
+Keine Quellbilder, Passagen oder engen Umschreibungen übernommen.
+
+Eigener unabhängiger Nivo-Datensatz: id/Sekunde seit09:00/Cent je Aktie:
+1/5/5000;2/20/5050;3/40/5210;4/55/5150;5/80/5050;6/120/5000;
+7/180/5100;8/185/5150;9/220/5250;10/260/5100;11/290/5050;12/360/5150.
+Aufnahme nachG12; keine weiteren Meldungen/Sitzungsneustarts. Mengen unbekannt.
+Rasteranker5000 ohne eigenes Zeichen; feste Kästchengröße50; Umkehrzahl3.
+Inklusive Grenzen. Erste Richtung ab±50 vom Anker. Volle Rasterstufen,
+keine Teilzeichen; gezeichnetes Extrem steuert nächste Bedingungen.
+Umkehr startet eine Stufe neben dem alten Extrem, welches nicht dupliziert wird.
+Modell unterstützt nur Umkehrzahlen>=2, keine Ein-Kästchen-Sonderfälle.
+
+Exakte Spalten mit Auslösern (Rasterstufe:G):
+X[5050:G2,5100:G3,5150:G3,5200:G3];
+O[5150:G5,5100:G5,5050:G5,5000:G6];
+X[5050:G8,5100:G8,5150:G8,5200:G9,5250:G9];
+O[5200:G10,5150:G10,5100:G10,5050:G11].
+Zwölf Meldungen,17 Zeichen, vier Spalten. G4/G7/G12 zeichnen nichts Neues.
+Kein Originalgeschäft bei5200; G3 bei5210 überschreitet diese Rasterstufe.
+Letzter Originalpreis5150, aktuelles O-Tief5050, Fortsetzung5000, Umkehr5200.
+Spaltenstarts beiSekunden20/80/185/260; Abstände60/105/75, keine feste Dauer.
+
+Getrennte Varianten: Kästchen100/Umkehr3 ergibt eine X-Spalte[5100,5200];
+Kästchen50/Umkehr2 dreht bereits mitG7 und erzeugt mitG12 fünfte X[5100,5150].
+Weitere20 Meldungen bei5150 ändern Hauptbild nachG12 nicht; Menge unbestimmt.
+Grenzprüfungen: nachX5200 Preis5051 ohneUmkehr,5050 mitUmkehr;
+nachO5050 Preis5199 ohneUmkehr,5200 mitUmkehr;5001 ohneFortsetzung,5000 mit.
+
+Getrennt ab bereits vorhandener X-Spalte bis5200:
+OHLC5200/5300/5000/5200. SchlussmethodeC5200 ohne Änderung;
+erklärte Hoch-Tief-Fortsetzungspriorität verlängert X bis5300 und ignoriert L5000.
+Vollständige Folgen A:5200,5300,5000,5200 und B:5200,5000,5300,5200
+haben gleiche OHLC. A alteX bis5300, letzteX bis5200;
+B alteX bis5200, letzteX bis5300. Beide erzeugen zwei weitere Spalten.
+Methodenbild nennt Ausgänge, ohne eine tatsächliche OHLC-Zwischenfolge zu erfinden.
+
+Drei native SVGs mit zugänglichen Beschreibungen, expliziten Einheiten,
+linearer Preisabbildung, X/O statt reiner Farbcodierung und bestehendem
+Fokus-/Zoomrahmen. Eigene lazy geladene Grafiken unter bestehendem Budget.
+24 neue Lektionen, zwölf Glossarbegriffe; Kurs gesamt136/68.
+Vorhandene IDs und Fortschrittsschlüssel bleiben erhalten.
