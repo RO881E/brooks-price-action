@@ -11,7 +11,7 @@ Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 | 4 | Stop- und Stop-Limit-Orders | 22 Lektionen verfügbar |
 | 5 | Gültigkeit und Mengenbedingungen | 22 Lektionen verfügbar |
 | 6 | Positionen schließen, OCO und Brackets | 22 Lektionen verfügbar |
-| 7 | Trailing Stops und bedingte Aufträge | Geplant |
+| 7 | Trailing Stops und bedingte Aufträge | 22 Lektionen verfügbar |
 | 8 | Slippage, Gebühren und Ausführungsqualität | Geplant |
 | 9 | Handelswege, Technik und Fehlerfälle | Geplant |
 | 10 | Einen Ausführungsplan selbst prüfen | Geplant |
@@ -253,3 +253,77 @@ Aussage universeller Produktunterstützung. Stop-Limit-Alternative 38,00/37,80,
 Last 37,70, Bids nur 37,60 => null Verkäufe, Position sechs. OCO erst bei Fill,
 nicht bei Trigger, bleibt im Modell nach Umwandlung erhalten. Alternativen
 beginnen unabhängig; keine Vermischung ihrer Trades oder Kosten.
+
+
+## Kapitel 7: Trailing Stops und bedingte Aufträge
+
+22 eigene Lektionen, zehn neue Begriffe. Gesamt: 152 Lektionen, 70 Glossarbegriffe.
+Die bereitgestellte Harris-PDF wurde erneut in 4.1–4.2 (Druckseiten 4-1 bis 4-3)
+auf Anweisungen, Zeit-/Preisbedingungen und Änderungsrennen geprüft. Abschnitt
+26.1 (Druckseite 26-3) behandelt komplexe bedingte Orderverarbeitung. Sie dient
+als Hintergrund, nicht als Beleg heutiger konkreter Trailing-Plattformregeln.
+Ergänzende Primärquellen geprüft 2026-10-02:
+- Schwab, Setting Trailing Stops on thinkorswim desktop:
+  https://www.schwab.com/learn/story/setting-trailing-stops-on-thinkorswim-desktop
+- IBKR, Trailing Stop Limit (Dokumentation und Unterricht):
+  https://www.interactivebrokers.com/docs/general/order-types/trailing-stop-limit
+  https://www.interactivebrokers.com/campus/trading-lessons/trailing-stop-limit/
+- Fidelity, Conditional order types:
+  https://www.fidelity.com/learning-center/trading-investing/trading/conditional-order-types
+
+Keine Quellenbeispiele übernommen. Firmen, Zahlen, Kalender, Texte und konkrete
+Verarbeitungsregeln eigenständig. Keine Buch-/Autorennamen in sichtbaren Lektionen.
+Die Schwab-Seite enthält bei der Short-Beschreibung eine widersprüchliche Angabe
+zur Orderseite; für den Rückkauf gilt die bereits geprüfte Bestandsbilanz aus
+Kapitel 6: negative Position wird durch Käufe geschlossen. Keine solchen Fehler
+übernommen. Keine aktuellen Plattformzusagen oder Rendite-/Preisgarantien.
+
+Hauptfall: vier Vela-Aktien zu 60,00, Kaufwert 240,00. Aktivierung 10 Uhr Marktzeit,
+Last-Start 60,00, früheres Tageshoch 65,00 ausgeschlossen. Zulässige neue Lasts
+61,00, 60,80, 63,00, 62,40, 61,00. Referenzhoch monotones Maximum seit Start;
+Schwelle Referenzhoch minus 2,00: 58,00 anfangs, danach 59,00, 59,00, 61,00,
+61,00. Last <= Schwelle löst einmalig aus und beendet die Nachziehphase.
+Market-Verkauf vier: Bid eine 60,90 plus drei 60,70 = Erlös 243,00, Durchschnitt
+60,75, brutto +3,00, netto +2,20. Eigene Gebühr einmal 0,40 je tatsächlich
+gehandeltem Kauf-/Verkaufsauftrag, auch bei Teilfills; keine Steuern/weiteren
+Kosten. Lückenzweig unabhängig: schon bestätigte Schwelle 61,00, neuer Last59,00,
+Bids eine58,80/drei58,60 =>234,60 Erlös, brutto -5,40, netto -6,20. Teilzweig:
+eine60,90 zunächst, Marketrest drei bleibt gemäß eigener DAY-Warteregel aktiv;
+Last70,00 reaktiviert den Trail nicht; spätere drei60,70 ergeben denselben
+Gesamterlös, Verkaufsgebühr bleibt einmal0,40. Kein Zusammenzählen der Zweige.
+
+Prozentfall Start100,00, fünf Prozent=>95,00; Hoch108,00=>102,60, Rückgang104,00
+lockert nicht. Fester Abstand5,00 ergibt bei108,00 Schwelle103,00. Eigenes
+Stopraster0,05 mit ausdrücklichem Abrunden: Hoch101,20, Abstand2,5%=2,53,
+Rohschwelle98,67=>98,65 bestätigt. Short-Zweig minusdrei mit erlaubter Leihe:
+Referenztief50,00/49,00/47,00, Abstand1,00, Schwellen51,00/50,00/48,00;
+47,60 lockert nicht, 48,00 löst nach >= eine Market-Kauforder drei aus.
+Quellenvergleich beginnt mit getrennten bestätigten Referenzhochs63,00 und
+Schwellen61,00: neues Datenbild Last62,40/Bid60,90/Ask61,10. Nur Bid-Modell
+löst aus; keine Bid-Historie aus Last-Meldungen rekonstruiert.
+
+Trailing-Limit-Alternative: Nachziehbetrag2,00, Limitversatz0,30 unter Schwelle.
+Start58,00/57,70, Hoch63,00=>61,00/60,70. Trigger erzeugt festes Verkaufslimit
+60,70 ohne erneutes Trailing. Bids nur60,60=>null verkauft, später zwei60,80=>
+Positionzwei, Limitrestzwei. Keine Garantie rechtzeitigen vollständigen Ausstiegs.
+
+Indexbedingung: neue zulässige Mira-Meldung >=1.000 aktiviert einmalig Kaufvier
+Vela Limit60,50; Ask60,80=>kein Kauf. Levelregel verlangt keinen Schwellenwechsel,
+keine wiederholte Aktivierung oder automatische Rücknahme beim späteren Rückgang.
+UND-Regel prüft aktuellen vollständigen Datenstand ohne historische Wahr-Speicherung:
+9:59/1.002 nein, 10:00/999 nein, 10:01/1.002 ja. Signalfrist bis vor16Uhr,
+Folgeorder DAY bis vor17Uhr: Trigger15:59, Kauf eines Stücks16:30, drei Reste
+laufen17Uhr ab, Bestandeins bleibt. Haupt-Trail auf Anbieter-Server mit weiter
+verfügbaren Daten läuft bei Bildschirm-Ausfall; getrenntes lokales Modell stoppt
+Prüfungen bei ausgeschaltetem Gerät. Fehlerzweig: Signal erfüllt, unzulässige
+Orderkombination abgelehnt, Positionnull, kein Auto-Retry. Änderungen erst nach
+Bestätigung wirksam. Sämtliche konkreten Abläufe ausdrücklich Lernmodelle.
+
+
+Die gemeinsame Gliederungsdatei überschritt mit Kapitel 7 das bestehende Limit.
+Sie ist nun in statisch importierte Dateien je Kurs aufgeteilt. Der synchrone
+Katalog für Suche, Freischaltung und gespeicherten Fortschritt bleibt vollständig
+verfügbar. Das 120-kB-gzip-Limit gilt für jeden Kursbaustein; die gemeinsame
+Offline-Grenze von 1,5 MB bleibt ebenfalls unverändert. Die Prüfung zeigt auch
+Gesamtsumme und größtes Kursstück. Tests vergleichen den zusammengefügten
+Produktions- und E2E-Katalog exakt mit den vollständigen Inhaltsgliederungen.

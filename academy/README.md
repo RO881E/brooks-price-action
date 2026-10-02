@@ -665,8 +665,8 @@ geladene Kapitel, Review aus anderen Kapiteln sowie Ladefehler mit erneutem Lade
   Meilensteine, Vereinigung der Runden).
 - **Größe:** `npm run build && npm run report:size` misst App-Code und Kursinhalte getrennt und endet
   mit Fehler bei Überschreitung der Grenzwerte: Hauptbündel (nur App-Code, unter 500 kB), App-Grundgerüst
-  ohne Kursinhalte (≤ 1,0 MB), Kursgliederung (≤ 120 kB gzip), Schaubilder (≤ 150 kB gzip), größtes
-  Kapitel (≤ 40 kB gzip) und die Offline-Vorladung, so wie sie übertragen wird (≤ 1,5 MB gzip). Die
+  ohne Kursinhalte (≤ 1,0 MB), jede Kursgliederung (≤ 120 kB gzip), Schaubilder (≤ 150 kB gzip), größtes
+  Kapitel (≤ 40 kB gzip) und die Offline-Vorladung, so wie sie übertragen wird (≤ 1,5 MB gzip). Jede
   Kursgliederung ist ein eigener Baustein, der beim Start parallel lädt (`vite.config.ts`); sie wächst mit
   jedem Kapitel, ohne das Hauptbündel zu vergrößern. Erreicht ein Inhaltsbaustein seine Grenze, wird er
   aufgeteilt (Gliederung je Kurs, Schaubilder je Kapitel) – die Meldung nennt den Weg. Üben, Fortschritt,

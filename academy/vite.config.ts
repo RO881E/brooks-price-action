@@ -19,10 +19,13 @@ export default defineConfig({
         codeSplitting: {
           groups: [
             { name: 'react', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/ },
-            // Die Kursgliederung (`virtual:wqt-course-outline`) wächst mit jedem Kapitel. Als eigener
-            // Baustein lädt sie beim Start parallel (modulepreload) und bleibt im Cache, solange sich
-            // nur App-Code ändert – und umgekehrt. Das Hauptbündel enthält so nur App-Code.
-            { name: 'course-outline', test: /virtual:wqt-course-outline/ },
+            // Course outlines stay immediately available to the catalog, but
+            // each course has a separate cached chunk with its own size budget.
+            { name: (id: string) => {
+              const prefix = 'virtual:wqt-course-outline/';
+              const start = id.indexOf(prefix);
+              return start < 0 ? null : `course-outline-${id.slice(start + prefix.length)}`;
+            }, test: /virtual:wqt-course-outline\//, includeDependenciesRecursively: false },
             // Keep the growing chart collection below the per-chunk size warning.
             { name: 'ChartFocus-phase', test: /ChapterTwenty(?:One|Two|Three|Four|Five|Six)Charts\.tsx$/ },
           ],

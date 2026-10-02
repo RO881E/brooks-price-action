@@ -15,7 +15,7 @@ const BUDGET = {
   mainGzipKb: 160,
   // App-Grundgerüst: alles außer Kursinhalten (Kapitel, Gliederung, Schaubilder), unkomprimiert
   appMb: 1.0,
-  // Gliederung aller Kurse, gzip (so wird sie übertragen; beim Start parallel geladen)
+  // Jede Kursgliederung, gzip (Katalog lädt die getrennten Bausteine parallel)
   outlineGzipKb: 120,
   // Schaubilder (ChartFocus), gzip – erst beim ersten Diagramm geladen
   chartsGzipKb: 150,
@@ -60,14 +60,14 @@ for (const file of assets) console.log(file.path.padEnd(44), String(kb(file.raw)
 
 const app = all.filter((file) => file.area === 'app');
 const chapters = all.filter((file) => file.area === 'chapter').sort((a, b) => b.gzip - a.gzip);
-const outline = all.find((file) => file.area === 'outline');
+const outlines = all.filter((file) => file.area === 'outline');
 const charts = all.filter((file) => file.area === 'charts');
 const main = assets.find((file) => /^assets\/index-.*\.js$/.test(file.path));
 
 console.log(`\nGesamt dist: ${mb(sum(all, 'raw'))} MB`);
 console.log(`- App-Grundgerüst: ${app.length} Dateien, ${mb(sum(app, 'raw'))} MB roh, ${kb(sum(app, 'gzip'))} kB gzip`);
 console.log(`- Kapitel: ${chapters.length} Dateien, ${mb(sum(chapters, 'raw'))} MB roh, ${kb(sum(chapters, 'gzip'))} kB gzip`);
-if (outline) console.log(`- Gliederung: ${kb(outline.raw)} kB roh, ${kb(outline.gzip)} kB gzip`);
+if (outlines.length) console.log(`- Gliederungen: ${outlines.length} Dateien, ${kb(sum(outlines, 'raw'))} kB roh, ${kb(sum(outlines, 'gzip'))} kB gzip; größte ${kb(Math.max(...outlines.map((file) => file.gzip)))} kB gzip`);
 if (charts.length) console.log(`- Schaubilder: ${charts.length} Dateien, ${kb(sum(charts, 'raw'))} kB roh, ${kb(sum(charts, 'gzip'))} kB gzip`);
 console.log(
   `Vorladung offline: ${precachePaths.size} Dateien, ${mb(sum(precached, 'raw'))} MB roh, ${mb(sum(precached, 'gzip'))} MB übertragen (gzip)`,
@@ -75,13 +75,13 @@ console.log(
 
 const problems = [];
 if (!main) problems.push('Hauptbündel (assets/index-*.js) nicht gefunden');
-if (!outline) problems.push('Gliederung (assets/course-outline-*.js) nicht als eigener Baustein gefunden');
+if (!outlines.length) problems.push('Gliederung (assets/course-outline-*.js) nicht als eigener Baustein gefunden');
 if (main && main.raw / 1024 > BUDGET.mainRawKb) problems.push(`Hauptbündel ${kb(main.raw)} kB roh > ${BUDGET.mainRawKb} kB`);
 if (main && main.gzip / 1024 > BUDGET.mainGzipKb) problems.push(`Hauptbündel ${kb(main.gzip)} kB gzip > ${BUDGET.mainGzipKb} kB`);
 if (sum(app, 'raw') / 1024 / 1024 > BUDGET.appMb) problems.push(`App-Grundgerüst ${mb(sum(app, 'raw'))} MB > ${BUDGET.appMb} MB`);
-if (outline && outline.gzip / 1024 > BUDGET.outlineGzipKb) {
-  problems.push(
-    `Gliederung ${kb(outline.gzip)} kB gzip > ${BUDGET.outlineGzipKb} kB – Zeit, sie je Kurs aufzuteilen (nur der gewählte Kurs lädt beim Start)`,
+for (const outline of outlines) {
+  if (outline.gzip / 1024 > BUDGET.outlineGzipKb) problems.push(
+    `Gliederung ${outline.path} ${kb(outline.gzip)} kB gzip > ${BUDGET.outlineGzipKb} kB – Zeit, diesen Kurs weiter aufzuteilen`,
   );
 }
 if (sum(charts, 'gzip') / 1024 > BUDGET.chartsGzipKb) {

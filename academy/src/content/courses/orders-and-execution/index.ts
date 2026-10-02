@@ -3,10 +3,10 @@ import { ordersGlossary } from './glossary';
 export const ordersDefinition: CourseDefinition = {
   info: {
     id: 'orders-and-execution',
-    eyebrow: 'Trading von null · Kapitel 1–6 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–7 verfügbar',
     title: 'Orders und Ausführung',
-    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände. Kapitel 6 verbindet Positionsausstiege, OCO-Regeln und Brackets.',
-    sourceOrderNotice: 'Kapitel 1 bis 6 sind verfügbar. Die weiteren vier Kapitel werden schrittweise ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
+    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände. Kapitel 6 verbindet Positionsausstiege, OCO-Regeln und Brackets. Kapitel 7 ergänzt nachziehende Schwellen und bedingte Aktivierung.',
+    sourceOrderNotice: 'Kapitel 1 bis 7 sind verfügbar. Die weiteren drei Kapitel werden schrittweise ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
   },
   units: [{
     id: 'orders-and-execution.chapter-01', order: 1, kind: 'chapter',
@@ -44,6 +44,12 @@ export const ordersDefinition: CourseDefinition = {
     description: 'Bestandsbilanzen, verknüpfte Ausstiege, Parent- und Child-Aktivierung, Teilmengen und verbleibende Orders prüfen.',
     estimatedLessonCount: 22,
     load: () => import('./chapter-06').then((module) => module.ordersChapterSixLessons),
+  }, {
+    id: 'orders-and-execution.chapter-07', order: 7, kind: 'chapter',
+    label: 'Kapitel 7', title: 'Trailing Stops und bedingte Aufträge',
+    description: 'Referenzverlauf, feste und prozentuale Abstände, Folgelimits, Signalbedingungen und bestätigte Aktivierung unterscheiden.',
+    estimatedLessonCount: 22,
+    load: () => import('./chapter-07').then((module) => module.ordersChapterSevenLessons),
   }],
   glossary: { title: 'Orders-Glossar', entries: ordersGlossary },
 };
