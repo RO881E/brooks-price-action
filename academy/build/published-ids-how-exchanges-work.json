@@ -1,0 +1,117 @@
+{
+  "units": [
+    {
+      "id": "how-exchanges-work.chapter-01",
+      "lessons": [
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-01",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-01.explain",
+            "how-exchanges-work.chapter-01.lesson-01.compare",
+            "how-exchanges-work.chapter-01.lesson-01.question",
+            "how-exchanges-work.chapter-01.lesson-01.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-02",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-02.explain",
+            "how-exchanges-work.chapter-01.lesson-02.compare",
+            "how-exchanges-work.chapter-01.lesson-02.question",
+            "how-exchanges-work.chapter-01.lesson-02.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-03",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-03.explain",
+            "how-exchanges-work.chapter-01.lesson-03.compare",
+            "how-exchanges-work.chapter-01.lesson-03.question",
+            "how-exchanges-work.chapter-01.lesson-03.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-04",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-04.explain",
+            "how-exchanges-work.chapter-01.lesson-04.compare",
+            "how-exchanges-work.chapter-01.lesson-04.question",
+            "how-exchanges-work.chapter-01.lesson-04.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-05",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-05.explain",
+            "how-exchanges-work.chapter-01.lesson-05.compare",
+            "how-exchanges-work.chapter-01.lesson-05.question",
+            "how-exchanges-work.chapter-01.lesson-05.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-06",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-06.explain",
+            "how-exchanges-work.chapter-01.lesson-06.compare",
+            "how-exchanges-work.chapter-01.lesson-06.question",
+            "how-exchanges-work.chapter-01.lesson-06.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-07",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-07.explain",
+            "how-exchanges-work.chapter-01.lesson-07.compare",
+            "how-exchanges-work.chapter-01.lesson-07.question",
+            "how-exchanges-work.chapter-01.lesson-07.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-08",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-08.explain",
+            "how-exchanges-work.chapter-01.lesson-08.compare",
+            "how-exchanges-work.chapter-01.lesson-08.question",
+            "how-exchanges-work.chapter-01.lesson-08.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-09",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-09.explain",
+            "how-exchanges-work.chapter-01.lesson-09.compare",
+            "how-exchanges-work.chapter-01.lesson-09.question",
+            "how-exchanges-work.chapter-01.lesson-09.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-10",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-10.explain",
+            "how-exchanges-work.chapter-01.lesson-10.compare",
+            "how-exchanges-work.chapter-01.lesson-10.question",
+            "how-exchanges-work.chapter-01.lesson-10.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-11",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-11.explain",
+            "how-exchanges-work.chapter-01.lesson-11.compare",
+            "how-exchanges-work.chapter-01.lesson-11.question",
+            "how-exchanges-work.chapter-01.lesson-11.recap"
+          ]
+        },
+        {
+          "id": "how-exchanges-work.chapter-01.lesson-12",
+          "steps": [
+            "how-exchanges-work.chapter-01.lesson-12.explain",
+            "how-exchanges-work.chapter-01.lesson-12.compare",
+            "how-exchanges-work.chapter-01.lesson-12.question",
+            "how-exchanges-work.chapter-01.lesson-12.recap"
+          ]
+        }
+      ]
+    }
+  ]
+}

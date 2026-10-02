@@ -48,14 +48,21 @@ export const librarySubjects: LibrarySubject[] = [
     description: 'Wie Börsen, Orders und Charts funktionieren – das Fundament für alles Weitere.',
     exercises: 'Fragen, Begriffe-Memory, „Ordne die Schritte“ (z. B. Weg einer Order).',
     courses: [
-      planned('how-exchanges-work', 'Wie Börsen funktionieren', 'Wer an der Börse handelt und wie dort ein Preis entsteht.', [
-        'Börse, außerbörslicher Handel (OTC), Market Maker',
-        'Auktionsprinzip: Angebot, Nachfrage, Preisfindung',
-        'Marktteilnehmer: Privatanleger, Fonds, Banken, Hochfrequenzhandel, Notenbanken',
-        'Liquidität, Geld-Brief-Spanne (Spread), Markttiefe',
-        'Handelszeiten und Sessions (Asien, Europa, USA), vor- und nachbörslicher Handel',
-        'Eröffnungs- und Schlussauktion, Handelsunterbrechungen bei starken Schwankungen',
-      ]),
+      {
+        id: 'how-exchanges-work',
+        title: 'Wie Börsen funktionieren',
+        label: 'Trading von null · Kapitel 1 verfügbar',
+        description: 'Erstes Kapitel: Instrumente, Teilnehmer und Preisbildung. Weitere Kapitel folgen.',
+        status: 'available',
+        subtopics: [
+          'Börse, außerbörslicher Handel (OTC), Market Maker',
+          'Auktionsprinzip: Angebot, Nachfrage, Preisfindung',
+          'Marktteilnehmer: Privatanleger, Fonds, Banken, Hochfrequenzhandel, Notenbanken',
+          'Liquidität, Geld-Brief-Spanne (Spread), Markttiefe',
+          'Handelszeiten und Sessions (Asien, Europa, USA), vor- und nachbörslicher Handel',
+          'Eröffnungs- und Schlussauktion, Handelsunterbrechungen bei starken Schwankungen',
+        ],
+      },
       planned('orders-and-execution', 'Orders und Ausführung', 'Welche Orderarten es gibt und was bei der Ausführung passiert.', [
         'Market-, Limit-, Stop- und Stop-Limit-Order',
         'OCO- und Bracket-Order, Trailing Stop',

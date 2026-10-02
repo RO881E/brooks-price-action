@@ -759,4 +759,6 @@ keine Buchinhalte und bindet keine WQT-Fachbände ein.
 
 Kapitel 25 ergänzt 24 Mikro-Lektionen zur Trendwiederaufnahme nach langer Pause: Gap-Tests, Fehlausbrüche, Signal und Trigger, Rücktests, Positionsgröße, späte Ausbrüche und mehrtägige Varianten. Eigene OHLC-Folgen trennen Replay-Zustände; Gegenbeispiele und konkrete Risikorechnungen verhindern Rückschaufehler.
 
+Der Einführungskurs „Wie Börsen funktionieren“ startet mit zwölf Mikro-Lektionen zu Instrumenten, Motiven, Preisbezügen, Spread, Menge und Marktrollen. Er besitzt ein eigenes Glossar und ist unter Marktgrundlagen verfügbar. Weitere Kapitel folgen; der bisherige Standardkurs und gespeicherte Fortschritte bleiben erhalten.
+
 Kapitel 26 ergänzt 30 Mikro-Lektionen zu Treppen und breiten Kanälen. Eigene OHLC-Folgen zeigen Überlappung, Kanalnäherung, Gegenbewegungen, Beschleunigung, schrumpfende Extensions und begrenzte Orderpläne. Dreierbar-Aggregation und der Vergleich normaler, schneller und schrumpfender Stufen halten Zeitebene und Informationsstand auseinander.
