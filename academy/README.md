@@ -599,8 +599,13 @@ Einstellungen → „Farbschema“. Alle Farben sind Tokens (`src/theme-colors.j
 
 ## Wiederholungsplan
 
-Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit fünf Stufen und den Abständen
-1, 3, 7, 14 und 30 Tage. Eine richtige Antwort am oder nach dem Fälligkeitstag hebt die Stufe
+Der Scheduler (`src/features/reviewScheduler.ts`) arbeitet mit acht Stufen und den Abständen
+1, 3, 7, 14, 30, 60, 120 und 180 Tage (Stufen bis 180 Tage seit v18; bisherige Karten behalten
+ihre Stufe). Jede Karte zeigt ihre **Festigkeit** (erreichte Stufe von 8). Falsch beantwortete
+Karten kommen in derselben Runde am Ende noch einmal, bis sie richtig sind; der Plan bleibt dabei
+auf Stufe 0 / morgen. Es gibt kein Tageslimit. Für jede richtig beantwortete, **fällige** Karte
+im ersten Versuch der Runde gibt es 2 XP (`reviewXp`, zählt zum Level; früh geübte oder
+nachgeholte Karten geben keine). Eine richtige Antwort am oder nach dem Fälligkeitstag hebt die Stufe
 an, eine falsche setzt sie zurück und macht die Frage am nächsten Tag wieder fällig. Richtige
 Antworten vor dem Fälligkeitstag ändern den Plan nicht. Neue Fragen werden am Tag nach dem
 Lektionsabschluss fällig. Gerechnet wird mit lokalen Kalendertagen, nicht mit

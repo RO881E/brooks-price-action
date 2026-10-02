@@ -212,12 +212,13 @@ export function lessonSummary(lesson: LessonOutline, progress: AcademyProgress):
 }
 
 /**
- * Summe der einmalig verdienten XP. Lektionen, die vor der Abschlusserfassung
+ * Summe der verdienten XP: einmalig je Lektion plus XP für wiederholte Karten. Lektionen, die vor der Abschlusserfassung
  * erledigt wurden, zählen mit ihrem Lektionswert – wie bisher angezeigt.
  */
 export function earnedXp(progress: AcademyProgress, lessons: LessonOutline[]): number {
   const completed = new Set(progress.completedLessonIds);
-  return lessons
+  // Dazu kommen die XP aus richtig wiederholten Karten (seit v18), kursübergreifend.
+  return progress.reviewXp + lessons
     .filter((lesson) => completed.has(lesson.id))
     .reduce(
       (sum, lesson) => sum + (progress.lessonResults[lesson.id]?.xpAwarded ?? lesson.xp),

@@ -44,6 +44,7 @@ const history: Array<[number, Record<string, unknown>]> = [
   [9, { version: 9, ...core, readerPositions: {} }],
   [10, { version: 10, ...core, readingOptions: { size: 'large', spacing: 'standard' } }],
   [12, { version: 12, ...core, caseRuns: { 'bar-case.chapter-01.range-high-test': [{ sessionId: 'run-1', completedAt: '2026-09-02T10:00:00.000Z', best: 1, defensible: 0, mistake: 0, missedCues: 0 }] } }],
+  [17, { version: 17, ...core, activeCourseId: null }],
   [16, { version: 16, ...core, activeCourseId: null, readerPositions: {}, readingOptions: { size: 'large', spacing: 'wide' } }],
   [14, { version: 14, ...core, guideSeenAt: '2026-09-03T08:00:00.000Z' }],
   [15, { version: 15, ...core, guideSeenAt: '2026-09-03T08:00:00.000Z' }],

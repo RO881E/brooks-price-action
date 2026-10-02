@@ -7,13 +7,14 @@ import type { AcademyProgress, ReviewMode, ReviewSession } from '../features/pro
 import {
   currentSessionItem,
   isSessionFinished,
+  REVIEW_CARD_XP,
   REVIEW_SESSION_SIZE,
   reviewOverview,
   reviewPool,
   sessionSummary,
   type ReviewItem,
 } from '../features/reviewSession';
-import { daysBetween, REVIEW_INTERVALS, type DayKey } from '../features/reviewScheduler';
+import { daysBetween, REVIEW_INTERVALS, reviewStrength, type DayKey } from '../features/reviewScheduler';
 import { moveAnswerFocus } from './answerKeys';
 import { ContentLoadState } from './ContentLoadState';
 import { caseEntries } from '../features/caseTraining';
@@ -429,8 +430,9 @@ function ReviewStart({
         <strong>So plant die Wiederholung</strong>
         <p>
           Neue Fragen kommen am Tag nach der Lektion. Jede richtige Antwort am Fälligkeitstag
-          verlängert den Abstand ({REVIEW_INTERVALS.join(', ')} Tage). Eine falsche Antwort holt
-          die Frage auf morgen zurück. Wer früher übt, verschiebt den Plan nicht.
+          verlängert den Abstand ({REVIEW_INTERVALS.join(', ')} Tage) und gibt {REVIEW_CARD_XP} XP.
+          Eine falsche Antwort holt die Frage auf morgen zurück und sie kommt in der Runde noch
+          einmal, bis sie richtig ist. Wer früher übt, verschiebt den Plan nicht.
         </p>
       </aside>
     </>
@@ -543,6 +545,7 @@ function SessionQuestion({
       <article className="practice-card">
         <span className="question-number">
           Frage {position} / {session.questionIds.length} · {item.lesson.title}
+          {session.questionIds.indexOf(question.id) < session.index ? ' · noch einmal' : ''}
         </span>
         <h2 tabIndex={-1} ref={headingRef}>
           {question.title}
@@ -623,9 +626,16 @@ function SessionQuestion({
                 <small> Danach geht es hier genau an dieser Stelle weiter; deine Antwort bleibt gezählt.</small>
               </p>
             ) : null}
+            {correct && session.xpIds?.includes(question.id) ? (
+              <p className="review-xp">+{REVIEW_CARD_XP} XP für diese Karte</p>
+            ) : null}
+            {!correct ? (
+              <p className="review-next">Diese Karte kommt am Ende der Runde noch einmal – bis sie sitzt.</p>
+            ) : null}
             {card ? (
               <p className="review-next">
-                Nächste Wiederholung {relativeDayLabel(card.dueDay, today)}.
+                Festigkeit {reviewStrength(card).level} von {reviewStrength(card).of} · Nächste Wiederholung{' '}
+                {relativeDayLabel(card.dueDay, today)}.
               </p>
             ) : null}
           </div>
@@ -689,6 +699,7 @@ function SessionResult({
       <h2 tabIndex={-1} ref={headingRef}>
         {summary.correct} von {summary.total} richtig
       </h2>
+      {session.xpIds?.length ? <p className="review-xp">+{session.xpIds.length * REVIEW_CARD_XP} XP aus dieser Runde</p> : null}
 
       {perfect ? (
         <BullSays mood="cheer">

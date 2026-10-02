@@ -1,9 +1,9 @@
 /**
  * Einfacher, transparenter Wiederholungsplan („Leitner-Boxen“).
  *
- * - Jede Frage liegt in einer Stufe 0–4 mit den Abständen 1, 3, 7, 14 und 30 Tage.
+ * - Jede Frage liegt in einer Stufe 0–7 mit den Abständen 1, 3, 7, 14, 30, 60, 120 und 180 Tage.
  * - Richtig an oder nach dem Fälligkeitstag: eine Stufe höher, nächste
- *   Wiederholung nach dem Abstand dieser Stufe (höchstens 30 Tage).
+ *   Wiederholung nach dem Abstand dieser Stufe (höchstens 180 Tage).
  * - Richtig vor dem Fälligkeitstag (z. B. in „Alles mischen“): Plan unverändert.
  * - Falsch: zurück auf Stufe 0, am nächsten Tag erneut fällig.
  *
@@ -11,14 +11,14 @@
  * mit rohen 24-Stunden-Differenzen.
  */
 
-export const REVIEW_INTERVALS = [1, 3, 7, 14, 30] as const;
+export const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60, 120, 180] as const;
 export const MAX_REVIEW_STAGE = REVIEW_INTERVALS.length - 1;
 
 /** Lokaler Kalendertag, z. B. `2026-09-28`. */
 export type DayKey = string;
 
 export interface ReviewCard {
-  /** Stufe 0–4, Index in `REVIEW_INTERVALS`. */
+  /** Stufe 0–7, Index in `REVIEW_INTERVALS`. */
   stage: number;
   dueDay: DayKey;
   lastReviewedDay: DayKey;
@@ -66,6 +66,11 @@ export function daysBetween(from: DayKey, to: DayKey): number {
   const [y1, m1, d1] = parseDayKey(from);
   const [y2, m2, d2] = parseDayKey(to);
   return Math.round((Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86_400_000);
+}
+
+/** Festigkeit einer Karte: erreichte Stufe (1–8) von allen Stufen; ohne Karte 0. */
+export function reviewStrength(card: ReviewCard | undefined): { level: number; of: number } {
+  return { level: card ? card.stage + 1 : 0, of: REVIEW_INTERVALS.length };
 }
 
 export function isDue(dueDay: DayKey, today: DayKey): boolean {

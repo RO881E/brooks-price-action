@@ -523,3 +523,35 @@ describe('Gestrichener Buchmodus (v17)', () => {
     );
   });
 });
+
+describe('Karten-XP (v18)', () => {
+  it('speichert reviewXp in Sicherungen und stellt es wieder her', () => {
+    const progress = { ...createEmptyProgress(), reviewXp: 14 };
+    const parsed = parseBackup(backupText(progress));
+    expect(parsed.ok).toBe(true);
+    if (parsed.ok) expect(parsed.imported.reviewXp).toBe(14);
+  });
+
+  it('nimmt ältere Sicherungen ohne reviewXp an (Start bei 0) und lehnt ungültige Werte ab', () => {
+    const old = backupText(createEmptyProgress(), (backup) => {
+      backup.dataVersion = 17;
+      delete (backup.data as Record<string, unknown>).reviewXp;
+    });
+    const parsed = parseBackup(old);
+    expect(parsed.ok).toBe(true);
+    if (parsed.ok) expect(parsed.imported.reviewXp).toBe(0);
+    expectRejected(
+      backupText(createEmptyProgress(), (backup) => {
+        (backup.data as Record<string, unknown>).reviewXp = -3;
+      }),
+      /reviewXp/,
+    );
+  });
+
+  it('beim Zusammenführen gilt der höhere Stand, nichts geht verloren', () => {
+    const local = { ...createEmptyProgress(), reviewXp: 10 };
+    const incoming = { ...createEmptyProgress(), reviewXp: 24 };
+    expect(mergeProgress(local, incoming).reviewXp).toBe(24);
+    expect(mergeProgress(incoming, local).reviewXp).toBe(24);
+  });
+});

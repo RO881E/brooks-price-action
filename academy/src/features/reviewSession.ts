@@ -19,6 +19,9 @@ import {
 /** Höchstzahl an Fragen pro Runde. */
 export const REVIEW_SESSION_SIZE = 10;
 
+/** XP für eine richtig beantwortete, fällige Karte (nur im ersten Versuch der Runde). */
+export const REVIEW_CARD_XP = 2;
+
 export interface ReviewItem {
   /** Gliederung der Frage; Antworttexte lädt die Ansicht bei Bedarf (F-12). */
   question: QuestionOutline;
@@ -248,15 +251,25 @@ export function answerReview(
   if (!question.options.some((option) => option.id === optionId)) return progress;
 
   const correct = optionId === question.correctOptionId;
+  const card = progress.reviewCards[question.id];
+  const missed = session.missed ?? [];
+  // XP nur für fällige Karten im ersten Versuch dieser Runde: Wer früher übt oder eine
+  // Karte erst nach einem Fehler richtig hat, sammelt hier keine XP.
+  const earnsXp = correct && !missed.includes(question.id) && (!card || isDue(card.dueDay, today));
 
   return {
     ...progress,
     reviewCards: {
       ...progress.reviewCards,
-      [question.id]: scheduleReview(progress.reviewCards[question.id], correct, today),
+      [question.id]: scheduleReview(card, correct, today),
     },
+    reviewXp: progress.reviewXp + (earnsXp ? REVIEW_CARD_XP : 0),
     reviewSession: {
       ...session,
+      // Falsche Karten kehren am Ende der Runde wieder, bis sie richtig beantwortet sind.
+      questionIds: correct ? session.questionIds : [...session.questionIds, question.id],
+      xpIds: earnsXp ? [...(session.xpIds ?? []), question.id] : session.xpIds,
+      missed: correct || missed.includes(question.id) ? session.missed : [...missed, question.id],
       answers: { ...session.answers, [question.id]: optionId },
     },
   };
@@ -271,7 +284,8 @@ function countFinishedSession(progress: AcademyProgress, today: DayKey): Academy
   const session = progress.reviewSession;
   if (!session || session.activityRecorded) return progress;
 
-  const answered = session.questionIds.filter((id) => session.answers[id] !== undefined);
+  const unique = [...new Set(session.questionIds)];
+  const answered = unique.filter((id) => session.answers[id] !== undefined || session.missed?.includes(id));
   if (answered.length === 0) return progress;
 
   let next = logActivity(
@@ -280,11 +294,11 @@ function countFinishedSession(progress: AcademyProgress, today: DayKey): Academy
     { reviewSessions: 1 },
   );
 
-  const complete = answered.length === session.questionIds.length;
+  const complete = unique.every((id) => session.answers[id] !== undefined);
   const allCorrect =
     complete &&
-    // Jede Frage kommt in einer Runde genau einmal vor; ihr Plan spiegelt daher
-    // die Antwort aus dieser Runde.
+    // „Fehlerfrei“: keine Frage musste wiederholt werden.
+    !(session.missed?.length ?? 0) &&
     answered.every((id) => progress.reviewCards[id]?.lastResult === 'correct');
   if (allCorrect) next = awardMilestone(next, 'perfect-review', today);
   return next;
@@ -298,7 +312,11 @@ export function advanceSession(progress: AcademyProgress, today: DayKey): Academ
   const session = progress.reviewSession;
   if (!session || session.index >= session.questionIds.length) return progress;
   if (session.answers[session.questionIds[session.index]] === undefined) return progress;
-  const next = { ...progress, reviewSession: { ...session, index: session.index + 1 } };
+  const id = session.questionIds[session.index];
+  // Eine falsche Antwort wird für ihre Wiederholung am Rundenende freigegeben.
+  const wrong = (session.missed?.includes(id) ?? false) && session.questionIds.indexOf(id, session.index + 1) !== -1;
+  const answers = wrong ? Object.fromEntries(Object.entries(session.answers).filter(([key]) => key !== id)) : session.answers;
+  const next = { ...progress, reviewSession: { ...session, answers, index: session.index + 1 } };
   return next.reviewSession.index >= session.questionIds.length
     ? countFinishedSession(next, today)
     : next;
@@ -327,15 +345,18 @@ export interface SessionSummary {
 }
 
 export function sessionSummary(session: ReviewSession, items: ReviewItem[]): SessionSummary {
-  const entries = session.questionIds.flatMap((id) => {
+  const unique = [...new Set(session.questionIds)];
+  const entries = unique.flatMap((id) => {
     const item = items.find((candidate) => candidate.question.id === id);
     const answer = session.answers[id];
-    if (!item || answer === undefined) return [];
-    return [{ item, correct: answer === item.question.correctOptionId }];
+    const missed = session.missed?.includes(id) ?? false;
+    if (!item || (answer === undefined && !missed)) return [];
+    // „Richtig“ heißt: gleich beim ersten Versuch dieser Runde.
+    return [{ item, correct: !missed && answer === item.question.correctOptionId }];
   });
 
   return {
-    total: session.questionIds.length,
+    total: unique.length,
     answered: entries.length,
     correct: entries.filter((entry) => entry.correct).length,
     entries,
