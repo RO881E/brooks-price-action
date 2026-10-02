@@ -2,9 +2,9 @@ import type { CourseDefinition } from '../../registry';
 import { chartsGlossary } from './glossary';
 export const chartsDefinition: CourseDefinition = {
   info: {
-    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–4 verfügbar', title: 'Charts lesen',
-    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–4 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen.',
-    sourceOrderNotice: 'Kapitel 1–4 sind verfügbar. Die weiteren sechs Kapitel werden schrittweise ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
+    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–5 verfügbar', title: 'Charts lesen',
+    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–5 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen sowie berechnete Heikin-Ashi-Kerzen.',
+    sourceOrderNotice: 'Kapitel 1–5 sind verfügbar. Die weiteren fünf Kapitel werden schrittweise ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
   },
   units: [{
     id: 'reading-charts.chapter-01', order: 1, kind: 'chapter', label: 'Kapitel 1', title: 'Vom Geschäft zum Chartbild',
@@ -26,6 +26,11 @@ export const chartsDefinition: CourseDefinition = {
     description: 'Preisbasierte Gruppen, feste Steine, Umkehrschwellen und synthetische Grenzen mit eigenen Daten prüfen.',
     estimatedLessonCount: 24,
     load: () => import('./chapter-04').then(module => module.chartsChapterFourLessons),
+  }, {
+    id:'reading-charts.chapter-05',order:5,kind:'chapter',label:'Kapitel 5',title:'Heikin-Ashi und berechnete Preise',
+    description:'Vier eigene Minuten in HA-Kerzen umrechnen; Körperrichtung, Lücken, Startwerte und tatsächliche Preise auseinanderhalten.',
+    estimatedLessonCount:24,
+    load:()=>import('./chapter-05').then(module=>module.chartsChapterFiveLessons),
   }],
   glossary: { title: 'Charts-Glossar', entries: chartsGlossary },
 };

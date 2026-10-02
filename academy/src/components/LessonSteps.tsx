@@ -39,6 +39,7 @@ function StepHeading({
 // Die Schaubilder sind der größte Code-Block; sie werden erst beim ersten
 // Diagramm-Schritt geladen (und vom Service Worker für offline vorgehalten).
 // Zusammen mit dem Diagramm-Fokus (F-11), der dieselben Schaubilder nutzt.
+const HAWithFocus = lazy(() => import('./ReadingHAFocus').then(module => ({ default: module.HAWithFocus })));
 const PriceStepsWithFocus = lazy(() => import('./ReadingPriceStepsFocus').then(module => ({ default: module.PriceStepsWithFocus })));
 const ChartWithFocus = lazy(() =>
   import('./ChartFocus').then((module) => ({ default: module.ChartWithFocus })),
@@ -77,7 +78,7 @@ function ChartLoadError() {
 }
 
 export function StepChart({ step }: { step: Extract<LessonStep, { type: 'diagram' }> }) {
-  const Chart = step.scenario.startsWith('rc4-') ? PriceStepsWithFocus : ChartWithFocus;
+  const Chart = step.scenario.startsWith('rc5-') ? HAWithFocus : step.scenario.startsWith('rc4-') ? PriceStepsWithFocus : ChartWithFocus;
   return (
     <ErrorBoundary fallback={() => <ChartLoadError />}>
       <Suspense fallback={<ChartPlaceholder />}>
