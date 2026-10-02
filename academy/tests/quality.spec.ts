@@ -61,7 +61,8 @@ async function approveTransfer(page: Page) {
 }
 
 const VIEWS: Array<[string, string]> = [
-  ['Lernpfad', '/#/'],
+  ['Start', '/#/'],
+  ['Lernpfad', '/#/path'],
   ['Üben', '/#/practice'],
   ['Kurzlernen', '/#/study/20'],
   ['Trainer', `/#/train/${caseA.id}`],
@@ -70,7 +71,7 @@ const VIEWS: Array<[string, string]> = [
   ['Fortschritt', '/#/progress'],
   ['Gespeichert', '/#/saved'],
   ['Glossar', '/#/glossary'],
-  ['Bibliothek', '/#/library'],
+  ['Alle Kurse', '/#/library'],
   ['Themengebiet', '/#/library/volume'],
   ['Kursseite', '/#/course/price-action-trends'],
   ['Einstellungen', '/#/settings'],
@@ -148,6 +149,7 @@ test.describe('P12 Barrierefreiheit und Mobilgeräte', () => {
     }
     // Es wurde nicht nur ein Element angesteuert – keine Tastaturfalle.
     expect(seen.size).toBeGreaterThan(15);
+    await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
     await page.keyboard.press('/');
     await expect(page.getByRole('dialog', { name: 'Suche' })).toBeVisible();
     await page.keyboard.press('Escape');
@@ -191,7 +193,7 @@ test.describe('P12 Wiederherstellung defekter Daten', () => {
       sessionStorage.setItem('seeded', '1');
       localStorage.setItem('wqt-academy-progress-v1', '{kaputt: nicht lesbar');
     });
-    await page.goto('/');
+    await page.goto('/#/path');
     const notice = page.getByRole('alert').filter({ hasText: 'Gespeicherte Lerndaten waren nicht lesbar' });
     await expect(notice).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
@@ -221,7 +223,7 @@ test.describe('P12 Wiederherstellung defekter Daten', () => {
       sessionStorage.setItem('seeded', '1');
       localStorage.setItem('wqt-academy-progress-v1', 'x');
     });
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('alert').filter({ hasText: 'nicht lesbar' })).toBeVisible();
     const axe = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])

@@ -40,7 +40,7 @@ async function openQuestion(page: Page) {
 
 test.describe('Bulle Bo', () => {
   test('alle Bilder sind vorhanden und laden', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/#/path');
     for (const mood of MOODS) {
       const status = await page.evaluate(async (name) => (await fetch(`./mascot/bull-${name}.svg`)).status, mood);
       expect(status, mood).toBe(200);

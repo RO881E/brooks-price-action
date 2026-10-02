@@ -7,7 +7,7 @@ test('loads every main view without JavaScript errors', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
 
-  await page.goto('/');
+  await page.goto('/#/path');
   await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
 
   const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
@@ -32,7 +32,7 @@ test('loads every main view without JavaScript errors', async ({ page }) => {
 });
 
 test('completes a lesson and persists progress', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/#/path');
   await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ }).click();
 
   await expect(page.getByRole('heading', { name: 'Nicht Kerzen auswendig lernen, sondern Entscheidungen lesen' })).toBeVisible();
@@ -151,7 +151,7 @@ test('is usable in a narrow mobile viewport', { tag: '@mobile' }, async ({ page 
     );
   }, completedLessonIds);
 
-  await page.goto('/');
+  await page.goto('/#/path');
   const mobileNavigation = page.getByRole('navigation', { name: 'Mobile Navigation' });
   await expect(mobileNavigation).toBeVisible();
   await mobileNavigation.getByRole('button', { name: 'Glossar' }).click();
@@ -205,7 +205,7 @@ test.describe('F-01 resume and stable URLs', () => {
   });
 
   test('continues a started lesson exactly after a restart', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('button', { name: /Nächste Lektion starten|Der Chart ist das Ergebnis starten/ })).toBeVisible();
     await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ }).click();
     await page.getByRole('button', { name: 'Weiter' }).click();
@@ -215,7 +215,7 @@ test.describe('F-01 resume and stable URLs', () => {
 
     // Neustart: ohne Hash erneut aufrufen.
     await page.goto('about:blank');
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByText('Begonnene Lektion').filter({ visible: true })).toBeVisible();
     await expect(
       page.getByRole('button', { name: 'Der Chart ist das Ergebnis: Begonnen · Schritt 3 von 5' }),
@@ -233,7 +233,7 @@ test.describe('F-01 resume and stable URLs', () => {
   });
 
   test('supports browser back and forward between views and lessons', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/#/path');
     const navigation = await mainNavigation(page);
 
     await navigation.getByRole('button', { name: 'Glossar' }).click();
@@ -270,9 +270,9 @@ test.describe('F-01 resume and stable URLs', () => {
       '#/lesson/%E0%A4%A',
     ]) {
       await page.goto(`/${hash}`);
-      await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
-      await expect(page.getByRole('status').filter({ hasText: 'zurück im Lernpfad' })).toBeVisible();
-      await expect(page).toHaveURL(/#\/path$/);
+      await expect(page.getByRole('heading', { name: 'Start', level: 1 })).toBeVisible();
+      await expect(page.getByRole('status').filter({ hasText: 'zurück auf der Startseite' })).toBeVisible();
+      await expect(page).toHaveURL(/#\/home$/);
     }
 
     expect(errors).toEqual([]);
@@ -295,7 +295,7 @@ test.describe('F-01 resume and stable URLs', () => {
       );
     }, firstLessonId);
 
-    await page.goto('/');
+    await page.goto('/#/path');
     await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Abgeschlossen/ }).click();
     await expect(
       page.getByRole('heading', { name: 'Nicht Kerzen auswendig lernen, sondern Entscheidungen lesen' }),
@@ -318,7 +318,7 @@ test.describe('F-01 resume and stable URLs', () => {
       localStorage.setItem('wqt-academy-progress-v1', '{"version":1,"completedLess');
     });
 
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     expect(
       await page.evaluate(() => localStorage.getItem('wqt-academy-progress-backup')),
@@ -334,7 +334,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
   const wrongAnswer = /Die Nachricht war positiv/;
 
   const openFirstQuestion = async (page: import('@playwright/test').Page) => {
-    await page.goto('/');
+    await page.goto('/#/path');
     await page.getByRole('button', { name: `${lessonTitle}: Jetzt lernen` }).click();
     for (let step = 0; step < 3; step += 1) {
       await page.getByRole('button', { name: 'Weiter' }).click();
@@ -551,7 +551,7 @@ test.describe('F-03 smart review queue', () => {
       answers: {},
     });
 
-    await page.goto('/');
+    await page.goto('/#/path');
     await openPractice(page);
     await expect(page.getByText(`${questions.length} Fragen sind heute dran.`)).toBeVisible();
     await page.getByRole('button', { name: 'Fällige Fragen üben' }).click();
@@ -726,7 +726,7 @@ test.describe('F-04 progress dashboard', () => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
 
-    await page.goto('/');
+    await page.goto('/#/path');
     await openProgress(page);
     await expect(page.getByText('Noch keine Lerndaten')).toBeVisible();
 
@@ -856,7 +856,7 @@ test.describe('F-05 daily goal, streak and milestones', () => {
 
   test('reaching the daily goal celebrates once and shows up in week and milestones', async ({ page }) => {
     await page.clock.setFixedTime(new Date(2026, 9, 7, 10, 0));
-    await page.goto('/');
+    await page.goto('/#/path');
 
     await completeFirstLesson(page);
     await expect(toast(page)).toBeVisible();
@@ -933,7 +933,7 @@ test.describe('F-05 daily goal, streak and milestones', () => {
   test('respects reduced motion for the celebration', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.clock.setFixedTime(new Date(2026, 9, 7, 10, 0));
-    await page.goto('/');
+    await page.goto('/#/path');
     await completeFirstLesson(page);
 
     await expect(toast(page)).toBeVisible();
@@ -957,7 +957,7 @@ test.describe('F-06 global search', () => {
   test('opens with the keyboard, navigates with arrows and closes with Escape', async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
 
     await page.keyboard.press('/');
@@ -1023,7 +1023,7 @@ test.describe('F-06 global search', () => {
   });
 
   test('opens glossary hits as a shareable deep link', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await page.keyboard.press('/');
     await input(page).fill('Candle');
@@ -1043,7 +1043,7 @@ test.describe('F-06 global search', () => {
   });
 
   test('shows locked lessons only as preview', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await page.keyboard.press('/');
     await input(page).fill('Institutionen');
@@ -1061,12 +1061,12 @@ test.describe('F-06 global search', () => {
     // Auch ein direkter Link umgeht die Freischaltung nicht.
     const lockedLesson = publishedLessons[1];
     await page.goto(`/#/lesson/${lockedLesson.id}?step=2`);
-    await expect(page).toHaveURL(/#\/path$/);
+    await expect(page).toHaveURL(/#\/home$/);
   });
 
   test('works from the mobile top bar without overflow', { tag: '@mobile' }, async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 780 });
-    await page.goto('/');
+    await page.goto('/#/path');
     await page.getByRole('button', { name: 'Suchen', exact: true }).click();
     await expect(input(page)).toBeFocused();
     await input(page).fill('doji');
@@ -1309,7 +1309,7 @@ test.describe('F-08 backup, import and settings', () => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await seed(page, richRecord);
-    await page.goto('/');
+    await page.goto('/#/path');
     await openSettings(page);
     await page.getByRole('checkbox', { name: /Kompakte Darstellung/ }).check();
     const before = await rawAcademy(page);

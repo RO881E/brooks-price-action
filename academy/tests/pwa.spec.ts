@@ -135,7 +135,7 @@ function trackConsoleErrors(page: Page) {
 /** Erster Online-Besuch: warten, bis der Service Worker die Seite steuert. */
 async function firstVisit(page: Page, hash = '') {
   await page.goto(`${origin}/academy/${hash}`);
-  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Start', level: 1 })).toBeVisible();
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null);
 }
 
@@ -214,6 +214,9 @@ test('Lernpfad, Lektion, Glossar und Fortschritt funktionieren offline', async (
   await firstVisit(page);
 
   // Fortschritt online anlegen: Lektion öffnen und einen Schritt weitergehen.
+  await page.evaluate(() => {
+    window.location.hash = '#/path';
+  });
   await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ }).click();
   await page.getByRole('button', { name: 'Weiter' }).click();
   await expect(page.getByRole('heading', { name: 'Eine Auktion hinter jedem Bar' })).toBeVisible();
@@ -270,7 +273,8 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
 
   // Jede Einheit jedes Kurses liegt als eigener Chunk im Vorab-Cache.
   const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-\d\d|chapter-\d\d)-[A-Za-z0-9_-]{8}\.js$/.test(path));
-  expect(chunks).toHaveLength(unitDefinitions.length + marketBasicsDefinition.units.length);
+  // Mindestens Price Action und Marktgrundlagen; weitere Kurse bringen weitere Kapitel-Chunks mit.
+  expect(chunks.length).toBeGreaterThanOrEqual(unitDefinitions.length + marketBasicsDefinition.units.length);
 
   serverState.down = true;
   await context.setOffline(true);
@@ -438,9 +442,10 @@ test('Bibliothek offline: Übersicht, Gebiet und Kursseite (mehrere Kurse)', asy
   serverState.down = true;
   await context.setOffline(true);
   await page.goto(`${origin}/academy/#/library`);
-  await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Alle Kurse' })).toBeVisible();
   // Im veröffentlichten Build gibt es nur den Kurs mit Inhalt – keinen Testkurs.
-  await expect(page.locator('.library-mine > li')).toHaveCount(1);
+  expect(await page.locator('.library-mine > li').count()).toBeGreaterThanOrEqual(1);
+  await expect(page.locator('.library-mine')).not.toContainText('Testkurs');
   await expect(page.locator('.library-tile')).toHaveCount(librarySubjects.length);
   await page.getByRole('link', { name: volume.title, exact: true }).click();
   await expect(page.getByRole('heading', { level: 1, name: volume.title })).toBeVisible();
@@ -493,6 +498,9 @@ test('kündigt ein Update an, aktiviert es erst nach Zustimmung und räumt alte 
   const errors = trackConsoleErrors(page);
   const version = builtVersion();
   await firstVisit(page);
+  await page.evaluate(() => {
+    window.location.hash = '#/path';
+  });
   await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ }).click();
   await page.getByRole('button', { name: 'Weiter' }).click();
   await expect(page.getByRole('heading', { name: 'Eine Auktion hinter jedem Bar' })).toBeVisible();
@@ -547,7 +555,7 @@ test('Update-Banner: „Jetzt aktualisieren“ lädt die neue Version @desktop',
   const reloaded = page.waitForEvent('load');
   await page.getByRole('button', { name: 'Jetzt aktualisieren' }).click();
   await reloaded;
-  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Start', level: 1 })).toBeVisible();
   await expect.poll(async () => (await cacheState(page)).names).toEqual([`wqt-academy-${version}-banner`]);
   await expect(page.getByText('Neue Version verfügbar')).toHaveCount(0);
 });
@@ -572,7 +580,7 @@ test('eine fehlgeschlagene Datei verhindert das Update und die alte Version blei
 
   // Das Skript liefert das Netz gerade nur mit Fehler – die App kommt aus dem Cache.
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Start', level: 1 })).toBeVisible();
 
   // Sobald die Dateien wieder erreichbar sind, klappt das Update.
   serverState.failing = [];

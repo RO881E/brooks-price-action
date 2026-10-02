@@ -70,7 +70,7 @@ test.describe('P06 Orientierung', () => {
 
   test('Etappen: Status als Text, gesperrte Teile ohne Zugang', async ({ page }) => {
     await seed(page, []);
-    await page.goto('/');
+    await page.goto('/#/path');
     const stations = page.locator('.unit-section');
     await expect(stations.first().locator('.station-chip')).toContainText('Hier geht es weiter');
     await expect(stations.nth(2).locator('.station-chip')).toContainText('Noch gesperrt');
@@ -124,7 +124,7 @@ test.describe('P06 Orientierung', () => {
     await seed(page, published.slice(0, 3).map((lesson) => lesson.id));
     await page.goto('/');
     const nav = page.getByRole('navigation', { name: isMobile ? 'Mobile Navigation' : 'Hauptnavigation' });
-    for (const label of ['Lernpfad', 'Üben', 'Fortschritt', 'Glossar']) {
+    for (const label of ['Start', 'Lernpfad', 'Üben', 'Fortschritt', 'Glossar']) {
       const button = nav.getByRole('button', { name: label });
       await expect(button).toBeVisible();
       const box = (await button.boundingBox())!;

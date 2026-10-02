@@ -155,13 +155,13 @@ test.describe('Mehrere Kurse', () => {
     await expect(page.getByRole('heading', { name: testOne.steps[0].title })).toBeVisible();
     // Die zweite Lektion des Testkurses ist dort noch gesperrt: zurück zum Lernpfad mit Hinweis.
     await page.goto(`/#/lesson/${testTwo.id}`);
-    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Start' })).toBeVisible();
     await expect(notice(page)).toContainText('führt zu keiner verfügbaren Ansicht');
   });
 
   test('ein Kurs ohne Inhalt in dieser Version: Standardkurs, gespeicherte Wahl bleibt', async ({ page }) => {
     await seed(page, { ...paStarted, activeCourseId: 'kurs-aus-spaeterer-version' });
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
     expect((await stored(page)).activeCourseId).toBe('kurs-aus-spaeterer-version');
   });

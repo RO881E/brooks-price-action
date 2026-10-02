@@ -31,7 +31,7 @@ const axe = async (page: Page, include: string) => {
 test.describe('Lernpfad als Wanderweg', () => {
   test('Neuer Stand: erste Lektion ist Station „Jetzt lernen“ mit Bulle, alle weiteren gesperrt', async ({ page }) => {
     await seed(page, []);
-    await page.goto('/#/');
+    await page.goto('/#/path');
     const road = page.locator('.learning-road');
     await expect(road).toBeVisible();
     await expect(page.locator('.lesson-node-row.next')).toHaveCount(1);
@@ -47,7 +47,7 @@ test.describe('Lernpfad als Wanderweg', () => {
 
   test('Fortschritt: Abgeschlossenes trägt Häkchen, Kapitel-Medaille zeigt Ring und Stern', async ({ page }) => {
     await seed(page, firstUnit.map((lesson) => lesson.id));
-    await page.goto('/#/');
+    await page.goto('/#/path');
     await page.getByRole('button', { name: 'Alle öffnen' }).click();
     const firstDone = page.locator('.lesson-node.complete').first();
     await expect(firstDone.locator('.node-copy small')).toHaveText('Abgeschlossen');
@@ -63,7 +63,7 @@ test.describe('Lernpfad als Wanderweg', () => {
 
   test('Öffnen per Klick und Tastatur; Reihenfolge der Stationen bleibt die Kapitelreihenfolge', async ({ page }) => {
     await seed(page, []);
-    await page.goto('/#/');
+    await page.goto('/#/path');
     await page.getByRole('button', { name: 'Alle öffnen' }).click();
     const titles = await page.locator('.lesson-node .node-copy strong').allTextContents();
     const expected = priceActionTrendsCourse.units.flatMap((unit) => unit.lessons).map((lesson) => lesson.title);
@@ -76,7 +76,7 @@ test.describe('Lernpfad als Wanderweg', () => {
 
   test('Kein Überlauf, axe ohne Befund (Weg, Navigation, Kopfzeilen)', async ({ page }) => {
     await seed(page, firstUnit.map((lesson) => lesson.id));
-    await page.goto('/#/');
+    await page.goto('/#/path');
     await expect(page.locator('.learning-road')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
     await axe(page, '.learning-road');
@@ -85,9 +85,9 @@ test.describe('Lernpfad als Wanderweg', () => {
 
   test('Navigation nutzt einheitliche Icons statt Zeichen und behält Namen und aktiven Ort', async ({ page, isMobile }) => {
     await seed(page, []);
-    await page.goto('/#/');
+    await page.goto('/#/path');
     const nav = page.getByRole('navigation', { name: isMobile ? 'Mobile Navigation' : 'Hauptnavigation' });
-    for (const name of ['Lernpfad', 'Üben', 'Fortschritt', 'Glossar']) {
+    for (const name of ['Start', 'Lernpfad', 'Üben', 'Fortschritt', 'Glossar']) {
       const button = nav.getByRole('button', { name, exact: true });
       await expect(button.locator('svg.icon').first()).toBeAttached();
     }
@@ -106,7 +106,7 @@ test.describe('Lernpfad als Wanderweg', () => {
   test('Reduzierte Bewegung: keine Puls- und Hüpf-Animation', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await seed(page, []);
-    await page.goto('/#/');
+    await page.goto('/#/path');
     const icon = page.locator('.lesson-node.available .node-icon').first();
     await expect(icon).toBeVisible();
     expect(await icon.evaluate((el) => getComputedStyle(el).animationName)).toBe('none');
@@ -117,7 +117,7 @@ test.describe('Lernpfad als Wanderweg', () => {
 test.describe('Aufklappbare Kapitel', () => {
   test('nur das Kapitel mit dem nächsten Schritt ist offen; die übrigen zeigen nur den Kopf', async ({ page }) => {
     await seed(page, firstUnit.map((lesson) => lesson.id));
-    await page.goto('/#/');
+    await page.goto('/#/path');
     const units = page.locator('.unit-section');
     await expect(units).toHaveCount(priceActionTrendsCourse.units.length);
     // Nach der ersten Einheit ist die zweite die aktuelle: genau sie ist offen.
@@ -131,7 +131,7 @@ test.describe('Aufklappbare Kapitel', () => {
 
   test('Klick auf die Kopfzeile und Tastatur (Enter/Leertaste) klappen auf und zu', async ({ page }) => {
     await seed(page, []);
-    await page.goto('/#/');
+    await page.goto('/#/path');
     const second = page.locator('.unit-section').nth(1);
     const toggle = second.getByRole('button', { name: priceActionTrendsCourse.units[1].title });
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
@@ -148,7 +148,7 @@ test.describe('Aufklappbare Kapitel', () => {
 
   test('„Alle öffnen“ und „Alle schließen“; Zustand bleibt nach einer Lektion und zurück erhalten', async ({ page }) => {
     await seed(page, []);
-    await page.goto('/#/');
+    await page.goto('/#/path');
     await page.getByRole('button', { name: 'Alle öffnen' }).click();
     await expect(page.locator('.unit-section[data-open="true"]')).toHaveCount(priceActionTrendsCourse.units.length);
     await page.getByRole('button', { name: 'Alle schließen' }).click();
@@ -166,7 +166,7 @@ test.describe('Aufklappbare Kapitel', () => {
 
   test('gesperrte Kapitel lassen sich ansehen, ihre Lektionen bleiben gesperrt; axe und 360 px', async ({ page }) => {
     await seed(page, []);
-    await page.goto('/#/');
+    await page.goto('/#/path');
     const locked = page.locator('.unit-section[data-station="locked"]').first();
     await locked.getByRole('button', { name: /./ , expanded: false }).click();
     await expect(locked.locator('.lesson-node').first()).toBeDisabled();

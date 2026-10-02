@@ -41,7 +41,8 @@ const overflow = (page: Page) => page.evaluate(() => document.documentElement.sc
 const attr = (page: Page) => page.evaluate(() => document.documentElement.getAttribute('data-theme'));
 
 const VIEWS: Array<[string, string]> = [
-  ['Lernpfad', '/#/'],
+  ['Start', '/#/'],
+  ['Lernpfad', '/#/path'],
   ['Üben', '/#/practice'],
   ['Kurzlernen', '/#/study/20'],
   ['Trainer', `/#/train/${caseA.id}`],
@@ -49,7 +50,7 @@ const VIEWS: Array<[string, string]> = [
   ['Fortschritt', '/#/progress'],
   ['Gespeichert', '/#/saved'],
   ['Glossar', '/#/glossary'],
-  ['Bibliothek', '/#/library'],
+  ['Alle Kurse', '/#/library'],
   ['Themengebiet', '/#/library/volume'],
   ['Kursseite', '/#/course/price-action-trends'],
   ['Einstellungen', '/#/settings'],

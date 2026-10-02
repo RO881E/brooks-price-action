@@ -109,7 +109,7 @@ export function LibraryView({
 
   return (
     <section className="library-view" aria-labelledby={`${ids}-title`}>
-      <h1 id={`${ids}-title`}>Bibliothek</h1>
+      <h1 id={`${ids}-title`}>Alle Kurse</h1>
       <p className="library-intro">
         Hier stehen alle Themen, die du lernen kannst: {counts.subjects} Themengebiete mit {counts.courses} Kursen. Kurse
         mit Inhalt kannst du starten und jederzeit wechseln – jeder behält seinen eigenen Stand. Alles andere ist
@@ -181,11 +181,11 @@ function NotFound({ title, text, onNavigate }: { title: string; text: string; on
   const ids = useId();
   return (
     <section className="library-view" aria-labelledby={`${ids}-title`}>
-      <Crumbs trail={[{ label: 'Bibliothek', route: LIBRARY_ROUTE }, { label: title }]} onNavigate={onNavigate} />
+      <Crumbs trail={[{ label: 'Alle Kurse', route: LIBRARY_ROUTE }, { label: title }]} onNavigate={onNavigate} />
       <h1 id={`${ids}-title`}>{title}</h1>
       <p className="library-intro">{text}</p>
       <PageLink route={LIBRARY_ROUTE} onNavigate={onNavigate} className="secondary-button library-back">
-        Zur Bibliothek
+        Zu allen Kursen
       </PageLink>
     </section>
   );
@@ -214,7 +214,7 @@ export function SubjectPage({
     return (
       <NotFound
         title="Themengebiet nicht gefunden"
-        text="Dieses Themengebiet gibt es in der Bibliothek nicht. Vielleicht ist der Link veraltet."
+        text="Dieses Themengebiet gibt es unter „Alle Kurse“ nicht. Vielleicht ist der Link veraltet."
         onNavigate={onNavigate}
       />
     );
@@ -222,7 +222,7 @@ export function SubjectPage({
 
   return (
     <section className="library-view" aria-labelledby={`${ids}-title`}>
-      <Crumbs trail={[{ label: 'Bibliothek', route: LIBRARY_ROUTE }, { label: subject.title }]} onNavigate={onNavigate} />
+      <Crumbs trail={[{ label: 'Alle Kurse', route: LIBRARY_ROUTE }, { label: subject.title }]} onNavigate={onNavigate} />
       <h1 id={`${ids}-title`}>{subject.title}</h1>
       <p className="library-intro">{subject.description}</p>
       <p className="library-exercises">
@@ -277,7 +277,7 @@ export function CoursePage({
     return (
       <NotFound
         title="Kurs nicht gefunden"
-        text="Diesen Kurs gibt es in der Bibliothek nicht. Vielleicht ist der Link veraltet."
+        text="Diesen Kurs gibt es unter „Alle Kurse“ nicht. Vielleicht ist der Link veraltet."
         onNavigate={onNavigate}
       />
     );
@@ -292,7 +292,7 @@ export function CoursePage({
     <section className="library-view library-course-page" aria-labelledby={`${ids}-title`}>
       <Crumbs
         trail={[
-          { label: 'Bibliothek', route: LIBRARY_ROUTE },
+          { label: 'Alle Kurse', route: LIBRARY_ROUTE },
           { label: subject.title, route: { kind: 'subject', subjectId: subject.id } },
           { label: entry.title },
         ]}

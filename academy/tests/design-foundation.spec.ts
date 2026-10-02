@@ -26,7 +26,8 @@ async function seed(page: Page) {
 }
 
 const VIEWS: Array<{ hash: string; mode: string; heading: RegExp | string }> = [
-  { hash: '/#/', mode: 'read', heading: /Price Action: Trends/ },
+  { hash: '/#/', mode: 'neutral', heading: /Start/ },
+  { hash: '/#/path', mode: 'read', heading: /Price Action: Trends/ },
   { hash: '/#/practice', mode: 'practice', heading: 'Analyse-Training' },
   { hash: '/#/progress', mode: 'progress', heading: 'Fortschritt' },
   { hash: '/#/glossary', mode: 'read', heading: 'Price-Action-Glossar' },

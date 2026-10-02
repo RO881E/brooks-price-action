@@ -555,6 +555,14 @@ Der Chart-Trainer hat große Entscheidungs-Kacheln, animierte neue Bars und eine
 es zwei freiwillige Spiele ohne Einfluss auf den Lernstand: Begriffe-Memory (Begriff ↔ Beschreibung aus dem Glossar) und die
 Blitzrunde (mit oder ohne Zeit, mit Pause). Details: [`docs/DESIGN_STUFE4.md`](docs/DESIGN_STUFE4.md).
 
+## Startseite, Level oben und „Alle Kurse“
+
+- **Start** (`#/` oder `#/home`) ist die Einstiegsseite mit kompaktem Überblick: der nächste Schritt,
+  die Lektion für heute und die fälligen Lernkarten (mit Anzahl bzw. nächstem Termin), dazu Kurz
+  lernen und die Woche. Der **Lernpfad** (`#/path`) zeigt nur noch den Kurs.
+- **Level und XP** stehen immer oben in der Kopfzeile (Klick öffnet den Fortschritt).
+- Die frühere „Bibliothek“ heißt **Alle Kurse** (Adresse `#/library` bleibt).
+
 ## Bibliothek: alle Themen auf eigenen Seiten
 
 „Bibliothek“ (im Menü und über „Alle Themen ansehen“) besteht aus drei Seiten: der Übersicht (`#/library`) mit
