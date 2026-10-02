@@ -11,7 +11,7 @@ abgeschlossene andere Kurse; Sprache nach MARKTGRUNDLAGEN_SPRACHE.md.
 | 4 | Range-Bars und Renko | 24 Lektionen verfügbar |
 | 5 | Heikin-Ashi und berechnete Preise | 24 Lektionen verfügbar |
 | 6 | Point & Figure und regelbasierte Verdichtung | 24 Lektionen verfügbar |
-| 7 | Zeitebenen und gemeinsame Daten | Geplant |
+| 7 | Zeitebenen und gemeinsame Daten | 24 Lektionen verfügbar |
 | 8 | Lineare und logarithmische Skalen | Geplant |
 | 9 | Datenquellen, Bereinigungen und fortlaufende Kontrakte | Geplant |
 | 10 | Einen Chartbericht selbst prüfen | Geplant |
@@ -311,3 +311,73 @@ linearer Preisabbildung, X/O statt reiner Farbcodierung und bestehendem
 Fokus-/Zoomrahmen. Eigene lazy geladene Grafiken unter bestehendem Budget.
 24 neue Lektionen, zwölf Glossarbegriffe; Kurs gesamt136/68.
 Vorhandene IDs und Fortschrittsschlüssel bleiben erhalten.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 7
+
+Bereitgestellte Murphy-EPUB: Kapitel3, Construction of the Daily Bar Chart
+und Weekly and Monthly Bar Charts; Kapitel8, Long Term to Short Term Charts
+geprüft. Fachlicher Hintergrund: zeitliche OHLC-Zusammenfassung und Wechsel
+zwischen gröberen und feineren Ansichten. Keine empfohlenen Handelsregeln,
+Prognosebehauptungen, Buchbeispiele oder Formulierungen übernommen.
+
+Primärdokumentation ergänzend geprüft am2026-10-02:
+- https://www.tradingview.com/charting-library-docs/latest/connecting_data/time-and-sessions/Trading-Sessions/
+- https://static.ninjatrader.com/support/helpGuides/nt8/how_bars_are_built.htm
+- https://static.ninjatrader.com/support/helpGuides/nt8/bar_types.htm
+
+Hintergrund: Sitzungen und Fensterausrichtung beeinflussen Gruppengrenzen;
+Anfangs- und Endzeitlabels unterscheiden sich je nach Programm; Datenquellen
+können abweichen. Tagesschluss kann je nach Quelle Abrechnungswert sein.
+Keine Plattformkonfiguration oder vollständige Kalenderimplementierung zugesagt.
+Alle Lerntexte, Vergleichsfelder, Fragen, Daten und Grafiken eigenständig.
+
+Neuer unabhängiger Riva-Datensatz: id/Sekunde seit09:00/Cent je Aktie/Aktien:
+1/5/3000/2;2/20/3020/1;3/50/3010/3;4/60/3010/1;5/85/2990/2;6/110/3030/2;
+7/125/3040/3;8/150/3050/1;9/175/3020/4;10/180/3010/1;11/200/2980/1;12/235/3000/2;
+13/245/3000/2;14/275/3060/3;15/295/3040/2;16/300/3030/1;17/330/3020/2;18/355/3070/3.
+HauptaufnahmeSekunde360=09:06. 18Meldungen/36Aktien. Fenster[start,end),
+Anker09:00, keine Sitzungsgrenze, gehandelte Preise und erklärte vollständige
+Übungsliste. Kein realer Börsenkalender oder Zeitzonenwechsel behauptet.
+
+Ein-Minuten-O/H/L/C/Menge inCent undAktien:
+3000/3020/3000/3010/6;3010/3030/2990/3030/5;3040/3050/3020/3020/8;
+3010/3010/2980/3000/4;3000/3060/3000/3040/7;3030/3070/3020/3070/6.
+Drei-Minuten-GruppenG1–9 undG10–18:
+3000/3050/2990/3020/19;3010/3070/2980/3070/17.
+Sechs-Minuten-G1–18:3000/3070/2980/3070/36.
+OHLC-Aggregation:erstesO,maxH,minL,letztesC; Menge addieren.
+Direkte Geschäftsdaten und ausgerichtete Teilbars ergeben identische Werte.
+Minute3 Körper−20Cent, erstesDrei-Minuten-Fenster Körper+20Cent;
+Minute6 Körper+40Cent, Schlussänderung zum vorigenC+30Cent.
+Drei Ansichten enthalten denselben Umfang, keine108Aktien oder unabhängigen
+neun Handelsereignisse. Sechs+zwei+eine sind lediglich sichtbare Kerzenzahlen.
+
+Getrennte Ausrichtung09:01–09:04:Minuten2–4,
+3010/3050/2980/3000/17. Ein Zwei-Minuten-Bar09:02–09:04 schneidet die
+Drei-Minuten-Zielgrenze; Reaggregation ohne feinere Daten wird abgewiesen.
+Leere Fenster erhalten keine erfundenen Bars. Zeitlich beendet bedeutet im
+Modell nicht zugesicherte Datenabdeckung; entfernte Meldungen können Menge
+und Extreme unvollständig machen. Fehlende Daten nicht als Handelsruhe lesen.
+
+Frühere Aufnahme275=09:04:35 enthält nurG1–14 und28Aktien.
+ErsterDrei-Minuten-Bar abgeschlossen;zweiter offen:
+3010/3060/2980/aktuellerLetzter3060/9. Sechs-Minuten-Bar noch offen,
+3000/3060/2980/aktuellerLetzter3060/28. Endhoch3070 erst später bekannt.
+Minute5 offen;Minuten1–4 zeitlich beendet. G14 am Aufnahmezeitpunkt enthalten.
+BeiSekunde175 ersterDrei-Minuten-Bar noch offen;bei180 beendet, G10 gehört
+bereits zum neuen Fenster. Zusätzliches Testgeschäft bei360 eröffnet neues
+Minutenfenster[360,420), ohne die abgeschlossenen sechs Minuten zu verändern.
+
+Weitere getrennte Folgen3000,3070,2980,3070 und3000,2980,3070,3070 haben
+identischesOHLC, aber andere Zwischenfolge. Keine behauptete Rekonstruktion
+oder Volumenangabe für diese Varianten.30 nominelle1-Minuten-Fenster30Minuten,
+30 nominelle3-Minuten-Fenster90Minuten nur ohne Lücken/Handelspausen.
+Kalendermonate nicht automatisch vier Wochen; passende Sitzung/Quelle nötig.
+
+Drei eigene SVGs für Minuten, Drei-Minuten-Aggregation und frühen Zwischenstand.
+Gleiche lineare Preis- und Zeitabbildung, Zeitfenster durch Achse und Labels,
+Körperrichtungen durch Textpfeile, laufender Status textlich und gestrichelt.
+Aktueller letzter Preis ausdrücklich kein endgültiger Schluss. Beschreibungen
+und Fokus-/Zoomrahmen erhalten, eigenes lazy geladenes Grafikmodul.
+24 neue Lektionen, zwölf Glossarbegriffe; Kurs gesamt160/80.
+Bestehende IDs, Fortschrittsschlüssel und Größenbudgets erhalten.

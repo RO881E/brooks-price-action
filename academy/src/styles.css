@@ -3656,6 +3656,7 @@ button:disabled {
     font-size: 15px;
   }
 
+  .learning-chart .reading-timeframes .chart-small,
   .learning-chart .reading-pf .chart-small,
   .learning-chart .reading-ha .chart-small,
   .learning-chart .reading-price-steps .chart-small,
