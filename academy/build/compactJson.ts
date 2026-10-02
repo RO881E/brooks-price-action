@@ -13,13 +13,32 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
   count(normalized);
   const strings = [...counts].filter(([text, times]) => (text.length > 12 && times >= 3) || (text.length > 24 && times >= 2)).map(([text]) => text);
   const stringIndices = new Map(strings.map((text, index) => [text, index]));
+  // Stable numbered IDs share long prefixes even when the full IDs are unique.
+  // Intern those prefixes in the existing dictionary, preserving the exact suffix.
+  const prefixCounts = new Map<string, number>();
+  for (const [text, times] of counts) {
+    const match = text.match(/^(.+[.-])(\d{2,})$/);
+    if (match && match[1].length > 24 && !stringIndices.has(text)) {
+      prefixCounts.set(match[1], (prefixCounts.get(match[1]) ?? 0) + times);
+    }
+  }
+  const prefixIndices = new Map<string, number>();
+  for (const [prefix, times] of prefixCounts) {
+    if (times < 8) continue;
+    let index = stringIndices.get(prefix);
+    if (index === undefined) { index = strings.length; strings.push(prefix); }
+    prefixIndices.set(prefix, index);
+  }
   const keys: string[] = [];
   const indices = new Map<string, string>();
   const pack = (value: JsonValue): JsonValue => {
     if (typeof value === 'string') {
       const index = stringIndices.get(value);
       // Packed source objects have numeric keys only, so this marker cannot collide.
-      return index === undefined ? value : { $: index };
+      if (index !== undefined) return { $: index };
+      const match = value.match(/^(.+[.-])(\d{2,})$/);
+      const prefixIndex = match ? prefixIndices.get(match[1]) : undefined;
+      return prefixIndex === undefined ? value : { $: [prefixIndex, match![2]] };
     }
     if (Array.isArray(value)) return value.map(pack);
     if (value === null || typeof value !== 'object') return value;
@@ -41,9 +60,16 @@ export function unpackJson(value: JsonValue, keys: readonly string[], strings: r
   if (Array.isArray(value)) return value.map((child) => unpackJson(child, keys, strings));
   if (value === null || typeof value !== 'object') return value;
   if (Object.hasOwn(value, '$')) {
-    const index = value.$;
+    const reference = value.$;
+    const index = Array.isArray(reference) ? reference[0] : reference;
     if (typeof index !== 'number' || !Number.isInteger(index) || strings[index] === undefined) {
       throw new Error('Invalid compact JSON string');
+    }
+    if (Array.isArray(reference)) {
+      if (reference.length !== 2 || typeof reference[1] !== 'string') {
+        throw new Error('Invalid compact JSON suffix');
+      }
+      return strings[index] + reference[1];
     }
     return strings[index];
   }

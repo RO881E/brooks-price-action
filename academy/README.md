@@ -6,7 +6,7 @@ Einzeldatei-Website wurde entfernt; die App liegt auf der Startseite der veröff
 ## Veröffentlichtes Buchmaterial
 
 Die Academy bietet eine separate Begriffsreferenz. Der lineare Lernpfad enthält
-die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 23 von
+die Einleitung, die Einführung zu Teil I und die Kapitel 1 bis 24 von
 *Trading Price Action Trends*. Kapitel 5 enthält 25 Mikro-Lektionen zu
 Reversal-Bars und den Chartfällen 5.1 bis 5.3. Kapitel 6 ergänzt 40 Lektionen
 zu weiteren Signal-Bars und allen 19 Chartfällen 6.1 bis 6.19. Kapitel 7 ergänzt
@@ -48,6 +48,8 @@ Kapitel 21 ergänzt 60 Mikro-Lektionen zu Impuls und Kanal: Phasenwechsel, Start
 Kapitel 22 ergänzt 48 Mikro-Lektionen zu Trendtagen aus mehreren Ranges: Anfangsbreite, Ausbruchsqualität, Zielprojektionen, Rücktests, Range-Management und späte Umkehr. Zehn Lernfälle nutzen eigene OHLC-Diagramme mit Rangezonen und echter Tagesaggregation; Breiten- und Risikorechnungen werden von gemessenen Trefferquoten und garantierten Ausführungen getrennt.
 
 Kapitel 23 ergänzt 40 Mikro-Lektionen zu Trends ab Eröffnung und kleinen Rücksetzern. Elf Lernfälle zeigen wechselnde frühe Hypothesen, Gap-Kontext, schwach aussehende Signalbars, größere Korrekturen und Stopführung. Eigene OHLC-Diagramme trennen Signal und Auslösung, berechnen den SMA 20 aus Schlusskursen und zeigen Positionsumkehr als Netto-Rechnung.
+
+Kapitel 24 ergänzt 24 Mikro-Lektionen zu Umkehrtagen: neue Gegenkontrolle, wachsende Rücksetzer, Rangeausbrüche, Klimax und Schutzführung. Drei Lernfälle nutzen eigene OHLC-Diagramme, einen berechneten SMA 20, eine exakte Tagesaggregation und 3-/5-Minuten-Bars aus derselben Minutenfolge. Frühe Annahme, Signalabschluss und spätere Auslösung bleiben getrennt.
 
 ## Was der Pilot bereits kann
 

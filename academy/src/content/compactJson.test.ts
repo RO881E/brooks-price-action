@@ -42,6 +42,20 @@ describe('compact course outline wire format', () => {
     expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(input).length);
   });
 
+  it('preserves numbered IDs and source marker keys while sharing long prefixes', () => {
+    const prefix = 'price-action-trends.chapter-24.lesson-';
+    const ids = Array.from({ length: 24 }, (_, i) => prefix + String(i + 1).padStart(2, '0'));
+    const input = { ids, '$': [0, 'source suffix'], '0': ids[0] };
+    const packed = packJson(input);
+    expect(packed.strings).toContain(prefix);
+    expect(JSON.stringify(packed).length).toBeLessThan(JSON.stringify(input).length);
+    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
+    expect(() => unpackJson({ $: [0, 2] }, [], [prefix])).toThrow('Invalid compact JSON suffix');
+    expect(() => unpackJson({ $: [0, '01', 'extra'] }, [], [prefix])).toThrow('Invalid compact JSON suffix');
+    expect(() => unpackJson({ $: [-1, '01'] }, [], [prefix])).toThrow('Invalid compact JSON string');
+  });
+
   it('rejects invalid string references instead of silently losing text', () => {
     expect(() => unpackJson({ $: 2 }, [], ['only zero'])).toThrow('Invalid compact JSON string');
     expect(() => unpackJson({ $: -1 }, [], ['only zero'])).toThrow('Invalid compact JSON string');

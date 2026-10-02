@@ -1,3 +1,4 @@
+import { ChapterTwentyFourChart, chapterTwentyFourDescriptions } from './ChapterTwentyFourCharts';
 import { ChapterTwentyThreeChart, chapterTwentyThreeDescriptions } from './ChapterTwentyThreeCharts';
 import { ChapterTwentyTwoChart, chapterTwentyTwoDescriptions } from './ChapterTwentyTwoCharts';
 import { ChapterTwentyOneChart, chapterTwentyOneDescriptions } from './ChapterTwentyOneCharts';
@@ -273,6 +274,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
   ...chapterTwentyOneDescriptions,
   ...chapterTwentyTwoDescriptions,
   ...chapterTwentyThreeDescriptions,
+  ...chapterTwentyFourDescriptions,
 };
 
 function yScale(value: number, min: number, max: number): number {
@@ -1548,6 +1550,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
         <ChapterTwentyOneChart scenario={scenario} />
         <ChapterTwentyTwoChart scenario={scenario} />
         <ChapterTwentyThreeChart scenario={scenario} />
+        <ChapterTwentyFourChart scenario={scenario} />
       </svg>
     </div>
   );
