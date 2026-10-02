@@ -269,5 +269,71 @@ export const ordersGlossary: GlossaryEntry[] = [
     "definition": "Das System, das eine bedingte Anweisung hält und ihre Auslösung prüft. Sein Verhalten bei Verbindungsproblemen muss bekannt sein.",
     "aliases": [],
     "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Tagesorder",
+    "definition": "Ein Auftrag bis zur festgelegten Tages- oder Sessiongrenze. Bereits ausgeführte Mengen werden durch den Ablauf nicht rückgängig gemacht.",
+    "aliases": [
+      "DAY"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "GTC",
+    "definition": "Good Til Canceled: ein Auftrag, der über die aktuelle Session hinaus bestehen kann. Anbieterbedingungen können Höchstdauer und Löschereignisse festlegen.",
+    "aliases": [
+      "Bis auf Widerruf"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "GTD",
+    "definition": "Good Til Date: ein Auftrag bis zu einem festgelegten Termin. Datum, Uhrzeit und Zeitzone müssen eindeutig sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "IOC",
+    "definition": "Immediate or Cancel: sofort zulässige Menge handeln und den nicht ausgeführten Rest löschen. Teilausführungen sind möglich.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "FOK",
+    "definition": "Fill or Kill: die gesamte gewünschte Menge sofort innerhalb der Bedingungen handeln oder gar nichts ausführen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "AON",
+    "definition": "All or None: keine Teilausführung zulassen. Die Gültigkeit und erlaubte Wartezeit sind zusätzliche Bedingungen.",
+    "aliases": [
+      "Alles oder nichts"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Mindestmenge",
+    "definition": "Eine festgelegte untere Stückzahl für eine zulässige Ausführung. Es muss klar sein, für welche Verarbeitungsschritte die Bedingung gilt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Ablauf",
+    "definition": "Ein Auftrag oder sein offener Rest endet nach seiner Gültigkeitsregel. Bereits abgeschlossene Ausführungen bleiben bestehen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Mengenbilanz",
+    "definition": "Eine Rechnung, die Wunschmenge, ausgeführte, beendete und noch offene Menge eines Auftrags zusammenführt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Ausführungsphase",
+    "definition": "Ein zulässiger Zeitraum oder Marktabschnitt, in dem ein Auftrag tatsächlich handeln darf. Eine längere Gültigkeit erweitert ihn nicht automatisch.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
   }
 ];

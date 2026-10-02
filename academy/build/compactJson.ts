@@ -11,7 +11,8 @@ export function packJson(input: unknown): { keys: string[]; strings: string[]; v
     else if (value !== null && typeof value === 'object') Object.values(value).forEach(count);
   };
   count(normalized);
-  const strings = [...counts].filter(([text, times]) => (text.length > 12 && times >= 3) || (text.length > 16 && times >= 2)).map(([text]) => text);
+  // Repeated short step kinds and answer IDs also save space in growing outlines.
+  const strings = [...counts].filter(([text, times]) => (text.length > 4 && times >= 3) || (text.length > 12 && times >= 2)).map(([text]) => text);
   const stringIndices = new Map(strings.map((text, index) => [text, index]));
   // Numbered lesson and step IDs share prefixes even when full IDs are unique.
   // Intern those prefixes in the existing dictionary, preserving the exact suffix.

@@ -115,4 +115,14 @@ describe('compact course outline wire format', () => {
     expect(unpackJson({ '0': 'legacy' }, ['field'], [])).toEqual({ field: 'legacy' });
   });
 
+  it('shares repeated short step kinds and answer IDs while restoring literal markers', () => {
+    const row = { kind: 'question', answer: 'choice-0', next: 'recap', literal: '@0', short: 'kurz' };
+    const input = [row, row, row];
+    const packed = packJson(input);
+    expect(packed.strings).toEqual(expect.arrayContaining(['question', 'choice-0', 'recap']));
+    expect(packed.strings).not.toContain('kurz');
+    expect(unpackJson(packed.value, packed.keys, packed.strings)).toEqual(input);
+    expect(new Function(compactJsonModule(input).replace('export default ', 'return '))()).toEqual(input);
+  });
+
 });

@@ -36,7 +36,7 @@ describe('Stop and stop-limit: chapter four', () => {
     expect(await ordersDefinition.units[3].load()).toEqual(lessons);
     expect(lessons).toHaveLength(22);
     expect(course.units.slice(0, 4).flatMap((unit) => unit.lessons)).toHaveLength(86);
-    expect(ordersGlossary).toHaveLength(40);
+    expect(ordersGlossary.filter((entry) => ['Kapitel 1', 'Kapitel 2', 'Kapitel 3', 'Kapitel 4'].includes(entry.firstUnit ?? ''))).toHaveLength(40);
     const prior = course.units.slice(0, 3).flatMap((unit) => unit.lessons.map((lesson) => lesson.id));
     expect(prior).toHaveLength(64);
     const outline = toCourseOutline(course);

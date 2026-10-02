@@ -9,7 +9,7 @@ Die Sprachregeln aus MARKTGRUNDLAGEN_SPRACHE.md gelten auch hier.
 | 2 | Market-Orders und verfügbare Angebote | 22 Lektionen verfügbar |
 | 3 | Limit-Orders und Warteschlangen | 22 Lektionen verfügbar |
 | 4 | Stop- und Stop-Limit-Orders | 22 Lektionen verfügbar |
-| 5 | Gültigkeit und Mengenbedingungen | Geplant |
+| 5 | Gültigkeit und Mengenbedingungen | 22 Lektionen verfügbar |
 | 6 | Positionen schließen, OCO und Brackets | Geplant |
 | 7 | Trailing Stops und bedingte Aufträge | Geplant |
 | 8 | Slippage, Gebühren und Ausführungsqualität | Geplant |
@@ -158,3 +158,44 @@ Restregel: aktive Limits dürfen weiter ruhen. Ablauf 17 Uhr und Überwachung
 9–17 Uhr sind eigene Übungsbedingungen. Kein universeller Handelskalender,
 keine zugesicherte Plattformüberwachung. Manuelle Schließung löscht andere
 Aufträge nur nach ausdrücklich bestehender und bestätigter Verknüpfung.
+
+
+## Kapitel 5: Gültigkeit und Mengenbedingungen
+
+22 neue Lektionen, zehn Begriffe. Gesamt: 108 Lektionen, 50 Glossarbegriffe.
+Bereitgestellte Harris-PDF, Abschnitt 4.1–4.2, Druckseiten 4-1 bis 4-3:
+Preis-, Zeit- und Teilmengenbedingungen, offener Rest und Stornierungsrennen.
+Ergänzende Primärquellen geprüft 2026-10-02:
+- FINRA, Trading Terms: Time Parameters and Qualifiers on Stock Orders:
+  https://www.finra.org/investors/insights/time-parameters-qualifiers-stock-orders
+- Charles Schwab, Stock order types and conditions: An overview:
+  https://international.schwab.com/content/stock-order-types-and-conditions-overview
+
+Grundbegriffe: DAY befristet, GTC kann Höchstdauer haben, IOC Teilmenge sofort
+mit Restlöschung, FOK volle Menge sofort, AON volle Menge mit eigener Zeitregel.
+Mindestmengen und Ausführungswege benötigen genaue Zusatzregeln. Die konkrete
+Verfügbarkeit ist anbieter-/produktspezifisch. Quellen liefern keine aktuellen
+Zusagen für eine Futuresplattform. Alle Texte, Zahlen und Firmen eigenständig.
+Keine Buch-/Autorennamen in sichtbaren Lerntexten.
+
+Hauptbuch: Ask zwei 30,00, eins 30,10, zwei 30,20, fünf 30,40 Euro.
+Sechs kaufen mit Limit 30,20, DAY und erlaubten Teilmengen: fünf ausgeführt
+für 150,50 Euro, eine ruht und läuft bestätigt ab. Einmalige Kaufgebühr 0,50:
+151,00 Euro belastet. Mengenbilanz sechs = fünf ausgeführt + eins abgelaufen.
+Alternativen starten jeweils unabhängig neu: IOC fünf gekauft/eins gelöscht;
+FOK sechs verlangt null gekauft/sechs gelöscht; FOK fünf verlangt alle fünf
+für 150,50 gekauft; AON+DAY sechs verlangt zunächst null, wartet beim Anbieter,
+später ein neuer Ask 30,20 bei unverändert erhaltenen alten Angeboten:
+sechs gemeinsam für 180,70. Kein Zusammenzählen verschiedener Zeitbilder.
+
+Eigene Kalender: DAY Ende 17 Uhr, Session 9–17 Uhr Marktzeit. GTC maximal
+Ende der dritten Lernsession; GTD Mittwoch 15 Uhr, Grenzzeit nicht mehr gültig.
+Keine realen Anbieterhöchstdauern oder Börsenkalender behauptet. Gültigkeit
+ist keine automatische Nachtfreigabe und keine Positionsschließung.
+Separates Stornierungsrennen: letzte Aktie vor Verarbeitung zu 30,20 gekauft,
+sechs insgesamt für 180,70. Separate Erstschritt-Mindestmenge drei:
+fünf zunächst erlaubt, zwei nicht; nach erfülltem ersten Schritt darf im
+Tagesfall ein kleiner Einserrest noch handeln. Diese Regel nicht verallgemeinern.
+Einzelweg-FOK mit A drei/B drei darf im Modell nicht zusammenführen und kauft null.
+FOK darf im normalen Buchmodell mehrere zulässige Preisstufen nutzen.
+IOC/FOK während einer Pause im eigenen Modell abgelehnt, kein universeller Ablauf.
