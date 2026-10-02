@@ -101,11 +101,11 @@ test.describe('P11 Sichere Adressen', () => {
 
   test('unbekannte oder nicht freigegebene Ziele führen mit Hinweis zurück statt auf eine leere Seite', async ({ page }) => {
     await seed(page, published.slice(0, 2).map((lesson) => lesson.id));
-    await page.goto('/');
+    await page.goto('/#/path');
     const before = JSON.stringify((await stored(page)).completedLessonIds);
     for (const hash of bad) {
       await page.goto(hash);
-      await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'Start', level: 1 })).toBeVisible();
       await expect(page.getByText('Dieser Link führt zu keiner verfügbaren Ansicht oder Lektion.')).toBeVisible();
     }
     expect(JSON.stringify((await stored(page)).completedLessonIds)).toBe(before);

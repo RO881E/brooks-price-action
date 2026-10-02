@@ -81,6 +81,8 @@ describe('parseRoute', () => {
     expect(parseRoute('')).toEqual(DEFAULT_ROUTE);
     expect(parseRoute('#')).toEqual(DEFAULT_ROUTE);
     expect(parseRoute('#/')).toEqual(DEFAULT_ROUTE);
+    expect(DEFAULT_ROUTE).toEqual({ kind: 'view', view: 'home' });
+    expect(parseRoute('#/home')).toEqual({ kind: 'view', view: 'home' });
   });
 
   it('reads every main view', () => {

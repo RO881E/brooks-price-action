@@ -108,16 +108,57 @@ export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrai
         <div className="today-tile today-study" data-mode="practice">
           <StudyEntry onChoose={onStudy} />
         </div>
-        {/* Nur mit etwas Fälligem: „Heute ist nichts fällig.“ ist kein Angebot. */}
-        {plan.dueCount > 0 ? (
-          <article className="today-tile" data-mode="review" aria-labelledby={`${ids}-review`}>
-            <h3 id={`${ids}-review`}>Wiederholen</h3>
-            <p>{plan.dueCount === 1 ? '1 Frage ist heute fällig.' : `${plan.dueCount} Fragen sind heute fällig.`}</p>
-            <button type="button" className="secondary-button" onClick={onPractice}>
-              Zum Üben
+        {/* Überblick „Heute fällig“: die Lektion und die Lernkarten, jeweils mit eigenem Einstieg. */}
+        {plan.lesson ? (
+          <article className="today-tile" data-mode="read" aria-labelledby={`${ids}-lesson`}>
+            <h3 id={`${ids}-lesson`}>Lektion</h3>
+            <p>
+              <strong>{plan.lesson.lesson.title}</strong>
+              <br />
+              {plan.lesson.stepIndex !== null
+                ? `Begonnen – weiter bei Schritt ${plan.lesson.stepIndex + 1} von ${plan.lesson.lesson.steps.length}.`
+                : `${plan.lesson.lesson.durationMinutes} Min · ${plan.lesson.lesson.xp} XP`}
+            </p>
+            <button
+              type="button"
+              className="secondary-button"
+              aria-label={`Lektion öffnen: ${plan.lesson.lesson.title}`}
+              onClick={() => onLesson(plan.lesson!.lesson)}
+            >
+              {plan.lesson.stepIndex !== null ? 'Fortsetzen' : 'Öffnen'}
             </button>
           </article>
         ) : null}
+        <article className="today-tile" data-mode="review" aria-labelledby={`${ids}-cards`}>
+          <h3 id={`${ids}-cards`}>Lernkarten</h3>
+          {plan.dueCount > 0 || plan.runningRemaining !== null ? (
+            <>
+              <p>
+                {plan.runningRemaining !== null
+                  ? `Deine Runde läuft: noch ${plan.runningRemaining} ${plan.runningRemaining === 1 ? 'Karte' : 'Karten'}.`
+                  : plan.dueCount === 1
+                    ? '1 Karte ist heute fällig.'
+                    : `${plan.dueCount} Karten sind heute fällig.`}
+              </p>
+              <button type="button" className="secondary-button" onClick={onReview}>
+                {plan.runningRemaining !== null ? 'Runde fortsetzen' : 'Karten wiederholen'}
+              </button>
+              <button type="button" className="text-button" onClick={onPractice}>
+                Zum Üben
+              </button>
+            </>
+          ) : (
+            <>
+              <p>
+                Heute ist keine Karte fällig.
+                {plan.nextDueDay ? ` Die nächsten kommen am ${plan.nextDueDay.split('-').reverse().join('.')}.` : ''}
+              </p>
+              <button type="button" className="text-button" onClick={onPractice}>
+                Zum Üben
+              </button>
+            </>
+          )}
+        </article>
       </div>
     </section>
   );

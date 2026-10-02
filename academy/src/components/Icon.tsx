@@ -5,6 +5,7 @@
  */
 
 export type IconName =
+  | 'home'
   | 'path'
   | 'book'
   | 'library'
@@ -26,6 +27,12 @@ export type IconName =
   | 'chevron';
 
 const SHAPES: Record<IconName, React.ReactNode> = {
+  home: (
+    <>
+      <path d="M4 11.5 12 5l8 6.5" />
+      <path d="M6.5 10.5V19h11v-8.5M10 19v-5h4v5" />
+    </>
+  ),
   path: (
     <>
       <path d="M5 19c5 0 2.5-6 7-6s2-5 7-5" />

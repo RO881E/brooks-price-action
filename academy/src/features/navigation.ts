@@ -9,6 +9,7 @@ import type { AcademyProgress } from './progress';
 type AnswerData = Pick<AcademyProgress, 'answers' | 'questionResults'>;
 
 export type AppView =
+  | 'home'
   | 'path'
   | 'practice'
   | 'progress'
@@ -18,6 +19,7 @@ export type AppView =
   | 'settings';
 
 export const APP_VIEWS: readonly AppView[] = [
+  'home',
   'path',
   'practice',
   'progress',
@@ -72,7 +74,7 @@ export type AppRoute =
       courseId: string;
     };
 
-export const DEFAULT_ROUTE: AppRoute = { kind: 'view', view: 'path' };
+export const DEFAULT_ROUTE: AppRoute = { kind: 'view', view: 'home' };
 
 function isAppView(value: string): value is AppView {
   return (APP_VIEWS as readonly string[]).includes(value);
@@ -87,7 +89,7 @@ function parseStep(query: string): number | null {
 
 /**
  * Liest einen Hash wie `#/glossary` oder `#/lesson/<id>?step=3`.
- * Ein leerer Hash ist der Lernpfad; alles Unbekannte ergibt `null`.
+ * Ein leerer Hash ist die Startseite; alles Unbekannte ergibt `null`.
  */
 export function parseRoute(hash: string): AppRoute | null {
   const trimmed = hash.replace(/^#/, '');

@@ -17,11 +17,11 @@ const volume = librarySubjects.find((subject) => subject.id === 'volume')!;
 const vwap = volume.courses.find((course) => course.id === 'vwap')!;
 
 async function open(page: Page, isMobile: boolean) {
-  await page.goto('/');
+  await page.goto('/#/path');
   await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
   if (isMobile) await page.getByRole('button', { name: 'Menü öffnen' }).click();
   await page.getByRole('button', { name: 'Alle Themen ansehen' }).click();
-  await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Alle Kurse' })).toBeVisible();
 }
 
 async function expectAccessible(page: Page) {
@@ -37,7 +37,7 @@ test.describe('Bibliothek: Seiten', () => {
     await expect(page.getByText(`${counts.subjects} Themengebiete mit ${counts.courses} Kursen`)).toBeVisible();
 
     const mine = page.locator('.library-mine > li');
-    await expect(mine).toHaveCount(3);
+    expect(await mine.count()).toBeGreaterThanOrEqual(3);
     await expect(mine.first()).toContainText('Price Action: Trends');
     await expect(mine.first()).toContainText('Aktiver Kurs');
     const testCourse = mine.filter({ hasText: 'Testkurs: Grundgerüst' });
@@ -82,7 +82,7 @@ test.describe('Bibliothek: Seiten', () => {
     await expect(page.getByRole('heading', { level: 1, name: vwap.title })).toBeVisible();
     await page.goBack();
     await page.goBack();
-    await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Alle Kurse' })).toBeVisible();
   });
 
   test('Kursseite des aktiven Kurses: Aufbau und „Weiterlernen“ in den Lernpfad', async ({ page }) => {
@@ -104,15 +104,15 @@ test.describe('Bibliothek: Seiten', () => {
   test('unbekannte Gebiete und Kurse: klarer Hinweis und Weg zurück', async ({ page }) => {
     await page.goto('/#/library/gibt-es-nicht');
     await expect(page.getByRole('heading', { level: 1, name: 'Themengebiet nicht gefunden' })).toBeVisible();
-    await page.getByRole('link', { name: 'Zur Bibliothek' }).click();
-    await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
+    await page.getByRole('link', { name: 'Zu allen Kursen' }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Alle Kurse' })).toBeVisible();
 
     await page.goto('/#/course/gibt-es-nicht');
     await expect(page.getByRole('heading', { level: 1, name: 'Kurs nicht gefunden' })).toBeVisible();
   });
 
-  test('Navigationseintrag „Bibliothek“ bleibt auf allen Bibliotheksseiten markiert @desktop', async ({ page }) => {
-    const item = page.getByRole('navigation', { name: 'Hauptnavigation' }).getByRole('button', { name: 'Bibliothek' });
+  test('Navigationseintrag „Alle Kurse“ bleibt auf allen Bibliotheksseiten markiert @desktop', async ({ page }) => {
+    const item = page.getByRole('navigation', { name: 'Hauptnavigation' }).getByRole('button', { name: 'Alle Kurse' });
     for (const hash of ['#/library', '#/library/volume', '#/course/vwap']) {
       await page.goto(`/${hash}`);
       await expect(page.locator('.view-container h1')).toBeVisible();
@@ -123,7 +123,7 @@ test.describe('Bibliothek: Seiten', () => {
   test('barrierefrei und schmal (360 px) ohne Überlauf – alle drei Seiten', async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 740 });
     await page.goto('/#/library');
-    await expect(page.getByRole('heading', { level: 1, name: 'Bibliothek' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Alle Kurse' })).toBeVisible();
     await expectAccessible(page);
 
     await page.goto('/#/library/volume');

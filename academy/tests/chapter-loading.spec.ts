@@ -71,7 +71,7 @@ test.describe('F-12 kapitelweises Laden', () => {
     const errors = trackErrors(page);
     const units = trackUnits(page);
     await seedCompletedUntil(page, deepLesson);
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     // Gliederung genügt für Pfad, Fortschritt und Freischaltung.
     await expect(page.getByRole('button', { name: `${deepLesson.title}: Jetzt lernen` }).first()).toBeVisible();
@@ -94,12 +94,12 @@ test.describe('F-12 kapitelweises Laden', () => {
     await page.getByRole('button', { name: 'Weiter', exact: true }).click();
     await expect(page).toHaveURL(/step=2$/);
     await page.getByRole('button', { name: 'Lektion schließen' }).click();
-    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Start', level: 1 })).toBeVisible();
     // Schrittwechsel ersetzen den Verlaufseintrag; Zurück führt zum letzten Schritt.
     await page.goBack();
     await expect(page.getByRole('heading', { name: deepLesson.steps[1].title, level: 1 })).toBeVisible();
     await page.goForward();
-    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Start', level: 1 })).toBeVisible();
     await page.goBack();
     await expect(page.getByRole('heading', { name: deepLesson.steps[1].title, level: 1 })).toBeVisible();
     expect(errors).toEqual([]);
@@ -112,7 +112,7 @@ test.describe('F-12 kapitelweises Laden', () => {
     await expect(page.getByText('Dieser Link führt zu keiner verfügbaren Ansicht oder Lektion.', { exact: false })).toBeVisible();
     const locked = lastUnit.lessons.at(-1)!;
     await page.goto(`/#/lesson/${locked.id}`);
-    await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Start', level: 1 })).toBeVisible();
     await expect(page.getByRole('heading', { name: locked.steps[0].title, level: 1 })).toHaveCount(0);
     // Für gesperrte Inhalte wird nichts geladen.
     expect(units.has(UNIT_FILES[lastUnit.id])).toBe(false);
@@ -125,7 +125,7 @@ test.describe('F-12 kapitelweises Laden', () => {
     // Alles abgeschlossen: Treffer lässt sich öffnen, und es gibt keine „nächste
     // Lektion“, deren Kapitel vorab geladen würde.
     await seedCompletedUntil(page, null);
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
     await page.keyboard.press('/');
     await page.keyboard.type(step.title);

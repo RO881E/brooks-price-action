@@ -8543,3 +8543,84 @@ button:disabled {
   color: var(--gold-dark);
   font-weight: 700;
 }
+
+/* Level und XP immer oben (Topbar): kompakt, ein Klick führt zum Fortschritt. */
+.level-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 4px 12px 4px 5px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.level-chip-badge {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--progress-ink);
+  font-weight: 800;
+  font-size: 14px;
+  border: 2px solid var(--progress-base);
+  border-radius: 50%;
+  background: var(--progress-soft);
+}
+
+.level-chip-text {
+  display: grid;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.level-chip-text strong {
+  font-size: 12px;
+}
+
+.level-chip-text small {
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.level-chip-meter {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--line);
+}
+
+.level-chip-meter span {
+  display: block;
+  height: 100%;
+  background: var(--progress-base);
+}
+
+@media (max-width: 760px) {
+  .level-chip {
+    gap: 6px;
+    padding-right: 9px;
+  }
+
+  .level-chip-text small {
+    display: none;
+  }
+
+  /* Auf schmalen Bildschirmen hat das Level Vorrang vor dem reinen Profilkürzel. */
+  .topbar-actions .profile-chip {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar-actions {
+    gap: 8px;
+  }
+}

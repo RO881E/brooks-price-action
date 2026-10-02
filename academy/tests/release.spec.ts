@@ -175,7 +175,7 @@ async function finishLessonByKeyboard(page: Page, lesson: Lesson, withRetry: boo
 test.describe('F-10 Release-Suite', () => {
   test('alle Hauptansichten: Navigation, WCAG-Prüfung und keine Fehler', async ({ page }) => {
     const errors = trackErrors(page);
-    await page.goto('/');
+    await page.goto('/#/path');
     for (const view of VIEWS) {
       const label = {
         '#/path': 'Lernpfad',
@@ -249,7 +249,7 @@ test.describe('F-10 Release-Suite', () => {
   test('vollständiger erster Lernabschnitt nur mit der Tastatur', async ({ page }) => {
     test.setTimeout(240_000);
     const errors = trackErrors(page);
-    await page.goto('/');
+    await page.goto('/#/path');
     await expect(page.getByRole('heading', { name: 'Price Action: Trends' })).toBeVisible();
 
     for (const [index, lesson] of firstUnit.entries()) {
@@ -282,23 +282,29 @@ test.describe('F-10 Release-Suite', () => {
       );
     }, lessons.map((lesson) => lesson.id));
 
-    await page.goto('/');
+    await page.goto('/#/path');
     await openViewByKeyboard(page, 'Üben');
     await expect(page.getByRole('heading', { name: 'Analyse-Training' })).toBeVisible();
     await tabTo(page, page.getByRole('button', { name: 'Fällige Fragen üben' }));
     await page.keyboard.press('Enter');
 
-    for (const [index, question] of questions.entries()) {
+    // Erste Frage falsch, zweite richtig; die falsche Karte kommt am Rundenende noch einmal.
+    const turns = [
+      { question: questions[0], correct: false },
+      { question: questions[1], correct: true },
+      { question: questions[0], correct: true },
+    ];
+    for (const [index, { question, correct }] of turns.entries()) {
       await expect(page.getByRole('heading', { name: question.title, level: 2 })).toBeFocused();
       await tabTo(page, page.locator('.practice-options button').first());
-      // Erste Frage falsch, zweite richtig – beides mit Symbol, nicht nur Farbe.
-      await arrowTo(page, page.getByRole('radio', { name: option(question, index !== 0).label }));
+      // Beides mit Symbol, nicht nur Farbe.
+      await arrowTo(page, page.getByRole('radio', { name: option(question, correct).label }));
       await page.keyboard.press('Enter');
-      await expect(page.getByText(index === 0 ? 'Schau auf den Kontext.' : 'Sauber analysiert.')).toBeVisible();
+      await expect(page.getByText(correct ? 'Sauber analysiert.' : 'Schau auf den Kontext.')).toBeVisible();
       await expect(page.getByRole('radio', { name: /richtige Antwort/ })).toBeVisible();
-      if (index === 0) await expect(page.getByRole('radio', { name: /falsche Antwort/ })).toBeVisible();
+      if (!correct) await expect(page.getByRole('radio', { name: /falsche Antwort/ })).toBeVisible();
       const next = page.getByRole('button', {
-        name: index === questions.length - 1 ? 'Auswertung anzeigen' : 'Nächste Frage',
+        name: index === turns.length - 1 ? 'Auswertung anzeigen' : 'Nächste Frage',
       });
       await expect(next).toBeFocused();
       await page.keyboard.press('Enter');
@@ -394,7 +400,7 @@ test.describe('F-10 Release-Suite', () => {
 
   test('reduzierte Bewegung wird respektiert @mobile', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.goto('/');
+    await page.goto('/#/path');
     const duration = await page
       .getByRole('button', { name: 'Menü öffnen' })
       .evaluate(() => getComputedStyle(document.querySelector('.app-sidebar')!).transitionDuration);

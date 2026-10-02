@@ -125,7 +125,7 @@ import {
 } from './features/savedItems';
 import { buildSearchIndex, type SearchResult } from './features/search';
 import { earnedXp } from './features/lessonResults';
-import { levelsGained, rankFor } from './features/levels';
+import { levelInfo, levelsGained, rankFor } from './features/levels';
 import { localDayKey, seededRandom } from './features/reviewScheduler';
 import {
   advanceSession,
@@ -169,7 +169,7 @@ const CoursePage = lazyView(() => import('./components/LibraryView').then((modul
 type View = AppView;
 
 const INVALID_LINK_NOTICE =
-  'Dieser Link führt zu keiner verfügbaren Ansicht oder Lektion. Du bist zurück im Lernpfad.';
+  'Dieser Link führt zu keiner verfügbaren Ansicht oder Lektion. Du bist zurück auf der Startseite.';
 
 /** Gewählter Kurs eines Lernstands; ohne gültige Wahl der Standardkurs (mehrere Kurse). */
 const outlineOf = (progress: AcademyProgress): CourseOutline => courseOutlineFor(progress.activeCourseId);
@@ -221,6 +221,7 @@ function isTypingTarget(target: EventTarget | null): boolean {
 type NavMode = 'read' | 'practice' | 'review' | 'progress' | 'neutral';
 
 const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boolean; mode: NavMode }> = [
+  { id: 'home', label: 'Start', icon: 'home', mobile: true, mode: 'neutral' },
   { id: 'path', label: 'Lernpfad', icon: 'path', mobile: true, mode: 'read' },
   { id: 'practice', label: 'Üben', icon: 'practice', mobile: true, mode: 'practice' },
   { id: 'progress', label: 'Fortschritt', icon: 'progress', mobile: true, mode: 'progress' },
@@ -228,7 +229,7 @@ const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boole
   { id: 'saved', label: 'Gespeichert', icon: 'saved', mobile: false, mode: 'review' },
   { id: 'glossary', label: 'Glossar', icon: 'glossary', mobile: true, mode: 'read' },
   // Themenübersicht; auf Mobilgeräten über das Menü und den Kursblock erreichbar.
-  { id: 'library', label: 'Bibliothek', icon: 'library', mobile: false, mode: 'neutral' },
+  { id: 'library', label: 'Alle Kurse', icon: 'library', mobile: false, mode: 'neutral' },
   { id: 'settings', label: 'Einstellungen', icon: 'settings', mobile: false, mode: 'neutral' },
 ];
 
@@ -237,7 +238,7 @@ export default function App() {
   // Einzige Quelle der Wahrheit ist der Hash; die Route wird daraus abgeleitet.
   const [hash, setHash] = useState(() => window.location.hash);
   const route = useMemo(() => parseRoute(hash), [hash]);
-  const [lastView, setLastView] = useState<View>('path');
+  const [lastView, setLastView] = useState<View>('home');
   const [notice, setNotice] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -283,6 +284,7 @@ export default function App() {
     [progress, course],
   );
   const totalXp = useMemo(() => earnedXp(progress, allPublishedLessons), [progress]);
+  const topLevel = useMemo(() => levelInfo(totalXp), [totalXp]);
   // Lektionen, Leser und Fälle aller Kurse bleiben erreichbar – jeweils in ihrem eigenen Kurs geprüft.
   const resolved = useMemo(
     () => (route ? resolveRoute(route, course, progress, courseOutlines) : null),
@@ -328,7 +330,7 @@ export default function App() {
       : training || replaying || transferring
           ? 'practice'
           : studying
-            ? 'path'
+            ? 'home'
             : librarySubject !== null || libraryCourse !== null
               ? 'library'
               : lastView;
@@ -924,6 +926,23 @@ export default function App() {
           </div>
           <div className="topbar-actions">
             <button
+              type="button"
+              className="level-chip"
+              aria-label={`Level ${topLevel.level}, ${topLevel.rank.title}, ${topLevel.xp} XP – Fortschritt öffnen`}
+              onClick={() => chooseView('progress')}
+            >
+              <span className="level-chip-badge" aria-hidden="true">
+                {topLevel.level}
+              </span>
+              <span className="level-chip-text" aria-hidden="true">
+                <strong>Level {topLevel.level}</strong>
+                <small>{topLevel.xp} XP</small>
+              </span>
+              <span className="level-chip-meter" aria-hidden="true">
+                <span style={{ width: `${topLevel.percent}%` }} />
+              </span>
+            </button>
+            <button
               ref={helpButton}
               type="button"
               className="help-trigger"
@@ -979,10 +998,18 @@ export default function App() {
               }}
               onLesson={openLesson}
               onCase={openTraining}
-              onBack={() => chooseView('path')}
+              onBack={() => chooseView('home')}
             />
           ) : null}
-          {view === 'path' && !studying && shouldShowFirstUseGuide(progress) ? (
+          {view === 'home' && !studying && notice ? (
+            <div className="route-notice" role="status">
+              <p>{notice}</p>
+              <button type="button" onClick={() => setNotice(null)} aria-label="Hinweis schließen">
+                ×
+              </button>
+            </div>
+          ) : null}
+          {view === 'home' && !studying && shouldShowFirstUseGuide(progress) ? (
             <FirstUseWelcome
               facts={guideFacts}
               onStart={(lesson) => {
@@ -995,7 +1022,13 @@ export default function App() {
               }}
             />
           ) : null}
-          {view === 'path' && !studying && !shouldShowFirstUseGuide(progress) ? (
+          {view === 'home' && !studying ? (
+            <header className="page-heading home-heading">
+              <p className="eyebrow">{course.title}</p>
+              <h1>Start</h1>
+            </header>
+          ) : null}
+          {view === 'home' && !studying && !shouldShowFirstUseGuide(progress) ? (
             <TodayPanel
               plan={planToday(course, progress, today)}
               goals={goalOverview(progress, today)}

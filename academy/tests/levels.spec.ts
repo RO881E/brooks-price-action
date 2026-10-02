@@ -32,7 +32,7 @@ async function seed(page: Page, record: Record<string, unknown>) {
 test.describe('Level-System', () => {
   test('Level im Lernpfad, Aufstieg mit Meldung, Rangleiter unter Fortschritt', async ({ page }) => {
     await seed(page, almostLevelTwo);
-    await page.goto('/');
+    await page.goto('/#/path');
     const line = page.locator('.course-hero .level-line');
     await expect(line).toContainText('Level 1 · Neuling');
     await expect(line).toContainText('Noch 20 XP bis Level 2');
@@ -65,7 +65,7 @@ test.describe('Level-System', () => {
     await page.setViewportSize({ width: 360, height: 740 });
     for (const theme of ['light', 'dark']) {
       await page.emulateMedia({ colorScheme: theme as 'light' | 'dark' });
-      for (const hash of ['/#/', '/#/progress']) {
+      for (const hash of ['/#/path', '/#/progress']) {
         await page.goto(hash);
         await expect(page.locator('.level-line').first()).toBeVisible();
         const results = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();
