@@ -7,6 +7,7 @@ import {
 } from '../features/courseAccess';
 import { goalLabel, type GoalProgress, type StreakStats } from '../features/goals';
 import { earnedXp } from '../features/lessonResults';
+import { LevelLine } from './LevelCard';
 import type { ResumeTarget } from '../features/navigation';
 import type { AcademyProgress } from '../features/progress';
 import { Bull } from './Bull';
@@ -150,6 +151,7 @@ export function PathView({
               <span>{published.length} {published.length === 1 ? 'Lektion' : 'Lektionen'}</span>
               <span>Reihenfolge geschützt</span>
             </div>
+            <LevelLine xp={totalXp ?? earnedXp(progress, published)} />
           </div>
           <div className="progress-orb" style={{ '--progress': `${percent * 3.6}deg` } as React.CSSProperties}>
             <div>
