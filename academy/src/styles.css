@@ -8537,3 +8537,9 @@ button:disabled {
   outline-offset: 2px;
   border-radius: 6px;
 }
+
+.review-xp {
+  margin: 8px 0 0;
+  color: var(--gold-dark);
+  font-weight: 700;
+}

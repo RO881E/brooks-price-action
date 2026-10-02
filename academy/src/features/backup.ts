@@ -49,6 +49,7 @@ export const BACKUP_FIELDS = [
   'questionResults',
   'lessonResults',
   'reviewCards',
+  'reviewXp',
   'activityDays',
   'dailyActivity',
   'dailyGoal',
@@ -76,6 +77,7 @@ const FIELD_SINCE: Partial<Record<BackupField, number>> = {
   caseRuns: 11,
   guideSeenAt: 13,
   activeCourseId: 16,
+  reviewXp: 18,
 };
 export type BackupData = Pick<AcademyProgress, BackupField>;
 
@@ -333,6 +335,9 @@ const checks: Record<BackupField, (value: unknown, errors: Errors) => void> = {
       return null;
     });
   },
+  reviewXp(value, errors) {
+    if (!isCount(value)) errors.push('„reviewXp“ ist ungültig.');
+  },
   guideSeenAt(value, errors) {
     if (value !== null && !isIsoDate(value)) errors.push('„guideSeenAt“ ist ungültig.');
   },
@@ -549,6 +554,8 @@ export function mergeProgress(
       b.attempts > a.attempts ? b : a,
     ),
     reviewCards: mergeRecords(local.reviewCards, incoming.reviewCards, mergeReviewCard),
+    // Verdiente XP gehen nicht verloren: der höhere Stand gilt.
+    reviewXp: Math.max(local.reviewXp, incoming.reviewXp),
     activityDays: unionIds(local.activityDays, incoming.activityDays).sort().slice(-MAX_ACTIVITY_DAYS),
     dailyActivity: mergeRecords(local.dailyActivity, incoming.dailyActivity, (a, b) => ({
       lessons: Math.max(a.lessons, b.lessons),

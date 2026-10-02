@@ -80,8 +80,12 @@ test.describe('F-27 Nach Thema üben', () => {
       const correct = index !== 0;
       const option = step.options.find((candidate) => (candidate.id === step.correctOptionId) === correct)!;
       await page.getByRole('radio', { name: new RegExp(option.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').slice(0, 40)) }).first().click();
-      await page.getByRole('button', { name: index === 9 ? 'Auswertung anzeigen' : 'Nächste Frage' }).click();
+      await page.getByRole('button', { name: 'Nächste Frage' }).click();
     }
+    // Die falsch beantwortete Karte kommt am Rundenende noch einmal.
+    const retry = questions.get(session.questionIds[0])!.step;
+    await page.getByRole('radio', { name: new RegExp(retry.options.find((o) => o.id === retry.correctOptionId)!.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').slice(0, 40)) }).first().click();
+    await page.getByRole('button', { name: 'Auswertung anzeigen' }).click();
     await expect(page.getByText(`Runde abgeschlossen · Thema: ${reversal.title}`)).toBeVisible();
     await expect(page.getByRole('heading', { name: '9 von 10 richtig' })).toBeVisible();
     const sources = page.getByRole('region', { name: 'Nachlesen' });
@@ -95,7 +99,7 @@ test.describe('F-27 Nach Thema üben', () => {
     // Kein zweites System: nur die beantworteten Fragen haben Wiederholungskarten.
     const after = await stored(page);
     expect(Object.keys(after.reviewCards).sort()).toEqual([...session.questionIds].sort());
-    expect(after.reviewCards[session.questionIds[0]].lastResult).toBe('wrong');
+    expect(after.reviewCards[session.questionIds[0]]).toMatchObject({ stage: 0, lapses: 1 });
     for (const id of Object.keys(after.reviewCards)) expect(questions.has(id)).toBe(true);
     expect(after.completedLessonIds).toHaveLength(published('price-action-trends.chapter-05').length);
   });

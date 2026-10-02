@@ -15,7 +15,7 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 17;
+export const ACADEMY_PROGRESS_VERSION = 18;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
@@ -75,6 +75,10 @@ export interface ReviewSession {
   startedDay: DayKey;
   /** Ob die Runde bereits als Lernaktivität gezählt wurde (seit F-05). */
   activityRecorded: boolean;
+  /** In dieser Runde mindestens einmal falsch beantwortete Fragen; sie kehren bis zur richtigen Antwort wieder (v18). */
+  missed?: string[];
+  /** Fragen, für die diese Runde Karten-XP gab (v18). */
+  xpIds?: string[];
   /**
    * Themenrunde (seit F-27, v15): nur die Beschriftung. Die Fragen bleiben die
    * bestehenden; fehlt das Thema später in der Karte, bleibt die Runde spielbar.
@@ -254,6 +258,8 @@ export interface AcademyProgress {
   lessonResults: Record<string, LessonResult>;
   /** Wiederholungsplan je Frage (seit F-03). */
   reviewCards: Record<string, ReviewCard>;
+  /** XP aus richtig beantworteten, fälligen Wiederholungskarten (seit v18); zählt zum Level wie Lektions-XP. */
+  reviewXp: number;
   reviewSession: ReviewSession | null;
   /**
    * Lokale Kalendertage mit echter Lernaktivität – Lektionsabschluss oder
@@ -310,6 +316,7 @@ export function createEmptyProgress(): AcademyProgress {
     questionResults: {},
     lessonResults: {},
     reviewCards: {},
+    reviewXp: 0,
     reviewSession: null,
     activityDays: [],
     dailyActivity: {},
@@ -336,6 +343,7 @@ const KNOWN_FIELDS = new Set([
   'questionResults',
   'lessonResults',
   'reviewCards',
+  'reviewXp',
   'reviewSession',
   'activityDays',
   'dailyActivity',
@@ -605,6 +613,8 @@ function normalizeReviewSession(value: unknown): ReviewSession | null {
       : {},
     startedDay,
     activityRecorded: value.activityRecorded === true,
+    ...(stringArray(value.xpIds).length ? { xpIds: [...new Set(stringArray(value.xpIds))].filter((id) => questionIds.includes(id)) } : {}),
+    ...(stringArray(value.missed).length ? { missed: [...new Set(stringArray(value.missed))].filter((id) => questionIds.includes(id)) } : {}),
     ...(typeof value.topicId === 'string' && TOPIC_ID.test(value.topicId) ? { topicId: value.topicId } : {}),
   };
 }
@@ -882,6 +892,7 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * bereits Lernstand hat, sieht sie trotzdem nie automatisch.
  * Vor v14 gibt es keine eigenen Trainerbegründungen; Runden bleiben ohne `reasoning`.
  * Vor v16 gibt es keinen gewählten Kurs (`activeCourseId: null`): Es gilt der Standardkurs.
+ * Seit v18 gibt es `reviewXp` (XP für richtig wiederholte Karten); ältere Stände starten mit 0.
  * Bis v16 gab es einen Buchmodus; seine Felder `readerPositions` und `readingOptions` werden beim Laden
  * verworfen (v17).
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
@@ -906,6 +917,7 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     questionResults: normalizeQuestionResults(value.questionResults),
     lessonResults,
     reviewCards,
+    reviewXp: isCount(value.reviewXp) ? value.reviewXp : 0,
     reviewSession: normalizeReviewSession(value.reviewSession),
     // Nur beim Upgrade ableiten: Seit v5 wird Aktivität direkt erfasst.
     activityDays: Array.isArray(value.activityDays)

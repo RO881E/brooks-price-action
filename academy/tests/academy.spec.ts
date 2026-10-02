@@ -635,14 +635,12 @@ test.describe('F-03 smart review queue', () => {
     await page.getByRole('radio', { name: optionLabel(question, false) }).click();
     await expect(page.getByText('Schau auf den Kontext.')).toBeVisible();
     await expect(page.getByText(`Richtig ist „${optionLabel(question, true)}“:`)).toBeVisible();
+    // Falsche Karten kommen in derselben Runde noch einmal, bis sie richtig sind.
+    await page.getByRole('button', { name: 'Nächste Frage' }).click();
+    await expect(page.getByText(/noch einmal/).first()).toBeVisible();
+    await page.getByRole('radio', { name: optionLabel(question, true) }).click();
     await page.getByRole('button', { name: 'Auswertung anzeigen' }).click();
     await expect(page.getByRole('heading', { name: '0 von 1 richtig' })).toBeVisible();
-
-    await page.getByRole('button', { name: 'Fehler trainieren' }).click();
-    await page.getByRole('radio', { name: optionLabel(question, true) }).click();
-    await expect(page.getByText('Sauber analysiert.')).toBeVisible();
-    await page.getByRole('button', { name: 'Auswertung anzeigen' }).click();
-    await expect(page.getByRole('heading', { name: '1 von 1 richtig' })).toBeVisible();
 
     await page.getByRole('button', { name: 'Zur Übersicht' }).click();
     await expect(page.getByText('Keine offenen Fehler – stark.')).toBeVisible();
@@ -794,7 +792,8 @@ test.describe('F-04 progress dashboard', () => {
     await openProgress(page);
     // Eine laufende Runde wird über die Aktion fortgesetzt statt neu gestartet.
     await page.getByRole('button', { name: 'Fällige Wiederholung starten' }).click();
-    await expect(page.getByText('Frage 1 / 2')).toBeVisible();
+    // Bei einer falschen ersten Antwort wächst die Runde um die Wiederholung dieser Karte.
+    await expect(page.getByText(/Frage 1 \/ [23]/)).toBeVisible();
     await expect(page.locator('.practice-card h2')).toHaveText(firstReviewQuestion ?? '');
     await expect(page.locator('.practice-feedback')).toBeVisible();
   });

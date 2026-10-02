@@ -648,3 +648,18 @@ describe('Gestrichener Buchmodus (v17)', () => {
     expect(saved).not.toHaveProperty('readingOptions');
   });
 });
+
+describe('Karten-XP (v18)', () => {
+  it('ältere Stände starten mit 0 Karten-XP; gültige Werte bleiben erhalten', () => {
+    expect(migrateProgress({ version: 17, completedLessonIds: [] })!.reviewXp).toBe(0);
+    expect(migrateProgress({ version: 18, reviewXp: 12 })!.reviewXp).toBe(12);
+    expect(migrateProgress({ version: 18, reviewXp: -1 })!.reviewXp).toBe(0);
+    expect(createEmptyProgress().reviewXp).toBe(0);
+  });
+
+  it('Wiederholungskarten bis Stufe 7 (180 Tage) sind gültig, darüber nicht', () => {
+    const card = { dueDay: '2026-10-01', lastReviewedDay: '2026-09-01', lastResult: 'correct', reviews: 8, lapses: 0 };
+    const migrated = migrateProgress({ version: 17, reviewCards: { ok: { ...card, stage: 7 }, zu: { ...card, stage: 8 } } })!;
+    expect(Object.keys(migrated.reviewCards)).toEqual(['ok']);
+  });
+});

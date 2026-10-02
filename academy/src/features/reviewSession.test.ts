@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Course, CourseUnit, Lesson } from '../content/types';
-import { revealSolution, submitAnswer, type QuestionStep } from './lessonResults';
+import { earnedXp, revealSolution, submitAnswer, type QuestionStep } from './lessonResults';
 import { completeLesson, createEmptyProgress, type AcademyProgress } from './progress';
 import { seededRandom } from './reviewScheduler';
 import {
@@ -16,6 +16,7 @@ import {
   mistakeItems,
   nextDueDay,
   reviewOverview,
+  REVIEW_CARD_XP,
   reviewPool,
   sanitizeSession,
   sessionSummary,
@@ -259,6 +260,14 @@ describe('running a session', () => {
     progress = advanceSession(progress, TODAY);
     progress = answerReview(progress, q('q2'), 'a', TODAY);
     progress = advanceSession(progress, TODAY);
+    // Die falsche Karte kommt am Rundenende noch einmal, bis sie richtig ist.
+    expect(progress.reviewSession!.questionIds).toEqual(['q1', 'q2', 'q1']);
+    expect(isSessionFinished(progress.reviewSession!)).toBe(false);
+    expect(currentSessionItem(progress.reviewSession!, items)?.question.id).toBe('q1');
+    progress = answerReview(progress, q('q1'), 'a', TODAY);
+    // Der Plan bleibt auf „morgen“: Die Wiederholung zählt als Übung.
+    expect(progress.reviewCards.q1).toMatchObject({ stage: 0, dueDay: '2026-09-29', lapses: 1 });
+    progress = advanceSession(progress, TODAY);
     expect(isSessionFinished(progress.reviewSession!)).toBe(true);
     expect(advanceSession(progress, TODAY)).toBe(progress);
 
@@ -318,6 +327,44 @@ describe('overview', () => {
   });
 });
 
+describe('Karten-XP und Nachholschleife', () => {
+  const begin = () => {
+    const progress = completed(['l1']);
+    const items = reviewPool(course, progress);
+    return startSession(progress, buildSession('due', items, progress, { today: TODAY, random: seededRandom(1) }));
+  };
+
+  it('gibt XP nur für fällige Karten im ersten Versuch', () => {
+    let progress = begin();
+    expect(progress.reviewXp).toBe(0);
+    progress = answerReview(progress, q('q1'), 'a', TODAY);
+    expect(progress.reviewXp).toBe(REVIEW_CARD_XP);
+    progress = advanceSession(progress, TODAY);
+    // Falsch: keine XP; auch die richtige Wiederholung danach nicht.
+    progress = answerReview(progress, q('q2'), 'b', TODAY);
+    progress = advanceSession(progress, TODAY);
+    progress = answerReview(progress, q('q2'), 'a', TODAY);
+    expect(progress.reviewXp).toBe(REVIEW_CARD_XP);
+  });
+
+  it('gibt keine XP für noch nicht fällige Karten (z. B. Alles mischen)', () => {
+    let progress = begin();
+    progress = answerReview(progress, q('q1'), 'a', TODAY);
+    progress = { ...progress, reviewSession: null };
+    const items = reviewPool(course, progress);
+    progress = startSession(progress, buildSession('mixed', items, progress, { today: TODAY, random: seededRandom(2) }));
+    const first = progress.reviewSession!.questionIds[0];
+    const before = progress.reviewXp;
+    progress = answerReview(progress, q(first), 'a', TODAY);
+    expect(first === 'q1' ? progress.reviewXp : progress.reviewXp - REVIEW_CARD_XP).toBe(before);
+  });
+
+  it('zählt Karten-XP zum Level-XP', () => {
+    const progress = { ...completed(['l1']), reviewXp: 6 };
+    expect(earnedXp(progress, course.units.flatMap((u) => u.lessons))).toBe(10 + 6);
+  });
+});
+
 describe('finished sessions as learning activity', () => {
   const run = (answers: Array<'a' | 'b'>) => {
     let progress = completed(['l1']);
@@ -328,6 +375,12 @@ describe('finished sessions as learning activity', () => {
     );
     for (const [index, answer] of answers.entries()) {
       progress = answerReview(progress, q(`q${index + 1}`), answer, TODAY);
+      progress = advanceSession(progress, TODAY);
+    }
+    // Falsche Karten kehren wieder; „vollständig“ heißt: bis alle richtig sind (nur wenn alle Antworten da waren).
+    while (answers.length >= 2 && !isSessionFinished(progress.reviewSession!)) {
+      const id = progress.reviewSession!.questionIds[progress.reviewSession!.index];
+      progress = answerReview(progress, q(id), 'a', TODAY);
       progress = advanceSession(progress, TODAY);
     }
     return progress;

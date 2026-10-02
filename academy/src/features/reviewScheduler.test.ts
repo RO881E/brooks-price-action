@@ -104,23 +104,26 @@ describe('scheduleReview', () => {
     let card: ReviewCard | undefined;
     const seen: Array<[number, number]> = [];
 
-    for (let round = 0; round < 7; round += 1) {
+    for (let round = 0; round < 10; round += 1) {
       card = scheduleReview(card, true, today);
       seen.push([card.stage, daysBetween(today, card.dueDay)]);
       today = card.dueDay;
     }
 
-    expect(REVIEW_INTERVALS).toEqual([1, 3, 7, 14, 30]);
+    expect(REVIEW_INTERVALS).toEqual([1, 3, 7, 14, 30, 60, 120, 180]);
     expect(seen).toEqual([
       [0, 1],
       [1, 3],
       [2, 7],
       [3, 14],
       [4, 30],
-      [4, 30],
-      [4, 30],
+      [5, 60],
+      [6, 120],
+      [7, 180],
+      [7, 180],
+      [7, 180],
     ]);
-    expect(card).toMatchObject({ reviews: 7, lapses: 0, lastResult: 'correct' });
+    expect(card).toMatchObject({ reviews: 10, lapses: 0, lastResult: 'correct' });
   });
 
   it('resets to the shortest interval after a wrong answer at any stage', () => {
