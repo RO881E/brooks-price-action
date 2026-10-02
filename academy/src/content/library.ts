@@ -73,8 +73,8 @@ export const librarySubjects: LibrarySubject[] = [
         'Slippage, Gebühren, Ausführungsqualität, Wahl des Handelsplatzes',
       ] },
       {
-        id: 'reading-charts', title: 'Charts lesen', label: 'Trading von null · Kapitel 1–6 verfügbar',
-        description: 'Kapitel 1–6 erklären Geschäftsdaten, OHLC und Chartformen sowie Zeit-, Tick-, Volumen-, Range-Bars, Renko, berechnete Heikin-Ashi-Kerzen und Point & Figure mit eigenen Schaubildern. Weitere Kapitel ergänzen Charttypen, Bar-Arten, Zeitebenen, Skalen und Datenbedingungen.',
+        id: 'reading-charts', title: 'Charts lesen', label: 'Trading von null · Kapitel 1–7 verfügbar',
+        description: 'Kapitel 1–7 erklären Geschäftsdaten, OHLC und Chartformen sowie Zeit-, Tick-, Volumen-, Range-Bars, Renko, berechnete Heikin-Ashi-Kerzen und Point & Figure sowie gemeinsame Daten auf verschiedenen Zeitebenen mit eigenen Schaubildern. Weitere Kapitel ergänzen Charttypen, Bar-Arten, Zeitebenen, Skalen und Datenbedingungen.',
         status: 'available',
         subtopics: [
           'Charttypen: Linie, Balken, Kerzen, Heikin-Ashi, Renko, Point & Figure',

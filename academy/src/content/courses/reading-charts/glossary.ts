@@ -447,6 +447,81 @@ export const chartsGlossary: GlossaryEntry[] = [
     "definition": "Eine P&F-Eingabemethode mit erklärter Priorität für Abschnittshoch oder -tief. Im beschriebenen Verfahren wird Fortsetzung zuerst geprüft.",
     "aliases": [],
     "firstUnit": "Kapitel 6"
+  },
+
+  {
+    "term": "Zeitebene",
+    "definition": "Die erklärte Abschnittslänge eines Zeit-Charts, etwa eine oder drei Minuten. Keine Vorgabe für die Haltedauer eines Auftrags.",
+    "aliases": [
+      "Timeframe"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Zeitaggregation",
+    "definition": "Das Zusammenfassen passender kleinerer Zeitfenster zu größeren Fenstern bei derselben Datenbasis.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "OHLC-Aggregation",
+    "definition": "Für passende Original-Teilfenster: erstes O, größtes H, kleinstes L und letztes C. Volumen wird addiert, Preise werden nicht gemittelt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Feinere Zeitebene",
+    "definition": "Kürzere Zeitabschnitte, die im gleichen Zeitraum mehr Einzelkerzen zeigen. Sie bewahren mehr zeitliche Zuordnung als größere Abschnitte.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Gröbere Zeitebene",
+    "definition": "Längere Zeitabschnitte, die mehr Geschäfte in einem Zeichen zusammenfassen. Zwischeninformationen werden dabei weggelassen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Fensterausrichtung",
+    "definition": "Die Festlegung, bei welchen Zeitpunkten gleich lange Abschnitte beginnen. Verschobene Fenster können andere Werte ergeben.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Intervallgrenze",
+    "definition": "Anfang oder Ende eines Zeitfensters. Im Lernmodell gehört der Anfang dazu, das Ende zum nächsten Fenster.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Teilfenster",
+    "definition": "Ein kürzerer Zeitabschnitt innerhalb eines größeren Fensters. Für eine direkte OHLC-Aggregation darf es die Zielgrenzen nicht überschreiten.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Informationsverlust",
+    "definition": "Details, die eine Zusammenfassung nicht mehr nennt, etwa die genaue Reihenfolge der Zwischenpreise. Das ist nicht automatisch ein Rechenfehler.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Bildausschnitt",
+    "definition": "Der sichtbare Teil einer vorhandenen Darstellung. Eine Vergrößerung ändert bei gleicher Zeitebene nicht die ursprünglichen OHLC-Werte.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Aufnahmezeitpunkt",
+    "definition": "Der erklärte Zeitpunkt eines Datenstands. Spätere Meldungen dürfen in diesem Stand nicht als schon bekannt verwendet werden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Vorgriff auf spätere Daten",
+    "definition": "Verwendung von Werten, die bei einer früheren Entscheidung noch unbekannt waren, etwa der spätere endgültige Schluss einer laufenden größeren Kerze.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
   }
 
 ];
