@@ -484,6 +484,7 @@ export type ChapterThirteenScenarioId = (typeof CHAPTER_THIRTEEN_SCENARIOS)[numb
 export type ChartScenarioId =
   | 'rc1-line' | 'rc1-bar' | 'rc1-candles'
   | 'rc3-time' | 'rc3-tick' | 'rc3-volume'
+  | 'rc6-columns' | 'rc6-threshold' | 'rc6-methods'
   | 'rc5-pair' | 'rc5-formula' | 'rc5-gap'
   | 'rc4-range' | 'rc4-renko' | 'rc4-reversal'
   | 'auction-balance'

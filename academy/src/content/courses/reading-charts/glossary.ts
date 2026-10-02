@@ -368,6 +368,85 @@ export const chartsGlossary: GlossaryEntry[] = [
     "definition": "Eine zusätzliche Kennzahl aus erklärten Daten und Rechenregeln. Name oder Chartart allein legen ihre Preisquelle nicht fest.",
     "aliases": [],
     "firstUnit": "Kapitel 5"
+  },
+
+  {
+    "term": "Point & Figure",
+    "definition": "Eine Preisrasterdarstellung mit X- und O-Spalten. Kästchengröße, Umkehrzahl, Eingaben und Startregel bestimmen die Zeichnung.",
+    "aliases": [
+      "P&F"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Kästchengröße",
+    "definition": "Die erklärte Preisentfernung zwischen benachbarten P&F-Rasterstufen. Im Lernmodell0,50 Euro je Aktie.",
+    "aliases": [
+      "Box Size"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Umkehrzahl",
+    "definition": "Die Anzahl von Kästchengrößen, die eine Gegenbewegung vom gezeichneten Extrem erreichen muss. Im Hauptmodell drei.",
+    "aliases": [
+      "Reversal Amount"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Umkehrentfernung",
+    "definition": "Der Preisabstand für eine neue Gegenrichtung. Bei festen Kästchen: Kästchengröße mal Umkehrzahl.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "X-Spalte",
+    "definition": "Eine aufwärts wachsende P&F-Spalte mit Kreuzen auf erreichten Preisrasterstufen. Kein Zähler von Käufern.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "O-Spalte",
+    "definition": "Eine abwärts wachsende P&F-Spalte mit Kreisen auf erreichten Preisrasterstufen. Kein Zähler von Verkäufern.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Rasterstufe",
+    "definition": "Ein nach Anker und Kästchengröße festgelegter Zeichenplatz. Er muss nicht selbst als einzelner Geschäftspreis gemeldet sein.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Spaltenextrem",
+    "definition": "Das äußerste gezeichnete Zeichen einer P&F-Spalte: oberstes X oder unterstes O. Im Lernmodell Bezug der nächsten Schwellen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Spaltenwechsel",
+    "definition": "Der Beginn einer neuen P&F-Spalte in Gegenrichtung nach erfüllter Umkehrregel. Keine feste Zeitgrenze.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Fortsetzungsstufe",
+    "definition": "Die nächste volle Preisrasterstufe in Richtung der aktuellen Spalte. Ihr Erreichen erweitert im Modell die vorhandene Spalte.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Schlussmethode",
+    "definition": "Eine P&F-Eingabemethode, die nur die Schlüsse der bezeichneten abgeschlossenen Abschnitte verarbeitet.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Hoch-Tief-Methode",
+    "definition": "Eine P&F-Eingabemethode mit erklärter Priorität für Abschnittshoch oder -tief. Im beschriebenen Verfahren wird Fortsetzung zuerst geprüft.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
   }
 
 ];

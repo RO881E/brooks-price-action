@@ -2,9 +2,9 @@ import type { CourseDefinition } from '../../registry';
 import { chartsGlossary } from './glossary';
 export const chartsDefinition: CourseDefinition = {
   info: {
-    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–5 verfügbar', title: 'Charts lesen',
-    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–5 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen sowie berechnete Heikin-Ashi-Kerzen.',
-    sourceOrderNotice: 'Kapitel 1–5 sind verfügbar. Die weiteren fünf Kapitel werden schrittweise ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
+    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–6 verfügbar', title: 'Charts lesen',
+    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–6 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen, berechnete Heikin-Ashi-Kerzen und Point & Figure.',
+    sourceOrderNotice: 'Kapitel 1–6 sind verfügbar. Die weiteren vier Kapitel werden schrittweise ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
   },
   units: [{
     id: 'reading-charts.chapter-01', order: 1, kind: 'chapter', label: 'Kapitel 1', title: 'Vom Geschäft zum Chartbild',
@@ -31,6 +31,11 @@ export const chartsDefinition: CourseDefinition = {
     description:'Vier eigene Minuten in HA-Kerzen umrechnen; Körperrichtung, Lücken, Startwerte und tatsächliche Preise auseinanderhalten.',
     estimatedLessonCount:24,
     load:()=>import('./chapter-05').then(module=>module.chartsChapterFiveLessons),
+  }, {
+    id:'reading-charts.chapter-06',order:6,kind:'chapter',label:'Kapitel 6',title:'Point & Figure und regelbasierte Verdichtung',
+    description:'X-/O-Spalten aus eigenen Meldungen bilden; Kästchengröße, Umkehr, Zeitabstände und Eingabemethoden prüfen.',
+    estimatedLessonCount:24,
+    load:()=>import('./chapter-06').then(module=>module.chartsChapterSixLessons),
   }],
   glossary: { title: 'Charts-Glossar', entries: chartsGlossary },
 };

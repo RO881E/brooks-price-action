@@ -70,7 +70,7 @@ describe('Charts chapter 3: exact event grouping',()=> {
   });
   it('registers stable published IDs and unlocks only after the course prerequisites',async()=>{
     expect(await chartsDefinition.units[2].load()).toEqual(lessons);
-    expect(lessons).toHaveLength(24); expect(chartsGlossary).toHaveLength(56);
+    expect(lessons).toHaveLength(24); expect(chartsGlossary).toHaveLength(68);
     const outline=toCourseOutline(course), previous=course.units.slice(0,2).flatMap(u=>u.lessons.map(l=>l.id));
     expect(lessonAccessState(outline,lessons[0],previous)).toBe('available');
     expect(lessonAccessState(outline,lessons[0],previous.slice(0,-1))).toBe('locked');
