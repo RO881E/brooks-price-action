@@ -606,4 +606,52 @@ export const ordersGlossary: GlossaryEntry[] = [
   "aliases": [],
   "firstUnit": "Kapitel 9"
 },
+{
+  "term": "Ausführungsplan",
+  "definition": "Vorher beschriebene Aufträge, Bedingungen und Prüfungen für einen Handelsablauf. Ein Plan garantiert weder Ausführung noch Gewinn.",
+  "aliases": [],
+  "firstUnit": "Kapitel 10"
+},
+{
+  "term": "Planungsbudget",
+  "definition": "Eine Grenze für eine ausdrücklich angenommene Modellrechnung. Sie ist keine garantierte Verlustgrenze am Markt.",
+  "aliases": [],
+  "firstUnit": "Kapitel 10"
+},
+{
+  "term": "Slippagepuffer",
+  "definition": "Eine zusätzliche Preisannahme für ungünstige Ausführungsabweichungen in einer Rechnung. Größere tatsächliche Abweichungen bleiben möglich.",
+  "aliases": [],
+  "firstUnit": "Kapitel 10"
+},
+{
+  "term": "Positionsgröße",
+  "definition": "Die Menge eines Bestands oder Vertrags. Für ihre Geldwirkung müssen Produkteeinheiten und Bedingungen bekannt sein.",
+  "aliases": [],
+  "firstUnit": "Kapitel 10"
+},
+{
+  "term": "Stressfall",
+  "definition": "Ein ausdrücklich angenommener ungünstiger Verlauf zur Gegenprüfung einer Planung. Seine Rechnung beweist weder Häufigkeit noch schlimmstmögliches Ergebnis.",
+  "aliases": [],
+  "firstUnit": "Kapitel 10"
+},
+{
+  "term": "Planabweichung",
+  "definition": "Eine Handlung oder Änderung außerhalb der vorher beschriebenen Regeln. Vorgesehene Teilkäufe sind nicht allein wegen der kleineren Menge ein Planfehler.",
+  "aliases": [],
+  "firstUnit": "Kapitel 10"
+},
+{
+  "term": "Prozessqualität",
+  "definition": "Wie gut die Handlungen und Kontrollen zum geprüften Ablaufplan passen. Ein günstiges Ergebnis beseitigt keinen Eingabefehler.",
+  "aliases": [],
+  "firstUnit": "Kapitel 10"
+},
+{
+  "term": "Ergebnisqualität",
+  "definition": "Die Bewertung des tatsächlichen Handelsresultats mit seinen berücksichtigten Kosten und Risiken. Ein Einzelfall beweist keine langfristige Stärke.",
+  "aliases": [],
+  "firstUnit": "Kapitel 10"
+},
 ];

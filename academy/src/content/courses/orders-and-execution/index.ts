@@ -3,10 +3,10 @@ import { ordersGlossary } from './glossary';
 export const ordersDefinition: CourseDefinition = {
   info: {
     id: 'orders-and-execution',
-    eyebrow: 'Trading von null · Kapitel 1–9 verfügbar',
+    eyebrow: 'Trading von null · Alle 10 Kapitel verfügbar',
     title: 'Orders und Ausführung',
-    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände. Kapitel 6 verbindet Positionsausstiege, OCO-Regeln und Brackets. Kapitel 7 ergänzt nachziehende Schwellen und bedingte Aktivierung. Kapitel 8 verbindet Preisvergleiche, Gebühren und Ausführungsqualität. Kapitel 9 ergänzt Handelswege, technische Störungen und den Abgleich bestätigter Zustände.',
-    sourceOrderNotice: 'Kapitel 1 bis 9 sind verfügbar. Das letzte Kapitel wird als Nächstes ergänzt. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
+    subtitle: 'Lerne, Handelsaufträge klar zu formulieren und ihren tatsächlichen Verlauf zu prüfen. Kapitel 1 beginnt mit Produkt, Seite, Menge, Preisregel, Gültigkeit und bestätigtem Status. Kapitel 2 erklärt Market-Orders und tatsächliche Ausführungspreise. Kapitel 3 verbindet Limits und Warteschlangen. Kapitel 4 erklärt Stop-Auslösung und Folgeorders. Kapitel 5 ergänzt Gültigkeit, volle und teilweise Mengen sowie bestätigte Restzustände. Kapitel 6 verbindet Positionsausstiege, OCO-Regeln und Brackets. Kapitel 7 ergänzt nachziehende Schwellen und bedingte Aktivierung. Kapitel 8 verbindet Preisvergleiche, Gebühren und Ausführungsqualität. Kapitel 9 ergänzt Handelswege, technische Störungen und den Abgleich bestätigter Zustände. Kapitel 10 führt die Prüfungen in einem vollständigen Ausführungsplan zusammen.',
+    sourceOrderNotice: 'Alle zehn Kapitel des Kurses sind verfügbar. Du kannst hier direkt beginnen; die Marktgrundlagen helfen bei der Einordnung.',
   },
   units: [{
     id: 'orders-and-execution.chapter-01', order: 1, kind: 'chapter',
@@ -62,6 +62,12 @@ export const ordersDefinition: CourseDefinition = {
     description: 'Weiterleitung, Datenwege, ungeklärte Zustände und den Abgleich nach Störungen mit bestätigten Mengen und Geld prüfen.',
     estimatedLessonCount: 22,
     load: () => import('./chapter-09').then((module) => module.ordersChapterNineLessons),
+  }, {
+    id: 'orders-and-execution.chapter-10', order: 10, kind: 'chapter',
+    label: 'Kapitel 10', title: 'Einen Ausführungsplan selbst prüfen',
+    description: 'Eingaben, Planannahmen, Teilkäufe, verknüpfte Ausstiege, Stressfälle und bestätigte Schlussbilanzen selbst prüfen.',
+    estimatedLessonCount: 24,
+    load: () => import('./chapter-10').then((module) => module.ordersChapterTenLessons),
   }],
   glossary: { title: 'Orders-Glossar', entries: ordersGlossary },
 };
