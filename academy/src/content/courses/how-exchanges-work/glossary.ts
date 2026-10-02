@@ -683,5 +683,101 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
       "Orderbuch-Ungleichgewicht"
     ],
     "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Marktliquidität",
+    "definition": "Wie gut eine bestimmte Menge zu passenden Bedingungen handelbar ist. Preis, erreichbare Angebote, Zeit und Menge gehören zusammen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Sofortigkeit",
+    "definition": "Die Möglichkeit, ein Geschäft zeitnah umzusetzen. Ein günstiger wartender Wunschpreis ist noch kein sofortiger Abschluss.",
+    "aliases": [
+      "Immediacy"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Relativer Spread",
+    "definition": "Der Abstand von bestem Ask und Bid als Anteil einer ausdrücklich genannten Bezugsgröße. Hier verwenden wir dafür ihren Mittelwert.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Mittelkurs",
+    "definition": "Der berechnete Mittelwert von bestem Bid und bestem Ask. Er ist nicht automatisch ein nutzbares Kauf- oder Verkaufsangebot.",
+    "aliases": [
+      "Midprice"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Referenzpreis",
+    "definition": "Ein ausdrücklich genannter Vergleichspreis. Er hilft beim Beurteilen einer Ausführung, muss aber selbst kein erreichbares Angebot gewesen sein.",
+    "aliases": [
+      "Benchmark"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Slippage",
+    "definition": "Eine Preisabweichung der Ausführung gegenüber einer genannten Referenz. Für ihre Beurteilung brauchst du Richtung, Menge und Zeitpunkt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Preisverbesserung",
+    "definition": "Eine günstigere Ausführung gegenüber einer genannten Referenz: beim Kauf ein niedrigerer, beim Verkauf ein höherer Preis. Sie garantiert keinen späteren Gewinn.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Preiswirkung",
+    "definition": "Der Einfluss eines Geschäfts auf Preise oder Angebote. Im einfachen Buch kann ein Auftrag mehrere Preisstufen nutzen; andere gleichzeitige Ursachen müssen getrennt geprüft werden.",
+    "aliases": [
+      "Price Impact"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Handelsvolumen",
+    "definition": "Die in einem genannten Zeitraum ausgeführten Einheiten. Käufe und Verkäufe desselben Austauschs werden nicht doppelt gezählt.",
+    "aliases": [
+      "Volumen"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Volatilität",
+    "definition": "Sie beschreibt, wie stark Preise im betrachteten Zeitraum schwanken. Sie ist nicht dasselbe wie die angebotene Menge oder Handelbarkeit.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Resilienz",
+    "definition": "Die Fähigkeit eines Marktes, Handel aufzufangen und wieder passende Angebote bereitzustellen. Schnelles Nachfüllen oder eine Kursrückkehr sind nicht garantiert.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Liquiditätsrisiko",
+    "definition": "Das Risiko, die gewünschte Menge nicht rechtzeitig zu passenden Bedingungen handeln zu können.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Finanzierungsliquidität",
+    "definition": "Die Möglichkeit, benötigte Geldmittel zu beschaffen. Das ist eine andere Frage als die Handelbarkeit einer Anlage.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Transaktionskosten",
+    "definition": "Kosten, die mit dem Handel verbunden sind. Dazu gehören getrennte Gebühren und Nachteile durch die tatsächlich gezahlten oder erhaltenen Preise. Dieselben Beträge dürfen nicht doppelt gezählt werden.",
+    "aliases": [
+      "Handelskosten"
+    ],
+    "firstUnit": "Kapitel 7"
   }
 ];

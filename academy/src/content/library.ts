@@ -51,8 +51,8 @@ export const librarySubjects: LibrarySubject[] = [
       {
         id: 'how-exchanges-work',
         title: 'Wie Börsen funktionieren',
-        label: 'Trading von null · Kapitel 1–6 verfügbar',
-        description: 'Kapitel 1 bis 6: Produkte, Teilnehmer, Handelsplätze, Auktion und Orderbuch mit eigenen Mengen- und Preisrechnungen. Weitere Kapitel folgen.',
+        label: 'Trading von null · Kapitel 1–7 verfügbar',
+        description: 'Kapitel 1 bis 7: Produkte, Teilnehmer, Handelsplätze, Auktion, Orderbuch und Liquidität mit eigenen Mengen-, Preis- und Kostenrechnungen. Weitere Kapitel folgen.',
         status: 'available',
         subtopics: [
           'Börse, außerbörslicher Handel (OTC), Market Maker',

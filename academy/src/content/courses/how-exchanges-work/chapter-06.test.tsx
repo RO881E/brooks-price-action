@@ -45,7 +45,7 @@ describe('Marktgrundlagen: Orderbuch', () => {
     const outline = toCourseOutline(course);
     const previous = course.units.slice(0, 5).flatMap((unit) => unit.lessons.map((lesson) => lesson.id));
     expect(previous).toHaveLength(99);
-    expect(course.units.flatMap((unit) => unit.lessons)).toHaveLength(123);
+    expect(course.units.slice(0, 6).flatMap((unit) => unit.lessons)).toHaveLength(123);
     expect(lessonAccessState(outline, lessons[0], [])).toBe('locked');
     expect(lessonAccessState(outline, lessons[0], ['price-action-trends.chapter-01.lesson-01'])).toBe('locked');
     expect(lessonAccessState(outline, lessons[0], previous.slice(1))).toBe('locked');
