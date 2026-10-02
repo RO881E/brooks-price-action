@@ -15,12 +15,9 @@ test('loads every main view without JavaScript errors', async ({ page }) => {
     ? mobileNavigation
     : page.getByRole('navigation', { name: 'Hauptnavigation' });
 
-  await navigation.getByRole('button', { name: 'Buchmodus' }).click();
-  await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
-  await expect(page.getByRole('button', { name: /Der Chart ist das Ergebnis: Verfügbar/ })).toBeEnabled();
-  await expect(
-    page.getByRole('button', { name: /Wahrscheinlichkeit statt Gewissheit: Gesperrt/ }),
-  ).toBeDisabled();
+  await expect(page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ })).toBeEnabled();
+  // Der Buchmodus ist entfallen.
+  await expect(navigation.getByRole('button', { name: 'Buchmodus' })).toHaveCount(0);
 
   await navigation.getByRole('button', { name: 'Üben' }).click();
   await expect(page.getByRole('heading', { name: 'Analyse-Training' })).toBeVisible();
@@ -83,7 +80,7 @@ test('completes a lesson and persists progress', async ({ page }) => {
 test.describe('desktop content traversal', () => {
   test('opens every published lesson and renders every learning step', { tag: '@desktop' }, async ({ page }) => {
     // Rund 190 Lektionen mit allen Schritten: seit Kapitel 6 deutlich über 90 s, auf langsameren Läufern über 180 s.
-    test.setTimeout(420_000);
+    test.setTimeout(1_200_000);
 
     const completedLessonIds = publishedLessons.map((lesson) => lesson.id);
     const answers = Object.fromEntries(
@@ -114,15 +111,9 @@ test.describe('desktop content traversal', () => {
 
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
-    await page.goto('/');
-    await page.getByRole('navigation', { name: 'Hauptnavigation' })
-      .getByRole('button', { name: 'Buchmodus' })
-      .click();
-
     for (const lesson of publishedLessons) {
-      await page
-        .getByRole('button', { name: `${lesson.title}: Abgeschlossen`, exact: true })
-        .click();
+      // Direktlink: Alle Lektionen sind im gesetzten Stand abgeschlossen und damit offen.
+      await page.goto(`/#/lesson/${lesson.id}?step=1`);
 
       for (const [index, step] of lesson.steps.entries()) {
         await expect(
@@ -137,7 +128,6 @@ test.describe('desktop content traversal', () => {
         }
       }
 
-      await page.getByRole('button', { name: 'Lektion schließen' }).click();
     }
 
     expect(errors).toEqual([]);
@@ -172,13 +162,8 @@ test('is usable in a narrow mobile viewport', { tag: '@mobile' }, async ({ page 
     ),
   ).toBe(false);
 
-  await mobileNavigation.getByRole('button', { name: 'Buchmodus' }).click();
-  await page
-    .getByRole('button', {
-      name: 'Die Falle vor der Trendwiederaufnahme: Abgeschlossen',
-      exact: true,
-    })
-    .click();
+  const trapLesson = publishedLessons.find((lesson) => lesson.title === 'Die Falle vor der Trendwiederaufnahme')!;
+  await page.goto(`/#/lesson/${trapLesson.id}?step=1`);
   await page.getByRole('button', { name: 'Weiter' }).click();
   await expect(
     page.getByRole('img', { name: 'Der Fehlausbruch fängt die falsche Seite' }),
@@ -253,15 +238,15 @@ test.describe('F-01 resume and stable URLs', () => {
 
     await navigation.getByRole('button', { name: 'Glossar' }).click();
     await expect(page).toHaveURL(/#\/glossary$/);
-    await navigation.getByRole('button', { name: 'Buchmodus' }).click();
-    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
+    await navigation.getByRole('button', { name: 'Lernpfad' }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
 
-    await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Verfügbar/ }).click();
+    await page.getByRole('button', { name: /Der Chart ist das Ergebnis: Jetzt lernen/ }).click();
     await page.getByRole('button', { name: 'Weiter' }).click();
     await expect(page.getByRole('heading', { name: 'Eine Auktion hinter jedem Bar' })).toBeVisible();
 
     await page.goBack();
-    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
     await page.goBack();
     await expect(page.getByRole('heading', { name: 'Price-Action-Glossar' })).toBeVisible();
 
@@ -271,7 +256,7 @@ test.describe('F-01 resume and stable URLs', () => {
 
     // „Schließen“ führt in die Ansicht zurück, aus der die Lektion kam.
     await page.getByRole('button', { name: 'Lektion schließen' }).click();
-    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
   });
 
   test('falls back to the learning path for invalid links', async ({ page }) => {
@@ -400,7 +385,7 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     });
 
     await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
-    await expect(page.locator('.stat-card')).toContainText('30');
+    await expect(page.locator('.course-meta-row')).toContainText('30 XP');
     expect(errors).toEqual([]);
   });
 
@@ -481,8 +466,8 @@ test.describe('F-02 repeatable questions and lesson results', () => {
     expect(stored.questionResults['intro-01-question'].attempts).toBe(2);
 
     await page.getByRole('button', { name: 'Zurück zum Lernpfad' }).click();
-    await expect(page.locator('.stat-card')).toContainText('1 /');
-    await expect(page.locator('.stat-card')).toContainText('30');
+    await expect(page.locator('.course-meta-row')).toContainText('1 von');
+    await expect(page.locator('.course-meta-row')).toContainText('30 XP');
   });
 
   test('old answers stay visible and are not turned into attempts', async ({ page }) => {
@@ -873,7 +858,6 @@ test.describe('F-05 daily goal, streak and milestones', () => {
   test('reaching the daily goal celebrates once and shows up in week and milestones', async ({ page }) => {
     await page.clock.setFixedTime(new Date(2026, 9, 7, 10, 0));
     await page.goto('/');
-    await expect(page.locator('.today-card')).toContainText('0 von 1');
 
     await completeFirstLesson(page);
     await expect(toast(page)).toBeVisible();
@@ -932,7 +916,8 @@ test.describe('F-05 daily goal, streak and milestones', () => {
     await page.reload();
     await expect(goalPanel).toContainText('Serie: 0 Tage · Längste: 2');
     await expect(goalPanel.getByText('2026-10-07: kein Lerntag')).toBeAttached();
-    await expect(page.getByText(/verlier|verpasst/i)).toHaveCount(0);
+    // Keine Strafsprache im Zielbereich (Lektionstitel im Lernpfad dürfen „verpasst“ enthalten).
+    await expect(goalPanel.getByText(/verlier|verpasst/i)).toHaveCount(0);
 
     // Eine beendete Wiederholungsrunde ist echte Aktivität.
     await page.getByRole('button', { name: 'Fällige Wiederholung starten' }).click();
@@ -1017,8 +1002,8 @@ test.describe('F-06 global search', () => {
       localStorage.setItem('wqt-academy-progress-v1', JSON.stringify({ version: 6, completedLessonIds: [id] }));
     }, lessonOne.id);
 
-    await page.goto('/#/chapters');
-    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
+    await page.goto('/#/path');
+    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
     await page.getByRole('button', { name: 'Suchen', exact: true }).click();
     await input(page).fill('beschreibung erklarung');
     const stepOption = dialog(page).getByRole('option', { name: /Beschreibung vor Erklärung/ });
@@ -1033,7 +1018,7 @@ test.describe('F-06 global search', () => {
     await expect(page.getByRole('heading', { name: 'Beschreibung vor Erklärung', level: 1 })).toBeVisible();
 
     await page.goBack();
-    await expect(page.getByRole('heading', { name: 'Inhalte zusammenhängend lesen' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Price Action: Trends' })).toBeVisible();
     await page.goForward();
     await expect(page.getByRole('heading', { name: 'Beschreibung vor Erklärung', level: 1 })).toBeVisible();
   });

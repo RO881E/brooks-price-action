@@ -14,7 +14,6 @@ type QuestionStep = Extract<Lesson['steps'][number], { type: 'question' }>;
 
 const VIEWS = [
   { hash: '#/path', heading: 'Price Action: Trends' },
-  { hash: '#/chapters', heading: 'Inhalte zusammenhängend lesen' },
   { hash: '#/practice', heading: 'Analyse-Training' },
   { hash: '#/progress', heading: 'Fortschritt' },
   { hash: '#/saved', heading: 'Gespeichert' },
@@ -180,7 +179,6 @@ test.describe('F-10 Release-Suite', () => {
     for (const view of VIEWS) {
       const label = {
         '#/path': 'Lernpfad',
-        '#/chapters': 'Buchmodus',
         '#/practice': 'Üben',
         '#/progress': 'Fortschritt',
         '#/saved': 'Gespeichert',

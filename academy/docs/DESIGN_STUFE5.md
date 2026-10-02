@@ -29,7 +29,7 @@ Statt Stelle für Stelle umzuschreiben, ist **jede Farbe ein Token** `--c-<hex>`
 ### Prüfung
 
 - `tests/themes.spec.ts` (Desktop und 360 px; gleiche Prüfungen für Dunkel und Bunt): Wahl und Reload, „Wie im System“ inkl. Wechsel, kein
-  Aufblitzen, axe ohne Befund für alle Kernansichten (Lernpfad, Buchmodus, Leser, Üben, Kurzlernen, Trainer,
+  Aufblitzen, axe ohne Befund für alle Kernansichten (Lernpfad, Üben, Kurzlernen, Trainer,
   Rückblick, Fortschritt, Gespeichert, Glossar, Einstellungen) und wichtige Zustände (Antwort-Rückmeldung,
   Trainer-Auflösung, Bar-Album, Begriffe-Memory, Blitzrunde, Hilfe-Dialog), kein Überlauf.
 - Bilder: [`docs/design/s5b`](design/s5b).

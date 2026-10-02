@@ -85,7 +85,6 @@ describe('parseRoute', () => {
 
   it('reads every main view', () => {
     expect(parseRoute('#/path')).toEqual({ kind: 'view', view: 'path' });
-    expect(parseRoute('#/chapters')).toEqual({ kind: 'view', view: 'chapters' });
     expect(parseRoute('#/practice')).toEqual({ kind: 'view', view: 'practice' });
     expect(parseRoute('#/progress')).toEqual({ kind: 'view', view: 'progress' });
     expect(parseRoute('#/glossary')).toEqual({ kind: 'view', view: 'glossary' });
@@ -152,12 +151,16 @@ describe('parseRoute', () => {
     expect(parseRoute('#/lesson//result')).toBeNull();
     expect(parseRoute('#/lesson/a/result/x')).toBeNull();
     expect(parseRoute('#glossary')).toBeNull();
+    // Den Buchmodus gibt es nicht mehr.
+    expect(parseRoute('#/chapters')).toBeNull();
+    expect(parseRoute('#/read/unit')).toBeNull();
     expect(parseRoute('#/lesson/%E0%A4%A')).toBeNull();
   });
 
   it('round-trips through formatRoute', () => {
     const routes: AppRoute[] = [
-      { kind: 'view', view: 'chapters' },
+      { kind: 'view', view: 'practice' },
+      { kind: 'view', view: 'library' },
       { kind: 'lesson', lessonId: 'unit.lesson-01', step: 4 },
       { kind: 'lesson', lessonId: 'id mit/zeichen', step: null },
     ];

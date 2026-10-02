@@ -106,6 +106,7 @@ test.describe('F-25 Rückblick', () => {
     await expect(page).toHaveURL(/#\/practice$/);
     await playRound(page, choices.map(() => 'wait'), 'zweiter Versuch');
     await page.getByRole('button', { name: 'Zur Fallauswahl' }).last().click();
+    await page.getByRole('tab', { name: 'Chart-Trainer' }).click();
     await page.getByRole('button', { name: `Erneut trainieren: ${barCase.title}` }).click();
     const runs = page.locator('.replay-runs li');
     await expect(runs).toHaveCount(2);

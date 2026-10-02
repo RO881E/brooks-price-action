@@ -122,7 +122,7 @@ describe('Mehrere Kurse: Seiten und Links', () => {
     });
   });
 
-  it('Lektionen und Leser werden in ihrem eigenen Kurs geprüft – auch wenn ein anderer gewählt ist', () => {
+  it('Lektionen werden in ihrem eigenen Kurs geprüft – auch wenn ein anderer gewählt ist', () => {
     const progress = createEmptyProgress();
     expect(courseWithLesson(both, testFirst.id)).toBe(test);
     expect(courseWithUnit(both, main.units[0].id)).toBe(main);
@@ -138,9 +138,6 @@ describe('Mehrere Kurse: Seiten und Links', () => {
     expect(resolveRoute(second, main, progress, both)).toBeNull();
     const afterFirst = completeLesson(progress, testFirst.id, testFirst.xp, '2026-10-01T08:00:00.000Z');
     expect(resolveRoute(second, main, afterFirst, both)).toMatchObject({ kind: 'lesson', lesson: { id: testSecond.id } });
-
-    const read = resolveRoute({ kind: 'read', unitId: test.units[0].id, lessonId: null, step: null }, main, progress, both);
-    expect(read).toMatchObject({ kind: 'read', reader: { unit: { id: test.units[0].id } } });
   });
 
   it('Transferprüfung gehört zum gewählten Kurs', () => {

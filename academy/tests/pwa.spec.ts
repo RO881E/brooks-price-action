@@ -6,6 +6,8 @@ import { extname, join, normalize } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { barCases } from '../src/content/barCases';
 import { priceActionTrendsCourse, publishedLessons } from '../src/content/course';
+import { marketBasicsDefinition } from '../src/content/courses/how-exchanges-work';
+import { unitDefinitions } from '../src/content/units';
 import { librarySubjects } from '../src/content/library';
 
 /*
@@ -266,9 +268,9 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
   }, publishedLessons.map((lesson) => lesson.id));
   await firstVisit(page);
 
-  // Jede Einheit liegt als eigener Chunk im Vorab-Cache.
-  const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-\d\d|chapter-\d\d)-.*\.js$/.test(path));
-  expect(chunks).toHaveLength(priceActionTrendsCourse.units.length);
+  // Jede Einheit jedes Kurses liegt als eigener Chunk im Vorab-Cache.
+  const chunks = builtPrecache().filter((path) => /^assets\/(introduction|part-\d\d|chapter-\d\d)-[A-Za-z0-9_-]{8}\.js$/.test(path));
+  expect(chunks).toHaveLength(unitDefinitions.length + marketBasicsDefinition.units.length);
 
   serverState.down = true;
   await context.setOffline(true);
@@ -282,77 +284,6 @@ test('Offline-Neustart: nie geöffnete Kapitel kommen aus dem Vorab-Cache (F-12)
   await page.keyboard.press('/');
   await page.keyboard.type(priceActionTrendsCourse.units[5].lessons[1].title);
   await expect(page.getByRole('option').first()).toBeVisible();
-
-  serverState.down = false;
-  await context.setOffline(false);
-  expect(errors).toEqual([]);
-});
-
-test('Buchleser offline: Kapitel lesen und Lesestelle halten (F-13)', async ({ page, context }) => {
-  const errors = trackConsoleErrors(page);
-  const intro = priceActionTrendsCourse.units[0];
-  const [first, second] = intro.lessons;
-  await page.addInitScript((id) => {
-    if (localStorage.getItem('wqt-academy-progress-v1')) return;
-    localStorage.setItem(
-      'wqt-academy-progress-v1',
-      JSON.stringify({ version: 2, completedLessonIds: [id], answers: {} }),
-    );
-  }, first.id);
-  await firstVisit(page);
-
-  serverState.down = true;
-  await context.setOffline(true);
-  await page.goto(`${origin}/academy/#/read/${intro.id}`);
-  await expect(page.getByRole('heading', { name: second.title, level: 2 })).toBeVisible();
-  for (const step of second.steps) {
-    await expect(page.getByRole('heading', { name: step.title, level: 3 })).toBeVisible();
-  }
-  await expect
-    .poll(() =>
-      page.evaluate(() => JSON.parse(localStorage.getItem('wqt-academy-progress-v1') ?? '{}').readerPositions),
-    )
-    .toMatchObject({ [intro.id]: { lessonId: second.id } });
-
-  serverState.down = false;
-  await context.setOffline(false);
-  expect(errors).toEqual([]);
-});
-
-test('Begriffe am Lernort offline: Panel und Glossar-Link (F-21)', async ({ page, context }) => {
-  const errors = trackConsoleErrors(page);
-  const intro = priceActionTrendsCourse.units[0];
-  const [first] = intro.lessons;
-  await firstVisit(page);
-
-  serverState.down = true;
-  await context.setOffline(true);
-  await page.goto(`${origin}/academy/#/read/${intro.id}`);
-  await expect(page.getByRole('heading', { name: first.title, level: 2 })).toBeVisible();
-  await page.getByRole('button', { name: 'Price Action', exact: true }).click();
-  const panel = page.getByRole('region', { name: 'Price Action', exact: true });
-  await expect(panel).toBeVisible();
-  await panel.getByRole('link', { name: 'Im Glossar öffnen' }).click();
-  await expect(page.getByRole('heading', { name: 'Price Action', level: 2, exact: true })).toBeVisible();
-
-  serverState.down = false;
-  await context.setOffline(false);
-  expect(errors).toEqual([]);
-});
-
-test('Leseoptionen offline ändern und nach Neustart behalten (F-22)', async ({ page, context }) => {
-  const errors = trackConsoleErrors(page);
-  const intro = priceActionTrendsCourse.units[0];
-  await firstVisit(page);
-
-  serverState.down = true;
-  await context.setOffline(true);
-  await page.goto(`${origin}/academy/#/read/${intro.id}`);
-  await expect(page.getByRole('heading', { name: intro.lessons[0].title, level: 2 })).toBeVisible();
-  await page.locator('.reading-options summary').click();
-  await page.getByRole('group', { name: 'Schriftgröße' }).getByRole('radio', { name: 'Groß', exact: true }).check();
-  await page.reload();
-  await expect(page.locator('.reader-page')).toHaveAttribute('data-reading-size', 'large');
 
   serverState.down = false;
   await context.setOffline(false);
@@ -483,19 +414,16 @@ test('Fehlerbericht offline erstellen (F-28)', async ({ page, context }) => {
   expect(errors).toEqual([]);
 });
 
-test('Nach Thema üben offline: Themenliste und Lernlink (F-27)', async ({ page, context }) => {
+test('Üben offline: neuer Stand zeigt nur die Wiederholung, ohne leere Bereiche (F-27)', async ({ page, context }) => {
   const errors = trackConsoleErrors(page);
   await firstVisit(page);
   await page.getByRole('button', { name: 'Einführung schließen' }).click();
   serverState.down = true;
   await context.setOffline(true);
   await page.goto(`${origin}/academy/#/practice`);
-  const section = page.getByRole('region', { name: 'Nach Thema üben' });
-  await expect(section).toBeVisible();
-  await expect(section.getByRole('article').first()).toBeVisible();
-  await expect(section.getByRole('button', { name: /Runde starten/ })).toHaveCount(0);
-  await section.getByRole('button', { name: /^(Lektion starten|Weiter im Lernpfad):/ }).first().click();
-  await expect(page).toHaveURL(/#\/lesson\//);
+  await expect(page.getByRole('heading', { name: 'Analyse-Training' })).toBeVisible();
+  await expect(page.getByRole('tab')).toHaveCount(0);
+  await expect(page.getByRole('region', { name: 'Nach Thema üben' })).toHaveCount(0);
   serverState.down = false;
   await context.setOffline(false);
   expect(errors).toEqual([]);

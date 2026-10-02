@@ -181,12 +181,10 @@ describe('Datenmodell v11: Trainerrunden', () => {
       version: 10,
       completedLessonIds: ['a'],
       answers: { q: 'o' },
-      readingOptions: { size: 'large', spacing: 'standard' },
     })!;
     expect(migrated.version).toBe(ACADEMY_PROGRESS_VERSION);
     expect(migrated.caseSessions).toEqual({});
     expect(migrated.caseRuns).toEqual({});
-    expect(migrated.readingOptions).toEqual({ size: 'large', spacing: 'standard' });
     expect(migrated.preservedFields).toEqual({});
   });
 

@@ -15,21 +15,10 @@ export const ACADEMY_PROGRESS_KEY = 'wqt-academy-progress-v1';
 /** Sicherung eines unlesbaren Academy-Datensatzes, bevor er ersetzt wird. */
 export const ACADEMY_PROGRESS_BACKUP_KEY = 'wqt-academy-progress-backup';
 
-export const ACADEMY_PROGRESS_VERSION = 16;
+export const ACADEMY_PROGRESS_VERSION = 17;
 
 /** Wie viele Lerntage höchstens gespeichert werden (gut ein Jahr). */
 export const MAX_ACTIVITY_DAYS = 400;
-
-/**
- * Lesestelle im Buchleser je Einheit (seit F-13, v9): zuletzt gelesener
- * Abschnitt (Lektion) und Schritt. Unabhängig vom Lektionsabschluss und von
- * `lessonPositions` des Lesson Players.
- */
-export interface ReaderPosition {
-  lessonId: string;
-  stepId: string | null;
-  updatedAt: string;
-}
 
 export interface LessonPosition {
   /** Nullbasierter Index des zuletzt geöffneten gültigen Schritts. */
@@ -197,7 +186,7 @@ export function normalizeReasoning(value: unknown): CaseReasoning | undefined {
 function normalizeReasoningMap(value: unknown): Record<string, CaseReasoning> | undefined {
   if (!isRecord(value)) return undefined;
   const entries = Object.entries(value).flatMap(([decisionId, reasoning]) => {
-    const normalized = isReaderId(decisionId) ? normalizeReasoning(reasoning) : undefined;
+    const normalized = isStoredId(decisionId) ? normalizeReasoning(reasoning) : undefined;
     return normalized ? [[decisionId, normalized] as const] : [];
   });
   return entries.length ? Object.fromEntries(entries) : undefined;
@@ -233,9 +222,9 @@ const CASE_DECISIONS = ['long', 'short', 'wait'];
 function normalizeRunAnswers(value: unknown): Record<string, CaseRunAnswer> | undefined {
   if (!isRecord(value)) return undefined;
   const entries = Object.entries(value).flatMap(([decisionId, answer]) => {
-    if (!isReaderId(decisionId) || !isRecord(answer)) return [];
+    if (!isStoredId(decisionId) || !isRecord(answer)) return [];
     if (!CASE_DECISIONS.includes(answer.decision as string) || !Array.isArray(answer.cueIds)) return [];
-    const cueIds = answer.cueIds.filter(isReaderId);
+    const cueIds = answer.cueIds.filter(isStoredId);
     if (cueIds.length !== answer.cueIds.length) return [];
     return [[decisionId, { decision: answer.decision as CaseRunAnswer['decision'], cueIds }] as const];
   });
@@ -255,21 +244,6 @@ export interface AcademySettings {
 }
 
 export const DEFAULT_SETTINGS: AcademySettings = { motion: 'system', compact: false };
-
-/** Schriftgröße des Lesetexts im Buchmodus (seit F-22, v10). */
-export type ReadingSize = 'standard' | 'large' | 'larger';
-/** Zeilenabstand des Lesetexts im Buchmodus (seit F-22, v10). */
-export type ReadingSpacing = 'standard' | 'relaxed' | 'wide';
-
-/** Leseoptionen des Buchmodus – nur Darstellung, kein Einfluss auf Inhalte. */
-export interface ReadingOptions {
-  size: ReadingSize;
-  spacing: ReadingSpacing;
-}
-
-export const READING_SIZES: readonly ReadingSize[] = ['standard', 'large', 'larger'];
-export const READING_SPACINGS: readonly ReadingSpacing[] = ['standard', 'relaxed', 'wide'];
-export const DEFAULT_READING_OPTIONS: ReadingOptions = { size: 'standard', spacing: 'standard' };
 
 export interface AcademyProgress {
   version: typeof ACADEMY_PROGRESS_VERSION;
@@ -298,10 +272,6 @@ export interface AcademyProgress {
   lastLessonId: string | null;
   /** Begonnene, noch nicht abgeschlossene Lektionen mit ihrem letzten Schritt. */
   lessonPositions: Record<string, LessonPosition>;
-  /** Lesestelle im Buchleser, Schlüssel: Einheit-ID (seit F-13). */
-  readerPositions: Record<string, ReaderPosition>;
-  /** Schriftgröße und Zeilenabstand im Buchmodus (seit F-22). */
-  readingOptions: ReadingOptions;
   /** Laufende Trainerrunden, Schlüssel: Fall-ID (seit F-15). Nicht Teil der Sicherung. */
   caseSessions: Record<string, StoredCaseSession>;
   /** Abgeschlossene Trainerrunden je Fall, älteste zuerst (seit F-15). */
@@ -350,8 +320,6 @@ export function createEmptyProgress(): AcademyProgress {
     settings: DEFAULT_SETTINGS,
     lastLessonId: null,
     lessonPositions: {},
-    readerPositions: {},
-    readingOptions: DEFAULT_READING_OPTIONS,
     caseSessions: {},
     caseRuns: {},
     guideSeenAt: null,
@@ -378,6 +346,7 @@ const KNOWN_FIELDS = new Set([
   'settings',
   'lastLessonId',
   'lessonPositions',
+  // Bis v16 Felder des früheren Buchmodus; werden gelesen, aber verworfen.
   'readerPositions',
   'readingOptions',
   'caseSessions',
@@ -400,13 +369,13 @@ function stringArray(value: unknown): string[] {
     : [];
 }
 
-const MAX_READER_ID_LENGTH = 200;
+const MAX_STORED_ID_LENGTH = 200;
 
 /** Kurs-IDs wie in der Bibliothek: Kleinbuchstaben, Ziffern und Bindestriche. */
 const COURSE_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export function isCourseId(value: unknown): value is string {
-  return typeof value === 'string' && value.length <= MAX_READER_ID_LENGTH && COURSE_ID_PATTERN.test(value);
+  return typeof value === 'string' && value.length <= MAX_STORED_ID_LENGTH && COURSE_ID_PATTERN.test(value);
 }
 
 /**
@@ -418,33 +387,8 @@ export function chooseCourse(progress: AcademyProgress, courseId: string): Acade
   return { ...progress, activeCourseId: courseId };
 }
 
-function isReaderId(value: unknown): value is string {
-  return typeof value === 'string' && value !== '' && value.length <= MAX_READER_ID_LENGTH;
-}
-
-/**
- * Lesestellen aus beliebigen, auch defekten Daten: Einträge ohne gültige
- * Einheit oder Lektion entfallen, ein fehlender Schritt bedeutet Abschnittsanfang.
- * Ob die Lektion noch existiert, entscheidet erst die Route – unbekannte IDs
- * fallen dort sicher zurück, ohne die gespeicherte Stelle zu löschen.
- */
-export function normalizeReaderPositions(value: unknown): Record<string, ReaderPosition> {
-  if (!isRecord(value)) return {};
-  return Object.fromEntries(
-    Object.entries(value).flatMap(([unitId, position]) => {
-      if (!isReaderId(unitId) || !isRecord(position) || !isReaderId(position.lessonId)) return [];
-      return [
-        [
-          unitId,
-          {
-            lessonId: position.lessonId,
-            stepId: isReaderId(position.stepId) ? position.stepId : null,
-            updatedAt: typeof position.updatedAt === 'string' ? position.updatedAt : nowIso(),
-          },
-        ],
-      ];
-    }),
-  );
+function isStoredId(value: unknown): value is string {
+  return typeof value === 'string' && value !== '' && value.length <= MAX_STORED_ID_LENGTH;
 }
 
 /** Laufende Trainerrunden: nur Form und Zuordnung, der Inhalt wird beim Öffnen geprüft. */
@@ -456,7 +400,7 @@ export function normalizeCaseSessions(value: unknown): Record<string, StoredCase
   if (!isRecord(value)) return {};
   return Object.fromEntries(
     Object.entries(value).flatMap(([caseId, entry]) => {
-      if (!isReaderId(caseId) || !isRecord(entry) || !isReaderId(entry.sessionId)) return [];
+      if (!isStoredId(caseId) || !isRecord(entry) || !isStoredId(entry.sessionId)) return [];
       if (!isRecord(entry.session) || entry.session.caseId !== caseId) return [];
       const startedAt = typeof entry.startedAt === 'string' ? entry.startedAt : nowIso();
       return [
@@ -479,7 +423,7 @@ export function normalizeCaseSessions(value: unknown): Record<string, StoredCase
 export function isCaseRun(value: unknown): value is CaseRun {
   return (
     isRecord(value) &&
-    isReaderId(value.sessionId) &&
+    isStoredId(value.sessionId) &&
     typeof value.completedAt === 'string' &&
     isCount(value.best) &&
     isCount(value.defensible) &&
@@ -501,7 +445,7 @@ export function normalizeCaseRuns(value: unknown): Record<string, CaseRun[]> {
   if (!isRecord(value)) return {};
   return Object.fromEntries(
     Object.entries(value).flatMap(([caseId, runs]) => {
-      if (!isReaderId(caseId) || !Array.isArray(runs)) return [];
+      if (!isStoredId(caseId) || !Array.isArray(runs)) return [];
       const valid = tidyCaseRuns(
         runs.filter(isCaseRun).map(({ sessionId, completedAt, best, defensible, mistake, missedCues, answers, reasoning }) => {
           const valid = normalizeRunAnswers(answers);
@@ -836,27 +780,6 @@ function normalizeSettings(value: unknown): AcademySettings {
   };
 }
 
-/** Gültige Leseoptionen aus beliebigen Daten; Unbekanntes wird zu „Standard“. */
-export function normalizeReadingOptions(value: unknown): ReadingOptions {
-  if (!isRecord(value)) return DEFAULT_READING_OPTIONS;
-  const size = READING_SIZES.find((item) => item === value.size) ?? 'standard';
-  const spacing = READING_SPACINGS.find((item) => item === value.spacing) ?? 'standard';
-  return size === 'standard' && spacing === 'standard' ? DEFAULT_READING_OPTIONS : { size, spacing };
-}
-
-export function sameReadingOptions(first: ReadingOptions, second: ReadingOptions): boolean {
-  return first.size === second.size && first.spacing === second.spacing;
-}
-
-/** Ändert Leseoptionen; `DEFAULT_READING_OPTIONS` setzt nur sie zurück. */
-export function updateReadingOptions(
-  progress: AcademyProgress,
-  changes: Partial<ReadingOptions>,
-): AcademyProgress {
-  const next = normalizeReadingOptions({ ...progress.readingOptions, ...changes });
-  return sameReadingOptions(next, progress.readingOptions) ? progress : { ...progress, readingOptions: next };
-}
-
 /**
  * Gibt es schon irgendeinen Lernstand? Dann ist es
  * kein erster Besuch, und die Einführung erscheint nicht von selbst (F-18).
@@ -867,7 +790,6 @@ export function hasLearningData(progress: AcademyProgress): boolean {
     Object.keys(progress.answers).length > 0 ||
     Object.keys(progress.questionResults).length > 0 ||
     Object.keys(progress.lessonPositions).length > 0 ||
-    Object.keys(progress.readerPositions).length > 0 ||
     Object.keys(progress.reviewCards).length > 0 ||
     Object.keys(progress.bookmarks).length > 0 ||
     Object.keys(progress.notes).length > 0 ||
@@ -960,6 +882,8 @@ export function setDailyGoal(progress: AcademyProgress, goal: DailyGoal): Academ
  * bereits Lernstand hat, sieht sie trotzdem nie automatisch.
  * Vor v14 gibt es keine eigenen Trainerbegründungen; Runden bleiben ohne `reasoning`.
  * Vor v16 gibt es keinen gewählten Kurs (`activeCourseId: null`): Es gilt der Standardkurs.
+ * Bis v16 gab es einen Buchmodus; seine Felder `readerPositions` und `readingOptions` werden beim Laden
+ * verworfen (v17).
  * Liefert `null`, wenn der Wert kein erkennbarer Academy-Datensatz ist.
  */
 export function migrateProgress(value: unknown): AcademyProgress | null {
@@ -999,10 +923,6 @@ export function migrateProgress(value: unknown): AcademyProgress | null {
     lastLessonId:
       typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     lessonPositions: normalizePositions(value.lessonPositions),
-    // Seit v9; ältere Stände starten ohne Lesestelle.
-    readerPositions: normalizeReaderPositions(value.readerPositions),
-    // Seit v10; ältere Stände lesen in der Standarddarstellung.
-    readingOptions: normalizeReadingOptions(value.readingOptions),
     // Seit v11 (F-15); ältere Stände haben noch keine Trainerrunden.
     caseSessions: normalizeCaseSessions(value.caseSessions),
     caseRuns: normalizeCaseRuns(value.caseRuns),
@@ -1114,30 +1034,6 @@ export function recordLessonStep(
     lessonPositions: {
       ...progress.lessonPositions,
       [lessonId]: { stepIndex, updatedAt: nowIso() },
-    },
-  };
-}
-
-/**
- * Merkt sich die Lesestelle einer Einheit im Buchleser. Unabhängig vom
- * Abschluss: Auch in bereits abgeschlossenen Abschnitten bleibt die Stelle.
- */
-export function recordReaderPosition(
-  progress: AcademyProgress,
-  unitId: string,
-  lessonId: string,
-  stepId: string | null,
-  now: string = nowIso(),
-): AcademyProgress {
-  if (!isReaderId(unitId) || !isReaderId(lessonId)) return progress;
-  const step = isReaderId(stepId) ? stepId : null;
-  const current = progress.readerPositions[unitId];
-  if (current && current.lessonId === lessonId && current.stepId === step) return progress;
-  return {
-    ...progress,
-    readerPositions: {
-      ...progress.readerPositions,
-      [unitId]: { lessonId, stepId: step, updatedAt: now },
     },
   };
 }

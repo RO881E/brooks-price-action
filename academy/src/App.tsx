@@ -15,13 +15,11 @@ import { albumOverview } from './features/barAlbum';
 import { useApplyTheme } from './features/theme';
 import { Icon, type IconName } from './components/Icon';
 import { CelebrationToast, type Celebration } from './components/CelebrationToast';
-import { ChapterView } from './components/ChapterView';
 import { LessonLoading } from './components/ContentLoadState';
 import { GlossaryView } from './components/GlossaryView';
 import { LessonPlayer } from './components/LessonPlayer';
 import { LessonResultView } from './components/LessonResultView';
 import { PathView } from './components/PathView';
-import { ReaderView } from './components/ReaderView';
 import { SearchDialog, SearchIcon } from './components/SearchDialog';
 import { TrainerView } from './components/TrainerView';
 import { StudyView } from './components/StudyView';
@@ -102,12 +100,10 @@ import {
   markGuideSeen,
   progressPercent,
   recordLessonStep,
-  recordReaderPosition,
   saveProgress,
   savedKey,
   setDailyGoal,
   shouldShowFirstUseGuide,
-  updateReadingOptions,
   updateSettings,
   type AcademyProgress,
   type ReviewMode,
@@ -226,7 +222,6 @@ type NavMode = 'read' | 'practice' | 'review' | 'progress' | 'neutral';
 
 const navigation: Array<{ id: View; label: string; icon: IconName; mobile: boolean; mode: NavMode }> = [
   { id: 'path', label: 'Lernpfad', icon: 'path', mobile: true, mode: 'read' },
-  { id: 'chapters', label: 'Buchmodus', icon: 'book', mobile: true, mode: 'read' },
   { id: 'practice', label: 'Üben', icon: 'practice', mobile: true, mode: 'practice' },
   { id: 'progress', label: 'Fortschritt', icon: 'progress', mobile: true, mode: 'progress' },
   // Auf Mobilgeräten über das Menü erreichbar, damit die untere Leiste lesbar bleibt.
@@ -317,7 +312,6 @@ export default function App() {
     const timer = window.setTimeout(prefetch, 1500);
     return () => window.clearTimeout(timer);
   }, [upcomingLessonId]);
-  const reading = resolved?.kind === 'read' ? resolved.reader : null;
   const training = resolved?.kind === 'train' ? resolved.barCase : null;
   const replaying = resolved?.kind === 'replay' ? resolved : null;
   // Rückblick im Kurs des Falls (mehrere Kurse).
@@ -327,23 +321,17 @@ export default function App() {
   const transferring = resolved?.kind === 'transfer';
   const librarySubject = resolved?.kind === 'subject' ? resolved.subjectId : null;
   const libraryCourse = resolved?.kind === 'course' ? resolved.courseId : null;
-  // Der Buchleser gehört zur Ansicht „Buchmodus“, der Trainer zu „Üben“
-  // (Navigation bleibt markiert).
+  // Der Trainer gehört zur Ansicht „Üben“ (Navigation bleibt markiert).
   const view: View =
     resolved?.kind === 'view'
       ? resolved.view
-      : reading
-        ? 'chapters'
-        : training || replaying || transferring
+      : training || replaying || transferring
           ? 'practice'
           : studying
             ? 'path'
             : librarySubject !== null || libraryCourse !== null
               ? 'library'
               : lastView;
-  // Hinweis, wenn ein Leser-Link auf einen nicht lesbaren Abschnitt zeigte –
-  // bleibt stehen, obwohl die Adresse danach auf die echte Stelle zeigt.
-  const [readerFallbackUnit, setReaderFallbackUnit] = useState<string | null>(null);
   const glossaryTerm = resolved?.kind === 'view' ? resolved.term : undefined;
 
   useEffect(() => {
@@ -575,21 +563,6 @@ export default function App() {
       setLastView(resolved.view);
       return;
     }
-    if (resolved?.kind === 'read' && window.location.hash === hash) {
-      const { reader } = resolved;
-      if (reader.fellBack) setReaderFallbackUnit(reader.unit.id);
-      const canonicalRead = formatRoute({
-        kind: 'read',
-        unitId: reader.unit.id,
-        lessonId: reader.section?.lesson.id ?? null,
-        step: reader.section && reader.stepIndex !== null ? reader.stepIndex + 1 : null,
-      });
-      if (canonicalRead !== hash) {
-        window.history.replaceState(window.history.state, '', canonicalRead);
-        setHash(canonicalRead);
-      }
-      return;
-    }
     if (resolved?.kind !== 'lesson' || window.location.hash !== hash) return;
 
     const canonical = formatRoute({
@@ -629,38 +602,6 @@ export default function App() {
     setNotice(null);
     setMobileMenuOpen(false);
     scrollToTop();
-  };
-
-  // Buchleser (F-13): aus dem Buchmodus öffnen (neuer Verlaufseintrag),
-  // innerhalb eines Kapitels blättern (ersetzt den Eintrag).
-  const openReader = (unitId: string, lessonId?: string) => {
-    setReaderFallbackUnit(null);
-    setNotice(null);
-    navigate({ kind: 'read', unitId, lessonId: lessonId ?? null, step: null }, 'push');
-  };
-
-  const openReaderSection = (unitId: string, lessonId: string) => {
-    setReaderFallbackUnit(null);
-    navigate({ kind: 'read', unitId, lessonId, step: null }, 'replace');
-  };
-
-  const recordReading = (
-    unitId: string,
-    lessonId: string,
-    stepId: string | null,
-    stepIndex: number | null,
-  ) => {
-    setProgress((current) => recordReaderPosition(current, unitId, lessonId, stepId));
-    // Die Adresse zeigt die Lesestelle – ein Reload landet genau dort.
-    const next: AppRoute = {
-      kind: 'read',
-      unitId,
-      lessonId,
-      step: stepIndex === null ? null : stepIndex + 1,
-    };
-    if (window.location.hash !== formatRoute(next)) {
-      navigate(next, 'replace', window.history.state);
-    }
   };
 
   // Bibliothek (mehrere Kurse): Gebiets- und Kursseiten mit eigenem Verlaufseintrag.
@@ -859,7 +800,7 @@ export default function App() {
     const origin = openedFromOrigin(window.history.state);
     // „Nächste Lektion“ und Trainingsfälle aus dem Kurs der Lektion – auch wenn ein anderer gewählt ist.
     const resultCourse = courseOfLesson(resultLesson.id) ?? course;
-    const resultOrigin: View = origin === 'practice' || origin === 'chapters' ? origin : 'path';
+    const resultOrigin: View = origin === 'practice' ? origin : 'path';
     const openNextFromResult = (lesson: LessonOutline) =>
       navigate(
         { kind: 'lesson', lessonId: lesson.id, step: startStepIndex(lesson, progress) + 1 },
@@ -881,7 +822,7 @@ export default function App() {
             );
           }}
           onBackToPath={() => navigate({ kind: 'view', view: resultOrigin }, 'replace')}
-          backLabel={resultOrigin === 'practice' ? 'Zurück zum Üben' : resultOrigin === 'chapters' ? 'Zurück zum Buchmodus' : 'Zurück zum Lernpfad'}
+          backLabel={resultOrigin === 'practice' ? 'Zurück zum Üben' : 'Zurück zum Lernpfad'}
           nextLesson={nextAvailableLesson(resultCourse, progress.completedLessonIds)}
           onNext={openNextFromResult}
           trainingCases={casesForLesson(resultCourse, progress, resultLesson.id)}
@@ -1067,7 +1008,6 @@ export default function App() {
               }}
               onPractice={() => chooseView('practice')}
               onTrain={openTraining}
-              onRead={(unit, lesson) => openReader(unit.id, lesson.id)}
               onStudy={(minutes) => {
                 navigate({ kind: 'study', minutes }, 'push');
                 scrollToTop();
@@ -1082,39 +1022,8 @@ export default function App() {
               resume={resume}
               notice={notice}
               onDismissNotice={() => setNotice(null)}
-              goal={goalProgress(progress, today)}
-              streak={goalOverview(progress, today).streak}
               totalXp={totalXp}
               onOpenLesson={openLesson}
-            />
-          ) : null}
-          {reading ? (
-            <ReaderView
-              course={courseOfUnit(reading.unit.id) ?? course}
-              reader={
-                readerFallbackUnit === reading.unit.id ? { ...reading, fellBack: true } : reading
-              }
-              progress={progress}
-              onOpenSection={(lessonId) => openReaderSection(reading.unit.id, lessonId)}
-              onOpenUnit={openReader}
-              onPosition={(lessonId, stepId, stepIndex) =>
-                recordReading(reading.unit.id, lessonId, stepId, stepIndex)
-              }
-              onAnswer={(question, optionId) =>
-                setProgress((current) => submitAnswer(current, question, optionId))
-              }
-              onRetry={(question) => setProgress((current) => retryQuestion(current, question))}
-              onReveal={(question) => setProgress((current) => revealSolution(current, question))}
-              onCompleteSection={(lesson) =>
-                setProgress((current) =>
-                  current.completedLessonIds.includes(lesson.id)
-                    ? current
-                    : completeLesson(current, lesson.id, lesson.xp),
-                )
-              }
-              onBackToChapters={() => chooseView('chapters')}
-              onReadingOptions={(changes) => setProgress((current) => updateReadingOptions(current, changes))}
-              onTrain={openTraining}
             />
           ) : null}
           {training ? (
@@ -1142,14 +1051,6 @@ export default function App() {
               onChange={setProgress}
               onOpenLesson={openLesson}
               onBack={() => chooseView('practice')}
-            />
-          ) : null}
-          {view === 'chapters' && !reading ? (
-            <ChapterView
-              course={course}
-              progress={progress}
-              onOpenLesson={openLesson}
-              onReadUnit={openReader}
             />
           ) : null}
           {replaying ? (
@@ -1249,7 +1150,6 @@ export default function App() {
               progress={progress}
               onGoalChange={(goal) => setProgress((current) => setDailyGoal(current, goal))}
               onSettingsChange={(changes) => setProgress((current) => updateSettings(current, changes))}
-              onReadingOptions={(changes) => setProgress((current) => updateReadingOptions(current, changes))}
               onExport={exportBackup}
               onImport={importBackup}
               onReset={resetAll}

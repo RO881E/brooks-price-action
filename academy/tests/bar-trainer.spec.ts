@@ -4,6 +4,7 @@ import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
 import { barCases } from '../src/content/barCases';
 import { TRADE_DECISION_LABELS, type BarCase, type TradeDecision } from '../src/content/barCaseTypes';
 import { priceActionTrendsCourse } from '../src/content/course';
+import { openPractice } from './practiceTab';
 
 /*
  * F-15: Bar-für-Bar-Trainer. Läuft auf Desktop und Mobil gegen den Entwicklungsserver.
@@ -69,7 +70,7 @@ async function expectNoSpoilers(page: Page, index: number) {
 }
 
 async function openCase(page: Page) {
-  await page.goto('/#/practice');
+  await openPractice(page, 'Chart-Trainer');
   await page.getByRole('button', { name: `Trainieren: ${barCase.title}` }).click();
   await expect(page.getByRole('heading', { name: barCase.title, level: 1 })).toBeVisible();
   await expect(page).toHaveURL(new RegExp(`#/train/${barCase.id}$`));
@@ -199,6 +200,7 @@ test.describe('F-15 Bar-für-Bar-Trainer', () => {
 
     // Zurück zur Übersicht und wieder vor: gleicher Stand, keine Lösung.
     await page.goBack();
+    await page.getByRole('tab', { name: 'Chart-Trainer' }).click();
     await expect(page.getByRole('heading', { name: 'Chart trainieren' })).toBeVisible();
     await expect(page.getByText(`Begonnen – Entscheidung 2 von ${barCase.decisions.length}.`)).toBeVisible();
     await page.goForward();
@@ -217,7 +219,7 @@ test.describe('F-15 Bar-für-Bar-Trainer', () => {
 
   test('gesperrte Fälle und Links: verständlicher Zustand, sicherer Rückfall, Link aus der Lektion', async ({ page }) => {
     await page.goto('/#/practice');
-    await expect(page.getByText('Alle Fälle sind noch gesperrt.')).toBeVisible();
+    await expect(page.getByRole('tab', { name: 'Chart-Trainer' })).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Trainieren: / })).toHaveCount(0);
     await page.goto(`/#/train/${barCase.id}`);
     await expect(page.getByText('Dieser Link führt zu keiner verfügbaren Ansicht oder Lektion.')).toBeVisible();
@@ -255,7 +257,7 @@ test.describe('F-15 Bar-für-Bar-Trainer', () => {
     }
     await page.getByRole('button', { name: 'Auswertung anzeigen' }).click();
     await check('summary');
-    await page.goto('/#/practice');
+    await openPractice(page, 'Chart-Trainer');
     await check('list');
   });
 

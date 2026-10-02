@@ -87,7 +87,7 @@ test.describe('Lernpfad als Wanderweg', () => {
     await seed(page, []);
     await page.goto('/#/');
     const nav = page.getByRole('navigation', { name: isMobile ? 'Mobile Navigation' : 'Hauptnavigation' });
-    for (const name of ['Lernpfad', 'Buchmodus', 'Üben', 'Fortschritt', 'Glossar']) {
+    for (const name of ['Lernpfad', 'Üben', 'Fortschritt', 'Glossar']) {
       const button = nav.getByRole('button', { name, exact: true });
       await expect(button.locator('svg.icon').first()).toBeAttached();
     }
@@ -126,7 +126,7 @@ test.describe('Aufklappbare Kapitel', () => {
     await expect(units.nth(0).getByRole('button', { name: priceActionTrendsCourse.units[0].title })).toHaveAttribute('aria-expanded', 'false');
     await expect(units.nth(0).locator('.lesson-node')).toHaveCount(0);
     expect(await page.locator('.lesson-node').count()).toBeLessThan(priceActionTrendsCourse.units[1].lessons.length + 1);
-    await expect(page.getByText('1 von 12 Kapiteln geöffnet.')).toBeVisible();
+    await expect(page.getByText(`1 von ${priceActionTrendsCourse.units.length} Kapiteln geöffnet.`)).toBeVisible();
   });
 
   test('Klick auf die Kopfzeile und Tastatur (Enter/Leertaste) klappen auf und zu', async ({ page }) => {

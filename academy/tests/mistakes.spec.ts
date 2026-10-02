@@ -4,6 +4,7 @@ import { barCases } from '../src/content/barCases';
 import { priceActionTrendsCourse } from '../src/content/course';
 import type { Lesson } from '../src/content/types';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
+import { openPractice } from './practiceTab';
 
 /*
  * F-16: „Was ich noch verwechsle“ im Bereich Üben. Desktop und Mobil.
@@ -76,14 +77,15 @@ const overview = (page: Page) => page.getByRole('region', { name: 'Was ich noch 
 test.describe('F-16 Was ich noch verwechsle', () => {
   test('neuer Stand: verständlicher Leerzustand', async ({ page }) => {
     await page.goto('/#/practice');
-    await expect(overview(page).getByText('Noch keine Fehler erfasst')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Analyse-Training' })).toBeVisible();
+    await expect(overview(page)).toHaveCount(0);
   });
 
   test('Frage: Fakten, Lernlink mit Zurück, „Erneut üben“ bis „später richtig“', async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await seed(page, exampleRecord());
-    await page.goto('/#/practice');
+    await openPractice(page, 'Wiederholen');
     const card = overview(page).getByRole('article', { name: question.title });
     await expect(card.getByText('Zuletzt falsch', { exact: true })).toBeVisible();
     await expect(card.getByText('In der Lektion: erster Versuch falsch.')).toBeVisible();
@@ -119,7 +121,7 @@ test.describe('F-16 Was ich noch verwechsle', () => {
 
   test('Trainerfall: übersehene Hinweise mit Lernlink und „Erneut üben“ öffnet den Fall', async ({ page }) => {
     await seed(page, exampleRecord());
-    await page.goto('/#/practice');
+    await openPractice(page, 'Wiederholen');
     const card = overview(page).getByRole('article', { name: `${barCase.title} · Entscheidung 1` });
     await expect(card.getByText('Zuletzt mit Fehler: Long – Vertretbar.')).toBeVisible();
     await expect(card.getByText('In 1 von 1 Runde mit Fehler (einmal).')).toBeVisible();
@@ -139,7 +141,7 @@ test.describe('F-16 Was ich noch verwechsle', () => {
   test('gesperrter Fall: kein Übungs- oder Lektionslink, kein Deep Link in gesperrte Inhalte', async ({ page }) => {
     // Nur die erste Lektion abgeschlossen: Fall und Hinweis-Lektionen sind gesperrt.
     await seed(page, exampleRecord([firstLesson.id]));
-    await page.goto('/#/practice');
+    await openPractice(page, 'Wiederholen');
     const card = overview(page).getByRole('article', { name: `${barCase.title} · Entscheidung 1` });
     await expect(card.getByText('Dieser Fall ist derzeit gesperrt.')).toBeVisible();
     await expect(card.getByRole('button')).toHaveCount(0);
@@ -148,7 +150,7 @@ test.describe('F-16 Was ich noch verwechsle', () => {
   test('Tastatur, 360 px und axe', async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 740 });
     await seed(page, exampleRecord());
-    await page.goto('/#/practice');
+    await openPractice(page, 'Wiederholen');
     const open = overview(page).getByRole('radio', { name: /^Noch offen/ });
     await open.focus();
     await page.keyboard.press('ArrowRight');

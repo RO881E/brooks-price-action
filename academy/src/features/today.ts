@@ -1,7 +1,7 @@
 import type { BarCase } from '../content/barCaseTypes';
-import type { CourseOutline, LessonOutline, UnitOutline } from '../content/types';
+import type { CourseOutline, LessonOutline } from '../content/types';
 import { caseEntries } from './caseTraining';
-import { lessonAccessState, nextAvailableLesson } from './courseAccess';
+import { nextAvailableLesson } from './courseAccess';
 import { resumeTarget } from './navigation';
 import type { AcademyProgress } from './progress';
 import type { DayKey } from './reviewScheduler';
@@ -9,7 +9,7 @@ import { dueItems, isSessionFinished, reviewPool } from './reviewSession';
 
 /*
  * Startansicht „Heute“ (P06): genau eine primäre nächste Aktion aus dem echten
- * Lernstand und darunter Lesen, Kurzlernen und Fälliges. Reine Auswahl aus
+ * Lernstand und darunter Kurzlernen und Fälliges. Reine Auswahl aus
  * vorhandenen Daten – kein eigener Zustand, kein Timer, kein Druck. Jeder
  * Vorschlag führt zu einem zugänglichen Ziel; gesperrte Inhalte kommen nie vor.
  *
@@ -26,38 +26,10 @@ export type TodayAction =
   | { kind: 'train'; caseId: string; title: string; resume: boolean }
   | { kind: 'done' };
 
-export interface TodayReading {
-  unit: UnitOutline;
-  lesson: LessonOutline;
-  /** Ob eine gespeicherte Lesestelle fortgesetzt wird. */
-  resume: boolean;
-}
-
 export interface TodayPlan {
   primary: TodayAction;
   /** Heute fällige Fragen (auch wenn eine andere Aktion Vorrang hat). */
   dueCount: number;
-  /** Ziel für „Weiterlesen im Buchmodus“ – oder `null`, wenn nichts zugänglich ist. */
-  reading: TodayReading | null;
-}
-
-function unitOf(course: CourseOutline, lessonId: string): UnitOutline | undefined {
-  return course.units.find((unit) => unit.lessons.some((lesson) => lesson.id === lessonId));
-}
-
-function readingTarget(course: CourseOutline, progress: AcademyProgress): TodayReading | null {
-  // Zuletzt gelesene Stelle, sofern sie noch zugänglich ist.
-  const positions = Object.entries(progress.readerPositions).sort(([, a], [, b]) => b.updatedAt.localeCompare(a.updatedAt));
-  for (const [unitId, position] of positions) {
-    const unit = course.units.find((candidate) => candidate.id === unitId);
-    const lesson = unit?.lessons.find((candidate) => candidate.id === position.lessonId);
-    if (unit && lesson && ['available', 'complete'].includes(lessonAccessState(course, lesson, progress.completedLessonIds))) {
-      return { unit, lesson, resume: true };
-    }
-  }
-  const lesson = resumeTarget(course, progress)?.lesson ?? nextAvailableLesson(course, progress.completedLessonIds);
-  const unit = lesson ? unitOf(course, lesson.id) : undefined;
-  return lesson && unit ? { unit, lesson, resume: false } : null;
 }
 
 export function planToday(
@@ -83,5 +55,5 @@ export function planToday(
       ? { kind: 'train', caseId: pick.barCase.id, title: pick.barCase.title, resume: pick.state === 'in-progress' }
       : { kind: 'done' };
   }
-  return { primary, dueCount, reading: readingTarget(course, progress) };
+  return { primary, dueCount };
 }

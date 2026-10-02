@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import { loadedQuestion, useLessonContent } from '../content/catalog';
 import type { GlossaryEntry } from '../content/glossary';
 import type { CourseOutline, LessonOutline } from '../content/types';
@@ -29,7 +29,12 @@ import { PracticeTasks } from './PracticeTasks';
 import { TopicPractice } from './TopicPractice';
 import { CaseCompare } from './CaseCompare';
 import { TransferEntry } from './TransferEntry';
-import { findTopic, topicSources } from '../features/topicPractice';
+import { findTopic, topicEntries, topicSources } from '../features/topicPractice';
+import { BLITZ_MIN_QUESTIONS } from '../features/blitz';
+import { MATCH_MIN_TERMS, matchTerms } from '../features/matchPairs';
+import { courseTasks, unlockedOrderTasks, unlockedSignalTasks } from '../features/practiceTasks';
+import { orderTasks as allOrderTasks, signalBarTasks as allSignalTasks } from '../content/practiceTasks';
+import { planTransfer } from '../features/transferCheck';
 
 const modeLabels: Record<ReviewMode, string> = {
   due: 'Heute fällig',
@@ -57,6 +62,9 @@ export function relativeDayLabel(day: DayKey, today: DayKey): string {
   if (distance === 1) return 'morgen';
   return `in ${distance} Tagen (${formatDay(day)})`;
 }
+
+/** Zuletzt gewählter Reiter: Nach einem Fall oder einer Themenrunde geht es im selben Bereich weiter. */
+let rememberedTab = 'review';
 
 interface PracticeViewProps {
   course: CourseOutline;
@@ -99,6 +107,32 @@ export function PracticeView({
   const cases = useMemo(() => caseEntries(course, progress), [course, progress]);
   const mistakes = useMemo(() => mistakeOverview(course, progress), [course, progress]);
 
+  // Was es heute wirklich zu üben gibt: Bereiche ohne Angebot erscheinen gar nicht erst.
+  const availability = useMemo(() => {
+    const topics = topicEntries(course, progress, today).some((entry) => entry.questions.length > 0 || entry.cases.length > 0);
+    const terms = matchTerms(course, progress, glossary).length >= MATCH_MIN_TERMS;
+    const blitz = items.length >= BLITZ_MIN_QUESTIONS;
+    const tasks =
+      unlockedSignalTasks(progress, courseTasks(course, allSignalTasks)).length > 0 ||
+      unlockedOrderTasks(progress, courseTasks(course, allOrderTasks)).length > 0;
+    const transfer = planTransfer(course, progress).cases.length > 0;
+    const trainer = cases.some((entry) => entry.state !== 'locked');
+    return { topics, terms, blitz, tasks, transfer, trainer };
+  }, [course, progress, today, glossary, items.length, cases]);
+
+  const tabs = [
+    { id: 'review', label: 'Wiederholen', show: true },
+    { id: 'topics', label: 'Nach Thema', show: availability.topics && Boolean(onTrain && onOpenLesson && onPracticeTopic) },
+    { id: 'games', label: 'Spiele', show: availability.terms || availability.blitz || availability.tasks },
+    { id: 'trainer', label: 'Chart-Trainer', show: Boolean(onTrain) && (availability.trainer || availability.transfer) },
+  ].filter((tab) => tab.show);
+  const [selected, setSelected] = useState(rememberedTab);
+  const select = (id: string) => {
+    rememberedTab = id;
+    setSelected(id);
+  };
+  const active = tabs.some((tab) => tab.id === selected) ? selected : 'review';
+
   return (
     <div className="page-shell practice-page">
       <header className="page-heading practice-heading">
@@ -135,50 +169,120 @@ export function PracticeView({
           onOpenLesson={onOpenLesson}
         />
       ) : (
-        <ReviewStart
-          course={course}
-          items={items}
-          progress={progress}
-          today={today}
-          onStart={onStart}
-        />
+        <>
+          {tabs.length > 1 ? <PracticeTabs tabs={tabs} active={active} onSelect={select} /> : null}
+
+          <PracticePanel id="review" active={active} single={tabs.length === 1}>
+            <ReviewStart course={course} items={items} progress={progress} today={today} onStart={onStart} />
+            {onTrain && onOpenLesson && onPracticeQuestions && mistakes.items.length > 0 ? (
+              <MistakeOverviewView
+                course={course}
+                progress={progress}
+                overview={mistakes}
+                onOpenLesson={onOpenLesson}
+                onPracticeQuestions={onPracticeQuestions}
+                onTrain={onTrain}
+              />
+            ) : null}
+          </PracticePanel>
+
+          {tabs.some((tab) => tab.id === 'topics') && onTrain && onOpenLesson && onPracticeTopic ? (
+            <PracticePanel id="topics" active={active}>
+              <TopicPractice
+                course={course}
+                progress={progress}
+                today={today}
+                onStartTopic={onPracticeTopic}
+                onOpenLesson={onOpenLesson}
+                onTrain={onTrain}
+                onOpenTransfer={onOpenTransfer}
+              />
+            </PracticePanel>
+          ) : null}
+
+          {tabs.some((tab) => tab.id === 'games') ? (
+            <PracticePanel id="games" active={active}>
+              {availability.terms ? <MatchGame course={course} progress={progress} glossary={glossary} /> : null}
+              {availability.blitz ? <BlitzGame course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
+              {availability.tasks ? <PracticeTasks course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
+            </PracticePanel>
+          ) : null}
+
+          {tabs.some((tab) => tab.id === 'trainer') && onTrain ? (
+            <PracticePanel id="trainer" active={active}>
+              {onOpenTransfer && availability.transfer ? (
+                <TransferEntry course={course} progress={progress} onOpen={onOpenTransfer} />
+              ) : null}
+              {availability.trainer ? <CaseTrainingList entries={cases} onTrain={onTrain} /> : null}
+              {availability.trainer ? <CaseCompare course={course} progress={progress} /> : null}
+            </PracticePanel>
+          ) : null}
+        </>
       )}
+    </div>
+  );
+}
 
-      {onOpenTransfer && !session ? (
-        <TransferEntry course={course} progress={progress} onOpen={onOpenTransfer} />
-      ) : null}
+/** Reiter wie nach WAI-ARIA: Pfeiltasten wechseln, Pos1/Ende springen; nur der gewählte Reiter ist Tab-Stopp. */
+function PracticeTabs({
+  tabs,
+  active,
+  onSelect,
+}: {
+  tabs: Array<{ id: string; label: string }>;
+  active: string;
+  onSelect: (id: string) => void;
+}) {
+  const ids = useId();
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    const index = tabs.findIndex((tab) => tab.id === active);
+    const next =
+      event.key === 'ArrowRight' ? (index + 1) % tabs.length
+      : event.key === 'ArrowLeft' ? (index - 1 + tabs.length) % tabs.length
+      : event.key === 'Home' ? 0
+      : event.key === 'End' ? tabs.length - 1
+      : -1;
+    if (next < 0) return;
+    event.preventDefault();
+    onSelect(tabs[next].id);
+    document.getElementById(`${ids}-${tabs[next].id}`)?.focus();
+  };
+  return (
+    <div className="practice-tabs" role="tablist" aria-label="Übungsbereiche" onKeyDown={onKeyDown}>
+      {tabs.map((tab) => (
+        <button
+          key={tab.id}
+          id={`${ids}-${tab.id}`}
+          type="button"
+          role="tab"
+          aria-selected={tab.id === active}
+          aria-controls={`practice-panel-${tab.id}`}
+          tabIndex={tab.id === active ? 0 : -1}
+          onClick={() => onSelect(tab.id)}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+  );
+}
 
-      {onTrain && onOpenLesson && onPracticeTopic && !session ? (
-        <TopicPractice
-          course={course}
-          progress={progress}
-          today={today}
-          onStartTopic={onPracticeTopic}
-          onOpenLesson={onOpenLesson}
-          onTrain={onTrain}
-          onOpenTransfer={onOpenTransfer}
-        />
-      ) : null}
-
-      {!session && (glossary === undefined || glossary.length > 0) ? (
-        <MatchGame course={course} progress={progress} glossary={glossary} />
-      ) : null}
-      {!session ? <BlitzGame course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
-      {!session ? <PracticeTasks course={course} progress={progress} onOpenLesson={onOpenLesson} /> : null}
-
-      {onTrain && onOpenLesson && onPracticeQuestions && !session ? (
-        <MistakeOverviewView
-          course={course}
-          progress={progress}
-          overview={mistakes}
-          onOpenLesson={onOpenLesson}
-          onPracticeQuestions={onPracticeQuestions}
-          onTrain={onTrain}
-        />
-      ) : null}
-      {/* Kurse ohne Trainingsfälle zeigen beide Bereiche nicht (mehrere Kurse). */}
-      {onTrain && !session && cases.length > 0 ? <CaseTrainingList entries={cases} onTrain={onTrain} /> : null}
-      {onTrain && !session && cases.length > 0 ? <CaseCompare course={course} progress={progress} /> : null}
+function PracticePanel({
+  id,
+  active,
+  single = false,
+  children,
+}: {
+  id: string;
+  active: string;
+  /** Ohne Reiterleiste (nur ein Bereich) ist es einfach der Seiteninhalt. */
+  single?: boolean;
+  children: React.ReactNode;
+}) {
+  if (single) return <div id={`practice-panel-${id}`}>{children}</div>;
+  return (
+    <div id={`practice-panel-${id}`} role="tabpanel" aria-labelledby={undefined} hidden={active !== id}>
+      {active === id ? children : null}
     </div>
   );
 }

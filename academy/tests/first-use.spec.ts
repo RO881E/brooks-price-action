@@ -19,7 +19,7 @@ test.describe('F-18 Einführung', () => {
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto('/');
     await expect(welcome(page)).toBeVisible();
-    for (const way of ['Lernpfad', 'Buchmodus', 'Üben', 'Chart trainieren']) {
+    for (const way of ['Lernpfad', 'Üben', 'Chart trainieren']) {
       await expect(welcome(page).getByText(way, { exact: true })).toBeVisible();
     }
     // Noch sind alle Trainerfälle gesperrt – kein fertiges Angebot.

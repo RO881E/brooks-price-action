@@ -14,19 +14,15 @@ import {
   type AcademyProgress,
   type AcademySettings,
   type DailyGoal,
-  type ReadingOptions,
 } from '../features/progress';
 import type { PwaSnapshot } from '../features/pwa';
 import { vibrationSupported } from '../features/haptics';
 import { useUiPreferences } from '../features/uiPreferences';
-import { ReadingOptionsPanel, readingOptionsLabel } from './ReadingOptionsPanel';
 
 interface SettingsViewProps {
   progress: AcademyProgress;
   onGoalChange: (goal: DailyGoal) => void;
   onSettingsChange: (changes: Partial<AcademySettings>) => void;
-  /** Schriftgröße und Zeilenabstand des Buchmodus (seit F-22). */
-  onReadingOptions: (changes: Partial<ReadingOptions>) => void;
   /** Lädt eine Sicherung des aktuellen Stands herunter. */
   onExport: () => void;
   onImport: (imported: AcademyProgress, mode: ImportMode, options: MergeOptions) => void;
@@ -55,7 +51,7 @@ function formatDateTime(iso: string): string {
 
 function preferencesLabel(progress: AcademyProgress): string {
   const motion = progress.settings.motion === 'reduce' ? 'Bewegung reduziert' : 'Bewegung wie im System';
-  return `Tagesziel ${goalLabel(progress.dailyGoal)}, ${motion}${progress.settings.compact ? ', kompakt' : ''}, ${readingOptionsLabel(progress.readingOptions)}`;
+  return `Tagesziel ${goalLabel(progress.dailyGoal)}, ${motion}${progress.settings.compact ? ', kompakt' : ''}`;
 }
 
 function mergeLines(preview: ImportPreview): string[] {
@@ -92,7 +88,6 @@ export function SettingsView({
   progress,
   onGoalChange,
   onSettingsChange,
-  onReadingOptions,
   onExport,
   onImport,
   onReset,
@@ -204,13 +199,6 @@ export function SettingsView({
             </small>
           </span>
         </label>
-        <div className="settings-reading">
-          <p className="settings-effect">
-            Wirkung der Schrift: Größe und Zeilenabstand des Lesetexts im Buchmodus – auf diesem Gerät
-            gespeichert, ohne Einfluss auf Lernstand oder Inhalte.
-          </p>
-          <ReadingOptionsPanel options={progress.readingOptions} onChange={onReadingOptions} />
-        </div>
       </section>
 
       <section className="progress-panel settings-section" aria-labelledby={`${ids}-theme`}>

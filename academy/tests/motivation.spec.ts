@@ -2,6 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { priceActionTrendsCourse } from '../src/content/course';
 import { ACADEMY_PROGRESS_VERSION } from '../src/features/progress';
+import { openCollection } from './practiceTab';
 
 /*
  * P07: faire, sichtbare Motivation – Überblick, Abzeichen, freiwillige Tagesvorschläge,
@@ -49,6 +50,7 @@ test.describe('P07 Motivation', () => {
       activityDays: ['2026-10-04', '2026-10-05'],
     });
     await page.goto('/#/progress');
+    await openCollection(page);
     const panel = overview(page);
     const readItem = panel.locator('li[data-mode="read"]');
     await expect(readItem).toContainText(`3 von ${published.length}`);
@@ -66,6 +68,7 @@ test.describe('P07 Motivation', () => {
   test('Tagesvorschläge sind freiwillig: Öffnen und Verlassen zählt nicht als Lerntag', async ({ page }) => {
     await seed(page, published.slice(0, 3).map((lesson) => lesson.id));
     await page.goto('/#/progress');
+    await openCollection(page);
     const list = missions(page);
     await expect(list.getByText('Eine Wiederholungsrunde')).toBeVisible();
     await expect(list.getByText('Eine neue Lektion')).toBeVisible();
@@ -75,6 +78,7 @@ test.describe('P07 Motivation', () => {
     await expect(page.getByText(/^Frage 1 \//).first()).toBeVisible();
     // Runde verlassen, ohne zu antworten: kein Lerntag, keine XP.
     await page.goto('/#/progress');
+    await openCollection(page);
     const after = await stored(page);
     expect(after.activityDays ?? []).toEqual(before.activityDays ?? []);
     expect(after.dailyActivity ?? {}).toEqual(before.dailyActivity ?? {});
@@ -86,6 +90,7 @@ test.describe('P07 Motivation', () => {
   test('Abzeichen: erklärtes Kriterium, offen und erhalten, Datum bleibt bei erneuter Vergabe', async ({ page }) => {
     await seed(page, [], { milestones: { 'seven-days': { achievedDay: '2026-09-01' } } });
     await page.goto('/#/progress');
+    await openCollection(page);
     const grid = badges(page);
     await expect(grid.locator('li.earned')).toHaveCount(1);
     await expect(grid.locator('li.earned')).toContainText('Sieben Lerntage');
@@ -106,6 +111,7 @@ test.describe('P07 Motivation', () => {
     // Wiederholen derselben Lektion vergibt nichts doppelt.
     await page.getByRole('button', { name: 'Lektion wiederholen' }).click();
     await page.goto('/#/progress');
+    await openCollection(page);
     expect((await stored(page)).milestones).toEqual(after.milestones);
   });
 
@@ -132,6 +138,7 @@ test.describe('P07 Motivation', () => {
   test('360 px: kein Überlauf, axe ohne Befund, Tastatur erreicht die Vorschläge', async ({ page }) => {
     await seed(page, published.slice(0, 3).map((lesson) => lesson.id), { milestones: { 'first-lesson': { achievedDay: '2026-09-01' } } });
     await page.goto('/#/progress');
+    await openCollection(page);
     await expect(overview(page)).toBeVisible();
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow).toBeLessThanOrEqual(0);

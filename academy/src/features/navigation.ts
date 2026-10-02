@@ -4,14 +4,12 @@ import { caseAvailable, findPublishedCase } from './caseTraining';
 import { lessonAccessState } from './courseAccess';
 import { planTransfer } from './transferCheck';
 import { isStepResolved } from './lessonResults';
-import { resolveReader, type ResolvedReader } from './reader';
 import type { AcademyProgress } from './progress';
 
 type AnswerData = Pick<AcademyProgress, 'answers' | 'questionResults'>;
 
 export type AppView =
   | 'path'
-  | 'chapters'
   | 'practice'
   | 'progress'
   | 'saved'
@@ -21,7 +19,6 @@ export type AppView =
 
 export const APP_VIEWS: readonly AppView[] = [
   'path',
-  'chapters',
   'practice',
   'progress',
   'saved',
@@ -44,13 +41,6 @@ export type AppRoute =
       step: number | null;
     }
   | { kind: 'lesson-result'; lessonId: string }
-  | {
-      /** Buchleser (seit F-13): `#/read/<unit-id>?lesson=<lesson-id>&step=<n>`. */
-      kind: 'read';
-      unitId: string;
-      lessonId: string | null;
-      step: number | null;
-    }
   | {
       /** Bar-für-Bar-Trainer (seit F-15): `#/train/<case-id>`. */
       kind: 'train';
@@ -110,17 +100,6 @@ export function parseRoute(hash: string): AppRoute | null {
   if (segments.length === 1 && isAppView(segments[0])) {
     const term = segments[0] === 'glossary' ? new URLSearchParams(query).get('term')?.trim() : '';
     return term ? { kind: 'view', view: segments[0], term } : { kind: 'view', view: segments[0] };
-  }
-
-  if (segments.length === 2 && segments[0] === 'read' && segments[1] !== '') {
-    let unitId: string;
-    try {
-      unitId = decodeURIComponent(segments[1]);
-    } catch {
-      return null;
-    }
-    const lessonId = new URLSearchParams(query).get('lesson')?.trim() || null;
-    return { kind: 'read', unitId, lessonId, step: lessonId ? parseStep(query) : null };
   }
 
   if (segments.length === 1 && segments[0] === 'transfer') return { kind: 'transfer' };
@@ -187,12 +166,6 @@ export function formatRoute(route: AppRoute): string {
   if (route.kind === 'replay') {
     return `#/train/${encodeURIComponent(route.caseId)}/review/${encodeURIComponent(route.sessionId)}`;
   }
-  if (route.kind === 'read') {
-    const base = `#/read/${encodeURIComponent(route.unitId)}`;
-    if (!route.lessonId) return base;
-    const lesson = `${base}?lesson=${encodeURIComponent(route.lessonId)}`;
-    return route.step === null ? lesson : `${lesson}&step=${route.step}`;
-  }
   const base = `#/lesson/${encodeURIComponent(route.lessonId)}`;
   if (route.kind === 'lesson-result') return `${base}/result`;
   return route.step === null ? base : `${base}?step=${route.step}`;
@@ -243,7 +216,6 @@ export type ResolvedRoute =
   | { kind: 'view'; view: AppView; term?: string }
   | { kind: 'lesson'; lesson: LessonOutline; stepIndex: number }
   | { kind: 'lesson-result'; lesson: LessonOutline }
-  | { kind: 'read'; reader: ResolvedReader }
   | { kind: 'train'; barCase: BarCase }
   // Die Prüfung der Runde (abgeschlossen, passend) übernimmt `buildReplay` – mit klarer Meldung.
   | { kind: 'replay'; caseId: string; sessionId: string }
@@ -289,12 +261,6 @@ export function resolveRoute(
   }
   if (route.kind === 'replay' || route.kind === 'study') return route;
   if (route.kind === 'transfer') return planTransfer(course, progress).approved > 0 ? route : null;
-  if (route.kind === 'read') {
-    const owner = courseWithUnit(courses, route.unitId) ?? course;
-    const reader = resolveReader(owner, progress, route.unitId, route.lessonId, route.step);
-    return reader ? { kind: 'read', reader } : null;
-  }
-
   const owner = courseWithLesson(courses, route.lessonId) ?? course;
   const lesson = findLesson(owner, route.lessonId);
   if (!lesson || lesson.steps.length === 0 || !canOpenLesson(owner, lesson, progress)) {

@@ -37,18 +37,19 @@ test.describe('Bibliothek: Seiten', () => {
     await expect(page.getByText(`${counts.subjects} Themengebiete mit ${counts.courses} Kursen`)).toBeVisible();
 
     const mine = page.locator('.library-mine > li');
-    await expect(mine).toHaveCount(2);
+    await expect(mine).toHaveCount(3);
     await expect(mine.first()).toContainText('Price Action: Trends');
     await expect(mine.first()).toContainText('Aktiver Kurs');
-    await expect(mine.nth(1)).toContainText('Testkurs: Grundgerüst');
-    await expect(mine.nth(1)).toContainText('Noch nicht begonnen');
+    const testCourse = mine.filter({ hasText: 'Testkurs: Grundgerüst' });
+    await expect(testCourse).toHaveCount(1);
+    await expect(testCourse).toContainText('Noch nicht begonnen');
 
     const tiles = page.locator('.library-tile');
     await expect(tiles).toHaveCount(counts.subjects);
     for (const subject of subjects) {
       await expect(page.getByRole('link', { name: subject.title, exact: true })).toBeVisible();
     }
-    await expect(page.locator('.library-tile.is-planned')).toHaveCount(counts.subjects - 2);
+    await expect(page.locator('.library-tile.is-planned')).toHaveCount(counts.subjects - 3);
     await expect(page.locator('.library-tile', { hasText: 'Volumen' })).toContainText('Geplant');
   });
 

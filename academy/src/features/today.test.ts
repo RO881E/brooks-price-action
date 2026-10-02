@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { toCourseOutline } from '../../build/courseOutline';
 import { priceActionTrendsCourse } from '../content/course';
-import { completeLesson, createEmptyProgress, recordLessonStep, recordReaderPosition, type AcademyProgress } from './progress';
+import { completeLesson, createEmptyProgress, recordLessonStep, type AcademyProgress } from './progress';
 import { buildQuestionSession, reviewPool, startSession } from './reviewSession';
 import { planToday } from './today';
 
@@ -16,13 +16,11 @@ function completedThrough(count: number): AcademyProgress {
 }
 
 describe('Startansicht „Heute“ (P06)', () => {
-  it('neuer Stand: nächste Lektion, nichts fällig, Lesen zeigt dieselbe Stelle', () => {
+  it('neuer Stand: nächste Lektion, nichts fällig', () => {
     const plan = planToday(course, createEmptyProgress(), today);
     expect(plan.primary).toMatchObject({ kind: 'lesson-next' });
     expect(plan.primary.kind === 'lesson-next' && plan.primary.lesson.id).toBe(published[0].id);
     expect(plan.dueCount).toBe(0);
-    expect(plan.reading).toMatchObject({ resume: false });
-    expect(plan.reading?.lesson.id).toBe(published[0].id);
   });
 
   it('fällige Fragen haben Vorrang vor der nächsten Lektion', () => {
@@ -47,19 +45,6 @@ describe('Startansicht „Heute“ (P06)', () => {
     const running = startSession(progress, buildQuestionSession(ids, reviewPool(course, progress), today));
     const plan = planToday(course, running, today);
     expect(plan.primary).toMatchObject({ kind: 'review-resume', remaining: ids.length });
-  });
-
-  it('Lesen: zuletzt gelesene zugängliche Stelle; eine gesperrte Stelle wird nie angeboten', () => {
-    const progress = recordReaderPosition(completedThrough(3), published[1].id.split('.lesson')[0], published[1].id, null);
-    const plan = planToday(course, progress, today);
-    expect(plan.reading).toMatchObject({ resume: true });
-    expect(plan.reading?.lesson.id).toBe(published[1].id);
-    // Lesestelle in einer noch gesperrten Lektion: Fallback auf den nächsten zugänglichen Abschnitt.
-    const locked = published[published.length - 1];
-    const stale = recordReaderPosition(createEmptyProgress(), locked.id.split('.lesson')[0], locked.id, null);
-    const fallback = planToday(course, stale, today);
-    expect(fallback.reading?.resume).toBe(false);
-    expect(fallback.reading?.lesson.id).toBe(published[0].id);
   });
 
   it('alles erledigt und keine offenen Fälle: „alles erledigt“, kein toter Link', () => {

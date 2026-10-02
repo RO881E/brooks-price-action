@@ -14,7 +14,7 @@ import type { Course } from '../src/content/types.ts';
 export type Severity = 'error' | 'warning';
 
 /** Bereich des Befunds – bestimmt die Zuordnung zu einer Datei. */
-export type IssueArea = 'course' | 'diagram' | 'glossary' | 'case' | 'term-link' | 'topic' | 'known-ids';
+export type IssueArea = 'course' | 'diagram' | 'glossary' | 'case' | 'topic' | 'known-ids';
 
 export interface ContentIssue {
   severity: Severity;
@@ -54,13 +54,6 @@ export interface CaseIssueInput {
   message: string;
 }
 
-export interface TermLinkIssueInput {
-  lessonId: string;
-  stepId: string;
-  term?: string;
-  message: string;
-}
-
 export interface ContentCheckInput {
   course: Course;
   glossary: readonly GlossaryInput[];
@@ -70,8 +63,6 @@ export interface ContentCheckInput {
   describe: (scenarioId: string) => string | undefined;
   /** Befunde der Fallprüfung aus F-14. */
   caseIssues: readonly CaseIssueInput[];
-  /** Befunde der Begriffszuordnung aus F-21 (`validateStepTermLinks`). */
-  termLinkIssues?: readonly TermLinkIssueInput[];
   /** Befunde der Themenkarte aus C-03 (`validateTopicMap`). */
   topicIssues?: readonly { topicId: string; path: string; message: string }[];
   known: KnownIds;
@@ -263,19 +254,6 @@ function checkTopics(input: ContentCheckInput, issues: ContentIssue[]) {
   }
 }
 
-function checkTermLinks(input: ContentCheckInput, issues: ContentIssue[]) {
-  for (const issue of input.termLinkIssues ?? []) {
-    issues.push({
-      severity: 'error',
-      area: 'term-link',
-      rule: 'begriff-am-lernort',
-      id: issue.term ? `${issue.stepId} → ${issue.term}` : issue.stepId,
-      lessonId: issue.lessonId,
-      message: issue.message,
-    });
-  }
-}
-
 /* ------------------------------------------------------------------ */
 /* Bekannte veröffentlichte IDs                                        */
 /* ------------------------------------------------------------------ */
@@ -416,7 +394,6 @@ export function checkContent(input: ContentCheckInput): ContentReport {
   checkDiagrams(input, issues);
   checkGlossary(input, issues);
   checkCases(input, issues);
-  checkTermLinks(input, issues);
   checkTopics(input, issues);
   checkKnownIds(input, issues);
   return {

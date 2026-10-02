@@ -18,7 +18,6 @@ interface Props {
   /** Öffnet nur die Übersicht „Üben“. */
   onPractice: () => void;
   onTrain: (caseId: string) => void;
-  onRead: (unit: UnitOutline, lesson: LessonOutline) => void;
   onStudy: (minutes: StudyMinutes) => void;
 }
 
@@ -63,7 +62,7 @@ function describe(action: TodayAction): { title: string; detail: string; label: 
  * Startansicht „Heute“ (P06): eine primäre nächste Aktion aus dem echten
  * Lernstand, darunter Lesen, Kurzlernen und Fälliges.
  */
-export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrain, onRead, onStudy }: Props) {
+export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrain, onStudy }: Props) {
   const ids = useId();
   const info = describe(plan.primary);
   const greeting = bullGreeting(plan.primary);
@@ -106,25 +105,19 @@ export function TodayPanel({ plan, goals, onLesson, onReview, onPractice, onTrai
         ) : null}
       </div>
       <div className="today-grid">
-        {plan.reading ? (
-          <article className="today-tile" data-mode="read" aria-labelledby={`${ids}-read`}>
-            <h3 id={`${ids}-read`}>Lesen</h3>
-            <p>{plan.reading.resume ? 'Zuletzt gelesen' : 'Nächster Abschnitt'}: {plan.reading.unit.label} · {plan.reading.unit.title}</p>
-            <button type="button" className="secondary-button" onClick={() => onRead(plan.reading!.unit, plan.reading!.lesson)}>
-              Weiter im Buchmodus
-            </button>
-          </article>
-        ) : null}
         <div className="today-tile today-study" data-mode="practice">
           <StudyEntry onChoose={onStudy} />
         </div>
-        <article className="today-tile" data-mode="review" aria-labelledby={`${ids}-review`}>
-          <h3 id={`${ids}-review`}>Wiederholen</h3>
-          <p>{plan.dueCount > 0 ? (plan.dueCount === 1 ? '1 Frage ist heute fällig.' : `${plan.dueCount} Fragen sind heute fällig.`) : 'Heute ist nichts fällig.'}</p>
-          <button type="button" className="secondary-button" onClick={onPractice}>
-            Zum Üben
-          </button>
-        </article>
+        {/* Nur mit etwas Fälligem: „Heute ist nichts fällig.“ ist kein Angebot. */}
+        {plan.dueCount > 0 ? (
+          <article className="today-tile" data-mode="review" aria-labelledby={`${ids}-review`}>
+            <h3 id={`${ids}-review`}>Wiederholen</h3>
+            <p>{plan.dueCount === 1 ? '1 Frage ist heute fällig.' : `${plan.dueCount} Fragen sind heute fällig.`}</p>
+            <button type="button" className="secondary-button" onClick={onPractice}>
+              Zum Üben
+            </button>
+          </article>
+        ) : null}
       </div>
     </section>
   );
