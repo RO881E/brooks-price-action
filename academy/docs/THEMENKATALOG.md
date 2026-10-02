@@ -7,7 +7,7 @@ zu Unternehmensbewertung und Makroökonomie. Jedes Thema steht in der **Biblioth
 „Geplant“-Karte; nur was mit **[aktiv]** markiert ist, hat schon Inhalt. Die Liste darf wachsen.
 
 - **Aufbau:** Themengebiet → Thema (ein möglicher Kurs) → Unterthemen (mögliche Kapitel oder Lektionen).
-- **Umfang:** 18 Themengebiete, 106 Themen, davon 2 aktiv.
+- **Umfang:** 18 Themengebiete, 106 Themen, davon 3 aktiv.
 - **Übungen:** Je Gebiet steht, welche Übungsformen passen. Vorhanden sind Fragen, Chart-Trainer,
   „Finde den Bar“, „Ordne die Schritte“, Begriffe-Memory und Blitzrunde. Manche Gebiete bräuchten neue
   Formen (siehe ganz unten).
@@ -17,7 +17,7 @@ zu Unternehmensbewertung und Makroökonomie. Jedes Thema steht in der **Biblioth
 
 ## Überblick
 
-1. Marktgrundlagen (3 Themen, 1 aktiv)
+1. Marktgrundlagen (3 Themen, 2 aktiv)
 2. Price Action und Marktstruktur (9 Themen, 1 aktiv)
 3. Technische Indikatoren (6 Themen)
 4. Volumen (5 Themen)
@@ -55,9 +55,9 @@ Alle zwölf Kapitel: Produkte, Teilnehmer, Handelsplätze, Auktion, Orderbuch, L
 - Handelszeiten und Sessions (Asien, Europa, USA), vor- und nachbörslicher Handel
 - Eröffnungs- und Schlussauktion, Handelsunterbrechungen bei starken Schwankungen
 
-### Orders und Ausführung
+### Orders und Ausführung (Trading von null · Kapitel 1 verfügbar) **[aktiv]**
 
-Welche Orderarten es gibt und was bei der Ausführung passiert.
+Kapitel 1: Vom Handelswunsch zum Auftrag. Produkt, Seite, Menge, Preisregel, Gültigkeit, Ausführung und Reststatus mit eigenen Lernfällen. Weitere Kapitel folgen.
 
 - Market-, Limit-, Stop- und Stop-Limit-Order
 - OCO- und Bracket-Order, Trailing Stop

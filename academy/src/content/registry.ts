@@ -1,3 +1,4 @@
+import { ordersDefinition } from './courses/orders-and-execution';
 import { marketBasicsDefinition } from './courses/how-exchanges-work';
 import { glossaryEntries, type GlossaryEntry } from './glossary';
 import type { LibrarySubject } from './library';
@@ -30,6 +31,7 @@ export interface CourseDefinition {
 export const baseCourseDefinitions: CourseDefinition[] = [
   { info: courseInfo, units: unitDefinitions, glossary: { title: 'Price-Action-Glossar', entries: glossaryEntries } },
   marketBasicsDefinition,
+  ordersDefinition,
 ];
 
 /** Nur in den Browser-Tests (Modus `e2e`): ein kleiner Testkurs, um mehrere Kurse zu prüfen. */

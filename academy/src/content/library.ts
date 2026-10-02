@@ -63,12 +63,15 @@ export const librarySubjects: LibrarySubject[] = [
           'Eröffnungs- und Schlussauktion, Handelsunterbrechungen bei starken Schwankungen',
         ],
       },
-      planned('orders-and-execution', 'Orders und Ausführung', 'Welche Orderarten es gibt und was bei der Ausführung passiert.', [
+      { id: 'orders-and-execution', title: 'Orders und Ausführung',
+        label: 'Trading von null · Kapitel 1 verfügbar',
+        description: 'Kapitel 1: Vom Handelswunsch zum Auftrag. Produkt, Seite, Menge, Preisregel, Gültigkeit, Ausführung und Reststatus mit eigenen Lernfällen. Weitere Kapitel folgen.',
+        status: 'available', subtopics: [
         'Market-, Limit-, Stop- und Stop-Limit-Order',
         'OCO- und Bracket-Order, Trailing Stop',
         'Gültigkeit (Tag, bis auf Widerruf), Teilausführung',
         'Slippage, Gebühren, Ausführungsqualität, Wahl des Handelsplatzes',
-      ]),
+      ] },
       planned('reading-charts', 'Charts lesen', 'Charttypen, Bar-Arten, Zeitebenen und Skalen im Überblick.', [
         'Charttypen: Linie, Balken, Kerzen, Heikin-Ashi, Renko, Point & Figure',
         'Zeit-, Tick-, Volumen- und Range-Bars',
