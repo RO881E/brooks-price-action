@@ -18,7 +18,7 @@ const course = baseCourses.find((entry) => entry.id === 'how-exchanges-work')!;
 describe('Trading von null: erstes Kapitel', () => {
   it('registers the independent course and preserves the old default and glossary', async () => {
     expect(DEFAULT_COURSE_ID).toBe('price-action-trends');
-    expect(course.units).toHaveLength(10);
+    expect(course.units).toHaveLength(11);
     expect(await marketBasicsDefinition.units[0].load()).toEqual(lessons);
     expect(glossaryFor(course.id).entries).toEqual(marketBasicsGlossary);
     expect(glossaryFor(DEFAULT_COURSE_ID).entries).not.toEqual(marketBasicsGlossary);

@@ -4,10 +4,10 @@ import { marketBasicsGlossary } from './glossary';
 export const marketBasicsDefinition: CourseDefinition = {
   info: {
     id: 'how-exchanges-work',
-    eyebrow: 'Trading von null · Kapitel 1–10 verfügbar',
+    eyebrow: 'Trading von null · Kapitel 1–11 verfügbar',
     title: 'Wie Börsen funktionieren',
-    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen, Orderbuch, Liquidität, Preisbewegungen, Handelszeiten und besondere Handelsphasen; weitere Kapitel folgen.',
-    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 10 verfügbar; der Kurs wird weiter aufgebaut.',
+    subtitle: 'Ein Einführungskurs ohne vorausgesetztes Tradingwissen. Verstehe Produkte, Marktteilnehmer, Handelsplätze, Auktionen, Orderbuch, Liquidität, Preisbewegungen, Handelszeiten, besondere Handelsphasen und Abwicklung; weitere Kapitel folgen.',
+    sourceOrderNotice: 'Lerne die Grundlagen schrittweise. Aktuell sind Kapitel 1 bis 11 verfügbar; der Kurs wird weiter aufgebaut.',
   },
   units: [{
     id: 'how-exchanges-work.chapter-01',
@@ -99,6 +99,15 @@ export const marketBasicsDefinition: CourseDefinition = {
     description: 'Eröffnungs- und Schlussauktion, Schutzphasen und Wiederaufnahme: eigene Preis- und Mengenrechnungen, vorläufige Anzeigen, Zuteilung und bestätigten Auftragsstatus unterscheiden.',
     estimatedLessonCount: 22,
     load: () => import('./chapter-10').then((m) => m.marketBasicsChapterTenLessons),
+  }, {
+    id: 'how-exchanges-work.chapter-11',
+    order: 11,
+    kind: 'chapter',
+    label: 'Kapitel 11',
+    title: 'Was passiert nach dem Trade?',
+    description: 'Ausführungsbericht, Clearing, Verrechnung und Settlement: eigene Mengen-, Geld- und Kalenderrechnungen, Verwahrung, Sicherheiten und bestätigte Abwicklungszustände.',
+    estimatedLessonCount: 24,
+    load: () => import('./chapter-11').then((m) => m.marketBasicsChapterElevenLessons),
   }],
   glossary: { title: 'Marktgrundlagen-Glossar', entries: marketBasicsGlossary },
 };

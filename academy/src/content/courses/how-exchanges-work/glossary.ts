@@ -1057,5 +1057,125 @@ export const marketBasicsGlossary: GlossaryEntry[] = [
     "definition": "Eine Auktion zum erneuten Start nach einer Unterbrechung. Sie verwendet den dann gültigen Auftragsstand und die geltenden Regeln.",
     "aliases": [],
     "firstUnit": "Kapitel 10"
+  },
+  {
+    "term": "Ausführungsbericht",
+    "definition": "Eine Meldung über ein tatsächlich ausgeführtes Geschäft, mit eindeutiger Zuordnung sowie Menge, Preis, Richtung und Zeitpunkt.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Preisbetrag",
+    "definition": "Menge mal Ausführungspreis beziehungsweise die Summe der Teilfüllungsbeträge. Gebühren und weitere Kosten sind gesondert zu berücksichtigen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Netting",
+    "definition": "Eine nach den Systemregeln zulässige Verrechnung gegenseitiger Verpflichtungen. Sie löscht nicht die zugrunde liegenden Geschäfte.",
+    "aliases": [
+      "Verrechnung"
+    ],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Verrechnungsgruppe",
+    "definition": "Die Verpflichtungen, die nach den betreffenden Regeln gemeinsam verrechnet werden dürfen, etwa nach Produkt, Währung und Termin.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Nettolieferung",
+    "definition": "Die nach zulässiger Verrechnung verbleibende Wertpapierübertragung. Sie ist nicht die gesamte gehandelte Menge.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Nettogeldbetrag",
+    "definition": "Der nach zulässiger Verrechnung verbleibende Geldzufluss oder Geldabfluss aus den einzelnen Geldpflichten.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Lieferung gegen Zahlung",
+    "definition": "Ein Mechanismus, der Wertpapierlieferung und passende Geldzahlung miteinander verknüpft. Er verhindert nicht jeden Abwicklungsfehler oder Kursverlust.",
+    "aliases": [
+      "DvP",
+      "Delivery versus Payment"
+    ],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Abwicklungstag",
+    "definition": "Ein nach dem betreffenden Abwicklungskalender für die Erfüllung vorgesehener gültiger Tag. Er muss nicht mit jedem Handelstag übereinstimmen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Abwicklungskalender",
+    "definition": "Die für ein Abwicklungssystem geltenden gültigen Tage, Fristen und Ausnahmen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "T+1",
+    "definition": "Ein gültiger Abwicklungstag nach dem Geschäftsdatum nach der jeweils geltenden Regel. Das bedeutet nicht immer genau 24 Stunden.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "T+2",
+    "definition": "Zwei gültige Abwicklungstage nach dem Geschäftsdatum nach der jeweils geltenden Regel.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Verwahrung",
+    "definition": "Aufbewahrung und Verwaltung von Wertpapieren und den zugehörigen Bestandsaufzeichnungen nach einem konkreten Verwahrmodell.",
+    "aliases": [
+      "Custody"
+    ],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Zentralverwahrer",
+    "definition": "Eine Stelle mit Aufgaben in der zentralen Wertpapierverwahrung, die auch ein Wertpapierabwicklungssystem betreiben kann. Sie hat eine andere Rolle als eine CCP.",
+    "aliases": [
+      "CSD",
+      "Central Securities Depository"
+    ],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Kaufkraft",
+    "definition": "Der nach den Kontoregeln für neue Geschäfte verfügbare Rahmen. Er ist nicht automatisch vollständig auszahlbares Geld.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Settlement Fail",
+    "definition": "Eine zum vorgesehenen Termin nicht erfolgreich erfolgte Abwicklung. Ursache und weitere Behandlung richten sich nach Daten und Systemregeln.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Initial Margin",
+    "definition": "Eine anfängliche Sicherheitsleistung nach den Regeln eines Derivate- oder Clearingmodells. Sie ist nicht automatisch der Nominalwert, eine Gebühr oder ein Höchstverlust.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Variation Margin",
+    "definition": "Ein laufender Ausgleich von Wertänderungen nach den Vertrags- und Clearingregeln. Er muss nicht mit dem Schließen einer Position zusammenfallen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 11"
+  },
+  {
+    "term": "Barausgleich",
+    "definition": "Die Erfüllung eines Vertrags durch eine nach seinen Regeln berechnete Geldzahlung statt einer vorgesehenen Waren- oder Wertpapierlieferung.",
+    "aliases": [
+      "Cash Settlement"
+    ],
+    "firstUnit": "Kapitel 11"
   }
 ];
