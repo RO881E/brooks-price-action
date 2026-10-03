@@ -1,3 +1,4 @@
+import { rangesDefinition } from './courses/price-action-ranges';
 import { chartsDefinition } from './courses/reading-charts';
 import { ordersDefinition } from './courses/orders-and-execution';
 import { marketBasicsDefinition } from './courses/how-exchanges-work';
@@ -34,6 +35,7 @@ export const baseCourseDefinitions: CourseDefinition[] = [
   marketBasicsDefinition,
   ordersDefinition,
   chartsDefinition,
+  rangesDefinition,
 ];
 
 /** Nur in den Browser-Tests (Modus `e2e`): ein kleiner Testkurs, um mehrere Kurse zu prüfen. */

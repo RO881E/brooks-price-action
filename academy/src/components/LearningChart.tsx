@@ -1,3 +1,5 @@
+import { rangesDescriptions } from './RangesBreakoutDescriptions';
+const RangesBreakoutMarks = lazy(() => import('./RangesBreakoutCharts').then(m=>({default:m.RangesBreakoutMarks})));
 import { ReadingChartsGrouping, groupingChartDescriptions } from './ReadingChartsGrouping';
 import { ReadingChartsBasics, readingChartDescriptions } from './ReadingChartsBasics';
 import { ChapterTwentySixChart, chapterTwentySixDescriptions } from './ChapterTwentySixCharts';
@@ -66,6 +68,7 @@ const PAD_Y = 36;
 
 const scenarioDescriptions: Record<ChartScenarioId, string> = {
   ...readingChartDescriptions,
+  ...rangesDescriptions,
   ...groupingChartDescriptions,
   ...priceStepDescriptions,
   ...haDescriptions,
@@ -1510,6 +1513,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
       >
         <title id={`${id}-title`}>{title}</title>
         <desc id={`${id}-desc`}>{scenarioDescriptions[scenario]}</desc>
+        {scenario.startsWith('par1-') ? <Suspense fallback={null}><RangesBreakoutMarks scenario={scenario}/></Suspense> : null}
         {scenario === 'auction-balance' || scenario === 'bar-anatomy' ? (
           <AuctionBalance />
         ) : null}
