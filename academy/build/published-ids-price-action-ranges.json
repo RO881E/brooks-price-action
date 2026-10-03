@@ -2414,6 +2414,291 @@
           ]
         }
       ]
+    },
+    {
+      "id": "price-action-ranges.chapter-09",
+      "lessons": [
+        {
+          "id": "price-action-ranges.chapter-09.lesson-01",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-01.explain",
+            "price-action-ranges.chapter-09.lesson-01.diagram",
+            "price-action-ranges.chapter-09.lesson-01.compare",
+            "price-action-ranges.chapter-09.lesson-01.question",
+            "price-action-ranges.chapter-09.lesson-01.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-02",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-02.explain",
+            "price-action-ranges.chapter-09.lesson-02.diagram",
+            "price-action-ranges.chapter-09.lesson-02.compare",
+            "price-action-ranges.chapter-09.lesson-02.question",
+            "price-action-ranges.chapter-09.lesson-02.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-03",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-03.explain",
+            "price-action-ranges.chapter-09.lesson-03.diagram",
+            "price-action-ranges.chapter-09.lesson-03.compare",
+            "price-action-ranges.chapter-09.lesson-03.question",
+            "price-action-ranges.chapter-09.lesson-03.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-04",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-04.explain",
+            "price-action-ranges.chapter-09.lesson-04.diagram",
+            "price-action-ranges.chapter-09.lesson-04.compare",
+            "price-action-ranges.chapter-09.lesson-04.question",
+            "price-action-ranges.chapter-09.lesson-04.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-05",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-05.explain",
+            "price-action-ranges.chapter-09.lesson-05.diagram",
+            "price-action-ranges.chapter-09.lesson-05.compare",
+            "price-action-ranges.chapter-09.lesson-05.question",
+            "price-action-ranges.chapter-09.lesson-05.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-06",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-06.explain",
+            "price-action-ranges.chapter-09.lesson-06.diagram",
+            "price-action-ranges.chapter-09.lesson-06.compare",
+            "price-action-ranges.chapter-09.lesson-06.question",
+            "price-action-ranges.chapter-09.lesson-06.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-07",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-07.explain",
+            "price-action-ranges.chapter-09.lesson-07.diagram",
+            "price-action-ranges.chapter-09.lesson-07.compare",
+            "price-action-ranges.chapter-09.lesson-07.question",
+            "price-action-ranges.chapter-09.lesson-07.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-08",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-08.explain",
+            "price-action-ranges.chapter-09.lesson-08.diagram",
+            "price-action-ranges.chapter-09.lesson-08.compare",
+            "price-action-ranges.chapter-09.lesson-08.question",
+            "price-action-ranges.chapter-09.lesson-08.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-09",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-09.explain",
+            "price-action-ranges.chapter-09.lesson-09.diagram",
+            "price-action-ranges.chapter-09.lesson-09.compare",
+            "price-action-ranges.chapter-09.lesson-09.question",
+            "price-action-ranges.chapter-09.lesson-09.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-10",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-10.explain",
+            "price-action-ranges.chapter-09.lesson-10.diagram",
+            "price-action-ranges.chapter-09.lesson-10.compare",
+            "price-action-ranges.chapter-09.lesson-10.question",
+            "price-action-ranges.chapter-09.lesson-10.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-11",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-11.explain",
+            "price-action-ranges.chapter-09.lesson-11.diagram",
+            "price-action-ranges.chapter-09.lesson-11.compare",
+            "price-action-ranges.chapter-09.lesson-11.question",
+            "price-action-ranges.chapter-09.lesson-11.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-12",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-12.explain",
+            "price-action-ranges.chapter-09.lesson-12.diagram",
+            "price-action-ranges.chapter-09.lesson-12.compare",
+            "price-action-ranges.chapter-09.lesson-12.question",
+            "price-action-ranges.chapter-09.lesson-12.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-13",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-13.explain",
+            "price-action-ranges.chapter-09.lesson-13.diagram",
+            "price-action-ranges.chapter-09.lesson-13.compare",
+            "price-action-ranges.chapter-09.lesson-13.question",
+            "price-action-ranges.chapter-09.lesson-13.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-14",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-14.explain",
+            "price-action-ranges.chapter-09.lesson-14.diagram",
+            "price-action-ranges.chapter-09.lesson-14.compare",
+            "price-action-ranges.chapter-09.lesson-14.question",
+            "price-action-ranges.chapter-09.lesson-14.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-15",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-15.explain",
+            "price-action-ranges.chapter-09.lesson-15.diagram",
+            "price-action-ranges.chapter-09.lesson-15.compare",
+            "price-action-ranges.chapter-09.lesson-15.question",
+            "price-action-ranges.chapter-09.lesson-15.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-16",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-16.explain",
+            "price-action-ranges.chapter-09.lesson-16.diagram",
+            "price-action-ranges.chapter-09.lesson-16.compare",
+            "price-action-ranges.chapter-09.lesson-16.question",
+            "price-action-ranges.chapter-09.lesson-16.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-17",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-17.explain",
+            "price-action-ranges.chapter-09.lesson-17.diagram",
+            "price-action-ranges.chapter-09.lesson-17.compare",
+            "price-action-ranges.chapter-09.lesson-17.question",
+            "price-action-ranges.chapter-09.lesson-17.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-18",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-18.explain",
+            "price-action-ranges.chapter-09.lesson-18.diagram",
+            "price-action-ranges.chapter-09.lesson-18.compare",
+            "price-action-ranges.chapter-09.lesson-18.question",
+            "price-action-ranges.chapter-09.lesson-18.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-19",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-19.explain",
+            "price-action-ranges.chapter-09.lesson-19.diagram",
+            "price-action-ranges.chapter-09.lesson-19.compare",
+            "price-action-ranges.chapter-09.lesson-19.question",
+            "price-action-ranges.chapter-09.lesson-19.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-20",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-20.explain",
+            "price-action-ranges.chapter-09.lesson-20.diagram",
+            "price-action-ranges.chapter-09.lesson-20.compare",
+            "price-action-ranges.chapter-09.lesson-20.question",
+            "price-action-ranges.chapter-09.lesson-20.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-21",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-21.explain",
+            "price-action-ranges.chapter-09.lesson-21.diagram",
+            "price-action-ranges.chapter-09.lesson-21.compare",
+            "price-action-ranges.chapter-09.lesson-21.question",
+            "price-action-ranges.chapter-09.lesson-21.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-22",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-22.explain",
+            "price-action-ranges.chapter-09.lesson-22.diagram",
+            "price-action-ranges.chapter-09.lesson-22.compare",
+            "price-action-ranges.chapter-09.lesson-22.question",
+            "price-action-ranges.chapter-09.lesson-22.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-23",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-23.explain",
+            "price-action-ranges.chapter-09.lesson-23.diagram",
+            "price-action-ranges.chapter-09.lesson-23.compare",
+            "price-action-ranges.chapter-09.lesson-23.question",
+            "price-action-ranges.chapter-09.lesson-23.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-24",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-24.explain",
+            "price-action-ranges.chapter-09.lesson-24.diagram",
+            "price-action-ranges.chapter-09.lesson-24.compare",
+            "price-action-ranges.chapter-09.lesson-24.question",
+            "price-action-ranges.chapter-09.lesson-24.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-25",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-25.explain",
+            "price-action-ranges.chapter-09.lesson-25.diagram",
+            "price-action-ranges.chapter-09.lesson-25.compare",
+            "price-action-ranges.chapter-09.lesson-25.question",
+            "price-action-ranges.chapter-09.lesson-25.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-26",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-26.explain",
+            "price-action-ranges.chapter-09.lesson-26.diagram",
+            "price-action-ranges.chapter-09.lesson-26.compare",
+            "price-action-ranges.chapter-09.lesson-26.question",
+            "price-action-ranges.chapter-09.lesson-26.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-27",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-27.explain",
+            "price-action-ranges.chapter-09.lesson-27.diagram",
+            "price-action-ranges.chapter-09.lesson-27.compare",
+            "price-action-ranges.chapter-09.lesson-27.question",
+            "price-action-ranges.chapter-09.lesson-27.recap"
+          ]
+        },
+        {
+          "id": "price-action-ranges.chapter-09.lesson-28",
+          "steps": [
+            "price-action-ranges.chapter-09.lesson-28.explain",
+            "price-action-ranges.chapter-09.lesson-28.diagram",
+            "price-action-ranges.chapter-09.lesson-28.compare",
+            "price-action-ranges.chapter-09.lesson-28.question",
+            "price-action-ranges.chapter-09.lesson-28.recap"
+          ]
+        }
+      ]
     }
   ]
 }
