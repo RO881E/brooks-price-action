@@ -417,6 +417,14 @@ export const rangesGlossary: GlossaryEntry[] = [
     "definition": "Vorab benannter Zeitraum für eine Beobachtung oder Position. Ein Preisziel allein bestimmt nicht, bis wann es erreicht wird.",
     "aliases": [],
     "firstUnit": "Kapitel 8"
-  }
-
+  },
+  {"term": "Früherer Signalbereich", "definition": "Die vorab benannte Hoch-Tief-Spanne einer älteren Signalkerze; ausgewählte Ränder können später als Preisbezüge dienen.", "aliases": [], "firstUnit": "Kapitel 9"},
+  {"term": "Signalpreis", "definition": "Ein ausdrücklich benannter Preis einer Signalkerze, beispielsweise ihr Hoch; nicht automatisch der Auslöse- oder Füllpreis.", "aliases": [], "firstUnit": "Kapitel 9"},
+  {"term": "Strukturfehlschlag", "definition": "Das Scheitern eines Versuchs nach einer erklärten Preisregel, beispielsweise Schluss unter dem Signaltief nach Kaufauslösung.", "aliases": [], "firstUnit": "Kapitel 9"},
+  {"term": "Zonenbesuch", "definition": "Handel innerhalb eines vorab festgelegten Preisbereichs; weder exakter Kontakt an jedem Einzelpreis noch bewiesene Orderfüllung.", "aliases": [], "firstUnit": "Kapitel 9"},
+  {"term": "Erholung", "definition": "Eine Aufwärtsbewegung nach einem Rückgang; sie muss keinen dauerhaften Aufwärtstrend eröffnen.", "aliases": [], "firstUnit": "Kapitel 9"},
+  {"term": "Teilnehmerhypothese", "definition": "Eine mögliche Erklärung von Handelsmotiven, die aus einem Kerzenbild allein nicht bewiesen werden kann.", "aliases": [], "firstUnit": "Kapitel 9"},
+  {"term": "Doppeltest", "definition": "Zwei zeitlich getrennte Besuche eines benannten Preisbereichs mit einer Zwischenbewegung; die weitere Reaktion bleibt offen.", "aliases": [], "firstUnit": "Kapitel 9"},
+  {"term": "Auswertungsende", "definition": "Der vorab festgelegte Zeitpunkt, bis zu dem Kontakt oder Ergebnis einer Regel untersucht wird.", "aliases": [], "firstUnit": "Kapitel 9"},
+  {"term": "Durchschnittlicher Kaufpreis", "definition": "Bei gleich großen Käufen der einfache Mittelwert, bei unterschiedlichen Mengen der mit den Mengen gewichtete Kaufpreis; Kosten sind zusätzlich zu rechnen.", "aliases": [], "firstUnit": "Kapitel 9"},
 ];
