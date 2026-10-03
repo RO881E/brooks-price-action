@@ -1,3 +1,5 @@
+import { rangesPullbackDescriptions } from './RangesPullbackDescriptions';
+const PullbackMarks = lazy(() => import('./RangesPullbackCharts').then(m=>({default:m.PullbackMarks})));
 import { rangesMagnetDescriptions } from './RangesMagnetDescriptions';
 const MagnetMarks = lazy(() => import('./RangesMagnetCharts').then(m=>({default:m.MagnetMarks})));
 import { rangesSignalDescriptions } from './RangesSignalDescriptions';
@@ -93,6 +95,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
   ...rangesTestDescriptions,
   ...rangesGapDescriptions,
   ...rangesLegDescriptions,
+  ...rangesPullbackDescriptions,
   ...rangesMagnetDescriptions,
   ...rangesSignalDescriptions,
   ...rangesTargetDescriptions,
@@ -1540,6 +1543,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
       >
         <title id={`${id}-title`}>{title}</title>
         <desc id={`${id}-desc`}>{scenarioDescriptions[scenario]}</desc>
+        {scenario.startsWith('par11-') ? <Suspense fallback={null}><PullbackMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par10-') ? <Suspense fallback={null}><MagnetMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par9-') ? <Suspense fallback={null}><SignalMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par8-') ? <Suspense fallback={null}><TargetMarks scenario={scenario}/></Suspense> : null}

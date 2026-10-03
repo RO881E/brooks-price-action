@@ -437,4 +437,12 @@ export const rangesGlossary: GlossaryEntry[] = [
   {"term": "Fibonacci-Rücklauf", "definition": "Eine Prozentrechnung einer benannten Swingstrecke ab deren Ende; Anker, Prozentzahl, Richtung und Rundung müssen feststehen.", "aliases": [], "firstUnit": "Kapitel 10"},
   {"term": "Runde Zahl", "definition": "Ein leicht erkennbarer gerundeter Preis als möglicher Beobachtungsbereich; keine garantierte Barriere.", "aliases": [], "firstUnit": "Kapitel 10"},
   {"term": "Einstiegskerze", "definition": "Die Kerze, in der eine eigene Auslösung oder Ausführung stattfindet. Ihre endgültigen Extreme stehen erst nach ihrem Abschluss fest.", "aliases": [], "firstUnit": "Kapitel 10"},
+  {"term": "Rücksetzerart", "definition": "Eine ausdrücklich benannte Form der Gegenbewegung, etwa kleine Kerzenpause oder erster Kontakt mit einem Durchschnitt; erster gilt jeweils für diesen Typ.", "aliases": [], "firstUnit": "Kapitel 11"},
+  {"term": "Örtliche Trendlinie", "definition": "Eine Gerade durch benannte nahe Anker im kleinen Teilabschnitt; ihr Bruch ist von einer größeren Strukturverletzung zu unterscheiden.", "aliases": [], "firstUnit": "Kapitel 11"},
+  {"term": "EMA20", "definition": "Exponentieller Durchschnitt von Schlusskursen mit Gewicht 2/21 für den jüngsten Schluss; Anfangswert und Zeitebene müssen feststehen.", "aliases": [], "firstUnit": "Kapitel 11"},
+  {"term": "Gleichzeitiger Durchschnitt", "definition": "Der aus den bis zu einer abgeschlossenen Kerze bekannten Schlüssen berechnete Durchschnittswert dieser Kerze.", "aliases": [], "firstUnit": "Kapitel 11"},
+  {"term": "Ganze Gegenkerze am Durchschnitt", "definition": "Eine Kerze vollständig auf der Gegenseite des benannten Durchschnitts: im Aufwärtstrend Hoch darunter, im Abwärtstrend Tief darüber.", "aliases": [], "firstUnit": "Kapitel 11"},
+  {"term": "Absoluter Trendanker", "definition": "Das ausdrücklich benannte äußerste Hoch oder Tief der betrachteten Trendstrecke, getrennt von jüngeren örtlichen Testpunkten.", "aliases": [], "firstUnit": "Kapitel 11"},
+  {"term": "Zweischenkliger Rücksetzer", "definition": "Zwei Strecken gegen die bisherige Richtung mit einer Zwischenbewegung; die Form allein belegt keine Auslösung nach einer H1/H2-Regel.", "aliases": [], "firstUnit": "Kapitel 11"},
+  {"term": "Bestätigungszeitpunkt", "definition": "Der früheste Abschluss, an dem eine benannte Beobachtung nach ihrer festgelegten Regel feststeht; spätere Daten dürfen ihn nicht vorziehen.", "aliases": [], "firstUnit": "Kapitel 11"},
 ];
