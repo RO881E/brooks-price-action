@@ -14,9 +14,9 @@ const drafts: Draft[] = [
     "section": "Grundidee",
     "scenario": "c12-current-bars",
     "paragraphs": [
-      "Du erkennst einen Pullback und erwartest eine Fortsetzung. Zwei Bars später läuft der Kurs jedoch anders als gedacht. Das ursprüngliche Bild war nicht zwangsläufig falsch; es war eine Einschätzung der bis dahin sichtbaren Informationen. Jeder neue Bar ergänzt sie und kann eine größere Bewegung in beide Richtungen beginnen.",
-      "Price Action lesen heißt deshalb, das Bild laufend zu aktualisieren. Beobachte Auslösung, Anschluss und Gegenreaktion: Werden neue Preise akzeptiert, kehrt der Kurs zurück, oder wächst zunächst nur die Pause? Der Name des alten Musters kann diese Fragen nicht beantworten.",
-      "Für eine bereits eröffnete Position gelten weiterhin die festgelegten Risikogrenzen. Neue Informationen können eine neue Entscheidung begründen, aber keinen entfernten Stop oder eine spontan erhöhte Menge. Für eine neue Order prüfst du das jetzige Setup statt das bereits abgeschlossene Muster links davon."
+      "Du erkennst einen Pullback und erwartest eine Fortsetzung. Zwei Bars später läuft der Kurs aber anders als gedacht. Das ursprüngliche Bild war nicht zwangsläufig falsch; es war eine Einschätzung der bis dahin sichtbaren Informationen. Jeder neue Bar ergänzt sie und kann eine größere Bewegung in beide Richtungen starten.",
+      "Price Action lesen heißt deshalb, das Bild laufend zu aktualisieren. Beobachte Auslösung, Anschluss und Gegenreaktion: Werden neue Preise akzeptiert, kehrt der Kurs zurück, oder wächst erst mal nur die Pause? Der Name des alten Musters kann diese Fragen nicht beantworten.",
+      "Für eine schon eröffnete Position gelten weiterhin die festgelegten Risikogrenzen. Neue Informationen können eine neue Entscheidung begründen, aber keinen weiter weggeschobenen Stop und keine spontan erhöhte Menge. Für eine neue Order prüfst du das jetzige Setup und nicht das längst abgeschlossene Muster links davon."
     ],
     "callout": "Die nächste Entscheidung gehört zum aktuellen Bild.",
     "takeaways": [
@@ -48,9 +48,9 @@ const drafts: Draft[] = [
     "section": "Grundidee",
     "scenario": "c12-expand-or-reverse",
     "paragraphs": [
-      "Eine kleine Pause kann weitere Rückläufe aufnehmen und zu einer größeren Flagge wachsen. Die Fortsetzungsrichtung bleibt dabei zunächst dieselbe. Ein erster Long-Versuch und ein späterer Long aus einer größeren Struktur sind verschiedene Gelegenheiten mit unterschiedlich viel Vorgeschichte.",
-      "In einem anderen Verlauf wird die ursprüngliche Idee zurückgenommen: Ein Kaufausbruch findet keine Anschlusskäufer, der Markt fällt in die alte Zone und Verkäufer setzen sich durch. Jetzt kann ein Setup für die Gegenrichtung entstehen. Das ist etwas anderes als eine bloß länger dauernde bullische Pause.",
-      "Frage daher zuerst, was sich in den Bars geändert hat, und erst danach, welches Etikett passt. Mehr Bars allein machen ein Muster weder besser noch schlechter. Grenzen, wiederholte Tests, Druck und die Reaktion nach einer Auslösung bestimmen die neue Einordnung."
+      "Eine kleine Pause kann weitere Rückläufe aufnehmen und zu einer größeren Flagge wachsen. Die Fortsetzungsrichtung bleibt dabei erst mal dieselbe. Ein erster Long-Versuch und ein späterer Long aus einer größeren Struktur sind verschiedene Gelegenheiten mit unterschiedlich viel Vorgeschichte.",
+      "In einem anderen Verlauf wird die ursprüngliche Idee zurückgenommen: Ein Kaufausbruch findet keine Anschlusskäufer, der Markt fällt in die alte Zone und die Verkäufer setzen sich durch. Jetzt kann ein Setup für die Gegenrichtung entstehen. Das ist etwas anderes als eine bloß länger dauernde bullische Pause.",
+      "Frag daher zuerst, was sich in den Bars geändert hat, und erst danach, welches Etikett passt. Mehr Bars allein machen ein Muster weder besser noch schlechter. Grenzen, wiederholte Tests, Druck und die Reaktion nach einer Auslösung bestimmen die neue Einordnung."
     ],
     "callout": "Mehr Bars können dieselbe Idee erweitern oder eine andere Seite stärken.",
     "takeaways": [
@@ -82,9 +82,9 @@ const drafts: Draft[] = [
     "section": "Fehlschläge",
     "scenario": "c12-trapped-orders",
     "paragraphs": [
-      "Ein Setup wird ausgelöst, doch der erwartete kurze Gewinn entsteht nicht. Der Kurs dreht rasch zurück und überschreitet die andere Seite der Struktur. Frühe Teilnehmer sitzen nun auf der falschen Marktseite und müssen über einen Verlustausstieg entscheiden.",
-      "Bei einem gescheiterten Long bedeuten solche Ausstiege Verkaufsorders. Sie können mit neuen Shorts zusammentreffen und den Abwärtsdruck verstärken. Beim gescheiterten Short wirken Rückkäufe in die andere Richtung. Diese möglichen Orders erklären, warum die Rücknahme eines Signals selbst zu einem neuen Setup werden kann.",
-      "Aus dem Chart siehst du allerdings keine vollständige Liste der betroffenen Positionen. Das Festsetzen ist eine Deutung der Preisfolge. Du brauchst weiterhin ein tatsächlich ausgelöstes Gegensignal und einen passenden Stop; nicht jeder misslungene Versuch führt zu einer handelbaren Umkehr."
+      "Ein Setup wird ausgelöst, doch der erwartete kurze Gewinn kommt nicht. Der Kurs dreht schnell zurück und überschreitet die andere Seite der Struktur. Die frühen Teilnehmer sitzen jetzt auf der falschen Marktseite und müssen über einen Verlustausstieg entscheiden.",
+      "Bei einem gescheiterten Long sind solche Ausstiege Verkaufsorders. Sie können mit neuen Shorts zusammentreffen und den Abwärtsdruck verstärken. Beim gescheiterten Short wirken Rückkäufe in die andere Richtung. Diese möglichen Orders erklären, warum die Rücknahme eines Signals selbst zu einem neuen Setup werden kann.",
+      "Eine vollständige Liste der betroffenen Positionen siehst du im Chart allerdings nicht. Das Festsetzen ist eine Deutung der Preisfolge. Du brauchst weiterhin ein tatsächlich ausgelöstes Gegensignal und einen passenden Stop; nicht jeder misslungene Versuch führt zu einer handelbaren Umkehr."
     ],
     "callout": "Auslösung → schnelle Rücknahme → mögliche Verlustausstiege.",
     "takeaways": [
@@ -116,9 +116,9 @@ const drafts: Draft[] = [
     "section": "Fehlschläge",
     "scenario": "c12-reset-context",
     "paragraphs": [
-      "Ein erster Ausbruch scheitert, aber der Markt läuft danach viele Bars seitwärts. Es entsteht eine neue Balance mit eigenen Hochs und Tiefs. Die Teilnehmer konnten in dieser Zeit aussteigen, sich neu positionieren oder ganz auf weitere Signale verzichten.",
-      "Ein späterer Ausbruch aus dieser Balance wird deshalb sinnvoll als neue Gelegenheit beurteilt. Die Vorstellung, dass noch dieselben festgesetzten Trader von früher die Bewegung antreiben, wird mit zunehmender Zeit weniger belastbar. Ein schneller Rückstoß und ein späteres eigenständiges Setup brauchen unterschiedliche Erklärungen.",
-      "Die alte Zone kann weiterhin als Preisreferenz relevant sein. Das bedeutet aber nicht, dass die alte Ordergeschichte unverändert fortlebt. Zeichne die jetzigen Grenzen ein, prüfe den neuen Druck und leite das Risiko aus der aktuellen Struktur ab."
+      "Ein erster Ausbruch scheitert, aber der Markt läuft danach viele Bars seitwärts. Es entsteht eine neue Balance mit eigenen Hochs und Tiefs. In dieser Zeit konnten die Teilnehmer aussteigen, sich neu positionieren oder ganz auf weitere Signale verzichten.",
+      "Einen späteren Ausbruch aus dieser Balance beurteilst du deshalb sinnvoll als neue Gelegenheit. Dass noch dieselben festgesetzten Trader von früher die Bewegung antreiben, wird mit der Zeit immer weniger belastbar. Ein schneller Rückstoß und ein späteres eigenständiges Setup brauchen unterschiedliche Erklärungen.",
+      "Die alte Zone kann weiterhin als Preisreferenz relevant sein. Das heißt aber nicht, dass die alte Ordergeschichte unverändert weiterlebt. Zeichne die jetzigen Grenzen ein, prüf den neuen Druck und leite das Risiko aus der aktuellen Struktur ab."
     ],
     "callout": "Alte Preisreferenz und alte Teilnehmergeschichte sind nicht dasselbe.",
     "takeaways": [
@@ -150,9 +150,9 @@ const drafts: Draft[] = [
     "section": "Ergebnis und Ablauf",
     "scenario": "c12-scalp-vs-swing",
     "paragraphs": [
-      "Ein erstes Setup kann genug Anschluss für einen kleinen Gewinn liefern und danach trotzdem scheitern, wenn du auf eine größere Bewegung wartest. Der spätere Richtungswechsel macht nicht rückwirkend jede frühere Ausführung falsch. Kurzer Zieltrade und länger gehaltene Position brauchen unterschiedliche Erfolgskriterien.",
-      "Umgekehrt kann ein scheinbar sauberes Muster sofort zurückgenommen werden, noch bevor das geplante kleine Ziel erreicht ist. Auch häufig brauchbare Setups können scheitern. Eine pauschale Fehlerquote ist kein gemessener Vorteil deiner eigenen Strategie und ersetzt keine Aufzeichnung von Ziel, Stop, Gebühren und Ausführung.",
-      "Für die neue Entscheidung spielt deshalb eine Rolle, ob das alte Setup noch arbeitet oder bereits abgeschlossen ist. Notiere den Ablauf in seiner Reihenfolge. Vermeide, ein anfänglich erreichtes Ziel als Beweis für jeden späteren Einstieg zu nutzen oder einen späten Rücklauf zur rückwirkenden Gewissheit umzudeuten."
+      "Ein erstes Setup kann genug Anschluss für einen kleinen Gewinn liefern und danach trotzdem scheitern, wenn du auf eine größere Bewegung wartest. Der spätere Richtungswechsel macht nicht rückwirkend jede frühere Ausführung falsch. Ein kurzer Zieltrade und eine länger gehaltene Position brauchen unterschiedliche Erfolgskriterien.",
+      "Umgekehrt kann ein scheinbar sauberes Muster sofort zurückgenommen werden, noch bevor das geplante kleine Ziel erreicht ist. Auch oft brauchbare Setups können scheitern. Eine pauschale Fehlerquote ist kein gemessener Vorteil deiner eigenen Strategie und ersetzt keine Aufzeichnung von Ziel, Stop, Gebühren und Ausführung.",
+      "Für die neue Entscheidung zählt deshalb, ob das alte Setup noch arbeitet oder schon abgeschlossen ist. Notier den Ablauf in seiner Reihenfolge. Nutze ein anfangs erreichtes Ziel nicht als Beweis für jeden späteren Einstieg und deute einen späten Rücklauf nicht rückwirkend zur Gewissheit um."
     ],
     "callout": "Bewerte einen Trade am vorher festgelegten Ziel und die nächste Gelegenheit am aktuellen Chart.",
     "takeaways": [
@@ -184,9 +184,9 @@ const drafts: Draft[] = [
     "section": "Musterfamilien",
     "scenario": "c12-expanding-triangle",
     "paragraphs": [
-      "Bei einer sich ausweitenden Struktur wechseln Aufwärts- und Abwärtsbeine, während die Hochs höher und die Tiefs tiefer werden. Beide Seiten drücken zeitweise durch ihre bisherige Grenze, ohne dauerhaft Kontrolle zu halten. Das unterscheidet die Folge von einer immer enger werdenden Pause.",
-      "Nach fünf Beinen kann eine Umkehr plausibel aussehen. Der Markt muss dort aber nicht aufhören: Weitere Schwünge können das Bild etwa auf sieben Beine ausdehnen. Ein früher Versuch und ein späterer Versuch gehören dann zur selben wachsenden Struktur, haben aber andere Preise und Stop-Abstände.",
-      "Die Beinzahl ist eine Beschreibung, kein Ende-Signal. Prüfe nach jedem zusätzlichen Schub, ob der Ausbruch Anschluss erhält oder wieder zurückgenommen wird. Ein breiteres Muster kann auch die kleinste Position zu riskant machen; seine Erweiterung ist keine Erlaubnis, den Verlustschutz mitzuschieben."
+      "Bei einer sich ausweitenden Struktur wechseln Aufwärts- und Abwärtsbeine, während die Hochs höher und die Tiefs tiefer werden. Beide Seiten drücken zeitweise durch ihre bisherige Grenze, ohne dauerhaft die Kontrolle zu halten. Das unterscheidet die Folge von einer immer enger werdenden Pause.",
+      "Nach fünf Beinen kann eine Umkehr plausibel aussehen. Der Markt muss dort aber nicht aufhören: Weitere Schwünge können das Bild etwa auf sieben Beine ausdehnen. Ein früher und ein späterer Versuch gehören dann zur selben wachsenden Struktur, haben aber andere Preise und Stop-Abstände.",
+      "Die Beinzahl ist eine Beschreibung, kein Ende-Signal. Prüf nach jedem zusätzlichen Schub, ob der Ausbruch Anschluss bekommt oder wieder zurückgenommen wird. Ein breiteres Muster kann auch die kleinste Position zu riskant machen; seine Erweiterung ist keine Erlaubnis, den Verlustschutz mitzuschieben."
     ],
     "callout": "Die fünfte Bewegung ist kein vertraglich vereinbartes Musterende.",
     "takeaways": [
@@ -218,9 +218,9 @@ const drafts: Draft[] = [
     "section": "Musterfamilien",
     "scenario": "c12-micro-line",
     "paragraphs": [
-      "Eine Mikro-Trendlinie verbindet wenige eng aufeinanderfolgende Bars. Ihr Bruch zeigt eine kleine Störung im unmittelbaren Verlauf. Weil die zugrunde liegende Trendkraft noch bestehen kann, ist dieser erste Gegenversuch häufig fragil.",
+      "Eine Mikro-Trendlinie verbindet wenige, eng aufeinanderfolgende Bars. Ihr Bruch zeigt eine kleine Störung im unmittelbaren Verlauf. Weil die zugrunde liegende Trendkraft noch bestehen kann, ist dieser erste Gegenversuch oft zerbrechlich.",
       "Wird der Gegenbruch zurückgenommen und die Trendbewegung wieder aufgenommen, kann der nächste Rücklauf einen Einstieg in die ursprüngliche Richtung bilden. Der kleine Linienbruch war dann kein dauerhafter Trendwechsel, sondern ein Zwischenschritt im Ablauf: Gegenversuch, Fehlschlag, erneute Fortsetzung und Pullback.",
-      "Achte auf die tatsächlichen Bezugspunkte. Ein Pullback testet die neu wiedergewonnene Zone; er ist nicht bloß irgendein späterer roter Bar. Wenn der Gegenbruch dagegen kräftigen Anschluss bekommt, passt die Fortsetzungserklärung nicht mehr und muss verworfen werden."
+      "Achte auf die tatsächlichen Bezugspunkte. Ein Pullback testet die neu zurückgewonnene Zone; er ist nicht bloß irgendein späterer roter Bar. Bekommt der Gegenbruch dagegen kräftigen Anschluss, passt die Fortsetzungserklärung nicht mehr und du musst sie verwerfen."
     ],
     "callout": "Die Reaktion nach dem Linienbruch entscheidet über seine Rolle.",
     "takeaways": [
@@ -252,9 +252,9 @@ const drafts: Draft[] = [
     "section": "Musterfamilien",
     "scenario": "c12-final-flag",
     "paragraphs": [
-      "Eine späte Pause im Bärenlauf wird manchmal als mögliche letzte Flagge betrachtet: Ein neuer Abwärtsversuch könnte dann scheitern und eine Erholung beginnen. Das Wort letzte beschreibt eine Erwartung, keine bereits feststehende Eigenschaft.",
-      "Bleibt die Umkehr aus und drücken Verkäufer weiter, kann dieselbe Pause als Ausbruchszone funktionieren. Ein Rücklauf an diese Zone wird nun als Breakout-Pullback für eine mögliche Short-Fortsetzung geprüft. Die ursprüngliche Umkehridee wird durch den tatsächlich beobachteten Anschluss ersetzt.",
-      "Später kann der Verlauf wieder wachsen: Mehrere Abwärtsschübe können einen Keilboden vorbereiten, oder eine größere Range kann zur neuen Kandidatin für eine letzte Flagge werden. Das sind mögliche Entwicklungswege. Du handelst den jetzt sichtbaren Übergang und wartest nicht darauf, dass die erste Bezeichnung endlich recht bekommt."
+      "Eine späte Pause im Bärenlauf wird manchmal als mögliche letzte Flagge gesehen: Ein neuer Abwärtsversuch könnte dann scheitern und eine Erholung beginnen. Das Wort letzte beschreibt eine Erwartung, keine feststehende Eigenschaft.",
+      "Bleibt die Umkehr aus und drücken die Verkäufer weiter, kann dieselbe Pause als Ausbruchszone funktionieren. Einen Rücklauf an diese Zone prüfst du dann als Breakout-Pullback für eine mögliche Short-Fortsetzung. Die ursprüngliche Umkehridee wird durch den tatsächlich beobachteten Anschluss ersetzt.",
+      "Später kann der Verlauf wieder wachsen: Mehrere Abwärtsschübe können einen Keilboden vorbereiten, oder eine größere Range wird zur neuen Kandidatin für eine letzte Flagge. Das sind mögliche Entwicklungswege. Du handelst den jetzt sichtbaren Übergang und wartest nicht darauf, dass die erste Bezeichnung endlich recht bekommt."
     ],
     "callout": "Eine mögliche letzte Flagge kann zuerst eine weitere Fortsetzung liefern.",
     "takeaways": [
@@ -287,8 +287,8 @@ const drafts: Draft[] = [
     "scenario": "c12-channel-range",
     "paragraphs": [
       "Ein bullischer Spike ist ein gerichteter Impuls. Danach kann ein Kanal entstehen, in dem neue Hochs von kleinen Rückläufen begleitet werden. Wird der Handel schließlich zweiseitiger, nimmt die Überlappung zu und eine Trading Range bildet sich.",
-      "Innerhalb dieser Range können zwei Tiefbereiche getestet und zurückgekauft werden. Die Folge kann sich als Doppeltief-Bullenflagge lesen lassen: eine Pause im größeren Aufwärtsbild mit einem erneuten Versuch zur Fortsetzung. Das Doppeltief allein beweist diese Rolle nicht; der frühere Impuls und der aktuelle Käuferanschluss gehören dazu.",
-      "Der gleiche Wechsel kann in einem anderen Umfeld anders enden. Ein kräftiger Abwärtsausbruch aus der Range würde die bullische Fortsetzungsthese stören. Halte deshalb die Etappen auseinander und aktualisiere die Grenzen, statt den ganzen Tag mit dem Namen der ersten Trendphase zu beschreiben."
+      "Innerhalb dieser Range können zwei Tiefbereiche getestet und zurückgekauft werden. Die Folge lässt sich als Doppeltief-Bullenflagge lesen: eine Pause im größeren Aufwärtsbild mit einem erneuten Versuch zur Fortsetzung. Das Doppeltief allein beweist diese Rolle nicht; der frühere Impuls und der aktuelle Käuferanschluss gehören dazu.",
+      "Derselbe Wechsel kann in einem anderen Umfeld anders enden. Ein kräftiger Abwärtsausbruch aus der Range würde die bullische Fortsetzungsthese stören. Halte deshalb die Etappen auseinander und aktualisiere die Grenzen, statt den ganzen Tag mit dem Namen der ersten Trendphase zu beschreiben."
     ],
     "callout": "Ein Trend kann pausieren, zweiseitig werden und erst dann eine neue Fortsetzung anbieten.",
     "takeaways": [
@@ -320,11 +320,11 @@ const drafts: Draft[] = [
     "section": "Musterfamilien",
     "scenario": "c12-opening-flags",
     "paragraphs": [
-      "In der ersten Handelsphase werden häufig beide Richtungen getestet. Ein Anstieg kann in einem Doppeltop-Verkaufssetup enden; der Rücklauf daraus kann wiederum nahe einer vorherigen Tiefzone auf Käufer treffen und ein Doppeltief-Kaufsetup bilden.",
-      "Damit ist die frühe bärische Gelegenheit nicht dasselbe wie die spätere bullische. Ein aktiver Trader kann beide unabhängig prüfen, statt sich für den ganzen Tag an die erste Richtung zu binden. Jede Teilnahme braucht ihre eigene Auslösung und einen klaren Verlustschutz; der zweite Trade ist kein Versuch, einen ersten Verlust emotional zurückzuholen.",
-      "Solange beide Seiten kräftige Reaktionen liefern, kann der Markt im Breakout-Modus sein: Die Richtung des nächsten tragfähigen Ausbruchs bleibt offen. Ein markantes frühes Extrem kann Ausgangspunkt einer längeren Bewegung werden, muss es aber nicht. Entscheidend bleibt, welche Seite tatsächlich Anschluss erzeugt."
+      "In der ersten Handelsphase werden oft beide Richtungen getestet. Ein Anstieg kann in einem Doppeltop-Verkaufssetup enden; der Rücklauf daraus kann wiederum nahe einer vorherigen Tiefzone auf Käufer treffen und ein Doppeltief-Kaufsetup bilden.",
+      "Die frühe bärische Gelegenheit ist damit nicht dasselbe wie die spätere bullische. Ein aktiver Trader kann beide unabhängig prüfen, statt sich den ganzen Tag an die erste Richtung zu binden. Jede Teilnahme braucht ihre eigene Auslösung und einen klaren Verlustschutz; der zweite Trade ist kein Versuch, einen ersten Verlust emotional zurückzuholen.",
+      "Solange beide Seiten kräftig reagieren, kann der Markt im Breakout-Modus sein: Die Richtung des nächsten tragfähigen Ausbruchs bleibt offen. Ein markantes frühes Extrem kann Ausgangspunkt einer längeren Bewegung werden, muss es aber nicht. Entscheidend bleibt, welche Seite tatsächlich Anschluss erzeugt."
     ],
-    "callout": "Richtungswechsel nach neuen Belegen ist etwas anderes als Rachetrading.",
+    "callout": "Ein Richtungswechsel nach neuen Belegen ist etwas anderes als Rachetrading.",
     "takeaways": [
       "Frühe Hoch- und Tieftests zusammen lesen.",
       "Beide Gelegenheiten eigenständig prüfen.",
@@ -354,9 +354,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 12.1 · Frühe Hochs",
     "scenario": "c12-121-wedge-top",
     "paragraphs": [
-      "Ein Low-2-Short beschreibt den zweiten Verkaufsversuch innerhalb einer Aufwärtskorrektur oder Flagge. Im ersten Übungsfall führt die frühe Auslösung noch nicht zu einer tragfähigen Abwärtsbewegung. Käufer setzen den Anstieg fort und testen einen höheren Bereich.",
-      "Mit dem zusätzlichen Aufwärtsschub wird die Struktur größer und kann als Keiltop mit drei Schüben gelesen werden. Die spätere Verkaufsmöglichkeit wird erst unter dem Signal nach dem letzten Hoch geprüft. Sie hat mehr Vorgeschichte als der frühe Low 2 und ist eine neue Gelegenheit, nicht derselbe Entry zu einem bequemeren Namen.",
-      "Unser Schaubild verwendet andere Preise und eine vereinfachte Folge. Es zeigt den frühen Versuch, den zusätzlichen Hochschub und das spätere Gegensignal. An keiner Stelle garantiert der dritte Schub eine Umkehr; du brauchst die tatsächlich sichtbare Auslösung und den Anschluss danach."
+      "Ein Low-2-Short ist der zweite Verkaufsversuch innerhalb einer Aufwärtskorrektur oder Flagge. Im ersten Übungsfall führt die frühe Auslösung noch nicht zu einer tragfähigen Abwärtsbewegung. Die Käufer setzen den Anstieg fort und testen einen höheren Bereich.",
+      "Mit dem zusätzlichen Aufwärtsschub wird die Struktur größer und lässt sich als Keiltop mit drei Schüben lesen. Die spätere Verkaufsmöglichkeit prüfst du erst unter dem Signal nach dem letzten Hoch. Sie hat mehr Vorgeschichte als der frühe Low 2 und ist eine neue Gelegenheit, nicht derselbe Entry mit einem bequemeren Namen.",
+      "Unser Schaubild verwendet andere Preise und eine vereinfachte Folge. Es zeigt den frühen Versuch, den zusätzlichen Hochschub und das spätere Gegensignal. Nirgends garantiert der dritte Schub eine Umkehr; du brauchst die tatsächlich sichtbare Auslösung und den Anschluss danach."
     ],
     "callout": "Ein misslungener früher Short kann einer neuen größeren Short-Struktur vorausgehen.",
     "takeaways": [
@@ -389,8 +389,8 @@ const drafts: Draft[] = [
     "scenario": "c12-121-complex-low2",
     "paragraphs": [
       "Später im Übungsfall bildet sich aus einem ersten Aufwärtsschub ein Low-2-Verkaufsversuch. Die erste kleine bärische Reaktion entscheidet den Verlauf noch nicht. Ein weiterer Hochtest und eine Umkehr über zwei Bars ergänzen die Struktur.",
-      "Der zweite Short wird unter der neuen Zwei-Bar-Umkehr geprüft. Bei dieser Form zählt die gemeinsame Zurückweisung: Ein erster Bar drückt noch nach oben, der nächste nimmt den Versuch sichtbar zurück. Die spätere Auslösung liegt deshalb an einer aktuelleren Grenze als der frühere Verkaufspunkt.",
-      "Ob du den Aufbau als erweiterten Low 2 oder als neue komplexe Flagge bezeichnest, ändert die Orders nicht. Wichtig sind die Reihenfolge der Tests und die aktuelle Verkaufsreaktion. Eine Ergänzung zu einer bestehenden Position braucht außerdem eine erneute Prüfung des gesamten Risikos."
+      "Den zweiten Short prüfst du unter der neuen Zwei-Bar-Umkehr. Bei dieser Form zählt die gemeinsame Zurückweisung: Ein erster Bar drückt noch nach oben, der nächste nimmt den Versuch sichtbar zurück. Die spätere Auslösung liegt deshalb an einer aktuelleren Grenze als der frühere Verkaufspunkt.",
+      "Ob du den Aufbau erweiterten Low 2 oder neue komplexe Flagge nennst, ändert an den Orders nichts. Wichtig sind die Reihenfolge der Tests und die aktuelle Verkaufsreaktion. Eine Ergänzung zu einer bestehenden Position braucht außerdem eine erneute Prüfung des gesamten Risikos."
     ],
     "callout": "Die aktuelle Zurückweisung gibt den neuen Trigger vor.",
     "takeaways": [
@@ -422,9 +422,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 12.1 · Tiefbereich",
     "scenario": "c12-121-wedge-bottom",
     "paragraphs": [
-      "Ein High-2-Kaufversuch im Rücklauf kann zunächst zu wenig Käuferanschluss erhalten. Der Markt macht einen weiteren Abwärtsschub. Aus dem ersten kleineren Pullback wird nun eine größere Struktur mit drei Schüben nach unten.",
-      "Diese Folge kann als Keil-Bullenflagge an einer Durchschnittsreferenz betrachtet werden. Gleichzeitig lässt sich der Abwärtsabschnitt als Bärenspike mit anschließendem Kanal lesen; der letzte Schub liegt dann auch am möglichen Kanalende. Mehrere Beschreibungen können auf dieselben Bars passen.",
-      "Das Zusammentreffen ist noch kein Beweis für den Long. Prüfe Zurückweisung des Tiefs, Auslösung nach oben und tragbaren Stop-Abstand. Der Durchschnitt ist eine Preisreferenz, keine Kraft, die den Kurs automatisch nach oben schiebt. Der dritte Schub erweitert die Information und nicht die Gewissheit."
+      "Ein High-2-Kaufversuch im Rücklauf kann zunächst zu wenig Käuferanschluss bekommen. Der Markt macht einen weiteren Abwärtsschub. Aus dem ersten kleineren Pullback wird nun eine größere Struktur mit drei Schüben nach unten.",
+      "Diese Folge lässt sich als Keil-Bullenflagge an einer Durchschnittsreferenz betrachten. Gleichzeitig kannst du den Abwärtsabschnitt als Bärenspike mit anschließendem Kanal lesen; der letzte Schub liegt dann auch am möglichen Kanalende. Mehrere Beschreibungen können auf dieselben Bars passen.",
+      "Dass hier mehrere Dinge zusammentreffen, ist noch kein Beweis für den Long. Prüf Zurückweisung des Tiefs, Auslösung nach oben und tragbaren Stop-Abstand. Der Durchschnitt ist eine Preisreferenz, keine Kraft, die den Kurs automatisch nach oben schiebt. Der dritte Schub erweitert die Information, nicht die Gewissheit."
     ],
     "callout": "Ein zusätzliches Tief kann die Form vergrößern, ohne allein ein Kaufsignal zu sein.",
     "takeaways": [
@@ -456,9 +456,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 12.1 · Fehlschlag",
     "scenario": "c12-121-failed-low2",
     "paragraphs": [
-      "Vor einem weiteren Low-2-Verkaufsversuch entsteht ein kräftiger Bullenimpuls. Dieser Schub verändert den Kontext: Käufer haben gerade sichtbar Kontrolle übernommen. Eine kleine bärische Flagge kann zwar formal einen zweiten Verkaufspunkt enthalten, aber gegen diesen Druck liegen.",
-      "Im betrachteten Ablauf setzt sich der Short nicht durch. Seine Rücknahme wird nun als möglicher Kauf aus einem gescheiterten Low 2 gelesen. Verkäufer, die auf die frühe Auslösung gesetzt haben, können beim Ausstieg Nachfrage erzeugen; neue Käufer können dieselbe Richtung unterstützen.",
-      "Für die Gegenorder braucht es die sichtbare Rücknahme und einen gültigen Trigger. Du kaufst nicht bloß deshalb, weil du den Short subjektiv schlecht findest. Der entscheidende Vergleich lautet: Wie stark war der vorherige Bullenimpuls, und wie viel Anschluss erhielten die Verkäufer tatsächlich?"
+      "Vor einem weiteren Low-2-Verkaufsversuch entsteht ein kräftiger Bullenimpuls. Dieser Schub verändert den Kontext: Die Käufer haben gerade sichtbar die Kontrolle übernommen. Eine kleine bärische Flagge kann zwar formal einen zweiten Verkaufspunkt enthalten, liegt dann aber gegen diesen Druck.",
+      "Im betrachteten Ablauf setzt sich der Short nicht durch. Seine Rücknahme liest du jetzt als möglichen Kauf aus einem gescheiterten Low 2. Verkäufer, die auf die frühe Auslösung gesetzt haben, können beim Ausstieg Nachfrage erzeugen; neue Käufer können dieselbe Richtung unterstützen.",
+      "Für die Gegenorder brauchst du die sichtbare Rücknahme und einen gültigen Trigger. Du kaufst nicht bloß, weil du den Short subjektiv schlecht findest. Der entscheidende Vergleich lautet: Wie stark war der vorherige Bullenimpuls, und wie viel Anschluss bekamen die Verkäufer tatsächlich?"
     ],
     "callout": "Die Vorgeschichte kann die formale Zählung überstimmen.",
     "takeaways": [
@@ -490,9 +490,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 12.1 · Nächste Phase",
     "scenario": "c12-121-channel-top",
     "paragraphs": [
-      "Der Kauf nach dem zurückgenommenen Short gehört zur neuen bullischen Phase. Nach einem Impuls kann ein steigender Kanal mit mehreren Schüben entstehen. Die spätere Hochstruktur wird nun aus dieser Phase heraus gelesen, nicht weiter ausschließlich als gescheiterter Short von früher.",
-      "Am dritten Aufwärtsschub kann sich ein mögliches Kanalende oder Keiltop zeigen. Dafür prüfst du späte Beschleunigung, Rücknahme und Verkaufsanschluss. Ein dritter Schub ist ein Ort für Aufmerksamkeit, keine automatische Short-Order und kein sicherer Endpunkt.",
-      "So laufen mehrere Entscheidungen nacheinander ab: erster Shortversuch, sein Fehlschlag, möglicher Long und später neues Hochsetup. Eine Position, die am ersten Übergang sinnvoll war, muss nicht jeden weiteren Übergang überleben. Der Schutzplan und die aktuellen Bars bestimmen, was gehalten oder neu eröffnet wird."
+      "Der Kauf nach dem zurückgenommenen Short gehört zur neuen bullischen Phase. Nach einem Impuls kann ein steigender Kanal mit mehreren Schüben entstehen. Die spätere Hochstruktur liest du jetzt aus dieser Phase heraus und nicht länger nur als gescheiterten Short von früher.",
+      "Am dritten Aufwärtsschub kann sich ein mögliches Kanalende oder Keiltop zeigen. Prüf dafür späte Beschleunigung, Rücknahme und Verkaufsanschluss. Ein dritter Schub ist ein Ort für Aufmerksamkeit, keine automatische Short-Order und kein sicherer Endpunkt.",
+      "So laufen mehrere Entscheidungen nacheinander ab: erster Shortversuch, sein Fehlschlag, möglicher Long und später ein neues Hochsetup. Eine Position, die am ersten Übergang sinnvoll war, muss nicht jeden weiteren Übergang überleben. Der Schutzplan und die aktuellen Bars bestimmen, was du hältst oder neu eröffnest."
     ],
     "callout": "Ein guter Einstieg muss nicht zum Etikett für den ganzen weiteren Tag werden.",
     "takeaways": [
@@ -524,9 +524,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 12.1 · Neues Hoch",
     "scenario": "c12-121-failed-high2",
     "paragraphs": [
-      "Ein später High-2-Long kann an einem neuen Tageshoch ausgelöst werden und anschließend zurückfallen. Seine Bezeichnung als zweiter Kaufversuch garantiert nicht, dass weitere Nachfrage folgt. Die Lage am Hoch macht die tatsächliche Reaktion besonders wichtig.",
-      "Wird der Entry-Bar selbst nach unten gebrochen, kann daraus eine neue Verkaufsgelegenheit entstehen. Im beschriebenen Ablauf ist es zugleich ein weiterer Versuch, den Markt nach unten zu drehen. Festgesetzte Käufer könnten aussteigen und den Gegenschub verstärken; das bleibt eine aus den Bars abgeleitete Erklärung.",
-      "Die Prüfgrenze stammt nun aus der gescheiterten Auslösung und dem aktuellen Umkehrbild. Sie wird nicht so gewählt, dass ein früher Verlust möglichst schnell zurückverdient wird. Du trennst Long-Fehlschlag, neuen Short-Trigger und die Größe der neuen Position sauber voneinander."
+      "Ein später High-2-Long kann an einem neuen Tageshoch ausgelöst werden und anschließend zurückfallen. Dass er ein zweiter Kaufversuch heißt, garantiert nicht, dass weitere Nachfrage kommt. Die Lage am Hoch macht die tatsächliche Reaktion besonders wichtig.",
+      "Wird der Entry-Bar selbst nach unten gebrochen, kann daraus eine neue Verkaufsgelegenheit entstehen. Im beschriebenen Ablauf ist das zugleich ein weiterer Versuch, den Markt nach unten zu drehen. Festgesetzte Käufer könnten aussteigen und den Gegenschub verstärken; das bleibt eine aus den Bars abgeleitete Erklärung.",
+      "Die Prüfgrenze kommt jetzt aus der gescheiterten Auslösung und dem aktuellen Umkehrbild. Du wählst sie nicht so, dass sich ein früher Verlust möglichst schnell zurückverdienen lässt. Halte Long-Fehlschlag, neuen Short-Trigger und die Größe der neuen Position sauber auseinander."
     ],
     "callout": "Auch ein High 2 kann am Hoch scheitern und die andere Seite vorbereiten.",
     "takeaways": [
@@ -592,9 +592,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 12.2 · Zwei Versuche",
     "scenario": "c12-122-double-flags",
     "paragraphs": [
-      "Nach dem frühen Anstieg entsteht ein erneuter Hochtest an einer fallenden Durchschnittszone. Er lässt sich als Doppeltop-Bärenflagge mit zweitem Verkaufsversuch betrachten. Die mögliche Short-Auslösung liegt unter dessen Signalbereich.",
-      "Der Rücklauf findet jedoch nahe dem früheren Tiefbereich erneut Käufer. Dieses zweite Tief bildet nun die Grundlage einer Doppeltief-Bullenflagge. Ihr möglicher Long wird oberhalb des neuen Signals geprüft. Der zweite Versuch der Verkäufer hat keine anhaltende Abwärtskontrolle geschaffen; der zweite Bodenversuch erhält dagegen Käuferanschluss.",
-      "Die beiden Richtungen werden zeitlich nacheinander beurteilt. Ein Trader kann beide prüfen, muss sie aber nicht beide handeln. Beim Wechsel werden alte Position, neuer Trigger und Gesamtrisiko bewusst geklärt. Das Halten eines Trendanteils kommt erst infrage, wenn die aktuelle Struktur und der eigene Plan es tragen."
+      "Nach dem frühen Anstieg entsteht ein erneuter Hochtest an einer fallenden Durchschnittszone. Du kannst ihn als Doppeltop-Bärenflagge mit zweitem Verkaufsversuch betrachten. Die mögliche Short-Auslösung liegt unter dessen Signalbereich.",
+      "Der Rücklauf findet jedoch nahe dem früheren Tiefbereich erneut Käufer. Dieses zweite Tief bildet nun die Grundlage einer Doppeltief-Bullenflagge. Ihren möglichen Long prüfst du oberhalb des neuen Signals. Der zweite Versuch der Verkäufer hat keine anhaltende Abwärtskontrolle geschaffen; der zweite Bodenversuch bekommt dagegen Käuferanschluss.",
+      "Die beiden Richtungen beurteilst du zeitlich nacheinander. Ein Trader kann beide prüfen, muss sie aber nicht beide handeln. Beim Wechsel klärst du alte Position, neuen Trigger und Gesamtrisiko bewusst. Einen Trendanteil zu halten kommt erst infrage, wenn die aktuelle Struktur und dein eigener Plan es tragen."
     ],
     "callout": "Das Ergebnis des Hochtests hilft, den späteren Tieftest einzuordnen.",
     "takeaways": [
@@ -626,9 +626,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 12.2 · Kräftevergleich",
     "scenario": "c12-122-two-readings",
     "paragraphs": [
-      "In der Eröffnungsphase treten Aufwärtsspikes und Abwärtsspikes abwechselnd auf. Das kann zunächst eine Range ergeben, weil beide Seiten um einen Kanal in ihrer Richtung kämpfen. Im Übungsfall ist die spätere bullische Reaktion deutlich kräftiger und entwickelt sich weiter nach oben.",
+      "In der Eröffnungsphase wechseln sich Aufwärts- und Abwärtsspikes ab. Das kann zunächst eine Range ergeben, weil beide Seiten um einen Kanal in ihrer Richtung kämpfen. Im Übungsfall ist die spätere bullische Reaktion deutlich kräftiger und entwickelt sich weiter nach oben.",
       "Du kannst den ersten Anstieg als Spike und die gesamte frühe Range als seinen Pullback lesen. Der spätere Anstieg ist dann der zugehörige Kanal. Eine zweite sinnvolle Lesart nimmt den kräftigen späteren Aufwärtsspike als Hauptimpuls und lässt den Kanal erst nach diesem beginnen.",
-      "Für die Entscheidung ist keine eindeutige Namenswahl nötig. Beide Lesarten müssen den sichtbaren Käuferdruck, die schwächeren Gegenreaktionen und die aktuellen Grenzen erklären. Eine dritte Aufwärtswelle im späteren Kanal ist wieder ein Beobachtungsort; sie legt weder den ganzen Tag noch eine sofortige Umkehr fest."
+      "Für die Entscheidung brauchst du keine eindeutige Namenswahl. Beide Lesarten müssen den sichtbaren Käuferdruck, die schwächeren Gegenreaktionen und die aktuellen Grenzen erklären. Eine dritte Aufwärtswelle im späteren Kanal ist wieder ein Beobachtungsort; sie legt weder den ganzen Tag noch eine sofortige Umkehr fest."
     ],
     "callout": "Einteilungen können verschieden sein, obwohl die Kräftebeurteilung übereinstimmt.",
     "takeaways": [
@@ -661,8 +661,8 @@ const drafts: Draft[] = [
     "scenario": "c12-122-trending-ranges",
     "paragraphs": [
       "Der kräftige frühe Anstieg hätte zu einem weitgehend durchgehenden Trend vom Open führen können. Der tatsächlich sichtbare Verlauf wird später zweiseitiger: Es entstehen Handelsbereiche auf unterschiedlichen Preisniveaus. Diese Staffelung lässt sich als Trending-Trading-Range-Tag beschreiben.",
-      "Ein späterer Abverkauf testet den unteren früheren Bereich. Dort kehren Käufer zurück und der Kurs steigt in Richtung der oberen Balance. Der Tag enthält somit sowohl gerichtete Bewegungen als auch Phasen, in denen beide Seiten handeln. Ein früher Trendschub beschreibt nicht jede spätere Minute.",
-      "Aktualisiere deshalb die Grenzen beim Wechsel in die neue Range. Ein Stop oder Ziel aus einem engeren Trendsetup muss nicht zur neuen Gelegenheit passen. Die späte Erholung ist erst durch ihre tatsächlich sichtbare Reaktion bekannt; sie darf nicht zur rückwirkenden Begründung werden, einen früher erreichten Stop zu ignorieren."
+      "Ein späterer Abverkauf testet den unteren früheren Bereich. Dort kehren die Käufer zurück und der Kurs steigt in Richtung der oberen Balance. Der Tag enthält somit gerichtete Bewegungen und Phasen, in denen beide Seiten handeln. Ein früher Trendschub beschreibt nicht jede spätere Minute.",
+      "Aktualisiere deshalb die Grenzen beim Wechsel in die neue Range. Ein Stop oder Ziel aus einem engeren Trendsetup muss nicht zur neuen Gelegenheit passen. Die späte Erholung kennst du erst durch ihre tatsächlich sichtbare Reaktion; sie darf nicht rückwirkend zur Begründung werden, einen früher erreichten Stop zu ignorieren."
     ],
     "callout": "Der Tag entwickelt seine Form erst im Verlauf.",
     "takeaways": [
@@ -694,9 +694,9 @@ const drafts: Draft[] = [
     "section": "Abschluss",
     "scenario": "c12-observation-plan",
     "paragraphs": [
-      "Halte zunächst fest, welches Signal schon ausgelöst wurde und welchen Anschluss es erhalten hat. War das alte kleine Ziel bereits erreicht, ist der Trade anders zu bewerten als bei einer sofortigen Rücknahme. Schau dann auf die neu sichtbaren Tests und Grenzen: wächst die alte Struktur, wechselt der Druck oder entsteht nach Balance eine eigenständige neue Gelegenheit?",
+      "Halte zunächst fest, welches Signal schon ausgelöst wurde und welchen Anschluss es bekommen hat. War das alte kleine Ziel bereits erreicht, bewertest du den Trade anders als bei einer sofortigen Rücknahme. Schau dann auf die neu sichtbaren Tests und Grenzen: Wächst die alte Struktur, wechselt der Druck oder entsteht nach Balance eine eigenständige neue Gelegenheit?",
       "Für eine mögliche neue Order beschreibst du Auslösung, Stop und Menge anhand der aktuellen Bars. Bei einem schnellen Fehlschlag kannst du mögliche Ausstiegsorders der Gegenseite mitdenken; nach längerer Seitwärtsphase beginnst du mit der neuen Struktur. Du brauchst kein perfektes Etikett, aber einen nachvollziehbaren Grund.",
-      "Notiere deine Einschätzung, bevor du im Replay die nächsten Bars aufdeckst. Vergleiche später Beobachtung und Ergebnis: Hast du den Wandel gesehen, oder hast du auf Bestätigung der ersten Idee gewartet? Die Übung bewertet die Entscheidung mit damaligen Informationen; ein später schöner Chart darf daraus keine Gewissheit machen."
+      "Notier deine Einschätzung, bevor du im Replay die nächsten Bars aufdeckst. Vergleiche später Beobachtung und Ergebnis: Hast du den Wandel gesehen, oder hast du auf Bestätigung der ersten Idee gewartet? Die Übung bewertet die Entscheidung mit damaligen Informationen; ein später schöner Chart darf daraus keine Gewissheit machen."
     ],
     "callout": "Alte Auslösung → Anschluss → neue Tests → aktuelle Richtung → neues Risiko.",
     "takeaways": [
