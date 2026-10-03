@@ -96,9 +96,9 @@ Vom einzelnen Bar bis zum vollständigen Trendtag.
 - Vergleichscharts (ETFs, inverse Charts)
 - Zweite Einstiege im Kontext
 
-### Price Action: Ranges (Teil 2 von 3 · Einführung und Kapitel 1–6 verfügbar) **[aktiv]**
+### Price Action: Ranges (Teil 2 von 3 · Einführung und Kapitel 1–7 verfügbar) **[aktiv]**
 
-Ausbrüche, Rücksetzer und Seitwärtsmärkte mit nachvollziehbarem Risikoplan verbinden. Einführung und Kapitel 1–6 sind verfügbar.
+Ausbrüche, Rücksetzer und Seitwärtsmärkte mit nachvollziehbarem Risikoplan verbinden. Einführung und Kapitel 1–7 sind verfügbar.
 
 - Ausbrüche und ihr Anschluss
 - Kurslücken und Messbewegungen

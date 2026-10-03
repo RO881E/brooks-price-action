@@ -1,0 +1,20 @@
+export const rangesLegDescriptions={
+  "par7-leg": "Erste drei Minuten: Start O1=L1=96, Hoch H3=102,4, Schluss C3=102. Pause in Minute4, Rücksetzertief L5=100. Spätere Fortsetzung verborgen.",
+  "par7-equal": "Gleiche Schübe: erste Strecke A96 nach B102,4 beträgt6,4 Punkte. Ab Kandidat C100 ergibt sich Ziel106,4. Ausschnitt endet nach Minute5.",
+  "par7-midpoint": "Gewählte Rücklaufränder102,4 und100; Mitte101,2. 2×101,2−96=106,4 entspricht C+(B−A); kein Volumenprofil gemessen.",
+  "par7-deeper": "Tieferer Vergleichsrücklauf L5=99,6 statt100. Gleiche erste Strecke6,4 liefert106; Mitte der neuen Ränder ist101.",
+  "par7-pause": "Drei starke Schubschlüsse98,100,102, dann Pause O4=102 H4=102,3 L4=101,6 C4=102,1. Schubende erst anhand der Pause markiert.",
+  "par7-spike": "Direkte Schubverlängerung O1=96 bis C3=102:6 Punkte, ab Schluss Ziel108. Alternative L1=96 bis H3=102,4: Ziel108,8.",
+  "par7-channel": "Weiterer Verlauf nach Rücklauf: H7=106,2, H8=106,6, H9=108,8. Gleiche-Strecken-Ziel106,4 und direkte OC-Projektion108 sind verschiedene Bezüge.",
+  "par7-risk": "Rechenvergleich nach bekannten Ankern: Ziel106,4, Modellstop102,8. Einstieg103,8: Risiko1 und Reststrecke2,6; Einstieg105: Risiko2,2 und Reststrecke1,4.",
+  "par7-near": "Stand nach Minute7: Hoch106,2 bleibt0,2 unter der Projektion106,4. Näherungszone und exakter Kontakt unterscheiden.",
+  "par7-contact": "Minute8 erreicht106,6 und überschreitet106,4. Kurskontakt bestätigt keine eigene Verkaufsorder und erzwingt keine Umkehr.",
+  "par7-failure": "Gleiche ersten fünf Minuten wie Fortsetzungsfall, danach C6=98,3 und L7=95,4 unter Start96. Ziel106,4 im Ausschnitt nicht erreicht.",
+  "par7-opposite": "Gescheiterter Aufwärtsschub O1=96 bis C3=102 hatte6 Punkte. Neue Abwärtsprojektion ab96 liefert90; später erreicht L9=90. Eigene Gegenbestätigung nötig.",
+  "par7-bear-spike": "Gespiegelter Schub: O1=104 bis C3=98, Höhe6 abwärts. Direkte Verlängerung ab98 ergibt92; Pause nach den drei Schubkerzen.",
+  "par7-bear-leg": "Gleiche Abwärtsschübe: A104 B97,6 C100, erste Strecke6,4. Projektion100−6,4=93,6; Hoch und Tief korrekt gespiegelt.",
+  "par7-variant": "Variante: erster gewählter Start110, Ende104; Korrektur steigt106, fällt103, steigt107. Ziel mit6 Punkten ab107 ist101; alternative7-Punkte-Strecke liefert100. L9=101.",
+  "par7-nested": "Größere Strecke von96 bis H8=106,6 enthält zwei kleine Schübe. Neuer Rücklauf L9=103,5, größere Höhe10,6 liefert114,1; H12=114,1.",
+  "par7-stop": "Modell nach Pause: breite Stopregel eine Stufe unter Start96 bei95,9; engere Rücklaufregel99,9. Einstieg102 hat breiten Abstand6,1. Tatsächliche Ausführung bleibt offen.",
+  "par7-symmetry": "Ausgewählte Tagesabschnitte: Eröffnung100, Hoch103, Tief97, letzter Schluss100,1. Gesamtspanne6;3 Punkte auf jeder Seite der Eröffnung. Zwischenzeiten ausgelassen."
+};
