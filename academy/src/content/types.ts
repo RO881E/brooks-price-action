@@ -482,6 +482,7 @@ export const CHAPTER_THIRTEEN_SCENARIOS = [
 export type ChapterThirteenScenarioId = (typeof CHAPTER_THIRTEEN_SCENARIOS)[number];
 
 export type ChartScenarioId =
+  | 'par11-spike' | 'par11-pause' | 'par11-entry' | 'par11-orders' | 'par11-resume' | 'par11-untriggered' | 'par11-failure' | 'par11-abc' | 'par11-h2' | 'par11-wedge' | 'par11-minor' | 'par11-renew' | 'par11-ema-before' | 'par11-contact' | 'par11-bounce' | 'par11-full-below' | 'par11-persistent' | 'par11-structure' | 'par11-major' | 'par11-bear' | 'par11-bear-full' | 'par11-test-low' | 'par11-double' | 'par11-bear-resume' | 'par11-turn' | 'par11-range' | 'par11-higher' | 'par11-risk'
   | 'par10-average-gap'
   | 'par10-average' | 'par10-big' | 'par10-channel' | 'par10-day' | 'par10-day-after' | 'par10-entry' | 'par10-entry-retest' | 'par10-failure' | 'par10-fib' | 'par10-flag-return' | 'par10-flag-start' | 'par10-gap' | 'par10-higher' | 'par10-inside' | 'par10-late' | 'par10-line' | 'par10-map' | 'par10-measure' | 'par10-mirror' | 'par10-no-test' | 'par10-profit' | 'par10-range' | 'par10-rebound' | 'par10-risk' | 'par10-round' | 'par10-test' | 'par10-tight' | 'par10-gap-filled'
   | 'par9-signal' | 'par9-trigger' | 'par9-untriggered' | 'par9-history' | 'par9-recovery' | 'par9-levels' | 'par9-first' | 'par9-pause' | 'par9-contact' | 'par9-failure' | 'par9-through' | 'par9-turn' | 'par9-mirror' | 'par9-risk' | 'par9-averaging'
