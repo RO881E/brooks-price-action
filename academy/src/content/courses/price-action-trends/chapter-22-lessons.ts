@@ -15,8 +15,8 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-01",
     "paragraphs": [
-      "Ein Tag kann lange in einer Range handeln, ausbrechen und in einer neuen höheren oder tieferen Range weiterlaufen. Die versetzten Bereiche ergeben gemeinsam eine gerichtete Tagesstruktur.",
-      "Eine Range ist ein Bereich mit wiederholtem Gegenhandel. Ihre späteren endgültigen Grenzen sind am Anfang noch nicht vollständig bekannt. Markiere nur bisher sichtbare Hochs und Tiefs.",
+      "Ein Tag kann lange in einer Range handeln, ausbrechen und in einer neuen höheren oder tieferen Range weiterlaufen. Die versetzten Bereiche ergeben zusammen eine gerichtete Tagesstruktur.",
+      "Eine Range ist ein Bereich mit wiederholtem Gegenhandel. Ihre späteren endgültigen Grenzen sind am Anfang noch nicht vollständig bekannt. Markier nur bisher sichtbare Hochs und Tiefs.",
       "Im Beispiel liegt der erste Bereich zwischen 30 und 46. Nach einem Käuferausbruch entsteht oberhalb davon mehr Gegenhandel. Die fertige Tagesbeschreibung darf den frühen Ausbruch nicht rückwirkend sicher machen."
     ],
     "callout": "Tagesrichtung und innere Seitwärtsphasen getrennt lesen.",
@@ -45,15 +45,15 @@ const drafts: Draft[] = [
   {
     "number": 2,
     "title": "Die Eröffnungsrange relativ messen",
-    "summary": "Breite mit einer vorher bekannten Referenz vergleichen.",
+    "summary": "Die Breite mit einer vorher bekannten Referenz vergleichen.",
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-02",
     "paragraphs": [
       "Die Eröffnungsrange ist der bisherige Preisraum am Tagesanfang. Vergleiche ihre Breite mit der durchschnittlichen Tagesbreite abgeschlossener vorheriger Sitzungen derselben Datenreihe.",
       "Unser Beispiel hat eine Breite von 16 bei einer Referenz von 40, also 40 Prozent. Ein Drittel bis die Hälfte kann eine Arbeitsheuristik für mögliche spätere Erweiterung sein, kein universeller Grenzwert.",
-      "Lege Sitzungsdefinition und Vergleichsfenster vorher fest. Die heutige endgültige Tagesbreite darf nicht schon im morgendlichen Nenner stehen. Aus dem Verhältnis entsteht noch keine gemessene Ausbruchsquote."
+      "Leg Sitzungsdefinition und Vergleichsfenster vorher fest. Die heutige endgültige Tagesbreite darf nicht schon im morgendlichen Nenner stehen. Aus dem Verhältnis entsteht noch keine gemessene Ausbruchsquote."
     ],
-    "callout": "Breitenverhältnis ist keine Trefferquote.",
+    "callout": "Ein Breitenverhältnis ist keine Trefferquote.",
     "takeaways": [
       "Breite mit einer vorher bekannten Referenz vergleichen.",
       "Unser Beispiel hat eine Breite von 16 bei einer Referenz von 40, also 40 Prozent.",
@@ -83,7 +83,7 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-03",
     "paragraphs": [
-      "Wenn der Markt zunächst mehrfach durch denselben Bereich läuft, ist die frühe Kontrolle weniger einseitig als bei einem direkten Eröffnungsimpuls. Ein späterer Ausbruch kann dennoch Richtung gewinnen.",
+      "Läuft der Markt zunächst mehrfach durch denselben Bereich, ist die frühe Kontrolle weniger einseitig als bei einem direkten Eröffnungsimpuls. Ein späterer Ausbruch kann dennoch Richtung gewinnen.",
       "Ein später Start macht eine neue Range plausibel, bestimmt sie aber nicht sicher. Auch ein kräftiger später Impuls kann einen starken Kanal entwickeln. Eine feste Uhrzeit allein reicht für die Einordnung nicht.",
       "Vergleiche die ausgedehnte Balance mit dem anschließenden schnellen Übergang. Die neue Folge entscheidet, ob sich oben ein Bereich bildet oder eine engere Trendfortsetzung bleibt."
     ],
@@ -119,9 +119,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Innerhalb einer Range können größere Swinghochs und Swingtiefs allmählich steigen. Damit ist schon gerichtete Struktur sichtbar, obwohl die alte Obergrenze noch nicht klar überwunden wurde.",
       "Vergleiche Swings derselben Größe und bestätige sie erst mit nachfolgender Reaktion. Kleine einzelne Kerzentiefs sind nicht automatisch größere Swingpunkte.",
-      "Die eigenen Beispiele zeigen höher liegende Wendepunkte vor einem späteren Käuferausbruch. Notiere die Hinweise früh, aber halte Fehlausbruch und Rückkehr in die Range als Alternativen offen."
+      "Die eigenen Beispiele zeigen höher liegende Wendepunkte vor einem späteren Käuferausbruch. Notier die Hinweise früh, aber halte Fehlausbruch und Rückkehr in die Range als Alternativen offen."
     ],
-    "callout": "Innere Richtung ist eine Hypothese, kein fertiger Ausbruch.",
+    "callout": "Die innere Richtung ist eine Hypothese, kein fertiger Ausbruch.",
     "takeaways": [
       "Höhere Bezugspunkte können früh Käuferdruck zeigen.",
       "Vergleiche Swings derselben Größe und bestätige sie erst mit nachfolgender Reaktion.",
@@ -152,10 +152,10 @@ const drafts: Draft[] = [
     "scenario": "c22-05",
     "paragraphs": [
       "Ein schneller Ausbruch mit großen gerichteten Körpern und kleiner Rückgabe passt eher zu starker Trendkontrolle. Mehr Schatten, Überlappung und längere Pausen passen eher zu zweiseitiger Folge.",
-      "Beide Beschreibungen können auf unterschiedlichen Größen gleichzeitig passen. Wähle den Kontext für den konkreten Plan, statt aus dem Musterwort eine sichere Gewinnwahrscheinlichkeit abzuleiten.",
+      "Beide Beschreibungen können auf unterschiedlichen Größen gleichzeitig passen. Wähl den Kontext für den konkreten Plan, statt aus dem Musterwort eine sichere Gewinnwahrscheinlichkeit abzuleiten.",
       "Links setzt ein direkter Käuferweg fort. Rechts bilden sich nach derselben Auslösung mehrere Gegenbars. Diese neuen Bars begründen den unterschiedlichen Arbeitsmodus."
     ],
-    "callout": "Anschluss ist wichtiger als ein starrer Tagesname.",
+    "callout": "Der Anschluss ist wichtiger als ein starrer Tagesname.",
     "takeaways": [
       "Barqualität und Anschluss helfen bei der Unterscheidung.",
       "Beide Beschreibungen können auf unterschiedlichen Größen gleichzeitig passen.",
@@ -186,8 +186,8 @@ const drafts: Draft[] = [
     "scenario": "c22-06",
     "paragraphs": [
       "Der Weg zwischen zwei Ranges kann ein einzelner großer Bar oder eine kurze Folge sein. Er verlagert den Preis schnell aus dem alten Bereich.",
-      "Ein bestätigender Folgebar ergänzt die Ausbruchsidee. Er garantiert trotzdem weder eine bestimmte Zielhöhe noch eine neue obere Range. Die weitere Struktur bleibt zu beobachten.",
-      "Markiere alte Obergrenze, Ausbruchsbar und Folgeschluss. Spätere Balance wird erst beim Entstehen eingezeichnet; ihre Endgrenzen dürfen nicht schon auf dem ersten Ausbruchsbar stehen."
+      "Ein bestätigender Folgebar ergänzt die Ausbruchsidee. Er garantiert trotzdem weder eine bestimmte Zielhöhe noch eine neue obere Range. Die weitere Struktur musst du weiter beobachten.",
+      "Markier alte Obergrenze, Ausbruchsbar und Folgeschluss. Eine spätere Balance zeichnest du erst beim Entstehen ein; ihre Endgrenzen dürfen nicht schon auf dem ersten Ausbruchsbar stehen."
     ],
     "callout": "Übergang und fertige Folgerange sind verschiedene Zeitpunkte.",
     "takeaways": [
@@ -220,10 +220,10 @@ const drafts: Draft[] = [
     "scenario": "c22-07",
     "paragraphs": [
       "Ein Rangeausbruch kann scheitern und schnell zurückkehren. Ein Einstieg direkt an einem großen Ausbruchsbar kann außerdem einen weiten Schutzabstand verlangen.",
-      "Ein Rücklauf zum bekannten Ausbruchspunkt kann eine andere Ausführung ermöglichen. Ein früheres Signal vom gegenüberliegenden Rand ist wieder ein anderer Plan. Diese Varianten werden mit ihren damaligen Preisen bewertet.",
-      "Unsere Panels zeigen Auslösung und späteren Rücklauftest. Ein nicht erreichtes Rücklauflimit ist kein ausgeführter Gewinntrade. Lege Menge und zulässiges Geldrisiko vor der jeweiligen Auslösung fest."
+      "Ein Rücklauf zum bekannten Ausbruchspunkt kann eine andere Ausführung ermöglichen. Ein früheres Signal vom gegenüberliegenden Rand ist wieder ein anderer Plan. Diese Varianten bewertest du mit ihren damaligen Preisen.",
+      "Unsere Panels zeigen Auslösung und späteren Rücklauftest. Ein nicht erreichtes Rücklauflimit ist kein ausgeführter Gewinntrade. Leg Menge und zulässiges Geldrisiko vor der jeweiligen Auslösung fest."
     ],
-    "callout": "Orderplan bleibt vom Muster getrennt.",
+    "callout": "Der Orderplan bleibt vom Muster getrennt.",
     "takeaways": [
       "Preis und Verlustgrenze zusätzlich vergleichen.",
       "Ein Rücklauf zum bekannten Ausbruchspunkt kann eine andere Ausführung ermöglichen.",
@@ -253,11 +253,11 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-08",
     "paragraphs": [
-      "Nach dem Ausbruch kann der Preis den alten Rand prüfen. Eine Reaktion dort ist erst ein Signalangebot; eine geplante Stoporder benötigt anschließend ihre eigene Auslösung.",
+      "Nach dem Ausbruch kann der Preis den alten Rand prüfen. Eine Reaktion dort ist erst ein Signalangebot; eine geplante Stoporder braucht anschließend ihre eigene Auslösung.",
       "Der Test kann knapp oberhalb des alten Bereichs bleiben, ihn berühren oder hineinreichen. Die Varianten liefern unterschiedliche Rückgabe und müssen am gleichen bekannten Bezug gemessen werden.",
-      "Im Beispiel ist die alte Obergrenze 46. Der Test wird gegen diese Referenz geprüft, ohne sie zum späteren Tief zu verschieben. Käuferanschluss stützt erst danach eine neue Fortsetzungsidee."
+      "Im Beispiel ist die alte Obergrenze 46. Den Test prüfst du gegen diese Referenz, ohne sie zum späteren Tief zu verschieben. Käuferanschluss stützt erst danach eine neue Fortsetzungsidee."
     ],
-    "callout": "Alte Grenze vor dem Test festhalten.",
+    "callout": "Die alte Grenze vor dem Test festhalten.",
     "takeaways": [
       "Test und neue Auslösung zeitlich auseinanderhalten.",
       "Der Test kann knapp oberhalb des alten Bereichs bleiben, ihn berühren oder hineinreichen.",
@@ -289,7 +289,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Die erste Range reicht im Beispiel von 30 bis 46. Ihre Höhe beträgt 16. Eine gleich große Strecke über der Obergrenze ergibt eine Projektionszone bei 62.",
       "Damit würde sich der Raum von 30 bis 62 auf 32 verdoppeln. Das ist eine mögliche Zielrechnung, nicht die sichere spätere Tagesbreite. Ein Ausbruch kann vorher scheitern oder weiter laufen.",
-      "Schreibe beide Grenzen und den Projektionsanker auf. Prüfe Zielbesuch und tatsächlichen Anschluss getrennt. Die Rechnung liefert keine automatische Gegenorder am Ziel."
+      "Schreib beide Grenzen und den Projektionsanker auf. Prüf Zielbesuch und tatsächlichen Anschluss getrennt. Die Rechnung liefert keine automatische Gegenorder am Ziel."
     ],
     "callout": "46 plus 16 ergibt 62, nicht Gewissheit.",
     "takeaways": [
@@ -321,9 +321,9 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-10",
     "paragraphs": [
-      "Wenn am Projektionsgebiet mehr Gegenhandel entsteht, kann eine vorab geplante Gewinnmitnahme auf Stärke besser zum Rangeplan passen als das Warten auf einen engen Rücklaufstop.",
-      "Ein notwendiger Schutzstop bleibt bestehen. Er wird nicht entfernt oder ungeplant erweitert, nur weil die neue Range häufig durch kleine Swings läuft. Ein enger Trend-Trailingstop und ein katastrophenbegrenzender Schutz sind verschiedene Funktionen.",
-      "Vergleiche Trendfortsetzung mit oberer Balance. Lege Teilgewinn, Restmenge und Invalidierung vorher fest. Das Muster darf aus einem begrenzten Trade keine offene Verlusthoffnung machen."
+      "Entsteht am Projektionsgebiet mehr Gegenhandel, kann eine vorab geplante Gewinnmitnahme auf Stärke besser zum Rangeplan passen als das Warten auf einen engen Rücklaufstop.",
+      "Ein notwendiger Schutzstop bleibt bestehen. Du entfernst ihn nicht und erweiterst ihn nicht ungeplant, nur weil die neue Range häufig durch kleine Swings läuft. Ein enger Trend-Trailingstop und ein katastrophenbegrenzender Schutz sind verschiedene Funktionen.",
+      "Vergleiche Trendfortsetzung mit oberer Balance. Leg Teilgewinn, Restmenge und Invalidierung vorher fest. Das Muster darf aus einem begrenzten Trade keine offene Verlusthoffnung machen."
     ],
     "callout": "Range-Management entfernt keine Verlustgrenze.",
     "takeaways": [
@@ -356,10 +356,10 @@ const drafts: Draft[] = [
     "scenario": "c22-11",
     "paragraphs": [
       "In einer Range sind Randzonen und Mitte unterschiedliche Arbeitsbereiche. Ein Gegenplan nahe einem Rand kann mehr Zielraum zum anderen Rand haben als ein später Einstieg mitten in der Balance.",
-      "Die endgültige Mitte ist anfangs nicht bekannt. Verwende die bisher sichtbaren Grenzen. Ein Randbesuch muss nicht halten; ein erfolgreicher Ausbruch ist weiterhin möglich.",
-      "Markiere beide Ränder der neuen Range und vergleiche den Preisplan vor dem Einstieg. Der Ausdruck günstig beschreibt hier Abstand und Lage, keine Garantie einer profitablen Ausführung."
+      "Die endgültige Mitte ist anfangs nicht bekannt. Nimm die bisher sichtbaren Grenzen. Ein Randbesuch muss nicht halten; ein erfolgreicher Ausbruch ist weiterhin möglich.",
+      "Markier beide Ränder der neuen Range und vergleiche den Preisplan vor dem Einstieg. Der Ausdruck günstig beschreibt hier Abstand und Lage, keine Garantie einer profitablen Ausführung."
     ],
-    "callout": "Randlage ersetzt kein Signal.",
+    "callout": "Die Randlage ersetzt kein Signal.",
     "takeaways": [
       "Eine Range braucht benannte Bezüge.",
       "Die endgültige Mitte ist anfangs nicht bekannt.",
@@ -390,10 +390,10 @@ const drafts: Draft[] = [
     "scenario": "c22-12",
     "paragraphs": [
       "Ein großer Käuferbar am Projektionsgebiet kann neue Trendstärke oder eine späte Überdehnung zeigen. Die Gegenfolge entscheidet, welche Lesart mehr Gewicht gewinnt.",
-      "Eine Fade-Idee bedeutet Handel gegen den frischen Impuls. Sie ist anspruchsvoll und benötigt klare Invalidierung. Der Zielname rechtfertigt kein unbegrenztes Shortnachkaufen.",
+      "Eine Fade-Idee bedeutet Handel gegen den frischen Impuls. Sie ist anspruchsvoll und braucht klare Invalidierung. Der Zielname rechtfertigt kein unbegrenztes Shortnachkaufen.",
       "Die Vergleichspfade setzen den großen Bar fort oder nehmen ihn zurück. Vermutete Gewinnmitnahmen bleiben eine Erklärung; OHLC zeigt keine vollständigen Positionen der Käufer und Verkäufer."
     ],
-    "callout": "Großer Zielbar ist kein sicherer Umkehrbefehl.",
+    "callout": "Ein großer Zielbar ist kein sicherer Umkehrbefehl.",
     "takeaways": [
       "Ein auffälliger Körper kann auch spät sein.",
       "Eine Fade-Idee bedeutet Handel gegen den frischen Impuls.",
@@ -423,9 +423,9 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-13",
     "paragraphs": [
-      "Wenn die neue obere Balance zurücksetzt, aber oberhalb des alten Bereichs hält, bleibt der bisherige Abstand offen. Das unterstützt zunächst stärkere Käuferkontrolle als eine tiefe Rückkehr.",
+      "Setzt die neue obere Balance zurück, hält aber oberhalb des alten Bereichs, bleibt der bisherige Abstand offen. Das unterstützt zunächst stärkere Käuferkontrolle als eine tiefe Rückkehr.",
       "Benenne genau, ob die Grenze nicht erreicht, berührt oder unterschritten wurde. Ein Tief eine Einheit über 46 ist ein anderer Befund als ein Tief bei 46.",
-      "Links erreicht der Test nur 47, rechts reicht er in den Bereich. Beide haben dieselbe Vorgeschichte. Keiner garantiert das spätere Ergebnis; die Reaktion bleibt getrennt zu prüfen."
+      "Links erreicht der Test nur 47, rechts reicht er in den Bereich. Beide haben dieselbe Vorgeschichte. Keiner garantiert das spätere Ergebnis; die Reaktion prüfst du getrennt."
     ],
     "callout": "Knapp davor und hinein sind unterschiedliche Preisbesuche.",
     "takeaways": [
@@ -453,12 +453,12 @@ const drafts: Draft[] = [
   {
     "number": 14,
     "title": "Rückkehr in den alten Bereich",
-    "summary": "Wiedereintritt kann einen weiteren Durchlauf ermöglichen.",
+    "summary": "Ein Wiedereintritt kann einen weiteren Durchlauf ermöglichen.",
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-14",
     "paragraphs": [
-      "Wenn der Preis wieder in der ersten Range handelt und dort Anschluss findet, wird ein Test der anderen Randzone plausibel. Die frühere Ausbruchsrichtung verliert damit einen Teil ihrer Kontrolle.",
-      "Ein einzelner Schatten innerhalb des Bereichs und eine gehaltene Rückkehr sind unterschiedliche Folgen. Notiere Schlusslage, Folge und Gegenreaktion, bevor du einen ganzen Durchlauf erwartest.",
+      "Handelt der Preis wieder in der ersten Range und findet dort Anschluss, wird ein Test der anderen Randzone plausibel. Die frühere Ausbruchsrichtung verliert damit einen Teil ihrer Kontrolle.",
+      "Ein einzelner Schatten innerhalb des Bereichs und eine gehaltene Rückkehr sind unterschiedliche Folgen. Notier Schlusslage, Folge und Gegenreaktion, bevor du einen ganzen Durchlauf erwartest.",
       "Unser Beispiel kehrt unter 46 zurück und bewegt sich weiter in Richtung 30. Die Untergrenze bleibt ein Zielgebiet, kein sicherer Halt. Ein neuer Ausbruch unten ist möglich."
     ],
     "callout": "Wiedereintritt und Anschluss gemeinsam lesen.",
@@ -491,11 +491,11 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-15",
     "paragraphs": [
-      "Ein zunächst gerichteter Range-Tag kann später durch den alten Bereich zurücklaufen. Hält die Gegenrichtung bis nahe das andere Tagesende, kann die fertige Tageskerze eine Umkehr zeigen.",
-      "Der Name Umkehrtag ist früh nur eine Möglichkeit. Die spätere Schlusslage ist erst am Ende bekannt. Beurteile den Gegenplan an seiner damaligen Struktur und verbleibenden Zeit.",
+      "Ein zunächst gerichteter Range-Tag kann später durch den alten Bereich zurücklaufen. Hält die Gegenrichtung bis nahe ans Tagesende, kann die fertige Tageskerze eine Umkehr zeigen.",
+      "Der Name Umkehrtag ist früh nur eine Möglichkeit. Die spätere Schlusslage kennst du erst am Ende. Beurteile den Gegenplan an seiner damaligen Struktur und verbleibenden Zeit.",
       "Im Beispiel steigt die Gegenbewegung aus einem unteren Bereich zurück nach oben. Ihre später größere Strecke darf nicht zum rückwirkend garantierten frühen Ziel werden."
     ],
-    "callout": "Tagesname folgt dem Verlauf.",
+    "callout": "Der Tagesname folgt dem Verlauf.",
     "takeaways": [
       "Die späte Gegenstrecke kann mehrere Bereiche überwinden.",
       "Der Name Umkehrtag ist früh nur eine Möglichkeit.",
@@ -525,8 +525,8 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-16",
     "paragraphs": [
-      "Wenn der Markt mehrfach ausbricht und die neuen Bereiche immer weiter in dieselbe Richtung verlagert, kann die Trendseite stärker sein als bei nur zwei breiten Balancen.",
-      "Dann ist es unpassend, jeden neuen Rand automatisch gegen den Trend zu handeln. Prüfe, ob Rückläufe kurz bleiben und alte Grenzen kaum zurückgenommen werden.",
+      "Bricht der Markt mehrfach aus und verlagert die neuen Bereiche immer weiter in dieselbe Richtung, kann die Trendseite stärker sein als bei nur zwei breiten Balancen.",
+      "Dann ist es unpassend, jeden neuen Rand automatisch gegen den Trend zu handeln. Prüf, ob Rückläufe kurz bleiben und alte Grenzen kaum zurückgenommen werden.",
       "Unsere Folge enthält drei höher liegende Bereiche. Späterer Gegenhandel ist weiterhin möglich, aber erst tatsächlicher Bruch und Anschluss ändern den Schwerpunkt des Plans."
     ],
     "callout": "Viele Ranges bedeuten nicht automatisch schwachen Trend.",
@@ -595,9 +595,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Eine Rückkehr in eine frühere Range kann alte Preise gescheiterter Gegensignale testen. Das sind bekannte Bezüge, keine vollständige Karte fremder Stops oder Positionen.",
       "Benenne den konkreten Signalpreis und die betrachtete Größe. Ein altes Signal kann bereits irrelevant geworden sein; ein Preisbesuch garantiert weder dortige Orderaktivität noch Reaktion.",
-      "Unser Beispiel markiert einen früheren Bezug im alten Bereich. Die spätere Gegenstrecke besucht ihn. Verwende diesen Besuch als beobachtbaren Befund und halte vermutete Ausstiege als Interpretation getrennt."
+      "Unser Beispiel markiert einen früheren Bezug im alten Bereich. Die spätere Gegenstrecke besucht ihn. Nimm diesen Besuch als beobachtbaren Befund und halte vermutete Ausstiege als Interpretation getrennt."
     ],
-    "callout": "Preisreferenz ist keine sichtbare Orderliste.",
+    "callout": "Eine Preisreferenz ist keine sichtbare Orderliste.",
     "takeaways": [
       "Bekannte Preisstellen können Rücklaufziele liefern.",
       "Benenne den konkreten Signalpreis und die betrachtete Größe.",
@@ -627,11 +627,11 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-19",
     "paragraphs": [
-      "Zweiseitiger Handel kann gegen Sitzungsende eine Rückkehr in vorherige Bereiche ermöglichen. Das ist eine Möglichkeit, kein an jeder Uhrzeit verlässlicher Umkehrtermin.",
+      "Zweiseitiger Handel kann gegen Sitzungsende eine Rückkehr in vorherige Bereiche ermöglichen. Das ist eine Möglichkeit, kein zu jeder Uhrzeit verlässlicher Umkehrtermin.",
       "Vergleiche Zielabstand, aktuelle Struktur und verbleibendes Zeitfenster. Ein großes Gleichstreckenziel braucht mehr Strecke als ein naher Randtest. Die spätere Zeitgrenze darf nicht zu ungeplanten Verlustnachkäufen führen.",
       "Im Beispiel ist ein naher Test mit weniger Strecke verbunden als das fernere Ziel. Halte im Replay auch einen nicht erreichten Test fest; der Tag muss seine durchschnittliche Breite nicht nachholen."
     ],
-    "callout": "Zeitrest gehört zum Halteplan.",
+    "callout": "Die Restzeit gehört zum Halteplan.",
     "takeaways": [
       "Ein Ziel kann erreichbar wirken und trotzdem Zeit brauchen.",
       "Vergleiche Zielabstand, aktuelle Struktur und verbleibendes Zeitfenster.",
@@ -657,12 +657,12 @@ const drafts: Draft[] = [
   {
     "number": 20,
     "title": "Beide Ausbruchsseiten scheitern",
-    "summary": "Range-Erweiterung kann ohne Trendfortsetzung entstehen.",
+    "summary": "Eine Range-Erweiterung kann ohne Trendfortsetzung entstehen.",
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-20",
     "paragraphs": [
       "Eine kleine Anfangsrange kann oben und unten überschritten werden, ohne dass eine dauerhafte Richtung entsteht. So wächst der Tagesraum, während der Markt weiter pendelt.",
-      "Ein steigender Tagesraum belegt deshalb keinen gelungenen Trendtag. Prüfe jeden Ausbruch mit seinem Anschluss und die Rückkehr in den alten Bereich.",
+      "Ein steigender Tagesraum belegt deshalb keinen gelungenen Trendtag. Prüf jeden Ausbruch mit seinem Anschluss und die Rückkehr in den alten Bereich.",
       "Links ist die frühe Balance, rechts die beidseitige Erweiterung mit Schluss näher der Mitte. Ein erwartetes Projektionsziel kann dabei unerreicht bleiben. Dokumentiere den abweichenden Verlauf ausdrücklich."
     ],
     "callout": "Größerer Raum ist nicht dasselbe wie Trend.",
@@ -697,9 +697,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein Tag kann über viele Bars relativ klein bleiben und erst spät ausbrechen. Eine niedrige bisherige Breite ist ein Anlass zum Beobachten, keine Zusage, dass der Markt vor Schluss expandieren muss.",
       "Vergleiche nur frühere abgeschlossene Tagesdaten und dieselbe Sessiondefinition. Historische Häufigkeiten aus einem anderen Markt oder Zeitraum liefern keine aktuelle garantierte Ausbruchsquote.",
-      "Unsere späte Variante gewinnt noch Strecke, bildet aber keine lange zweite Range mehr. Die alternative kleine Schlussrange bleibt im Plan zulässig. Einstieg und Zeitrest sind gesondert zu prüfen."
+      "Unsere späte Variante gewinnt noch Strecke, bildet aber keine lange zweite Range mehr. Die alternative kleine Schlussrange bleibt im Plan zulässig. Einstieg und Zeitrest prüfst du gesondert."
     ],
-    "callout": "Kleine Tagesrange erzwingt keinen Ausbruch.",
+    "callout": "Eine kleine Tagesrange erzwingt keinen Ausbruch.",
     "takeaways": [
       "Eine lange Pause darf dennoch später verlassen werden.",
       "Vergleiche nur frühere abgeschlossene Tagesdaten und dieselbe Sessiondefinition.",
@@ -725,13 +725,13 @@ const drafts: Draft[] = [
   {
     "number": 22,
     "title": "Mehrere plausible Anfangsgrenzen",
-    "summary": "Zielanker vorher benennen.",
+    "summary": "Den Zielanker vorher benennen.",
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-22",
     "paragraphs": [
       "Bei unsauberer Eröffnungsstruktur können ein kleiner innerer Bereich und eine größere äußere Range gleichzeitig plausibel sein. Ihre Höhen ergeben unterschiedliche Projektionen.",
-      "Lege zuerst fest, welchen Bezug dein Plan benutzt. Weitere bekannte Ziele können zusätzliche Prüfgebiete sein. Verschiebe den alten Anker nicht erst nach dem Ergebnis, damit jede Wende passend wirkt.",
-      "Das eigene Beispiel vergleicht eine 16-Einheiten-Range mit einer kleineren inneren Höhe. Beide Rechnungen bleiben sichtbar. Ein Ziel, das nicht besucht wurde, wird nicht nachträglich als Treffer geführt."
+      "Leg zuerst fest, welchen Bezug dein Plan benutzt. Weitere bekannte Ziele können zusätzliche Prüfgebiete sein. Verschieb den alten Anker nicht erst nach dem Ergebnis, damit jede Wende passend wirkt.",
+      "Das eigene Beispiel vergleicht eine 16-Einheiten-Range mit einer kleineren inneren Höhe. Beide Rechnungen bleiben sichtbar. Ein Ziel, das nicht besucht wurde, führst du nicht nachträglich als Treffer."
     ],
     "callout": "Zielrechnungen brauchen unveränderte Anker.",
     "takeaways": [
@@ -764,7 +764,7 @@ const drafts: Draft[] = [
     "scenario": "c22-23",
     "paragraphs": [
       "Du kannst Käuferdruck oder günstigen Zielraum begründet beschreiben. Daraus folgt keine exakt gemessene 60- oder 70-Prozent-Chance für den nächsten Trade.",
-      "Eine solche Zahl braucht definierte Setups, Daten, Ausführungsmodell und Auswertung. Relative Ziel- und Verluststrecken können dagegen aus den geplanten Preisen direkt gerechnet werden.",
+      "Eine solche Zahl braucht definierte Setups, Daten, Ausführungsmodell und Auswertung. Relative Ziel- und Verluststrecken kannst du dagegen aus den geplanten Preisen direkt rechnen.",
       "Im Beispiel liegen Einstieg 42, Schutz 38 und Ziel 50 vor: vier Einheiten Verluststrecke und acht Zielstrecke ergeben vor Kosten 2 zu 1. Die Rechnung misst keine Trefferquote."
     ],
     "callout": "Preisrechnung und Wahrscheinlichkeitsmessung getrennt halten.",
@@ -797,8 +797,8 @@ const drafts: Draft[] = [
     "section": "Range-Übergänge verstehen",
     "scenario": "c22-24",
     "paragraphs": [
-      "Notiere die bisherige erste Range, ihre historische Breitenreferenz und ein vorab berechnetes Zielgebiet. Halte fest, welche Folge Trendkontrolle oder neue Balance stützen würde.",
-      "Decke Bars schrittweise auf und unterscheide neue Range, Test davor, Wiedereintritt und Durchlauf. Eine alte Zone wird nur anhand neuer sichtbarer Struktur ergänzt, nicht heimlich verschoben.",
+      "Notier die bisherige erste Range, ihre historische Breitenreferenz und ein vorab berechnetes Zielgebiet. Halte fest, welche Folge Trendkontrolle oder neue Balance stützen würde.",
+      "Deck Bars schrittweise auf und unterscheide neue Range, Test davor, Wiedereintritt und Durchlauf. Eine alte Zone ergänzt du nur anhand neuer sichtbarer Struktur, nicht durch heimliches Verschieben.",
       "Führe ausgelöste, ungefüllte, verworfene und ausgelassene Pläne getrennt. Ein großer späterer Tagesbar rechtfertigt keine frühere unklare Order. Geldrisiko und Zeitrest bleiben Teil jedes konkreten Plans."
     ],
     "callout": "Lesart und Ausführung zeitgerecht dokumentieren.",
@@ -832,7 +832,7 @@ const drafts: Draft[] = [
     "scenario": "c22-25",
     "paragraphs": [
       "Im ersten Lernfall beginnt der untere Bereich schon in der vorherigen Sitzung. Der neue Handel bleibt zunächst darin und liefert noch keinen sicheren Käuferausbruch.",
-      "Die Sessiongrenze macht die bekannte Zone nicht automatisch ungültig. Verwende aber die aktuelle Sitzung für heutige Tagesbreite und Schlusslage; alte Bars gehören nicht heimlich in den heutigen Tagesbar.",
+      "Die Sessiongrenze macht die bekannte Zone nicht automatisch ungültig. Nimm aber die aktuelle Sitzung für heutige Tagesbreite und Schlusslage; alte Bars gehören nicht heimlich in den heutigen Tagesbar.",
       "Die Panels zeigen Fortsetzung des alten Bereichs und späteren Käuferanschluss. Beide Zeitabschnitte behalten ihren eigenen Sitzungsbezug. Die höhere Range wird erst danach sichtbar."
     ],
     "callout": "Alte Zone und heutige Tageskerze auseinanderhalten.",
@@ -867,7 +867,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im ersten Lernfall gewinnt der Ausbruch viel neue Strecke, während die obere Range vergleichsweise klein bleibt. Der Abstand zum alten Bereich ist damit im bisherigen Bild auffällig.",
       "Das macht einen späteren Test des Übergangs plausibel, garantiert ihn aber nicht. Ein weiterer Käuferausbruch kann ebenfalls entstehen.",
-      "Markiere die alte Obergrenze und den bekannten unteren Rand der neuen Balance. Vergleiche den funktionalen Abstand mit der oberen Rangehöhe. Die Impulsstrecke war tatsächlich gehandelt und ist nicht automatisch eine Voll-Lücke."
+      "Markier die alte Obergrenze und den bekannten unteren Rand der neuen Balance. Vergleiche den funktionalen Abstand mit der oberen Rangehöhe. Die Impulsstrecke wurde tatsächlich gehandelt und ist nicht automatisch eine Voll-Lücke."
     ],
     "callout": "Abstand und Rangehöhe getrennt messen.",
     "takeaways": [
@@ -895,7 +895,7 @@ const drafts: Draft[] = [
   {
     "number": 27,
     "title": "Oberer Ausbruch scheitert, alter Bereich wirkt wieder",
-    "summary": "Neue Gegenfolge verändert die Startlesart.",
+    "summary": "Eine neue Gegenfolge verändert die Startlesart.",
     "section": "Lernfall 1",
     "scenario": "c22-27",
     "paragraphs": [
@@ -935,9 +935,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im zweiten Lernfall nimmt die Anfangsrange einen erheblichen Teil der historischen Tagesreferenz ein. Der spätere Verkäuferausbruch schafft eine tiefere Handelszone.",
       "Der große Verkäuferbar allein legt weder das Tagestief noch einen ununterbrochenen Bärenkanal fest. Die nachfolgende Rückgabe ist zusätzliche Information.",
-      "Vergleiche die obere Balance mit den späteren kleineren Swings unten. Ein Käuferplan für den Rücktest braucht ein eigenes Signal und begrenztes Risiko; blindes Nachkaufen wird daraus nicht abgeleitet."
+      "Vergleiche die obere Balance mit den späteren kleineren Swings unten. Ein Käuferplan für den Rücktest braucht ein eigenes Signal und begrenztes Risiko; blindes Nachkaufen folgt daraus nicht."
     ],
-    "callout": "Neue tiefere Zone mit ihrer eigenen Folge lesen.",
+    "callout": "Die neue tiefere Zone mit ihrer eigenen Folge lesen.",
     "takeaways": [
       "Eine untere Range ist möglich, kein Muss.",
       "Der große Verkäuferbar allein legt weder das Tagestief noch einen ununterbrochenen Bärenkanal fest.",
@@ -968,10 +968,10 @@ const drafts: Draft[] = [
     "scenario": "c22-29",
     "paragraphs": [
       "Im zweiten Lernfall reagiert die untere Zone mit einem ersten Käuferimpuls, Rückgabe und einem weiteren Käuferversuch. Der zweite Versuch kann den Test des alten Randes stützen.",
-      "Die Zahl zwei ist keine Garantie. Bestimme Signalhoch, spätere Auslösung und eine vorab festgelegte Invalidierung. Ein tieferer Test kann vor der Käuferfolge liegen.",
-      "Die Beispiele zeigen die getrennten Versuche. Ein ungefüllter erster Plan bleibt ohne Position; ein tatsächlich ausgelöster zweiter Plan wird nach seinen eigenen Preisen bewertet."
+      "Die Zahl zwei ist keine Garantie. Bestimm Signalhoch, spätere Auslösung und eine vorab festgelegte Invalidierung. Ein tieferer Test kann vor der Käuferfolge liegen.",
+      "Die Beispiele zeigen die getrennten Versuche. Ein ungefüllter erster Plan bleibt ohne Position; einen tatsächlich ausgelösten zweiten Plan bewertest du nach seinen eigenen Preisen."
     ],
-    "callout": "Zweiter Versuch ist ein neues Angebot, keine Pflicht.",
+    "callout": "Ein zweiter Versuch ist ein neues Angebot, keine Pflicht.",
     "takeaways": [
       "Erste und zweite Auslösung auseinanderhalten.",
       "Die Zahl zwei ist keine Garantie.",
@@ -1002,10 +1002,10 @@ const drafts: Draft[] = [
     "scenario": "c22-30",
     "paragraphs": [
       "Im zweiten Lernfall steigt die Käuferfolge zurück in die obere Range und gewinnt dort weiteren Raum. Ein Schluss nahe ihrem Hoch könnte die Tagesform als Umkehr erscheinen lassen.",
-      "Vor dem Schluss bleibt das eine Möglichkeit. Prüfe den gehaltenen Wiedereintritt, statt aus einer bloßen Randberührung bereits die ganze spätere Aufwärtsstrecke abzuleiten.",
-      "Links endet das Replay am ersten Rücktest, rechts kommt weiterer Käuferanschluss hinzu. Diese neuen Bars durften nicht im frühen Plan als sicherer Gewinn verwendet werden."
+      "Vor dem Schluss bleibt das eine Möglichkeit. Prüf den gehaltenen Wiedereintritt, statt aus einer bloßen Randberührung bereits die ganze spätere Aufwärtsstrecke abzuleiten.",
+      "Links endet das Replay am ersten Rücktest, rechts kommt weiterer Käuferanschluss hinzu. Diese neuen Bars durften im frühen Plan nicht als sicherer Gewinn verwendet werden."
     ],
-    "callout": "Wiedereintritt braucht sichtbaren Anschluss.",
+    "callout": "Ein Wiedereintritt braucht sichtbaren Anschluss.",
     "takeaways": [
       "Die letzte Schlusslage bleibt bis zum Ende offen.",
       "Vor dem Schluss bleibt das eine Möglichkeit.",
@@ -1031,15 +1031,15 @@ const drafts: Draft[] = [
   {
     "number": 31,
     "title": "Große Signalbars am falschen Ort",
-    "summary": "Signalqualität enthält auch Randlage und Schutzabstand.",
+    "summary": "Zur Signalqualität gehören auch Randlage und Schutzabstand.",
     "section": "Lernfall 3",
     "scenario": "c22-31",
     "paragraphs": [
-      "Im dritten Lernfall liegt der frühe Handel in einer engen Range. Große Bars relativ zur Rangehöhe können auffällig wirken, zugleich aber einen weiten Schutz und wenig Zielraum verlangen.",
+      "Im dritten Lernfall liegt der frühe Handel in einer engen Range. Große Bars relativ zur Rangehöhe können auffällig wirken, verlangen aber zugleich einen weiten Schutz und lassen wenig Zielraum.",
       "Ein Short direkt nahe der Untergrenze kann schlecht zum beabsichtigten Ziel passen. Ein späterer Rücklauf an einen besser benannten Bezug ist ein anderer Plan.",
-      "Vergleiche den frühen Randpreis mit einer späteren Ausführung nach dem Bruch. Beide werden vor Kosten und mit ihren damaligen Schutzpreisen gerechnet, nicht nur nach Barfarbe ausgewählt."
+      "Vergleiche den frühen Randpreis mit einer späteren Ausführung nach dem Bruch. Beide rechnest du vor Kosten und mit ihren damaligen Schutzpreisen, nicht nur nach Barfarbe ausgewählt."
     ],
-    "callout": "Gute Form kann am ungünstigen Preis stehen.",
+    "callout": "Eine gute Form kann am ungünstigen Preis stehen.",
     "takeaways": [
       "Signalqualität enthält auch Randlage und Schutzabstand.",
       "Ein Short direkt nahe der Untergrenze kann schlecht zum beabsichtigten Ziel passen.",
@@ -1065,7 +1065,7 @@ const drafts: Draft[] = [
   {
     "number": 32,
     "title": "Untere Basis und Rücktestziel",
-    "summary": "Preisabstand kann vorab gerechnet werden.",
+    "summary": "Den Preisabstand kannst du vorab rechnen.",
     "section": "Lernfall 3",
     "scenario": "c22-32",
     "paragraphs": [
@@ -1073,7 +1073,7 @@ const drafts: Draft[] = [
       "Für den eigenen Plan liegen Einstieg 42, Schutz 38 und Ziel 50 vor. Das ist eine Beispielrechnung; sie wird nicht als gemessene Gewinnchance ausgegeben.",
       "Ein erstes Käufersignal kann scheitern und später ein neues entstehen. Führe beide Pläne getrennt, einschließlich Teilgewinn und tatsächlicher Restposition. Der zweite Trade erbt keinen garantierten Erfolg vom ersten."
     ],
-    "callout": "Neuer Versuch braucht einen neuen vollständigen Plan.",
+    "callout": "Ein neuer Versuch braucht einen neuen vollständigen Plan.",
     "takeaways": [
       "Preisabstand kann vorab gerechnet werden.",
       "Für den eigenen Plan liegen Einstieg 42, Schutz 38 und Ziel 50 vor.",
@@ -1104,10 +1104,10 @@ const drafts: Draft[] = [
     "scenario": "c22-33",
     "paragraphs": [
       "Im dritten Lernfall liegen die neuen Bereiche überwiegend tiefer. Der fertige Tagesbar wirkt dadurch bearish, obwohl innen viele Käuferreaktionen auftraten.",
-      "Die Tageshülle zeigt Open, High, Low und Close, aber keine vollständige intraday Reihenfolge. Frühe unklare Signale bleiben bei ihrer damaligen Information zu bewerten.",
+      "Die Tageshülle zeigt Open, High, Low und Close, aber keine vollständige intraday Reihenfolge. Frühe unklare Signale bewertest du weiter mit ihrer damaligen Information.",
       "Beide Ansichten verwenden dieselben synthetischen Daten. Die Aggregation erfindet keine zweite Quelle. Einzelne späte Gegenbewegungen können trotzdem zum schwächeren Range-Trend passen."
     ],
-    "callout": "Tageshülle ist keine frühe Zukunftsinformation.",
+    "callout": "Die Tageshülle ist keine frühe Zukunftsinformation.",
     "takeaways": [
       "Die spätere Tagesform darf frühe Unklarheit nicht löschen.",
       "Die Tageshülle zeigt Open, High, Low und Close, aber keine vollständige intraday Reihenfolge.",
@@ -1139,7 +1139,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im vierten Lernfall bildet die vorherige Schlussrange eine kleine Erholung im größeren Verkäuferkontext. Ein späterer Bruch darunter kann zu einem neuen tieferen Bereich führen.",
       "Die Namen Range und Flagge sind unterschiedliche Sichtweisen auf dieselben Bars. Sie zählen nicht als unabhängige Beweise und ersetzen keinen Trigger.",
-      "Die Panels zeigen den alten Bereich und die neue Verkäuferfolge. Halte die damalige Untergrenze fest. Ein Test zurück in die Zone wird erst mit tatsächlich neuen Bars bewertet."
+      "Die Panels zeigen den alten Bereich und die neue Verkäuferfolge. Halte die damalige Untergrenze fest. Einen Test zurück in die Zone bewertest du erst mit tatsächlich neuen Bars."
     ],
     "callout": "Mehr passende Namen erhöhen nicht automatisch die Sicherheit.",
     "takeaways": [
@@ -1167,7 +1167,7 @@ const drafts: Draft[] = [
   {
     "number": 35,
     "title": "Späte Reaktion aus der letzten unteren Range",
-    "summary": "Schwächerer Trend kann kräftig zurücksetzen.",
+    "summary": "Ein schwächerer Trend kann kräftig zurücksetzen.",
     "section": "Lernfall 4",
     "scenario": "c22-35",
     "paragraphs": [
@@ -1175,7 +1175,7 @@ const drafts: Draft[] = [
       "Ein Tag mit mehr Gegenhandel muss nicht auf seinem Tief schließen. Der Rücktest kann gelingen, scheitern oder wegen Zeitmangels unvollständig bleiben.",
       "Vergleiche die frühere Verkäuferfolge mit der späten Erholung. Der alte Trendname darf diese neue Käuferinformation nicht ausblenden. Ein fernes Ziel bleibt eine offene Halteidee."
     ],
-    "callout": "Aktuelle Gegenfolge neben der Tagesrichtung lesen.",
+    "callout": "Die aktuelle Gegenfolge neben der Tagesrichtung lesen.",
     "takeaways": [
       "Schwächerer Trend kann kräftig zurücksetzen.",
       "Ein Tag mit mehr Gegenhandel muss nicht auf seinem Tief schließen.",
@@ -1207,9 +1207,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im fünften Lernfall liegen drei nacheinander gebildete Ranges höher. Ihre Zwischenimpulse gewinnen schnell Raum und die Rückgaben bleiben zunächst begrenzt.",
       "Die vielen Seitwärtsbars machen den Tag nicht automatisch schwach. Die Trendrichtung bleibt für neue Pläne vorrangig, solange Gegenanschluss fehlt.",
-      "Markiere jede Range mit ihren damaligen Grenzen. Ein früher Käufer-Rücklauf und ein später Gegensignal werden getrennt behandelt; die dritte Zone ist kein zwingendes Umkehrziel."
+      "Markier jede Range mit ihren damaligen Grenzen. Einen frühen Käufer-Rücklauf und ein spätes Gegensignal behandelst du getrennt; die dritte Zone ist kein zwingendes Umkehrziel."
     ],
-    "callout": "Anschluss entscheidet stärker als die Anzahl der Boxen.",
+    "callout": "Der Anschluss entscheidet stärker als die Anzahl der Boxen.",
     "takeaways": [
       "Mehrfache Verlagerung kann Gegenpläne unattraktiv machen.",
       "Die vielen Seitwärtsbars machen den Tag nicht automatisch schwach.",
@@ -1239,11 +1239,11 @@ const drafts: Draft[] = [
     "section": "Lernfall 5",
     "scenario": "c22-37",
     "paragraphs": [
-      "Im fünften Lernfall wird eine kleine obere Balance kurz nach oben verlassen. Die neue Strecke wird zurückgenommen und Verkäufer handeln wieder darunter.",
-      "Die alte Balance wird erst mit ihrem tatsächlich gescheiterten Anschluss als letzte Flagge deutlicher. Das war bei ihrem Entstehen noch kein feststehendes Ergebnis.",
+      "Im fünften Lernfall wird eine kleine obere Balance kurz nach oben verlassen. Die neue Strecke wird zurückgenommen und die Verkäufer handeln wieder darunter.",
+      "Die alte Balance wird erst mit ihrem tatsächlich gescheiterten Anschluss als letzte Flagge deutlicher. Bei ihrem Entstehen war das noch kein feststehendes Ergebnis.",
       "Links ist der Ausbruch offen, rechts die Rücknahme sichtbar. Ein neuer Shortplan braucht eigene Auslösung und Schutz; bloße Hoffnung auf die frühere untere Range genügt nicht."
     ],
-    "callout": "Letzte Flagge ist früh nur eine Möglichkeit.",
+    "callout": "Eine letzte Flagge ist früh nur eine Möglichkeit.",
     "takeaways": [
       "Ein neuer Ausbruch kann die letzte Fortsetzung sein.",
       "Die alte Balance wird erst mit ihrem tatsächlich gescheiterten Anschluss als letzte Flagge deutlicher.",
@@ -1275,7 +1275,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im fünften Lernfall fällt die Gegenstrecke aus der höchsten Range in den nächsttieferen Bereich. Später prüft sie weitere bekannte Gegen-Signalpreise.",
       "Ein ganzer Durchlauf ist dabei möglich, aber nicht sicher. Betrachte jeden Wiedereintritt und den neuen Anschluss, bevor du ein noch ferneres Ziel als Pflicht behandelst.",
-      "Die Panels erhalten alle alten Referenzen. Die Strecke wird nicht nachträglich in einen von Beginn an sicheren Shortgewinn umgerechnet. Restmenge und Zeitlimit bleiben vorher zu führen."
+      "Die Panels behalten alle alten Referenzen. Die Strecke wird nicht nachträglich in einen von Beginn an sicheren Shortgewinn umgerechnet. Restmenge und Zeitlimit führst du vorher mit."
     ],
     "callout": "Fernere Ziele erst mit neuer Folge neu gewichten.",
     "takeaways": [
@@ -1308,10 +1308,10 @@ const drafts: Draft[] = [
     "scenario": "c22-39",
     "paragraphs": [
       "Im sechsten Lernfall bewegt sich der Tagesraum überwiegend abwärts. Gleichzeitig enthält der innere Preisweg deutliche Gegenbewegungen und längere Balancen.",
-      "Eine später bearish Tageskerze kann deshalb nicht die Ausführung wie in einem ununterbrochenen Eröffnungstrend rechtfertigen. Die lokalen Rangegrenzen bleiben relevant.",
-      "Die eigenen Beispiele zeigen den inneren Weg und seine OHLC-Hülle. Gleiche Endrichtung bedeutet nicht gleiche Einstiegssituation oder Haltebedingungen."
+      "Eine später bearishe Tageskerze rechtfertigt deshalb nicht die Ausführung wie in einem ununterbrochenen Eröffnungstrend. Die lokalen Rangegrenzen bleiben relevant.",
+      "Die eigenen Beispiele zeigen den inneren Weg und seine OHLC-Hülle. Gleiche Endrichtung heißt nicht gleiche Einstiegssituation oder Haltebedingungen."
     ],
-    "callout": "Tagesrichtung ersetzt keine Intraday-Struktur.",
+    "callout": "Die Tagesrichtung ersetzt keine Intraday-Struktur.",
     "takeaways": [
       "Ein Schluss am Tief erzählt nicht die ganze Geschichte.",
       "Eine später bearish Tageskerze kann deshalb nicht die Ausführung wie in einem ununterbrochenen Eröffnungstrend rechtfertigen.",
@@ -1343,7 +1343,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im sechsten Lernfall versuchen Käufer zweimal, eine neue untere Zone zu drehen. Beide Versuche gewinnen nur begrenzten Raum; danach setzt Verkäuferfolge ein.",
       "Ein grüner Bar mit viel Überlappung kann schwach sein. Ein neues tieferes Verkäufersignal und tatsächlicher Trigger sind andere Beobachtungen als ein bloßes High-2-Etikett.",
-      "Markiere die getrennten Käufer-Versuche und die anschließende Rücknahme. Ein nicht getriggerter Longplan bleibt ohne Position; eine tatsächlich ausgeführte Variante erhält ihren eigenen Verluststatus."
+      "Markier die getrennten Käufer-Versuche und die anschließende Rücknahme. Ein nicht getriggerter Longplan bleibt ohne Position; eine tatsächlich ausgeführte Variante bekommt ihren eigenen Verluststatus."
     ],
     "callout": "Zwei Versuche können beide scheitern.",
     "takeaways": [
@@ -1377,7 +1377,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im siebten Lernfall beginnt der Handel mit Käuferanschluss und einem späteren Klimax. Danach entsteht Verkäuferdruck, der die alte steigende Struktur bricht.",
       "Ein Rücklauf als tieferes Hoch kann die Gegenlesart ergänzen. Bis zu seinem tatsächlichen Entstehen war die spätere Verkäuferkontrolle noch nicht sicher.",
-      "Vergleiche frühere Käuferstrecke und späteren Gegenbruch. Schreibe beide Phasen chronologisch auf. Der fertige Tagesname darf die anfangs sichtbare Stärke nicht aus der Historie löschen."
+      "Vergleiche frühere Käuferstrecke und späteren Gegenbruch. Schreib beide Phasen chronologisch auf. Der fertige Tagesname darf die anfangs sichtbare Stärke nicht aus der Historie löschen."
     ],
     "callout": "Neue Kontrolle darf die alte Lesart verändern.",
     "takeaways": [
@@ -1410,8 +1410,8 @@ const drafts: Draft[] = [
     "scenario": "c22-42",
     "paragraphs": [
       "Im siebten Lernfall fallen neue Bereiche tiefer, während ihre Erholungen in vorherige Swingzonen zurückreichen. Das passt zugleich zu breiten Bärentreppen und versetzten Ranges.",
-      "Die beiden Namen beziehen sich auf dieselben Preise. Mehr Rückgabe kann lokale Gegenpläne prüfbar machen, bedeutet aber keine garantiert bevorstehende Bullenumkehr.",
-      "Markiere Überlappung und die größere Folge tieferer Hochs. Ein späterer höherer Test bleibt möglich, ohne dass er schon aus jedem kleinen Käuferbar sicher abgeleitet werden darf."
+      "Beide Namen beziehen sich auf dieselben Preise. Mehr Rückgabe kann lokale Gegenpläne prüfbar machen, bedeutet aber keine garantiert bevorstehende Bullenumkehr.",
+      "Markier Überlappung und die größere Folge tieferer Hochs. Ein späterer höherer Test bleibt möglich, ohne dass du ihn schon aus jedem kleinen Käuferbar sicher ableiten darfst."
     ],
     "callout": "Breite Rückgabe und größere Richtung zusammen halten.",
     "takeaways": [
@@ -1444,7 +1444,7 @@ const drafts: Draft[] = [
     "scenario": "c22-43",
     "paragraphs": [
       "Im achten Lernfall steigen bestätigte innere Tiefs und Hochs. Kleine frühe dojiartige Bars bleiben trotzdem unklare Umkehrsignale, bis gerichteter Käuferanschluss hinzukommt.",
-      "Die spätere starke Folge darf nicht rückwirkend jede frühe Form gut machen. Notiere höheres Tief, konkrete Reaktion und weitere Käuferbars zeitgerecht.",
+      "Die spätere starke Folge darf nicht rückwirkend jede frühe Form gut machen. Notier höheres Tief, konkrete Reaktion und weitere Käuferbars zeitgerecht.",
       "Unsere synthetische Folge zeigt den schrittweisen Druckaufbau vor dem Ausbruch. Überlappende Hinweise sind teilweise abhängig; ihre Anzahl ist keine gemessene Trefferquote."
     ],
     "callout": "Käuferdruck aus der ganzen sichtbaren Folge lesen.",
@@ -1473,15 +1473,15 @@ const drafts: Draft[] = [
   {
     "number": 44,
     "title": "Ein Test dringt ein, der nächste berührt nur",
-    "summary": "Preisgeometrie zeigt unterschiedliche Rückgabe.",
+    "summary": "Die Preisgeometrie zeigt unterschiedliche Rückgabe.",
     "section": "Lernfall 8",
     "scenario": "c22-44",
     "paragraphs": [
-      "Im achten Lernfall kehrt ein erster Test in den alten Bereich zurück. Der spätere zweite Test hält genau an der alten Obergrenze, bevor Käufer weiterlaufen.",
-      "Eine Berührung ist weder eine Unterschreitung noch ein Nichtbesuch. Vergleiche alle Tests mit derselben bekannten Referenz und halte Ausführung gesondert.",
+      "Im achten Lernfall kehrt ein erster Test in den alten Bereich zurück. Der spätere zweite Test hält genau an der alten Obergrenze, bevor die Käufer weiterlaufen.",
+      "Eine Berührung ist weder eine Unterschreitung noch ein Nichtbesuch. Vergleiche alle Tests mit derselben bekannten Referenz und halte die Ausführung gesondert.",
       "Die Beispiele zeigen Tiefs bei 44, 46 und 47 gegenüber der Obergrenze 46. Der spätere stärkere Befund garantiert dennoch keine unbegrenzte Fortsetzung."
     ],
-    "callout": "Preisbesuch exakt benennen.",
+    "callout": "Den Preisbesuch exakt benennen.",
     "takeaways": [
       "Preisgeometrie zeigt unterschiedliche Rückgabe.",
       "Eine Berührung ist weder eine Unterschreitung noch ein Nichtbesuch.",
@@ -1513,7 +1513,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im neunten Lernfall ist die erste Range relativ klein. Ausbrüche oben und unten schaffen neue Tagesextreme, werden aber jeweils wieder zurückgenommen.",
       "Die projizierten Trendziele bleiben unerreicht. Das ist ein abweichender Verlauf, kein Grund, nachträglich andere Grenzen als die ursprünglichen zu verwenden.",
-      "Unsere Vergleichspanels erhalten die Anfangsrange und zeigen spätere beidseitige Erweiterung. Die neue Hauptlesart bleibt Balance statt der erwarteten klaren Richtung."
+      "Unsere Vergleichspanels behalten die Anfangsrange und zeigen spätere beidseitige Erweiterung. Die neue Hauptlesart bleibt Balance statt der erwarteten klaren Richtung."
     ],
     "callout": "Nicht erfüllte Ziele ehrlich führen.",
     "takeaways": [
@@ -1546,10 +1546,10 @@ const drafts: Draft[] = [
     "scenario": "c22-46",
     "paragraphs": [
       "Im neunten Lernfall läuft ein Käuferabschnitt zunächst eng nach oben. Der erste neue Hoch-Gegenbar muss dadurch noch kein geeigneter größerer Short sein.",
-      "Eine spätere zweite Reaktion mit mehr Verkäuferanschluss kann ein anderes Signalangebot bilden. Versuchszahl, Kontext und tatsächliche Auslösung werden gemeinsam geprüft.",
-      "Links erscheint nur der erste Gegenbar. Rechts entwickeln sich Rückgabe und neuer Test. Auch die zweite Idee ist kein garantiert profitabler Scalp; ihr Zielraum und Risiko bleiben zu rechnen."
+      "Eine spätere zweite Reaktion mit mehr Verkäuferanschluss kann ein anderes Signalangebot bilden. Versuchszahl, Kontext und tatsächliche Auslösung prüfst du gemeinsam.",
+      "Links erscheint nur der erste Gegenbar. Rechts entwickeln sich Rückgabe und neuer Test. Auch die zweite Idee ist kein garantiert profitabler Scalp; Zielraum und Risiko musst du weiter rechnen."
     ],
-    "callout": "Zweiter Versuch bringt neue Information, keine Garantie.",
+    "callout": "Ein zweiter Versuch bringt neue Information, keine Garantie.",
     "takeaways": [
       "Ein Gegensignal im engen Abschnitt kann früh sein.",
       "Eine spätere zweite Reaktion mit mehr Verkäuferanschluss kann ein anderes Signalangebot bilden.",
@@ -1580,10 +1580,10 @@ const drafts: Draft[] = [
     "scenario": "c22-47",
     "paragraphs": [
       "Im zehnten Lernfall bleibt der bekannte Bereich lange unverändert. Zunehmender Käuferdruck und ein später Ausbruchsbar schaffen schließlich neue Strecke.",
-      "Eine historische Seltenheit kleiner Schlussranges wäre nur mit definierter Datenbasis auszuwerten. Hier wird keine aktuelle 90-Prozent-Chance aus einer alten Einzelbeobachtung übernommen.",
+      "Eine historische Seltenheit kleiner Schlussranges ließe sich nur mit definierter Datenbasis auswerten. Hier übernehmen wir keine aktuelle 90-Prozent-Chance aus einer alten Einzelbeobachtung.",
       "Die Panels zeigen frühe Balance und späten Anschluss. Ein ausbleibender Ausbruch bleibt als alternative Folge gültig. Wer spät handelt, berücksichtigt den kurzen verbleibenden Zeitraum."
     ],
-    "callout": "Historische Beobachtung ist keine heutige Garantie.",
+    "callout": "Eine historische Beobachtung ist keine heutige Garantie.",
     "takeaways": [
       "Die alte Tagesbreite ist kein Pflichtziel.",
       "Eine historische Seltenheit kleiner Schlussranges wäre nur mit definierter Datenbasis auszuwerten.",
@@ -1609,15 +1609,15 @@ const drafts: Draft[] = [
   {
     "number": 48,
     "title": "Spätes Ziel und wenig Raum für eine zweite Range",
-    "summary": "Sitzungsende begrenzt die noch mögliche Folge.",
+    "summary": "Das Sitzungsende begrenzt die noch mögliche Folge.",
     "section": "Lernfall 10",
     "scenario": "c22-48",
     "paragraphs": [
       "Im zehnten Lernfall erreicht der späte Impuls ein Projektionsgebiet. Für eine lange obere Range bleibt danach wenig Zeit.",
-      "Ein Zielbesuch und ein möglicher Teilgewinn werden am tatsächlich erreichten Preis bewertet. Fernere Projektionen dürfen beobachtet werden, sind aber vor Schluss nicht zwingend erreichbar.",
+      "Einen Zielbesuch und einen möglichen Teilgewinn bewertest du am tatsächlich erreichten Preis. Fernere Projektionen darfst du beobachten, vor Schluss sind sie aber nicht zwingend erreichbar.",
       "Das letzte Panel zeigt den kurzen Anschluss nach dem Ausbruch. Halte die vorherige Zielrechnung und den geplanten Ausstieg fest. Ein am Ende schöner Tagesbar ersetzt keine frühere Füllung."
     ],
-    "callout": "Zeitrest und Zielerreichung getrennt führen.",
+    "callout": "Restzeit und Zielerreichung getrennt führen.",
     "takeaways": [
       "Sitzungsende begrenzt die noch mögliche Folge.",
       "Ein Zielbesuch und ein möglicher Teilgewinn werden am tatsächlich erreichten Preis bewertet.",
