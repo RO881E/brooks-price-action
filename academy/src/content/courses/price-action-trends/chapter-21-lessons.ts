@@ -16,8 +16,8 @@ const drafts: Draft[] = [
     "scenario": "c21-01",
     "paragraphs": [
       "Ein Spike ist ein schneller gerichteter Impuls. Nach einer ersten Pause kann sich die Bewegung als Kanal fortsetzen: Die Richtung bleibt, aber der Preisweg enthält mehr Gegenhandel.",
-      "Der Kanal ist erst mit seinem tatsächlichen Anschluss erkennbar. Direkt nach dem Impuls sind Fortsetzung, Seitwärtsphase und Umkehr noch offene Möglichkeiten.",
-      "Markiere im eigenen Beispiel den schnellen Anstieg, den Rücklauf und die späteren höheren Swings. Verwende den fertigen Tagesnamen nicht schon beim ersten Bar."
+      "Den Kanal erkennst du erst mit seinem tatsächlichen Anschluss. Direkt nach dem Impuls sind Fortsetzung, Seitwärtsphase und Umkehr noch offene Möglichkeiten.",
+      "Markier im eigenen Beispiel den schnellen Anstieg, den Rücklauf und die späteren höheren Swings. Benutz den fertigen Tagesnamen nicht schon beim ersten Bar."
     ],
     "callout": "Die Tagesform wird schrittweise sichtbar.",
     "takeaways": [
@@ -50,8 +50,8 @@ const drafts: Draft[] = [
     "scenario": "c21-02",
     "paragraphs": [
       "Ein Spike kann ein einzelner großer Trendbar oder eine Folge mehrerer Bars sein. Wichtig sind gewonnene Strecke, wenig Rückgabe und deutlicher gerichteter Anschluss im bisherigen Kontext.",
-      "Ein großer Körper allein genügt nicht. In einer breiten Seitwärtsphase kann derselbe Bar nur ein kurzer Ausflug sein und rasch zurückgenommen werden.",
-      "Vergleiche links den direkten Impuls mit dem überlappenden Verlauf rechts. Die Diagnose beschreibt bisherige Kontrolle; sie liefert keine genaue Wahrscheinlichkeit für den nächsten Trade."
+      "Ein großer Körper allein genügt nicht. In einer breiten Seitwärtsphase kann derselbe Bar nur ein kurzer Ausflug sein und schnell zurückgenommen werden.",
+      "Vergleiche links den direkten Impuls mit dem überlappenden Verlauf rechts. Die Diagnose beschreibt die bisherige Kontrolle; eine genaue Wahrscheinlichkeit für den nächsten Trade liefert sie nicht."
     ],
     "callout": "Bargröße braucht Kontext.",
     "takeaways": [
@@ -83,9 +83,9 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-03",
     "paragraphs": [
-      "Die erste sichtbare Pause oder Rückgabe trennt den direkten Impuls von dem, was anschließend kommt. Ein kleiner Inside-Bar kann dafür genügen, wenn er nach der gewählten Regel eine Pause bildet.",
+      "Die erste sichtbare Pause oder Rückgabe trennt den direkten Impuls von dem, was danach kommt. Ein kleiner Inside-Bar kann dafür genügen, wenn er nach der gewählten Regel eine Pause bildet.",
       "Ein sofortiger neuer Schub kann auf der größeren Ebene wieder zu einem einzigen Impuls gehören. Benenne deshalb den Arbeitsmaßstab, statt jeden kleinen Gegenbar als vollständigen Trendwechsel zu werten.",
-      "Im Replay bleibt das Impulsende beim letzten gerichteten Bar vor der Pause. Es wird nicht rückwirkend bis zum schönsten späteren Hoch verlängert."
+      "Im Replay bleibt das Impulsende beim letzten gerichteten Bar vor der Pause. Du verlängerst es nicht rückwirkend bis zum schönsten späteren Hoch."
     ],
     "callout": "Phasengrenze und Trendende sind verschiedene Dinge.",
     "takeaways": [
@@ -152,8 +152,8 @@ const drafts: Draft[] = [
     "scenario": "c21-05",
     "paragraphs": [
       "Nach einem Aufwärtsimpuls kann eine Käuferfortsetzung entstehen. Der Markt kann aber auch um denselben Bereich pendeln oder mit kräftiger Verkäuferfolge die neue Strecke zurücknehmen.",
-      "Notiere vor den nächsten Bars diese Möglichkeiten. Weder die erste grüne Serie noch der Wunsch nach einem Longtrade schließt die Gegenrichtung aus.",
-      "Unsere Vergleichspfade setzen denselben ersten Schub fort oder nehmen ihn zurück. Eine Seitwärtsvariante bleibt im Protokoll zusätzlich möglich. Passe die Lesart erst an sichtbare neue Information an."
+      "Notier vor den nächsten Bars diese Möglichkeiten. Weder die erste grüne Serie noch der Wunsch nach einem Longtrade schließt die Gegenrichtung aus.",
+      "Unsere Vergleichspfade setzen denselben ersten Schub fort oder nehmen ihn zurück. Eine Seitwärtsvariante bleibt im Protokoll zusätzlich möglich. Pass die Lesart erst an sichtbare neue Information an."
     ],
     "callout": "Ein Impuls bestimmt nicht den ganzen Tag.",
     "takeaways": [
@@ -185,8 +185,8 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-06",
     "paragraphs": [
-      "Ein Kanal enthält häufig überlappende Bars, Schatten und Rückläufe. Käufer und Verkäufer handeln sichtbar gegeneinander, während eine Seite weiterhin höhere oder tiefere Swings durchsetzt.",
-      "Ein roter Bar im Bullenkanal ist deshalb noch keine bestätigte Bärenumkehr. Prüfe, ob die Gegenbewegung größere Swingpunkte bricht und eigenen Anschluss gewinnt.",
+      "Ein Kanal enthält oft überlappende Bars, Schatten und Rückläufe. Käufer und Verkäufer handeln sichtbar gegeneinander, während eine Seite weiterhin höhere oder tiefere Swings durchsetzt.",
+      "Ein roter Bar im Bullenkanal ist deshalb noch keine bestätigte Bärenumkehr. Prüf, ob die Gegenbewegung größere Swingpunkte bricht und eigenen Anschluss gewinnt.",
       "Links steigt ein enger Kanal trotz kleiner Rückgaben. Rechts zeigen breitere Swings mehr Gegenraum. Die Breite verändert die Ausführungsbedingungen, ohne automatisch die Richtung aufzuheben."
     ],
     "callout": "Zweiseitiger Handel kann gerichtete Struktur enthalten.",
@@ -215,13 +215,13 @@ const drafts: Draft[] = [
   {
     "number": 7,
     "title": "Enger Kanal und kleiner Gegenraum",
-    "summary": "Eine Gegenidee benötigt ausreichend Strecke.",
+    "summary": "Eine Gegenidee braucht ausreichend Strecke.",
     "section": "Phasen und Ausführung",
     "scenario": "c21-07",
     "paragraphs": [
-      "In einem engen Kanal sind Rückläufe klein. Ein Gegentrade kann dadurch wenig Zielraum bekommen, während der Schutzabstand relativ groß bleibt.",
+      "In einem engen Kanal sind Rückläufe klein. Ein Gegentrade bekommt dadurch wenig Zielraum, während der Schutzabstand relativ groß bleibt.",
       "Ein sichtbarer Gegenbar ist kein Beweis, dass die nächste Korrektur für einen Scalp reicht. Vergleiche erreichbaren Zielraum und begrenzten Verlust, bevor du eine Order erwägst.",
-      "Unser enger Kanal wird mit einem breiteren Beispiel verglichen. Für Einsteiger ist die Trendseite im engen Verlauf die klarere Suchrichtung; auch dort bleibt Auslassen bei ungünstigem Verhältnis möglich."
+      "Unser enger Kanal wird mit einem breiteren Beispiel verglichen. Für Einsteiger ist die Trendseite im engen Verlauf die klarere Suchrichtung; auch dort kannst du bei ungünstigem Verhältnis auslassen."
     ],
     "callout": "Ein Signal ohne Zielraum ist kein vollständiger Plan.",
     "takeaways": [
@@ -253,11 +253,11 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-08",
     "paragraphs": [
-      "Ein breiter Kanal kann größere Gegenbewegungen ermöglichen. Das macht Handel in beide Richtungen grundsätzlich prüfbar, verlangt aber die Unterscheidung von lokalem Swing und größerer Trendseite.",
+      "Ein breiter Kanal kann größere Gegenbewegungen ermöglichen. Das macht Handel in beide Richtungen grundsätzlich prüfbar, verlangt aber, dass du lokalen Swing und größere Trendseite unterscheidest.",
       "Breite allein garantiert keinen profitablen Gegentrade. Eine passende Auslösung, Kosten, Zielraum und Risikogrenze bleiben nötig. Komplexere Swings können mehr Fehlsignale enthalten.",
-      "Vergleiche die größere Rückgabe rechts mit den kleinen Pausen links. Schreibe vorab, ob deine Halteidee nur bis zur nächsten Kanalzone oder auf einen größeren Richtungswechsel zielt."
+      "Vergleiche die größere Rückgabe rechts mit den kleinen Pausen links. Schreib vorab auf, ob deine Halteidee nur bis zur nächsten Kanalzone oder auf einen größeren Richtungswechsel zielt."
     ],
-    "callout": "Halteabsicht vor dem Einstieg benennen.",
+    "callout": "Die Halteabsicht vor dem Einstieg benennen.",
     "takeaways": [
       "Mehr Gegenraum erhöht zugleich die Unruhe.",
       "Breite allein garantiert keinen profitablen Gegentrade.",
@@ -289,7 +289,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nach einem steilen Impuls kann die Fortsetzung flacher werden. Mehr Überlappung und längere Rückläufe zeigen schwächere einseitige Kontrolle.",
       "Solange die größeren Swings noch in Trendrichtung arbeiten, bleibt ein Kanaltrend als Lesart möglich. Erst stärkerer Gegenanschluss verändert das Gewicht der Umkehridee.",
-      "Markiere die direkte Anfangsstrecke und die langsameren späteren Hochs. Die Verlangsamung darf zu vorsichtigerem Management führen, ohne eine automatische Gegenorder auszulösen."
+      "Markier die direkte Anfangsstrecke und die langsameren späteren Hochs. Die Verlangsamung darf zu vorsichtigerem Management führen, ohne eine automatische Gegenorder auszulösen."
     ],
     "callout": "Tempo und Richtung getrennt lesen.",
     "takeaways": [
@@ -322,8 +322,8 @@ const drafts: Draft[] = [
     "scenario": "c21-10",
     "paragraphs": [
       "Nach dem Impuls bildet der erste Rücklauf den Ausgangsbereich der Kanalfortsetzung. Im Bullenfall ist sein Tief eine mögliche spätere Testzone, im Bärenfall sein Hoch.",
-      "Der Kanalstart wird erst nach sichtbarer Reaktion als Bezug markiert. Er ist kein garantierter späterer Zielpreis; manche Trends testen ihn erst viel später oder gar nicht im betrachteten Fenster.",
-      "Im Beispiel ist die Referenz 40 bereits bekannt, bevor der Kanal weiter steigt. Ein späterer Rückgang kann sie prüfen. Halte den Bezug fest und verschiebe ihn nicht nachträglich zum erreichten Tief."
+      "Den Kanalstart markierst du erst nach sichtbarer Reaktion als Bezug. Er ist kein garantierter späterer Zielpreis; manche Trends testen ihn erst viel später oder gar nicht im betrachteten Fenster.",
+      "Im Beispiel ist die Referenz 40 bereits bekannt, bevor der Kanal weiter steigt. Ein späterer Rückgang kann sie prüfen. Halte den Bezug fest und verschieb ihn nicht nachträglich zum erreichten Tief."
     ],
     "callout": "Eine bekannte Zone bleibt eine offene Testhypothese.",
     "takeaways": [
@@ -355,7 +355,7 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-11",
     "paragraphs": [
-      "Ein Impuls verlagert den Handel schnell aus einem alten Bereich. Wenn der erste Rücklauf darüber bleibt, entsteht ein funktionaler Abstand zum Ausbruchspunkt.",
+      "Ein Impuls verlagert den Handel schnell aus einem alten Bereich. Bleibt der erste Rücklauf darüber, entsteht ein funktionaler Abstand zum Ausbruchspunkt.",
       "Dabei können alle Preise des Impulses tatsächlich gehandelt worden sein. Eine wörtliche Voll-Lücke zwischen zwei Bars ist eine andere geometrische Aussage und darf nicht allein aus dem Wort Spike abgeleitet werden.",
       "Unser Beispiel markiert Ausbruchspunkt 32 und erstes Rücklauftief 40. Der Abstand beträgt acht relative Einheiten. Die verbundenen Bars enthalten trotzdem Handel durch den Impulsbereich."
     ],
@@ -391,9 +391,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nach einem Käuferimpuls kann ein Inside-Bar pausieren. Ein weiterer Bar kann dessen Tief unterschreiten, dann aber nach oben schließen und ein Käufersignal bilden.",
       "Erst ein späterer Handel oberhalb des Signalhochs kann einen entsprechend geplanten Buy-Stop auslösen. Die bloße Signalform ist noch keine ausgeführte Position.",
-      "Im erfundenen Beispiel wird das Signalhoch 53 später überschritten. Anschließende höhere Swings stützen die Kanalidee. Schutzabstand und Positionsgröße werden vor dieser Auslösung festgelegt."
+      "Im erfundenen Beispiel wird das Signalhoch 53 später überschritten. Anschließende höhere Swings stützen die Kanalidee. Schutzabstand und Positionsgröße legst du vor dieser Auslösung fest."
     ],
-    "callout": "Signalbar ist nicht gleich Einstieg.",
+    "callout": "Ein Signalbar ist nicht gleich Einstieg.",
     "takeaways": [
       "Signal, Auslösung und Anschluss zeitlich trennen.",
       "Erst ein späterer Handel oberhalb des Signalhochs kann einen entsprechend geplanten Buy-Stop auslösen.",
@@ -423,9 +423,9 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-13",
     "paragraphs": [
-      "Eine Projektion kann die Impulsstrecke oberhalb des Impulsendes wiederholen. Alternativ kann dieselbe Strecke ab dem Rücklauftief als zweites Bein abgetragen werden.",
+      "Eine Projektion kann die Impulsstrecke oberhalb des Impulsendes wiederholen. Alternativ kannst du dieselbe Strecke ab dem Rücklauftief als zweites Bein abtragen.",
       "Im Beispiel läuft der Impuls von 20 auf 50, also 30 Einheiten. Die erste Projektion ergibt 80. Beginnt das zweite Bein bei 40, ergibt die Gleichstreckenprojektion 70.",
-      "Beide Ziele dürfen gleichzeitig als Zonen beobachtet werden. Sie sind unterschiedliche Rechnungen mit unterschiedlichen Startpunkten. Schreibe die Anker auf, statt nachträglich nur den passend erreichten Preis zu zeigen."
+      "Beide Ziele darfst du gleichzeitig als Zonen beobachten. Es sind unterschiedliche Rechnungen mit unterschiedlichen Startpunkten. Schreib die Anker auf, statt nachträglich nur den passend erreichten Preis zu zeigen."
     ],
     "callout": "30 ab 50 und 30 ab 40 ergeben verschiedene Ziele.",
     "takeaways": [
@@ -492,10 +492,10 @@ const drafts: Draft[] = [
     "scenario": "c21-15",
     "paragraphs": [
       "Drei Aufwärtsschübe können einen keilartigen Kanal bilden. Der dritte kann eine obere Grenze überschreiten und mit einem Verkäuferbar reagieren.",
-      "Die Anzahl drei und eine Überschreitung reichen nicht allein. Beachte Körperqualität, Gegenanschluss und die größere Struktur; auch ein vierter Schub ist möglich.",
+      "Die Anzahl drei und eine Überschreitung reichen nicht allein. Achte auf Körperqualität, Gegenanschluss und die größere Struktur; auch ein vierter Schub ist möglich.",
       "Unser Beispiel zeigt drei durch Rückläufe getrennte Spitzen. Rechts setzt nach der dritten Verkäuferfolge ein. Diese neue Information unterstützt eine Korrekturlesart, bestimmt aber deren gesamte Länge nicht."
     ],
-    "callout": "Dreischubform ist kein automatischer Short.",
+    "callout": "Eine Dreischubform ist kein automatischer Short.",
     "takeaways": [
       "Eine auffällige Endform braucht Reaktion.",
       "Die Anzahl drei und eine Überschreitung reichen nicht allein.",
@@ -525,8 +525,8 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-16",
     "paragraphs": [
-      "Ein Bullenkanal kann oben ausbrechen und einen weiteren schnellen Käuferabschnitt bilden. Dieser kann Anschluss gewinnen oder rasch in den alten Kanal zurückkehren.",
-      "Verwende keine feste Fünf-Bar-Uhr als Gewissheit. Entscheidend ist die tatsächliche Rücknahme oder Fortsetzung des Ausbruchs. Eine steile Bewegung kann länger dauern als erwartet.",
+      "Ein Bullenkanal kann oben ausbrechen und einen weiteren schnellen Käuferabschnitt bilden. Der kann Anschluss gewinnen oder schnell in den alten Kanal zurückkehren.",
+      "Verlass dich nicht auf eine feste Fünf-Bar-Uhr als Gewissheit. Entscheidend ist die tatsächliche Rücknahme oder Fortsetzung des Ausbruchs. Eine steile Bewegung kann länger dauern als erwartet.",
       "Die Vergleichspfade zeigen Erfolg und Rücknahme nach derselben Vorgeschichte. Beide müssen im Replay möglich bleiben; der neue große Bar darf nicht nachträglich schon als sichere Endspitze gelten."
     ],
     "callout": "Ein großer Ausbruchsbar kann scheitern oder fortsetzen.",
@@ -559,8 +559,8 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-17",
     "paragraphs": [
-      "Ein Ausbruch unter einen Bullenkanal verändert die Struktur. Wenn der Preis schon weit gefallen ist, kann ein sofortiger Short wenig Zielraum oder ungünstigen Schutzabstand bieten.",
-      "Ein Rücklauf zum gebrochenen Bereich kann einen neuen Plan ermöglichen. Prüfe dort Zurückweisung und Verkäuferauslösung, statt jeden Bruch ohne Preisvergleich zu handeln.",
+      "Ein Ausbruch unter einen Bullenkanal verändert die Struktur. Ist der Preis schon weit gefallen, kann ein sofortiger Short wenig Zielraum oder einen ungünstigen Schutzabstand bieten.",
+      "Ein Rücklauf zum gebrochenen Bereich kann einen neuen Plan ermöglichen. Prüf dort Zurückweisung und Verkäuferauslösung, statt jeden Bruch ohne Preisvergleich zu handeln.",
       "Im Beispiel folgt auf den Gegenbruch eine Erholung unter das vorige größere Hoch. Die spätere Verkäuferfolge ist neu. Der frühere Bruch war noch keine Zusage, dass der Kanalstart erreicht wird."
     ],
     "callout": "Bruch, Rücklauf und neue Auslösung getrennt planen.",
@@ -663,9 +663,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Der erste Rücklauf und der spätere Starttest können zwei Tiefs in derselben Zone bilden. Eine Käuferreaktion wäre als Doppeltief-Flagge prüfbar.",
       "Ein enger Verkäuferkanal in die Zone kann jedoch weiteren Abwärtsanschluss entwickeln. Ein kleines Käufersignal, das nicht ausgelöst wird, ist noch kein ausgeführter Verlusttrade.",
-      "Links hält der Test und reagiert. Rechts bleibt das spätere Hoch unter dem geplanten Buy-Stop, bevor Verkäufer weiter fallen. Führe den nicht ausgelösten Plan ausdrücklich im Replay mit."
+      "Links hält der Test und reagiert. Rechts bleibt das spätere Hoch unter dem geplanten Buy-Stop, bevor die Verkäufer weiter fallen. Führe den nicht ausgelösten Plan im Replay ausdrücklich mit."
     ],
-    "callout": "Testzone ist kein garantierter Halt.",
+    "callout": "Eine Testzone ist kein garantierter Halt.",
     "takeaways": [
       "Die Käuferauslösung darf auch fehlen.",
       "Ein enger Verkäuferkanal in die Zone kann jedoch weiteren Abwärtsanschluss entwickeln.",
@@ -695,9 +695,9 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-21",
     "paragraphs": [
-      "Wenn der Kanalstart getestet wurde und eine Gegenreaktion entsteht, kann der Verlauf zunehmend zwischen bekannten Zonen pendeln. Die frühere reine Trendlesart wird dann weniger passend.",
+      "Wurde der Kanalstart getestet und entsteht eine Gegenreaktion, kann der Verlauf zunehmend zwischen bekannten Zonen pendeln. Die frühere reine Trendlesart passt dann weniger.",
       "Die spätere Range-Mitte war während des ersten Kanals noch nicht sicher bekannt. Ebenso lässt sich aus dem Chart keine exakte 50-Prozent-Wahrscheinlichkeit für gleiche Strecken messen.",
-      "Beschreibe mehr Überlappung, Rückkehr und gescheiterte Ausbrüche. Prüfe beide Richtungen neu mit begrenztem Risiko. Eine Range kann später oben oder unten verlassen werden."
+      "Beschreib mehr Überlappung, Rückkehr und gescheiterte Ausbrüche. Prüf beide Richtungen neu mit begrenztem Risiko. Eine Range kann später oben oder unten verlassen werden."
     ],
     "callout": "Der neue Kontext ersetzt die alte Gewissheit.",
     "takeaways": [
@@ -725,12 +725,12 @@ const drafts: Draft[] = [
   {
     "number": 22,
     "title": "Beschleunigender Kanal",
-    "summary": "Steiler werden ist nicht sofort fertig sein.",
+    "summary": "Steiler werden heißt nicht, sofort fertig zu sein.",
     "section": "Phasen und Ausführung",
     "scenario": "c21-22",
     "paragraphs": [
       "Ein Kanal kann zunehmend steiler werden und damit eine parabolische Form annehmen. Das beschreibt zunehmende Geschwindigkeit und mögliche Überdehnung.",
-      "Überdehnung ist keine zeitgenaue Umkehrprognose. Ein Gegentrade ohne Bestätigung kann gegen anhaltenden starken Anschluss laufen. Prüfe die Ausführung statt allein die Form zu handeln.",
+      "Überdehnung ist keine zeitgenaue Umkehrprognose. Ein Gegentrade ohne Bestätigung kann gegen anhaltenden starken Anschluss laufen. Prüf die Ausführung statt allein die Form zu handeln.",
       "Unser enger Verlauf beschleunigt im zweiten Abschnitt. Vergleiche die stärkere Steigung mit einem normalen Kanal. Der spätere Gegenbruch gehört erst ab seiner tatsächlichen Entstehung zur Lesart."
     ],
     "callout": "Ein steiler Kanal kann länger laufen als erwartet.",
@@ -763,11 +763,11 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-23",
     "paragraphs": [
-      "Zwei große gerichtete Impulse mit einer kurzen Pause dazwischen können als aufeinanderfolgende Klimaxe gelesen werden. Die zweite schnelle Strecke übernimmt dann funktional die Rolle der späteren Phase.",
-      "Danach ist eine größere Korrektur plausibel, aber weder ein dritter Impuls noch Seitwärtsfolge ausgeschlossen. Eine feste Mindestzahl von Korrekturbars ist keine Garantie.",
+      "Zwei große gerichtete Impulse mit einer kurzen Pause dazwischen kannst du als aufeinanderfolgende Klimaxe lesen. Die zweite schnelle Strecke übernimmt dann funktional die Rolle der späteren Phase.",
+      "Danach ist eine größere Korrektur plausibel, aber weder ein dritter Impuls noch eine Seitwärtsfolge ausgeschlossen. Eine feste Mindestzahl von Korrekturbars ist keine Garantie.",
       "Im Beispiel stehen zwei Verkäuferimpulse einer Variante mit drittem Schub gegenüber. Die spätere Käuferreaktion prüft einen vorherigen Pausenbereich. Vermutete Panik bleibt eine Interpretation der Preise."
     ],
-    "callout": "Klimax bedeutet Überdehnung, nicht sichere sofortige Umkehr.",
+    "callout": "Klimax heißt Überdehnung, nicht sichere sofortige Umkehr.",
     "takeaways": [
       "Pausen trennen schnelle Schübe.",
       "Danach ist eine größere Korrektur plausibel, aber weder ein dritter Impuls noch Seitwärtsfolge ausgeschlossen.",
@@ -798,8 +798,8 @@ const drafts: Draft[] = [
     "scenario": "c21-24",
     "paragraphs": [
       "Manchmal läuft zuerst ein Kanal, bevor ein großer Trendbar die Bewegung stark beschleunigt. Das Endverhalten kann einer Spike-und-Klimax-Variante ähneln.",
-      "Die zeitliche Beschreibung bleibt trotzdem Kanal, dann Spike. Du brauchst die Begriffe nicht umzudrehen, um eine mögliche tiefere Korrektur und einen Test des Beschleunigungsstarts zu prüfen.",
-      "Vergleiche die geordnete Anfangsbewegung mit dem späten großen Körper. Prüfe nachfolgende Pause und Gegenfolge. Der große Körper allein legt das Tageshoch noch nicht sicher fest."
+      "Die zeitliche Beschreibung bleibt trotzdem Kanal, dann Spike. Du musst die Begriffe nicht umdrehen, um eine mögliche tiefere Korrektur und einen Test des Beschleunigungsstarts zu prüfen.",
+      "Vergleiche die geordnete Anfangsbewegung mit dem späten großen Körper. Prüf nachfolgende Pause und Gegenfolge. Der große Körper allein legt das Tageshoch noch nicht sicher fest."
     ],
     "callout": "Funktionale Ähnlichkeit ändert nicht die Reihenfolge.",
     "takeaways": [
@@ -833,9 +833,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein Sprung vom vorherigen Schluss zur neuen Eröffnung kann die schnelle Verlagerung eines Impulses darstellen. Nach einer Pause kann ein Kanal anschließen.",
       "Der sichtbare Gapabstand hängt von Sitzung und Datendarstellung ab. Zwei unterschiedliche Instrumente sind kein exakter OHLC-Vergleich desselben Preiswegs.",
-      "Unser eigenes Beispiel zeigt den vorherigen Schluss und die neue Eröffnung. Es wird nicht als reale Index-Futures-Gleichheit ausgegeben. Prüfe Anschluss und frühe Rücknahme des Sprungs getrennt."
+      "Unser eigenes Beispiel zeigt den vorherigen Schluss und die neue Eröffnung. Es wird nicht als reale Index-Futures-Gleichheit ausgegeben. Prüf Anschluss und frühe Rücknahme des Sprungs getrennt."
     ],
-    "callout": "Sessionbezug für den Gapvergleich benennen.",
+    "callout": "Den Sessionbezug für den Gapvergleich benennen.",
     "takeaways": [
       "Die Sessiondarstellung beeinflusst das sichtbare Bild.",
       "Der sichtbare Gapabstand hängt von Sitzung und Datendarstellung ab.",
@@ -867,7 +867,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein eng gerichteter Kanal auf kleinen Bars kann in einer gröberen Darstellung als einzelner großer Impuls erscheinen. Die kleinere Pause kann innerhalb eines größeren Körpers oder Schattens verschwinden.",
       "Für unseren Vergleich werden jeweils drei identische Ausgangsbars aggregiert. Open, höchstes High, niedrigstes Low und letzter Close bleiben rechnerisch erhalten.",
-      "Du siehst dieselbe Bewegung zweimal, keine unabhängige Bestätigung. Ein späterer Kanal auf der größeren Ebene darf im kleinen frühen Verlauf nicht schon als sicher bekannt angenommen werden."
+      "Du siehst dieselbe Bewegung zweimal, keine unabhängige Bestätigung. Einen späteren Kanal auf der größeren Ebene darfst du im kleinen frühen Verlauf nicht schon als sicher bekannt annehmen."
     ],
     "callout": "Aggregation verändert die Ansicht, nicht die Datenhistorie.",
     "takeaways": [
@@ -903,7 +903,7 @@ const drafts: Draft[] = [
       "Der letzte auffällige Bar muss nicht allein die Veränderung verursachen. Frühere Gegenstrecken, tiefere Rückläufe und gebrochene Linien gehören zum bisher bekannten Verlauf.",
       "Vergleiche die frühe kleine Gegenreaktion mit mehreren späteren Verkäuferabschnitten. Beurteile sie zeitgerecht. Aus dem Chart folgt keine vollständige Liste der beteiligten Positionen."
     ],
-    "callout": "Übergang aus der ganzen sichtbaren Folge lesen.",
+    "callout": "Den Übergang aus der ganzen sichtbaren Folge lesen.",
     "takeaways": [
       "Mehrere Gegenimpulse können den Kontext verändern.",
       "Der letzte auffällige Bar muss nicht allein die Veränderung verursachen.",
@@ -933,11 +933,11 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-28",
     "paragraphs": [
-      "Ein Käuferimpuls kann kurz darauf kräftig von Verkäufern zurückgenommen werden. Wenn beide Seiten anschließend wiederholt reagieren, ist eine Balance als Lesart plausibel.",
+      "Ein Käuferimpuls kann kurz darauf kräftig von Verkäufern zurückgenommen werden. Reagieren beide Seiten anschließend wiederholt, ist eine Balance als Lesart plausibel.",
       "Die spätere Richtung entscheidet sich am Anschluss. Ein zweiter Käuferausbruch kann gelingen oder in Verkäuferfolge übergehen. Der erste Impuls darf nicht jeden späteren Bar dominieren.",
-      "Unsere Panels zeigen konkurrierende Schübe und danach einen Verkäuferkanal. Dieser wird erst mit der neuen Folge sichtbar. Vorher bleibt der Rangeausbruch in beide Richtungen offen."
+      "Unsere Panels zeigen konkurrierende Schübe und danach einen Verkäuferkanal. Den siehst du erst mit der neuen Folge. Vorher bleibt der Rangeausbruch in beide Richtungen offen."
     ],
-    "callout": "Konkurrierende Impulse brauchen Anschlussprüfung.",
+    "callout": "Konkurrierende Impulse brauchen eine Anschlussprüfung.",
     "takeaways": [
       "Zwei schnelle Richtungen können eine Range vorbereiten.",
       "Die spätere Richtung entscheidet sich am Anschluss.",
@@ -967,11 +967,11 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-29",
     "paragraphs": [
-      "Im direkten Impuls können Market- oder kleine Rücklaufeinstiege prüfbar sein. Im Kanal können Trendpullbacks oder geplante Limits an bekannten Bezügen besser zur Struktur passen.",
+      "Im direkten Impuls können Market- oder kleine Rücklaufeinstiege prüfbar sein. Im Kanal passen Trendpullbacks oder geplante Limits an bekannten Bezügen oft besser zur Struktur.",
       "Eine Limitberührung garantiert keine Füllung. Gemeinsames Geldrisiko, Schutzabstand und Gesamtmenge müssen auch bei Teilpositionen begrenzt bleiben. Ein Gegen-Nachkauf ohne Plan ist keine harmlose Ergänzung.",
       "Vergleiche die schnelle Anfangsphase mit der langsameren Kanalphase. Halte Preis, Verlustgrenze und Halteabsicht fest. Das Muster rechtfertigt weder blindes Hinterherlaufen noch endloses Aufstocken gegen die Richtung."
     ],
-    "callout": "Phase beschreiben, Order gesondert rechnen.",
+    "callout": "Die Phase beschreiben, die Order gesondert rechnen.",
     "takeaways": [
       "Impuls und Kanal verlangen unterschiedliche Preisprüfung.",
       "Eine Limitberührung garantiert keine Füllung.",
@@ -1001,9 +1001,9 @@ const drafts: Draft[] = [
     "section": "Phasen und Ausführung",
     "scenario": "c21-30",
     "paragraphs": [
-      "Notiere den Impulsursprung, das bisherige Ende, die erste Pause und den bekannten Kanalstart. Benenne außerdem deine Arbeitsgröße und die noch offene Hauptlesart.",
+      "Notier den Impulsursprung, das bisherige Ende, die erste Pause und den bekannten Kanalstart. Benenne außerdem deine Arbeitsgröße und die noch offene Hauptlesart.",
       "Halte erwarteten Test und tatsächlichen Preisbesuch getrennt. Ein später erfülltes Ziel oder ein schöner Kanal darf die frühere unbekannte Folge nicht ersetzen.",
-      "Prüfe eine mögliche Order gesondert mit Einstieg, Schutz, Menge und Halteabsicht. Nimm ausgelassene, nicht ausgelöste und gescheiterte Varianten auf; nur Gewinner zu sammeln würde die Auswertung verzerren."
+      "Prüf eine mögliche Order gesondert mit Einstieg, Schutz, Menge und Halteabsicht. Nimm ausgelassene, nicht ausgelöste und gescheiterte Varianten auf; nur Gewinner zu sammeln würde die Auswertung verzerren."
     ],
     "callout": "Beschreibung und Orderhistorie getrennt führen.",
     "takeaways": [
@@ -1036,8 +1036,8 @@ const drafts: Draft[] = [
     "scenario": "c21-31",
     "paragraphs": [
       "Im ersten Lernfall beginnt der Handel mit Verkäuferdruck. Ein grüner Bar im gleichen Bereich muss noch keine große Umkehr begründen, wenn sein Preisraum den vorherigen Bar stark überlappt.",
-      "Ein weiterer Versuch mit neuem Käuferanschluss liefert zusätzliche Information. Der Vergleich gilt der tatsächlichen Folge, nicht dem nachträglich bekannten Tagestief.",
-      "Links bleibt die erste Käuferreaktion klein. Rechts entsteht später ein direkter Käuferimpuls. Der frühe unklare Long darf nicht mit dem späteren gelungenen Verlauf gerechtfertigt werden."
+      "Ein weiterer Versuch mit neuem Käuferanschluss liefert zusätzliche Information. Verglichen wird die tatsächliche Folge, nicht das nachträglich bekannte Tagestief.",
+      "Links bleibt die erste Käuferreaktion klein. Rechts entsteht später ein direkter Käuferimpuls. Den frühen unklaren Long darfst du nicht mit dem späteren gelungenen Verlauf rechtfertigen."
     ],
     "callout": "Überlappung vor Umkehrnamen prüfen.",
     "takeaways": [
@@ -1071,7 +1071,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nach dem Käuferimpuls steigt im ersten Lernfall ein Kanal in mehreren Schüben. Dazwischen treten Verkäuferbars und größere Rückgaben auf.",
       "Der dritte Hochtest und die neue Verkäuferfolge unterstützen die Korrekturidee. Die früheren Gegenabschnitte dürfen dabei nicht aus der Bewertung verschwinden.",
-      "Markiere Impuls, Rücklauftief und drei spätere Spitzen. Prüfe den Kanalbruch getrennt vom bloßen Hochbesuch. Seine Auslösung war am ersten Käuferimpuls noch nicht bekannt."
+      "Markier Impuls, Rücklauftief und drei spätere Spitzen. Prüf den Kanalbruch getrennt vom bloßen Hochbesuch. Seine Auslösung war am ersten Käuferimpuls noch nicht bekannt."
     ],
     "callout": "Den Gegenübergang zeitgerecht lesen.",
     "takeaways": [
@@ -1105,7 +1105,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im ersten Lernfall erreicht die Verkäuferfolge den alten Kanalstart. Ein kleines Käufersignal bleibt ohne Auslösung, während der Preis weiter nach unten läuft.",
       "Die schnelle erste Gegenstrecke kann nur das erste größere Bein einer komplexeren Korrektur sein. Kleine innere Teilbewegungen bestimmen nicht automatisch die gesamte Korrekturzahl.",
-      "Links endet das Replay beim Starttest. Rechts wird die nicht ausgelöste Käuferidee verworfen und die spätere Erholung sichtbar. Trenne Test, Orderstatus und spätere neue Struktur."
+      "Links endet das Replay beim Starttest. Rechts wird die nicht ausgelöste Käuferidee verworfen und die spätere Erholung sichtbar. Trenn Test, Orderstatus und spätere neue Struktur."
     ],
     "callout": "Ein nicht ausgelöstes Signal ist keine Position.",
     "takeaways": [
@@ -1138,10 +1138,10 @@ const drafts: Draft[] = [
     "scenario": "c21-34",
     "paragraphs": [
       "Im zweiten Lernfall folgt auf Verkäuferimpulse ein abwärtsgerichteter Kanal. Kleine Erholungen ändern die größere Folge tieferer Hochs zunächst nicht.",
-      "Ein Test des Kanalstarts kann erst in einer späteren Sitzung entstehen. Markiere den bekannten Bezug vor dem späteren Gap oder Käuferimpuls; ein erwarteter Test ist kein garantierter Tagesabschluss.",
-      "Links ist nur der erste Tagesabschnitt sichtbar. Rechts bleibt derselbe Bezug für die spätere Käuferreaktion bestehen. Verwende das nächste Tagesergebnis nicht für frühere Einstiege."
+      "Ein Test des Kanalstarts kann erst in einer späteren Sitzung entstehen. Markier den bekannten Bezug vor dem späteren Gap oder Käuferimpuls; ein erwarteter Test ist kein garantierter Tagesabschluss.",
+      "Links ist nur der erste Tagesabschnitt sichtbar. Rechts bleibt derselbe Bezug für die spätere Käuferreaktion bestehen. Das nächste Tagesergebnis darfst du nicht für frühere Einstiege verwenden."
     ],
-    "callout": "Sessiongrenze beendet die Testhypothese nicht automatisch.",
+    "callout": "Eine Sessiongrenze beendet die Testhypothese nicht automatisch.",
     "takeaways": [
       "Der spätere Starttest muss nicht heute erfolgen.",
       "Ein Test des Kanalstarts kann erst in einer späteren Sitzung entstehen.",
@@ -1206,7 +1206,7 @@ const drafts: Draft[] = [
     "scenario": "c21-36",
     "paragraphs": [
       "Nach dem Bärenkanal entsteht im zweiten Lernfall eine kräftige Käuferfolge. Die alte Startzone bleibt ein Preisbezug, aber der aktuelle Kontext hat sich verändert.",
-      "Ein Short am alten Bezug braucht deshalb neues Verkäufersignal und passenden Raum. Viele neue Käuferkörper und höhere Swings sprechen gegen die bloße Wiederholung der alten Tageslesart.",
+      "Ein Short am alten Bezug braucht deshalb ein neues Verkäufersignal und passenden Raum. Viele neue Käuferkörper und höhere Swings sprechen gegen die bloße Wiederholung der alten Tageslesart.",
       "Die Beispiele zeigen die neue Käuferstrecke und einen begrenzten späteren Rücklauf. Die frühere Bärenkontrolle bleibt Geschichte; sie ist kein automatischer Auftrag für den nächsten Trade."
     ],
     "callout": "Alte Referenz mit neuer Kontrolle vergleichen.",
@@ -1274,7 +1274,7 @@ const drafts: Draft[] = [
     "scenario": "c21-38",
     "paragraphs": [
       "Im dritten Lernfall gelingt nach dem Rücklauf eine neue Käuferfortsetzung. Eine vorher mögliche Rückkehr zur Startzone entsteht im betrachteten Fenster nicht.",
-      "Notiere die nicht erfüllte Hypothese ausdrücklich. Ein Kanalstarttest ist keine Pflicht; das neue Käuferhoch ist keine versteckte Erfüllung des erwarteten Rückgangs.",
+      "Notier die nicht erfüllte Hypothese ausdrücklich. Ein Kanalstarttest ist keine Pflicht; das neue Käuferhoch ist keine versteckte Erfüllung des erwarteten Rückgangs.",
       "Die Vergleichspanels zeigen denselben Start mit Test oder ohne Test. Verändere die Referenz nicht nachträglich. Auch ein ausgelassener Gegentrade kann damit nachvollziehbar bleiben."
     ],
     "callout": "Ausgebliebene Tests gehören ins Protokoll.",
@@ -1308,8 +1308,8 @@ const drafts: Draft[] = [
     "scenario": "c21-39",
     "paragraphs": [
       "Im dritten Lernfall lässt ein früher Verkäuferimpuls eine größere Korrektur erwarten. Der anschließende Käufer-Rücklauf erreicht trotzdem ein höheres Hoch.",
-      "Wenn dieses neue Hoch danach scheitert, kann dort der spätere Verkäuferkanal beginnen. Der frühere Verkäuferimpuls bleibt als möglicher Ausgangspunkt relevant.",
-      "Vergleiche tieferen und höheren Rücklauftest. Beschreibe die alternative Lesart offen, ohne zu behaupten, alle Marktteilnehmer hätten denselben Start gewählt. Erst neuer Verkäuferanschluss stützt sie."
+      "Scheitert dieses neue Hoch danach, kann dort der spätere Verkäuferkanal beginnen. Der frühere Verkäuferimpuls bleibt als möglicher Ausgangspunkt relevant.",
+      "Vergleiche tieferen und höheren Rücklauftest. Beschreib die alternative Lesart offen, ohne zu behaupten, alle Marktteilnehmer hätten denselben Start gewählt. Erst neuer Verkäuferanschluss stützt sie."
     ],
     "callout": "Ein höherer Rücklauf kann vor einem Bärenkanal liegen.",
     "takeaways": [
@@ -1343,9 +1343,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im vierten Lernfall steigen zunächst ähnlich große Bars in einem engen Mikrokanal. Das ist eine andere Qualität als ein späterer sehr großer Klimaxkörper.",
       "Kleine Rückgabe kann einen starken Arbeitskontext stützen. Wird die Folge später steiler, steigt die Gefahr einer größeren Korrektur, ohne deren Beginn bereits festzulegen.",
-      "Markiere gleichmäßigen Abschnitt und Beschleunigung getrennt. Der starke Trend benötigt bei weitem Schutzabstand eine entsprechend kleinere Menge. Stärke hebt das Geldrisikolimit nicht auf."
+      "Markier gleichmäßigen Abschnitt und Beschleunigung getrennt. Der starke Trend braucht bei weitem Schutzabstand eine entsprechend kleinere Menge. Stärke hebt das Geldrisikolimit nicht auf."
     ],
-    "callout": "Kleine Menge kann zu weitem Schutz passen.",
+    "callout": "Eine kleine Menge kann zu weitem Schutz passen.",
     "takeaways": [
       "Stärke und Überdehnung unterscheiden.",
       "Kleine Rückgabe kann einen starken Arbeitskontext stützen.",
@@ -1375,11 +1375,11 @@ const drafts: Draft[] = [
     "section": "Lernfall 4",
     "scenario": "c21-41",
     "paragraphs": [
-      "Der erste Verkäuferbar im engen Käuferverlauf kann zunächst nur eine kleine Pause bilden. Neuer Käuferanschluss kann seine Gegenidee rasch zurücknehmen.",
-      "Eine Positionsreduzierung nach einem vorab festgelegten Plan ist etwas anderes als ein ungeprüfter großer Short. Beides muss im damaligen Zeitpunkt getrennt bewertet werden.",
+      "Der erste Verkäuferbar im engen Käuferverlauf kann zunächst nur eine kleine Pause bilden. Neuer Käuferanschluss kann seine Gegenidee schnell zurücknehmen.",
+      "Eine Positionsreduzierung nach einem vorab festgelegten Plan ist etwas anderes als ein ungeprüfter großer Short. Beides musst du zum damaligen Zeitpunkt getrennt bewerten.",
       "Links erscheint der erste Gegenbar. Rechts setzt die Käuferfolge fort. Die spätere Beschleunigung erklärt nicht rückwirkend, dass ein früher Gegentrade sicher sein musste."
     ],
-    "callout": "Erster Gegenbar und bestätigte Umkehr trennen.",
+    "callout": "Ersten Gegenbar und bestätigte Umkehr trennen.",
     "takeaways": [
       "Eine erste Umkehridee kann scheitern.",
       "Eine Positionsreduzierung nach einem vorab festgelegten Plan ist etwas anderes als ein ungeprüfter großer Short.",
@@ -1413,7 +1413,7 @@ const drafts: Draft[] = [
       "Gewinnmitnahmen und neue Shorts als Ursache sind plausible Deutungen, aber keine vollständigen OHLC-Fakten. Überprüfbar sind Pause, Rücknahme und nachfolgender Verkäuferanschluss.",
       "Die Beispiele zeigen den späten Körper und eine komplexere Gegenfolge. Ein Short nur aufgrund des Wortes Klimax bleibt unvollständig; Auslösung, Schutz und Menge brauchen einen eigenen Plan."
     ],
-    "callout": "Sichtbare Folge vor vermuteten Motiven gewichten.",
+    "callout": "Die sichtbare Folge vor vermuteten Motiven gewichten.",
     "takeaways": [
       "Ein großer Endbar verändert die Managementfrage.",
       "Gewinnmitnahmen und neue Shorts als Ursache sind plausible Deutungen, aber keine vollständigen OHLC-Fakten.",
@@ -1444,7 +1444,7 @@ const drafts: Draft[] = [
     "scenario": "c21-43",
     "paragraphs": [
       "Im fünften Lernfall verlagert ein Eröffnungsgap den Handel nach oben. Ein anschließender Rücklauf liefert den Startbereich eines langsameren Käuferkanals.",
-      "Die Gaprichtung allein bestimmt den späteren Tag nicht. Notiere vorherigen Schluss, Eröffnung, Rücklauftief und tatsächlich folgende Swings.",
+      "Die Gaprichtung allein bestimmt den späteren Tag nicht. Notier vorherigen Schluss, Eröffnung, Rücklauftief und tatsächlich folgende Swings.",
       "Unsere erfundenen Sitzungen enthalten den Preisabstand ausdrücklich. Es wird kein reales Instrument verglichen. Der neue Kanal entsteht erst nach sichtbarer Käuferfortsetzung."
     ],
     "callout": "Gap und Anschluss getrennt lesen.",
@@ -1513,9 +1513,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im fünften Lernfall wird der erste Rücklaufbereich erst nach dem Kanalhoch in einer späteren Sitzung geprüft. Der Bezug stammt aus dem bereits bekannten alten Verlauf.",
       "Ein Starttest kann halten oder weiter durchfallen. Eine neue Sitzung löscht die alte Referenz nicht, liefert aber neuen Kontext und eigene Ausführungsbedingungen.",
-      "Links steht der frühere Kanalstart, rechts der spätere Besuch. Keine Zukunftsbar wird in die erste Sitzung eingeblendet. Eine eventuelle neue Order wird anhand des dann sichtbaren Signals beurteilt."
+      "Links steht der frühere Kanalstart, rechts der spätere Besuch. Keine Zukunftsbar wird in die erste Sitzung eingeblendet. Eine eventuelle neue Order beurteilst du anhand des dann sichtbaren Signals."
     ],
-    "callout": "Historischer Bezug ist kein heutiger Orderbefehl.",
+    "callout": "Ein historischer Bezug ist kein heutiger Orderbefehl.",
     "takeaways": [
       "Spätere Sitzung mit alten Ankern vergleichen.",
       "Ein Starttest kann halten oder weiter durchfallen.",
@@ -1547,7 +1547,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im sechsten Lernfall enthält der kleine Chart mehrere eng gerichtete Käuferabschnitte. Verdichtet wirken diese gemeinsam wie ein starker großer Impuls.",
       "Ein Kanalstart auf kleiner Ebene und ein späterer großer Kanalstart sind verschiedene Bezüge. Eine kleine Rückgabe muss nicht die ganze größere Impulsstrecke testen.",
-      "Unsere Dreieraggregation verwendet exakt dieselben Bars. Der Unterschied entsteht durch Verdichtung. Beschreibe den Maßstab vor der Benennung, statt eine zweite unabhängige Bestätigung zu behaupten."
+      "Unsere Dreieraggregation verwendet exakt dieselben Bars. Der Unterschied entsteht durch Verdichtung. Beschreib den Maßstab vor der Benennung, statt eine zweite unabhängige Bestätigung zu behaupten."
     ],
     "callout": "Phasennamen gelten auf einer benannten Ebene.",
     "takeaways": [
@@ -1580,10 +1580,10 @@ const drafts: Draft[] = [
     "scenario": "c21-47",
     "paragraphs": [
       "Im sechsten Lernfall unterbricht ein schneller Verkäuferabschnitt die Käuferfolge. Der größere Verlauf nimmt anschließend seine Richtung wieder auf.",
-      "Ein lokaler Gegenspike ist relevant, aber nicht automatisch eine komplette große Umkehr. Prüfe das größere höhere Tief und neuen Anschluss.",
-      "Markiere Gegenstrecke und spätere Käuferbars getrennt. Der Stop einer neuen Position darf nicht allein wegen der späteren Fortsetzung rückwirkend enger gerechnet werden."
+      "Ein lokaler Gegenspike ist relevant, aber nicht automatisch eine komplette große Umkehr. Prüf das größere höhere Tief und neuen Anschluss.",
+      "Markier Gegenstrecke und spätere Käuferbars getrennt. Den Stop einer neuen Position darfst du nicht allein wegen der späteren Fortsetzung rückwirkend enger rechnen."
     ],
-    "callout": "Lokaler Impuls und größere Kontrolle getrennt prüfen.",
+    "callout": "Lokalen Impuls und größere Kontrolle getrennt prüfen.",
     "takeaways": [
       "Die große Struktur kann den Gegenabschnitt überstehen.",
       "Ein lokaler Gegenspike ist relevant, aber nicht automatisch eine komplette große Umkehr.",
@@ -1613,11 +1613,11 @@ const drafts: Draft[] = [
     "section": "Lernfall 6",
     "scenario": "c21-48",
     "paragraphs": [
-      "Nach dem größeren Impuls entwickelt sich im sechsten Lernfall auf der größeren Ebene ein eigener Kanal. Dessen Start kann später zum Bezug einer Korrektur werden.",
-      "Dieser Bezug ist nicht automatisch identisch mit jeder kleinen inneren Pause. Notiere die genaue größere Reaktion, bevor du den späteren Test beurteilst.",
+      "Nach dem größeren Impuls entwickelt sich im sechsten Lernfall auf der größeren Ebene ein eigener Kanal. Sein Start kann später zum Bezug einer Korrektur werden.",
+      "Dieser Bezug ist nicht automatisch identisch mit jeder kleinen inneren Pause. Notier die genaue größere Reaktion, bevor du den späteren Test beurteilst.",
       "Die Panels zeigen kleinen Preisweg und zugehörige Aggregation. Im Protokoll bleibt offen, ob und wann der größere Startbereich besucht wird. Ein Test braucht tatsächliche neue Preise."
     ],
-    "callout": "Testziel gehört zur Ebene seines Ursprungs.",
+    "callout": "Das Testziel gehört zur Ebene seines Ursprungs.",
     "takeaways": [
       "Die Verdichtung legt einen anderen Testbezug offen.",
       "Dieser Bezug ist nicht automatisch identisch mit jeder kleinen inneren Pause.",
@@ -1643,13 +1643,13 @@ const drafts: Draft[] = [
   {
     "number": 49,
     "title": "Ein Kanal kann deutlich später beginnen",
-    "summary": "Lange Zwischenphase schließt die Lesart nicht aus.",
+    "summary": "Eine lange Zwischenphase schließt die Lesart nicht aus.",
     "section": "Lernfall 7",
     "scenario": "c21-49",
     "paragraphs": [
       "Im siebten Lernfall folgt auf einen Verkäuferimpuls eine längere Gegenphase. Der spätere Verkäuferkanal beginnt erst nach deren Ende.",
       "Ein großer zeitlicher Abstand macht die Zuordnung unsicherer und verlangt klare Anker. Eine alternative Lesart mit neuem Verkäuferimpuls kann ebenfalls passen.",
-      "Links endet das Replay in der Gegenphase. Rechts setzt später Verkäuferanschluss ein. Schreibe den früheren Ausgangsimpuls als Hypothese auf, statt ihn als einzige Wahrheit zu behaupten."
+      "Links endet das Replay in der Gegenphase. Rechts setzt später Verkäuferanschluss ein. Schreib den früheren Ausgangsimpuls als Hypothese auf, statt ihn als einzige Wahrheit zu behaupten."
     ],
     "callout": "Alternative Startlesarten offen benennen.",
     "takeaways": [
@@ -1682,8 +1682,8 @@ const drafts: Draft[] = [
     "scenario": "c21-50",
     "paragraphs": [
       "Im siebten Lernfall steigt der Rücklauf über den Ursprung des frühen Verkäuferimpulses. Damit wird dessen frühere einseitige Lesart deutlich schwächer.",
-      "Wenn anschließend neue Verkäuferkontrolle entsteht, ist eine größere Spike-Kanal-Deutung weiterhin möglich, aber keine während des Rücklaufs sichere Prognose.",
-      "Vergleiche beide Testhöhen mit der ursprünglichen Referenz. Nenne die Überschreitung ehrlich und prüfe die spätere Reaktion. Die alte Zone darf nicht verschoben werden, um sie zu verbergen."
+      "Entsteht anschließend neue Verkäuferkontrolle, ist eine größere Spike-Kanal-Deutung weiterhin möglich, aber keine während des Rücklaufs sichere Prognose.",
+      "Vergleiche beide Testhöhen mit der ursprünglichen Referenz. Benenne die Überschreitung ehrlich und prüf die spätere Reaktion. Die alte Zone darfst du nicht verschieben, um sie zu verbergen."
     ],
     "callout": "Eine Überschreitung ist echte neue Information.",
     "takeaways": [
@@ -1717,7 +1717,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Der spätere Verkäuferkanal im siebten Lernfall beginnt selbst mit einem neuen kleinen Impuls und einer Pause. Innerhalb der größeren Lesart liegt also eine kleinere Spike-Kanal-Folge.",
       "Diese verschachtelten Namen beschreiben teilweise dieselben Preise. Sie sind keine voneinander unabhängigen statistischen Beweise.",
-      "Markiere zuerst den größeren Start und dann die inneren Anker. Prüfe beim nächsten Rücklauf, welcher Bezug tatsächlich besucht wird. Eine Order braucht nur den passenden konkreten Preisplan, keine maximale Namensliste."
+      "Markier zuerst den größeren Start und dann die inneren Anker. Prüf beim nächsten Rücklauf, welcher Bezug tatsächlich besucht wird. Eine Order braucht nur den passenden konkreten Preisplan, keine maximale Namensliste."
     ],
     "callout": "Mehr Musterwörter bedeuten nicht mehr unabhängige Sicherheit.",
     "takeaways": [
@@ -1785,7 +1785,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nach der Käuferumkehr im achten Lernfall entsteht ein Kanal mit drei höheren Spitzen. Die zusätzlichen Hochgewinne werden kleiner.",
       "Das ist ein Zeichen abnehmenden Momentums, noch kein alleiniger Beweis einer großen Umkehr. Vergleiche Rückgabe, Überlappung und späteren Gegenbruch.",
-      "Die eigenen Beispielspitzen liegen bei 62, 71 und 76: Die Fortschritte betragen neun und fünf Einheiten. Notiere die Rechnung und prüfe anschließend die sichtbare Verkäuferfolge."
+      "Die eigenen Beispielspitzen liegen bei 62, 71 und 76: Die Fortschritte betragen neun und fünf Einheiten. Notier die Rechnung und prüf anschließend die sichtbare Verkäuferfolge."
     ],
     "callout": "Kleinere Hochgewinne und Gegenanschluss getrennt lesen.",
     "takeaways": [
@@ -1819,7 +1819,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im achten Lernfall fällt die erste Gegenstrecke in einem engen Kanal. Trotz kleiner innerer Unterbrechungen kann sie nur das erste größere Korrekturbein sein.",
       "Eine spätere schwache Erholung und ein erneuter Tiefentest machen die größere Zweiteilung deutlicher. Der Tiefentest kann danach ein neues Käufersignal bilden.",
-      "Markiere große und kleine Ebenen getrennt. Ein neuer tieferer Test nach einem inneren Linienbruch ist nicht automatisch widersprüchlich. Die Reaktion am Test entscheidet über den nächsten Plan."
+      "Markier große und kleine Ebenen getrennt. Ein neuer tieferer Test nach einem inneren Linienbruch ist nicht automatisch widersprüchlich. Die Reaktion am Test entscheidet über den nächsten Plan."
     ],
     "callout": "Große Korrektur und innere Unterteilung auseinanderhalten.",
     "takeaways": [
@@ -1853,9 +1853,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im neunten Lernfall folgt auf einen großen Eröffnungssprung eine kleine Range. Ein Doppeltief und Käuferanschluss können zur Aufwärtsfortsetzung passen.",
       "Vergleiche die Rangebreite mit einem vorher bekannten Durchschnittsmaß. Im Beispiel sind es zwölf Einheiten bei einer Referenz von 50, also 24 Prozent. Diese Verhältniszahl ist eine Lernheuristik, keine garantierte Ausbruchsquote.",
-      "Eine kleine Range nach einem Gap kann auch unten verlassen werden. Markiere beide Grenzen und prüfe den tatsächlichen Anschluss. Die neue Tagesrichtung steht nicht allein wegen des Gaps fest."
+      "Eine kleine Range nach einem Gap kann auch unten verlassen werden. Markier beide Grenzen und prüf den tatsächlichen Anschluss. Die neue Tagesrichtung steht nicht allein wegen des Gaps fest."
     ],
-    "callout": "Enge Eröffnungsbalance bleibt in beide Richtungen offen.",
+    "callout": "Die enge Eröffnungsbalance bleibt in beide Richtungen offen.",
     "takeaways": [
       "Eine enge Startbalance lässt die Richtung offen.",
       "Vergleiche die Rangebreite mit einem vorher bekannten Durchschnittsmaß.",
@@ -1886,8 +1886,8 @@ const drafts: Draft[] = [
     "scenario": "c21-56",
     "paragraphs": [
       "Im neunten Lernfall folgt nach Käuferfortsetzung ein schneller Verkäuferabschnitt. Beide Seiten haben damit kurz nacheinander gerichtete Strecke gewonnen.",
-      "Anschließende Überlappung kann eine Balance darstellen. Welcher Impuls später einen Kanal erhält, entscheidet die neue Folge, nicht die ursprüngliche Gaprichtung.",
-      "Links stehen die konkurrierenden Impulse. Rechts gewinnt Verkäuferanschluss aus der Balance. Ein späterer Bärenkanal war unmittelbar nach dem Käuferklimax noch nicht sicher."
+      "Anschließende Überlappung kann eine Balance darstellen. Welcher Impuls später einen Kanal bekommt, entscheidet die neue Folge, nicht die ursprüngliche Gaprichtung.",
+      "Links stehen die konkurrierenden Impulse. Rechts gewinnt Verkäuferanschluss aus der Balance. Einen späteren Bärenkanal konnte man unmittelbar nach dem Käuferklimax noch nicht sicher wissen."
     ],
     "callout": "Das jüngste Anschlussverhalten neu gewichten.",
     "takeaways": [
@@ -1919,7 +1919,7 @@ const drafts: Draft[] = [
     "section": "Lernfall 9",
     "scenario": "c21-57",
     "paragraphs": [
-      "Im neunten Lernfall versucht eine kleine Käuferflagge die Aufwärtsrichtung noch einmal aufzunehmen. Ein kurzer Käuferbar bricht aus, gewinnt aber keinen anhaltenden Anschluss.",
+      "Im neunten Lernfall versucht eine kleine Käuferflagge, die Aufwärtsrichtung noch einmal aufzunehmen. Ein kurzer Käuferbar bricht aus, gewinnt aber keinen anhaltenden Anschluss.",
       "Der folgende Verkäuferbar kann eine tatsächlich ausgelöste Longidee invalidieren. Das unterscheidet sich von einer nie ausgelösten Order. Stop und Menge müssen vor dem kurzen Ausbruch bekannt sein.",
       "Unsere Panels zeigen zuerst den Käufertrigger und dann seine Rücknahme. Behalte diesen Ablauf in der Auswertung, statt den Trade nachträglich als nie vorhanden zu behandeln."
     ],
@@ -1955,7 +1955,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im zehnten Lernfall läuft zuerst ein Käuferkanal. Ein später großer Käuferkörper beschleunigt die Bewegung, bevor Gegenhandel einsetzt.",
       "Eine Buy-Vacuum-Deutung meint, dass der Preis schnell in eine nahe Zielzone läuft, weil entgegenstehende Aktivität vorübergehend gering ist. OHLC belegt diese Ursache nicht direkt.",
-      "Beschreibe deshalb zuerst den großen Körper, die bekannte Zielzone und die nachfolgende Rücknahme. Ein berechnetes Ziel allein war noch keine sichere Shortauslösung."
+      "Beschreib deshalb zuerst den großen Körper, die bekannte Zielzone und die nachfolgende Rücknahme. Ein berechnetes Ziel allein war noch keine sichere Shortauslösung."
     ],
     "callout": "Buy-Vacuum ist eine Deutung der sichtbaren Folge.",
     "takeaways": [
@@ -1988,10 +1988,10 @@ const drafts: Draft[] = [
     "scenario": "c21-59",
     "paragraphs": [
       "Nach dem späten Klimax im zehnten Lernfall entsteht eine größere Gegenstrecke. Frühe kleine Käuferversuche können innerhalb ihres ersten Beins bleiben und scheitern.",
-      "Die Namen High 1 oder High 2 sichern keine Fortsetzung. Prüfe die neue Verkäuferkontrolle und die größere mögliche Zweiteilung der Korrektur.",
-      "Links ist der erste Käuferversuch sichtbar. Rechts setzt später weitere Verkäuferfolge ein. Ein Stop einer bereits geplanten Shortposition wird nur nach neuer bestätigter Struktur angepasst, nicht allein wegen eines Gegenbars."
+      "Die Namen High 1 oder High 2 sichern keine Fortsetzung. Prüf die neue Verkäuferkontrolle und die größere mögliche Zweiteilung der Korrektur.",
+      "Links ist der erste Käuferversuch sichtbar. Rechts setzt später weitere Verkäuferfolge ein. Den Stop einer bereits geplanten Shortposition passt du nur nach neuer bestätigter Struktur an, nicht allein wegen eines Gegenbars."
     ],
-    "callout": "Zweite Versuchszahl ersetzt keine Kontextprüfung.",
+    "callout": "Die zweite Versuchszahl ersetzt keine Kontextprüfung.",
     "takeaways": [
       "High 1 und High 2 können scheitern.",
       "Die Namen High 1 oder High 2 sichern keine Fortsetzung.",
@@ -2022,10 +2022,10 @@ const drafts: Draft[] = [
     "scenario": "c21-60",
     "paragraphs": [
       "Im zehnten Lernfall entwickelt sich aus der Gegenkorrektur ein Verkäufertrend mit eigenen Kanalabschnitten. Ein später Ausbruch unter den Kanal kann wiederum zurückgenommen werden.",
-      "Die Folge lässt sich zugleich in größere obere und untere Handelsbereiche gliedern. Wähle die Beschreibung, die zum aktuellen Preisplan passt, und halte ihre Ebene fest.",
-      "Nach einer Rückkehr in den unteren Bereich wird der vorherige Ausbruch anders bewertet. Die alten Käuferdaten bleiben erhalten, bestimmen aber nicht mehr automatisch jede spätere Order."
+      "Die Folge lässt sich zugleich in größere obere und untere Handelsbereiche gliedern. Wähl die Beschreibung, die zum aktuellen Preisplan passt, und halte ihre Ebene fest.",
+      "Nach einer Rückkehr in den unteren Bereich bewertest du den vorherigen Ausbruch anders. Die alten Käuferdaten bleiben erhalten, bestimmen aber nicht mehr automatisch jede spätere Order."
     ],
-    "callout": "Aktuellen Anschluss statt alten Tagesnamen handeln.",
+    "callout": "Den aktuellen Anschluss handeln, nicht alte Tagesnamen.",
     "takeaways": [
       "Der Kontext kann sich innerhalb des Tages mehrfach ändern.",
       "Die Folge lässt sich zugleich in größere obere und untere Handelsbereiche gliedern.",
