@@ -15,9 +15,9 @@ const drafts: Draft[] = [
     "section": "Grundlagen",
     "scenario": "c16-01",
     "paragraphs": [
-      "Eine Mikro-Trendlinie beschreibt einen kurzen Abschnitt aus wenigen aufeinanderfolgenden Bars. Häufig umfasst sie ungefähr zwei bis zehn Bars. Viele Bars liegen nahe an der Linie; sie macht sichtbar, wie wenig Raum die Gegenseite in diesem Abschnitt gewinnt.",
-      "Im Bullenfall liegt die Linie an den steigenden Tiefbereichen, im Bärenfall an den fallenden Hochbereichen. Das Grundprinzip ist dasselbe wie bei einer längeren Trendlinie. Mikro bezeichnet die kleine betrachtete Struktur, nicht zwingend eine bestimmte Chartzeitebene.",
-      "Verwende bekannte Punkte und benenne den Abschnitt. Eine kleine Linie darf im Replay nicht durch einen erst später sichtbaren Bar verankert werden. Ihre Relevanz hängt von Trendstärke und Kontext ab, nicht allein von der kurzen Länge."
+      "Eine Mikro-Trendlinie beschreibt einen kurzen Abschnitt aus wenigen aufeinanderfolgenden Bars. Meist umfasst sie ungefähr zwei bis zehn Bars. Viele Bars liegen nahe an der Linie; sie macht sichtbar, wie wenig Raum die Gegenseite in diesem Abschnitt gewinnt.",
+      "Im Bullenfall liegt die Linie an den steigenden Tiefbereichen, im Bärenfall an den fallenden Hochbereichen. Das Grundprinzip ist dasselbe wie bei einer längeren Trendlinie. Mikro meint die kleine betrachtete Struktur, nicht zwingend eine bestimmte Chartzeitebene.",
+      "Nimm bekannte Punkte und benenne den Abschnitt. Eine kleine Linie darfst du im Replay nicht an einem Bar verankern, der erst später sichtbar wird. Ihre Relevanz hängt von Trendstärke und Kontext ab, nicht allein von der kurzen Länge."
     ],
     "takeaways": [
       "Mikro beschreibt einen kurzen Abschnitt auf jeder Zeitebene.",
@@ -49,16 +49,16 @@ const drafts: Draft[] = [
     "section": "Grundlagen",
     "scenario": "c16-02",
     "paragraphs": [
-      "Wenn zur Mikro-Trendlinie eine gegenüberliegende Grenze passt, entsteht ein sehr enger Mikrokanal. Sein wichtigstes Merkmal sind fehlende oder nur seltene winzige Rückläufe. Der Trend läuft über mehrere Bars, ohne der Gegenseite einen normalen größeren Abschnitt zu geben.",
+      "Passt zur Mikro-Trendlinie eine gegenüberliegende Grenze, entsteht ein sehr enger Mikrokanal. Sein wichtigstes Merkmal sind fehlende oder nur seltene winzige Rückläufe. Der Trend läuft über mehrere Bars, ohne der Gegenseite einen normalen größeren Abschnitt zu geben.",
       "Ein gewöhnlicher Kanal enthält deutliche Pullbacks. Ein Mikrokanal kann dagegen Bar für Bar weiterarbeiten, auch wenn sich die kleinen Körper teilweise überlappen. Überlappung allein macht ihn deshalb nicht automatisch schwach; die Größe der Rückgabe zählt mit.",
-      "Die Beobachtung erklärt, warum die erste sichtbare Gegenkerze nicht sofort eine große Umkehr beweist. Sie kann bloß der ersehnte erste Rücklauf sein. Prüfe ihre Stärke und den anschließenden Test, bevor du die aktuelle Kontrolle aufgibst."
+      "Das erklärt, warum die erste sichtbare Gegenkerze nicht sofort eine große Umkehr beweist. Sie kann bloß der ersehnte erste Rücklauf sein. Prüf ihre Stärke und den anschließenden Test, bevor du die aktuelle Kontrolle aufgibst."
     ],
     "takeaways": [
       "Fehlende oder winzige Rückläufe kennzeichnen den Mikrokanal.",
       "Kleine Barüberlappung und großer Gegenabschnitt sind verschieden.",
       "Erste Gegenkerze ist noch kein großer Kontrollwechsel."
     ],
-    "callout": "Erste Gegenkerze ist noch kein großer Kontrollwechsel.",
+    "callout": "Die erste Gegenkerze ist noch kein großer Kontrollwechsel.",
     "prompt": "Was unterscheidet den Mikrokanal vom gewöhnlichen Kanal?",
     "answers": [
       {
@@ -117,16 +117,16 @@ const drafts: Draft[] = [
     "section": "Einordnung",
     "scenario": "c16-04",
     "paragraphs": [
-      "Ein enger Verlauf kann viele Bars laufen, kurz pausieren und anschließend ähnlich eng fortsetzen. Du kannst ihn als einen längeren engen Kanal oder als zwei Mikrokanäle mit kleinem Rücklauf dazwischen beschreiben.",
-      "Der Name verändert die aktuelle Kontrolle nicht. Wenn die Unterbrechung klein bleibt und der Trend Anschluss bekommt, ist die Fortsetzungsidee dieselbe. Ein neuer eigenständiger Gegenabschnitt würde dagegen eine andere Struktur schaffen.",
-      "Vermeide, Zeit mit einer perfekten Benennung zu verlieren. Notiere die sichtbare Folge, den Pausenbar und die neue Reaktion. Der konkrete Einstieg braucht weiterhin Ort, Auslösung und Risiko; die Zahl deiner Musternamen ist kein zusätzlicher Beleg."
+      "Ein enger Verlauf kann viele Bars laufen, kurz pausieren und danach ähnlich eng fortsetzen. Du kannst ihn als einen längeren engen Kanal oder als zwei Mikrokanäle mit kleinem Rücklauf dazwischen beschreiben.",
+      "Der Name verändert die aktuelle Kontrolle nicht. Bleibt die Unterbrechung klein und der Trend bekommt Anschluss, ist die Fortsetzungsidee dieselbe. Ein neuer eigenständiger Gegenabschnitt würde dagegen eine andere Struktur schaffen.",
+      "Verlier keine Zeit mit der perfekten Benennung. Notier die sichtbare Folge, den Pausenbar und die neue Reaktion. Der konkrete Einstieg braucht weiterhin Ort, Auslösung und Risiko; die Zahl deiner Musternamen ist kein zusätzlicher Beleg."
     ],
     "takeaways": [
       "Mehrere Benennungen können denselben Verlauf erfassen.",
       "Kleine Pause verändert nicht zwingend die Kontrolle.",
       "Barfolge wichtiger als Namensdiskussion."
     ],
-    "callout": "Barfolge wichtiger als Namensdiskussion.",
+    "callout": "Die Barfolge ist wichtiger als die Namensdiskussion.",
     "prompt": "Ein enger Trend pausiert einen Bar und setzt kräftig fort. Was ist sinnvoll?",
     "answers": [
       {
@@ -147,13 +147,13 @@ const drafts: Draft[] = [
   {
     "number": 5,
     "title": "Mikrokanäle brauchen den größeren Marktkontext",
-    "summary": "Lokale Form und größerer Kontext zusammenlesen.",
+    "summary": "Lokale Form und größeren Kontext zusammen lesen.",
     "section": "Kontext",
     "scenario": "c16-05",
     "paragraphs": [
       "Ein Bullen-Mikrokanal kann im Bullenverlauf, in einer Range oder als Rücklauf im Bärentrend entstehen. Die lokale Richtung ist gleich, aber die plausible Auflösung und der Zielraum können sehr verschieden sein.",
       "Auch ein Ausbruch des Mikrokanals hat drei Möglichkeiten: Anschluss, rasche Rückkehr oder mehr Seitwärtshandel. Vergleiche die Stärke des Ausbruchs und der Gegenreaktion. Sind beide ähnlich überzeugend, liefert erst die weitere Folge klarere Information.",
-      "Behaupte aus der kleinen Form keine Kenntnis bestimmter Computerprogramme. Sichtbar sind Preise, Barqualität und Reaktion, nicht die Absichten aller Teilnehmer. Der größere Kontext ist eine überprüfbare Entscheidungsgrundlage; eine Programmgeschichte ist nur eine Vermutung."
+      "Aus der kleinen Form kannst du nicht auf bestimmte Computerprogramme schließen. Sichtbar sind Preise, Barqualität und Reaktion, nicht die Absichten aller Teilnehmer. Der größere Kontext ist eine überprüfbare Entscheidungsgrundlage; eine Programmgeschichte ist nur eine Vermutung."
     ],
     "takeaways": [
       "Lokale Form und größerer Kontext zusammenlesen.",
@@ -181,20 +181,20 @@ const drafts: Draft[] = [
   {
     "number": 6,
     "title": "Gegen-Mikrokanal als Flagge in Trendrichtung handeln",
-    "summary": "Gegenkanal kann die letzte Flaggenphase bilden.",
+    "summary": "Ein Gegenkanal kann die letzte Flaggenphase bilden.",
     "section": "Kontext · Flaggen",
     "scenario": "c16-06",
     "paragraphs": [
       "Ein kleiner Bären-Mikrokanal im kräftigen Bullenverlauf kann die letzte Phase einer Bullenflagge sein. Ein guter Käufer-Signalbar mit Auslösung über seinem Hoch kann den Bruch dieses kleinen Gegenkanals vorbereiten.",
       "Im Bärenverlauf ist ein Bullen-Mikrokanal entsprechend eine mögliche Bärenflagge. Hier ist eine Verkäuferauslösung unter einem passenden Signalbar die Trendidee. Die lokale kleine Trendrichtung und die Richtung des größeren Plans sind bewusst verschieden.",
-      "Nicht jeder Gegenkanal muss sofort enden. Ein zu früher Einstieg kann gegen weiterlaufendes Gegenmomentum erfolgen. Verlange die passende Reaktion am Ort der Flagge und genug Zielraum, statt jeden geometrischen Bruch blind zu handeln."
+      "Nicht jeder Gegenkanal muss sofort enden. Ein zu früher Einstieg kann gegen weiterlaufendes Gegenmomentum erfolgen. Verlang die passende Reaktion am Ort der Flagge und genug Zielraum, statt jeden geometrischen Bruch blind zu handeln."
     ],
     "takeaways": [
       "Gegenkanal kann die letzte Flaggenphase bilden.",
       "Auslösung in Richtung der größeren Kontrolle prüfen.",
       "Lokaler Linienbruch allein ist noch kein fertiger Trade."
     ],
-    "callout": "Lokaler Linienbruch allein ist noch kein fertiger Trade.",
+    "callout": "Ein lokaler Linienbruch allein ist noch kein fertiger Trade.",
     "prompt": "Ein enger Bärenpullback liegt im starken Bullenverlauf. Welche Idee passt eher?",
     "answers": [
       {
@@ -215,7 +215,7 @@ const drafts: Draft[] = [
   {
     "number": 7,
     "title": "Der erste Rücklauf im Bullen-Mikrokanal",
-    "summary": "Erster tieferer Bartiefpunkt kann der erste Pullback sein.",
+    "summary": "Das erste tiefere Bartief kann der erste Pullback sein.",
     "section": "Erster Gegenbruch",
     "scenario": "c16-07",
     "paragraphs": [
@@ -253,8 +253,8 @@ const drafts: Draft[] = [
     "section": "Erster Gegenbruch",
     "scenario": "c16-08",
     "paragraphs": [
-      "Ein gescheiterter Bruch unter dem Bullen-Mikrokanal kann eine Longidee über dem Hoch des Rücklaufbars liefern. High 1 bezeichnet den ersten entsprechenden Fortsetzungsversuch im Pullback. Wenn der Mikrokanal zuvor ein altes Hoch überwunden hat, kann derselbe Ablauf auch ein Ausbruchspullback sein.",
-      "Beide Namen können denselben Einstieg beschreiben und dürfen nicht als zwei unabhängige Garantien gezählt werden. Prüfe, wie stark die Käufer zurückkehren und welcher Bereich die Idee ungültig machen würde. Ein starker Verkäuferbar nach der Auslösung ist neue Information.",
+      "Ein gescheiterter Bruch unter dem Bullen-Mikrokanal kann eine Longidee über dem Hoch des Rücklaufbars liefern. High 1 ist der erste entsprechende Fortsetzungsversuch im Pullback. Hat der Mikrokanal zuvor ein altes Hoch überwunden, kann derselbe Ablauf auch ein Ausbruchspullback sein.",
+      "Beide Namen können denselben Einstieg beschreiben und zählen nicht als zwei unabhängige Garantien. Prüf, wie stark die Käufer zurückkehren und welcher Bereich die Idee ungültig machen würde. Ein starker Verkäuferbar nach der Auslösung ist neue Information.",
       "Ein Stop über dem Signalbar bestätigt nur, dass dieser Preis gehandelt wurde. Er garantiert keinen weiteren Käuferanschluss. Menge und Ausstiegsgrenze müssen vor der Order zum geplanten Geldrisiko passen."
     ],
     "takeaways": [
@@ -283,11 +283,11 @@ const drafts: Draft[] = [
   {
     "number": 9,
     "title": "Erfahrene Einstiege vor dem ersten normalen Pullback",
-    "summary": "Ein Trend kann ohne normalen Rücklauf gehandelt werden.",
+    "summary": "Ein Trend lässt sich auch ohne normalen Rücklauf handeln.",
     "section": "Orderlogik",
     "scenario": "c16-09",
     "paragraphs": [
-      "Erfahrene Trader können schon während eines starken Mikrokanals Trendpositionen eröffnen, etwa an gerichteten Schlüsse oder mit Limits nahe kurzen Rückgabezonen. Sie warten nicht zwingend auf einen großen Pullback, der in diesem Verlauf vielleicht lange ausbleibt.",
+      "Erfahrene Trader können schon während eines starken Mikrokanals Trendpositionen eröffnen, etwa an gerichteten Schlüssen oder mit Limits nahe kurzen Rückgabezonen. Sie warten nicht zwingend auf einen großen Pullback, der in diesem Verlauf vielleicht lange ausbleibt.",
       "Bisherige Rücklaufgrößen können dabei als Orientierung dienen. Ein späterer Einstieg trägt trotzdem das Risiko, am Ende der Folge zu kaufen. Frühere profitable Teile machen die letzte Order nicht sicher und erlauben kein unbegrenztes Ergänzen.",
       "Diese Beschreibung erklärt mögliche Orders innerhalb des engen Kanals. Sie ist kein Auftrag, jede Kerze zu handeln. Als Anfänger kannst du auf eine klare bestätigte Reaktion warten oder auslassen, wenn ein vorab begrenzter Plan nicht passt."
     ],
@@ -317,13 +317,13 @@ const drafts: Draft[] = [
   {
     "number": 10,
     "title": "Am oberen Rangerand kann High 1 zur Falle werden",
-    "summary": "Rangeort kann einen sonst plausiblen Long schwächen.",
+    "summary": "Der Rangeort kann einen sonst plausiblen Long schwächen.",
     "section": "Kontext · Balance",
     "scenario": "c16-10",
     "paragraphs": [
       "Ein Bullen-Mikrokanal am oberen Ende einer größeren Range hat weniger Raum als derselbe Verlauf in einem offenen Bullenabschnitt. Ein erster unterer Bruch kann zurückkehren, aber der folgende Longversuch kann schon nach wenigen Bars wieder stocken.",
       "Eine Verkäuferreaktion nach einem kleinen höheren oder gleichen Hoch kann dann ein Mikro-Doppelhoch oder einen Ausbruchspullback des ursprünglichen Gegenbruchs bilden. Die neue Hochzahl allein widerlegt den Verkäuferplan nicht.",
-      "Prüfe den Rangeort, die Stärke des Rückanstiegs und den tatsächlichen Gegenanschluss. Für Anfänger ist ein automatischer Richtungswechsel aus jeder kleinen Falle zu unübersichtlich. Schließe einen gescheiterten Plan nach seinen Regeln und behandle eine neue Gegenidee eigenständig."
+      "Prüf den Rangeort, die Stärke des Rückanstiegs und den tatsächlichen Gegenanschluss. Für Anfänger ist ein automatischer Richtungswechsel aus jeder kleinen Falle zu unübersichtlich. Schließe einen gescheiterten Plan nach seinen Regeln und behandle eine neue Gegenidee eigenständig."
     ],
     "takeaways": [
       "Rangeort kann einen sonst plausiblen Long schwächen.",
@@ -356,15 +356,15 @@ const drafts: Draft[] = [
     "scenario": "c16-11",
     "paragraphs": [
       "Zuerst bricht der Kurs unter einen Bullen-Mikrokanal. Dann kehrt er nach oben zurück und löst einen möglichen Fortsetzungskauf aus. Dreht er anschließend erneut kräftig nach unten, hat auch der erste Fehlschlag seinen Anschluss nicht gehalten.",
-      "Für die Verkäufer kann die Rückkehr nun als Ausbruchspullback des ursprünglichen unteren Bruchs erscheinen. Sie kann ein tieferes oder sogar höheres Testhoch bilden. Die Abfolge aus Bruch, Rückkehr und neuem Gegenanschluss erklärt die Struktur besser als ein einzelner Hochpreis.",
-      "Ein Ausstieg aus dem Long und ein neuer Short sind zwei Entscheidungen mit eigenen Risiken. Es gibt keine Pflicht, automatisch zu drehen. Wenn der neue Verlauf vor allem überlappt und keine klare Auslösung liefert, bleibt Abwarten eine vollständige Entscheidung."
+      "Für die Verkäufer kann die Rückkehr nun wie ein Ausbruchspullback des ursprünglichen unteren Bruchs aussehen. Sie kann ein tieferes oder sogar höheres Testhoch bilden. Die Abfolge aus Bruch, Rückkehr und neuem Gegenanschluss erklärt die Struktur besser als ein einzelner Hochpreis.",
+      "Ein Ausstieg aus dem Long und ein neuer Short sind zwei Entscheidungen mit eigenen Risiken. Du musst nicht automatisch drehen. Wenn der neue Verlauf vor allem überlappt und keine klare Auslösung liefert, bleibt Abwarten eine vollständige Entscheidung."
     ],
     "takeaways": [
       "Bruch, Fehlschlag und Fehlschlag des Fehlschlags nacheinander lesen.",
       "Höherer Testpreis kann trotzdem ein Gegenpullback sein.",
       "Automatischer Positionswechsel ist nicht erforderlich."
     ],
-    "callout": "Automatischer Positionswechsel ist nicht erforderlich.",
+    "callout": "Ein automatischer Positionswechsel ist nicht erforderlich.",
     "prompt": "Der fehlgeschlagene untere Bruch kehrt erneut kräftig nach unten. Welche Einordnung wird plausibel?",
     "answers": [
       {
@@ -389,9 +389,9 @@ const drafts: Draft[] = [
     "section": "Doppelte Fehlschläge",
     "scenario": "c16-12",
     "paragraphs": [
-      "Nach wechselnden Fehlschlägen können zuerst Shorts ausgestoppt und anschließend Longs in Verlust gebracht werden. Wenn danach klare gerichtete Körper auftreten, kann der neue Gegenabschnitt mehr Anschluss bekommen. Die vorangegangene Folge ist dann Teil seines Kontexts.",
+      "Nach wechselnden Fehlschlägen können zuerst Shorts ausgestoppt und anschließend Longs in Verlust gebracht werden. Treten danach klare gerichtete Körper auf, kann der neue Gegenabschnitt mehr Anschluss bekommen. Die vorangegangene Folge gehört dann zu seinem Kontext.",
       "Sind die neuen Bars dagegen kleine Dojis mit langen Tails und starker Überlappung, spricht das eher für Unsicherheit und mögliche Balance. Ein neuer Ausbruch bleibt möglich, aber eine schnelle geradlinige Fortsetzung ist weniger klar.",
-      "Die Beschreibung gefangener Trader erklärt mögliche Schließungsorders, nicht bekannte Einzelpositionen. Zähle nicht einfach zwei Fallen als Gewinnversprechen. Beurteile die sichtbaren Körper und den Anschluss und warte, wenn kein klarer Plan daraus folgt."
+      "Die Beschreibung gefangener Trader erklärt mögliche Schließungsorders, nicht bekannte Einzelpositionen. Zähl nicht einfach zwei Fallen als Gewinnversprechen. Beurteile die sichtbaren Körper und den Anschluss und warte, wenn daraus kein klarer Plan folgt."
     ],
     "takeaways": [
       "Nach Fehlschlägen die Qualität der neuen Körper prüfen.",
@@ -419,20 +419,20 @@ const drafts: Draft[] = [
   {
     "number": 13,
     "title": "Oberer Ausbruch aus dem Mikrokanal",
-    "summary": "Oberer Ausbruch kann beschleunigen oder scheitern.",
+    "summary": "Ein oberer Ausbruch kann beschleunigen oder scheitern.",
     "section": "Ausbrüche",
     "scenario": "c16-13",
     "paragraphs": [
       "Ein Bullen-Mikrokanal kann über seine obere Grenze ausbrechen und versuchen, noch steiler zu werden. Starker Anschluss außerhalb kann die Beschleunigung stützen. Kehrt die Ausdehnung dagegen mit kräftiger Verkäuferreaktion zurück, kann eine späte Kaufüberdehnung vorliegen.",
-      "Diese obere Umkehridee ist etwas anderes als ein kleiner Short an der unteren Trendseite. Der Ort liegt am äußeren Schubende. Dennoch braucht der Gegenplan eine überzeugende Reaktion und einen passenden Auslöser; die obere Linie allein genügt nicht.",
-      "Vergleiche die Stärke des Ausbruchs mit dem Gegenbar und der weiteren Folge. Bei gleich starken Seiten warte auf mehr Information. Das Wort Climax bedeutet Ausdehnung und darf nicht automatisch eine sichere Gegenorder bedeuten."
+      "Diese obere Umkehridee ist etwas anderes als ein kleiner Short an der unteren Trendseite. Der Ort liegt am äußeren Schubende. Trotzdem braucht der Gegenplan eine überzeugende Reaktion und einen passenden Auslöser; die obere Linie allein genügt nicht.",
+      "Vergleiche die Stärke des Ausbruchs mit dem Gegenbar und der weiteren Folge. Sind beide Seiten gleich stark, warte auf mehr Information. Das Wort Climax steht für Ausdehnung und heißt nicht automatisch: sichere Gegenorder."
     ],
     "takeaways": [
       "Oberer Ausbruch kann beschleunigen oder scheitern.",
       "Schubende und untere Trendseite sind verschiedene Orte.",
       "Gegenreaktion statt nur Grenzverletzung verlangen."
     ],
-    "callout": "Gegenreaktion statt nur Grenzverletzung verlangen.",
+    "callout": "Eine Gegenreaktion verlangen, nicht nur eine Grenzverletzung.",
     "prompt": "Wann stützt ein oberer Mikrokanalausbruch eher eine Gegenidee?",
     "answers": [
       {
@@ -453,20 +453,20 @@ const drafts: Draft[] = [
   {
     "number": 14,
     "title": "Lange enge Folge: auf größeren Rücklauf vorbereitet sein",
-    "summary": "Lange enge Folge kann eine größere Korrektur vorbereiten.",
+    "summary": "Eine lange enge Folge kann eine größere Korrektur vorbereiten.",
     "section": "Trenddauer",
     "scenario": "c16-14",
     "paragraphs": [
       "Ein Mikrokanal mit zehn oder mehr Bars kann weit gestreckt sein. Eine spätere größere Pause, Korrektur oder Umkehr wird dadurch als Szenario wichtiger. Die Zahl ist eine grobe Orientierung und legt keinen sicheren letzten Bar fest.",
       "Der erste Bruch kann immer noch als Pullback scheitern. Eine spätere zweite Gegenidee nach Rücklauftest liefert mehr Information als die bloße Länge. Beurteile deshalb die Abfolge und nicht nur, ob ein Zähler gerade zehn erreicht hat.",
-      "Ein Trend kann länger laufen, als eine frühzeitige Gegenposition verträgt. Vorbereitung auf einen Übergang bedeutet nicht, ihn ohne Signal vorwegzunehmen. Halte aktuelle Kontrolle, neue Gegenstärke und tragbares Risiko gleichzeitig im Blick."
+      "Ein Trend kann länger laufen, als eine frühzeitige Gegenposition verträgt. Sich auf einen Übergang vorzubereiten heißt nicht, ihn ohne Signal vorwegzunehmen. Behalte aktuelle Kontrolle, neue Gegenstärke und tragbares Risiko gleichzeitig im Blick."
     ],
     "takeaways": [
       "Lange enge Folge kann eine größere Korrektur vorbereiten.",
       "Zehn Bars sind eine Orientierung, kein Umkehrschalter.",
       "Zweiten Gegenversuch nach Test gesondert beurteilen."
     ],
-    "callout": "Zweiten Gegenversuch nach Test gesondert beurteilen.",
+    "callout": "Den zweiten Gegenversuch nach einem Test gesondert beurteilen.",
     "prompt": "Der zehnte Bar eines Mikrokanals schließt. Was folgt daraus?",
     "answers": [
       {
@@ -487,13 +487,13 @@ const drafts: Draft[] = [
   {
     "number": 15,
     "title": "Im starken Bärenverlauf: kleiner Hochbruch als Low 1",
-    "summary": "Kleiner Hochbruch kann im Bärenverlauf ein Pullback sein.",
+    "summary": "Ein kleiner Hochbruch kann im Bärenverlauf ein Pullback sein.",
     "section": "Mit dem Trend",
     "scenario": "c16-15",
     "paragraphs": [
-      "Ein starker Bärenabschnitt mit mehreren Verkäuferbars und kleinen Rückgaben kann eine Mikro-Trendlinie an den Hochs besitzen. Ein kleiner Pausenbar, der diese Linie überschreitet, kann lediglich einen kurzen Rücklauf beginnen.",
+      "Ein starker Bärenabschnitt mit mehreren Verkäuferbars und kleinen Rückgaben kann eine Mikro-Trendlinie an den Hochs haben. Ein kleiner Pausenbar, der diese Linie überschreitet, kann lediglich einen kurzen Rücklauf beginnen.",
       "Kehrt der Kurs unter den Tiefpunkt dieses Bars zurück, kann das ein Low-1-Trendsetup sein: der erste passende Verkäuferfortsetzungsversuch. Die größere Bärenkontrolle ist der wichtige Kontext. Ein erster kleiner Hochbruch ist für sich noch keine Longbestätigung.",
-      "Prüfe Barqualität und Zielraum. Wenn der Verkäuferabschnitt schon einen wichtigen Tiefbereich erreicht oder neue Käuferkörper auftreten, ist dieselbe kleine Form anders zu beurteilen. Low 1 ist ein Muster im Kontext, kein universeller Verkaufsbefehl."
+      "Prüf Barqualität und Zielraum. Hat der Verkäuferabschnitt schon einen wichtigen Tiefbereich erreicht oder tauchen neue Käuferkörper auf, beurteilst du dieselbe kleine Form anders. Low 1 ist ein Muster im Kontext, kein universeller Verkaufsbefehl."
     ],
     "takeaways": [
       "Kleiner Hochbruch kann im Bärenverlauf ein Pullback sein.",
@@ -521,20 +521,20 @@ const drafts: Draft[] = [
   {
     "number": 16,
     "title": "Winzige Linienverletzung und handelbarer Tick sind verschieden",
-    "summary": "Linienwert kann zwischen handelbaren Kursstufen liegen.",
+    "summary": "Der Linienwert kann zwischen handelbaren Kursstufen liegen.",
     "section": "Geometrie",
     "scenario": "c16-16",
     "paragraphs": [
-      "Eine Mikro-Trendlinie kann schon aus zwei benachbarten Bars entstehen. Ein späterer Pausenbar kann sie geometrisch verletzen, obwohl die Abweichung kleiner als ein handelbarer Tick ist. Eine schräge Linie kann zwischen möglichen Kursstufen verlaufen.",
-      "Das bedeutet nicht, dass der Markt einen Bruchteil eines Ticks gehandelt hätte. Die tatsächlichen OHLC-Preise bleiben auf den zulässigen Kursstufen. Die Linie ist eine kontinuierliche Zeichnung und die Orderauslösung ein konkreter handelbarer Preis.",
-      "Verwechsle beide nicht. Die kleine geometrische Verletzung kann einen beobachtbaren Pullbackbereich markieren, aber eine Order braucht ihre reale Auslösung und ihre Verlustgrenze. Pixelgenauigkeit erhöht nicht die Gewissheit über den nächsten Bar."
+      "Eine Mikro-Trendlinie kann schon aus zwei benachbarten Bars entstehen. Ein späterer Pausenbar kann sie geometrisch verletzen, obwohl die Abweichung kleiner ist als ein handelbarer Tick. Eine schräge Linie kann zwischen möglichen Kursstufen verlaufen.",
+      "Das heißt nicht, dass der Markt einen Bruchteil eines Ticks gehandelt hätte. Die tatsächlichen OHLC-Preise bleiben auf den zulässigen Kursstufen. Die Linie ist eine kontinuierliche Zeichnung, die Orderauslösung ein konkreter handelbarer Preis.",
+      "Verwechsle beides nicht. Die kleine geometrische Verletzung kann einen beobachtbaren Pullbackbereich markieren, aber eine Order braucht ihre reale Auslösung und ihre Verlustgrenze. Pixelgenauigkeit erhöht nicht die Gewissheit über den nächsten Bar."
     ],
     "takeaways": [
       "Linienwert kann zwischen handelbaren Kursstufen liegen.",
       "Geometrische Verletzung ist nicht ein Bruchteil-Tick-Trade.",
       "Orderauslösung braucht einen realen Preis."
     ],
-    "callout": "Orderauslösung braucht einen realen Preis.",
+    "callout": "Die Orderauslösung braucht einen realen Preis.",
     "prompt": "Eine Linie liegt bei 52,5, das tatsächliche Tief bei 52. Was ist korrekt?",
     "answers": [
       {
@@ -555,20 +555,20 @@ const drafts: Draft[] = [
   {
     "number": 17,
     "title": "Bären-Mikrolinie im Bullenpullback: den falschen Short erkennen",
-    "summary": "Kleine Gegenlinie kann nur den Bullenpullback beschreiben.",
+    "summary": "Eine kleine Gegenlinie kann nur den Bullenpullback beschreiben.",
     "section": "Kontextfehler",
     "scenario": "c16-17",
     "paragraphs": [
-      "Ein Bullenpullback kann lokal eine fallende Mikro-Trendlinie bilden. Ein Bruch darüber kann kurz zurückfallen und so einen scheinbaren Short nach fehlgeschlagenem lokalen Ausbruch erzeugen. Im starken größeren Bullenverlauf nahe dem Durchschnitt ist dieser Short jedoch gegen die wichtigere Kontrolle.",
+      "Ein Bullenpullback kann lokal eine fallende Mikro-Trendlinie bilden. Ein Bruch darüber kann kurz zurückfallen und so einen scheinbaren Short nach fehlgeschlagenem lokalen Ausbruch erzeugen. Im starken größeren Bullenverlauf nahe dem Durchschnitt geht dieser Short jedoch gegen die wichtigere Kontrolle.",
       "Scheitert er anschließend, kann der obere Bruch zum Ausbruchspullback in Bullenrichtung werden. Das neue Testtief darf etwas tiefer oder höher liegen. Entscheidend sind die Käuferreaktion und die größere Trendstruktur.",
-      "Nutze die lokale Gegenlinie deshalb als Hinweis auf einen möglichen späteren Trendfortsetzungsablauf. Sie fordert dich nicht auf, jede lokale Bärenauslösung zu handeln. Ein Anfänger kann die bestätigte Käuferreaktion abwarten und den frühen Gegenversuch auslassen."
+      "Nutze die lokale Gegenlinie deshalb als Hinweis auf einen möglichen späteren Trendfortsetzungsablauf. Sie fordert dich nicht auf, jede lokale Bärenauslösung zu handeln. Als Anfänger kannst du die bestätigte Käuferreaktion abwarten und den frühen Gegenversuch auslassen."
     ],
     "takeaways": [
       "Kleine Gegenlinie kann nur den Bullenpullback beschreiben.",
       "Lokaler Shortname kann gegen den größeren Trend laufen.",
       "Gescheiterte Gegenidee kann Trendfortsetzung vorbereiten."
     ],
-    "callout": "Gescheiterte Gegenidee kann Trendfortsetzung vorbereiten.",
+    "callout": "Eine gescheiterte Gegenidee kann Trendfortsetzung vorbereiten.",
     "prompt": "Ein lokaler Short liegt am Ende der Bullenflagge nahe dem steigenden Durchschnitt. Was prüfst du?",
     "answers": [
       {
@@ -589,20 +589,20 @@ const drafts: Draft[] = [
   {
     "number": 18,
     "title": "Nach bestätigtem Richtungswechsel gilt ein anderer Trendplan",
-    "summary": "Mit dem Trend meint die aktuelle belegte Kontrolle.",
+    "summary": "Mit dem Trend ist die aktuelle belegte Kontrolle gemeint.",
     "section": "Kontextwechsel",
     "scenario": "c16-18",
     "paragraphs": [
-      "Mikro-Trendlinien dienen hier vor allem der Auswahl mit der aktuellen Trendkontrolle. Diese Kontrolle kann sich verändern. Nach einem deutlichen Bullenlinienbruch und einem scheiternden Hochtest kann ein Bärenplan plausibel werden.",
-      "Dann sind kurze Bärenlinien und Verkäuferfortsetzungen auch in Bereichen interessant, in denen zuvor Longpullbacks gesucht wurden. Ein Durchschnitt allein bestimmt die Richtung nicht. Gegenbruch, Extremtest und Verkäuferanschluss verändern die Bedeutung des Orts.",
-      "Lege im Replay fest, ab wann dieser Wechsel wirklich sichtbar war. Frühe Shorts im alten Bullenverlauf werden durch die spätere Umkehr nicht rückwirkend korrekt. Jede Entscheidung muss mit der damaligen Struktur beurteilt werden."
+      "Mikro-Trendlinien dienen hier vor allem dazu, mit der aktuellen Trendkontrolle auszuwählen. Diese Kontrolle kann sich verändern. Nach einem deutlichen Bullenlinienbruch und einem scheiternden Hochtest kann ein Bärenplan plausibel werden.",
+      "Dann sind kurze Bärenlinien und Verkäuferfortsetzungen auch in Bereichen interessant, in denen du vorher Longpullbacks gesucht hast. Ein Durchschnitt allein bestimmt die Richtung nicht. Gegenbruch, Extremtest und Verkäuferanschluss verändern die Bedeutung des Orts.",
+      "Leg im Replay fest, ab wann dieser Wechsel wirklich sichtbar war. Frühe Shorts im alten Bullenverlauf werden durch die spätere Umkehr nicht rückwirkend korrekt. Jede Entscheidung musst du mit der damaligen Struktur beurteilen."
     ],
     "takeaways": [
       "Mit dem Trend meint die aktuelle belegte Kontrolle.",
       "Gegenbruch und scheiternder Extremtest können sie verändern.",
       "Spätere Umkehr rechtfertigt keine frühere unbegründete Order."
     ],
-    "callout": "Spätere Umkehr rechtfertigt keine frühere unbegründete Order.",
+    "callout": "Eine spätere Umkehr rechtfertigt keine frühere unbegründete Order.",
     "prompt": "Wann verändert sich die Bedeutung einer Mikro-Shortidee im früheren Bullenbereich?",
     "answers": [
       {
@@ -628,15 +628,15 @@ const drafts: Draft[] = [
     "scenario": "c16-19",
     "paragraphs": [
       "Ein Mikrokanal aus kleinen Bars kann auf einer größeren Zeitebene ein großer Trendbar sein. Auf einer kleineren Zeitebene kann derselbe Abschnitt viele kleine Rückläufe enthalten. Die Darstellungen unterscheiden sich, obwohl sie denselben Kursweg zusammenfassen.",
-      "Du musst nicht die perfekte größere oder kleinere Grafik suchen. Wenn die Hauptzeitebene Stärke und Fehlschlag bereits sichtbar zeigt, kann zusätzliche Information die Entscheidung auch verlangsamen. Die gewählte Ebene muss zum Risiko- und Ausstiegsplan passen.",
-      "Ein Wechsel der Zeitebene während einer Verlustposition darf den ursprünglichen Stop nicht heimlich vergrößern. Benenne, welche Ebene für Auslösung und welche gegebenenfalls für Kontext dient. Die kleinere Detailstruktur ist eine Ergänzung, keine neue Vergangenheit."
+      "Du musst nicht die perfekte größere oder kleinere Grafik suchen. Zeigt die Hauptzeitebene Stärke und Fehlschlag schon sichtbar, kann zusätzliche Information die Entscheidung sogar verlangsamen. Die gewählte Ebene muss zu deinem Risiko- und Ausstiegsplan passen.",
+      "Ein Wechsel der Zeitebene während einer Verlustposition darf den ursprünglichen Stop nicht heimlich vergrößern. Benenne, welche Ebene für die Auslösung und welche gegebenenfalls für den Kontext dient. Die kleinere Detailstruktur ist eine Ergänzung, keine neue Vergangenheit."
     ],
     "takeaways": [
       "Mikrokanal, Spike und kleiner Rücklaufkanal können denselben Weg zeigen.",
       "Zusatzchart ist nicht immer nötig.",
       "Zeitebenenwechsel verändert keine alte Risikogrenze."
     ],
-    "callout": "Zeitebenenwechsel verändert keine alte Risikogrenze.",
+    "callout": "Ein Zeitebenenwechsel verändert keine alte Risikogrenze.",
     "prompt": "Ein Fünf-Minuten-Mikrokanal hat auf einer kleineren Ebene mehrere Pullbacks. Was bedeutet das?",
     "answers": [
       {
@@ -661,16 +661,16 @@ const drafts: Draft[] = [
     "section": "Arbeitsweise",
     "scenario": "c16-20",
     "paragraphs": [
-      "Eine fertige Ein-Minuten-Grafik zeigt viele scheinbar offensichtliche Linienbrüche. In Echtzeit können die brauchbaren Signale jedoch sehr schnell entstehen und auslösen, während schwache Signale länger Zeit zum Grübeln geben. Rückblickende Klarheit kann dadurch täuschen.",
-      "Die Übung soll Auswahl mit damals verfügbaren Bars trainieren. Bleibe auf einer vorab gewählten Zeitebene und decke schrittweise auf. Notiere Kontext, Linie, Reaktion, Auslösung und Risiko, bevor du die nächste Bewegung kennst.",
-      "Wenn ein klares Signal verpasst wurde, ist Hinterherhandeln keine notwendige Reparatur. Wenn die Folge überwiegend unklar bleibt, ist Abwarten sinnvoll. Ein kleiner Musterausschnitt hat nur dann praktischen Wert, wenn er unter deinem tatsächlichen Tempo und Plan bearbeitbar ist."
+      "Eine fertige Ein-Minuten-Grafik zeigt viele scheinbar offensichtliche Linienbrüche. In Echtzeit können die brauchbaren Signale aber sehr schnell entstehen und auslösen, während schwache Signale dir länger Zeit zum Grübeln geben. Rückblickende Klarheit kann daher täuschen.",
+      "Die Übung soll dir beibringen, mit den damals verfügbaren Bars auszuwählen. Bleib auf einer vorab gewählten Zeitebene und deck schrittweise auf. Notier Kontext, Linie, Reaktion, Auslösung und Risiko, bevor du die nächste Bewegung kennst.",
+      "Hast du ein klares Signal verpasst, ist Hinterherhandeln keine notwendige Reparatur. Bleibt die Folge überwiegend unklar, ist Abwarten sinnvoll. Ein kleiner Musterausschnitt hat nur dann praktischen Wert, wenn du ihn in deinem tatsächlichen Tempo und mit deinem Plan bearbeiten kannst."
     ],
     "takeaways": [
       "Rückblickende Übersicht und reale Entscheidungsgeschwindigkeit unterscheiden.",
       "Im Replay vor dem Aufdecken notieren.",
       "Verpasste Auslösung nicht durch ungeplantes Hinterherhandeln ersetzen."
     ],
-    "callout": "Verpasste Auslösung nicht durch ungeplantes Hinterherhandeln ersetzen.",
+    "callout": "Eine verpasste Auslösung nicht durch ungeplantes Hinterherhandeln ersetzen.",
     "prompt": "Warum beweist ein schöner fertiger Ein-Minuten-Chart keine einfache Umsetzung?",
     "answers": [
       {
@@ -695,9 +695,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 16.1 · Zeitebenen",
     "scenario": "c16-21",
     "paragraphs": [
-      "Der erste Chartfall stellt denselben Kursabschnitt auf einer kleineren und einer größeren Zeitebene gegenüber. Eine längere klar erkennbare Linie im Detailchart kann im größeren Bild nur als winzige Mikro-Trendlinie über wenige Bars erscheinen.",
+      "Der erste Chartfall stellt denselben Kursabschnitt auf einer kleineren und einer größeren Zeitebene gegenüber. Eine längere, klar erkennbare Linie im Detailchart kann im größeren Bild nur als winzige Mikro-Trendlinie über wenige Bars erscheinen.",
       "Die größere Grafik enthält dadurch nicht zu wenig Information. Ein kleiner Bruch mit passender Reaktion kann dort denselben Lernablauf sichtbar machen. Die Detailansicht erklärt die Entstehung, muss aber nicht für jede Order zusätzlich geöffnet werden.",
-      "Das eigene Diagramm verwendet eine tatsächlich aggregierte synthetische Folge: Je fünf kleine Bars bilden einen großen Bar. Open, High, Low und Close werden entsprechend zusammengefasst. So zeigt die Gegenüberstellung denselben erfundenen Kursweg statt zwei unabhängig erfundener Bilder."
+      "Das eigene Diagramm nutzt eine tatsächlich aggregierte synthetische Folge: Je fünf kleine Bars bilden einen großen Bar. Open, High, Low und Close werden entsprechend zusammengefasst. So zeigt die Gegenüberstellung denselben erfundenen Kursweg statt zwei unabhängig erfundener Bilder."
     ],
     "takeaways": [
       "Detailchart und aggregiertes Barbild können denselben Ablauf zeigen.",
@@ -729,16 +729,16 @@ const drafts: Draft[] = [
     "section": "Chartfall 16.1 · Zweiter Versuch",
     "scenario": "c16-22",
     "paragraphs": [
-      "In einem fallenden Abschnitt kann ein erster kleiner Bruch über die Mikro-Trendlinie scheitern. Ein späterer zweiter Hochversuch mit erneuter Verkäuferreaktion liefert zusätzliche Information, dass Käufer den Bereich noch nicht halten konnten.",
-      "Einige geometrische Brüche können im größeren Bild sehr klein sein. Ihr Gewicht hängt trotzdem von der Reihenfolge und dem Kontext ab. Der zweite Fehlversuch ist ein neuer beobachteter Ablauf, keine Garantie, weil der erste verloren hätte.",
-      "Prüfe den Auslöser unter dem Signalbereich und den verfügbaren Raum. Der erste Verlustplan darf nicht bis zum zweiten Versuch ungeplant verlängert werden. Ein zweiter Einstieg braucht sein eigenes Risiko und muss mit den dann bekannten Bars begründet sein."
+      "In einem fallenden Abschnitt kann ein erster kleiner Bruch über die Mikro-Trendlinie scheitern. Ein späterer zweiter Hochversuch mit erneuter Verkäuferreaktion liefert zusätzliche Information, dass die Käufer den Bereich noch nicht halten konnten.",
+      "Manche geometrischen Brüche sind im größeren Bild sehr klein. Ihr Gewicht hängt trotzdem von Reihenfolge und Kontext ab. Der zweite Fehlversuch ist ein neu beobachteter Ablauf, keine Garantie, nur weil der erste verloren hätte.",
+      "Prüf den Auslöser unter dem Signalbereich und den verfügbaren Raum. Den ersten Verlustplan darfst du bis zum zweiten Versuch nicht ungeplant verlängern. Ein zweiter Einstieg braucht sein eigenes Risiko und muss mit den dann bekannten Bars begründet sein."
     ],
     "takeaways": [
       "Ersten und zweiten Fehlversuch zeitlich unterscheiden.",
       "Kleine Geometrie kann relevante Folge enthalten.",
       "Zweiter Versuch braucht einen eigenen Plan."
     ],
-    "callout": "Zweiter Versuch braucht einen eigenen Plan.",
+    "callout": "Ein zweiter Versuch braucht einen eigenen Plan.",
     "prompt": "Was ergänzt der zweite gescheiterte Hochbruch?",
     "answers": [
       {
@@ -759,7 +759,7 @@ const drafts: Draft[] = [
   {
     "number": 23,
     "title": "Chartfall 16.1: Lokaler Long am Bärenpullback",
-    "summary": "Lokale Longform kann im größeren Bärenpullback liegen.",
+    "summary": "Eine lokale Longform kann im größeren Bärenpullback liegen.",
     "section": "Chartfall 16.1 · Kontext",
     "scenario": "c16-23",
     "paragraphs": [
@@ -772,7 +772,7 @@ const drafts: Draft[] = [
       "Detailsetup und Tageskontrolle getrennt lesen.",
       "Scalpidee nicht als große Umkehr ausgeben."
     ],
-    "callout": "Scalpidee nicht als große Umkehr ausgeben.",
+    "callout": "Eine Scalpidee nicht als große Umkehr ausgeben.",
     "prompt": "Ein kleiner Longtrigger liegt am oberen Bärenpullback. Was fehlt für eine große Käuferumkehr?",
     "answers": [
       {
@@ -793,13 +793,13 @@ const drafts: Draft[] = [
   {
     "number": 24,
     "title": "Chartfall 16.1: Ein kleiner Trendwechsel ist nicht der ganze Tag",
-    "summary": "Formal ähnliches Muster kann sehr kleine Bedeutung haben.",
+    "summary": "Ein formal ähnliches Muster kann sehr kleine Bedeutung haben.",
     "section": "Chartfall 16.1 · Strukturgröße",
     "scenario": "c16-24",
     "paragraphs": [
       "Im Detailabschnitt kann es einen winzigen Bullenverlauf, einen Bruch und einen höheren Hochtest geben. Das entspricht formal einem kleinen Trendwechsel, dessen mögliche Abwärtsstrecke im größeren Bild nur ein kurzer Scalp ist.",
-      "Danach kann ein lokaler Käuferauslöser wiederum am Hoch eines größeren Bärenpullbacks liegen. Die gleiche Barfolge bekommt je nach betrachteter Größe einen anderen Stellenwert. Ein Schutzbereich, der im Detailbild gehalten hätte, beantwortet noch nicht die größere Kontextfrage.",
-      "Benenne die Größenordnung deines Plans und halte ihren Ausstieg fest. Du brauchst nicht jede formale Umkehr im kleinsten Ausschnitt zu handeln. Eine Struktur korrekt zu beschreiben und sie unter realen Bedingungen passend umzusetzen sind verschiedene Fähigkeiten."
+      "Danach kann ein lokaler Käuferauslöser wiederum am Hoch eines größeren Bärenpullbacks liegen. Dieselbe Barfolge bekommt je nach betrachteter Größe einen anderen Stellenwert. Ein Schutzbereich, der im Detailbild gehalten hätte, beantwortet noch nicht die größere Kontextfrage.",
+      "Benenne die Größenordnung deines Plans und halte ihren Ausstieg fest. Du musst nicht jede formale Umkehr im kleinsten Ausschnitt handeln. Eine Struktur korrekt zu beschreiben und sie unter realen Bedingungen passend umzusetzen sind verschiedene Fähigkeiten."
     ],
     "takeaways": [
       "Formal ähnliches Muster kann sehr kleine Bedeutung haben.",
@@ -833,7 +833,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im zweiten Chartfall steigt der Markt nach einem Gap mit deutlichem Käuferdruck. Kleine Linien über wenige Bars werden kurz unterschritten und danach wieder nach oben verlassen. Der erste untere Bruch kann so einen Fortsetzungseinstieg vorbereiten.",
       "Eine erste Linie erfasst nur einen sehr kurzen Abschnitt, eine spätere einen etwas längeren. Der nächste tiefer liegende Test kann als neuer Punkt einer flacheren Trendlinie dienen. Die Trendstruktur wird aktualisiert, ohne dass die alte Entscheidung rückwirkend anders wird.",
-      "Prüfe, ob der Käuferanschluss nach der Auslösung wirklich trägt und ob oben noch Raum bleibt. Gerade nach einem großen letzten Käuferbar kann der neue Rücklauf stärker werden. Ein kleiner Bruch allein ist kein universeller Kaufbefehl."
+      "Prüf, ob der Käuferanschluss nach der Auslösung wirklich trägt und ob oben noch Raum bleibt. Gerade nach einem großen letzten Käuferbar kann der neue Rücklauf stärker werden. Ein kleiner Bruch allein ist kein universeller Kaufbefehl."
     ],
     "takeaways": [
       "Kleine Brüche können erste Trendpullbacks sein.",
@@ -861,13 +861,13 @@ const drafts: Draft[] = [
   {
     "number": 26,
     "title": "Chartfall 16.2: Nicht gefüllte Order bewusst nachführen",
-    "summary": "Ungefüllte Order ist noch keine Position.",
+    "summary": "Eine ungefüllte Order ist noch keine Position.",
     "section": "Chartfall 16.2 · Auslösung",
     "scenario": "c16-26",
     "paragraphs": [
-      "Ein Signalbar nach dem Rücklauf kann eine Buy-Stop-Idee über seinem Hoch liefern. Wenn diese Auslösung nicht erreicht wird, besteht noch keine Longposition. Ein späterer geeigneter Bar kann eine neue Auslösung mit verändertem Preis und Schutzbereich ergeben.",
-      "Das Nachführen einer ungefüllten Order ist nicht dasselbe wie das Verschieben des Stops einer offenen Verlustposition. Prüfe bei jedem neuen Signal, ob Käuferidee, Zielraum und Geldrisiko noch stimmen. Ein kleinerer Signalbereich kann die Distanz verändern.",
-      "Im eigenen Beispiel liegen zwei konkrete Auslösungspreise aufeinanderfolgend im Chart. Die erste wird nicht erreicht, die spätere ausgelöst. Die Reihenfolge macht sichtbar, wann die Position überhaupt entstanden wäre und welche Information davor wirklich verfügbar war."
+      "Ein Signalbar nach dem Rücklauf kann eine Buy-Stop-Idee über seinem Hoch liefern. Wird diese Auslösung nicht erreicht, besteht noch keine Longposition. Ein späterer geeigneter Bar kann eine neue Auslösung mit verändertem Preis und Schutzbereich ergeben.",
+      "Eine ungefüllte Order nachzuführen ist nicht dasselbe, wie den Stop einer offenen Verlustposition zu verschieben. Prüf bei jedem neuen Signal, ob Käuferidee, Zielraum und Geldrisiko noch stimmen. Ein kleinerer Signalbereich kann die Distanz verändern.",
+      "Im eigenen Beispiel liegen zwei konkrete Auslösungspreise nacheinander im Chart. Die erste wird nicht erreicht, die spätere ausgelöst. Die Reihenfolge macht sichtbar, wann die Position überhaupt entstanden wäre und welche Information davor wirklich verfügbar war."
     ],
     "takeaways": [
       "Ungefüllte Order ist noch keine Position.",
@@ -901,7 +901,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein kleiner Insidebar kann unter eine sehr kurze Bullenlinie reichen, obwohl er vollständig innerhalb des vorherigen Bars bleibt. Inside beschreibt seinen Vergleich zum Vorgänger, Linienbruch seinen Vergleich zur schrägen Referenz. Beides kann gleichzeitig stimmen.",
       "Ein möglicher Stop über dem Insidebar ist die Trendfortsetzungsidee im passenden Bullenkontext. Eine sehr kleine geometrische Verletzung macht ihn nicht automatisch stark. Qualität des Rücklaufs und Raum zur Schubgrenze bleiben relevant.",
-      "Der Chartfall zeigt auch eine mögliche obere Grenzverletzung bei starkem Momentum. Ohne überzeugenden zweiten Gegenversuch ist ein früher Short dort schwächer begründet. Kleine Muster müssen immer gegen die sichtbare Kontrolle geprüft werden."
+      "Der Chartfall zeigt auch eine mögliche obere Grenzverletzung bei starkem Momentum. Ohne überzeugenden zweiten Gegenversuch ist ein früher Short dort schwächer begründet. Kleine Muster musst du immer gegen die sichtbare Kontrolle prüfen."
     ],
     "takeaways": [
       "Insidebar und Mikro-Linienverletzung können zusammen auftreten.",
@@ -929,12 +929,12 @@ const drafts: Draft[] = [
   {
     "number": 28,
     "title": "Chartfall 16.2: Größerer Bruch, tieferes Hoch und Scalpgröße",
-    "summary": "Größere Linie und Mikro-Linie haben andere Strukturreichweite.",
+    "summary": "Größere Linie und Mikro-Linie haben eine andere Reichweite.",
     "section": "Chartfall 16.2 · Gegenplan",
     "scenario": "c16-28",
     "paragraphs": [
-      "Ein späterer Bruch der größeren Bullen-Trendlinie wiegt anders als die kleinen Mikroverletzungen zuvor. Eine mehrteilige Korrektur wird plausibler. Der erste starke Gegenbruch eines engen Kanals ist aber noch kein idealer Anfänger-Short ohne Test.",
-      "Ein späteres tieferes Hoch kann eine Verkäuferidee für den Rücklauf zum Durchschnitt vorbereiten, wenn dort genug Raum bleibt. Das ist ein begrenzter Korrekturscalp, nicht automatisch eine große Trendwende. Für diese fehlen möglicherweise noch Durchschnittstest und anschließender alter Hochtest.",
+      "Ein späterer Bruch der größeren Bullen-Trendlinie wiegt anders als die kleinen Mikroverletzungen davor. Eine mehrteilige Korrektur wird plausibler. Der erste starke Gegenbruch eines engen Kanals ist aber noch kein idealer Anfänger-Short ohne Test.",
+      "Ein späteres tieferes Hoch kann eine Verkäuferidee für den Rücklauf zum Durchschnitt vorbereiten, wenn dort genug Raum bleibt. Das ist ein begrenzter Korrekturscalp, nicht automatisch eine große Trendwende. Dafür fehlen womöglich noch der Durchschnittstest und der anschließende alte Hochtest.",
       "Viele kleine Dojis nach dem Bruch zeigen zusätzliche Unsicherheit. Warte bei fehlender Klarheit auf deutlichere Körper und Anschluss. Ein passender kleiner Gegenplan rechtfertigt kein unbegrenztes Halten auf eine große Umkehr."
     ],
     "takeaways": [
@@ -976,7 +976,7 @@ const drafts: Draft[] = [
       "Früher Verkäuferbar kann ein Käuferpullback sein.",
       "Projektionsbereich bleibt eine Referenz."
     ],
-    "callout": "Projektionsbereich bleibt eine Referenz.",
+    "callout": "Ein Projektionsbereich bleibt eine Referenz.",
     "prompt": "Ein oberes Gap startet mit klarer Käuferreaktion. Warum ist ein sofortiger Gap-Short unvollständig?",
     "answers": [
       {
@@ -997,20 +997,20 @@ const drafts: Draft[] = [
   {
     "number": 30,
     "title": "Chartfall 16.3: Mikro-Pullback im starken Bullenabschnitt",
-    "summary": "Früher Bullenkontext und späteren Bärenkontext getrennt lesen.",
+    "summary": "Frühen Bullenkontext und späteren Bärenkontext getrennt lesen.",
     "section": "Chartfall 16.3 · Fortsetzung",
     "scenario": "c16-30",
     "paragraphs": [
       "Der dritte Chartfall enthält einen früheren starken Bullenabschnitt und einen späteren starken Bärenabschnitt. Im Bullenbereich kann ein erster Bruch unter dem Mikrokanal scheitern und eine High-1-Idee vorbereiten.",
       "Ein lokaler fallender Pullback nahe dem Durchschnitt bleibt dabei eine Bullenflagge. Eine kurze Bärenlinie darin ist kein guter Grund, gegen die größere Käuferkontrolle zu verkaufen. Käufer warten auf die Fortsetzungsreaktion.",
-      "Die späteren Bärenbars dürfen diese damalige Einordnung nicht rückwirkend überschreiben. Markiere im Replay zunächst die damalige Käuferkontrolle und dann die spätere Veränderung. Gleiche kleine Linienformen gehören in den beiden Phasen zu unterschiedlichen Trendplänen."
+      "Die späteren Bärenbars dürfen diese damalige Einordnung nicht rückwirkend überschreiben. Markier im Replay zuerst die damalige Käuferkontrolle und dann die spätere Veränderung. Gleiche kleine Linienformen gehören in den beiden Phasen zu unterschiedlichen Trendplänen."
     ],
     "takeaways": [
       "Früher Bullenkontext und späteren Bärenkontext getrennt lesen.",
       "Lokale Bärenlinie kann Bullenflagge sein.",
       "Späteres Ergebnis ist keine frühe Entscheidungsgrundlage."
     ],
-    "callout": "Späteres Ergebnis ist keine frühe Entscheidungsgrundlage.",
+    "callout": "Ein späteres Ergebnis ist keine frühe Entscheidungsgrundlage.",
     "prompt": "Eine Bären-Mikrolinie liegt im starken Bullenpullback am Durchschnitt. Was passt zur einfachen Auswahl?",
     "answers": [
       {
@@ -1031,20 +1031,20 @@ const drafts: Draft[] = [
   {
     "number": 31,
     "title": "Chartfall 16.3: Neuer Mikrokanal, wieder erster Gegenversuch",
-    "summary": "Versuchszahl bezieht sich auf die konkrete Struktur.",
+    "summary": "Die Versuchszahl bezieht sich auf die konkrete Struktur.",
     "section": "Chartfall 16.3 · Zählweise",
     "scenario": "c16-31",
     "paragraphs": [
       "In der späteren Bärenphase kann ein erster Hochbruch eines engen Abschnitts scheitern. Fällt der Kurs danach mehrere Bars steil weiter, bildet sich ein neuer Mikrokanal. Ein weiterer Hochbruch kann nun dessen erster Versuch sein.",
       "Die zweite Auslösung im gesamten Abwärtsweg ist deshalb nicht zwingend ein zweiter Versuch derselben Struktur. Entscheidend ist, ob zwischenzeitlich eine neue enge Folge mit neuen Ankern entstanden ist. Der aktuelle Abschnitt bestimmt die Zählweise.",
-      "Beide Hochbrüche können Low-1-Fortsetzungen vorbereiten, wenn die Bärenkontrolle trägt. Sie können trotzdem verlieren, besonders wenn schon mehr Balance entsteht. Verlange Barqualität und Platz, statt durch das Wort erster eine automatische Erfolgsquote abzuleiten."
+      "Beide Hochbrüche können Low-1-Fortsetzungen vorbereiten, wenn die Bärenkontrolle trägt. Sie können trotzdem verlieren, besonders wenn schon mehr Balance entsteht. Verlang Barqualität und Platz, statt aus dem Wort erster eine automatische Erfolgsquote abzuleiten."
     ],
     "takeaways": [
       "Versuchszahl bezieht sich auf die konkrete Struktur.",
       "Neue enge Folge kann einen neuen ersten Versuch erzeugen.",
       "Zählung allein ist kein Qualitätssiegel."
     ],
-    "callout": "Zählung allein ist kein Qualitätssiegel.",
+    "callout": "Die Zählung allein ist kein Qualitätssiegel.",
     "prompt": "Warum kann der zweite Hochbruch des Tages trotzdem ein erster Mikrokanalversuch sein?",
     "answers": [
       {
@@ -1065,13 +1065,13 @@ const drafts: Draft[] = [
   {
     "number": 32,
     "title": "Chartfall 16.3: Kleine Dreiecksflagge im Bärenverlauf",
-    "summary": "Dreieck kann eine kleine Bärenflagge sein.",
+    "summary": "Ein Dreieck kann eine kleine Bärenflagge sein.",
     "section": "Chartfall 16.3 · Signalqualität",
     "scenario": "c16-32",
     "paragraphs": [
       "Eine kurze seitwärtige Folge mit mehreren kleinen Schüben kann ein Dreieck innerhalb des Bärenverlaufs bilden. Nach den ersten Unterbrechungen ist der Name vielleicht noch nicht klar. Weitere Hoch- und Tiefschübe machen die Balanceform erkennbarer.",
-      "Ein Signalbar kann als Verkäuferumkehr gelten, obwohl sein Körper leicht aufwärts gerichtet ist, wenn er nach dem Hochtest unter seiner Mitte schließt. Ein echter Verkäuferkörper würde die gerichtete Aussage stärken. Dojicharakter zeigt zugleich begrenzte Signalstärke.",
-      "Der größere enge Bärenkanal stützt eher den unteren Fortsetzungsplan als eine frühe Longumkehr. Prüfe dennoch den tatsächlichen Ausbruch und dessen Risiko. Musterform, Körperrichtung und Schlusslage sind drei verschiedene Informationen."
+      "Ein Signalbar kann als Verkäuferumkehr gelten, obwohl sein Körper leicht aufwärts gerichtet ist, wenn er nach dem Hochtest unter seiner Mitte schließt. Ein echter Verkäuferkörper würde die gerichtete Aussage stärken. Ein Dojicharakter zeigt zugleich begrenzte Signalstärke.",
+      "Der größere enge Bärenkanal stützt eher den unteren Fortsetzungsplan als eine frühe Longumkehr. Prüf dennoch den tatsächlichen Ausbruch und dessen Risiko. Musterform, Körperrichtung und Schlusslage sind drei verschiedene Informationen."
     ],
     "takeaways": [
       "Dreieck kann eine kleine Bärenflagge sein.",
@@ -1099,20 +1099,20 @@ const drafts: Draft[] = [
   {
     "number": 33,
     "title": "Chartfall 16.3: Großes Ziel rechtfertigt keine sichere Trefferquote",
-    "summary": "Langer Trend macht jedes späte Signal nicht automatisch gut.",
+    "summary": "Ein langer Trend macht nicht jedes späte Signal automatisch gut.",
     "section": "Chartfall 16.3 · Verhältnis",
     "scenario": "c16-33",
     "paragraphs": [
       "Ein starker Bärenverlauf kann sehr weit fallen und trotzdem an einem späten Doji nur eine schwache neue Shortauslösung bieten. Mehr Tails und Überlappung deuten auf zweiseitigen Handel. Ein Short nahe dem unteren Balancebereich hat andere Qualität als der frühere Trendstart.",
-      "Ein kleines geplantes Risiko im Verhältnis zu einem großen möglichen Ziel kann einen Trade rechnerisch interessant machen, obwohl die Erfolgswahrscheinlichkeit nicht hoch ist. Die Schätzung braucht jedoch eine belegbare Grundlage; der große spätere Gewinn liefert sie nicht rückwirkend.",
-      "Wer nur klare Setups trainieren will, kann diesen späten Versuch auslassen und auf eine überzeugende Käuferreaktion, einen besseren Verkäuferpullback oder frischen starken Verkäuferanschluss warten. Chance-Risiko-Verhältnis und Trefferwahrscheinlichkeit bleiben getrennte Größen."
+      "Ein kleines geplantes Risiko im Verhältnis zu einem großen möglichen Ziel kann einen Trade rechnerisch interessant machen, obwohl die Erfolgswahrscheinlichkeit nicht hoch ist. Die Schätzung braucht aber eine belegbare Grundlage; der große spätere Gewinn liefert sie nicht rückwirkend.",
+      "Wenn du nur klare Setups trainieren willst, kannst du diesen späten Versuch auslassen und auf eine überzeugende Käuferreaktion, einen besseren Verkäuferpullback oder frischen starken Verkäuferanschluss warten. Chance-Risiko-Verhältnis und Trefferwahrscheinlichkeit bleiben getrennte Größen."
     ],
     "takeaways": [
       "Langer Trend macht jedes späte Signal nicht automatisch gut.",
       "Großes Ziel und hohe Wahrscheinlichkeit sind verschieden.",
       "Ein unklarer später Einstieg kann ausgelassen werden."
     ],
-    "callout": "Ein unklarer später Einstieg kann ausgelassen werden.",
+    "callout": "Einen unklaren späten Einstieg darfst du auslassen.",
     "prompt": "Ein schwacher Doji-Short hätte später einen großen Gewinn gebracht. Was beweist das nicht?",
     "answers": [
       {
@@ -1133,13 +1133,13 @@ const drafts: Draft[] = [
   {
     "number": 34,
     "title": "Chartfall 16.3: Letzte Flagge und neuer Bärentag",
-    "summary": "Vortagsausbruch kann am neuen Start scheitern.",
+    "summary": "Ein Vortagsausbruch kann am neuen Start scheitern.",
     "section": "Chartfall 16.3 · Tageswechsel",
     "scenario": "c16-34",
     "paragraphs": [
-      "Eine längere Bullenphase kann am Vortag mit einem kräftigen Ausbruch aus einer eher waagerechten Flagge enden. Am nächsten Start kann dieser Ausbruch scheitern. Ein großer Verkäufer-Einstiegsbar und danach enger Bärenkanal stützen dann einen neuen Bären-Tageskontext.",
-      "Das ist eine andere Phase als der frühere erste Bullenpullback, der von Käufern aufgenommen wurde. Limitkäufer im alten Bullenabschnitt und Stopkäufer nach dessen High 1 hatten damals eine andere Grundlage als spätere Verkäufer im neuen Tagesverlauf.",
-      "Markiere den tatsächlichen Übergang über Gap, Auslösung und Anschluss. Die Einordnung Trend vom Tagesbeginn entsteht aus der Folge, nicht aus einem vorher bekannten Tagesnamen. Ein alter Flaggenausbruch kann zur letzten Flagge werden, muss es aber nicht immer."
+      "Eine längere Bullenphase kann am Vortag mit einem kräftigen Ausbruch aus einer eher waagerechten Flagge enden. Am nächsten Start kann dieser Ausbruch scheitern. Ein großer Verkäufer-Einstiegsbar und danach ein enger Bärenkanal stützen dann einen neuen Bären-Tageskontext.",
+      "Das ist eine andere Phase als der frühere erste Bullenpullback, den die Käufer aufgenommen haben. Limitkäufer im alten Bullenabschnitt und Stopkäufer nach dessen High 1 hatten damals eine andere Grundlage als spätere Verkäufer im neuen Tagesverlauf.",
+      "Markier den tatsächlichen Übergang über Gap, Auslösung und Anschluss. Die Einordnung Trend vom Tagesbeginn entsteht aus der Folge, nicht aus einem vorher bekannten Tagesnamen. Ein alter Flaggenausbruch kann zur letzten Flagge werden, muss es aber nicht immer."
     ],
     "takeaways": [
       "Vortagsausbruch kann am neuen Start scheitern.",
@@ -1171,16 +1171,16 @@ const drafts: Draft[] = [
     "section": "Chartfall 16.4 · Auflösung",
     "scenario": "c16-35",
     "paragraphs": [
-      "Im vierten Chartfall zeigt die kleinere Zeitebene viele gewöhnliche Trendlinien, die im größeren Barbild als kurze Mikro-Trendlinien erscheinen. Ein kleiner größerer-Chart-Pullback kann im Detail aus mehreren Gegenbars und einem Rücklauftest bestehen.",
+      "Im vierten Chartfall zeigt die kleinere Zeitebene viele gewöhnliche Trendlinien, die im größeren Barbild als kurze Mikro-Trendlinien erscheinen. Ein kleiner Pullback im größeren Chart kann im Detail aus mehreren Gegenbars und einem Rücklauftest bestehen.",
       "Das eigene Beispiel bündelt je fünf synthetische Detailbars zu einem großen OHLC-Bar. Dadurch bleibt der Kursweg in beiden Panels identisch. Die Linien beziehen sich auf den jeweils sichtbaren Detailgrad, nicht auf unterschiedliche Märkte.",
-      "Die Detailansicht dient hier dem Verständnis. Sie muss nicht zusätzlich zur Hauptansicht gehandelt werden. Wenn deine gewählte Ebene bereits Ort, Stärke und Fehlschlag zeigt, kann ein weiterer Chart mehr Ablenkung als Nutzen bringen."
+      "Die Detailansicht dient hier dem Verständnis. Du musst sie nicht zusätzlich zur Hauptansicht handeln. Zeigt deine gewählte Ebene schon Ort, Stärke und Fehlschlag, kann ein weiterer Chart mehr ablenken als nützen."
     ],
     "takeaways": [
       "Unterschiedlicher Detailgrad, derselbe Kursweg.",
       "Aggregation erhält Anfang, Ende und Extreme.",
       "Zusatzansicht ist eine Lernhilfe, keine Pflicht."
     ],
-    "callout": "Zusatzansicht ist eine Lernhilfe, keine Pflicht.",
+    "callout": "Die Zusatzansicht ist eine Lernhilfe, keine Pflicht.",
     "prompt": "Warum muss ein zusätzlicher Detailchart nicht für jede Order geöffnet werden?",
     "answers": [
       {
@@ -1205,16 +1205,16 @@ const drafts: Draft[] = [
     "section": "Chartfall 16.4 · Übergang",
     "scenario": "c16-36",
     "paragraphs": [
-      "Ein kräftiger Aufwärtsverlauf kann mehrere tiefere Rücklauftests bilden. Neu gezogene Linien werden dabei flacher. Das zeigt mehr Rückgabe und weniger einseitige Käuferkontrolle, ohne aus jeder Verletzung sofort einen Bärentrend zu machen.",
+      "Ein kräftiger Aufwärtsverlauf kann mehrere tiefere Rücklauftests bilden. Die neu gezogenen Linien werden dabei flacher. Das zeigt mehr Rückgabe und weniger einseitige Käuferkontrolle, ohne aus jeder Verletzung sofort einen Bärentrend zu machen.",
       "Später kann eine fallende Hochverbindung die neuen Bars besser erklären als die früheren steigenden Linien. Dann gewinnt die Gegenstruktur praktisch mehr Gewicht. Der Übergang entsteht aus Rücklaufgröße, Hochtests und Verkäuferanschluss.",
-      "Behalte die früheren Anker im Journal sichtbar. Eine neue flachere Linie ist eine Aktualisierung der Struktur, keine Erlaubnis, den Stop einer alten Longposition unbegrenzt auszuweiten. Der Risikoentscheid bleibt von der neuen Beschreibung getrennt."
+      "Behalte die früheren Anker im Journal sichtbar. Eine neue flachere Linie ist eine Aktualisierung der Struktur, keine Erlaubnis, den Stop einer alten Longposition unbegrenzt auszuweiten. Die Risikoentscheidung bleibt von der neuen Beschreibung getrennt."
     ],
     "takeaways": [
       "Flachere neue Linien können mehr Gegenbeteiligung zeigen.",
       "Gegenlinien gewinnen nach sichtbarer Veränderung Gewicht.",
       "Neue Zeichnung rettet keinen alten Verlustplan."
     ],
-    "callout": "Neue Zeichnung rettet keinen alten Verlustplan.",
+    "callout": "Eine neue Zeichnung rettet keinen alten Verlustplan.",
     "prompt": "Was bedeutet eine Folge immer flacherer Bullenlinien zunächst?",
     "answers": [
       {
@@ -1239,9 +1239,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 16.4 · Auswahl",
     "scenario": "c16-37",
     "paragraphs": [
-      "Eine fertige Detailgrafik enthält viele mögliche Randtests, Überschreitungen und Fehlschläge. Wer erst am Ende alle Linien einzeichnet, kann die brauchbaren Stellen leicht erkennen. Diese Übersicht stand während der laufenden Bars noch nicht vollständig zur Verfügung.",
-      "Schnelle gute Setups können verpasst werden, während schwache langsamere Formen viel Zeit für einen Einstieg lassen. Diese Auswahlverzerrung kann dazu führen, dass die tatsächlichen Orders schlechter sind als die rückblickend markierten Beispiele.",
-      "Trainiere deshalb mit verdeckter Folge und festem Tempo. Notiere auch verpasste und ausgelassene Setups samt Grund. Die Lernfrage ist, ob du mit damaligen Informationen einen begrenzten Plan auswählen konntest, nicht ob später viele schöne Pfeile möglich wären."
+      "Eine fertige Detailgrafik enthält viele mögliche Randtests, Überschreitungen und Fehlschläge. Wer erst am Ende alle Linien einzeichnet, erkennt die brauchbaren Stellen leicht. Diese Übersicht hattest du während der laufenden Bars noch nicht vollständig.",
+      "Schnelle gute Setups kann man verpassen, während schwache, langsamere Formen viel Zeit für einen Einstieg lassen. Diese Auswahlverzerrung kann dazu führen, dass die tatsächlichen Orders schlechter sind als die rückblickend markierten Beispiele.",
+      "Trainiere deshalb mit verdeckter Folge und festem Tempo. Notier auch verpasste und ausgelassene Setups samt Grund. Die Lernfrage ist, ob du mit den damaligen Informationen einen begrenzten Plan auswählen konntest, nicht ob später viele schöne Pfeile möglich wären."
     ],
     "takeaways": [
       "Rückblickend sichtbare Fülle war in Echtzeit noch unvollständig.",
@@ -1275,7 +1275,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Der fünfte Chartfall stammt aus einem ungewöhnlich volatilen historischen Tagesverlauf. Die Mikrostrukturen bleiben lesbar, aber einzelne Bars umfassen viel größere Strecken als in einem ruhigen Beispiel. Ein gleich großer Kontraktbestand hätte deshalb ein anderes Geldrisiko.",
       "Ein weiter entfernter struktureller Stop braucht bei gleichem zulässigem Geldverlust eine kleinere Menge. Verdoppelt sich die Stopdistanz bei gleicher Wertigkeit pro Preiseinheit, halbiert sich rechnerisch die mögliche Menge vor Rundung und Kosten.",
-      "Die historischen Punktabstände sind keine heutigen Stopempfehlungen. Bestimme die tatsächliche Ausstiegsgrenze aus dem aktuellen Setup und die Menge aus deinem Geldrisiko. Die gleiche Musterlogik bedeutet nicht die gleiche Kontraktzahl oder den gleichen Zielabstand."
+      "Die historischen Punktabstände sind keine heutigen Stopempfehlungen. Bestimm die tatsächliche Ausstiegsgrenze aus dem aktuellen Setup und die Menge aus deinem Geldrisiko. Dieselbe Musterlogik heißt nicht dieselbe Kontraktzahl oder derselbe Zielabstand."
     ],
     "takeaways": [
       "Größere Barstrecken verändern Geldrisiko und Menge.",
@@ -1303,20 +1303,20 @@ const drafts: Draft[] = [
   {
     "number": 39,
     "title": "Chartfall 16.5: Untere Überschreitung und Zweibar-Reaktion",
-    "summary": "Untere Überschreitung braucht sichtbare Käuferreaktion.",
+    "summary": "Eine untere Überschreitung braucht sichtbare Käuferreaktion.",
     "section": "Chartfall 16.5 · Gegenreaktion",
     "scenario": "c16-39",
     "paragraphs": [
-      "Ein enger Bärenabschnitt überschreitet seine untere Kanalgrenze. Ein anschließender Käuferbar kann mit dem Tiefbar eine Zweibar-Umkehr bilden. Eine passende ii-Insidefolge mit Käuferabschlüssen unterstützt den Eindruck neuer Käuferbeteiligung.",
+      "Ein enger Bärenabschnitt überschreitet seine untere Kanalgrenze. Ein anschließender Käuferbar kann mit dem Tiefbar eine Zweibar-Umkehr bilden. Eine passende ii-Insidefolge mit Käuferabschlüssen stützt den Eindruck neuer Käuferbeteiligung.",
       "Die untere Grenze kann als Parallele der Hochverbindung oder direkt aus Schubtiefs konstruiert werden. Beide Varianten dürfen unterschiedliche Testlagen ergeben. Ein geometrisch passender Bereich allein bestätigt keine große Umkehr.",
-      "Die Folge kann zunächst nur einen Rücklauf zum Durchschnitt erzeugen, bevor ein weiterer Bärenkanal beginnt. Prüfe das Ausmaß der Käuferreaktion und ihre späteren Tests. Zweibar-Reaktion, begrenzter Scalp und neuer Tagestrend sind unterschiedliche Aussagen."
+      "Die Folge kann zunächst nur einen Rücklauf zum Durchschnitt erzeugen, bevor ein weiterer Bärenkanal beginnt. Prüf das Ausmaß der Käuferreaktion und ihre späteren Tests. Zweibar-Reaktion, begrenzter Scalp und neuer Tagestrend sind unterschiedliche Aussagen."
     ],
     "takeaways": [
       "Untere Überschreitung braucht sichtbare Käuferreaktion.",
       "Parallele und direkte Tiefverbindung unterscheiden.",
       "Erste Reaktion kann nur Rücklauf bleiben."
     ],
-    "callout": "Erste Reaktion kann nur Rücklauf bleiben.",
+    "callout": "Die erste Reaktion kann nur ein Rücklauf bleiben.",
     "prompt": "Eine Zweibar-Käuferreaktion folgt auf den tiefen Kanaltest. Was ist noch offen?",
     "answers": [
       {
@@ -1337,20 +1337,20 @@ const drafts: Draft[] = [
   {
     "number": 40,
     "title": "Chartfall 16.5: Fehlgeschlagene Shorts werden Käuferpullbacks",
-    "summary": "Fehlgeschlagener Trendshort kann Käuferpullback vorbereiten.",
+    "summary": "Ein fehlgeschlagener Trendshort kann einen Käuferpullback vorbereiten.",
     "section": "Chartfall 16.5 · Gegenseitige Fehlschläge",
     "scenario": "c16-40",
     "paragraphs": [
       "Ein erster Hochbruch im Bären-Mikrokanal kann scheitern und einen kurzen Low-1-Short auslösen. Scheitert danach dieser Verkäuferanschluss, entsteht eine neue Käuferidee aus dem Fehlschlag des Fehlschlags. Ein späteres Testtief kann dabei sogar tiefer liegen.",
       "Im Chartfall wird ein kleiner Bar damit rückblickend zur letzten Flagge des alten Abwärtsabschnitts. Für die damalige Entscheidung zählt aber erst die sichtbare Rückkehr mit Käuferanschluss. Der höhere Bruch und sein tieferer Rücklauf sind kein geometrischer Widerspruch.",
-      "Behandle jede Auslösung eigenständig. Ein Outside-down-Bar kann den kurzen Verkäuferplan auslösen, ein späterer Käuferbar seine Ungültigkeit zeigen. Es gibt keine Pflicht, jedes Umschalten sofort mit einer neuen Position zu handeln."
+      "Behandle jede Auslösung eigenständig. Ein Outside-down-Bar kann den kurzen Verkäuferplan auslösen, ein späterer Käuferbar seine Ungültigkeit zeigen. Du musst nicht jedes Umschalten sofort mit einer neuen Position handeln."
     ],
     "takeaways": [
       "Fehlgeschlagener Trendshort kann Käuferpullback vorbereiten.",
       "Ausbruchspullback kann ein tieferes Testtief besitzen.",
       "Jede neue Position braucht eigene Begründung."
     ],
-    "callout": "Jede neue Position braucht eigene Begründung.",
+    "callout": "Jede neue Position braucht eine eigene Begründung.",
     "prompt": "Ein Käuferbruch fällt auf ein tieferes Tief und kehrt dann kräftig zurück. Was ist möglich?",
     "answers": [
       {
@@ -1375,16 +1375,16 @@ const drafts: Draft[] = [
     "section": "Chartfall 16.5 · Neue Kontrolle",
     "scenario": "c16-41",
     "paragraphs": [
-      "Nach einem späten Tief können mehrere Käuferkörper auftreten. Ein späterer kleiner Doji-Low-1-Versuch gegen diese Käuferfolge ist schwächer als frühere Shorts im starken Bärenabschnitt. Die aktuelle Stärke verändert die Bedeutung des gleichen Musternamens.",
+      "Nach einem späten Tief können mehrere Käuferkörper auftreten. Ein späterer kleiner Doji-Low-1-Versuch gegen diese Käuferfolge ist schwächer als frühere Shorts im starken Bärenabschnitt. Die aktuelle Stärke verändert die Bedeutung desselben Musternamens.",
       "Ein kurzer unterer Mikrobruch in der neuen Rally kann als Falle für frühe Exits wirken und danach eine High-1-Idee bilden. Käufer müssen vor der Fortsetzung nicht schon sicher wissen, dass ein großer Bullentrend folgt. Ein begrenzter Plan kann zunächst nur die nächste Käuferstrecke erwarten.",
-      "Erst nach weiterem Anschluss kann die Kontrolle überzeugender long werden und ein anderer Halteplan sinnvoll sein. Zusätzliche Menge oder längeres Halten benötigen vorher festgelegte Regeln. Ein späterer großer Gewinn rechtfertigt keine ungeplante Erweiterung rückwirkend."
+      "Erst nach weiterem Anschluss kann die Kontrolle überzeugender long werden und ein anderer Halteplan sinnvoll sein. Zusätzliche Menge oder längeres Halten brauchen vorher festgelegte Regeln. Ein späterer großer Gewinn rechtfertigt keine ungeplante Erweiterung im Nachhinein."
     ],
     "takeaways": [
       "Wachsende Käuferkörper schwächen späte Gegen-Shorts.",
       "Kleine Exitsfalle kann High 1 vorbereiten.",
       "Scalpidee und späterer Swingplan getrennt prüfen."
     ],
-    "callout": "Scalpidee und späterer Swingplan getrennt prüfen.",
+    "callout": "Scalpidee und späteren Swingplan getrennt prüfen.",
     "prompt": "Nach zwei kräftigen Käuferbars entsteht ein kleiner Doji-Low-1-Short. Was ist wichtig?",
     "answers": [
       {
@@ -1405,13 +1405,13 @@ const drafts: Draft[] = [
   {
     "number": 42,
     "title": "Chartfall 16.5: Gapfehlschlag und vollständiges Spike-Kanal-Muster",
-    "summary": "Erste Gapumkehr kann selbst scheitern.",
+    "summary": "Die erste Gapumkehr kann selbst scheitern.",
     "section": "Chartfall 16.5 · Tagesentwicklung",
     "scenario": "c16-42",
     "paragraphs": [
-      "Der historische Tag beginnt mit großem Abwärtsgap und zunächst kräftigem Käuferbar. Ein früher Anstieg kann aber wieder scheitern und in einem Outside-down-Bar nach unten auslösen. Die gescheiterte Gapumkehr wird zum Pullback des ursprünglichen unteren Ausbruchs.",
+      "Der historische Tag beginnt mit einem großen Abwärtsgap und zunächst einem kräftigen Käuferbar. Ein früher Anstieg kann aber wieder scheitern und in einem Outside-down-Bar nach unten auslösen. Die gescheiterte Gapumkehr wird zum Pullback des ursprünglichen unteren Ausbruchs.",
       "Ein enger Verkäuferabschnitt wirkt danach wie ein Spike. Eine Rally zum Durchschnitt und ein längerer Bärenkanal können folgen, bevor das spätere Tief eine größere Käuferreaktion bildet. Der Tagesverlauf enthält so mehrere Kontrollphasen statt einer einzigen sicheren Richtung.",
-      "Nach der späteren Umkehr sind das obere Ende der früheren klaren Käuferreaktion und der Beginn des Bärenkanals mögliche Testbereiche. Sie sind keine Pflichtziele. Zeichne den zeitlichen Ablauf mit damaligen Ankern, damit die spätere Rally nicht als schon am Start gewusst erscheint."
+      "Nach der späteren Umkehr sind das obere Ende der früheren klaren Käuferreaktion und der Beginn des Bärenkanals mögliche Testbereiche. Pflichtziele sind sie nicht. Zeichne den zeitlichen Ablauf mit damaligen Ankern, damit die spätere Rally nicht so wirkt, als hättest du sie schon am Start gewusst."
     ],
     "takeaways": [
       "Erste Gapumkehr kann selbst scheitern.",
@@ -1444,15 +1444,15 @@ const drafts: Draft[] = [
     "scenario": "c16-43",
     "paragraphs": [
       "Im sechsten Chartfall entstehen mehrere kleine fallende Mikro-Trendlinien während eines kräftigen Bullentages. Sie beschreiben normale Pullbacks nahe oder oberhalb des Durchschnitts. Der größere Verlauf zeigt noch keine überzeugende Bärenumkehr.",
-      "Ein lokaler fehlgeschlagener Hochbruch dieser Bärenlinie könnte formal einen Shortnamen tragen. Als einfache Auswahl passt er aber schlecht zur größeren Käuferkontrolle. Der Ort ist häufig das Ende der Bullenflagge, an dem Käufer Fortsetzung suchen.",
-      "Verlange vor einem echten neuen Bärenplan die Veränderung der größeren Struktur: deutlicher Gegenbruch, Extremtest und Verkäuferanschluss. Ohne diese Folge dient die kleine Gegenlinie eher dazu, den möglichen späteren Käufer-Ausbruchspullback zu beobachten."
+      "Ein lokaler fehlgeschlagener Hochbruch dieser Bärenlinie könnte formal einen Shortnamen tragen. Als einfache Auswahl passt er aber schlecht zur größeren Käuferkontrolle. Der Ort ist oft das Ende der Bullenflagge, an dem Käufer Fortsetzung suchen.",
+      "Verlang vor einem echten neuen Bärenplan die Veränderung der größeren Struktur: deutlicher Gegenbruch, Extremtest und Verkäuferanschluss. Ohne diese Folge dient die kleine Gegenlinie eher dazu, den möglichen späteren Käufer-Ausbruchspullback zu beobachten."
     ],
     "takeaways": [
       "Lokale Bärenlinien können normale Bullenpullbacks sein.",
       "Größere Käuferkontrolle hat Vorrang vor kleinem Shortnamen.",
       "Gegenplan verlangt belegten Kontrollwechsel."
     ],
-    "callout": "Gegenplan verlangt belegten Kontrollwechsel.",
+    "callout": "Ein Gegenplan verlangt einen belegten Kontrollwechsel.",
     "prompt": "Was ist der wichtigste Kontext der lokalen Bärenlinie im starken Bullentag?",
     "answers": [
       {
@@ -1473,7 +1473,7 @@ const drafts: Draft[] = [
   {
     "number": 44,
     "title": "Chartfall 16.6: Den gescheiterten lokalen Short als Käufertest lesen",
-    "summary": "Gescheiterter lokaler Short kann Trendlong vorbereiten.",
+    "summary": "Ein gescheiterter lokaler Short kann einen Trendlong vorbereiten.",
     "section": "Chartfall 16.6 · Ausbruchspullback",
     "scenario": "c16-44",
     "paragraphs": [
@@ -1507,12 +1507,12 @@ const drafts: Draft[] = [
   {
     "number": 45,
     "title": "Chartfall 16.6: Mittrend-Mikrobruch und haltendes höheres Tief",
-    "summary": "Mittrend-Mikrobruch kann High 1 vorbereiten.",
+    "summary": "Ein Mittrend-Mikrobruch kann High 1 vorbereiten.",
     "section": "Chartfall 16.6 · Bestätigung",
     "scenario": "c16-45",
     "paragraphs": [
       "Auch eine steigende Mikro-Trendlinie im Bullentag kann kurz unterschritten werden. Ein erneuter Käuferanschluss kann daraus eine High-1-Fortsetzung bilden. Der kleine untere Bruch ist dann ein Pullback der aktuellen Kontrolle.",
-      "Im vertieften Tagesablauf wird der Durchschnitt kurz unterschritten, aber die Käufer kehren mit mehreren deutlichen Körpern zurück. Ein früher Verkäufer-Ausbruchspullback hat dadurch weniger Unterstützung. Wenn ein überzeugender zweiter Verkäuferversuch fehlt, ist ein automatischer Short nicht begründet.",
+      "Im vertieften Tagesablauf wird der Durchschnitt kurz unterschritten, aber die Käufer kehren mit mehreren deutlichen Körpern zurück. Ein früher Verkäufer-Ausbruchspullback hat dadurch weniger Unterstützung. Fehlt ein überzeugender zweiter Verkäuferversuch, ist ein automatischer Short nicht begründet.",
       "Ein haltendes höheres Tief kann anschließend die Käuferidee stützen. Durchschnittsverletzung, starke Rückkehr und Rücklauftest sind unterschiedliche Schritte. Erst die Folge macht den Plan nachvollziehbar; die erste Linienverletzung allein legt die Richtung nicht fest."
     ],
     "takeaways": [
@@ -1520,7 +1520,7 @@ const drafts: Draft[] = [
       "Kräftige Rückkehr schwächt den frühen Gegenplan.",
       "Höheres Tief mit tatsächlichem Anschluss beurteilen."
     ],
-    "callout": "Höheres Tief mit tatsächlichem Anschluss beurteilen.",
+    "callout": "Ein höheres Tief mit tatsächlichem Anschluss beurteilen.",
     "prompt": "Der Durchschnitt bricht kurz, danach folgen mehrere starke Käuferbars. Was fehlt für den frühen Short?",
     "answers": [
       {
@@ -1541,20 +1541,20 @@ const drafts: Draft[] = [
   {
     "number": 46,
     "title": "Dein Mikrokanal-Protokoll: Kontext vor kleinem Signal",
-    "summary": "Größere Kontrolle vor lokalem Signal bestimmen.",
+    "summary": "Die größere Kontrolle bestimmen, bevor du das lokale Signal liest.",
     "section": "Abschluss · Replay",
     "scenario": "c16-46",
     "paragraphs": [
-      "Notiere vor dem nächsten Bar die größere Kontrolle und den lokalen Mikroabschnitt. Unterscheide Mikro-Trendlinie und äußere Kanalgrenze. Halte fest, ob du einen ersten Pullback, einen Gegenkanalbruch oder eine späte Schubüberschreitung beobachtest.",
-      "Decke die Folge schrittweise auf und beschreibe Ausbruch, Gegenreaktion und Anschluss getrennt. Zähle nur Versuche derselben Struktur zusammen. Nach einer neuen engen Folge kann die Zählung neu beginnen, während die alten Bars weiterhin Kontext bleiben.",
-      "Ein konkreter Trade braucht einen realen Auslösungspreis, Zielraum und einen vorab begrenzten Geldverlust. Eine neue Linie oder Zeitebene erweitert diesen Verlust nicht automatisch. Wenn die Bilder widersprüchlich sind oder die Auslösung zu schnell verpasst wurde, ist Abwarten ein vollständiges Ergebnis der Übung."
+      "Notier vor dem nächsten Bar die größere Kontrolle und den lokalen Mikroabschnitt. Unterscheide Mikro-Trendlinie und äußere Kanalgrenze. Halte fest, ob du einen ersten Pullback, einen Gegenkanalbruch oder eine späte Schubüberschreitung beobachtest.",
+      "Deck die Folge schrittweise auf und beschreibe Ausbruch, Gegenreaktion und Anschluss getrennt. Zähl nur Versuche derselben Struktur zusammen. Nach einer neuen engen Folge kann die Zählung neu beginnen, während die alten Bars weiterhin Kontext bleiben.",
+      "Ein konkreter Trade braucht einen realen Auslösungspreis, Zielraum und einen vorab begrenzten Geldverlust. Eine neue Linie oder Zeitebene erweitert diesen Verlust nicht automatisch. Sind die Bilder widersprüchlich oder wurde die Auslösung zu schnell verpasst, ist Abwarten ein vollständiges Ergebnis der Übung."
     ],
     "takeaways": [
       "Größere Kontrolle vor lokalem Signal bestimmen.",
       "Geometrie, Versuchszählung und Anschluss getrennt notieren.",
       "Neue Zeichnung verändert keinen alten Verlustplan."
     ],
-    "callout": "Neue Zeichnung verändert keinen alten Verlustplan.",
+    "callout": "Eine neue Zeichnung verändert keinen alten Verlustplan.",
     "prompt": "Welche Reihenfolge hilft bei einem Mikrosetup am meisten?",
     "answers": [
       {
