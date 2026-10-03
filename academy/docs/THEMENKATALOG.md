@@ -7,7 +7,7 @@ zu Unternehmensbewertung und Makroökonomie. Jedes Thema steht in der **Biblioth
 „Geplant“-Karte; nur was mit **[aktiv]** markiert ist, hat schon Inhalt. Die Liste darf wachsen.
 
 - **Aufbau:** Themengebiet → Thema (ein möglicher Kurs) → Unterthemen (mögliche Kapitel oder Lektionen).
-- **Umfang:** 18 Themengebiete, 106 Themen, davon 4 aktiv.
+- **Umfang:** 18 Themengebiete, 106 Themen, davon 5 aktiv.
 - **Übungen:** Je Gebiet steht, welche Übungsformen passen. Vorhanden sind Fragen, Chart-Trainer,
   „Finde den Bar“, „Ordne die Schritte“, Begriffe-Memory und Blitzrunde. Manche Gebiete bräuchten neue
   Formen (siehe ganz unten).
@@ -18,7 +18,7 @@ zu Unternehmensbewertung und Makroökonomie. Jedes Thema steht in der **Biblioth
 ## Überblick
 
 1. Marktgrundlagen (3 Themen, 3 aktiv)
-2. Price Action und Marktstruktur (9 Themen, 1 aktiv)
+2. Price Action und Marktstruktur (9 Themen, 2 aktiv)
 3. Technische Indikatoren (6 Themen)
 4. Volumen (5 Themen)
 5. Orderflow und Marktmikrostruktur (7 Themen)
@@ -96,17 +96,17 @@ Vom einzelnen Bar bis zum vollständigen Trendtag.
 - Vergleichscharts (ETFs, inverse Charts)
 - Zweite Einstiege im Kontext
 
-### Price Action: Ranges (Teil 2 von 3)
+### Price Action: Ranges (Teil 2 von 3 · Einführung und Kapitel 1 verfügbar) **[aktiv]**
 
-Ausbrüche, Gaps, Unterstützung und Widerstand, Pullbacks, Ranges und Trade-Management.
+Ausbrüche, Rücksetzer und Seitwärtsmärkte mit nachvollziehbarem Risikoplan verbinden. Einführung und Kapitel 1 sind verfügbar.
 
 - Ausbrüche und ihr Anschluss
-- Kurslücken (Gaps) und Messbewegungen
-- Magnete: Unterstützung, Widerstand, Kursziele
+- Kurslücken und Messbewegungen
+- Unterstützung, Widerstand und Kursziele
 - Pullbacks und Flaggen
 - Trading Ranges und ihre Ränder
 - Order- und Trade-Management
-- Wahrscheinlichkeit und Erwartungswert beim Trading
+- Wahrscheinlichkeit und Erwartungswert
 
 ### Price Action: Umkehrungen (Teil 3 von 3)
 

@@ -110,21 +110,12 @@ export const librarySubjects: LibrarySubject[] = [
           'Zweite Einstiege im Kontext',
         ],
       },
-      planned(
-        'price-action-ranges',
-        'Price Action: Ranges',
-        'Ausbrüche, Gaps, Unterstützung und Widerstand, Pullbacks, Ranges und Trade-Management.',
-        [
-          'Ausbrüche und ihr Anschluss',
-          'Kurslücken (Gaps) und Messbewegungen',
-          'Magnete: Unterstützung, Widerstand, Kursziele',
-          'Pullbacks und Flaggen',
-          'Trading Ranges und ihre Ränder',
-          'Order- und Trade-Management',
-          'Wahrscheinlichkeit und Erwartungswert beim Trading',
-        ],
-        'Teil 2 von 3',
-      ),
+      {
+        id: 'price-action-ranges', title: 'Price Action: Ranges',
+        description: 'Ausbrüche, Rücksetzer und Seitwärtsmärkte mit nachvollziehbarem Risikoplan verbinden. Einführung und Kapitel 1 sind verfügbar.',
+        status: 'available', label: 'Teil 2 von 3 · Einführung und Kapitel 1 verfügbar',
+        subtopics: ['Ausbrüche und ihr Anschluss', 'Kurslücken und Messbewegungen', 'Unterstützung, Widerstand und Kursziele', 'Pullbacks und Flaggen', 'Trading Ranges und ihre Ränder', 'Order- und Trade-Management', 'Wahrscheinlichkeit und Erwartungswert'],
+      },
       planned(
         'price-action-reversals',
         'Price Action: Umkehrungen',
