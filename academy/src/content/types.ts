@@ -482,6 +482,7 @@ export const CHAPTER_THIRTEEN_SCENARIOS = [
 export type ChapterThirteenScenarioId = (typeof CHAPTER_THIRTEEN_SCENARIOS)[number];
 
 export type ChartScenarioId =
+  | 'par7-leg' | 'par7-equal' | 'par7-midpoint' | 'par7-deeper' | 'par7-pause' | 'par7-spike' | 'par7-channel' | 'par7-risk' | 'par7-near' | 'par7-contact' | 'par7-failure' | 'par7-opposite' | 'par7-bear-spike' | 'par7-bear-leg' | 'par7-variant' | 'par7-nested' | 'par7-stop' | 'par7-symmetry'
   | 'par6-classic' | 'par6-classic-bear' | 'par6-classic-follow' | 'par6-overlap' | 'par6-fill' | 'par6-island' | 'par6-session' | 'par6-micro-start' | 'par6-micro' | 'par6-measure' | 'par6-retest' | 'par6-negative' | 'par6-zero' | 'par6-measure-bear' | 'par6-risk' | 'par6-average' | 'par6-average-follow' | 'par6-open-close'
   | 'par5-start' | 'par5-test' | 'par5-failure' | 'par5-open' | 'par5-levels' | 'par5-resume' | 'par5-risk' | 'par5-deep' | 'par5-stairs' | 'par5-reversal' | 'par5-double' | 'par5-delayed' | 'par5-near' | 'par5-bear' | 'par5-top'
   | 'par4-context' | 'par4-pullback' | 'par4-entries' | 'par4-follow' | 'par4-risk' | 'par4-second' | 'par4-failure' | 'par4-late' | 'par4-nextday' | 'par4-bear'

@@ -337,4 +337,45 @@ export const rangesGlossary: GlossaryEntry[] = [
     "firstUnit": "Kapitel 6"
   }
 
+,
+
+  {
+    "term": "AB gleich CD",
+    "definition": "Beschriftung zweier gleich großer Schübe: A nach B ist der erste, B nach C der Rücklauf, C nach D der zweite. Die Projektion lautet C+(B−A).",
+    "aliases": [
+      "AB = CD"
+    ],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Messanker",
+    "definition": "Ein ausdrücklich ausgewählter bekannter Preis, etwa Eröffnung, Schluss, Hoch oder Tief, der eine Projektion begrenzt oder startet.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Schubprojektion",
+    "definition": "Erneutes Abtragen einer ausgewählten schnellen Bewegungsstrecke ab einem benannten Punkt. Eine rechnerische Zielidee, keine Garantie.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Offener Gewinn",
+    "definition": "Noch nicht durch Ausstieg realisiertes positives Preisresultat einer gehaltenen Position. Kann bei weiterem Rücklauf verloren gehen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Gewinnrückgabe",
+    "definition": "Verringerung eines zuvor vorhandenen offenen Gewinns. Vom aktuellen Marktwert bis zum Stop kann zusätzlich Verlust unter dem Einstieg entstehen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  },
+  {
+    "term": "Verschachtelte Bewegung",
+    "definition": "Ein größerer Abschnitt enthält mehrere kleinere Schübe und Rückläufe. Jede Größenordnung benötigt eigene Messanker und Informationszeitpunkte.",
+    "aliases": [],
+    "firstUnit": "Kapitel 7"
+  }
+
 ];
