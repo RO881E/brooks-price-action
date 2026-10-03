@@ -15,9 +15,9 @@ const drafts: Draft[] = [
     "section": "Grundlagen",
     "scenario": "c13-01",
     "paragraphs": [
-      "Eine Bullen-Trendlinie verbindet Tiefbereiche eines steigenden Verlaufs und liegt auf der unteren Seite des Trends. Eine Bären-Trendlinie verbindet Hochbereiche eines fallenden Verlaufs und liegt oben. Sie hilft, Rückläufe und mögliche Veränderungen der Kontrolle einzuordnen.",
-      "Die gegenüberliegende Kanalgrenze beschreibt die andere Seite: im Bullenkanal die Hochs, im Bärenkanal die Tiefs. Zwei parallele Grenzen ergeben einen Kanal. Eine Trendlinie allein braucht jedoch keine perfekte gegenüberliegende Begrenzung, um als Referenz nützlich zu sein.",
-      "Beginne bei sichtbaren Hochs und Tiefs statt bei einer beliebigen Diagonale. Eine Linie zeigt eine beobachtete Ordnung; sie zwingt keine Orders und ist kein garantierter Wendepunkt. Entscheidend ist, wie die neuen Bars an ihrem Bereich reagieren."
+      "Eine Bullen-Trendlinie verbindet die Tiefbereiche eines steigenden Verlaufs und liegt auf der unteren Seite des Trends. Eine Bären-Trendlinie verbindet die Hochbereiche eines fallenden Verlaufs und liegt oben. Sie hilft dir, Rückläufe und mögliche Veränderungen der Kontrolle einzuordnen.",
+      "Die gegenüberliegende Kanalgrenze beschreibt die andere Seite: im Bullenkanal die Hochs, im Bärenkanal die Tiefs. Zwei parallele Grenzen ergeben einen Kanal. Eine Trendlinie allein braucht aber keine perfekte Gegenseite, um als Referenz nützlich zu sein.",
+      "Fang bei sichtbaren Hochs und Tiefs an und nicht bei einer beliebigen Diagonale. Eine Linie zeigt eine beobachtete Ordnung; sie zwingt keine Orders und ist kein garantierter Wendepunkt. Entscheidend ist, wie die neuen Bars an ihrem Bereich reagieren."
     ],
     "takeaways": [
       "Trendlinie auf der Rücklaufseite einzeichnen.",
@@ -45,13 +45,13 @@ const drafts: Draft[] = [
   {
     "number": 2,
     "title": "Swingpunkte als Anker wählen",
-    "summary": "Sichtbare Swingpunkte statt gewünschter Ergebnisse nutzen.",
+    "summary": "Sichtbare Swingpunkte nutzen statt gewünschter Ergebnisse.",
     "section": "Grundlagen",
     "scenario": "c13-02",
     "paragraphs": [
       "Ein Swingtief entsteht, wenn ein Rücklauf ausläuft und der Kurs danach wieder steigt. Ein Swinghoch ist die umgekehrte Zwischenwende. Zwei solche Punkte können eine erste Linie bestimmen; spätere Tests zeigen, ob weitere Bars in diesem Bereich reagieren.",
-      "Im Bullenfall verbindest du einen früheren Tiefpunkt mit einem späteren höheren Tief und verlängerst die Linie nach rechts. Im Bärenfall verbindest du ein Hoch mit einem späteren niedrigeren Hoch. Erst nach dem zweiten Punkt ist diese konkrete Linie als Referenz bekannt.",
-      "Zeichne im Replay nur mit Punkten, die zu diesem Zeitpunkt sichtbar waren. Ein späteres Tief rückwirkend als Anker zu verwenden macht einen früheren Trade nicht begründeter. Der dritte Kontakt kann die Referenz stützen, aber ebenfalls durchbrochen werden."
+      "Im Bullenfall verbindest du einen früheren Tiefpunkt mit einem späteren höheren Tief und verlängerst die Linie nach rechts. Im Bärenfall verbindest du ein Hoch mit einem späteren niedrigeren Hoch. Erst nach dem zweiten Punkt kennst du diese konkrete Linie als Referenz.",
+      "Zeichne im Replay nur mit Punkten, die zu diesem Zeitpunkt schon sichtbar waren. Ein späteres Tief rückwirkend als Anker zu nehmen macht einen früheren Trade nicht begründeter. Der dritte Kontakt kann die Referenz stützen, aber genauso gut durchbrochen werden."
     ],
     "takeaways": [
       "Sichtbare Swingpunkte statt gewünschter Ergebnisse nutzen.",
@@ -83,16 +83,16 @@ const drafts: Draft[] = [
     "section": "Linienwahl",
     "scenario": "c13-03",
     "paragraphs": [
-      "Manche Verläufe haben keine zwei perfekten Außenpunkte. Dann kann eine bestmögliche Näherung durch mehrere Hoch- oder Tiefbereiche die Ordnung zeigen. Eine Regressionslinie berechnet eine solche Annäherung; eine schnell gezogene Linie kann für die sichtbare Struktur bereits genügen.",
-      "Gelegentlich passt die Verbindung der Kerzenkörper besser als die der langen Tails. Das kann bei einem Keil sinnvoll sein, dessen Extremspitzen keine schöne Keilform ergeben. Die Wahl muss erklären, welcher Verlauf betrachtet wird; sie darf nicht heimlich wechseln, sobald eine falsche Prognose gerettet werden soll.",
-      "Vergleiche nachvollziehbare Varianten und behalte die Bars im Blick. Eine leichte Abweichung zwischen zwei Linien ist weniger wichtig als kräftiger Anschluss oder klare Zurückweisung. Eine Näherung macht den Chart lesbar und erzeugt keine zusätzliche Gewissheit."
+      "Manche Verläufe haben keine zwei perfekten Außenpunkte. Dann kann eine bestmögliche Näherung durch mehrere Hoch- oder Tiefbereiche die Ordnung zeigen. Eine Regressionslinie berechnet so eine Annäherung; für die sichtbare Struktur reicht oft schon eine schnell gezogene Linie.",
+      "Manchmal passt die Verbindung der Kerzenkörper besser als die der langen Tails. Das kann bei einem Keil sinnvoll sein, dessen Extremspitzen keine schöne Keilform ergeben. Deine Wahl muss erklären, welchen Verlauf du betrachtest; sie darf nicht heimlich wechseln, sobald eine falsche Prognose gerettet werden soll.",
+      "Vergleiche nachvollziehbare Varianten und behalte die Bars im Blick. Eine leichte Abweichung zwischen zwei Linien ist weniger wichtig als kräftiger Anschluss oder klare Zurückweisung. Eine Näherung macht den Chart lesbar, aber nicht sicherer."
     ],
     "takeaways": [
       "Linien können sinnvolle Näherungen sein.",
       "Körper und Tails bewusst unterscheiden.",
       "Linienwahl erklärt den Verlauf, nicht das gewünschte Ergebnis."
     ],
-    "callout": "Linienwahl erklärt den Verlauf, nicht das gewünschte Ergebnis.",
+    "callout": "Die Linienwahl erklärt den Verlauf, nicht das gewünschte Ergebnis.",
     "prompt": "Wann ist eine Körperlinie sinnvoll?",
     "answers": [
       {
@@ -117,9 +117,9 @@ const drafts: Draft[] = [
     "section": "Tests",
     "scenario": "c13-04",
     "paragraphs": [
-      "Ein Rücklauf kann knapp vor einer Trendlinie drehen oder etwas darüber hinauslaufen. Andere Teilnehmer zeichnen leicht andere Linien und legen ihre Orders unterschiedlich. Eine exakt berührte Diagonale ist deshalb keine Voraussetzung für einen relevanten Test.",
-      "Betrachte die Umgebung: Verlieren die Gegenbars Kraft, kehren Schlüsse in Trendrichtung zurück oder entsteht eine brauchbare Auslösung? Ein Unterschreiten der Bullenlinie kann zunächst nur die Suche nach Gegenseite sein. Ohne Käuferreaktion bleibt es allerdings ein fortschreitender Bruch.",
-      "Die begrenzte Unsicherheit über den Linienort erlaubt kein grenzenloses Risiko. Dein Trade braucht eine konkrete Ausstiegsgrenze aus dem Plan. Zone und Stop sind verschiedene Werkzeuge: die Zone lenkt Aufmerksamkeit, der Stop begrenzt die mögliche Verlustposition."
+      "Ein Rücklauf kann knapp vor einer Trendlinie drehen oder etwas darüber hinauslaufen. Andere Teilnehmer zeichnen leicht andere Linien und legen ihre Orders anders. Eine exakt berührte Diagonale ist deshalb keine Voraussetzung für einen relevanten Test.",
+      "Schau auf die Umgebung: Verlieren die Gegenbars Kraft, kehren Schlüsse in Trendrichtung zurück oder gibt es eine brauchbare Auslösung? Ein Unterschreiten der Bullenlinie kann zunächst nur die Suche nach der Gegenseite sein. Ohne Käuferreaktion bleibt es allerdings ein fortschreitender Bruch.",
+      "Dass der Linienort nicht ganz exakt feststeht, erlaubt kein grenzenloses Risiko. Dein Trade braucht eine konkrete Ausstiegsgrenze aus dem Plan. Zone und Stop sind verschiedene Werkzeuge: Die Zone lenkt die Aufmerksamkeit, der Stop begrenzt den möglichen Verlust."
     ],
     "takeaways": [
       "Vorzeitige und überschießende Tests mitlesen.",
@@ -147,13 +147,13 @@ const drafts: Draft[] = [
   {
     "number": 5,
     "title": "Ein Pullback an der Linie braucht ein Signal",
-    "summary": "Linienbereich als Ort, nicht als Order behandeln.",
+    "summary": "Den Linienbereich als Ort behandeln, nicht als Order.",
     "section": "Mit dem Trend",
     "scenario": "c13-05",
     "paragraphs": [
-      "Solange eine Folge steigender Hochs und Tiefs besteht, kann ein Rücklauf an die Bullenlinie eine Gelegenheit zur Fortsetzung vorbereiten. Im Bärenfall gilt dasselbe für den Anstieg an eine fallende Linie. Die Linie lenkt den Blick auf einen Ort, nicht auf eine fertige Order.",
-      "Ein kräftiger Gegenbar am Linienbereich sieht zunächst bedrohlich aus. Prüfe die Vorgeschichte und danach, ob die Trendseite wieder durchkommt. Für einen geplanten Einstieg wartest du auf die Auslösung deines Signals; ein Durchfallen ohne Anschluss in Trendrichtung ist etwas anderes als eine Zurückweisung.",
-      "Lege vor der Order fest, was die Fortsetzungsidee ungültig machen würde. Dann bestimmst du die Menge aus diesem Risiko. Ein günstiger Preis nahe der Linie ist kein ausreichender Grund, wenn der Rücklauf die vorherige Struktur bereits deutlich verändert hat."
+      "Solange es eine Folge steigender Hochs und Tiefs gibt, kann ein Rücklauf an die Bullenlinie eine Gelegenheit zur Fortsetzung vorbereiten. Im Bärenfall gilt dasselbe für den Anstieg an eine fallende Linie. Die Linie lenkt den Blick auf einen Ort, nicht auf eine fertige Order.",
+      "Ein kräftiger Gegenbar am Linienbereich sieht erst mal bedrohlich aus. Prüf die Vorgeschichte und dann, ob die Trendseite wieder durchkommt. Für einen geplanten Einstieg wartest du auf die Auslösung deines Signals; ein Durchfallen ohne Anschluss in Trendrichtung ist etwas anderes als eine Zurückweisung.",
+      "Leg vor der Order fest, was die Fortsetzungsidee ungültig machen würde. Daraus bestimmst du dann die Menge. Ein günstiger Preis nahe der Linie ist kein ausreichender Grund, wenn der Rücklauf die vorherige Struktur schon deutlich verändert hat."
     ],
     "takeaways": [
       "Linienbereich als Ort, nicht als Order behandeln.",
@@ -181,11 +181,11 @@ const drafts: Draft[] = [
   {
     "number": 6,
     "title": "Linienbruch heißt mehr Handel in beide Richtungen",
-    "summary": "Bruch als Beteiligung der Gegenseite lesen.",
+    "summary": "Einen Bruch als Beteiligung der Gegenseite lesen.",
     "section": "Kontrollwechsel",
     "scenario": "c13-06",
     "paragraphs": [
-      "Wird eine bisher wirksame Bullenlinie nach unten gebrochen, konnten Verkäufer erstmals mehr Raum gewinnen. Bei einer Bärenlinie zeigt der Gegenbruch, dass Käufer stärker beteiligt sind. Die Kontrolle einer Seite ist nun weniger selbstverständlich.",
+      "Wird eine bisher wirksame Bullenlinie nach unten gebrochen, haben die Verkäufer zum ersten Mal mehr Raum gewonnen. Bei einer Bärenlinie zeigt der Gegenbruch, dass die Käufer stärker mitmischen. Die Kontrolle einer Seite ist jetzt weniger selbstverständlich.",
       "Das ist die wichtigste erste Information des Bruchs: Zweiseitiger Handel wird plausibler. Daraus kann eine größere Korrektur, eine Range oder ein neuer Trend entstehen. Ein Linienbruch allein beweist noch keine vollständige Umkehr, auch wenn der erste Gegenbar auffällig aussieht.",
       "Für eine alte Position gilt der Schutzplan weiter. Für eine neue Gegenposition prüfst du Stärke des Bruchs, den folgenden Test und dessen Auslösung. Eine geometrisch verletzte Linie und ein belegter neuer Trend sind verschiedene Aussagen."
     ],
@@ -221,7 +221,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Hat eine Linie viele Bars lang einen Trend begleitet, kann nach ihrem Bruch noch ein Test des alten Extrembereichs folgen. Im Bullenfall kann die Erholung ein niedrigeres oder sogar höheres Hoch erreichen. Im Bärenfall gilt das spiegelbildlich für einen erneuten Tiefbereich.",
       "Der Extremtest liefert neue Information: Setzt sich die alte Richtung mit Anschluss fort, gelingt der Gegenseite eine Umkehr oder entsteht Balance? Ein höheres Hoch allein kann Teil eines Tests sein und beweist nicht, dass der vorherige Bruch bedeutungslos war.",
-      "Verlasse dich nicht darauf, dass ein alter Verlusttrade während des Tests schon wieder Einstand erreichen werde. Zeitpunkt und Ausmaß sind offen. Der Extrembereich ist eine Referenz für die nächste Beobachtung; die ursprüngliche Verlustgrenze bleibt verbindlich."
+      "Verlass dich nicht darauf, dass ein alter Verlusttrade während des Tests schon wieder auf Einstand kommt. Zeitpunkt und Ausmaß sind offen. Der Extrembereich ist eine Referenz für die nächste Beobachtung; deine ursprüngliche Verlustgrenze bleibt verbindlich."
     ],
     "takeaways": [
       "Lange Vortrends können ihr Extrem erneut testen.",
@@ -253,9 +253,9 @@ const drafts: Draft[] = [
     "section": "Momentum",
     "scenario": "c13-08",
     "paragraphs": [
-      "Nach einer Gegenbewegung entsteht ein neuer Swingpunkt. Wenn die ursprüngliche Trendrichtung wieder aufgenommen wird, kann dieser Punkt einen zweiten Anker für eine längere Linie liefern. Sie ist häufig flacher als die frühere steile Verbindung.",
-      "Mehrere nacheinander flacher werdende Linien können auf nachlassendes Tempo hinweisen. Dabei bleibt die alte Richtung zunächst intakt: Ein langsamerer Bullenlauf ist nicht automatisch ein Bärenlauf. Steigung und Trendrichtung müssen getrennt gelesen werden.",
-      "Erst wenn die Hoch- und Tiefstruktur kippt und Gegenlinien besser erklären, wo die neuen Rückläufe stoppen, kann die andere Seite wichtiger werden. Zeichne nicht bei jedem kleinen Bar eine neue Diagonale; nutze erkennbare Swingpunkte und beobachte deren tatsächliche Wirkung."
+      "Nach einer Gegenbewegung entsteht ein neuer Swingpunkt. Wird die ursprüngliche Trendrichtung wieder aufgenommen, kann dieser Punkt einen zweiten Anker für eine längere Linie liefern. Sie ist oft flacher als die frühere steile Verbindung.",
+      "Mehrere nacheinander flacher werdende Linien können auf nachlassendes Tempo hinweisen. Die alte Richtung bleibt dabei erst mal intakt: Ein langsamerer Bullenlauf ist nicht automatisch ein Bärenlauf. Steigung und Trendrichtung musst du getrennt lesen.",
+      "Erst wenn die Hoch- und Tiefstruktur kippt und Gegenlinien besser erklären, wo die neuen Rückläufe stoppen, kann die andere Seite wichtiger werden. Zeichne nicht bei jedem kleinen Bar eine neue Diagonale; nutze erkennbare Swingpunkte und beobachte, wie sie tatsächlich wirken."
     ],
     "takeaways": [
       "Neue Swings können neue Anker liefern.",
@@ -287,9 +287,9 @@ const drafts: Draft[] = [
     "section": "Wiederholte Tests",
     "scenario": "c13-09",
     "paragraphs": [
-      "Wenn der Markt immer wieder eine Linie prüft und kaum von ihr wegkommt, wird der Bereich auffällig. Die wiederholte Annäherung kann den Eindruck machen, dass die verteidigende Seite kaum noch Abstand schafft und ein Bruch vorbereitet wird.",
-      "Ein anderer Ausgang ist ebenfalls möglich: Die angreifende Seite gibt auf, nimmt Positionen zurück und der bisherige Trend beschleunigt von der Linie weg. Im Bärenfall können aufgegebene Kaufversuche zusätzliche Verkäufe erzeugen. Beide Wege passen zur gleichen vorherigen Häufung von Tests.",
-      "Du brauchst daher den tatsächlichen Ausbruch und seinen Anschluss oder die klare Beschleunigung weg von der Grenze. Anzahl der Kontakte allein entscheidet die Richtung nicht. Ein späterer Klimax kann den beschleunigten Schub wiederum beenden; die Einordnung bleibt fortlaufend."
+      "Wenn der Markt immer wieder eine Linie prüft und kaum von ihr wegkommt, fällt der Bereich auf. Die wiederholte Annäherung kann den Eindruck machen, dass die verteidigende Seite kaum noch Abstand schafft und ein Bruch sich vorbereitet.",
+      "Es ist aber auch ein anderer Ausgang möglich: Die angreifende Seite gibt auf, nimmt Positionen zurück und der bisherige Trend beschleunigt von der Linie weg. Im Bärenfall können aufgegebene Kaufversuche zusätzliche Verkäufe erzeugen. Beide Wege passen zur gleichen vorherigen Häufung von Tests.",
+      "Du brauchst daher den tatsächlichen Ausbruch und seinen Anschluss oder die klare Beschleunigung weg von der Grenze. Die Anzahl der Kontakte allein entscheidet die Richtung nicht. Ein späterer Klimax kann den beschleunigten Schub wiederum beenden; die Einordnung bleibt fortlaufend."
     ],
     "takeaways": [
       "Viele Tests machen eine Grenze relevant.",
@@ -322,7 +322,7 @@ const drafts: Draft[] = [
     "scenario": "c13-10",
     "paragraphs": [
       "Ein knapper Stich durch eine Linie erzählt etwas anderes als mehrere große Gegenbars mit schnellen tieferen Schlusskursen. Größere und raschere Gegenbewegungen zeigen mehr Druck der angreifenden Seite und machen eine tiefere Veränderung plausibler.",
-      "Trotzdem kann nach einem kräftigen Gegenbruch noch ein Test des bisherigen Trendextrems entstehen. Stärke des ersten Schubs und spätere Testqualität sind zwei aufeinanderfolgende Prüfungen. Ein langsamer Rücklauf ohne Anschluss ist anders zu bewerten als eine kräftige Wiederaufnahme der alten Richtung.",
+      "Trotzdem kann nach einem kräftigen Gegenbruch noch ein Test des bisherigen Trendextrems kommen. Die Stärke des ersten Schubs und die spätere Testqualität sind zwei aufeinanderfolgende Prüfungen. Einen langsamen Rücklauf ohne Anschluss bewertest du anders als eine kräftige Wiederaufnahme der alten Richtung.",
       "Vergleiche die Gegenbars mit der Vorgeschichte: Spanne, Körper, Schlüsse und Überlappung. Aus einem großen Bar allein ergibt sich keine feste Umkehrwahrscheinlichkeit. Die Qualität der späteren Reaktion bestätigt oder schwächt die erste Deutung."
     ],
     "takeaways": [
@@ -355,9 +355,9 @@ const drafts: Draft[] = [
     "section": "Ein-Bar-Impulse",
     "scenario": "c13-11",
     "paragraphs": [
-      "Eine Eröffnungslücke oder ein sehr großer Trendbar kann als kurzer Ausbruchsimpuls betrachtet werden. In dieser Bewegung dominiert zunächst eine Richtung. Eine extrem steile Trendlinie beschreibt dann nur diese kurze Phase und nicht bereits einen stabilen Tagestrend.",
-      "Schon einige Seitwärtsbars können eine solche steile Verbindung verletzen. Häufig entsteht dabei nur eine Flagge, die später in Impulsrichtung ausbricht. Es kann aber auch ein Fehlschlag mit Gegensignal folgen. Der geometrische Bruch kommt hier leichter zustande als bei einer lange wirksamen Linie.",
-      "Prüfe deshalb Pause und Auslösung getrennt. Du handelst weder jede Seitwärtsphase als Umkehr noch jede Lücke als unvermeidliche Fortsetzung. Ein Fade, also ein Trade gegen den Impuls, braucht einen passenden Signalbereich und ein begrenztes Risiko."
+      "Eine Eröffnungslücke oder ein sehr großer Trendbar lässt sich als kurzer Ausbruchsimpuls betrachten. In dieser Bewegung dominiert zunächst eine Richtung. Eine extrem steile Trendlinie beschreibt dann nur diese kurze Phase und noch keinen stabilen Tagestrend.",
+      "Schon ein paar Seitwärtsbars können so eine steile Verbindung verletzen. Oft entsteht dabei nur eine Flagge, die später in Impulsrichtung ausbricht. Es kann aber auch ein Fehlschlag mit Gegensignal folgen. Der geometrische Bruch kommt hier leichter zustande als bei einer lange wirksamen Linie.",
+      "Prüf deshalb Pause und Auslösung getrennt. Du handelst weder jede Seitwärtsphase als Umkehr noch jede Lücke als unvermeidliche Fortsetzung. Ein Fade, also ein Trade gegen den Impuls, braucht einen passenden Signalbereich und ein begrenztes Risiko."
     ],
     "takeaways": [
       "Kurzen Impuls von langem Trend unterscheiden.",
@@ -385,13 +385,13 @@ const drafts: Draft[] = [
   {
     "number": 12,
     "title": "Linien helfen nur, solange die Bars sichtbar bleiben",
-    "summary": "Einzeichnen zur Klärung statt zur Dekoration.",
+    "summary": "Einzeichnen, um etwas zu klären, nicht zur Dekoration.",
     "section": "Chartdisziplin",
     "scenario": "c13-12",
     "paragraphs": [
-      "Eine offensichtlich erkennbare Linie muss nicht immer gezeichnet werden. Bei Unsicherheit kann eine kurze Einzeichnung zeigen, ob der aktuelle Bar den Bereich erreicht. Danach kann die Hilfe wieder verschwinden, wenn sie keine zusätzliche Information mehr liefert.",
-      "Viele überlagerte Diagonalen machen es schwer, Körper, Schlüsse und Reaktionen zu sehen. Eine kleine Auswahl mit klaren Bezugspunkten ist nützlicher als ein Netz, das jeden möglichen Kurs nachträglich erklären kann. Der Chart soll die nächste Entscheidung erleichtern.",
-      "Im Lernmodus zeichnest du bewusst und beschreibst den Test. In der späteren Anwendung reichen oft die aktuell relevanten Grenzen. Frage bei jeder Linie: Welche neue Beobachtung lenkt sie, und würde ich ohne sie die Reaktion übersehen? Wenn sie nur ablenkt, nimm sie weg."
+      "Eine offensichtlich erkennbare Linie musst du nicht immer zeichnen. Bei Unsicherheit kann eine kurze Einzeichnung zeigen, ob der aktuelle Bar den Bereich erreicht. Danach kann die Hilfe wieder verschwinden, wenn sie nichts Neues mehr liefert.",
+      "Viele überlagerte Diagonalen machen es schwer, Körper, Schlüsse und Reaktionen zu sehen. Eine kleine Auswahl mit klaren Bezugspunkten ist nützlicher als ein Netz, das jeden möglichen Kurs nachträglich erklären kann. Der Chart soll dir die nächste Entscheidung erleichtern.",
+      "Im Lernmodus zeichnest du bewusst und beschreibst den Test. In der späteren Anwendung reichen oft die aktuell relevanten Grenzen. Frag dich bei jeder Linie: Welche neue Beobachtung lenkt sie, und würde ich ohne sie die Reaktion übersehen? Wenn sie nur ablenkt, nimm sie weg."
     ],
     "takeaways": [
       "Einzeichnen zur Klärung statt zur Dekoration.",
@@ -425,14 +425,14 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein steigender Verlauf enthält kleine schnelle Abschnitte innerhalb einer länger laufenden Aufwärtsstruktur. Kurze Linien über nahe Tiefpunkte werden deshalb früher verletzt als eine flachere Linie über weiter entfernte Swings. Beide können unterschiedliche Beobachtungsfragen beantworten.",
       "Im Übungsfall entstehen nach Gegenbewegungen neue Bezugspunkte. Die neuen Aufwärtslinien sind flacher, bevor später fallende Hochlinien den Gegenverlauf besser beschreiben. Eine Linie kann für den kurzen Rücklauf gebrochen sein, während die größere Trendordnung noch besteht.",
-      "Wähle die Referenz passend zu deinem Zeithorizont und kennzeichne die Anker. Die Existenz mehrerer Linien ist kein Grund, nach einem Verlust spontan auf die weiteste auszuweichen. Ein vorher definierter Schutz gehört zur Position und nicht zur nachträglich schönsten Diagonale."
+      "Wähle die Referenz passend zu deinem Zeithorizont und kennzeichne die Anker. Dass es mehrere Linien gibt, ist kein Grund, nach einem Verlust spontan auf die weiteste auszuweichen. Ein vorher definierter Schutz gehört zur Position und nicht zur nachträglich schönsten Diagonale."
     ],
     "takeaways": [
       "Kurze und lange Linien beantworten verschiedene Fragen.",
       "Neue Swings verändern die Referenzen.",
       "Zeithorizont vor der Order festlegen."
     ],
-    "callout": "Zeithorizont vor der Order festlegen.",
+    "callout": "Den Zeithorizont vor der Order festlegen.",
     "prompt": "Warum kann eine kurze Bullenlinie brechen, während eine längere noch hält?",
     "answers": [
       {
@@ -457,9 +457,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.1 · Gegenimpuls",
     "scenario": "c13-14",
     "paragraphs": [
-      "Ein schneller Abverkauf bis an eine Bullenlinie kann wie der Beginn eines neuen Bärentrends aussehen. Wer nur den letzten großen roten Körper betrachtet, übersieht jedoch die vorangegangene Folge steigender Hochs und Tiefs.",
+      "Ein schneller Abverkauf bis an eine Bullenlinie kann wie der Beginn eines neuen Bärentrends aussehen. Wer nur den letzten großen roten Körper betrachtet, übersieht allerdings die vorangegangene Folge steigender Hochs und Tiefs.",
       "Am Linienbereich kann der Markt kurz darunter handeln, um weitere Verkäufer oder Käufer zu finden. Kehren die Käufer kräftig zurück, kann die alte Richtung wieder aufgenommen werden. Ein größerer Bruch macht die Gegenseite relevanter, kann aber ebenfalls vor einem erneuten Hochtest liegen.",
-      "Der Chartfall erklärt damit eine typische Versuchung: großen Gegenschub sehen und sofort auf eine umfassende Umkehr setzen. Beurteile stattdessen den ganzen Ablauf. Weder ein Kauf an der Linie noch ein Short darunter ist allein durch das große Momentum gerechtfertigt."
+      "Der Chartfall zeigt damit eine typische Versuchung: einen großen Gegenschub sehen und sofort auf eine umfassende Umkehr setzen. Beurteile stattdessen den ganzen Ablauf. Weder ein Kauf an der Linie noch ein Short darunter ist allein durch das große Momentum gerechtfertigt."
     ],
     "takeaways": [
       "Gegenimpuls mit längerem Vortrend vergleichen.",
@@ -487,13 +487,13 @@ const drafts: Draft[] = [
   {
     "number": 15,
     "title": "Chance, Risiko und Plausibilität gemeinsam prüfen",
-    "summary": "Mögliches Ziel allein ist kein Vorteil.",
+    "summary": "Ein mögliches Ziel allein ist kein Vorteil.",
     "section": "Chartfall 13.1 · Entscheidung",
     "scenario": "c13-15",
     "paragraphs": [
       "Ein früher Gegentrend-Entry verspricht auf dem Papier viel Raum, falls wirklich eine Umkehr beginnt. Dieses mögliche Ziel ist nur ein Teil der Entscheidung. Stop-Abstand und die Plausibilität des angenommenen Ablaufs gehören genauso dazu.",
-      "Ein großes Ziel bei geringem Käuferverlust an der Linie kann eine schwache Umkehrthese verdecken. Umgekehrt kann ein bescheidenerer Fortsetzungsplan die noch intakte Struktur besser nutzen. Dafür brauchst du keine ausgedachte Prozentzahl, sondern eine nachvollziehbare Beschreibung des aktuellen Drucks.",
-      "Die Hoffnung, nach einem ungünstigen Entry wenigstens eine zweite Gegenwelle zum Einstand zu erhalten, ersetzt keinen Schutz. Ein Extremtest kann anders verlaufen oder ausbleiben. Plane vor dem Einstieg, wo die Idee scheitert, statt den möglichen Ertrag allein entscheiden zu lassen."
+      "Ein großes Ziel bei geringem Käuferverlust an der Linie kann eine schwache Umkehrthese überdecken. Umgekehrt kann ein bescheidenerer Fortsetzungsplan die noch intakte Struktur besser nutzen. Dafür brauchst du keine ausgedachte Prozentzahl, sondern eine nachvollziehbare Beschreibung des aktuellen Drucks.",
+      "Die Hoffnung, nach einem ungünstigen Entry wenigstens mit einer zweiten Gegenwelle auf Einstand zu kommen, ersetzt keinen Schutz. Ein Extremtest kann anders verlaufen oder ausbleiben. Plane vor dem Einstieg, wo die Idee scheitert, statt allein den möglichen Ertrag entscheiden zu lassen."
     ],
     "takeaways": [
       "Mögliches Ziel allein ist kein Vorteil.",
@@ -526,8 +526,8 @@ const drafts: Draft[] = [
     "scenario": "c13-16",
     "paragraphs": [
       "Eine Trendlinie ist nicht auf fünf Minuten beschränkt. Im Monatschart können zwei weit auseinanderliegende Tiefbereiche eine langfristige Referenz liefern. Eine spätere starke Korrektur kann diesen Bereich testen, obwohl die Verbindung viele Jahre umfasst.",
-      "Das Grundprinzip bleibt gleich: Anker, Test und tatsächliche Reaktion. Die Zeit- und Preisabstände werden jedoch größer. Ein Stop aus der Monatsstruktur würde ein anderes Risiko und eine andere Haltedauer verlangen als ein Intraday-Setup; beide dürfen nicht einfach vermischt werden.",
-      "Die Langfristansicht dient hier dem Verständnis der Methode. Sie ist kein Grund, eine kurzfristige Position nachträglich jahrelang halten zu wollen. Prüfe auch bei einer alten Linie, ob neue Bars ihre Bedeutung noch stützen oder eine aktuellere Referenz wichtiger geworden ist."
+      "Das Grundprinzip bleibt gleich: Anker, Test und tatsächliche Reaktion. Nur die Zeit- und Preisabstände werden größer. Ein Stop aus der Monatsstruktur würde ein anderes Risiko und eine andere Haltedauer verlangen als ein Intraday-Setup; beides darfst du nicht einfach vermischen.",
+      "Die Langfristansicht dient hier dem Verständnis der Methode. Sie ist kein Grund, eine kurzfristige Position nachträglich jahrelang halten zu wollen. Prüf auch bei einer alten Linie, ob neue Bars ihre Bedeutung noch stützen oder eine aktuellere Referenz wichtiger geworden ist."
     ],
     "takeaways": [
       "Die Linienlogik gilt auf verschiedenen Zeitebenen.",
@@ -560,7 +560,7 @@ const drafts: Draft[] = [
     "scenario": "c13-17",
     "paragraphs": [
       "Eine weit zurückliegende Ausbruchszone kann als möglicher Testbereich im Gedächtnis bleiben. Hat sich der Markt aber lange und weit von ihr entfernt, liefern neuere Swings oft deutlich mehr Information für die aktuelle Entscheidung.",
-      "Der langfristige Chartfall vergleicht solche Referenzen: eine später getestete Tiefverbindung und eine sehr alte Ausbruchszone. Dass die alte Zone nie exakt getestet wurde, bedeutet nicht, dass der Markt zwingend dorthin zurückkehren muss. Mit vielen weiteren Bars kann ihre praktische Bedeutung abnehmen.",
+      "Der langfristige Chartfall vergleicht solche Referenzen: eine später getestete Tiefverbindung und eine sehr alte Ausbruchszone. Dass die alte Zone nie exakt getestet wurde, heißt nicht, dass der Markt zwingend dorthin zurückkehren muss. Mit vielen weiteren Bars kann ihre praktische Bedeutung abnehmen.",
       "Historische Erwartungen sind keine Prognose für den heutigen Markt. Auch eine breite obere Range kann mehrere Musternamen bekommen; entscheidend bleiben der sichtbare Test und die Folgereaktion. Nutze alte Preisbereiche als abgestufte Referenzen, nicht als feste Zielversprechen."
     ],
     "takeaways": [
@@ -589,12 +589,12 @@ const drafts: Draft[] = [
   {
     "number": 18,
     "title": "Chartfall 13.3: Eine Parallele zur Kanalgrenze ziehen",
-    "summary": "Kanalgrenze kann die Steigung vorgeben.",
+    "summary": "Die Kanalgrenze kann die Steigung vorgeben.",
     "section": "Chartfall 13.3 · Konstruktion",
     "scenario": "c13-18",
     "paragraphs": [
-      "Manchmal ist die Kanalgrenze leichter zu erkennen als die Trendlinie. Im Bärenfall verbindest du zwei Tiefbereiche und erhältst eine fallende untere Begrenzung. Eine Parallele dazu kann dann an ein dazwischenliegendes Hoch verschoben werden.",
-      "Die verschobene Linie erhält dieselbe Steigung, nur einen anderen Abstand. Sie kann als obere Trendseite des gedachten Kanals dienen. Verankere sie an einem bereits sichtbaren Hoch und überprüfe, ob der Verlauf sinnvoll zwischen beiden Grenzen liegt.",
+      "Manchmal ist die Kanalgrenze leichter zu erkennen als die Trendlinie. Im Bärenfall verbindest du zwei Tiefbereiche und bekommst eine fallende untere Begrenzung. Eine Parallele dazu kannst du dann an ein dazwischenliegendes Hoch verschieben.",
+      "Die verschobene Linie behält dieselbe Steigung, nur der Abstand ist ein anderer. Sie kann als obere Trendseite des gedachten Kanals dienen. Verankere sie an einem bereits sichtbaren Hoch und prüf, ob der Verlauf sinnvoll zwischen beiden Grenzen liegt.",
       "Das ist eine ergänzende Konstruktion, keine genauere Wahrheit. Sie muss etwas erklären, das die einfachen Swinglinien nicht schon zeigen. Nach dem Zeichnen beobachtest du den Test am oberen Bereich; eine geometrisch passende Parallele allein eröffnet keinen Short."
     ],
     "takeaways": [
@@ -602,7 +602,7 @@ const drafts: Draft[] = [
       "Parallele an der anderen Seite verankern.",
       "Konstruktion ist eine Hilfe, keine Order."
     ],
-    "callout": "Konstruktion ist eine Hilfe, keine Order.",
+    "callout": "Eine Konstruktion ist eine Hilfe, keine Order.",
     "prompt": "Was bleibt beim Verschieben einer echten Parallele gleich?",
     "answers": [
       {
@@ -628,8 +628,8 @@ const drafts: Draft[] = [
     "scenario": "c13-19",
     "paragraphs": [
       "Die aus einer Kanalgrenze abgeleitete Trendlinie kann fast mit einer gewöhnlichen Hochlinie zusammenfallen. Dann liefert die aufwendigere Konstruktion keine zweite unabhängige Bestätigung; beide zeigen nahezu denselben Preisbereich.",
-      "Im Chartfall kehrt ein Rücklauf an die obere Bärengrenze zurück und der zweite Umkehrversuch wird zum Prüfpunkt für einen Short. Die gleiche Gelegenheit wäre häufig schon durch eine einfache Verbindung der relevanten Hochs erkennbar gewesen.",
-      "Mehr Linien sind daher nicht automatisch mehr Belege. Halte Konstruktion und Preisreaktion getrennt: Die Linien helfen beim Ort, die tatsächliche Zurückweisung und Auslösung liefern die neue Marktinformation. Entferne die überflüssige Variante, wenn sie die Bars verdeckt."
+      "Im Chartfall kehrt ein Rücklauf an die obere Bärengrenze zurück und der zweite Umkehrversuch wird zum Prüfpunkt für einen Short. Die gleiche Gelegenheit hättest du oft schon an einer einfachen Verbindung der relevanten Hochs erkannt.",
+      "Mehr Linien sind deshalb nicht automatisch mehr Belege. Halte Konstruktion und Preisreaktion getrennt: Die Linien helfen beim Ort, die tatsächliche Zurückweisung und Auslösung liefern die neue Marktinformation. Wirf die überflüssige Variante raus, wenn sie die Bars verdeckt."
     ],
     "takeaways": [
       "Nahe Linien können dieselbe Referenz doppeln.",
@@ -662,15 +662,15 @@ const drafts: Draft[] = [
     "scenario": "c13-20",
     "paragraphs": [
       "Ein Aufwärts-Pullback im Bärenkanal kann drei Schübe bilden. Seine eigene obere Begrenzung steigt, während die übergeordnete Bärenlinie fällt. Beide Bereiche können sich nahe dem letzten Pullback-Hoch treffen.",
-      "Dieses Zusammentreffen beschreibt zwei gleichzeitig wirkende Strukturen: die übergeordnete Trendgrenze und die Begrenzung der Gegenbewegung. Eine Überschreitung der kleinen Pullback-Grenze mit anschließender Rücknahme kann dort eine mögliche Short-Idee unterstützen.",
-      "Es zählt jedoch nicht die bloße Kreuzung auf dem Bildschirm. Prüfe, ob der Rücklauf wirklich zurückgewiesen wird und Verkäufer Anschluss erhalten. Der Keil kann größer werden oder nach oben ausbrechen; der Short braucht deshalb ein aktuelles Signal und begrenztes Risiko."
+      "Dieses Zusammentreffen beschreibt zwei gleichzeitig wirkende Strukturen: die übergeordnete Trendgrenze und die Begrenzung der Gegenbewegung. Eine Überschreitung der kleinen Pullback-Grenze mit anschließender Rücknahme kann dort eine mögliche Short-Idee stützen.",
+      "Es zählt aber nicht die bloße Kreuzung auf dem Bildschirm. Prüf, ob der Rücklauf wirklich zurückgewiesen wird und die Verkäufer Anschluss bekommen. Der Keil kann größer werden oder nach oben ausbrechen; der Short braucht deshalb ein aktuelles Signal und begrenztes Risiko."
     ],
     "takeaways": [
       "Übergeordnete Linie und Pullback-Linie unterscheiden.",
       "Kreuzungsbereich als Beobachtungsort nutzen.",
       "Erst die tatsächliche Zurückweisung gibt neue Evidenz."
     ],
-    "callout": "Erst die tatsächliche Zurückweisung gibt neue Evidenz.",
+    "callout": "Erst die tatsächliche Zurückweisung liefert neue Evidenz.",
     "prompt": "Was macht die Kreuzung zweier Linien handelbar?",
     "answers": [
       {
@@ -695,9 +695,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.4 · Bullenkanal",
     "scenario": "c13-21",
     "paragraphs": [
-      "Nach einem möglichen Boden entstehen zwei kräftige Aufwärtsschübe. Ihre Hochs können eine obere Kanalgrenze bestimmen. Verschiebst du eine Parallele an das Tief dazwischen, erhältst du einen vorläufigen unteren Bereich für den neuen Aufwärtskanal.",
-      "Der nächste Rücklauf wird nun darauf geprüft, ob Käufer an dieser unteren Grenze zurückkommen. Im Chartfall ist ein bullischer Reversal-Bar dort der mögliche Signalpunkt. Die Konstruktion ist erst nach dem zweiten Hoch und dem Zwischentief bekannt und wird anschließend getestet.",
-      "Ein neuer Kanal ist zunächst eine Arbeitshypothese. Ein Fall durch die Untergrenze mit starkem Anschluss würde sie schwächen. Für den möglichen Long sind Signalqualität, Auslösung und Stop-Abstand wichtiger als die Schönheit des eingezeichneten Bandes."
+      "Nach einem möglichen Boden entstehen zwei kräftige Aufwärtsschübe. Ihre Hochs können eine obere Kanalgrenze bestimmen. Schiebst du eine Parallele an das Tief dazwischen, hast du einen vorläufigen unteren Bereich für den neuen Aufwärtskanal.",
+      "Beim nächsten Rücklauf prüfst du nun, ob die Käufer an dieser unteren Grenze zurückkommen. Im Chartfall ist ein bullischer Reversal-Bar dort der mögliche Signalpunkt. Die Konstruktion ist erst nach dem zweiten Hoch und dem Zwischentief bekannt und wird danach getestet.",
+      "Ein neuer Kanal ist erst mal eine Arbeitshypothese. Ein Fall durch die Untergrenze mit starkem Anschluss würde sie schwächen. Für den möglichen Long zählen Signalqualität, Auslösung und Stop-Abstand mehr als die Schönheit des eingezeichneten Bandes."
     ],
     "takeaways": [
       "Zwei Hochs und ein Zwischentief liefern die Skizze.",
@@ -730,8 +730,8 @@ const drafts: Draft[] = [
     "scenario": "c13-22",
     "paragraphs": [
       "Ein Hochbereich nahe einem älteren Hoch kann als möglicher Doppeltest auffallen. Folgt eine Abwärtslücke und danach ein zweiter Schub nach unten, lässt sich aus den beiden Tiefs eine fallende Kanalgrenze skizzieren.",
-      "Eine Parallele an das Hoch zwischen diesen Schüben liefert die obere Seite. Der anschließende Anstieg wird auf Verkäuferreaktion an diesem Bereich geprüft. Ein kräftiger bärischer Reversal-Bar kann dort einen möglichen Short vorbereiten, sofern seine Auslösung erfolgt.",
-      "Die spiegelbildliche Konstruktion ergänzt den Bullenfall. Sie ist keine Behauptung, dass der neue Kanal schon dauerhaft feststeht. Prüfe die nächste Reaktion und plane den Verlustschutz aus dem tatsächlich handelbaren Signal statt aus einem rückwirkend optimierten Band."
+      "Eine Parallele an das Hoch zwischen diesen Schüben liefert die obere Seite. Den anschließenden Anstieg prüfst du auf Verkäuferreaktion an diesem Bereich. Ein kräftiger bärischer Reversal-Bar kann dort einen möglichen Short vorbereiten, sofern er ausgelöst wird.",
+      "Die spiegelbildliche Konstruktion ergänzt den Bullenfall. Sie behauptet nicht, dass der neue Kanal schon dauerhaft feststeht. Prüf die nächste Reaktion und plane den Verlustschutz aus dem tatsächlich handelbaren Signal statt aus einem rückwirkend optimierten Band."
     ],
     "takeaways": [
       "Zwei Tiefs können die Bärengrenze vorgeben.",
@@ -764,8 +764,8 @@ const drafts: Draft[] = [
     "scenario": "c13-23",
     "paragraphs": [
       "Bei einer möglichen inversen Schulter-Kopf-Schulter-Struktur liegt der Kopf tiefer als die beiden Schulterbereiche. Die Hochpunkte dazwischen bilden eine Nackenreferenz. Eine Parallele durch die linke Schulter kann eine ungefähre Höhe für die rechte Schulter andeuten.",
-      "Der geschätzte Bereich hilft beim Beobachten, liefert aber keine präzise Kauforder. Im Chartfall folgt auf eine starke Abwärtsbewegung am rechten Tief ein bullischer Inside-Bar. Diese neue Reaktion trägt mehr zur Einstiegsentscheidung bei als die vorausgegangene geometrische Schätzung.",
-      "Die Form kann sich erweitern, unvollständig bleiben oder scheitern. Prüfe daher den aktuellen Tiefbereich, die Zurückweisung und die Auslösung. Eine aus der Schulterhöhe abgeleitete Linie bleibt eine ergänzende Orientierung; die jüngsten Bars führen die Entscheidung."
+      "Der geschätzte Bereich hilft beim Beobachten, liefert aber keine präzise Kauforder. Im Chartfall folgt auf eine starke Abwärtsbewegung am rechten Tief ein bullischer Inside-Bar. Diese neue Reaktion trägt mehr zur Einstiegsentscheidung bei als die geometrische Schätzung davor.",
+      "Die Form kann sich erweitern, unvollständig bleiben oder scheitern. Prüf daher den aktuellen Tiefbereich, die Zurückweisung und die Auslösung. Eine aus der Schulterhöhe abgeleitete Linie bleibt eine ergänzende Orientierung; die jüngsten Bars führen die Entscheidung."
     ],
     "takeaways": [
       "Nackenreferenz und Schulter-Parallele unterscheiden.",
@@ -797,16 +797,16 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.6 · Testnähe",
     "scenario": "c13-24",
     "paragraphs": [
-      "Im Bärenkanal wird die untere Parallele an einem früheren Tief verankert. Spätere Abwärtsschübe können nahe dieser Grenze drehen, ohne sie millimetergenau zu erreichen. Solche Annäherungen können bereits als ausreichender Test interpretiert werden.",
-      "Andere Trader wollen eine tatsächliche Überschreitung und anschließende Rücknahme sehen. Beide Sichtweisen verlangen die Käuferreaktion, unterscheiden sich aber in der nötigen Tiefe des Tests. Der Linienort allein entscheidet nicht, ob ein neuer Long tragfähig ist.",
-      "Beschreibe vor der Auslösung, welchen Test dein Plan verlangt. Danach wechselst du nicht spontan die Definition, um jede Kerze passend zu machen. Ein neues Kaufsignal und der begrenzte Stop bleiben erforderlich, auch wenn der Abstand zur Grenze klein wirkt."
+      "Im Bärenkanal wird die untere Parallele an einem früheren Tief verankert. Spätere Abwärtsschübe können nahe dieser Grenze drehen, ohne sie millimetergenau zu erreichen. Solche Annäherungen kannst du schon als ausreichenden Test werten.",
+      "Andere Trader wollen eine tatsächliche Überschreitung und anschließende Rücknahme sehen. Beide Sichtweisen verlangen die Käuferreaktion, unterscheiden sich aber in der nötigen Tiefe des Tests. Der Linienort allein entscheidet nicht, ob ein neuer Long trägt.",
+      "Beschreib vor der Auslösung, welchen Test dein Plan verlangt. Danach wechselst du nicht spontan die Definition, nur um jede Kerze passend zu machen. Ein neues Kaufsignal und der begrenzte Stop bleiben Pflicht, auch wenn der Abstand zur Grenze klein wirkt."
     ],
     "takeaways": [
       "Ein Test kann vor der exakten Linie enden.",
       "Penetration ist eine andere Anforderung als Nähe.",
       "Testdefinition vor der Order festlegen."
     ],
-    "callout": "Testdefinition vor der Order festlegen.",
+    "callout": "Die Testdefinition vor der Order festlegen.",
     "prompt": "Was unterscheidet einen nahen Test von einem Überschreiten?",
     "answers": [
       {
@@ -832,15 +832,15 @@ const drafts: Draft[] = [
     "scenario": "c13-25",
     "paragraphs": [
       "Ein steiler Bärenkanal kann so gezeichnet sein, dass spätere Tiefs knapp vor der Untergrenze bleiben. Dann lohnt ein Vergleich mit einer anderen nachvollziehbaren Ankerwahl: Vielleicht beschreibt ein früherer Hochpunkt oder der Beginn des deutlichen Verkaufsimpulses die Struktur besser.",
-      "Eine alternative Hochverbindung mit Parallele an einem sichtbaren Tief kann dieselben späteren Bars als Überschreitungen zeigen. Der Markt hat sich nicht verändert; nur die räumliche Referenz ist anders. Deshalb ist eine pixelgenaue Grenzverletzung kein absoluter Beweis.",
-      "Behalte beide nachvollziehbaren Varianten kurz im Blick und lies die gemeinsame Preisreaktion. Wähle nicht beliebig neue Punkte, bis das gewünschte Signal herauskommt. Ein begründeter Variantenvergleich macht die Unsicherheit sichtbar, statt sie nachträglich zu verstecken."
+      "Eine alternative Hochverbindung mit Parallele an einem sichtbaren Tief kann dieselben späteren Bars als Überschreitungen zeigen. Der Markt hat sich nicht verändert; nur die räumliche Referenz ist eine andere. Deshalb ist eine pixelgenaue Grenzverletzung kein absoluter Beweis.",
+      "Behalte beide nachvollziehbaren Varianten kurz im Blick und lies die gemeinsame Preisreaktion. Such dir nicht beliebig neue Punkte, bis das gewünschte Signal herauskommt. Ein begründeter Variantenvergleich macht die Unsicherheit sichtbar, statt sie hinterher zu verstecken."
     ],
     "takeaways": [
       "Steile Linien können Tests unterschiedlich einordnen.",
       "Alternative Anker müssen nachvollziehbar bleiben.",
       "Variantenvergleich zeigt Unsicherheit, keine neue Gewissheit."
     ],
-    "callout": "Variantenvergleich zeigt Unsicherheit, keine neue Gewissheit.",
+    "callout": "Ein Variantenvergleich zeigt Unsicherheit, keine neue Gewissheit.",
     "prompt": "Warum kann derselbe Tiefbar bei zwei Linien anders aussehen?",
     "answers": [
       {
@@ -865,9 +865,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.6 · Umkehrversuch",
     "scenario": "c13-26",
     "paragraphs": [
-      "Wenn ein Tief die untere Bärengrenze überschreitet und danach zurückgekauft wird, entsteht ein erster Umkehrversuch. Ein erneuter Tiefschub mit weiterer Rücknahme kann eine zweite Gelegenheit vorbereiten. Die Zwischenreaktion liefert zusätzliche Information über die Gegenseite.",
-      "Eine Käuferbewegung kann anschließend die obere Bärengrenze testen oder durchbrechen. Diese gegenüberliegende Seite ist ein möglicher Bezugspunkt für die Erholung, kein zugesichertes Kursziel. Ein Pullback nach dem oberen Bruch kann wiederum auf eine neue Fortsetzung geprüft werden.",
-      "Der zweite Versuch braucht weiterhin einen passenden Signal-Bar und eine Auslösung. Der vorherige erste Fehlschlag macht die zweite Gelegenheit weder risikolos noch automatisch besser in jeder Umgebung. Plane Stop und Menge aus dem jetzigen Aufbau."
+      "Überschreitet ein Tief die untere Bärengrenze und wird danach zurückgekauft, entsteht ein erster Umkehrversuch. Ein erneuter Tiefschub mit weiterer Rücknahme kann eine zweite Gelegenheit vorbereiten. Die Zwischenreaktion liefert zusätzliche Information über die Gegenseite.",
+      "Eine Käuferbewegung kann anschließend die obere Bärengrenze testen oder durchbrechen. Diese gegenüberliegende Seite ist ein möglicher Bezugspunkt für die Erholung, kein zugesichertes Kursziel. Einen Pullback nach dem oberen Bruch kannst du wiederum auf eine neue Fortsetzung prüfen.",
+      "Auch der zweite Versuch braucht einen passenden Signal-Bar und eine Auslösung. Der vorherige erste Fehlschlag macht die zweite Gelegenheit weder risikolos noch in jeder Umgebung automatisch besser. Plane Stop und Menge aus dem jetzigen Aufbau."
     ],
     "takeaways": [
       "Erste und zweite Rücknahme getrennt beobachten.",
@@ -899,16 +899,16 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.6 · Eröffnung",
     "scenario": "c13-27",
     "paragraphs": [
-      "Der Tagesbeginn im vertieften Fall liegt oberhalb eines alten Hochbereichs. Dieser Ausbruch wird jedoch zurückgenommen und mehrere Bärenbars folgen. Die zunächst bullische Eröffnung verwandelt sich dadurch in eine frühe Abwärtsphase.",
-      "Ein erster Pullback nach dem Verkaufsimpuls kann eine Trendfortsetzung vorbereiten. Er ist eine andere Gelegenheit als der gescheiterte Kauf am Gap. Der Rücklauf wird darauf geprüft, ob Verkäufer erneut übernehmen; sein Signal und Stop liegen in der jetzt sichtbaren Struktur.",
-      "Die frühe Bärenphase bestimmt nicht den ganzen späteren Tag. Neue Spikes, Kanäle und Rücknahmen folgen im Ablauf. Bewerte jeden Übergang mit damaligen Bars, statt die spätere Erholung als Grund zu nehmen, den frühen Bärendruck zu ignorieren."
+      "Der Tagesbeginn im vertieften Fall liegt oberhalb eines alten Hochbereichs. Dieser Ausbruch wird aber zurückgenommen und mehrere Bärenbars folgen. Die zunächst bullische Eröffnung verwandelt sich dadurch in eine frühe Abwärtsphase.",
+      "Ein erster Pullback nach dem Verkaufsimpuls kann eine Trendfortsetzung vorbereiten. Er ist eine andere Gelegenheit als der gescheiterte Kauf am Gap. Du prüfst den Rücklauf darauf, ob die Verkäufer erneut übernehmen; Signal und Stop liegen in der jetzt sichtbaren Struktur.",
+      "Die frühe Bärenphase bestimmt nicht den ganzen späteren Tag. Neue Spikes, Kanäle und Rücknahmen kommen im Ablauf noch. Bewerte jeden Übergang mit den damaligen Bars, statt die spätere Erholung als Grund zu nehmen, den frühen Bärendruck zu ignorieren."
     ],
     "takeaways": [
       "Eröffnungsausbruch und Rücknahme auseinanderhalten.",
       "Ersten Pullback als neue Gelegenheit prüfen.",
       "Frühe Richtung beschreibt nicht jeden späteren Abschnitt."
     ],
-    "callout": "Frühe Richtung beschreibt nicht jeden späteren Abschnitt.",
+    "callout": "Die frühe Richtung beschreibt nicht jeden späteren Abschnitt.",
     "prompt": "Welche Information verändert die bullische Gap-Idee?",
     "answers": [
       {
@@ -933,8 +933,8 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.6 · Phasenfolge",
     "scenario": "c13-28",
     "paragraphs": [
-      "Ein Bärenspike kann in einen fallenden Kanal übergehen. Mehrere Abwärtsschübe am Kanalende können auf Erschöpfung hinweisen und eine Erholung ermöglichen. Dabei entsteht häufig erst ein Aufwärtsbein, ein Rücklauf und ein zweites Aufwärtsbein.",
-      "Die Erholung kann den Beginn oder oberen Bereich des Bärenkanals testen. Dort kann ein weiterer Hochtest erneut eine Bärenflagge vorbereiten. Eine kräftige Erholung ist deshalb nicht gleichbedeutend mit einem bereits dauerhaften Bullen-Trendtag.",
+      "Ein Bärenspike kann in einen fallenden Kanal übergehen. Mehrere Abwärtsschübe am Kanalende können auf Erschöpfung hinweisen und eine Erholung ermöglichen. Dabei entsteht oft erst ein Aufwärtsbein, ein Rücklauf und ein zweites Aufwärtsbein.",
+      "Die Erholung kann den Beginn oder oberen Bereich des Bärenkanals testen. Dort kann ein weiterer Hochtest erneut eine Bärenflagge vorbereiten. Eine kräftige Erholung ist deshalb nicht gleich ein schon dauerhafter Bullen-Trendtag.",
       "Im längeren Ablauf folgen weitere Verkaufsimpulse und später eine bullische Spike-und-Kanal-Phase. Nach deren Rücklauf kann ein Doppeltief eine neue Käuferidee tragen. Lies die Sequenz als wechselnde Phasen, statt jeden großen Bar isoliert zur endgültigen Richtung zu erklären."
     ],
     "takeaways": [
@@ -967,9 +967,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.6 · Ausdehnung",
     "scenario": "c13-29",
     "paragraphs": [
-      "Eine weit ausgedehnte Tagesbewegung kann weitere Aufmerksamkeit für Erschöpfung erzeugen. Wenn der Abverkauf bereits einen großen Teil der zuletzt üblichen Tagesspanne durchlaufen hat, prüfen Trader mögliche Gegenreaktionen besonders aufmerksam.",
-      "Die übliche Spanne ist keine Begrenzung des Tages. Ein Markt kann sie deutlich überschreiten, besonders bei starkem Druck. Deshalb lässt sich aus einem historischen Durchschnitt weder ein garantierter Boden noch eine fest vorgeschriebene Umkehr ableiten.",
-      "Verbinde die Ausdehnung mit Kanalort, wiederholten Schüben und der tatsächlichen Käuferreaktion. Ohne Signal bleibt sie ein Kontextmerkmal. Für den neuen Trade gelten dieselben Anforderungen an Auslösung, Verlustschutz und tragbare Menge wie an jeder anderen Stelle."
+      "Eine weit ausgedehnte Tagesbewegung lenkt die Aufmerksamkeit auf Erschöpfung. Hat der Abverkauf schon einen großen Teil der zuletzt üblichen Tagesspanne durchlaufen, achten Trader besonders auf mögliche Gegenreaktionen.",
+      "Die übliche Spanne ist keine Begrenzung des Tages. Ein Markt kann sie deutlich überschreiten, besonders bei starkem Druck. Aus einem historischen Durchschnitt folgt deshalb weder ein garantierter Boden noch eine fest vorgeschriebene Umkehr.",
+      "Verbinde die Ausdehnung mit Kanalort, wiederholten Schüben und der tatsächlichen Käuferreaktion. Ohne Signal bleibt sie ein Kontextmerkmal. Für den neuen Trade gelten dieselben Anforderungen an Auslösung, Verlustschutz und tragbare Menge wie überall sonst."
     ],
     "takeaways": [
       "Tagesausdehnung kann Erschöpfung plausibler machen.",
@@ -1001,16 +1001,16 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.7 · Testfolge",
     "scenario": "c13-30",
     "paragraphs": [
-      "Eine fallende Best-Fit-Linie kann wiederholt durch kleine Kaufversuche getestet werden. Wenn der Markt zugleich nicht weit nach unten kommt, bleibt die Grenze eng umkämpft. Das kann einen späteren Bruch nach oben vorbereiten.",
-      "Im Übungsfall endet die Konkurrenz zunächst anders: Die Käufer schaffen keine tragfähige Fortsetzung über den Bereich. Die vielen Kontakte zeigen Aktivität, aber noch keinen Erfolg. Zähle nicht jede Annäherung als zusätzliche sichere Bestätigung eines künftigen Longs.",
-      "Prüfe, ob Schlüsse oberhalb akzeptiert werden oder erneut Verkäufer übernehmen. Beide möglichen Ausgänge der wiederholten Tests bleiben gültig, bis die tatsächliche Bewegung mehr Information liefert. Der Abstand zur Linie und die Stärke ihrer Gegenreaktionen gehören dazu."
+      "Eine fallende Best-Fit-Linie kann wiederholt durch kleine Kaufversuche getestet werden. Kommt der Markt gleichzeitig nicht weit nach unten, bleibt die Grenze eng umkämpft. Das kann einen späteren Bruch nach oben vorbereiten.",
+      "Im Übungsfall endet die Konkurrenz zunächst anders: Die Käufer schaffen keine tragfähige Fortsetzung über den Bereich. Die vielen Kontakte zeigen Aktivität, aber noch keinen Erfolg. Zähl nicht jede Annäherung als zusätzliche sichere Bestätigung eines künftigen Longs.",
+      "Prüf, ob Schlüsse oberhalb akzeptiert werden oder erneut die Verkäufer übernehmen. Beide möglichen Ausgänge der wiederholten Tests bleiben gültig, bis die tatsächliche Bewegung mehr Information liefert. Der Abstand zur Linie und die Stärke ihrer Gegenreaktionen gehören dazu."
     ],
     "takeaways": [
       "Wiederholte Angriffe zeigen Konkurrenz.",
       "Kontakte allein beweisen keinen Käufererfolg.",
       "Akzeptanz oberhalb oder erneute Verkäuferkontrolle beobachten."
     ],
-    "callout": "Akzeptanz oberhalb oder erneute Verkäuferkontrolle beobachten.",
+    "callout": "Beobachten: Akzeptanz oberhalb oder erneute Verkäuferkontrolle.",
     "prompt": "Was ist nach vielen Kaufversuchen an der Bärenlinie noch zu prüfen?",
     "answers": [
       {
@@ -1035,9 +1035,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.7 · Aufgabe",
     "scenario": "c13-31",
     "paragraphs": [
-      "Scheitern wiederholte Käufe, können Long-Trader aussteigen und zunächst keine neuen Kauforders mehr stellen. Ihre Verkäufe treffen dann auf weniger unmittelbare Nachfrage. Das kann einen raschen Abwärtsschub von der Bärenlinie weg begünstigen.",
+      "Scheitern wiederholte Käufe, können Long-Trader aussteigen und erst mal keine neuen Kauforders mehr stellen. Ihre Verkäufe treffen dann auf weniger unmittelbare Nachfrage. Das kann einen raschen Abwärtsschub von der Bärenlinie weg begünstigen.",
       "Dieser Mechanismus erklärt einen möglichen Ausgang der engen Testfolge. Er ist aus dem Preisverlauf abgeleitet; der Chart zeigt keine vollständige Liste aller Teilnehmer. Die tatsächlich beschleunigten Bärenbars sind die sichtbare Information, nicht die vermutete Stimmung allein.",
-      "Der neue Schub kann bis zu einer Kanalgrenze laufen und selbst klimaktisch werden. Ein späterer Gegenversuch wird dann erneut als neue Situation geprüft. Beschleunigung darf weder zur sicheren Dauerfortsetzung noch zur sicheren sofortigen Umkehr umgedeutet werden."
+      "Der neue Schub kann bis zu einer Kanalgrenze laufen und selbst klimaktisch werden. Einen späteren Gegenversuch prüfst du dann wieder als neue Situation. Deute Beschleunigung weder zur sicheren Dauerfortsetzung noch zur sicheren sofortigen Umkehr um."
     ],
     "takeaways": [
       "Verlustausstiege können zusätzlichen Druck erzeugen.",
@@ -1065,20 +1065,20 @@ const drafts: Draft[] = [
   {
     "number": 32,
     "title": "Parallele Untergrenze und zwei Tiefüberschreitungen",
-    "summary": "Kanaluntergrenze mit sichtbarem Tief verankern.",
+    "summary": "Die Kanaluntergrenze mit einem sichtbaren Tief verankern.",
     "section": "Chartfall 13.7 · Klimax",
     "scenario": "c13-32",
     "paragraphs": [
-      "Eine Hochlinie über den Bärenverlauf kann mit einer Parallele durch ein früheres Tief zum Kanal ergänzt werden. Späte Abwärtsschübe können diese Untergrenze überschreiten und anschließend zurückkehren. Das macht die Erschöpfungsidee räumlich nachvollziehbar.",
+      "Eine Hochlinie über den Bärenverlauf kannst du mit einer Parallele durch ein früheres Tief zum Kanal ergänzen. Späte Abwärtsschübe können diese Untergrenze überschreiten und anschließend zurückkehren. Damit wird die Erschöpfungsidee räumlich nachvollziehbar.",
       "Im Übungsablauf gibt es zwei solche tiefen Versuche. Auf den späteren folgt eine bullische Umkehr über zwei Bars. Erst die neue Käuferreaktion und ihre Auslösung liefern zusätzliche Belege für eine Erholung; das bloße Überschreiten des Kanals war noch kein fertiger Long.",
-      "Als nächster Bezug kommt die obere Kanalgrenze infrage. Das ist ein möglicher Testbereich, kein versprochener Gewinn. Der Schutz bleibt am aktuellen Signalplan orientiert, auch wenn der Abstand zwischen den Kanalgrenzen groß und attraktiv aussieht."
+      "Als nächster Bezug kommt die obere Kanalgrenze infrage. Das ist ein möglicher Testbereich, kein versprochener Gewinn. Der Schutz bleibt am aktuellen Signalplan orientiert, auch wenn der Abstand zwischen den Kanalgrenzen groß und verlockend aussieht."
     ],
     "takeaways": [
       "Kanaluntergrenze mit sichtbarem Tief verankern.",
       "Zwei Überschreitungen und Rücknahmen getrennt lesen.",
       "Umkehrreaktion statt bloßer Tiefe handeln."
     ],
-    "callout": "Umkehrreaktion statt bloßer Tiefe handeln.",
+    "callout": "Die Umkehrreaktion handeln, nicht die bloße Tiefe.",
     "prompt": "Was ergänzt die zweite Tiefüberschreitung zu einer möglichen Erholung?",
     "answers": [
       {
@@ -1103,16 +1103,16 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.7 · Kanalwechsel",
     "scenario": "c13-33",
     "paragraphs": [
-      "Die Erholung erreicht die obere Bärengrenze und bricht darüber. Danach kann schon eine kurze Ein-Bar-Pause einen kleinen Rücklauf bilden. Der nächste Test zeigt, ob die alte Grenze nun erneut Verkäufer oder stattdessen Käufer anzieht.",
-      "Kommen dort kräftige Käufer zurück und folgen höhere Schlüsse, bekommt der Bruch Anschluss. Die alte Bärenlinie beschreibt dann nicht mehr die gleiche Verkäuferkontrolle wie zuvor. Das ist mehr Information als der erste kurze Stich nach oben.",
-      "Auch dieser Wechsel ist kein Freibrief für beliebige neue Longs. Prüfe den jetzigen Trigger und den Stop-Abstand. Eine bereits weit gelaufene Erholung kann andere Risiken haben als der frühe Versuch an der Kanalunterseite."
+      "Die Erholung erreicht die obere Bärengrenze und bricht darüber. Danach kann schon eine kurze Ein-Bar-Pause einen kleinen Rücklauf bilden. Der nächste Test zeigt, ob die alte Grenze jetzt erneut Verkäufer oder stattdessen Käufer anzieht.",
+      "Kommen dort kräftige Käufer zurück und folgen höhere Schlüsse, bekommt der Bruch Anschluss. Die alte Bärenlinie beschreibt dann nicht mehr dieselbe Verkäuferkontrolle wie zuvor. Das ist mehr Information als der erste kurze Stich nach oben.",
+      "Auch dieser Wechsel ist kein Freibrief für beliebige neue Longs. Prüf den jetzigen Trigger und den Stop-Abstand. Eine schon weit gelaufene Erholung kann andere Risiken haben als der frühe Versuch an der Kanalunterseite."
     ],
     "takeaways": [
       "Ersten Bruch und späteren Anschluss unterscheiden.",
       "Pause als neuen Test lesen.",
       "Aktuelle Teilnahme braucht aktuellen Stop und Menge."
     ],
-    "callout": "Aktuelle Teilnahme braucht aktuellen Stop und Menge.",
+    "callout": "Aktuelle Teilnahme braucht aktuellen Stop und aktuelle Menge.",
     "prompt": "Was stärkt den Bruch über die Bärengrenze?",
     "answers": [
       {
@@ -1137,9 +1137,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 13.7 · Tageskontext",
     "scenario": "c13-34",
     "paragraphs": [
-      "Der vertiefte Tagesbeginn zeigt einen Abwärtsversuch, aber mehrere große Bars überlappen sich stark. Trotz großer Körper entsteht damit Unsicherheit: Käufer und Verkäufer handeln wiederholt ähnliche Bereiche. Größe allein ist hier kein Beweis für einen sauberen Trend.",
+      "Der vertiefte Tagesbeginn zeigt einen Abwärtsversuch, aber mehrere große Bars überlappen sich stark. Trotz großer Körper entsteht so Unsicherheit: Käufer und Verkäufer handeln wiederholt ähnliche Bereiche. Größe allein ist hier kein Beweis für einen sauberen Trend.",
       "Ein Short unter einem späteren Bar dieser engen Balance kann deshalb zunächst nur einen begrenzten Ausbruch liefern. Die vorherige Range bleibt ein wichtiger Bezug und kann den Kurs wieder zurückziehen. Auch ein späteres neues Tagestief muss nach dieser Vorgeschichte erst Anschluss zeigen.",
-      "Der tatsächliche Tagesverlauf kehrt schließlich wieder in den früheren Bereich zurück. Diese spätere Kenntnis ist im Replay noch nicht verfügbar; sie erklärt rückblickend die Range-Kräfte, darf aber keinen früheren Stop ersetzen. Überlappung ist die damals schon sichtbare Warninformation."
+      "Der tatsächliche Tagesverlauf kehrt schließlich wieder in den früheren Bereich zurück. Diese spätere Kenntnis hast du im Replay noch nicht; sie erklärt rückblickend die Range-Kräfte, darf aber keinen früheren Stop ersetzen. Die Überlappung war die damals schon sichtbare Warninformation."
     ],
     "takeaways": [
       "Große Spanne und geringe Überlappung getrennt prüfen.",
@@ -1171,16 +1171,16 @@ const drafts: Draft[] = [
     "section": "Abschluss · Beobachtung",
     "scenario": "c13-35",
     "paragraphs": [
-      "Notiere Richtung und Zeithorizont der betrachteten Struktur. Markiere die bereits sichtbaren Anker und beschreibe, ob du eine Trendlinie, Kanalgrenze oder Parallele nutzt. Danach hältst du fest, welchen Bereich der nächste Test erreichen soll.",
-      "Beim Aufdecken weiterer Bars trennst du Annäherung, Überschreitung, Rücknahme und Anschluss. Ein Bruch verändert die Kontrolle, nicht automatisch die gesamte Trendrichtung. Prüfe die neue Reaktion und gegebenenfalls einen Extremtest, statt am ersten Liniennamen festzuhalten.",
-      "Für eine mögliche Order definierst du Signal, Auslösung, Verlustgrenze und Menge. Alte Linien werden nur ersetzt, wenn neue sichtbare Punkte die Struktur besser erklären; der Schutz einer vorhandenen Position wird dadurch nicht heimlich erweitert."
+      "Notier Richtung und Zeithorizont der betrachteten Struktur. Markiere die bereits sichtbaren Anker und beschreibe, ob du eine Trendlinie, Kanalgrenze oder Parallele nutzt. Danach hältst du fest, welchen Bereich der nächste Test erreichen soll.",
+      "Beim Aufdecken weiterer Bars trennst du Annäherung, Überschreitung, Rücknahme und Anschluss. Ein Bruch verändert die Kontrolle, nicht automatisch die gesamte Trendrichtung. Prüf die neue Reaktion und gegebenenfalls einen Extremtest, statt am ersten Liniennamen festzuhalten.",
+      "Für eine mögliche Order definierst du Signal, Auslösung, Verlustgrenze und Menge. Alte Linien ersetzt du nur, wenn neue sichtbare Punkte die Struktur besser erklären; der Schutz einer vorhandenen Position wird dadurch nicht heimlich erweitert."
     ],
     "takeaways": [
       "Anker und Zeithorizont vorab notieren.",
       "Test, Bruch und Anschluss getrennt erfassen.",
       "Neue Zeichnung darf kein versteckter größerer Stop sein."
     ],
-    "callout": "Neue Zeichnung darf kein versteckter größerer Stop sein.",
+    "callout": "Eine neue Zeichnung darf kein versteckter größerer Stop sein.",
     "prompt": "Welche Notiz ist vor dem Aufdecken weiterer Bars brauchbar?",
     "answers": [
       {
@@ -1205,8 +1205,8 @@ const drafts: Draft[] = [
     "section": "Abschluss · Einordnung",
     "scenario": "c13-36",
     "paragraphs": [
-      "Am Linienbereich kann die Trendseite zurückkehren und eine Fortsetzung vorbereiten. Ein kräftiger Gegenbruch mit späterer schwacher Trendreaktion kann dagegen den Richtungswechsel unterstützen. Entsteht vor allem Überlappung, wird zweiseitiger Handel zur wichtigeren Einordnung.",
-      "Diese drei Möglichkeiten benötigen unterschiedliche Pläne. Ein Fortsetzungstrade, ein Gegentrend-Trade und ein Trade aus einer Range sind nicht dieselbe Order mit drei Namen. Für jede Idee brauchst du einen passenden Ort, Auslösung und Verlustschutz.",
+      "Am Linienbereich kann die Trendseite zurückkehren und eine Fortsetzung vorbereiten. Ein kräftiger Gegenbruch mit späterer schwacher Trendreaktion kann dagegen den Richtungswechsel stützen. Entsteht vor allem Überlappung, wird zweiseitiger Handel zur wichtigeren Einordnung.",
+      "Diese drei Möglichkeiten brauchen unterschiedliche Pläne. Ein Fortsetzungstrade, ein Gegentrend-Trade und ein Trade aus einer Range sind nicht dieselbe Order mit drei Namen. Für jede Idee brauchst du einen passenden Ort, eine Auslösung und Verlustschutz.",
       "Bewerte deine Entscheidung mit dem Bild, das damals bekannt war. Die Übung ist gelungen, wenn du Anker, Reaktion und Risiko nachvollziehbar beschreiben kannst und bei fehlender Klarheit abwartest. Ein später profitabler Ausgang macht einen unbegründeten Einstieg nicht nachträglich gut."
     ],
     "takeaways": [
@@ -1214,7 +1214,7 @@ const drafts: Draft[] = [
       "Jede Idee verlangt ihren eigenen Plan.",
       "Eine gute Entscheidung ist vor dem Ergebnis begründbar."
     ],
-    "callout": "Eine gute Entscheidung ist vor dem Ergebnis begründbar.",
+    "callout": "Eine gute Entscheidung lässt sich schon vor dem Ergebnis begründen.",
     "prompt": "Was ist bei unklarer Reaktion an mehreren Linien eine vollständige Entscheidung?",
     "answers": [
       {
