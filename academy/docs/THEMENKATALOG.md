@@ -64,9 +64,9 @@ Kapitel 1–10: Handelswünsche, Market-, Limit- und Stop-Orders verstehen. Gül
 - Gültigkeit (Tag, bis auf Widerruf), Teilausführung
 - Slippage, Gebühren, Ausführungsqualität, Wahl des Handelsplatzes
 
-### Charts lesen (Trading von null · Kapitel 1–9 verfügbar) **[aktiv]**
+### Charts lesen (Trading von null · Kapitel 1–10 verfügbar) **[aktiv]**
 
-Kapitel 1–9 erklären Geschäftsdaten, OHLC und Chartformen sowie Zeit-, Tick-, Volumen-, Range-Bars, Renko, berechnete Heikin-Ashi-Kerzen und Point & Figure sowie gemeinsame Daten auf verschiedenen Zeitebenen und lineare oder logarithmische Preisabbildungen mit eigenen Schaubildern. Kapitel 9 ergänzt Datenquellen, Splits, Dividenden und Futures-Kontraktwechsel.
+Kapitel 1–10 erklären Geschäftsdaten, OHLC und Chartformen sowie Zeit-, Tick-, Volumen-, Range-Bars, Renko, berechnete Heikin-Ashi-Kerzen und Point & Figure sowie gemeinsame Daten auf verschiedenen Zeitebenen und lineare oder logarithmische Preisabbildungen mit eigenen Schaubildern. Kapitel 9 ergänzt Datenquellen, Splits, Dividenden und Futures-Kontraktwechsel. Kapitel 10 verbindet alle Prüfungen zu einem vollständigen Chartbericht. Alle zehn Kapitel sind verfügbar.
 
 - Charttypen: Linie, Balken, Kerzen, Heikin-Ashi, Renko, Point & Figure
 - Zeit-, Tick-, Volumen- und Range-Bars

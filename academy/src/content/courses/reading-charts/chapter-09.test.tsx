@@ -40,8 +40,8 @@ describe('Data sources and adjustments',()=>{
   expect(()=>executionResult(trades,10,[-2])).toThrow();expect(()=>executionResult(trades,0,[])).toThrow();
  });
  it('preserves IDs and unlocks chapter nine after its 184 prerequisites',async()=>{
-  expect(await chartsDefinition.units[8].load()).toEqual(lessons);expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(104);
-  expect(course.units.flatMap(u=>u.lessons)).toHaveLength(208);const prior=course.units.slice(0,8).flatMap(u=>u.lessons.map(l=>l.id));expect(prior).toHaveLength(184);
+  expect(await chartsDefinition.units[8].load()).toEqual(lessons);expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(116);
+  expect(course.units.flatMap(u=>u.lessons)).toHaveLength(232);const prior=course.units.slice(0,8).flatMap(u=>u.lessons.map(l=>l.id));expect(prior).toHaveLength(184);
   const outline=toCourseOutline(course);expect(lessonAccessState(outline,lessons[0],prior)).toBe('available');expect(lessonAccessState(outline,lessons[0],prior.slice(0,-1))).toBe('locked');
   expect(lessonAccessState(outline,lessons[1],prior)).toBe('locked');expect(lessonAccessState(outline,lessons[1],[...prior,lessons[0].id])).toBe('available');
   const report=checkContent({course,glossary:chartsGlossary,scenarioIds:chartScenarioIds(),describe:s=>chartDescription(s as Parameters<typeof chartDescription>[0]),caseIssues:[],known});expect(report.errors,formatReport(report)).toBe(0);expect(snapshotKnownIds(course)).toEqual(known);

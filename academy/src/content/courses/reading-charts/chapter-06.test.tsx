@@ -65,8 +65,8 @@ describe('P&F: explicit grid, inclusive reversals and independent inputs',()=>{
  });
  it('preserves published identifiers and course access after five prerequisite chapters',async()=>{
    expect(await chartsDefinition.units[5].load()).toEqual(lessons);
-   expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(104);
-   expect(course.units.flatMap(u=>u.lessons)).toHaveLength(208);
+   expect(lessons).toHaveLength(24);expect(chartsGlossary).toHaveLength(116);
+   expect(course.units.flatMap(u=>u.lessons)).toHaveLength(232);
    const prior=course.units.slice(0,5).flatMap(u=>u.lessons.map(l=>l.id)),outline=toCourseOutline(course);
    expect(lessonAccessState(outline,lessons[0],prior)).toBe('available');
    expect(lessonAccessState(outline,lessons[0],prior.slice(0,-1))).toBe('locked');

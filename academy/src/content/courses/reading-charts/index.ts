@@ -2,9 +2,9 @@ import type { CourseDefinition } from '../../registry';
 import { chartsGlossary } from './glossary';
 export const chartsDefinition: CourseDefinition = {
   info: {
-    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–9 verfügbar', title: 'Charts lesen',
-    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–9 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen, berechnete Heikin-Ashi-Kerzen und Point & Figure sowie gemeinsame Daten auf verschiedenen Zeitebenen und lineare oder logarithmische Preisabbildungen sowie Datenquellen, Splits, Dividenden und Futures-Kontraktwechsel.',
-    sourceOrderNotice: 'Kapitel 1–9 sind verfügbar. Das letzte Kapitel wird als Nächstes ergänzt. Du kannst ohne andere abgeschlossene Kurse beginnen.',
+    id: 'reading-charts', eyebrow: 'Trading von null · Kapitel 1–10 verfügbar', title: 'Charts lesen',
+    subtitle: 'Lerne, welche Daten ein Chart zeigt und welche Angaben im Bild fehlen. Kapitel 1–10 verbinden Geschäftsdaten mit Charts und erklären Linien, Balken, Kerzen sowie Zeit-, Tick-, Volumen- und Preis-Gruppierungen, berechnete Heikin-Ashi-Kerzen und Point & Figure sowie gemeinsame Daten auf verschiedenen Zeitebenen und lineare oder logarithmische Preisabbildungen sowie Datenquellen, Splits, Dividenden und Futures-Kontraktwechsel und einen vollständigen Chartbericht.',
+    sourceOrderNotice: 'Alle zehn Kapitel sind verfügbar. Du kannst ohne andere abgeschlossene Kurse beginnen.',
   },
   units: [{
     id: 'reading-charts.chapter-01', order: 1, kind: 'chapter', label: 'Kapitel 1', title: 'Vom Geschäft zum Chartbild',
@@ -51,6 +51,11 @@ export const chartsDefinition: CourseDefinition = {
     description:'Datenherkunft, Splits, Dividenden und Futures-Wechsel anhand eigener Rechnungen prüfen; Originalpreise und bereinigte Anzeigen trennen.',
     estimatedLessonCount:24,
     load:()=>import('./chapter-09').then(module=>module.chartsChapterNineLessons),
+  }, {
+    id:'reading-charts.chapter-10',order:10,kind:'chapter',label:'Kapitel 10',title:'Einen Chartbericht selbst prüfen',
+    description:'Eigene Geschäftsdaten, Kennwerte und Darstellungen prüfen; Beobachtung, Deutung, Prognose und Ausführungsnachweis trennen.',
+    estimatedLessonCount:24,
+    load:()=>import('./chapter-10').then(module=>module.chartsChapterTenLessons),
   }],
   glossary: { title: 'Charts-Glossar', entries: chartsGlossary },
 };
