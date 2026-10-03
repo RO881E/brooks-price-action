@@ -15,7 +15,7 @@ const drafts: Draft[] = [
     "section": "Grundlagen",
     "scenario": "c14-01",
     "paragraphs": [
-      "Im steigenden Verlauf liegt die Trendlinie unter den Rückläufen. Die obere Kanalgrenze beschreibt, wie weit die Aufwärtsschübe bisher reichten. Im fallenden Verlauf liegt die Trendlinie oben und die Kanalgrenze unten. Beide richten sich grundsätzlich nach der Richtung des betrachteten Trends.",
+      "Im steigenden Verlauf liegt die Trendlinie unter den Rückläufen. Die obere Kanalgrenze zeigt, wie weit die Aufwärtsschübe bisher reichten. Im fallenden Verlauf liegt die Trendlinie oben und die Kanalgrenze unten. Beide richten sich grundsätzlich nach der Richtung des betrachteten Trends.",
       "An der Trendseite suchst du eher nach einer möglichen Fortsetzung nach einem Rücklauf. An der gegenüberliegenden Grenze prüfst du, ob der Schub an Kraft verliert oder sogar beschleunigt. Die beiden Orte beantworten unterschiedliche Fragen, obwohl sie zum selben Kanal gehören.",
       "Die Kanalgrenze ist kein automatisches Gewinnziel und keine fertige Gegenorder. Zeichne zuerst die sichtbare Struktur und beobachte danach neue Bars. Ein Kurs kann vor der Grenze drehen, sie kurz überschreiten oder dauerhaft in einen stärkeren Verlauf übergehen."
     ],
@@ -50,8 +50,8 @@ const drafts: Draft[] = [
     "scenario": "c14-02",
     "paragraphs": [
       "Bei parallelen Grenzen bleibt der gedachte Abstand gleich. Laufen die Grenzen zusammen, wird der Kanal enger; entfernen sie sich voneinander, wird er breiter. Entscheidend ist ihre Beziehung zueinander, nicht allein, wie steil eine Linie auf dem Bildschirm aussieht.",
-      "Ein steigender oder fallender Kanal mit zusammenlaufenden Grenzen kann eine Keilform entwickeln. Die Bewegung läuft weiter in Trendrichtung, hat zwischen ihren Grenzen aber zunehmend weniger Raum. Ein breiter werdender Kanal zeigt dagegen größere Ausschläge zwischen den beiden Seiten.",
-      "Die Form beschreibt den bisherigen Verlauf. Sie beweist nicht, dass der nächste Bar umkehrt. Betrachte zusätzlich Anzahl und Qualität der Schübe sowie die Reaktion an der äußeren Grenze. Maßstab und Zeitebene müssen bei einem Vergleich gleich bleiben."
+      "Ein steigender oder fallender Kanal mit zusammenlaufenden Grenzen kann eine Keilform entwickeln. Die Bewegung läuft weiter in Trendrichtung, hat zwischen ihren Grenzen aber immer weniger Raum. Ein breiter werdender Kanal zeigt dagegen größere Ausschläge zwischen den beiden Seiten.",
+      "Die Form beschreibt den bisherigen Verlauf. Sie beweist nicht, dass der nächste Bar umkehrt. Schau zusätzlich auf Anzahl und Qualität der Schübe und auf die Reaktion an der äußeren Grenze. Bei einem Vergleich müssen Maßstab und Zeitebene gleich bleiben."
     ],
     "takeaways": [
       "Den Abstand beider Grenzen vergleichen.",
@@ -79,13 +79,13 @@ const drafts: Draft[] = [
   {
     "number": 3,
     "title": "Ein steigender Kanal kann nach unten auflösen",
-    "summary": "Aktueller Aufwärtstrend und möglicher Gegenbruch koexistieren.",
+    "summary": "Aktueller Aufwärtstrend und möglicher Gegenbruch bestehen nebeneinander.",
     "section": "Mögliche Auflösung",
     "scenario": "c14-03",
     "paragraphs": [
-      "Ein Bullenkanal kann lange steigen und zugleich anfällig für einen späteren Bruch der unteren Seite sein. In diesem Sinn lässt er sich als mögliche Bärenflagge betrachten: Die aktuelle Aufwärtsbewegung und die Möglichkeit eines späteren Gegenbruchs bestehen nebeneinander.",
-      "Ein Bruch nach unten kann eine größere Korrektur, eine Range oder einen Bärentrend einleiten. Erst die Reaktion nach dem Bruch zeigt, welche Einordnung besser passt. Die Bezeichnung Bärenflagge ist keine Aufforderung, während jedes Aufwärtsschubs blind zu verkaufen.",
-      "Behalte deshalb zwei getrennte Fragen: Wer kontrolliert den aktuellen Verlauf, und was würde diese Kontrolle verändern? Solange die Bullen neue Hochs mit tragfähigen Rückläufen erreichen, ist ein Gegenplan nur eine Möglichkeit. Ein realer Gegenbruch liefert zusätzliche Information."
+      "Ein Bullenkanal kann lange steigen und gleichzeitig anfällig für einen späteren Bruch der unteren Seite sein. In diesem Sinn lässt er sich als mögliche Bärenflagge betrachten: Die aktuelle Aufwärtsbewegung und die Möglichkeit eines späteren Gegenbruchs bestehen nebeneinander.",
+      "Ein Bruch nach unten kann eine größere Korrektur, eine Range oder einen Bärentrend einleiten. Erst die Reaktion nach dem Bruch zeigt, welche Einordnung besser passt. Die Bezeichnung Bärenflagge ist keine Aufforderung, bei jedem Aufwärtsschub blind zu verkaufen.",
+      "Halte deshalb zwei Fragen getrennt: Wer kontrolliert den aktuellen Verlauf, und was würde diese Kontrolle verändern? Solange die Bullen neue Hochs mit tragfähigen Rückläufen erreichen, ist ein Gegenplan nur eine Möglichkeit. Ein tatsächlicher Gegenbruch liefert zusätzliche Information."
     ],
     "takeaways": [
       "Aktueller Aufwärtstrend und möglicher Gegenbruch koexistieren.",
@@ -113,13 +113,13 @@ const drafts: Draft[] = [
   {
     "number": 4,
     "title": "Ein fallender Kanal kann nach oben auflösen",
-    "summary": "Fallende Struktur zunächst als fallend behandeln.",
+    "summary": "Eine fallende Struktur erst mal als fallend behandeln.",
     "section": "Mögliche Auflösung",
     "scenario": "c14-04",
     "paragraphs": [
-      "Ein Bärenkanal lässt sich entsprechend als mögliche Bullenflagge lesen. Die Verkäufer bestimmen noch die fallenden Schübe, während ein späterer Bruch der oberen Trendseite einen Übergang vorbereiten kann. Bis dahin bleibt die aktuelle Bewegung abwärts gerichtet.",
-      "Nach dem Gegenbruch kann der Kurs seitwärts handeln oder einen Aufwärtstrend bilden. Eine Rückkehr an alte Tiefbereiche ist ebenfalls möglich. Käufer brauchen daher mehr als die Vorstellung, dass jeder fallende Kanal irgendwann enden müsse.",
-      "Prüfe die Stärke des Gegenbruchs und die nächste Verkäuferreaktion. Ein schwacher Rücklauf nach einem kräftigen Käuferstoß liefert andere Information als ein sofortiger Fall auf neue Tiefs. Die Kanalform hilft beim Beobachten; gehandelt wird ein begründetes Setup."
+      "Einen Bärenkanal kannst du entsprechend als mögliche Bullenflagge lesen. Die Verkäufer bestimmen noch die fallenden Schübe, während ein späterer Bruch der oberen Trendseite einen Übergang vorbereiten kann. Bis dahin bleibt die aktuelle Bewegung abwärts gerichtet.",
+      "Nach dem Gegenbruch kann der Kurs seitwärts laufen oder einen Aufwärtstrend bilden. Auch eine Rückkehr an alte Tiefbereiche ist möglich. Die Käufer brauchen daher mehr als die Vorstellung, dass jeder fallende Kanal irgendwann enden muss.",
+      "Prüf die Stärke des Gegenbruchs und die nächste Verkäuferreaktion. Ein schwacher Rücklauf nach einem kräftigen Käuferstoß liefert andere Information als ein sofortiger Fall auf neue Tiefs. Die Kanalform hilft beim Beobachten; gehandelt wird ein begründetes Setup."
     ],
     "takeaways": [
       "Fallende Struktur zunächst als fallend behandeln.",
@@ -151,16 +151,16 @@ const drafts: Draft[] = [
     "section": "Überschreitungen",
     "scenario": "c14-05",
     "paragraphs": [
-      "Bricht ein Bullenkanal über seine obere Grenze, bewegt sich der Kurs zunächst noch stärker aufwärts. Der Schub kann sich als späte Übertreibung erweisen und in den Kanal zurückfallen. Er kann aber auch einen steileren, kräftigeren Aufwärtsabschnitt beginnen.",
+      "Bricht ein Bullenkanal über seine obere Grenze, bewegt sich der Kurs erst mal noch stärker aufwärts. Der Schub kann sich als späte Übertreibung erweisen und in den Kanal zurückfallen. Er kann aber auch einen steileren, kräftigeren Aufwärtsabschnitt einleiten.",
       "Im Bärenkanal gilt die Spiegelung: Ein Stoß unter die untere Grenze kann schnell zurückgenommen werden oder weitere starke Verkäuferbars nach sich ziehen. Die Überschreitung allein trennt diese Möglichkeiten noch nicht.",
-      "Beobachte, ob Schlüsse außerhalb bleiben und weiterer Anschluss entsteht. Ein schneller Rückfall mit Gegenbars spricht für einen fehlgeschlagenen Ausbruch. Fortgesetzte starke Bars außerhalb sprechen zunächst für Beschleunigung. Ein früher Gegenversuch kann deshalb gerade dort scheitern, wo die Linie besonders überzeugend aussieht."
+      "Beobachte, ob die Schlüsse außerhalb bleiben und weiterer Anschluss entsteht. Ein schneller Rückfall mit Gegenbars spricht für einen fehlgeschlagenen Ausbruch. Fortgesetzte starke Bars außerhalb sprechen zunächst für Beschleunigung. Ein früher Gegenversuch kann deshalb gerade dort scheitern, wo die Linie besonders überzeugend aussieht."
     ],
     "takeaways": [
       "Ein Ausbruch in Trendrichtung verstärkt zunächst den Schub.",
       "Rückkehr und Anschluss getrennt prüfen.",
       "Überschreitung allein ist kein Umkehrsignal."
     ],
-    "callout": "Überschreitung allein ist kein Umkehrsignal.",
+    "callout": "Eine Überschreitung allein ist kein Umkehrsignal.",
     "prompt": "Nach einem oberen Kanalausbruch folgen mehrere starke Käuferbars. Was ist zunächst sichtbar?",
     "answers": [
       {
@@ -185,9 +185,9 @@ const drafts: Draft[] = [
     "section": "Überschreitungen",
     "scenario": "c14-06",
     "paragraphs": [
-      "Ein Ausbruch unter einen fallenden Kanal kann bereits innerhalb weniger Bars scheitern. Die frühe Rückkehr ist ein nützlicher Beobachtungspunkt, weil ein überzeugender neuer Abwärtsschub Anschluss zeigen sollte. Bleibt dieser aus, verändert sich die erste Deutung.",
-      "Ein ungefährer Zeitraum von fünf Bars ist dabei eine Orientierung für einen schnellen Fehlschlag, keine Ablaufuhr. Unterschiedliche Zeitebenen, Bargrößen und Trendstärken verändern den Verlauf. Ein sechster Bar ist kein mathematischer Beweis für eine Fortsetzung oder Umkehr.",
-      "Notiere beim ersten Ausbruch, ob du Rückkehr oder Anschluss erwarten würdest und woran du beides erkennst. Handel nicht nur deshalb gegen den Trend, weil eine bestimmte Anzahl Kerzen vergangen ist. Dein Signal und dein Verlustschutz bleiben erforderlich."
+      "Ein Ausbruch unter einen fallenden Kanal kann schon nach wenigen Bars scheitern. Die frühe Rückkehr ist ein nützlicher Beobachtungspunkt, weil ein überzeugender neuer Abwärtsschub Anschluss zeigen sollte. Bleibt der aus, ändert sich die erste Deutung.",
+      "Ein Zeitraum von etwa fünf Bars ist dabei eine Orientierung für einen schnellen Fehlschlag, keine Ablaufuhr. Unterschiedliche Zeitebenen, Bargrößen und Trendstärken verändern den Verlauf. Ein sechster Bar ist kein mathematischer Beweis für eine Fortsetzung oder Umkehr.",
+      "Notier beim ersten Ausbruch, ob du Rückkehr oder Anschluss erwarten würdest und woran du beides erkennst. Handle nicht nur deshalb gegen den Trend, weil eine bestimmte Anzahl Kerzen vergangen ist. Dein Signal und dein Verlustschutz bleiben Pflicht."
     ],
     "takeaways": [
       "Schnelle Rückkehr kann fehlenden Anschluss zeigen.",
@@ -215,13 +215,13 @@ const drafts: Draft[] = [
   {
     "number": 7,
     "title": "Eine Parallele über die Zwischenhochs verschieben",
-    "summary": "Steigung der Tiefverbindung unverändert kopieren.",
+    "summary": "Die Steigung der Tiefverbindung unverändert kopieren.",
     "section": "Konstruktion",
     "scenario": "c14-07",
     "paragraphs": [
-      "Für einen Bullenkanal kannst du zuerst zwei bereits bekannte Rücklauftiefs verbinden. Kopiere dann die Steigung dieser Trendlinie und verschiebe die Kopie nach oben. Die obere Linie ist eine echte Parallele, wenn ihre Steigung unverändert bleibt.",
-      "Lege sie so an ein Hoch zwischen den beiden Tiefankern, dass die übrigen Zwischenbars darunter liegen. Gesucht ist dabei nicht immer das absolut höchste Hoch, sondern das Hoch, das bei dieser Steigung die umschließende Lage bestimmt. Die schräg verlaufende Linie muss über jedem Zwischenhoch liegen.",
-      "Nach dem zweiten Tiefanker ist diese Konstruktion bekannt. Verlängere sie nach rechts und beobachte spätere Schübe. Ein späterer Hochpunkt darf den damaligen Anker nicht rückwirkend ersetzen. So bleibt im Replay klar, welche Referenz wirklich verfügbar war."
+      "Für einen Bullenkanal verbindest du zuerst zwei bereits bekannte Rücklauftiefs. Kopier dann die Steigung dieser Trendlinie und verschieb die Kopie nach oben. Die obere Linie ist eine echte Parallele, wenn ihre Steigung unverändert bleibt.",
+      "Leg sie so an ein Hoch zwischen den beiden Tiefankern, dass die übrigen Zwischenbars darunter liegen. Gesucht ist nicht immer das absolut höchste Hoch, sondern das Hoch, das bei dieser Steigung die umschließende Lage bestimmt. Die schräg verlaufende Linie muss über jedem Zwischenhoch liegen.",
+      "Nach dem zweiten Tiefanker ist diese Konstruktion bekannt. Verlänger sie nach rechts und beobachte spätere Schübe. Ein späterer Hochpunkt darf den damaligen Anker nicht rückwirkend ersetzen. So bleibt im Replay klar, welche Referenz wirklich verfügbar war."
     ],
     "takeaways": [
       "Steigung der Tiefverbindung unverändert kopieren.",
@@ -249,12 +249,12 @@ const drafts: Draft[] = [
   {
     "number": 8,
     "title": "Die Konstruktion im Bärenkanal spiegeln",
-    "summary": "Hochverbindung nach unten kopieren.",
+    "summary": "Die Hochverbindung nach unten kopieren.",
     "section": "Konstruktion",
     "scenario": "c14-08",
     "paragraphs": [
       "Im Bärenfall verbindest du zwei bekannte Rücklaufhochs. Eine Kopie mit gleicher Steigung verschiebst du nach unten an einen Tiefpunkt zwischen den Hochankern. Die übrigen Zwischenbars sollen oberhalb dieser unteren Grenze bleiben.",
-      "Ein tieferer Preis an einem späteren Bar kann wegen der fallenden Linie dennoch oberhalb der Grenze liegen. Vergleiche daher jeden Tiefpunkt mit dem Linienwert an genau diesem Bar. Nur den niedrigsten Preis aus der Liste auszuwählen reicht nicht immer.",
+      "Ein tieferer Preis an einem späteren Bar kann wegen der fallenden Linie trotzdem oberhalb der Grenze liegen. Vergleiche daher jeden Tiefpunkt mit dem Linienwert an genau diesem Bar. Nur den niedrigsten Preis aus der Liste zu nehmen reicht nicht immer.",
       "Die obere Linie beschreibt Rückläufe gegen den Abwärtstrend, die untere den äußeren Bereich der Verkäuferschübe. Ein späteres Unterschreiten dieser unteren Linie ist zunächst eine Ausdehnung in Trendrichtung. Für einen Long musst du die folgende Käuferreaktion gesondert prüfen."
     ],
     "takeaways": [
@@ -283,12 +283,12 @@ const drafts: Draft[] = [
   {
     "number": 9,
     "title": "Ein Anker außerhalb der beiden Trendpunkte",
-    "summary": "Auch außerhalb liegende sichtbare Anker sind möglich.",
+    "summary": "Auch Anker außerhalb sind möglich, solange sie sichtbar sind.",
     "section": "Konstruktion",
     "scenario": "c14-09",
     "paragraphs": [
-      "Manchmal erklärt ein früherer oder späterer Extrempunkt die Kanalbreite besser als ein Punkt zwischen den Trendankern. Eine Parallele kann auch dort verankert werden, sofern dieser Punkt bereits sichtbar ist. Die Zwischenanker-Regel ist eine hilfreiche Ausgangsmethode, kein Verbot anderer nachvollziehbarer Linien.",
-      "Prüfe danach, ob die Grenze den beobachteten Verlauf sinnvoll beschreibt. Ein weit entfernter Anker kann einen sehr breiten Kanal ergeben, der für den aktuellen Schub wenig Information liefert. Dokumentiere, welchen Abschnitt du mit ihm erfasst.",
+      "Manchmal erklärt ein früherer oder späterer Extrempunkt die Kanalbreite besser als ein Punkt zwischen den Trendankern. Eine Parallele kann auch dort verankert werden, sofern dieser Punkt schon sichtbar ist. Die Zwischenanker-Regel ist eine hilfreiche Ausgangsmethode, kein Verbot anderer nachvollziehbarer Linien.",
+      "Prüf danach, ob die Grenze den beobachteten Verlauf sinnvoll beschreibt. Ein weit entfernter Anker kann einen sehr breiten Kanal ergeben, der für den aktuellen Schub wenig Information liefert. Dokumentiere, welchen Abschnitt du damit erfasst.",
       "Vergleiche eine alternative Zeichnung mit dem bisherigen Verlauf und den neuen Tests. Die Linie darf sich ändern, wenn neue Struktur sichtbar wird. Eine offene Position bekommt dadurch aber keinen größeren zulässigen Verlust; ihr Schutzplan bleibt eine eigene Entscheidung."
     ],
     "takeaways": [
@@ -321,9 +321,9 @@ const drafts: Draft[] = [
     "section": "Linienwahl",
     "scenario": "c14-10",
     "paragraphs": [
-      "Ein einzelner langer Tail kann weit aus einem ansonsten engen Kanal ragen. Eine Grenze allein über diese Spitze kann den üblichen Verlauf unnötig breit darstellen. Du kannst die wiederholten Schübe zunächst mit einer engeren Referenz beschreiben und die Spitze als gesonderten Ausnahmebereich behalten.",
-      "Erreichen spätere größere Swings wiederholt die breitere Grenze, gewinnt die frühere Spitze als Anker an Bedeutung. Dann beschreibt der breite Kanal möglicherweise die aktuelle Ordnung besser. Es geht um neue Beobachtungen, nicht um die Rettung einer Prognose.",
-      "Kennzeichne beide Varianten offen. Das Wort Ausnahme bedeutet nicht, dass der tatsächlich gehandelte Preis verschwinden darf. Der Tail bleibt Teil der Kursdaten und kann bei Risiko und Auslösung wichtig sein, auch wenn eine engere Orientierungslinie ihn nicht einschließt."
+      "Ein einzelner langer Tail kann weit aus einem sonst engen Kanal herausragen. Eine Grenze allein über diese Spitze kann den üblichen Verlauf unnötig breit darstellen. Du kannst die wiederholten Schübe zunächst mit einer engeren Referenz beschreiben und die Spitze als gesonderten Ausnahmebereich behalten.",
+      "Erreichen spätere größere Swings wiederholt die breitere Grenze, gewinnt die frühere Spitze als Anker an Bedeutung. Dann beschreibt der breite Kanal womöglich die aktuelle Ordnung besser. Es geht um neue Beobachtungen, nicht um die Rettung einer Prognose.",
+      "Kennzeichne beide Varianten offen. Das Wort Ausnahme heißt nicht, dass der tatsächlich gehandelte Preis verschwinden darf. Der Tail bleibt Teil der Kursdaten und kann bei Risiko und Auslösung wichtig sein, auch wenn eine engere Orientierungslinie ihn nicht einschließt."
     ],
     "takeaways": [
       "Einzelspitze und wiederholte Kanalbreite unterscheiden.",
@@ -355,16 +355,16 @@ const drafts: Draft[] = [
     "section": "Linienwahl",
     "scenario": "c14-11",
     "paragraphs": [
-      "Die Kanalgrenze muss nicht aus einer kopierten Trendlinie entstehen. Du kannst im Bullenverlauf zwei Schubhochs direkt verbinden; im Bärenverlauf zwei Schubtiefs. Wähle die Punkte so, dass die übrigen Bars des betrachteten Abschnitts möglichst auf der inneren Seite liegen.",
-      "Eine direkte Swingverbindung kann eine andere Steigung besitzen als die Trendseite. Dadurch können parallele, zusammenlaufende oder auseinanderlaufende Grenzen entstehen. Die Unterschiede sind Information über die Struktur, kein Zeichnungsfehler.",
-      "Eine frei angenäherte Best-Fit-Linie ist eine weitere Orientierung, aber als Einstiegsbegründung meist schwächer als klare sichtbare Bezugspunkte. Nutze so wenige Linien wie nötig. Ein Chart mit vielen widersprüchlichen Varianten wird nicht genauer, nur schwerer zu lesen."
+      "Die Kanalgrenze muss nicht aus einer kopierten Trendlinie entstehen. Im Bullenverlauf kannst du zwei Schubhochs direkt verbinden; im Bärenverlauf zwei Schubtiefs. Wähl die Punkte so, dass die übrigen Bars des betrachteten Abschnitts möglichst auf der inneren Seite liegen.",
+      "Eine direkte Swingverbindung kann eine andere Steigung haben als die Trendseite. So können parallele, zusammenlaufende oder auseinanderlaufende Grenzen entstehen. Die Unterschiede sind Information über die Struktur, kein Zeichnungsfehler.",
+      "Eine frei angenäherte Best-Fit-Linie ist eine weitere Orientierung, als Einstiegsbegründung aber meist schwächer als klare sichtbare Bezugspunkte. Nutze so wenige Linien wie nötig. Ein Chart mit vielen widersprüchlichen Varianten wird nicht genauer, nur schwerer zu lesen."
     ],
     "takeaways": [
       "Schubextreme können eine eigene Grenze bilden.",
       "Die Steigung muss nicht exakt zur Trendseite passen.",
       "Sichtbare Bezugspunkte sind besser prüfbar als eine beliebige Näherung."
     ],
-    "callout": "Sichtbare Bezugspunkte sind besser prüfbar als eine beliebige Näherung.",
+    "callout": "Sichtbare Bezugspunkte lassen sich besser prüfen als eine beliebige Näherung.",
     "prompt": "Welche Verbindung ergibt eine direkte untere Bären-Kanalgrenze?",
     "answers": [
       {
@@ -390,8 +390,8 @@ const drafts: Draft[] = [
     "scenario": "c14-12",
     "paragraphs": [
       "Eine Umkehr nach dem Überschreiten der Kanalgrenze und eine Keilumkehr können denselben Vorgang beschreiben. Mehrere Schübe drängen in Trendrichtung, der letzte reicht über eine äußere Grenze, und anschließend übernimmt vorübergehend die Gegenseite.",
-      "Nicht jeder Verlauf zeichnet ein sauberes Dreieck. Besonders eine parallel konstruierte Kanalgrenze kann eine Überschreitung zeigen, während die Keilform weniger deutlich wirkt. Prüfe deshalb Schübe und Reaktion, statt ausschließlich auf einen Musternamen zu warten.",
-      "Zwei passende Namen sind nicht zwei unabhängige Bestätigungen. Wenn beide dieselben Bars beschreiben, zählen sie nicht doppelt. Für den Gegenplan bleiben eine überzeugende Reaktion, ein klarer Auslöser und ein tragbares Risiko nötig."
+      "Nicht jeder Verlauf zeichnet ein sauberes Dreieck. Besonders eine parallel konstruierte Kanalgrenze kann eine Überschreitung zeigen, während die Keilform weniger deutlich wirkt. Prüf deshalb Schübe und Reaktion, statt nur auf einen Musternamen zu warten.",
+      "Zwei passende Namen sind nicht zwei unabhängige Bestätigungen. Beschreiben beide dieselben Bars, zählen sie nicht doppelt. Für den Gegenplan brauchst du weiterhin eine überzeugende Reaktion, einen klaren Auslöser und ein tragbares Risiko."
     ],
     "takeaways": [
       "Keil und Kanalüberschreitung können dieselben Bars beschreiben.",
@@ -423,8 +423,8 @@ const drafts: Draft[] = [
     "section": "Keile · Entstehung",
     "scenario": "c14-13",
     "paragraphs": [
-      "Nach zwei Aufwärtsschüben kann die obere Hochverbindung eine Kanalgrenze bestimmen. Eine Parallele durch das erste Rücklauftief zeigt, wo ein ähnlich tiefer nächster Rücklauf liegen würde. Diese Konstruktion liefert einen Vergleich für den zweiten Rücklauf.",
-      "Dreht der zweite Rücklauf deutlich oberhalb der gedachten unteren Parallele, kaufen die Bullen früher. Gleichzeitig können Shortpositionen früher geschlossen werden. Beide Vorgänge lassen sich als stärkere Bereitschaft lesen, höhere Preise auf der Rücklaufseite zu akzeptieren.",
+      "Nach zwei Aufwärtsschüben kann die obere Hochverbindung eine Kanalgrenze bestimmen. Eine Parallele durch das erste Rücklauftief zeigt, wo ein ähnlich tiefer nächster Rücklauf läge. Diese Konstruktion liefert dir einen Vergleich für den zweiten Rücklauf.",
+      "Dreht der zweite Rücklauf deutlich oberhalb der gedachten unteren Parallele, kaufen die Bullen früher. Gleichzeitig können Shortpositionen früher geschlossen werden. Beides lässt sich als stärkere Bereitschaft lesen, höhere Preise auf der Rücklaufseite zu akzeptieren.",
       "Verbindest du die beiden tatsächlichen Rücklauftiefs, steigt diese Trendlinie jetzt steiler als die obere Hochverbindung. Der Kanal wird enger. Die neue Steigung zeigt zuerst stärkere Aufwärtsdringlichkeit; sie ist noch kein Beweis, dass der nächste Schub scheitert."
     ],
     "takeaways": [
@@ -459,7 +459,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Aus der steileren Trendlinie kannst du eine neue obere Parallele bilden. Jetzt stehen zwei plausible obere Bereiche zur Beobachtung: die ältere flachere Hochverbindung und die neue steilere Kanalgrenze. Das ist eine offene Strukturfrage, kein fertiger Short.",
       "Erreicht der nächste Schub die steilere Grenze mit starkem Anschluss, spricht das zunächst für einen stärkeren Kanal. Dreht er schon an der älteren Grenze, hat sich die frühere Kaufbereitschaft der Rückläufe nicht entsprechend in größere Aufwärtsschübe übersetzt.",
-      "Wähle nicht im Nachhinein die Variante, an der der Kurs zufällig drehte. Notiere beide vor dem Test. So erkennst du, welche Reaktion deinen Plan wirklich verändert und welche Linie nur eine mögliche Erklärung geblieben ist."
+      "Such dir nicht hinterher die Variante aus, an der der Kurs zufällig gedreht hat. Notier beide vor dem Test. So erkennst du, welche Reaktion deinen Plan wirklich verändert und welche Linie nur eine mögliche Erklärung geblieben ist."
     ],
     "takeaways": [
       "Zwei plausible obere Grenzen vor dem Test notieren.",
@@ -492,8 +492,8 @@ const drafts: Draft[] = [
     "scenario": "c14-15",
     "paragraphs": [
       "Dreht der dritte Aufwärtsschub an der älteren flacheren Grenze, obwohl die Rückläufe zuvor steiler wurden, entsteht ein Widerspruch: Die Käufer kamen früher, erreichten aber nicht die erhoffte höhere Schubgrenze. Ein sichtbarer Gegenbar kann zeigen, dass der zusätzliche Kaufdruck nicht weiterträgt.",
-      "Gewinnmitnahmen von Longpositionen und neue Verkäufe können gleichzeitig wirken. Aus dem Chart lässt sich jedoch nicht ablesen, welcher Teilnehmer aus welchem Grund handelt. Sichtbar sind Rückkehr, Barstärke und Anschluss; die Erklärung über enttäuschte Käufer bleibt eine Deutung.",
-      "Nach einer überzeugenden Keilreaktion wird häufig eine Korrektur mit zwei Abschnitten beobachtet. Das ist ein Szenario für die weitere Einordnung, kein zugesagtes Gewinnziel. Ein Stop darf nicht entfallen, weil ein zweiter Abwärtsschub erwartet wird."
+      "Gewinnmitnahmen von Longpositionen und neue Verkäufe können gleichzeitig wirken. Aus dem Chart kannst du aber nicht ablesen, wer aus welchem Grund handelt. Sichtbar sind Rückkehr, Barstärke und Anschluss; die Erklärung über enttäuschte Käufer bleibt eine Deutung.",
+      "Nach einer überzeugenden Keilreaktion beobachtet man oft eine Korrektur mit zwei Abschnitten. Das ist ein Szenario für die weitere Einordnung, kein zugesagtes Gewinnziel. Einen Stop darfst du nicht weglassen, nur weil du einen zweiten Abwärtsschub erwartest."
     ],
     "takeaways": [
       "Frühe Rücklaufkäufe können am Schubende enttäuscht werden.",
@@ -521,13 +521,13 @@ const drafts: Draft[] = [
   {
     "number": 16,
     "title": "Erster Gegenstoß, Extremtest, zweiter Abschnitt",
-    "summary": "Erster Gegenbruch kann von einem Hochtest gefolgt werden.",
+    "summary": "Auf einen ersten Gegenbruch kann ein Hochtest folgen.",
     "section": "Keile · Verlauf",
     "scenario": "c14-16",
     "paragraphs": [
-      "Ein erster Abwärtsstoß nach einem Keilhoch kann die untere Trendseite brechen. Danach nehmen Verkäufer möglicherweise Gewinne mit und Käufer versuchen, den alten Aufwärtsverlauf wiederzubeleben. Daraus kann ein Anstieg zum früheren Hochbereich entstehen.",
-      "Scheitert dieser Test mit erneuter Verkäuferreaktion, kann ein zweiter Abwärtsabschnitt folgen. Ein höheres, gleiches oder etwas tieferes Testhoch muss im Zusammenhang mit dem Gegenbruch gelesen werden. Der Abstand allein ersetzt kein Signal.",
-      "Nach zwei Korrekturabschnitten ist die alte Keilidee weitgehend abgearbeitet. Nun kann eine Fortsetzung, eine Range oder eine neue Struktur entstehen. Bewerte neue Bars neu, statt den ursprünglichen Musternamen unbegrenzt als Begründung für weitere Shorts zu verwenden."
+      "Ein erster Abwärtsstoß nach einem Keilhoch kann die untere Trendseite brechen. Danach nehmen Verkäufer womöglich Gewinne mit und Käufer versuchen, den alten Aufwärtsverlauf wiederzubeleben. Daraus kann ein Anstieg zum früheren Hochbereich entstehen.",
+      "Scheitert dieser Test mit erneuter Verkäuferreaktion, kann ein zweiter Abwärtsabschnitt folgen. Ein höheres, gleiches oder etwas tieferes Testhoch musst du im Zusammenhang mit dem Gegenbruch lesen. Der Abstand allein ersetzt kein Signal.",
+      "Nach zwei Korrekturabschnitten ist die alte Keilidee weitgehend abgearbeitet. Jetzt kann eine Fortsetzung, eine Range oder eine neue Struktur entstehen. Bewerte neue Bars neu, statt den ursprünglichen Musternamen unbegrenzt als Begründung für weitere Shorts zu benutzen."
     ],
     "takeaways": [
       "Erster Gegenbruch kann von einem Hochtest gefolgt werden.",
@@ -559,9 +559,9 @@ const drafts: Draft[] = [
     "section": "Marktmechanik",
     "scenario": "c14-17",
     "paragraphs": [
-      "Ein letzter starker Schub kann durch neue Trendorders und das Schließen von Gegenpositionen verstärkt werden. Im Bullenfall sind sowohl neue Longkäufe als auch das Eindecken von Shorts Kauforders. Stopauslösungen können zu einer schnellen Ausdehnung beitragen.",
+      "Ein letzter starker Schub kann durch neue Trendorders und das Schließen von Gegenpositionen verstärkt werden. Im Bullenfall sind sowohl neue Longkäufe als auch das Eindecken von Shorts Kauforders. Auch Stopauslösungen können zu einer schnellen Ausdehnung beitragen.",
       "Die oft erzählte Erklärung über panische Anfänger ist damit noch nicht bewiesen. Gerade in großen Märkten handeln viele Teilnehmer mit unterschiedlichen Strategien und Gründen. Aus der Kerzenform lassen sich ihre Identität und Emotionen nicht zuverlässig ableiten.",
-      "Für deine Entscheidung genügt die prüfbare Folge: starke Ausdehnung, fehlender weiterer Anschluss und eine sichtbare Gegenreaktion. Wenn Anschluss bleibt, kann die Beschleunigung weitergehen. Handle die Reaktion, statt eine dramatische Geschichte als Umkehrbeweis zu verwenden."
+      "Für deine Entscheidung genügt die prüfbare Folge: starke Ausdehnung, fehlender weiterer Anschluss und eine sichtbare Gegenreaktion. Bleibt der Anschluss, kann die Beschleunigung weitergehen. Handle die Reaktion, statt eine dramatische Geschichte als Umkehrbeweis zu benutzen."
     ],
     "takeaways": [
       "Neue Trendorders und Positionsschließungen können denselben Druck erzeugen.",
@@ -595,14 +595,14 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Wenn der Kurs jede obere Grenze überschreitet und du immer steilere Linien zeichnest, kann der Trend stärker werden, während du weiter nach einem Short suchst. Neue Linien sind dann kein Nachweis, dass die Umkehr endlich unmittelbar bevorsteht.",
       "Unterscheide eine ehrliche Strukturaktualisierung von der Suche nach einem Grund für die gewünschte Richtung. Solange starke Trendbars Anschluss bekommen, fehlt die bestätigte Gegenreaktion. Eine verlorene Gegenposition wird durch eine höhere Linie nicht besser begründet.",
-      "Wechsle zurück zur Beobachtung der aktuellen Kontrolle. Du kannst mit Trendsetups arbeiten oder abwarten, wenn deren Risiko nicht passt. Wiederholte Gegenversuche und Nachkäufe gegen den Schub sind kein notwendiger Bestandteil des Lernens über Kanalgrenzen."
+      "Geh zurück zur Beobachtung der aktuellen Kontrolle. Du kannst mit Trendsetups arbeiten oder abwarten, wenn deren Risiko nicht passt. Wiederholte Gegenversuche und Nachkäufe gegen den Schub gehören nicht zum Lernstoff über Kanalgrenzen."
     ],
     "takeaways": [
       "Wiederholte Überschreitungen können Stärke zeigen.",
       "Neue Linie ist kein neues Umkehrversprechen.",
       "Eigene Richtungsfixierung rechtzeitig erkennen."
     ],
-    "callout": "Eigene Richtungsfixierung rechtzeitig erkennen.",
+    "callout": "Die eigene Richtungsfixierung rechtzeitig erkennen.",
     "prompt": "Du zeichnest zum vierten Mal eine steilere obere Grenze ohne Gegenreaktion. Was prüfst du?",
     "answers": [
       {
@@ -627,8 +627,8 @@ const drafts: Draft[] = [
     "section": "Marktmechanik",
     "scenario": "c14-19",
     "paragraphs": [
-      "Auch am späteren endgültigen Tief hat jeder Verkauf einen Käufer. Manche Verkäufer setzen eine bis dahin erfolgreiche Trendstrategie fort; andere sichern eine Position in einem anderen Markt ab. Käufer können neue Longs eröffnen oder Gewinne aus Shorts realisieren.",
-      "Dass eine einzelne Order am endgültigen Tief verliert, beweist nicht, dass die gesamte Strategie unprofitabel ist. Eine Strategie kann viele frühere Schübe genutzt haben und trotzdem den letzten Wendepunkt verfehlen. Das endgültige Extrem ist vor der Folgereaktion nicht sicher bekannt.",
+      "Auch am späteren endgültigen Tief hat jeder Verkauf einen Käufer. Manche Verkäufer setzen eine bis dahin erfolgreiche Trendstrategie fort; andere sichern eine Position in einem anderen Markt ab. Käufer können neue Longs eröffnen oder Gewinne aus Shorts mitnehmen.",
+      "Dass eine einzelne Order am endgültigen Tief verliert, beweist nicht, dass die gesamte Strategie unprofitabel ist. Eine Strategie kann viele frühere Schübe genutzt haben und trotzdem den letzten Wendepunkt verfehlen. Das endgültige Extrem kennst du vor der Folgereaktion nicht sicher.",
       "Hohes Volumen am Wendepunkt erklärt die Aktivität, garantiert aber keine Umkehr. Für diese Lernmethode stehen die Bars und ihre Reaktion im Vordergrund. Aussagen über bestimmte Teilnehmeranteile oder universelle institutionelle Absichten brauchst du für den konkreten Plan nicht."
     ],
     "takeaways": [
@@ -663,14 +663,14 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Der erste Chartfall vergleicht die verschobene Parallele einer Trendlinie mit einer eigenständigen Verbindung von Schubextremen. Beide beschreiben die äußere Seite des Verlaufs, können aber verschiedene Steigungen und Testbereiche liefern.",
       "Im eigenen Beispiel links entsteht die obere Grenze aus der Verbindung zweier Rücklauftiefs. Rechts werden zwei Hochpunkte direkt verbunden. Verlängere beide Varianten erst nach ihren sichtbaren Ankern. Ein späterer Schub kann die eine Grenze überschreiten und die andere noch nicht erreichen.",
-      "Diese Abweichung zeigt, warum die Linie eine Beobachtungshilfe bleibt. Prüfe, ob eine Rückkehr mit Gegenanschluss entsteht oder ob der Trend die Grenze mit Stärke überwindet. Die Zahl eingezeichneter Linien ersetzt diese Reaktion nicht."
+      "Diese Abweichung zeigt, warum die Linie eine Beobachtungshilfe bleibt. Prüf, ob eine Rückkehr mit Gegenanschluss entsteht oder ob der Trend die Grenze mit Stärke überwindet. Die Zahl der eingezeichneten Linien ersetzt diese Reaktion nicht."
     ],
     "takeaways": [
       "Parallele und direkte Swingverbindung unterscheiden.",
       "Verschiedene Steigungen ergeben verschiedene Tests.",
       "Rückkehr oder Beschleunigung an jeder Variante beobachten."
     ],
-    "callout": "Rückkehr oder Beschleunigung an jeder Variante beobachten.",
+    "callout": "An jeder Variante Rückkehr oder Beschleunigung beobachten.",
     "prompt": "Zwei Konstruktionen liefern unterschiedliche Grenzen. Was ist der nächste sinnvolle Schritt?",
     "answers": [
       {
@@ -691,13 +691,13 @@ const drafts: Draft[] = [
   {
     "number": 21,
     "title": "Die letzte Flagge kann eine spätere Steigung andeuten",
-    "summary": "Alte Flaggenneigung kann grob zur neuen Richtung passen.",
+    "summary": "Die alte Flaggenneigung kann grob zur neuen Richtung passen.",
     "section": "Chartfall 14.2 · Alte Referenz",
     "scenario": "c14-21",
     "paragraphs": [
-      "Eine späte Korrektur im alten Trend kann bereits in die spätere Gegenrichtung geneigt sein. Ihre Steigung lässt sich als grobe Orientierung für einen folgenden Gegenkanal betrachten. Der letzte kleine Abschnitt des alten Verlaufs enthält dann einen Hinweis auf die neue Richtung.",
-      "Im zweiten Chartfall dient die Neigung dieser späten Flagge als ältere Referenz für den späteren Abwärtsschub. Das ist eine Nebenbeobachtung. Es braucht keine exakte Übereinstimmung, und daraus entsteht keine verlässliche Vorhersage des neuen Kanals.",
-      "Neuere Bars, ein klarer Trendlinienbruch und die nächste Reaktion sind für einen Einstieg meist wichtiger. Eine weit zurückliegende Linie sollte keine aktuelle Auslösung ersetzen. Verwende die alte Neigung allenfalls als zusätzliche Orientierung mit begrenztem Gewicht."
+      "Eine späte Korrektur im alten Trend kann schon in die spätere Gegenrichtung geneigt sein. Ihre Steigung lässt sich als grobe Orientierung für einen folgenden Gegenkanal betrachten. Der letzte kleine Abschnitt des alten Verlaufs enthält dann einen Hinweis auf die neue Richtung.",
+      "Im zweiten Chartfall dient die Neigung dieser späten Flagge als ältere Referenz für den späteren Abwärtsschub. Das ist eine Nebenbeobachtung. Es braucht keine exakte Übereinstimmung, und eine verlässliche Vorhersage des neuen Kanals wird daraus nicht.",
+      "Neuere Bars, ein klarer Trendlinienbruch und die nächste Reaktion sind für einen Einstieg meist wichtiger. Eine weit zurückliegende Linie sollte keine aktuelle Auslösung ersetzen. Nimm die alte Neigung allenfalls als zusätzliche Orientierung mit begrenztem Gewicht."
     ],
     "takeaways": [
       "Alte Flaggenneigung kann grob zur neuen Richtung passen.",
@@ -729,9 +729,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 14.2 · Übergang",
     "scenario": "c14-22",
     "paragraphs": [
-      "Ein Markt kann nach dem ersten kräftigen Gegenstoß noch einmal ein höheres Hoch erreichen. Rückblickend kann dieser Hochtest bereits zu einer beginnenden Gegenstruktur gehören, statt den alten Bullenverlauf uneingeschränkt zu bestätigen.",
-      "Für die damalige Entscheidung bleibt beides offen. Prüfe den ersten Abwärtsabschnitt, die Qualität des erneuten Anstiegs und die Reaktion am Hoch. Ein höherer Preis allein sagt weniger als das Zusammenspiel von Gegenbruch und schwachem oder starkem Test.",
-      "Im Replay darfst du den später erkennbaren Beginn des Bärenkanals nicht als vorher bekannte Tatsache behandeln. Notiere zuerst die beobachtete Störung. Erst nach weiteren Verkäuferbars kannst du begründet sagen, dass die Gegenstruktur tatsächlich mehr Gewicht bekommt."
+      "Ein Markt kann nach dem ersten kräftigen Gegenstoß noch einmal ein höheres Hoch erreichen. Rückblickend kann dieser Hochtest schon zu einer beginnenden Gegenstruktur gehören, statt den alten Bullenverlauf uneingeschränkt zu bestätigen.",
+      "Für die damalige Entscheidung bleibt beides offen. Prüf den ersten Abwärtsabschnitt, die Qualität des erneuten Anstiegs und die Reaktion am Hoch. Ein höherer Preis allein sagt weniger als das Zusammenspiel von Gegenbruch und schwachem oder starkem Test.",
+      "Im Replay darfst du den später erkennbaren Beginn des Bärenkanals nicht als vorher bekannte Tatsache behandeln. Notier zuerst die beobachtete Störung. Erst nach weiteren Verkäuferbars kannst du begründet sagen, dass die Gegenstruktur wirklich mehr Gewicht bekommt."
     ],
     "takeaways": [
       "Ein neues Hoch kann ein Test nach dem Gegenbruch sein.",
@@ -764,15 +764,15 @@ const drafts: Draft[] = [
     "scenario": "c14-23",
     "paragraphs": [
       "Der zweite Chartfall setzt einen bereits vorhandenen Bärenkanal über den Tageswechsel fort. Der erste neue Bar kann unter die Kanalgrenze stoßen und kräftig nach oben drehen. Das ist eine Käuferreaktion, trifft aber auf eine noch bestehende Abwärtsstruktur.",
-      "Eine erste Umkehr kann nach wenigen Bars auslaufen und einen Rücklauf für einen neuen Short bilden. Prüfe daher, ob die Käufer auch die obere Trendseite überwinden und Anschluss bekommen. Eine einzelne kräftige Kerze hebt den vorherigen Kanal nicht automatisch auf.",
-      "Später kann ein Trendlinienbruch zusammen mit einem erneuten Versuch nach einem Tiefausbruch eine andere Longidee ergeben. Diese spätere Auslösung ist eigenständig zu beurteilen. Früh gescheiterte Käufer und später bestätigte Käufer müssen nicht denselben Plan haben."
+      "Eine erste Umkehr kann nach wenigen Bars auslaufen und einen Rücklauf für einen neuen Short bilden. Prüf daher, ob die Käufer auch die obere Trendseite überwinden und Anschluss bekommen. Eine einzelne kräftige Kerze hebt den vorherigen Kanal nicht automatisch auf.",
+      "Später kann ein Trendlinienbruch zusammen mit einem erneuten Versuch nach einem Tiefausbruch eine andere Longidee ergeben. Diese spätere Auslösung beurteilst du eigenständig. Früh gescheiterte Käufer und später bestätigte Käufer müssen nicht denselben Plan haben."
     ],
     "takeaways": [
       "Den bestehenden Kanal über den Tageswechsel mitlesen.",
       "Erste Reaktion kann nur ein Rücklauf sein.",
       "Spätere bestätigte Auslösung gesondert beurteilen."
     ],
-    "callout": "Spätere bestätigte Auslösung gesondert beurteilen.",
+    "callout": "Eine spätere bestätigte Auslösung gesondert beurteilen.",
     "prompt": "Ein erster starker Käuferbar entsteht in einem Bärenkanal. Was fehlt noch?",
     "answers": [
       {
@@ -793,13 +793,13 @@ const drafts: Draft[] = [
   {
     "number": 24,
     "title": "Chartfall 14.3: Lange Parallele, später Tieftest",
-    "summary": "Älterer Außenanker kann eine lange Parallele bestimmen.",
+    "summary": "Ein älterer Außenanker kann eine lange Parallele bestimmen.",
     "section": "Chartfall 14.3 · Linienwahl",
     "scenario": "c14-24",
     "paragraphs": [
       "Im dritten Chartfall wird eine fallende Hochverbindung kopiert und an einem früheren Tief verankert. Dieser Tiefanker liegt außerhalb der beiden Hochpunkte. Die verlängerte untere Grenze beschreibt einen breiteren Abschnitt des Bärenverlaufs.",
-      "Daneben kann eine direkte Verbindung zweier Tiefs eine andere untere Grenze ergeben. Ein späterer Tieftest unterschreitet die direkte Linie, erreicht die verschobene Parallele aber noch nicht. Beide Aussagen können gleichzeitig richtig sein, weil ihre Konstruktionen verschieden sind.",
-      "Kennzeichne den Unterschied, bevor du daraus eine Umkehr ableitest. Eine überzeugende Käuferreaktion würde die Idee stützen; eine fehlende Überschreitung der breiteren Grenze bleibt dennoch sichtbar. Ein Gegenplan darf diesen schwächeren Beleg nicht heimlich als perfekten Kanaltest ausgeben."
+      "Daneben kann eine direkte Verbindung zweier Tiefs eine andere untere Grenze ergeben. Ein späterer Tieftest unterschreitet die direkte Linie, erreicht die verschobene Parallele aber noch nicht. Beide Aussagen können gleichzeitig stimmen, weil die Konstruktionen verschieden sind.",
+      "Kennzeichne den Unterschied, bevor du daraus eine Umkehr ableitest. Eine überzeugende Käuferreaktion würde die Idee stützen; eine fehlende Überschreitung der breiteren Grenze bleibt trotzdem sichtbar. Ein Gegenplan darf diesen schwächeren Beleg nicht heimlich als perfekten Kanaltest ausgeben."
     ],
     "takeaways": [
       "Älterer Außenanker kann eine lange Parallele bestimmen.",
@@ -831,9 +831,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 14.3 · Testqualität",
     "scenario": "c14-25",
     "paragraphs": [
-      "Wenn die beiden Anker einer Tiefverbindung weit auseinanderliegen und der neue Test direkt neben dem zweiten Anker entsteht, kann dieser Test noch zum selben Schub gehören. Drei markierte Bars sind deshalb nicht automatisch drei getrennte Abwärtsabschnitte.",
-      "Eine Grenze ist aussagekräftiger, wenn spätere eigenständige Schübe sie erneut prüfen. Betrachte die Rückläufe zwischen den Tiefs: Haben sie die vorherige Bewegung erkennbar unterbrochen? Im dritten Chartfall bilden die späten Tiefpunkte eine zusammenhängende Folge kleinerer Schübe.",
-      "Eine schwächere Linienbestätigung schließt eine Käuferidee nicht grundsätzlich aus. Dann braucht sie andere sichtbare Gründe und einen passenden Plan. Halte im Journal getrennt fest, welche Information der Linie und welche der aktuellen Barstruktur entstammt."
+      "Liegen die beiden Anker einer Tiefverbindung weit auseinander und entsteht der neue Test direkt neben dem zweiten Anker, kann dieser Test noch zum selben Schub gehören. Drei markierte Bars sind deshalb nicht automatisch drei getrennte Abwärtsabschnitte.",
+      "Eine Grenze sagt mehr aus, wenn spätere eigenständige Schübe sie erneut prüfen. Schau dir die Rückläufe zwischen den Tiefs an: Haben sie die vorherige Bewegung erkennbar unterbrochen? Im dritten Chartfall bilden die späten Tiefpunkte eine zusammenhängende Folge kleinerer Schübe.",
+      "Eine schwächere Linienbestätigung schließt eine Käuferidee nicht grundsätzlich aus. Dann braucht sie andere sichtbare Gründe und einen passenden Plan. Halte im Journal getrennt fest, welche Information von der Linie und welche von der aktuellen Barstruktur stammt."
     ],
     "takeaways": [
       "Barzahl und Zahl eigenständiger Schübe unterscheiden.",
@@ -865,9 +865,9 @@ const drafts: Draft[] = [
     "section": "Chartfall 14.3 · Abnehmender Druck",
     "scenario": "c14-26",
     "paragraphs": [
-      "Ein fallender Verlauf kann neue Tiefs machen, obwohl jeder weitere Tiefschritt kleiner ausfällt. Die Verkäufer erreichen noch tiefere Preise, gewinnen dabei aber weniger zusätzlichen Raum. Das wird als schrumpfende Treppe beschrieben.",
-      "Im dritten Chartfall kommt diese nachlassende Ausdehnung zu einem kleinen Signalbar hinzu. Ein kleiner Bar kann einen näheren strukturellen Stop ermöglichen und dadurch das Verhältnis von möglichem Ertrag zu Risiko verbessern. Er erhöht nicht automatisch die Erfolgswahrscheinlichkeit.",
-      "Prüfe Zielraum, Auslösung und mögliche Fehlschläge zusammen. Ein enger Stop kann auch leichter erreicht werden. Setze die Positionsgröße aus dem geplanten Geldrisiko fest und vergrößere sie nicht allein deshalb, weil das geometrische Verhältnis attraktiv aussieht."
+      "Ein fallender Verlauf kann neue Tiefs machen, obwohl jeder weitere Tiefschritt kleiner ausfällt. Die Verkäufer erreichen noch tiefere Preise, gewinnen dabei aber weniger zusätzlichen Raum. Das nennt man eine schrumpfende Treppe.",
+      "Im dritten Chartfall kommt diese nachlassende Ausdehnung zu einem kleinen Signalbar hinzu. Ein kleiner Bar kann einen näheren strukturellen Stop ermöglichen und so das Verhältnis von möglichem Ertrag zu Risiko verbessern. Die Erfolgswahrscheinlichkeit erhöht er nicht automatisch.",
+      "Prüf Zielraum, Auslösung und mögliche Fehlschläge zusammen. Ein enger Stop kann auch leichter erreicht werden. Leite die Positionsgröße aus dem geplanten Geldrisiko ab und vergrößere sie nicht allein deshalb, weil das geometrische Verhältnis attraktiv aussieht."
     ],
     "takeaways": [
       "Kleinere neue Tiefschritte zeigen weniger Ausdehnung.",
@@ -895,13 +895,13 @@ const drafts: Draft[] = [
   {
     "number": 27,
     "title": "Gap, Verkaufsschub und spätere Korrektur",
-    "summary": "Großes Gap als Ausbruch in den Kontext nehmen.",
+    "summary": "Ein großes Gap als Ausbruch in den Kontext einordnen.",
     "section": "Chartfall 14.3 · Tagesverlauf",
     "scenario": "c14-27",
     "paragraphs": [
-      "Eine große Abwärtslücke ist bereits ein Ausbruch. Im dritten Chartfall folgen ein enger Eröffnungsbereich und ein kräftiger Verkäuferschub. Ein ungewöhnlich großer später Bar nach viel Abwärtsstrecke kann zugleich eine späte Ausdehnung anzeigen, statt nur frische Trendstärke.",
-      "Eine starke Käuferreaktion kann dann eine seitwärts bis aufwärts gerichtete Korrektur mit zwei Abschnitten vorbereiten. Als grobe Orientierung kann diese Phase zehn oder mehr Bars beanspruchen; das ist weder eine Mindesthaltepflicht noch ein garantiertes Zeitfenster.",
-      "Eine enge Range kann anschließend an ihrer oberen Seite scheitern und ungefähr ein Doppelhoch bilden. Der Tag kann zwischen höheren und tieferen Balancebereichen wechseln und dennoch nahe dem Tageshoch eröffnen und nahe dem Tagestief schließen. Seitwärtsphasen schließen eine insgesamt fallende Tagesentwicklung nicht aus."
+      "Eine große Abwärtslücke ist schon ein Ausbruch. Im dritten Chartfall folgen ein enger Eröffnungsbereich und ein kräftiger Verkäuferschub. Ein ungewöhnlich großer später Bar nach viel Abwärtsstrecke kann zugleich eine späte Ausdehnung anzeigen, statt nur frische Trendstärke.",
+      "Eine starke Käuferreaktion kann dann eine seitwärts bis aufwärts gerichtete Korrektur mit zwei Abschnitten vorbereiten. Als grobe Orientierung kann diese Phase zehn oder mehr Bars dauern; das ist weder eine Mindesthaltepflicht noch ein garantiertes Zeitfenster.",
+      "Eine enge Range kann anschließend an ihrer oberen Seite scheitern und ungefähr ein Doppelhoch bilden. Der Tag kann zwischen höheren und tieferen Balancebereichen wechseln und trotzdem nahe dem Tageshoch eröffnen und nahe dem Tagestief schließen. Seitwärtsphasen schließen eine insgesamt fallende Tagesentwicklung nicht aus."
     ],
     "takeaways": [
       "Großes Gap als Ausbruch in den Kontext nehmen.",
@@ -933,16 +933,16 @@ const drafts: Draft[] = [
     "section": "Abschluss · Replay",
     "scenario": "c14-28",
     "paragraphs": [
-      "Halte vor dem nächsten Schub fest, welche Zeitebene und welche bereits sichtbaren Anker deine Kanalgrenze bestimmen. Notiere, ob sie eine Parallele, eine direkte Swingverbindung oder eine begründete Näherung ist. So lässt sich der spätere Test nachvollziehbar beurteilen.",
-      "Decke weitere Bars schrittweise auf. Beschreibe Überschreitung, Rückkehr und Anschluss getrennt. Eine Rückkehr mit Gegenreaktion kann einen Gegenplan vorbereiten; starker Anschluss außerhalb kann eine Beschleunigung zeigen. Bei widersprüchlichen Bars ist Abwarten eine vollständige Entscheidung.",
-      "Für jede konkrete Order brauchst du eine Auslösung, eine klare Verlustgrenze und genug Zielraum. Nach einem Fehlschlag bewertet eine neue Linie nur die neue Struktur. Sie erlaubt kein ungeplantes Aufstocken oder weiteres Verschieben des Stops. Die Übung beurteilt die Entscheidung mit damaligen Informationen, nicht nur den späteren Gewinn."
+      "Halte vor dem nächsten Schub fest, welche Zeitebene und welche bereits sichtbaren Anker deine Kanalgrenze bestimmen. Notier, ob sie eine Parallele, eine direkte Swingverbindung oder eine begründete Näherung ist. So kannst du den späteren Test nachvollziehbar beurteilen.",
+      "Deck weitere Bars Schritt für Schritt auf. Beschreibe Überschreitung, Rückkehr und Anschluss getrennt. Eine Rückkehr mit Gegenreaktion kann einen Gegenplan vorbereiten; starker Anschluss außerhalb kann eine Beschleunigung zeigen. Bei widersprüchlichen Bars ist Abwarten eine vollständige Entscheidung.",
+      "Für jede konkrete Order brauchst du eine Auslösung, eine klare Verlustgrenze und genug Zielraum. Nach einem Fehlschlag bewertet eine neue Linie nur die neue Struktur. Sie erlaubt kein ungeplantes Aufstocken und kein weiteres Verschieben des Stops. Die Übung beurteilt die Entscheidung mit den damaligen Informationen, nicht nur den späteren Gewinn."
     ],
     "takeaways": [
       "Anker und Konstruktionsart vor dem Test notieren.",
       "Überschreitung, Rückkehr und Anschluss trennen.",
       "Neue Zeichnung ist keine Erlaubnis für mehr Risiko."
     ],
-    "callout": "Neue Zeichnung ist keine Erlaubnis für mehr Risiko.",
+    "callout": "Eine neue Zeichnung ist keine Erlaubnis für mehr Risiko.",
     "prompt": "Welche Notiz macht den Replaytest überprüfbar?",
     "answers": [
       {
