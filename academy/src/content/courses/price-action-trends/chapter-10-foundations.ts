@@ -1,6 +1,6 @@
 import { chapterTenLesson, type ChapterTenDraft } from './chapter-10-model';
 
-// Reihenfolge der einleitenden Argumente im Buchkapitel; frei formuliert.
+// Reihenfolge der einleitenden Argumente; frei formuliert.
 const drafts: ChapterTenDraft[] = [
   {
     number: 1, title: 'Warum ein zweiter Versuch Gewicht hat',

@@ -29,7 +29,7 @@ export const unitDefinitions: UnitDefinition[] = [
     label: 'Einleitung',
     title: 'Wie Price Action gedacht wird',
     description:
-      'Marktlogik, Wahrscheinlichkeit, Disziplin, Stärkezeichen und die grundlegende High-/Low-Zählung in der Reihenfolge der Quelle.',
+      'Marktlogik, Wahrscheinlichkeit, Disziplin, Stärkezeichen und die grundlegende High-/Low-Zählung in aufbauender Reihenfolge.',
     estimatedLessonCount: 22,
     load: () =>
       import('./courses/price-action-trends/introduction').then((module) => module.introductionLessons),

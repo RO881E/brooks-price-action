@@ -355,7 +355,7 @@ export const introductionFoundationLessons = [
         paragraphs: [
           'Nach Handelsschluss wirken Einstieg und Ausstieg oft offensichtlich. In Echtzeit fehlt jedoch die rechte Hälfte des Charts. Du musst handeln, während mehrere plausible Verläufe offen sind, und einen normalen Rücklauf von einer echten Invalidierung unterscheiden. Genau diese Unsicherheit macht die praktische Ausführung schwieriger als das nachträgliche Erkennen.',
           'Eine Methode kann fachlich funktionieren und trotzdem ungeeignet für dich sein. Wer schnelle Entscheidungen hasst, wird einen extrem kurzfristigen Stil kaum jahrelang sauber ausführen. Wer jedem kleinen Rücklauf emotional ausweicht, wird mit einem Ansatz scheitern, dessen Gewinner normale Schwankungen aushalten müssen.',
-          'Die Quelle beschreibt eine lange Suche über Systeme, Indikatoren, Seminare und fremde Ansätze. Die übertragbare Lehre ist nicht, dass nur eine Methode richtig sei. Sie lautet: Irgendwann musst du einen belastbaren Ansatz tief genug lernen, statt bei jeder unangenehmen Phase das Instrument zu wechseln.',
+          'Viele Lernende durchlaufen eine lange Suche über Systeme, Indikatoren, Seminare und fremde Ansätze. Die Lehre daraus ist nicht, dass nur eine Methode richtig sei. Sie lautet: Irgendwann musst du einen belastbaren Ansatz tief genug lernen, statt bei jeder unangenehmen Phase das Instrument zu wechseln.',
           'Chartlesen und profitables Handeln bleiben zwei getrennte Fertigkeiten. Du kannst eine Struktur korrekt erkennen und trotzdem durch falsche Größe, verspäteten Einstieg, engen Stop oder impulsives Management verlieren.',
         ],
         callout:
@@ -535,7 +535,7 @@ export const introductionFoundationLessons = [
         paragraphs: [
           'Die meisten klassischen Indikatoren werden aus Preis, Zeit oder Volumen berechnet. Sie können dieselben Daten glätten, normalisieren oder in einer leichter lesbaren Form darstellen. Das ist nicht nutzlos. Problematisch wird es, wenn die Darstellung als unabhängige Wahrheit behandelt wird und der zugrunde liegende Kursverlauf aus dem Blick gerät.',
           'Ein Oszillator kann in einem starken Trend immer wieder „überkauft“ anzeigen. Wer daraus automatisch Gegentrades ableitet, kämpft möglicherweise stundenlang gegen eine Bewegung, deren Bars weiterhin klare Stärke zeigen. Eine Divergenz allein ersetzt weder einen kraftvollen Bruch der Trendstruktur noch eine bestätigte Reaktion beim Test des alten Extrempunkts.',
-          'Die Quelle beschreibt eine bewusst reduzierte Arbeitsfläche: ein einzelner Kerzenchart und eine 20-Bar-EMA. Das ist eine persönliche Lösung, kein universelles Gesetz. Die übertragbare Regel lautet: Jedes Werkzeug muss eine konkrete Entscheidung verbessern. Wenn es nur Bestätigung sucht, Aufmerksamkeit teilt oder zu spätem Handeln führt, kostet es mehr als es bringt.',
+          'Eine bewusst reduzierte Arbeitsfläche besteht zum Beispiel aus einem einzelnen Kerzenchart und einer 20-Bar-EMA. Das ist eine mögliche Lösung, kein universelles Gesetz. Die Regel dahinter lautet: Jedes Werkzeug muss eine konkrete Entscheidung verbessern. Wenn es nur Bestätigung sucht, Aufmerksamkeit teilt oder zu spätem Handeln führt, kostet es mehr als es bringt.',
           'Die primären Price-Action-Werkzeuge bleiben direkt sichtbar: Hochs und Tiefs, Trend- und Kanallinien, Bar-Körper und Tails, Überlappung, Ausbrüche und Fehlausbrüche sowie die Beziehung des aktuellen Bars zu den vorherigen.',
         ],
         callout:
