@@ -5,7 +5,7 @@ export const introductionStrengthLessons = [
     id: 'price-action-trends.introduction.lesson-16',
     title: 'Stärke eines Trends lesen',
     summary:
-      'Vier Merkmalsgruppen bündeln die vielen Einzelhinweise zu einer nutzbaren Trenddiagnose.',
+      'Vier Merkmalsgruppen fassen die vielen Einzelhinweise zu einer brauchbaren Trenddiagnose zusammen.',
     durationMinutes: 14,
     xp: 45,
     sourceUnit: 'Einleitung · Stärkezeichen',
@@ -18,13 +18,13 @@ export const introductionStrengthLessons = [
         eyebrow: 'Evidenz sammeln',
         title: 'Trendstärke ist eine Summe, kein einzelnes Signal',
         paragraphs: [
-          'Ein starker Trend besitzt selten nur ein auffälliges Merkmal. Mehrere Beobachtungen weisen gleichzeitig in dieselbe Richtung: Swing-Hochs und Swing-Tiefs wandern, Trendbars dominieren, Pullbacks bleiben klein und Gegenbewegungen erhalten keinen Anschluss. Je mehr unabhängige Hinweise zusammenkommen, desto gefährlicher wird das Suchen nach dem exakten Wendepunkt.',
-          'Stärke kann spektakulär aussehen – ein Gap oder großer Ausbruch – oder unscheinbar. Gerade sehr starke Trends steigen oder fallen manchmal in kleinen Bars, sodass der ersehnte tiefe Pullback nie kommt. Große Gegenbars wirken dann verführerisch, scheitern aber und werden selbst zu Flaggen mit dem Trend.',
-          'Gaps werden in Price Action breit verstanden. Neben sichtbaren Eröffnungsgaps zählen nicht überlappende Tests und Mikrogaps um einen starken Trendbar als Hinweise darauf, dass die Gegenseite den Preis kaum zurückholen konnte.',
-          'Keines der folgenden Merkmale ist allein ein Kauf- oder Verkaufssignal. Die Liste dient als Evidenzsystem: Struktur, Barqualität, Pullbackverhalten und Scheitern der Gegenseite werden gemeinsam bewertet.',
+          'Ein starker Trend hat selten nur ein einziges auffälliges Merkmal. Mehrere Beobachtungen zeigen gleichzeitig in dieselbe Richtung: Swing-Hochs und Swing-Tiefs wandern weiter, Trendbars dominieren, Pullbacks bleiben klein, und Gegenbewegungen finden keinen Anschluss. Je mehr unabhängige Hinweise zusammenkommen, desto riskanter wird die Suche nach dem exakten Wendepunkt.',
+          'Stärke kann spektakulär aussehen – ein Gap oder ein großer Ausbruch – oder ganz unscheinbar. Gerade sehr starke Trends laufen manchmal in kleinen Bars weiter, sodass der ersehnte tiefe Pullback nie kommt. Große Gegenbars sehen dann verführerisch aus, scheitern aber und werden selbst zu Flaggen mit dem Trend.',
+          'Gaps versteht man in Price Action ziemlich breit. Neben sichtbaren Eröffnungsgaps zählen auch nicht überlappende Tests und Mikrogaps um einen starken Trendbar. Sie zeigen, dass die Gegenseite den Preis kaum zurückholen konnte.',
+          'Keins der folgenden Merkmale ist für sich allein ein Kauf- oder Verkaufssignal. Die Liste ist ein Beweissystem: Du bewertest Struktur, Barqualität, Pullbackverhalten und das Scheitern der Gegenseite zusammen.',
         ],
         callout:
-          'Je stärker der Trend, desto besser sehen Gegentrendsetups oft aus – und desto häufiger scheitern sie.',
+          'Je stärker der Trend, desto besser sehen Gegentrend-Setups oft aus – und desto häufiger scheitern sie.',
       },
       {
         id: 'intro-16-diagram',
@@ -160,13 +160,13 @@ export const introductionStrengthLessons = [
         eyebrow: 'Ausbruch bewerten',
         title: 'Die Linie ist nicht der Breakout – die Akzeptanz danach ist es',
         paragraphs: [
-          'Ein Ausbruch beginnt mit dem Überschreiten einer Grenze, wird aber erst durch Verhalten außerhalb der alten Zone stark. Ein großer Trendkörper mit kleinem Gegentail zeigt Dringlichkeit. Noch wichtiger ist, was folgt: weitere Bars in Ausbruchsrichtung, geringe Rückläufe und ein erster Test, der den Bruchpunkt nicht vollständig zurücknimmt.',
-          'Reichweite zählt. Ein Impuls, der mehrere frühere Hochs, Tiefs, Schlüsse, eine EMA und eine Trendlinie überwindet, verändert mehr Struktur als ein knappes Überschreiten um einen Tick. Wie viele vorherige Bars durch den Schluss und nicht nur durch den Extrempunkt überwunden werden, ist zusätzliche Evidenz.',
-          'Volumen kann einen außergewöhnlichen Ausbruch stützen, besonders wenn es ein Vielfaches des jüngsten Normalwerts beträgt. Es ist jedoch kein Ersatz für Kursanschluss. Ohne Follow-through kann selbst ein lauter Volumenspike eine Erschöpfung markieren.',
-          'Bullische und bearische Kriterien sind weitgehend spiegelbildlich. In beiden Fällen entscheiden Barqualität, Dauer des Spikes, Mikrogaps, Vorgeschichte und Qualität des ersten Pullbacks.',
+          'Ein Ausbruch fängt damit an, dass der Preis eine Grenze überschreitet. Stark wird er aber erst durch das, was außerhalb der alten Zone passiert. Ein großer Trendkörper mit kleinem Gegentail zeigt Dringlichkeit. Noch wichtiger ist, was danach kommt: weitere Bars in Ausbruchsrichtung, kleine Rückläufe und ein erster Test, der den Bruchpunkt nicht komplett zurücknimmt.',
+          'Reichweite zählt. Ein Impuls, der mehrere frühere Hochs, Tiefs, Schlüsse, eine EMA und eine Trendlinie überwindet, verändert mehr Struktur als ein knappes Überschreiten um einen Tick. Zusätzliche Evidenz: wie viele vorherige Bars mit dem Schluss – und nicht nur mit dem Extrempunkt – überwunden werden.',
+          'Volumen kann einen außergewöhnlichen Ausbruch stützen, vor allem wenn es ein Vielfaches des jüngsten Normalwerts erreicht. Es ersetzt aber keinen Kursanschluss. Ohne Follow-through kann sogar ein lauter Volumenspike eine Erschöpfung markieren.',
+          'Bullische und bärische Kriterien sind weitgehend Spiegelbilder. In beiden Fällen entscheiden Barqualität, Dauer des Spikes, Mikrogaps, Vorgeschichte und die Qualität des ersten Pullbacks.',
         ],
         callout:
-          'Ein starker Breakout entkommt nicht nur der Range – er verhindert zunächst auch die einfache Rückkehr hinein.',
+          'Ein starker Breakout entkommt nicht nur der Range – er verhindert zunächst auch, dass der Preis einfach wieder hineinläuft.',
       },
       {
         id: 'intro-17-diagram',
@@ -300,13 +300,13 @@ export const introductionStrengthLessons = [
         eyebrow: 'Signalbar',
         title: 'Zurückweisung im Bar – Bestätigung erst danach',
         paragraphs: [
-          'Ein bullischer Reversal-Bar zeigt, dass tiefere Preise innerhalb seines Zeitfensters zurückgewiesen wurden. Als Mindestanforderung besitzt er einen bullischen Körper oder schließt zumindest oberhalb seiner Mitte. Die bärische Variante spiegelt dies: bearisher Körper oder Schluss unterhalb der Mitte.',
-          'Höhere Qualität entsteht, wenn der Bar nahe dem vorherigen Schluss eröffnet, deutlich in Gegenrichtung schließt, einen aussagekräftigen Tail auf der zurückgewiesenen Seite und nur einen kleinen Tail am neuen Ende besitzt. Geringe Überlappung und das Überwinden mehrerer früherer Schlüsse oder Extrempunkte machen die Reaktion sichtbarer.',
-          'Trotzdem ist der Signalbar nur ein Setup. Der folgende Entry-Bar sollte die neue Richtung bestätigen. Ein schwacher Inside-Doji nach einem angeblich starken Reversal zeigt weniger Dringlichkeit als ein kräftiger Trendbar, der zügig über beziehungsweise unter den Signalbar ausbricht.',
-          'Kontext bleibt übergeordnet. Ein optisch perfekter bullischer Reversal-Bar mitten in einem starken Abwärtstrend kann nur einen kleinen Pullback starten. Derselbe Bar nach einem gescheiterten Ausbruch unter einer Range besitzt eine andere Bedeutung.',
+          'Ein bullischer Reversal-Bar zeigt, dass tiefere Preise innerhalb seines Zeitfensters abgewiesen wurden. Mindestens braucht er einen bullischen Körper oder einen Schluss oberhalb seiner Mitte. Die bärische Variante ist das Spiegelbild: bärischer Körper oder Schluss unterhalb der Mitte.',
+          'Besser wird er, wenn er nahe am vorherigen Schluss eröffnet, deutlich in Gegenrichtung schließt, auf der abgewiesenen Seite einen aussagekräftigen Tail hat und am neuen Ende nur einen kleinen. Wenig Überlappung und das Überwinden mehrerer früherer Schlüsse oder Extrempunkte machen die Reaktion besser sichtbar.',
+          'Trotzdem ist der Signalbar nur ein Setup. Der folgende Entry-Bar sollte die neue Richtung bestätigen. Ein schwacher Inside-Doji nach einem angeblich starken Reversal zeigt weniger Dringlichkeit als ein kräftiger Trendbar, der zügig über den Signalbar hinaus (oder darunter) ausbricht.',
+          'Der Kontext steht über allem. Ein optisch perfekter bullischer Reversal-Bar mitten in einem starken Abwärtstrend startet vielleicht nur einen kleinen Pullback. Derselbe Bar nach einem gescheiterten Ausbruch unter einer Range bedeutet etwas ganz anderes.',
         ],
         callout:
-          'Signalbar beschreibt die Möglichkeit. Entry-Bar und Folgebewegung zeigen, ob andere Marktteilnehmer sie tatsächlich handeln.',
+          'Der Signalbar beschreibt die Möglichkeit. Entry-Bar und Folgebewegung zeigen, ob andere Marktteilnehmer sie tatsächlich handeln.',
       },
       {
         id: 'intro-18-diagram',
@@ -411,13 +411,13 @@ export const introductionStrengthLessons = [
         eyebrow: 'Prozess statt Kerze',
         title: 'Eine starke Umkehr baut eine neue Trendstruktur auf',
         paragraphs: [
-          'Ein Reversal-Bar ist nur der mögliche Start. Eine belastbare Umkehr muss die alte Trendlogik beschädigen und eigene Stärke aufbauen. Dazu gehören ein kraftvoller Gegenspike, das Überwinden mehrerer Bars und Strukturpunkte sowie Folgebars, die den neuen Druck bestätigen.',
-          'Der Kontext vor dem Signal ist wichtig. Ein vorheriger Bruch der alten Trendlinie, ein gescheiterter Test des Extrempunkts, ein Overshoot der Kanallinie oder ein zweiter Umkehrversuch liefern mehr Grundlage als der allererste Gegenbar in einem intakten Trend.',
-          'Nach dem Start verrät der erste Pullback viel. Bleibt er kurz und seitwärts, hält oberhalb beziehungsweise unterhalb des Einstiegs und scheitert an der alten Trendlinie oder EMA, spricht das für die neue Richtung. Tiefe, dynamische Rückkehr in den alten Trend schwächt die Umkehrthese.',
-          'Bullische und bearishe Umkehrungen sind wieder spiegelbildlich. Die eigentliche Kompetenz liegt nicht im Auswendiglernen zweier Listen, sondern im Erkennen derselben vier Phasen: Ausgangskontext, kraftvoller Bruch, erfolgreicher Test und neuer Anschluss.',
+          'Ein Reversal-Bar ist nur der mögliche Startschuss. Eine belastbare Umkehr muss die alte Trendlogik beschädigen und eigene Stärke aufbauen. Dazu gehören ein kraftvoller Gegenspike, das Überwinden mehrerer Bars und Strukturpunkte und Folgebars, die den neuen Druck bestätigen.',
+          'Der Kontext vor dem Signal ist wichtig. Ein Bruch der alten Trendlinie, ein gescheiterter Test des Extrempunkts, ein Overshoot der Kanallinie oder ein zweiter Umkehrversuch geben dir mehr Grundlage als der allererste Gegenbar in einem intakten Trend.',
+          'Nach dem Start sagt dir der erste Pullback viel. Bleibt er kurz und seitwärts, hält er oberhalb (bzw. unterhalb) deines Einstiegs und scheitert er an der alten Trendlinie oder EMA, spricht das für die neue Richtung. Eine tiefe, dynamische Rückkehr in den alten Trend schwächt die Umkehrthese.',
+          'Bullische und bärische Umkehrungen sind wieder Spiegelbilder. Es geht nicht darum, zwei Listen auswendig zu lernen. Du sollst dieselben vier Phasen erkennen: Ausgangskontext, kraftvoller Bruch, erfolgreicher Test und neuer Anschluss.',
         ],
         callout:
-          'Die beste Umkehr ist nicht nur ein starkes Signal gegen den alten Trend – sie verhält sich anschließend wie ein neuer Trend.',
+          'Die beste Umkehr ist nicht nur ein starkes Signal gegen den alten Trend – sie verhält sich danach wie ein neuer Trend.',
       },
       {
         id: 'intro-19-diagram',
@@ -538,7 +538,7 @@ export const introductionStrengthLessons = [
     id: 'price-action-trends.part-01-introduction.lesson-01',
     title: 'High 1 und High 2 richtig zählen',
     summary:
-      'Die ersten beiden Versuche, einen bullischen Kontext nach einer Korrektur wieder aufzunehmen.',
+      'Die ersten beiden Versuche, nach einer Korrektur wieder in den bullischen Kontext einzusteigen.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Einleitung · Bars zählen (Grundlagen)',
@@ -551,13 +551,13 @@ export const introductionStrengthLessons = [
         eyebrow: 'Bar Counting',
         title: 'Gezählt werden Fortsetzungsversuche im Pullback',
         paragraphs: [
-          'In einem bullischen Kontext korrigiert der Markt seitwärts oder abwärts. Der erste Bar, dessen Hoch über das Hoch des unmittelbar vorherigen Bars steigt, erzeugt den ersten Aufwärtsversuch: High 1. Das sagt nicht, dass genau ein bearisher Bar vorausging oder dass der Trade automatisch gut ist. Es markiert das Ende des ersten kleinen Korrekturbeins.',
-          'Scheitert dieser Versuch und der Pullback setzt sich fort, erzeugt das nächste Überschreiten eines Vorgängerhochs einen High 2. Der Markt hat damit einen zweiten Versuch gestartet, die übergeordnete Aufwärtsrichtung wieder aufzunehmen.',
-          'Die häufige ABC-Beschreibung meint dieselbe Grundstruktur aus einer anderen Perspektive: A ist das erste Korrekturbein, B der Zwischenversuch um High 1 und C das zweite Korrekturbein. Der Ausbruch aus C ist der High-2-Versuch.',
-          'High 2 liefert mehr Sequenzinformation als High 1, bleibt aber kontextabhängig. In einem starken Aufwärtstrend kann es ein hochwertiger Fortsetzungseinstieg sein. In einer fallenden Struktur oder direkt unter starkem Widerstand kann derselbe Count scheitern.',
+          'In einem bullischen Kontext korrigiert der Markt seitwärts oder abwärts. Der erste Bar, dessen Hoch über dem Hoch des unmittelbar vorherigen Bars liegt, ist der erste Aufwärtsversuch: High 1. Das heißt nicht, dass genau ein bärischer Bar davor lag, und auch nicht, dass der Trade automatisch gut ist. Es markiert nur das Ende des ersten kleinen Korrekturbeins.',
+          'Scheitert dieser Versuch und der Pullback läuft weiter, ist das nächste Überschreiten eines Vorgängerhochs ein High 2. Damit startet der Markt einen zweiten Anlauf, die übergeordnete Aufwärtsrichtung wieder aufzunehmen.',
+          'Die verbreitete ABC-Beschreibung meint dieselbe Grundstruktur aus einem anderen Blickwinkel: A ist das erste Korrekturbein, B der Zwischenversuch um High 1 und C das zweite Korrekturbein. Der Ausbruch aus C ist der High-2-Versuch.',
+          'High 2 sagt dir mehr über die Abfolge als High 1, bleibt aber vom Kontext abhängig. In einem starken Aufwärtstrend kann es ein hochwertiger Einstieg in die Fortsetzung sein. In einer fallenden Struktur oder direkt unter starkem Widerstand kann derselbe Count scheitern.',
         ],
         callout:
-          'Die Zahl beschreibt den Versuch. Trend, Ort, Signalbar und Platz zum Ziel bestimmen seine Qualität.',
+          'Die Zahl beschreibt den Versuch. Trend, Ort, Signalbar und Platz bis zum Ziel bestimmen seine Qualität.',
       },
       {
         id: 'part-01-count-diagram',
@@ -657,13 +657,13 @@ export const introductionStrengthLessons = [
         eyebrow: 'Fortgeschrittener Count',
         title: 'Mehr Versuche bedeuten nicht automatisch mehr Qualität',
         paragraphs: [
-          'Wenn der Pullback nach High 2 weiterläuft und ein drittes Korrekturbein entsteht, markiert der nächste Aufwärtsversuch High 3. Diese dreiteilige Struktur ähnelt häufig einer Wedge Bull Flag: Verkäufer schaffen mehrere Schübe, erzielen aber möglicherweise immer weniger Fortschritt.',
-          'Ein High 4 kann auf zwei Arten gelesen werden. Manchmal besteht die große Struktur aus zwei nacheinander gescheiterten High-2-Sequenzen. Auf einem höheren Zeitrahmen kann das Ganze wiederum wie ein einziger High 2 aussehen. In anderen Fällen ähnelt die Abwärtskorrektur einem kleinen Spike-and-Channel-Bärentrend.',
-          'Mit jedem weiteren Versuch wächst die Ambivalenz. Einerseits kann die Korrektur reif für ein Ende sein. Andererseits zeigt ein vierter Versuch, dass der ursprüngliche Trend mehrfach keinen überzeugenden Anschluss erzeugt hat. Deshalb darf die Zahl nicht als steigende Garantie missverstanden werden.',
-          'Scheitert High 4 und der Markt fällt unter den Signalbar, ist die Annahme eines bloßen Pullbacks deutlich geschwächt. Der Markt kann bereits in einen bearischen Swing oder eine zweiseitige Phase gewechselt sein. Dann ist Beobachten besser als reflexhaft der alten Trendidee treu zu bleiben.',
+          'Läuft der Pullback nach High 2 weiter und es entsteht ein drittes Korrekturbein, ist der nächste Aufwärtsversuch High 3. Diese dreiteilige Struktur erinnert oft an eine Wedge Bull Flag: Die Verkäufer schaffen mehrere Schübe, kommen aber womöglich jedes Mal weniger weit.',
+          'Ein High 4 lässt sich auf zwei Arten lesen. Manchmal besteht die große Struktur aus zwei gescheiterten High-2-Sequenzen hintereinander – auf einem höheren Zeitrahmen kann das Ganze dann wie ein einziger High 2 aussehen. In anderen Fällen sieht die Abwärtskorrektur aus wie ein kleiner Spike-and-Channel-Bärentrend.',
+          'Mit jedem weiteren Versuch wächst die Zwiespältigkeit. Einerseits kann die Korrektur reif für ihr Ende sein. Andererseits zeigt ein vierter Versuch, dass der ursprüngliche Trend mehrfach keinen überzeugenden Anschluss gefunden hat. Verstehe die Zahl deshalb nicht als wachsende Garantie.',
+          'Scheitert High 4 und fällt der Markt unter den Signalbar, ist die Annahme eines bloßen Pullbacks deutlich geschwächt. Der Markt kann schon in einen bärischen Swing oder eine zweiseitige Phase gekippt sein. Dann ist Beobachten besser, als reflexhaft an der alten Trendidee festzuhalten.',
         ],
         callout:
-          'Ein später Count ist zugleich potenzielle Erschöpfung der Korrektur und Warnung vor verlorener Trendkontrolle.',
+          'Ein später Count ist beides: mögliche Erschöpfung der Korrektur und Warnung vor verlorener Trendkontrolle.',
       },
       {
         id: 'intro-21-diagram',
@@ -724,7 +724,7 @@ export const introductionStrengthLessons = [
     id: 'price-action-trends.introduction.lesson-22',
     title: 'Low 1 bis Low 4 spiegeln die Logik',
     summary:
-      'Abwärtsversuche in einer Rally zählen und aus dem Fehlschlag eines späten Low-Setups Kontrollverlust ableiten.',
+      'Abwärtsversuche in einer Rally zählen und aus dem Fehlschlag eines späten Low-Setups auf Kontrollverlust schließen.',
     durationMinutes: 10,
     xp: 40,
     sourceUnit: 'Einleitung · Bars zählen (Grundlagen)',
@@ -737,13 +737,13 @@ export const introductionStrengthLessons = [
         eyebrow: 'Gespiegelte Logik',
         title: 'In einer Rally werden neue Abwärtsversuche gezählt',
         paragraphs: [
-          'In einem bearischen Kontext korrigiert der Markt seitwärts oder aufwärts. Der erste Bar, dessen Tief unter das Tief des unmittelbar vorherigen Bars fällt, startet Low 1. Scheitert die Abwärtsfortsetzung und die Rally läuft weiter, markiert der nächste solche Bruch Low 2.',
-          'Low 2 entspricht der bärischen ABC-Korrektur: erster Rallyschub, Zwischenversuch nach unten und zweiter Rallyschub. Der erneute Bruch nach unten ist der zweite Versuch, den übergeordneten Abwärtstrend wieder aufzunehmen.',
-          'Low 3 und Low 4 folgen derselben Zählweise. Mit späteren Versuchen wächst auch hier die Frage, ob die Korrektur nur reift oder ob die Bären bereits Kontrolle verlieren.',
-          'Scheitert Low 4, indem der Markt nach ausgelöstem Short über den Signalbar steigt, spricht das gegen weiter klare Bärenkontrolle. Der Markt kann zweiseitig werden oder in einen bullischen Swing übergehen. Neue Bärenstärke müsste sich dann durch einen überzeugenden Bruch der bullischen Trendstruktur zeigen.',
+          'In einem bärischen Kontext korrigiert der Markt seitwärts oder aufwärts. Der erste Bar, dessen Tief unter dem Tief des unmittelbar vorherigen Bars liegt, startet Low 1. Scheitert die Abwärtsfortsetzung und die Rally läuft weiter, markiert der nächste solche Bruch Low 2.',
+          'Low 2 entspricht der bärischen ABC-Korrektur: erster Rallyschub, Zwischenversuch nach unten und zweiter Rallyschub. Der erneute Bruch nach unten ist der zweite Anlauf, den übergeordneten Abwärtstrend wieder aufzunehmen.',
+          'Low 3 und Low 4 zählst du genauso. Mit späteren Versuchen stellt sich auch hier die Frage, ob die Korrektur nur ausreift oder ob die Bären schon die Kontrolle verlieren.',
+          'Scheitert Low 4, weil der Markt nach einem ausgelösten Short über den Signalbar steigt, spricht das gegen eine weiterhin klare Bärenkontrolle. Der Markt kann zweiseitig werden oder in einen bullischen Swing kippen. Neue Bärenstärke müsste sich dann durch einen überzeugenden Bruch der bullischen Trendstruktur zeigen.',
         ],
         callout:
-          'High- und Low-Counts sind Spiegelbilder. Kontext und Fehlschlag lesen sich ebenfalls spiegelbildlich.',
+          'High- und Low-Counts sind Spiegelbilder. Auch Kontext und Fehlschlag liest du spiegelbildlich.',
       },
       {
         id: 'intro-22-comparison',

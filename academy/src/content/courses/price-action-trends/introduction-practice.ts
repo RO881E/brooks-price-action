@@ -5,7 +5,7 @@ export const introductionPracticeLessons = [
     id: 'price-action-trends.introduction.lesson-09',
     title: 'Nachricht und Marktreaktion trennen',
     summary:
-      'Warum eine Schlagzeile ohne Zeithorizont und Kursreaktion keine vollständige Handelsentscheidung liefert.',
+      'Warum eine Schlagzeile ohne Zeithorizont und Kursreaktion noch keine Handelsentscheidung ist.',
     durationMinutes: 11,
     xp: 35,
     sourceUnit: 'Einleitung',
@@ -22,13 +22,13 @@ export const introductionPracticeLessons = [
         eyebrow: 'Information richtig gewichten',
         title: 'Eine Nachricht kann wahr sein und dein Trade trotzdem falsch',
         paragraphs: [
-          'Nachrichten beantworten häufig, was wirtschaftlich passiert ist. Ein Intraday-Trade braucht zusätzlich Antworten auf andere Fragen: Was war bereits eingepreist? Wie positioniert war der Markt? Auf welchem Niveau reagieren Käufer und Verkäufer? Und passt der Horizont der Analyse überhaupt zu deinem geplanten Haltedauer?',
-          'Ein Fondsmanager kann mit einer mehrmonatigen bullischen These richtigliegen, während der Markt in der nächsten Stunde fällt. Seine Position darf einen großen Rücklauf aushalten; dein kurzfristiger Trade vielleicht nicht. Die Aussage des Experten ist dann nicht zwingend falsch – sie ist für deine Entscheidung schlicht auf einer anderen Zeitebene formuliert.',
-          'Medien wählen verständliche Ursachen und überzeugende Gesprächspartner. Das erzeugt im Nachhinein eine glatte Geschichte, obwohl gleichzeitig ebenso kluge Marktteilnehmer die Gegenseite handeln. Für Price Action ist daher nicht die Lautstärke der Erklärung entscheidend, sondern die beobachtbare Reaktion des Preises.',
-          'Das bedeutet nicht, Wirtschaftsdaten seien bedeutungslos. Sie können Volatilität, Gap-Risiko und Liquidität massiv verändern. Die praktische Regel lautet: Kenne den Termin und das Risiko – überlasse dem Chart die Bewertung der Reaktion.',
+          'Nachrichten beantworten meistens, was wirtschaftlich passiert ist. Für einen Intraday-Trade brauchst du aber andere Antworten: Was war schon eingepreist? Wie war der Markt positioniert? Auf welchem Niveau reagieren Käufer und Verkäufer? Und passt der Horizont der Analyse überhaupt zu deiner geplanten Haltedauer?',
+          'Ein Fondsmanager kann mit einer mehrmonatigen bullischen These recht haben, während der Markt in der nächsten Stunde fällt. Seine Position hält einen großen Rücklauf aus; dein kurzfristiger Trade vielleicht nicht. Die Aussage des Experten ist dann nicht unbedingt falsch – sie gilt nur auf einer anderen Zeitebene als deine Entscheidung.',
+          'Medien suchen sich verständliche Ursachen und überzeugende Gesprächspartner. Im Nachhinein entsteht so eine glatte Geschichte, obwohl gleichzeitig genauso kluge Leute die Gegenseite gehandelt haben. Für Price Action zählt deshalb nicht, wie laut die Erklärung ist, sondern wie der Preis tatsächlich reagiert.',
+          'Das heißt nicht, dass Wirtschaftsdaten egal wären. Sie können Volatilität, Gap-Risiko und Liquidität stark verändern. Die Faustregel: Kenne den Termin und das Risiko – und lass den Chart beurteilen, wie der Markt reagiert.',
         ],
         callout:
-          'Fundamentale Information und kurzfristige Handelsrichtung sind zwei verschiedene Fragen.',
+          'Fundamentale Infos und die kurzfristige Handelsrichtung sind zwei verschiedene Fragen.',
       },
       {
         id: 'intro-09-comparison',
@@ -102,7 +102,7 @@ export const introductionPracticeLessons = [
     id: 'price-action-trends.introduction.lesson-10',
     title: 'Gute Nachricht, schwacher Chart',
     summary:
-      'Ein eigenständiger Chartfall zu Gap, gescheitertem Anschluss und der stärkeren Information in der Reaktion.',
+      'Ein eigener Chartfall zu Gap, gescheitertem Anschluss und der stärkeren Info in der Reaktion.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Einleitung',
@@ -119,13 +119,13 @@ export const introductionPracticeLessons = [
         eyebrow: 'Eigenständiger Fall',
         title: 'Der Markt bestätigt die Schlagzeile nicht',
         paragraphs: [
-          'Stell dir vor, ein Unternehmen meldet überraschend gute Zahlen. Der Markt eröffnet deutlich über dem Vortag. Dieser Gap ist zunächst bullische Information: Käufer waren bereit, sofort wesentlich höhere Preise zu akzeptieren. Aber ein Gap ist erst der Beginn der Beobachtung, nicht das Ende der Analyse.',
-          'Nach der Eröffnung entsteht kein sauberer Anschluss. Der erste Anstieg wird verkauft, ein zweiter Versuch bleibt unter dem ersten Hoch und der Markt fällt zurück in Richtung des alten Schlusskurses. Jetzt hat sich die Information verändert: Trotz positiver Nachricht konnten Käufer das neue Niveau nicht verteidigen.',
-          'Ein Bruch unter die Eröffnungsstruktur kann den gescheiterten Gap in eine Verkaufsgelegenheit verwandeln. Nach einem sehr steilen Abverkauf bleibt allerdings Momentum bestehen, sodass ein erster Pullback häufig noch einmal das Tief testet. Ein später kräftiger Reversal-Bar kann deshalb einen Long-Scalp rechtfertigen, ohne den vorherigen Short im Nachhinein falsch zu machen.',
-          'Der Fall zeigt, weshalb Price Action keine feste Meinung verteidigt. Bullischer Gap, bearisher Fehlausbruch und anschließender Reversal-Scalp können nacheinander korrekte Entscheidungen sein.',
+          'Stell dir vor, ein Unternehmen meldet überraschend gute Zahlen. Der Markt eröffnet deutlich über dem Vortag. Dieser Gap ist zunächst eine bullische Info: Käufer waren bereit, sofort viel höhere Preise zu zahlen. Aber ein Gap ist erst der Anfang der Beobachtung, nicht das Ende der Analyse.',
+          'Nach der Eröffnung gibt es keinen sauberen Anschluss. Der erste Anstieg wird verkauft, ein zweiter Versuch bleibt unter dem ersten Hoch, und der Markt rutscht zurück Richtung altem Schlusskurs. Jetzt hat sich die Info geändert: Trotz guter Nachricht konnten die Käufer das neue Niveau nicht halten.',
+          'Ein Bruch unter die Eröffnungsstruktur kann den gescheiterten Gap zu einer Verkaufschance machen. Nach einem sehr steilen Abverkauf bleibt aber Momentum übrig, sodass ein erster Pullback oft noch einmal das Tief testet. Ein kräftiger Reversal-Bar später kann deshalb einen Long-Scalp rechtfertigen, ohne dass der Short davor im Nachhinein falsch war.',
+          'Der Fall zeigt, warum Price Action keine feste Meinung verteidigt. Bullischer Gap, bärischer Fehlausbruch und danach ein Reversal-Scalp können nacheinander alle richtige Entscheidungen sein.',
         ],
         callout:
-          'Reagiere auf neue Evidenz. Loyalität gehört deinem Prozess, nicht deiner ersten Marktrichtung.',
+          'Reagiere auf neue Beweise. Treu bleibst du deinem Prozess, nicht deiner ersten Marktrichtung.',
       },
       {
         id: 'intro-10-diagram',
@@ -186,7 +186,7 @@ export const introductionPracticeLessons = [
     id: 'price-action-trends.introduction.lesson-11',
     title: 'Bleib auf der Zeitebene deines Plans',
     summary:
-      'Warum ein kleinerer Chart nach dem Einstieg oft nicht präziser, sondern nur lauter wird.',
+      'Warum ein kleinerer Chart nach dem Einstieg oft nicht genauer wird, sondern nur lauter.',
     durationMinutes: 9,
     xp: 30,
     sourceUnit: 'Einleitung',
@@ -203,13 +203,13 @@ export const introductionPracticeLessons = [
         eyebrow: 'Trade-Management',
         title: 'Ein Fünf-Minuten-Setup braucht einen Fünf-Minuten-Atem',
         paragraphs: [
-          'Wenn du auf einem Fünf-Minuten-Chart ein Setup, einen strukturellen Stop und ein Ziel definierst, basiert die gesamte Idee auf Schwankungen dieser Ebene. Wechselst du nach dem Einstieg auf eine Minute, zerlegst du jeden normalen Fünf-Minuten-Bar in mehrere Gegenbewegungen. Diese Bewegung wirkt plötzlich bedrohlich, obwohl sie den ursprünglichen Plan noch gar nicht verletzt.',
-          'Kleinere Zeitebenen bieten mehr Signale und kleinere nominelle Stops. Sie bieten aber auch mehr Fehlsignale, mehr Entscheidungen und mehr Gelegenheit zum selektiven Cherry-Picking. Wer erst nach dem Einstieg hineinzoomt, tut dies häufig nicht wegen neuer Analyse, sondern um Angst zu beruhigen.',
-          'Das heißt nicht, dass Multi-Timeframe-Analyse grundsätzlich falsch ist. Sie braucht nur eine vorab festgelegte Hierarchie: Welche Ebene liefert Kontext, welche den Einstieg und welche darf den Trade invalidieren? Diese Regeln werden vor der Order bestimmt, nicht mitten im Rücklauf.',
-          'Wenn der Chart unklar ist, ist Abwarten eine vollständige Entscheidung. Sobald dein definiertes Setup vorliegt, musst du hingegen das vorher festgelegte Risiko akzeptieren oder den Trade auslassen.',
+          'Definierst du auf einem Fünf-Minuten-Chart Setup, strukturellen Stop und Ziel, beruht die ganze Idee auf den Schwankungen dieser Ebene. Springst du nach dem Einstieg auf eine Minute, zerfällt jeder normale Fünf-Minuten-Bar in mehrere Gegenbewegungen. Die wirken plötzlich bedrohlich, obwohl sie deinen ursprünglichen Plan noch gar nicht verletzen.',
+          'Kleinere Zeitebenen liefern mehr Signale und kleinere Stops in Zahlen. Dafür gibt es auch mehr Fehlsignale, mehr Entscheidungen und mehr Versuchung zum Rosinenpicken. Wer erst nach dem Einstieg hineinzoomt, tut das oft nicht wegen neuer Analyse, sondern um die eigene Angst zu beruhigen.',
+          'Multi-Timeframe-Analyse ist deshalb nicht grundsätzlich falsch. Sie braucht nur eine Rangordnung, die vorher feststeht: Welche Ebene gibt den Kontext, welche den Einstieg, und welche darf den Trade ungültig machen? Das legst du vor der Order fest, nicht mitten im Rücklauf.',
+          'Ist der Chart unklar, ist Abwarten eine vollwertige Entscheidung. Liegt dein definiertes Setup aber vor, musst du das vorher festgelegte Risiko akzeptieren – oder den Trade auslassen.',
         ],
         callout:
-          'Nach dem Einstieg die Zeitebene zu wechseln, verändert oft heimlich den Vertrag deines Trades.',
+          'Nach dem Einstieg die Zeitebene zu wechseln, ändert oft heimlich die Spielregeln deines Trades.',
       },
       {
         id: 'intro-11-diagram',
@@ -269,7 +269,7 @@ export const introductionPracticeLessons = [
     id: 'price-action-trends.introduction.lesson-12',
     title: 'Trading, Wette und positiver Erwartungswert',
     summary:
-      'Wo Trading dem Glücksspiel ähnelt, wo es sich unterscheidet und weshalb Geduld einen messbaren Wert besitzt.',
+      'Wo Trading dem Glücksspiel ähnelt, wo nicht, und warum Geduld einen messbaren Wert hat.',
     durationMinutes: 12,
     xp: 35,
     sourceUnit: 'Einleitung',
@@ -286,13 +286,13 @@ export const introductionPracticeLessons = [
         eyebrow: 'Erwartungswert',
         title: 'Risiko allein macht eine Handlung noch nicht zum Glücksspiel',
         paragraphs: [
-          'Jede unsichere Investition enthält Zufall. Entscheidend ist, ob du über viele Wiederholungen einen nachvollziehbaren positiven Erwartungswert besitzt. In einem reinen negativen Spiel arbeitet die Mathematik dauerhaft gegen dich. Im Trading kannst du durch Auswahl, Risiko-Ertrag, Ausführung und Kosten einen kleinen Vorteil schaffen – oder ihn durch undiszipliniertes Handeln zerstören.',
-          'Kurzfristiger Futures-Handel ist nach Gebühren näher an einem Nullsummen-Wettbewerb: Gewinne und Verluste werden zwischen Teilnehmern verteilt, während Kosten das Gesamtergebnis mindern. Deshalb genügt durchschnittliche Zufallsauswahl nicht. Deine Entscheidungen müssen die Kosten und Fehlerquote übertreffen.',
-          'Poker und Sportwetten ähneln Trading insofern, als Können den Wettbewerb beeinflussen kann. Eine noch passendere Analogie ist Schach: Die Stellung ist sichtbar, aber ihre Interpretation und die Qualität der nächsten Entscheidung unterscheiden die Spieler. Am Markt ist zusätzlich nie die komplette Absicht aller Teilnehmer sichtbar, doch der Chart zeigt die gemeinsame Stellung.',
-          'Geduld verbessert den Erwartungswert, weil du schwache Situationen auslässt. Nicht zu handeln ist kein Leerlauf, sondern aktive Selektion. Wer Unterhaltung sucht, nimmt häufiger schlechte Trades; wer Prozessqualität sucht, wartet auf eine Kombination aus Kontext, Signal und vertretbarem Risiko.',
+          'Jede unsichere Investition enthält Zufall. Entscheidend ist, ob du über viele Wiederholungen einen nachvollziehbaren positiven Erwartungswert hast. In einem reinen Verlustspiel arbeitet die Mathematik dauerhaft gegen dich. Im Trading kannst du dir durch Auswahl, Risiko-Ertrag, Ausführung und Kosten einen kleinen Vorteil erarbeiten – oder ihn durch undiszipliniertes Handeln wieder wegwerfen.',
+          'Kurzfristiger Futures-Handel ist nach Gebühren eher ein Nullsummenspiel: Gewinne und Verluste werden unter den Teilnehmern verteilt, während Kosten das Gesamtergebnis drücken. Zufällig mitzuhandeln reicht also nicht. Deine Entscheidungen müssen Kosten und Fehlerquote schlagen.',
+          'Poker und Sportwetten ähneln dem Trading darin, dass Können den Ausgang beeinflussen kann. Noch besser passt Schach: Die Stellung ist sichtbar, aber wie du sie deutest und wie gut dein nächster Zug ist, macht den Unterschied. Am Markt siehst du zwar nie die komplette Absicht aller Teilnehmer, aber der Chart zeigt dir die gemeinsame Stellung.',
+          'Geduld verbessert den Erwartungswert, weil du schwache Situationen auslässt. Nicht zu handeln ist kein Leerlauf, sondern aktive Auswahl. Wer Unterhaltung sucht, nimmt öfter schlechte Trades; wer einen guten Prozess will, wartet auf die Kombination aus Kontext, Signal und vertretbarem Risiko.',
         ],
         callout:
-          'Ohne getestete Methode und Disziplin wird Trading tatsächlich zum Glücksspiel – unabhängig davon, wie professionell der Chart aussieht.',
+          'Ohne getestete Methode und Disziplin wird Trading wirklich zum Glücksspiel – egal, wie professionell der Chart aussieht.',
       },
       {
         id: 'intro-12-diagram',
@@ -380,7 +380,7 @@ export const introductionPracticeLessons = [
     id: 'price-action-trends.introduction.lesson-13',
     title: 'Warum Martingale dein Konto sprengt',
     summary:
-      'Verlustserien, exponentielle Positionsgrößen und der Denkfehler hinter „Der nächste muss gewinnen“.',
+      'Verlustserien, Positionsgrößen, die explodieren, und der Denkfehler hinter „Der nächste muss gewinnen“.',
     durationMinutes: 10,
     xp: 35,
     sourceUnit: 'Einleitung',
@@ -397,13 +397,13 @@ export const introductionPracticeLessons = [
         eyebrow: 'Risikofalle',
         title: 'Vier Verluste machen den fünften Trade nicht besser',
         paragraphs: [
-          'Bei unabhängigen Münzwürfen bleibt die Chance nach jeder Serie gleich. Markttrades sind jedoch nicht automatisch unabhängig und das Regime kann längere Zeit bestehen bleiben. In einem Trend scheitern Gegenbewegungen wiederholt; in einer Range scheitern Ausbrüche wiederholt. Eine Verlustserie kann daher anzeigen, dass deine aktuelle Idee nicht zum Regime passt.',
-          'Martingale versucht Verluste durch immer größere Folgepositionen zurückzuholen. Die Größen wachsen exponentiell: aus einer Einheit werden zwei, vier, acht und sechzehn. Schon eine gewöhnliche Serie zwingt dich damit weit über die Größe hinaus, die du ursprünglich als sicher angesehen hast.',
-          'Theoretische Modelle ignorieren oft Kapitalgrenze, Margin, Slippage, Tagesverlustlimit und menschliche Belastbarkeit. Praktisch trifft die größte Position genau dann ein, wenn dein Vertrauen und möglicherweise dein Modell am schwächsten sind.',
-          'Die professionelle Reaktion auf eine Verlustserie ist deshalb nicht automatische Aggression. Reduziere Risiko, prüfe Ausführung und Regime, und stoppe, wenn dein Tages- oder Prozesslimit erreicht ist.',
+          'Bei unabhängigen Münzwürfen bleibt die Chance nach jeder Serie gleich. Markttrades sind aber nicht automatisch unabhängig, und ein Regime kann lange anhalten. In einem Trend scheitern Gegenbewegungen immer wieder, in einer Range scheitern Ausbrüche immer wieder. Eine Verlustserie kann also ein Hinweis sein, dass deine aktuelle Idee nicht zum Regime passt.',
+          'Beim Martingale versuchst du, Verluste mit immer größeren Folgepositionen zurückzuholen. Die Größe wächst exponentiell: aus einer Einheit werden zwei, vier, acht und sechzehn. Schon eine ganz normale Serie treibt dich damit weit über die Größe hinaus, die du ursprünglich für sicher gehalten hast.',
+          'Theoretische Modelle blenden oft Kapitalgrenze, Margin, Slippage, Tagesverlustlimit und menschliche Belastbarkeit aus. In der Praxis kommt die größte Position genau dann, wenn dein Vertrauen – und womöglich auch dein Modell – am schwächsten ist.',
+          'Die professionelle Antwort auf eine Verlustserie ist deshalb nicht, automatisch aggressiver zu werden. Reduziere das Risiko, prüfe Ausführung und Regime, und hör auf, sobald dein Tages- oder Prozesslimit erreicht ist.',
         ],
         callout:
-          'Positionsgröße darf aus Risiko und Setupqualität folgen – niemals aus dem Wunsch, vorherige Verluste zurückzuholen.',
+          'Die Positionsgröße darf sich aus Risiko und Setupqualität ergeben – nie aus dem Wunsch, frühere Verluste zurückzuholen.',
       },
       {
         id: 'intro-13-diagram',
@@ -463,7 +463,7 @@ export const introductionPracticeLessons = [
     id: 'price-action-trends.introduction.lesson-14',
     title: 'Crash, Swing und Fraktalität',
     summary:
-      'Warum dramatische Formen auf kleinen und großen Zeitebenen ähnlich aussehen und trotzdem anders riskiert werden.',
+      'Warum dramatische Formen auf kleinen und großen Zeitebenen ähnlich aussehen und du sie trotzdem unterschiedlich riskierst.',
     durationMinutes: 10,
     xp: 30,
     sourceUnit: 'Einleitung',
@@ -480,13 +480,13 @@ export const introductionPracticeLessons = [
         eyebrow: 'Skalenwechsel',
         title: 'Entferne die Achsen – die Form kann vertraut wirken',
         paragraphs: [
-          'Das Wort „Crash“ wird meist für seltene, schnelle Einbrüche auf Tagescharts verwendet. Entfernt man Zeit- und Preisachse, kann dieselbe Form jedoch regelmäßig als starker bearisher Swing auf einem Intraday-Chart erscheinen: große Trendbars, geringe Überlappung, kleine Pullbacks und anhaltender Verkaufsdruck.',
-          'Diese Ähnlichkeit hilft, Emotion aus der Analyse zu nehmen. Statt einen dramatischen Namen zu handeln, beobachtest du dieselben Fragen wie bei jedem Trend: Gibt es Anschluss? Wie groß und wie tief sind Pullbacks? Werden frühere Unterstützungen klar gebrochen? Wann erscheint erstmals überzeugende Gegenstärke?',
-          'Fraktalität bedeutet hier keine perfekte mathematische Selbstähnlichkeit. Es ist eine praktische Beobachtung: Größere Muster bestehen aus kleineren Trends und Ranges, und ein einzelner Bar einer großen Ebene enthält auf einer kleineren Ebene eine vollständige Sequenz.',
-          'Die Formähnlichkeit macht das Risiko nicht identisch. Ein Tageschart-Crash besitzt anderes Gap-, Liquiditäts- und Übernachtrisiko als ein Fünf-Minuten-Swing. Methode und Positionsgröße müssen zur gewählten Ebene passen.',
+          '„Crash“ sagt man meist für seltene, schnelle Einbrüche auf Tagescharts. Nimmst du Zeit- und Preisachse weg, kann dieselbe Form aber ganz regelmäßig als starker bärischer Swing auf einem Intraday-Chart auftauchen: große Trendbars, wenig Überlappung, kleine Pullbacks und anhaltender Verkaufsdruck.',
+          'Diese Ähnlichkeit hilft dir, die Emotion aus der Analyse zu nehmen. Statt einen dramatischen Namen zu handeln, stellst du dieselben Fragen wie bei jedem Trend: Gibt es Anschluss? Wie groß und wie tief sind die Pullbacks? Werden frühere Unterstützungen klar gebrochen? Wann zeigt sich zum ersten Mal überzeugende Gegenstärke?',
+          'Fraktalität heißt hier nicht perfekte mathematische Selbstähnlichkeit. Gemeint ist eine praktische Beobachtung: Größere Muster bestehen aus kleineren Trends und Ranges, und ein einzelner Bar einer großen Ebene enthält auf einer kleineren Ebene eine ganze Sequenz.',
+          'Die ähnliche Form macht das Risiko nicht gleich. Ein Crash auf dem Tageschart bringt anderes Gap-, Liquiditäts- und Übernachtrisiko mit als ein Fünf-Minuten-Swing. Methode und Positionsgröße müssen zur gewählten Ebene passen.',
         ],
         callout:
-          'Gleiche Form bedeutet ähnliche Leselogik – nicht gleiche Stopdistanz, Kosten oder Positionsgröße.',
+          'Gleiche Form heißt ähnliche Leselogik – nicht gleiche Stopdistanz, gleiche Kosten oder gleiche Positionsgröße.',
       },
       {
         id: 'intro-14-diagram',
@@ -563,13 +563,13 @@ export const introductionPracticeLessons = [
         eyebrow: 'Lernmethode',
         title: 'Erst das Gerüst, dann immer feinere Varianten',
         paragraphs: [
-          'Der Kurs ist als aufbauende Sequenz gedacht. Teil 1 behandelt Grundlagen, Kerzen, Trendlinien, Kanäle und Trends. Teil 2 führt über Ausbrüche und Gaps zu Unterstützung, Widerstand, Pullbacks, Trading Ranges sowie Order-, Trade- und Wahrscheinlichkeitsmanagement. Teil 3 konzentriert sich auf Umkehrungen, Tageshandel, größere Zeitebenen, Optionen und besonders selektive Setups.',
-          'Die Academy erhält diese Reihenfolge. Mikro-Lektionen teilen schwierige Abschnitte, ersetzen aber keine Themen. Ein späteres Kapitel wird nicht vorgezogen, nur weil seine Grafik spannender aussieht. Damit bleiben Begriffe, die ein Kapitel voraussetzt, bereits eingeführt.',
-          'Die Beispielcharts enthalten neben der Hauptidee viele zusätzliche Ereignisse. Beim ersten Durchgang darfst du den zentralen Fall verstehen, ohne jede Nebenstruktur sofort zu beherrschen. Vertiefungen bringen dieselben Charts später mit mehr Vokabular zurück. Wiederholtes Sehen von Varianten ist Absicht, keine Dopplung.',
-          'Unbekannte Begriffe gehören ins Glossar. Ein Ausdruck soll den Lesefluss nicht dauerhaft blockieren, aber auch nicht einfach übersprungen werden. Kurze Definition, visuelle Referenz und Verknüpfung zur ersten ausführlichen Lektion bilden zusammen die Lernspur.',
+          'Der Kurs baut Schritt für Schritt aufeinander auf. Teil 1 behandelt Grundlagen, Kerzen, Trendlinien, Kanäle und Trends. Teil 2 führt über Ausbrüche und Gaps zu Unterstützung, Widerstand, Pullbacks, Trading Ranges sowie Order-, Trade- und Wahrscheinlichkeitsmanagement. Teil 3 widmet sich Umkehrungen, Tageshandel, größeren Zeitebenen, Optionen und besonders selektiven Setups.',
+          'Die Academy behält diese Reihenfolge bei. Die Mikro-Lektionen zerlegen schwierige Abschnitte, lassen aber keine Themen weg. Ein späteres Kapitel wird nicht vorgezogen, nur weil seine Grafik spannender aussieht. So sind Begriffe, die ein Kapitel voraussetzt, vorher schon eingeführt.',
+          'Die Beispielcharts enthalten neben der Hauptidee viele weitere Ereignisse. Beim ersten Durchgang reicht es, den zentralen Fall zu verstehen – du musst nicht gleich jede Nebenstruktur beherrschen. Vertiefungen holen dieselben Charts später mit mehr Vokabular zurück. Dass du Varianten mehrfach siehst, ist Absicht und keine Doppelung.',
+          'Unbekannte Begriffe gehören ins Glossar. Ein Ausdruck soll den Lesefluss nicht dauerhaft bremsen, aber auch nicht einfach übergangen werden. Kurze Definition, Bildbeispiel und Verknüpfung zur ersten ausführlichen Lektion bilden zusammen die Lernspur.',
         ],
         callout:
-          'Häppchen verändern die Verpackung. Die fachliche Reihenfolge und Abdeckung bleiben erhalten.',
+          'Die Häppchen ändern nur die Verpackung. Reihenfolge und Abdeckung der Inhalte bleiben gleich.',
       },
       {
         id: 'intro-15-comparison',

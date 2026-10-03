@@ -22,13 +22,13 @@ export const partOneContextLessons = [
         eyebrow: 'Pattern Evolution',
         title: 'Ein fehlgeschlagenes kleines Muster verschwindet nicht – es wird Teil des nächsten',
         paragraphs: [
-          'Ein kleiner Flag kann weit genug ausbrechen, um einem Scalper sein Ziel zu geben, und danach wieder zurücklaufen. Die ursprüngliche Struktur hat dann für diesen Horizont funktioniert, während aus dem Rücklauf gleichzeitig ein größerer Flag entsteht. Dieser kann später in dieselbe oder in die entgegengesetzte Richtung ausbrechen.',
-          'Ein einzelnes Zwischenhoch kann zugleich zweites tieferes Hoch eines Dreiecks und rechte Schulter einer größeren Formation sein. Beide Beschreibungen können formal stimmen. Keine davon besitzt jedoch magische Wirkung; die spätere Richtung wird durch tatsächlichen Kauf- und Verkaufsdruck entschieden.',
-          'Besonders in Trading Ranges existieren oft gleichzeitig bullische und bärische Setups. Ein kleiner Bear Flag kann innerhalb eines größeren Bull Flags liegen. Dieses Nebeneinander ist kein Analysefehler, sondern Ausdruck des ausgeglichenen Marktes.',
-          'Nutze Namen deshalb als schnelle Orientierung. Wenn mehrere plausible Beschreibungen zu widersprüchlichen Trades führen und keine Seite klare Evidenz besitzt, ist Warten häufig die professionellste Entscheidung.',
+          'Ein kleiner Flag kann weit genug ausbrechen, um einem Scalper sein Ziel zu geben, und danach wieder zurücklaufen. Für diesen Horizont hat die ursprüngliche Struktur dann funktioniert, während aus dem Rücklauf gleichzeitig ein größerer Flag wird. Der kann später in dieselbe oder in die entgegengesetzte Richtung ausbrechen.',
+          'Ein einzelnes Zwischenhoch kann gleichzeitig das zweite, tiefere Hoch eines Dreiecks und die rechte Schulter einer größeren Formation sein. Beide Beschreibungen können formal stimmen. Magische Kräfte hat keine davon; die spätere Richtung entscheidet der tatsächliche Kauf- und Verkaufsdruck.',
+          'Gerade in Trading Ranges gibt es oft gleichzeitig bullische und bärische Setups. Ein kleiner Bear Flag kann in einem größeren Bull Flag liegen. Dieses Nebeneinander ist kein Analysefehler, sondern genau das, was ein ausgeglichener Markt macht.',
+          'Nutze Namen deshalb als schnelle Orientierung. Führen mehrere plausible Beschreibungen zu widersprüchlichen Trades und hat keine Seite klare Evidenz, ist Warten oft die professionellste Entscheidung.',
         ],
         callout:
-          'Muster sind verschachtelte Arbeitsmodelle. Der Markt schuldet keinem Namen eine bestimmte Auflösung.',
+          'Muster sind ineinander verschachtelte Arbeitsmodelle. Der Markt schuldet keinem Namen eine bestimmte Auflösung.',
       },
       {
         id: 'part-01-07-diagram',
@@ -89,7 +89,7 @@ export const partOneContextLessons = [
     id: 'price-action-trends.part-01.lesson-08',
     title: 'Fundamentaler Zielraum, technischer Weg',
     summary:
-      'Wie langfristige Bewertung und kurzfristige Kursbewegung auf unterschiedlichen Horizonten zusammenwirken.',
+      'Wie langfristige Bewertung und kurzfristige Kursbewegung auf verschiedenen Horizonten zusammenspielen.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Teil I · Price Action',
@@ -106,13 +106,13 @@ export const partOneContextLessons = [
         eyebrow: 'Zeithorizonte',
         title: 'Ziel und Weg können von verschiedenen Kräften geprägt werden',
         paragraphs: [
-          'Über Monate beeinflussen Gewinne, Zinsen, Wachstum, Risiko und andere Fundamentaldaten, welchen Wert große Marktteilnehmer einem Instrument beimessen. Diese Einschätzungen erzeugen große Kapitalströme und können die übergeordnete Richtung prägen.',
-          'Der Weg zu diesem langfristigen Ziel verläuft jedoch nicht geradlinig. Nachrichten, Absicherung, kurzfristige Statistikmodelle, Ausführungsalgorithmen und wechselnde Liquidität bestimmen, wie schnell und über welche Zwischenbewegungen der Preis dorthin gelangt.',
-          'Price Action betrachtet die sichtbare Spur dieser Wertsuche. Ein Tageshändler muss nicht die vollständige Unternehmensbewertung rekonstruieren, wenn seine Position nur Minuten gehalten wird. Er muss erkennen, welche Preise im aktuellen Fenster angenommen oder zurückgewiesen werden.',
-          'Die Formulierung – Fundamentaldaten bestimmen eher das Ziel, kurzfristige Akteure eher den Weg – ist ein nützliches Modell, keine scharfe Naturgrenze. Beide Ebenen können sich gegenseitig beeinflussen. Entscheidend ist, dass Analyse und Haltedauer zusammenpassen.',
+          'Über Monate beeinflussen Gewinne, Zinsen, Wachstum, Risiko und andere Fundamentaldaten, welchen Wert große Marktteilnehmer einem Instrument zuschreiben. Diese Einschätzungen bewegen große Kapitalströme und können die übergeordnete Richtung prägen.',
+          'Der Weg zu diesem langfristigen Ziel ist aber keine Gerade. Nachrichten, Absicherung, kurzfristige Statistikmodelle, Ausführungsalgorithmen und wechselnde Liquidität bestimmen, wie schnell und über welche Zwischenschritte der Preis dort ankommt.',
+          'Price Action schaut auf die sichtbare Spur dieser Wertsuche. Ein Daytrader muss nicht die komplette Unternehmensbewertung nachbauen, wenn er seine Position nur ein paar Minuten hält. Er muss erkennen, welche Preise im aktuellen Fenster angenommen oder abgewiesen werden.',
+          'Die Formel „Fundamentaldaten bestimmen eher das Ziel, kurzfristige Akteure eher den Weg“ ist ein nützliches Modell, keine scharfe Grenze. Beide Ebenen beeinflussen sich auch gegenseitig. Entscheidend ist, dass Analyse und Haltedauer zusammenpassen.',
         ],
         callout:
-          'Eine langfristig richtige These kann innerhalb deines Intraday-Trades trotzdem gegen dich laufen.',
+          'Eine langfristig richtige These kann in deinem Intraday-Trade trotzdem gegen dich laufen.',
       },
       {
         id: 'part-01-08-comparison',
@@ -186,7 +186,7 @@ export const partOneContextLessons = [
     id: 'price-action-trends.part-01.lesson-09',
     title: 'Der Markt hat nicht nur einen Grund',
     summary:
-      'Warum Institutionen unabhängig handeln und jede Kursbewegung ein Gemisch vieler Motive darstellt.',
+      'Warum Institutionen unabhängig voneinander handeln und jede Kursbewegung ein Mix aus vielen Motiven ist.',
     durationMinutes: 10,
     xp: 35,
     sourceUnit: 'Teil I · Price Action',
@@ -203,13 +203,13 @@ export const partOneContextLessons = [
         eyebrow: 'Ursachen',
         title: 'Eine saubere Erklärung bleibt bescheiden',
         paragraphs: [
-          'Große Marktteilnehmer stimmen sich nicht zu einer einzigen Meinung ab. Selbst innerhalb derselben Institution können Teams mit unterschiedlichen Mandaten und Zeithorizonten gegeneinander handeln. Der eine kauft langfristig, der andere reduziert ein Intraday-Risiko, ein dritter sichert ein Optionsbuch ab.',
-          'Jeder Bar ist deshalb ein zusammengesetztes Ergebnis unzähliger Entscheidungen. Einige Akteure verwenden Charts, andere Fundamentaldaten, relative Bewertungen, Volatilitätsmodelle oder reine Ausführungsregeln. Aus dem fertigen Bar lässt sich diese Mischung nicht eindeutig rückwärts auflösen.',
-          'Wenn wir sagen, Käufer hätten an einer Unterstützung übernommen, ist das ein nützliches Arbeitsmodell. Es beschreibt die sichtbare Reaktion, aber nicht zwangsläufig die eine wahre Ursache. Andere Käufer können aus völlig anderen Gründen am selben Preis aktiv geworden sein.',
-          'Diese Bescheidenheit schützt vor Verschwörungsgeschichten. In sehr liquiden Märkten ist es meist produktiver, auf sichtbaren Fortschritt und gebündelte Liquidität zu achten, statt jede Bewegung als gezielte Manipulation gegen Privattrader zu deuten.',
+          'Große Marktteilnehmer einigen sich nicht auf eine gemeinsame Meinung. Sogar innerhalb einer einzigen Institution können Teams mit unterschiedlichen Mandaten und Zeithorizonten gegeneinander handeln. Der eine kauft langfristig, der andere senkt ein Intraday-Risiko, ein dritter sichert ein Optionsbuch ab.',
+          'Jeder Bar ist deshalb das zusammengesetzte Ergebnis unzähliger Entscheidungen. Manche Akteure nutzen Charts, andere Fundamentaldaten, relative Bewertungen, Volatilitätsmodelle oder reine Ausführungsregeln. Aus dem fertigen Bar lässt sich dieser Mix nicht eindeutig zurückrechnen.',
+          'Sagen wir, Käufer hätten an einer Unterstützung übernommen, ist das ein nützliches Arbeitsmodell. Es beschreibt die sichtbare Reaktion, nicht zwingend die eine wahre Ursache. Andere Käufer können aus ganz anderen Gründen am selben Preis aktiv geworden sein.',
+          'Diese Bescheidenheit schützt vor Verschwörungsgeschichten. In sehr liquiden Märkten bringt es meist mehr, auf sichtbaren Fortschritt und gebündelte Liquidität zu achten, statt jede Bewegung als gezielte Manipulation gegen Privattrader zu deuten.',
         ],
         callout:
-          'Eine Erklärung soll Entscheidungen strukturieren. Sie muss nicht jeden Marktteilnehmer identifizieren.',
+          'Eine Erklärung soll dir bei Entscheidungen helfen. Sie muss nicht jeden Marktteilnehmer identifizieren.',
       },
       {
         id: 'part-01-09-diagram',
@@ -269,7 +269,7 @@ export const partOneContextLessons = [
     id: 'price-action-trends.part-01.lesson-10',
     title: 'Respektiere immer den Gegenfall',
     summary:
-      'Wie bullische und bärische Szenarien vor falscher Sicherheit und überzeugenden Mediengeschichten schützen.',
+      'Wie bullische und bärische Szenarien dich vor falscher Sicherheit und überzeugenden Mediengeschichten schützen.',
     durationMinutes: 13,
     xp: 40,
     sourceUnit: 'Teil I · Price Action',
@@ -286,13 +286,13 @@ export const partOneContextLessons = [
         eyebrow: 'Szenariodenken',
         title: 'Überzeugung ist kein Ersatz für einen Gegenplan',
         paragraphs: [
-          'Ein Price-Action-Trader hält gleichzeitig eine bullische und eine bärische Lesart bereit. Auch wenn eine Seite aktuell stärker wirkt, bleibt die andere real. Bei einem groben 60-zu-40-Vorteil tritt der Gegenfall oft genug ein, um jeden fehlenden Stop und jede übergroße Position zu bestrafen.',
-          'Die Frage lautet deshalb nicht nur: Warum könnte mein Trade funktionieren? Formuliere ebenso konkret, welches Verhalten die Gegenseite bestätigen würde und wie du dann reagierst. Häufig ist der richtige Schritt ein Exit; gelegentlich entsteht nach einem klaren Fehlschlag sogar ein eigenständiges Setup in Gegenrichtung.',
-          'Medien belohnen dagegen klare, unterhaltsame Aussagen. Eine überzeugende Person kann eine einzelne Nachricht zur Hauptursache erklären, obwohl der Markt hunderte Variablen verarbeitet. Oft endet die Empfehlung trotzdem bei einer rein technischen Idee wie „Pullback im Aufwärtstrend kaufen“ – die Geschichte liefert vor allem dramatische Verpackung.',
-          'Wirtschaftsdaten bleiben relevant, besonders für Volatilität und langfristige Bewertung. Problematisch ist nicht die Information, sondern die behauptete Gewissheit. Der Chart zeigt, wie die Gesamtheit der Marktteilnehmer sie tatsächlich verarbeitet.',
+          'Ein Price-Action-Trader hält gleichzeitig eine bullische und eine bärische Lesart bereit. Auch wenn eine Seite gerade stärker aussieht, bleibt die andere real. Bei einem groben Vorteil von 60 zu 40 tritt der Gegenfall oft genug ein, um jeden fehlenden Stop und jede zu große Position zu bestrafen.',
+          'Die Frage lautet deshalb nicht nur: Warum könnte mein Trade funktionieren? Überlege genauso konkret, welches Verhalten die Gegenseite bestätigen würde und wie du dann reagierst. Oft ist der richtige Schritt ein Exit; manchmal entsteht nach einem klaren Fehlschlag sogar ein eigenes Setup in Gegenrichtung.',
+          'Medien belohnen dagegen klare, unterhaltsame Aussagen. Eine überzeugende Person kann eine einzelne Nachricht zur Hauptursache erklären, obwohl der Markt hunderte Variablen verarbeitet. Die Empfehlung endet trotzdem oft bei einer rein technischen Idee wie „Pullback im Aufwärtstrend kaufen“ – die Geschichte drumherum ist vor allem dramatische Verpackung.',
+          'Wirtschaftsdaten bleiben wichtig, besonders für Volatilität und langfristige Bewertung. Das Problem ist nicht die Info, sondern die behauptete Gewissheit. Der Chart zeigt dir, wie alle Marktteilnehmer zusammen sie tatsächlich verarbeiten.',
         ],
         callout:
-          'Je überzeugender deine Geschichte klingt, desto wichtiger ist die Frage: Was müsste ich sehen, damit sie falsch ist?',
+          'Je überzeugender deine Geschichte klingt, desto wichtiger die Frage: Was müsste ich sehen, damit sie falsch ist?',
       },
       {
         id: 'part-01-10-comparison',
@@ -383,13 +383,13 @@ export const partOneContextLessons = [
         eyebrow: 'Auktionsmechanik',
         title: 'Preis bewegt sich, wenn die verfügbare Gegenseite am aktuellen Niveau nicht genügt',
         paragraphs: [
-          'Ein Markt steigt nicht deshalb, weil es zahlenmäßig keine Verkäufer gäbe. Jeder ausgeführte Kauf braucht eine Verkaufsseite. Der Preis steigt, wenn kaufbereite Marktteilnehmer die am aktuellen Angebot verfügbaren Kontrakte aufnehmen und anschließend auch das nächsthöhere Angebot akzeptieren.',
-          'Mit jedem neuen Preis bewerten alle Beteiligten ihre Orders neu. Long-Trader nehmen Gewinne mit, neue Verkäufer erkennen einen attraktiveren Short-Preis, andere Käufer jagen Momentum. Überwiegt das angebotene Volumen gegenüber der unmittelbaren Kaufbereitschaft, wandert der beste handelbare Preis wieder nach unten.',
-          'Eine Orderleiter zeigt sichtbare Gebote und Angebote, aber nicht zuverlässig deren Haltbarkeit oder Absicht. Orders können verschoben, storniert, versteckt oder von schnelleren Systemen als Signal verwendet werden. Eine große Zahl im DOM ist deshalb weder garantiert echte Unterstützung noch ein vollständiger Blick auf künftige Aggression.',
-          'Orderflow-Werkzeuge können in einer klar definierten Methode nützlich sein. Die Warnung richtet sich gegen die naive Annahme, sichtbare Tiefe müsse automatisch einen leicht ausbeutbaren Vorteil liefern – besonders im Geschwindigkeitswettbewerb mit spezialisierten Algorithmen.',
+          'Ein Markt steigt nicht deshalb, weil es zahlenmäßig keine Verkäufer gäbe. Jeder ausgeführte Kauf braucht eine Verkaufsseite. Der Preis steigt, wenn kaufbereite Marktteilnehmer die Kontrakte am aktuellen Angebot aufnehmen und danach auch das nächsthöhere Angebot akzeptieren.',
+          'Mit jedem neuen Preis bewerten alle ihre Orders neu. Long-Trader nehmen Gewinne mit, neue Verkäufer sehen einen attraktiveren Short-Preis, andere Käufer jagen das Momentum. Wiegt das angebotene Volumen schwerer als die unmittelbare Kaufbereitschaft, wandert der beste handelbare Preis wieder nach unten.',
+          'Eine Orderleiter zeigt dir sichtbare Gebote und Angebote, aber nicht verlässlich, wie lange sie halten oder was dahintersteckt. Orders lassen sich verschieben, stornieren, verstecken oder von schnelleren Systemen als Signal nutzen. Eine große Zahl im DOM ist deshalb weder garantiert echte Unterstützung noch ein vollständiger Blick auf künftige Aggression.',
+          'Orderflow-Werkzeuge können in einer klar definierten Methode nützlich sein. Die Warnung richtet sich gegen die naive Annahme, sichtbare Tiefe liefere automatisch einen leicht ausnutzbaren Vorteil – vor allem im Geschwindigkeitswettbewerb mit spezialisierten Algorithmen.',
         ],
         callout:
-          'Richtung entsteht aus aggressiver Ausführung gegen verfügbare Liquidität, nicht aus einer simplen Zählung von Personen.',
+          'Richtung entsteht durch aggressive Ausführung gegen verfügbare Liquidität, nicht dadurch, dass man Personen zählt.',
       },
       {
         id: 'part-01-11-diagram',
@@ -450,7 +450,7 @@ export const partOneContextLessons = [
     id: 'price-action-trends.part-01.lesson-12',
     title: 'Price Action ist Spur und Einstiegshilfe',
     summary:
-      'Warum institutionelle Aktivität das Muster erzeugt und ein Setup den frühen Teil einer bereits beginnenden Bewegung zeigt.',
+      'Warum institutionelle Aktivität das Muster erzeugt und ein Setup den frühen Teil einer Bewegung zeigt, die schon beginnt.',
     durationMinutes: 11,
     xp: 35,
     sourceUnit: 'Teil I · Price Action',
@@ -467,13 +467,13 @@ export const partOneContextLessons = [
         eyebrow: 'Ursache und Signal',
         title: 'Das Muster startet den großen Auftrag nicht – es macht seine Wirkung sichtbar',
         paragraphs: [
-          'Große Institutionen warten normalerweise nicht geschlossen auf dasselbe kleine Ein-Minuten-Muster. Sie besitzen Kundenaufträge, Absicherungsbedarf, Bewertungsmodelle und Ausführungspläne. Diese Aktivität erzeugt die Price Action, die du anschließend im Chart erkennst.',
-          'Ein gutes Setup ist deshalb nicht der magische Auslöser der Bewegung. Es ist häufig deren frühe sichtbare Phase. Wenn der Markt beginnt, auf einer Seite Fortschritt zu erzielen, erlaubt das Muster dem kleineren Trader, sich an eine bereits entstehende Welle anzuhängen.',
-          'Mit weiterem Anschluss erkennen zusätzliche Trader dieselbe Richtung und treten bei. Das verstärkt das Momentum. Scheitert gleichzeitig ein gegensätzliches Setup, müssen dort positionierte Trader aussteigen und liefern weitere Orders in Bewegungsrichtung.',
-          'Die konkreten Motive bleiben größtenteils unbekannt und sind für den Trade nicht nötig. Du brauchst einen beobachtbaren Trigger, eine Stelle für die Ungültigkeit und ausreichend Raum für den möglichen Gewinn.',
+          'Große Institutionen warten normalerweise nicht gemeinsam auf dasselbe kleine Ein-Minuten-Muster. Sie haben Kundenaufträge, Absicherungsbedarf, Bewertungsmodelle und Ausführungspläne. Diese Aktivität erzeugt die Price Action, die du hinterher im Chart siehst.',
+          'Ein gutes Setup ist deshalb nicht der magische Auslöser der Bewegung. Meist ist es ihre frühe, sichtbare Phase. Fängt der Markt an, auf einer Seite voranzukommen, kann sich der kleinere Trader dank des Musters an eine Welle hängen, die gerade erst entsteht.',
+          'Mit weiterem Anschluss erkennen mehr Trader dieselbe Richtung und steigen ein. Das verstärkt das Momentum. Scheitert gleichzeitig ein gegenläufiges Setup, müssen die dort positionierten Trader raus und liefern weitere Orders in Bewegungsrichtung.',
+          'Die konkreten Motive bleiben meist unbekannt, und für den Trade brauchst du sie nicht. Du brauchst einen beobachtbaren Trigger, eine Stelle, an der die Idee ungültig wird, und genug Raum für den möglichen Gewinn.',
         ],
         callout:
-          'Ein Setup ist kein Zauberschalter. Es ist ein strukturierter Einstieg in eine Bewegung, deren Kräfte bereits sichtbar werden.',
+          'Ein Setup ist kein Zauberschalter. Es ist ein strukturierter Einstieg in eine Bewegung, deren Kräfte schon sichtbar werden.',
       },
       {
         id: 'part-01-12-diagram',
