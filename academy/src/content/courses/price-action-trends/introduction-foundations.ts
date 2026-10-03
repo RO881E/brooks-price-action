@@ -5,7 +5,7 @@ export const introductionFoundationLessons = [
     id: 'price-action-trends.introduction.lesson-01',
     title: 'Der Chart ist das Ergebnis',
     summary:
-      'Was Price Action leisten soll und warum jeder Bar als Information einer laufenden Auktion gelesen wird.',
+      'Wozu Price Action gut ist – und warum du jeden Bar als Info aus einer laufenden Auktion liest.',
     durationMinutes: 11,
     xp: 30,
     sourceUnit: 'Einleitung',
@@ -22,13 +22,13 @@ export const introductionFoundationLessons = [
         eyebrow: 'Arbeitsmodell',
         title: 'Nicht Kerzen auswendig lernen, sondern Entscheidungen lesen',
         paragraphs: [
-          'Price Action ist in diesem Kurs keine Sammlung magischer Kerzenformen. Ziel ist, aus dem sichtbaren Verlauf abzuleiten, wie entschlossen Käufer und Verkäufer handeln, wo eine Seite Fortschritt erzielt und wo ein Versuch scheitert. Open, High, Low und Close eines Bars sind dafür Rohdaten; ihre Bedeutung entsteht erst durch die Bars davor, den Ort im Chart und die Reaktion danach.',
-          'Ein ausgeführter Handel benötigt immer zwei Seiten. Wenn der Markt steigt, verschwinden Verkäufer nicht. Käufer akzeptieren lediglich höhere Preise oder greifen aggressiver zu, während Verkäufer aus anderen Gründen abgeben. Ein Kurs ist daher weder objektiver Wert noch Abstimmungsergebnis über eine Nachricht. Er ist der zuletzt akzeptierte Transaktionspreis einer fortlaufenden Auktion.',
-          'Der Kurs will nicht nur zeigen, wie ein Chart im Nachhinein benannt werden kann. Er will eine Sprache für Entscheidungen unter Unsicherheit liefern. Diese Sprache wird erst nützlich, wenn du viele Bars bewusst beobachtest und deine Einschätzung in Echtzeit gegen die weitere Entwicklung prüfst.',
-          'Die Analogie zu einem Instrument passt gut: Eine Erklärung kann dir Grifftechnik und Noten zeigen, aber Spielfähigkeit entsteht durch Wiederholung. Deshalb verbindet die Academy ausführliche Erklärungen mit Schaubildern, Entscheidungen und späterer Wiederholung.',
+          'Price Action ist in diesem Kurs keine Sammlung magischer Kerzenformen. Du sollst am sichtbaren Verlauf ablesen, wie entschlossen Käufer und Verkäufer auftreten, wo eine Seite vorankommt und wo ein Versuch scheitert. Open, High, Low und Close eines Bars sind dabei nur Rohdaten. Ihre Bedeutung bekommen sie erst durch die Bars davor, den Ort im Chart und die Reaktion danach.',
+          'Für jeden Handel braucht es zwei Seiten. Steigt der Markt, sind die Verkäufer ja nicht weg: Käufer akzeptieren höhere Preise oder greifen härter zu, während Verkäufer aus ganz anderen Gründen abgeben. Ein Kurs ist deshalb weder ein objektiver Wert noch das Ergebnis einer Abstimmung über eine Nachricht. Er ist der zuletzt akzeptierte Preis einer laufenden Auktion.',
+          'Der Kurs will dir nicht beibringen, wie man einen Chart hinterher möglichst clever benennt. Du bekommst eine Sprache für Entscheidungen unter Unsicherheit. Nützlich wird sie erst, wenn du viele Bars bewusst beobachtest und deine Einschätzung in Echtzeit gegen das prüfst, was danach passiert.',
+          'Ein Vergleich mit einem Instrument hilft: Eine Erklärung zeigt dir Griffe und Noten, spielen kannst du aber erst durch Üben. Deshalb mischt die Academy ausführliche Erklärungen mit Schaubildern, Entscheidungen und späterer Wiederholung.',
         ],
         callout:
-          'Der Chart zeigt das Ergebnis vieler Entscheidungen. Er verrät nicht zuverlässig das Motiv jedes einzelnen Marktteilnehmers.',
+          'Der Chart zeigt das Ergebnis vieler Entscheidungen. Warum jemand gekauft oder verkauft hat, verrät er dir nicht zuverlässig.',
       },
       {
         id: 'intro-01-diagram',
@@ -116,7 +116,7 @@ export const introductionFoundationLessons = [
     id: 'price-action-trends.introduction.lesson-04',
     title: 'Institutionen, Programme und dein einzelner Stop',
     summary:
-      'Wer große Märkte bewegt, weshalb beide Seiten professionell sein können und warum der Markt nicht persönlich handelt.',
+      'Wer die großen Märkte bewegt, warum beide Seiten Profis sein können und warum der Markt nichts gegen dich persönlich hat.',
     durationMinutes: 12,
     xp: 35,
     sourceUnit: 'Einleitung',
@@ -133,13 +133,13 @@ export const introductionFoundationLessons = [
         eyebrow: 'Marktteilnehmer',
         title: 'Auf beiden Seiten können kluge Marktteilnehmer stehen',
         paragraphs: [
-          'Große liquide Märkte werden überwiegend durch professionelle Volumenströme geprägt. Die historischen Prozentangaben stammen aus einer früheren Marktphase; die dauerhafte Kernaussage ist wichtiger als eine einzelne Zahl: Ein kleiner Privattrade bestimmt den Kurs normalerweise nicht. Damit dein Auftrag ausgeführt wird, muss am gehandelten Preis ausreichend Gegenseite vorhanden sein.',
-          'Das bedeutet nicht, dass eine Seite dumm sein muss. Ein Käufer kann einen mehrmonatigen Horizont haben, während der Verkäufer nur ein Intraday-Risiko reduziert. Ein Market Maker kann Liquidität bereitstellen, ein Fonds ein Portfolio absichern und ein kurzfristiges Programm auf eine statistische Abweichung reagieren. Derselbe Preis kann für all diese Akteure logisch sein.',
-          'Auch „Institution“ ist keine saubere einzelne Kategorie. Neben Banken, Fonds oder Versicherern formen automatisierte Ausführung, statistische Modelle und andere volumenstarke Akteure das kurzfristige Muster. Price Action versucht nicht, jeden Urheber zu identifizieren. Sie liest, welche Seite im Ergebnis Fortschritt erzielt.',
-          'Dein persönlicher Stop ist für den Gesamtmarkt bedeutungslos. Anders ist es bei offensichtlichen Hochs, Tiefs oder Ausbruchspunkten: Dort sammeln sich viele Aufträge. Solche Zonen können getestet werden, weil dort handelbare Liquidität liegt – nicht weil der Markt Robert ärgern möchte.',
+          'Große, liquide Märkte werden überwiegend von professionellen Volumenströmen geprägt. Die historischen Prozentzahlen stammen aus einer früheren Marktphase – wichtiger ist die Kernaussage, die bleibt: Ein kleiner Privattrade bestimmt den Kurs normalerweise nicht. Damit dein Auftrag ausgeführt wird, muss am gehandelten Preis genug Gegenseite da sein.',
+          'Das heißt nicht, dass eine Seite dumm sein muss. Ein Käufer denkt vielleicht in Monaten, während der Verkäufer nur sein Intraday-Risiko senkt. Ein Market Maker stellt Liquidität bereit, ein Fonds sichert sein Portfolio ab, und ein kurzfristiges Programm reagiert auf eine statistische Abweichung. Für jeden von ihnen kann derselbe Preis völlig logisch sein.',
+          'Auch „Institution“ ist keine saubere Schublade. Neben Banken, Fonds und Versicherern prägen automatisierte Ausführung, statistische Modelle und andere Akteure mit viel Volumen das kurzfristige Bild. Price Action versucht gar nicht erst, jeden Urheber zu identifizieren. Sie liest, welche Seite am Ende vorankommt.',
+          'Dein persönlicher Stop ist für den Gesamtmarkt bedeutungslos. Bei offensichtlichen Hochs, Tiefs und Ausbruchspunkten sieht das anders aus: Dort sammeln sich viele Aufträge. Solche Zonen werden gern getestet, weil dort handelbare Liquidität liegt – nicht, weil der Markt dich ärgern will.',
         ],
         callout:
-          'Ein Liquiditätstest kann real sein. Die Vorstellung, der Markt kenne und jage deinen einzelnen kleinen Stop, ist es nicht.',
+          'Ein Liquiditätstest kann echt sein. Die Idee, der Markt kenne und jage deinen einzelnen kleinen Stop, ist es nicht.',
       },
       {
         id: 'intro-04-diagram',
@@ -226,7 +226,7 @@ export const introductionFoundationLessons = [
     id: 'price-action-trends.introduction.lesson-05',
     title: 'Jeder Bar gehört zur Geschichte',
     summary:
-      'Warum scheinbar langweilige Bars wichtig sind und Muster nicht als isolierte Namen gelesen werden.',
+      'Warum scheinbar langweilige Bars wichtig sind und Muster keine einzelnen Namen sind, die du isoliert liest.',
     durationMinutes: 10,
     xp: 30,
     sourceUnit: 'Einleitung',
@@ -243,13 +243,13 @@ export const introductionFoundationLessons = [
         eyebrow: 'Bar für Bar',
         title: '„Nichts passiert“ ist oft nur „noch nicht verstanden“',
         paragraphs: [
-          'Auf einem Chart wechseln große Strukturen wie Trend, Range, Kanal oder Climax mit kleinen Sequenzen aus wenigen Bars. Wer nur die spektakulären Stellen markiert, übersieht den größten Teil der Auktion. Gerade unscheinbare Bars zeigen, ob ein Pullback Druck entwickelt, ob ein Ausbruch Anschluss findet oder ob beide Seiten zunehmend ausgeglichen sind.',
-          'Bar-für-Bar-Lesen bedeutet nicht, auf jedem Bar handeln zu müssen. Es bedeutet, jeden abgeschlossenen Bar als neues Beweisstück einzuordnen: Hat er die bisherige Erwartung bestätigt, geschwächt oder kaum verändert? Aus vielen kleinen Aktualisierungen entsteht eine belastbare Einschätzung.',
-          'Kerzennamen sind dabei nur Abkürzungen. Zwei gleich aussehende Reversal-Bars können gegensätzliche Qualität besitzen, wenn einer nach einem erschöpften Ausbruch am Range-Rand liegt und der andere mitten in einem starken Trend. Der Name beschreibt Form; der Kontext entscheidet Funktion.',
-          'Dieses genaue Lesen erweitert nicht nur die Zahl möglicher Trades. Es hilft vor allem, schwache Ideen früh zu erkennen und schlechte Trades auszulassen.',
+          'Auf einem Chart wechseln sich große Strukturen wie Trend, Range, Kanal oder Climax mit kleinen Abfolgen aus wenigen Bars ab. Wer nur die spektakulären Stellen markiert, verpasst den größten Teil der Auktion. Gerade die unscheinbaren Bars verraten dir, ob ein Pullback Druck aufbaut, ob ein Ausbruch Anschluss findet oder ob sich beide Seiten immer mehr die Waage halten.',
+          'Bar für Bar zu lesen heißt nicht, bei jedem Bar handeln zu müssen. Es heißt, jeden abgeschlossenen Bar als neues Indiz einzuordnen: Hat er deine bisherige Erwartung bestätigt, geschwächt oder kaum verändert? Aus vielen kleinen Updates wird eine belastbare Einschätzung.',
+          'Kerzennamen sind dabei nur Abkürzungen. Zwei Reversal-Bars, die gleich aussehen, können ganz unterschiedlich viel taugen: Der eine sitzt nach einem erschöpften Ausbruch am Rand einer Range, der andere mitten in einem starken Trend. Der Name beschreibt die Form, der Kontext entscheidet über die Bedeutung.',
+          'Dieses genaue Lesen bringt dir nicht einfach mehr Trades. Vor allem hilft es dir, schwache Ideen früh zu durchschauen und schlechte Trades auszulassen.',
         ],
         callout:
-          'Beobachtungspflicht ist keine Handelspflicht. Du darfst jeden Bar lesen und trotzdem geduldig nichts tun.',
+          'Beobachten heißt nicht handeln müssen. Du darfst jeden Bar lesen und trotzdem in Ruhe nichts tun.',
       },
       {
         id: 'intro-05-diagram',
@@ -336,7 +336,7 @@ export const introductionFoundationLessons = [
     id: 'price-action-trends.introduction.lesson-06',
     title: 'Eine Methode muss zu dir passen',
     summary:
-      'Warum Lernen lange dauert, Rückschau täuscht und eine persönlich tragfähige Ausführung wichtiger als die perfekte Methode ist.',
+      'Warum Lernen lange dauert, der Rückblick täuscht und eine Ausführung, die zu dir passt, wichtiger ist als die perfekte Methode.',
     durationMinutes: 10,
     xp: 30,
     sourceUnit: 'Einleitung',
@@ -353,13 +353,13 @@ export const introductionFoundationLessons = [
         eyebrow: 'Lernrealität',
         title: 'Im Rückblick ist jeder Chart großzügig',
         paragraphs: [
-          'Nach Handelsschluss wirken Einstieg und Ausstieg oft offensichtlich. In Echtzeit fehlt jedoch die rechte Hälfte des Charts. Du musst handeln, während mehrere plausible Verläufe offen sind, und einen normalen Rücklauf von einer echten Invalidierung unterscheiden. Genau diese Unsicherheit macht die praktische Ausführung schwieriger als das nachträgliche Erkennen.',
-          'Eine Methode kann fachlich funktionieren und trotzdem ungeeignet für dich sein. Wer schnelle Entscheidungen hasst, wird einen extrem kurzfristigen Stil kaum jahrelang sauber ausführen. Wer jedem kleinen Rücklauf emotional ausweicht, wird mit einem Ansatz scheitern, dessen Gewinner normale Schwankungen aushalten müssen.',
-          'Viele Lernende durchlaufen eine lange Suche über Systeme, Indikatoren, Seminare und fremde Ansätze. Die Lehre daraus ist nicht, dass nur eine Methode richtig sei. Sie lautet: Irgendwann musst du einen belastbaren Ansatz tief genug lernen, statt bei jeder unangenehmen Phase das Instrument zu wechseln.',
-          'Chartlesen und profitables Handeln bleiben zwei getrennte Fertigkeiten. Du kannst eine Struktur korrekt erkennen und trotzdem durch falsche Größe, verspäteten Einstieg, engen Stop oder impulsives Management verlieren.',
+          'Nach Handelsschluss wirken Einstieg und Ausstieg oft glasklar. In Echtzeit fehlt dir aber die rechte Hälfte des Charts. Du musst handeln, solange mehrere Verläufe plausibel sind, und einen normalen Rücklauf von einer echten Invalidierung unterscheiden. Genau diese Unsicherheit macht die Praxis härter als das Erkennen im Nachhinein.',
+          'Eine Methode kann fachlich funktionieren und trotzdem nicht zu dir passen. Wer schnelle Entscheidungen hasst, wird einen extrem kurzfristigen Stil kaum jahrelang sauber durchhalten. Und wer vor jedem kleinen Rücklauf emotional ausweicht, scheitert an einem Ansatz, dessen Gewinner ganz normale Schwankungen aushalten müssen.',
+          'Viele Lernende suchen lange: Systeme, Indikatoren, Seminare, fremde Ansätze. Die Lehre daraus ist nicht, dass nur eine Methode stimmt. Sie lautet: Irgendwann musst du einen tragfähigen Ansatz richtig tief lernen, statt bei jeder unangenehmen Phase das Werkzeug zu wechseln.',
+          'Chartlesen und profitabel handeln sind zwei verschiedene Fähigkeiten. Du kannst eine Struktur richtig erkennen und trotzdem verlieren – durch falsche Größe, späten Einstieg, einen zu engen Stop oder impulsives Management.',
         ],
         callout:
-          'Ein guter Ansatz, den du konsequent ausführst, schlägt einen theoretisch perfekten Ansatz, den du unter Druck verlässt.',
+          'Ein guter Ansatz, den du konsequent durchziehst, schlägt einen theoretisch perfekten, den du unter Druck verlässt.',
       },
       {
         id: 'intro-06-comparison',
@@ -433,7 +433,7 @@ export const introductionFoundationLessons = [
     id: 'price-action-trends.introduction.lesson-07',
     title: 'Effizienter Markt, kleiner Vorteil',
     summary:
-      'Warum bekannte Muster weiter existieren, weshalb Wissen allein nicht reicht und wie sich robuste Strukturen über Jahrzehnte halten.',
+      'Warum bekannte Muster weiter funktionieren, wieso Wissen allein nicht reicht und wie sich robuste Strukturen über Jahrzehnte halten.',
     durationMinutes: 11,
     xp: 35,
     sourceUnit: 'Einleitung',
@@ -450,13 +450,13 @@ export const introductionFoundationLessons = [
         eyebrow: 'Markteffizienz',
         title: 'Bekannt heißt nicht automatisch unbrauchbar',
         paragraphs: [
-          'Wenn ein Muster öffentlich bekannt ist, verschwindet es nicht zwingend. Trends, Pullbacks und Ausbrüche entstehen nicht nur, weil wenige Menschen einen Namen dafür kennen. Sie entstehen aus Positionsaufbau, Risikoabbau, unterschiedlichen Zeithorizonten und der fortlaufenden Suche nach akzeptierten Preisen.',
-          'Der Wettbewerb sorgt allerdings dafür, dass der Vorteil selten riesig ist. Professionelle Käufer und Verkäufer beobachten dieselben Daten und reagieren schnell. Ein kleiner Analysevorteil kann deshalb durch Gebühren, schlechte Ausführung, zu große Positionen oder eine einzige impulsive Abweichung aufgezehrt werden.',
-          'Ältere und moderne Charts zeigen ähnliche Formen. Die Aussage, dies komme „aus der DNA“, ist am besten als Metapher zu lesen: Anreize, Unsicherheit, Herdenverhalten, Risikolimits und Auktion erzeugen über verschiedene Epochen wiederkehrende Strukturen. Computer verändern Geschwindigkeit und Ausführung, aber sie handeln ebenfalls nach Regeln, Zielen und Grenzen.',
-          'Klassische Trendlinien, Ausbrüche und Pullbacks bleiben deshalb eine Basis. Die detaillierte Baranalyse soll nicht eine völlig neue Marktphysik erfinden, sondern Timing, Risiko und Kontext innerhalb dieser bekannten Strukturen präzisieren.',
+          'Nur weil ein Muster öffentlich bekannt ist, verschwindet es nicht. Trends, Pullbacks und Ausbrüche gibt es nicht bloß, weil ein paar Leute einen Namen dafür kennen. Sie entstehen durch Positionsaufbau, Risikoabbau, unterschiedliche Zeithorizonte und die ständige Suche nach akzeptierten Preisen.',
+          'Der Wettbewerb sorgt allerdings dafür, dass der Vorteil selten riesig ist. Profis beobachten dieselben Daten und reagieren schnell. Ein kleiner Analysevorteil lässt sich leicht auffressen: durch Gebühren, schlechte Ausführung, zu große Positionen oder einen einzigen impulsiven Ausrutscher.',
+          'Alte und moderne Charts sehen ähnlich aus. Wenn man sagt, das stecke „in der DNA“, dann ist das am besten als Bild gemeint: Anreize, Unsicherheit, Herdenverhalten, Risikolimits und Auktion erzeugen über alle Epochen hinweg wiederkehrende Strukturen. Computer machen alles schneller, aber auch sie handeln nach Regeln, Zielen und Grenzen.',
+          'Klassische Trendlinien, Ausbrüche und Pullbacks bleiben deshalb die Basis. Die genaue Baranalyse erfindet keine neue Marktphysik. Sie hilft dir, Timing, Risiko und Kontext innerhalb dieser bekannten Strukturen genauer zu treffen.',
         ],
         callout:
-          'Ein Edge kann bekannt und trotzdem schwer nutzbar sein – wie eine öffentlich bekannte Sporttechnik, die nur durch Training beherrscht wird.',
+          'Ein Edge kann bekannt und trotzdem schwer zu nutzen sein – wie eine Sporttechnik, die jeder kennt und nur wenige im Training wirklich beherrschen.',
       },
       {
         id: 'intro-07-diagram',
@@ -516,7 +516,7 @@ export const introductionFoundationLessons = [
     id: 'price-action-trends.introduction.lesson-08',
     title: 'Ein Chart, wenig Ballast',
     summary:
-      'Was Indikatoren tatsächlich messen und warum zusätzliche Informationen nur helfen, wenn sie deine Entscheidung verbessern.',
+      'Was Indikatoren eigentlich messen und warum zusätzliche Infos nur helfen, wenn sie deine Entscheidung besser machen.',
     durationMinutes: 12,
     xp: 35,
     sourceUnit: 'Einleitung',
@@ -533,10 +533,10 @@ export const introductionFoundationLessons = [
         eyebrow: 'Werkzeuge',
         title: 'Mehr Anzeigen bedeuten nicht automatisch mehr Information',
         paragraphs: [
-          'Die meisten klassischen Indikatoren werden aus Preis, Zeit oder Volumen berechnet. Sie können dieselben Daten glätten, normalisieren oder in einer leichter lesbaren Form darstellen. Das ist nicht nutzlos. Problematisch wird es, wenn die Darstellung als unabhängige Wahrheit behandelt wird und der zugrunde liegende Kursverlauf aus dem Blick gerät.',
-          'Ein Oszillator kann in einem starken Trend immer wieder „überkauft“ anzeigen. Wer daraus automatisch Gegentrades ableitet, kämpft möglicherweise stundenlang gegen eine Bewegung, deren Bars weiterhin klare Stärke zeigen. Eine Divergenz allein ersetzt weder einen kraftvollen Bruch der Trendstruktur noch eine bestätigte Reaktion beim Test des alten Extrempunkts.',
-          'Eine bewusst reduzierte Arbeitsfläche besteht zum Beispiel aus einem einzelnen Kerzenchart und einer 20-Bar-EMA. Das ist eine mögliche Lösung, kein universelles Gesetz. Die Regel dahinter lautet: Jedes Werkzeug muss eine konkrete Entscheidung verbessern. Wenn es nur Bestätigung sucht, Aufmerksamkeit teilt oder zu spätem Handeln führt, kostet es mehr als es bringt.',
-          'Die primären Price-Action-Werkzeuge bleiben direkt sichtbar: Hochs und Tiefs, Trend- und Kanallinien, Bar-Körper und Tails, Überlappung, Ausbrüche und Fehlausbrüche sowie die Beziehung des aktuellen Bars zu den vorherigen.',
+          'Die meisten klassischen Indikatoren werden aus Preis, Zeit oder Volumen berechnet. Sie glätten dieselben Daten, normalisieren sie oder zeigen sie leichter lesbar an. Das ist nicht nutzlos. Heikel wird es, wenn du die Darstellung für eine unabhängige Wahrheit hältst und den eigentlichen Kursverlauf aus den Augen verlierst.',
+          'Ein Oszillator kann in einem starken Trend immer wieder „überkauft“ melden. Wer daraus jedes Mal einen Gegentrade ableitet, kämpft womöglich stundenlang gegen eine Bewegung, deren Bars weiterhin klare Stärke zeigen. Eine Divergenz allein ersetzt weder einen kräftigen Bruch der Trendstruktur noch eine bestätigte Reaktion am Test des alten Extrempunkts.',
+          'Eine bewusst schlanke Arbeitsfläche besteht zum Beispiel aus einem einzigen Kerzenchart und einer 20-Bar-EMA. Das ist eine mögliche Lösung, kein Gesetz. Die Regel dahinter: Jedes Werkzeug muss eine konkrete Entscheidung besser machen. Sucht es nur Bestätigung, teilt deine Aufmerksamkeit oder macht dich zu spät, kostet es mehr, als es bringt.',
+          'Die wichtigsten Price-Action-Werkzeuge bleiben direkt im Blick: Hochs und Tiefs, Trend- und Kanallinien, Bar-Körper und Tails, Überlappung, Ausbrüche und Fehlausbrüche sowie das Verhältnis des aktuellen Bars zu den vorherigen.',
         ],
         callout:
           'Nutze einen Indikator als Darstellungshilfe – nicht als Ersatz für Marktstruktur, Kontext und Invalidierung.',
@@ -626,7 +626,7 @@ export const introductionFoundationLessons = [
     id: 'price-action-trends.introduction.lesson-02',
     title: 'Wahrscheinlichkeit statt Gewissheit',
     summary:
-      'Warum der Markt meist nahe am Gleichgewicht liegt und Regeln nur als flexible Leitplanken funktionieren.',
+      'Warum der Markt meistens nahe am Gleichgewicht liegt und Regeln nur als flexible Leitplanken taugen.',
     durationMinutes: 12,
     xp: 35,
     sourceUnit: 'Einleitung',
@@ -643,13 +643,13 @@ export const introductionFoundationLessons = [
         eyebrow: 'Entscheiden unter Unsicherheit',
         title: 'Ein Setup ist ein Vorteil, kein Versprechen',
         paragraphs: [
-          'Märkte werden von vielen gut informierten Teilnehmern mit gegensätzlichen Zielen gehandelt. Deshalb liegt die kurzfristige Richtungswahrscheinlichkeit häufig nahe am Gleichgewicht. Wenn Ziel und Stop gleich weit entfernt sind, ist ein zufälliger Einstieg in vielen normalen Situationen nicht weit von 50:50 entfernt – vor Kosten und ohne Extremfälle zu betrachten.',
-          'Bestimmte Strukturen verschieben diese Ausgangslage. In einem starken Trend kann Fortsetzung vorübergehend deutlich wahrscheinlicher sein. Dieser Vorteil hält nicht unbegrenzt: Mit zunehmender Bewegung werden Ziele erreicht, neue Gegenseite erscheint und der Markt kehrt häufig in einen unsichereren Zustand zurück.',
-          'Starre, immer gültige Regeln passen schlecht zu einem System, das zwischen Trend, Range und Übergang wechselt. Leitlinien sind trotzdem wertvoll: Sie strukturieren Beobachtung und Risiko. Du musst sie jedoch im aktuellen Kontext anwenden und akzeptieren, dass selbst ein sehr guter Trade verlieren kann.',
-          'Erwartungswert verbindet Trefferquote, durchschnittlichen Gewinn, durchschnittlichen Verlust und Kosten. Eine hohe Trefferquote allein schützt nicht vor einer Strategie, deren seltene Verluste zu groß sind.',
+          'Große Märkte werden von vielen gut informierten Teilnehmern mit gegensätzlichen Zielen gehandelt. Darum liegt die Richtungswahrscheinlichkeit kurzfristig oft nahe am Gleichgewicht. Sind Ziel und Stop gleich weit entfernt, ist ein zufälliger Einstieg in vielen normalen Situationen nicht weit von 50:50 entfernt – vor Kosten und ohne Extremfälle.',
+          'Manche Strukturen verschieben diese Ausgangslage. In einem starken Trend kann die Fortsetzung zeitweise deutlich wahrscheinlicher sein. Der Vorteil hält aber nicht ewig: Mit jeder Strecke werden Ziele erreicht, neue Gegenseite taucht auf, und der Markt fällt oft in einen unsichereren Zustand zurück.',
+          'Starre Regeln, die immer gelten, passen schlecht zu einem Markt, der zwischen Trend, Range und Übergang wechselt. Leitlinien sind trotzdem Gold wert: Sie ordnen deine Beobachtung und dein Risiko. Du musst sie nur im aktuellen Kontext anwenden und akzeptieren, dass auch ein sehr guter Trade verlieren kann.',
+          'Der Erwartungswert verbindet Trefferquote, durchschnittlichen Gewinn, durchschnittlichen Verlust und Kosten. Eine hohe Trefferquote allein schützt dich nicht vor einer Strategie, deren seltene Verluste zu groß sind.',
         ],
         callout:
-          'Guter Trade und Gewinner sind nicht dasselbe. Beurteile zuerst die damalige Entscheidung, danach die Statistik vieler Wiederholungen.',
+          'Ein guter Trade ist nicht dasselbe wie ein Gewinner. Bewerte zuerst die damalige Entscheidung, dann die Statistik vieler Wiederholungen.',
       },
       {
         id: 'intro-02-diagram',
@@ -736,7 +736,7 @@ export const introductionFoundationLessons = [
     id: 'price-action-trends.introduction.lesson-03',
     title: 'Trend, Range und Übergang',
     summary:
-      'Wie der Markt zwischen zeitweiser Richtungsklarheit und zweiseitigem Gleichgewicht pendelt.',
+      'Wie der Markt zwischen zeitweise klarer Richtung und einem Gleichgewicht beider Seiten hin- und herpendelt.',
     durationMinutes: 11,
     xp: 35,
     sourceUnit: 'Einleitung',
@@ -753,13 +753,13 @@ export const introductionFoundationLessons = [
         eyebrow: 'Marktzustand',
         title: 'Richtung ist ein vorübergehender Zustand',
         paragraphs: [
-          'In einer Trading Range besitzen Käufer und Verkäufer an vielen Stellen ähnlich gute Argumente. Ausbrüche scheitern häufiger, Preis kehrt oft zur Mitte zurück und kleine Bewegungen erzeugen wenig Anschluss. Dieses Gleichgewicht erklärt, warum die kurzfristige Richtung dort schwer prognostizierbar ist.',
-          'Ein Trend entsteht, wenn der Markt neue Preise in eine Richtung wiederholt akzeptiert. Rücksetzer bleiben begrenzt, Ausbrüche erhalten Anschluss und Versuche der Gegenseite scheitern. Fortsetzung ist dann zunächst wahrscheinlicher als eine sofortige vollständige Umkehr.',
-          'Mit jeder Strecke nähert sich der Markt jedoch Bereichen, an denen Gewinne realisiert, neue Positionen eröffnet oder frühere Verluste ausgeglichen werden. Unterstützung, Widerstand und gemessene Ziele sind deshalb keine Mauern. Sie sind Zonen, in denen erneut mehr Uneinigkeit und damit Balance entstehen kann.',
-          'Übergänge sind normal. Mehr Überlappung, tiefere Pullbacks und erfolgreiche Gegenbewegungen zeigen, dass ein Trend an Eindeutigkeit verliert. Umgekehrt wird eine Range erst durch Ausbruch plus Akzeptanz außerhalb ihrer Grenzen zu einem belastbaren Trend.',
+          'In einer Trading Range haben Käufer und Verkäufer an vielen Stellen ähnlich gute Argumente. Ausbrüche scheitern öfter, der Preis kehrt gern zur Mitte zurück, und kleine Bewegungen finden wenig Anschluss. Dieses Gleichgewicht ist der Grund, warum sich die kurzfristige Richtung dort so schlecht vorhersagen lässt.',
+          'Ein Trend entsteht, wenn der Markt neue Preise immer wieder in eine Richtung akzeptiert. Rücksetzer bleiben begrenzt, Ausbrüche finden Anschluss, und Versuche der Gegenseite laufen ins Leere. Dann ist die Fortsetzung zunächst wahrscheinlicher als eine sofortige, vollständige Umkehr.',
+          'Mit jeder Strecke kommt der Markt aber an Bereiche, in denen Gewinne mitgenommen, neue Positionen eröffnet oder alte Verluste ausgeglichen werden. Unterstützung, Widerstand und gemessene Ziele sind deshalb keine Mauern. Es sind Zonen, in denen wieder mehr Uneinigkeit und damit mehr Balance entstehen kann.',
+          'Übergänge sind normal. Mehr Überlappung, tiefere Pullbacks und erfolgreiche Gegenbewegungen zeigen dir, dass ein Trend an Eindeutigkeit verliert. Umgekehrt wird eine Range erst zu einem belastbaren Trend, wenn der Preis ausbricht und außerhalb ihrer Grenzen akzeptiert wird.',
         ],
         callout:
-          'Zuerst Regime und Ort bestimmen, danach das einzelne Signal bewerten.',
+          'Erst Regime und Ort bestimmen, dann das einzelne Signal bewerten.',
       },
       {
         id: 'intro-03-diagram',

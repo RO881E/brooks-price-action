@@ -23,10 +23,10 @@ export const chapterThreeFoundationLessons = [
         eyebrow: 'Kapitel 3 · Grundlogik',
         title: 'Vom Gleichgewicht zur schnellen Distanz',
         paragraphs: [
-          'Jeder sichtbare Chartabschnitt lässt sich zunächst als gerichteter oder zweiseitiger Handel lesen. In einer Trendphase setzt eine Seite über mehrere Bars neue Preise durch. In einer Trading Range wechseln relative Kontrolle und Gegenkontrolle so oft, dass keine Seite dauerhaft Abstand gewinnt.',
-          'Ein Breakout ist der Übergang aus dieser Balance in eine gerichtete Bewegung. Er kann mit nur einem Trendbar beginnen oder sofort aus mehreren kräftigen Bars bestehen. In einem dünn gehandelten Markt kann zwischen den Preisbereichen eine echte Kurslücke liegen; in einem liquiden Markt erfüllt ein schneller Trendbar oft dieselbe Funktion: Zwischen Ausgangsbereich und neuem Preisgebiet fand kaum ausgeglichener Handel statt.',
-          'Die wichtige Frage ist nicht, ob eine Linie kurz überschritten wurde. Entscheidend ist, ob der Markt die neuen Preise akzeptiert. Bleiben Anschlussbars in Ausbruchsrichtung stark und Rückläufe flach, entwickelt sich aus dem Breakout ein Trend. Fällt der Preis schnell in den alten Bereich zurück, war der Ausbruch ein Test und möglicherweise eine Falle.',
-          'Mit zunehmender Dauer werden selbst starke Bewegungen gewöhnlich langsamer. Erste Pullbacks erscheinen, die Steigung nimmt ab und aus dem Spike wird ein Kanal. Dieser Ablauf verbindet Breakout, Trend, Pullback und spätere Range zu einer einzigen Entwicklung.',
+          'Jeden sichtbaren Chartabschnitt kannst du zunächst als gerichteten oder als zweiseitigen Handel lesen. In einer Trendphase setzt eine Seite über mehrere Bars neue Preise durch. In einer Trading Range wechseln Kontrolle und Gegenkontrolle so oft, dass keine Seite dauerhaft davonzieht.',
+          'Ein Breakout ist der Übergang aus dieser Balance in eine gerichtete Bewegung. Er kann mit nur einem Trendbar beginnen oder gleich aus mehreren kräftigen Bars bestehen. In einem dünn gehandelten Markt kann zwischen den Preisbereichen eine echte Kurslücke liegen; in einem liquiden Markt erfüllt ein schneller Trendbar oft dieselbe Funktion: Zwischen Ausgangsbereich und neuem Preisgebiet gab es kaum ausgeglichenen Handel.',
+          'Die wichtige Frage ist nicht, ob eine Linie kurz überschritten wurde. Entscheidend ist, ob der Markt die neuen Preise akzeptiert. Bleiben die Anschlussbars in Ausbruchsrichtung stark und die Rückläufe flach, wird aus dem Breakout ein Trend. Fällt der Preis schnell zurück in den alten Bereich, war der Ausbruch ein Test und womöglich eine Falle.',
+          'Mit der Zeit werden selbst starke Bewegungen meist langsamer. Erste Pullbacks tauchen auf, die Steigung wird flacher, und aus dem Spike wird ein Kanal. Dieser Ablauf verbindet Breakout, Trend, Pullback und spätere Range zu einer einzigen Entwicklung.',
         ],
         callout:
           'Die Kernentscheidung lautet: Akzeptiert der Markt den neuen Preisbereich – oder kehrt er in die alte Balance zurück?',
@@ -115,7 +115,7 @@ export const chapterThreeFoundationLessons = [
     id: 'price-action-trends.chapter-03.lesson-02',
     title: 'Der Spike wird zum Kanal',
     summary:
-      'Warum ein explosiver Start gewöhnlich in eine langsamere, breitere Trendphase übergeht und Linien mitwachsen müssen.',
+      'Warum ein explosiver Start meist in eine langsamere, breitere Trendphase übergeht und deine Linien mitwachsen müssen.',
     durationMinutes: 12,
     xp: 45,
     sourceUnit: 'Kapitel 3 · Spike-and-Channel',
@@ -133,13 +133,13 @@ export const chapterThreeFoundationLessons = [
         eyebrow: 'Entwicklungsstufen',
         title: 'Die Geschwindigkeit ändert sich, bevor die Richtung endet',
         paragraphs: [
-          'Im Spike handeln Marktteilnehmer mit hoher Dringlichkeit. Viele wollen sofort in dieselbe Richtung, während die Gegenseite nur wenig Widerstand bietet. Der Kurs legt deshalb in kurzer Zeit viel Strecke zurück und Pullbacks bleiben klein oder fehlen ganz.',
-          'Diese Dringlichkeit hält selten unverändert an. Nach dem ersten Rücksetzer setzt sich die Bewegung häufig fort, nun aber mit mehr Überlappung, kleineren Gegenbewegungen, sichtbaren Tails und einzelnen Bars gegen den Trend. Die Richtung kann weiter intakt sein, obwohl der Fortschritt pro Bar geringer wird.',
-          'Aus dieser langsameren Fortsetzung entsteht der Kanal. Seine Steigung ist gewöhnlich flacher als die des Spikes und seine Breite nimmt mit neuen Schwüngen zu. Eine frühe Trendlinie ist deshalb keine starre Wahrheit. Sie wird neu gezeichnet, sobald zusätzliche Hochs oder Tiefs eine bessere Begrenzung liefern.',
-          'Spike und Kanal sind nicht zwei unabhängige Setups. Sie sind Phasen desselben Moves: zuerst schnelle Neubewertung, danach geordnetere Fortsetzung mit wachsender Gegenaktivität.',
+          'Im Spike handeln die Marktteilnehmer mit hoher Dringlichkeit. Viele wollen sofort in dieselbe Richtung, während die Gegenseite kaum Widerstand leistet. Der Kurs legt deshalb in kurzer Zeit viel Strecke zurück, und Pullbacks bleiben klein oder fehlen ganz.',
+          'Diese Dringlichkeit hält selten unverändert an. Nach dem ersten Rücksetzer geht die Bewegung oft weiter, nun aber mit mehr Überlappung, kleineren Gegenbewegungen, sichtbaren Tails und einzelnen Bars gegen den Trend. Die Richtung kann intakt bleiben, obwohl der Fortschritt pro Bar kleiner wird.',
+          'Aus dieser langsameren Fortsetzung wird der Kanal. Seine Steigung ist meist flacher als die des Spikes, und seine Breite wächst mit neuen Schwüngen. Eine frühe Trendlinie ist deshalb keine starre Wahrheit. Du zeichnest sie neu, sobald weitere Hochs oder Tiefs eine bessere Begrenzung liefern.',
+          'Spike und Kanal sind keine zwei unabhängigen Setups. Sie sind Phasen desselben Moves: erst die schnelle Neubewertung, dann die geordnetere Fortsetzung mit wachsender Gegenaktivität.',
         ],
         callout:
-          'Weniger Geschwindigkeit bedeutet nicht automatisch Umkehr. Es zeigt zunächst nur, dass der Markt von Eile zu Verhandlung wechselt.',
+          'Weniger Tempo heißt nicht automatisch Umkehr. Es zeigt zunächst nur, dass der Markt von Eile zu Verhandlung wechselt.',
       },
       {
         id: 'chapter-03-02-diagram',
@@ -218,13 +218,13 @@ export const chapterThreeFoundationLessons = [
         eyebrow: 'Zweiseitiger Handel',
         title: 'Die Range beginnt oft mit dem ersten Pullback',
         paragraphs: [
-          'Der Beginn des Kanals ist mehr als ein geometrischer Punkt. Dort zeigte der Markt zum ersten Mal, dass die Spike-Richtung nicht mehr vollkommen einseitig ist. Aus diesem Grund wird der Preisbereich um den ersten Pullback später häufig erneut besucht und bildet einen Rand der entstehenden Trading Range.',
-          'Während ein Bullenkanal weiter steigt, geben vorsichtige Bullen Teile ihrer Position ab. Gleichzeitig beginnen einige erfahrene Bären kleine Shorts aufzubauen. Sie können am ersten Pullback oder oberhalb älterer Hochs verkaufen und ihre Position bei weiteren Anstiegen staffeln. Das ist riskant und verlangt genügend Kapital, passende Positionsgröße und einen klaren Ausstiegsplan; es ist keine Einladung zum blinden Gegenhandeln.',
-          'Wenn der Kurs später deutlich zum Kanalboden zurückläuft, schließen viele dieser Bären ihre jüngeren Shorts mit Gewinn. Frühe Short-Einstiege liegen dabei möglicherweise nur nahe am Einstand. Zugleich kaufen Trendbullen erneut in dem Preisbereich, in dem der Kanal begann. Beide Aktionen sind Kauforders: Short-Eindeckung und neue Long-Positionen.',
-          'Diese gebündelten Käufe erzeugen oft einen Bounce. Danach ist die ursprüngliche Spike-and-Channel-Dynamik weitgehend abgearbeitet: Der Markt kann ein Doppeltief bilden, längere Zeit seitwärts handeln oder nach einem schwachen Bounce doch in einen Bärentrend kippen.',
+          'Der Beginn des Kanals ist mehr als ein geometrischer Punkt. Dort hat der Markt zum ersten Mal gezeigt, dass die Spike-Richtung nicht mehr ganz einseitig ist. Deshalb wird der Preisbereich um den ersten Pullback später oft noch einmal besucht und bildet einen Rand der entstehenden Trading Range.',
+          'Steigt ein Bullenkanal weiter, geben vorsichtige Bullen Teile ihrer Position ab. Gleichzeitig fangen einige erfahrene Bären an, kleine Shorts aufzubauen. Sie können am ersten Pullback oder über älteren Hochs verkaufen und bei weiteren Anstiegen aufstocken. Das ist riskant und verlangt genug Kapital, eine passende Positionsgröße und einen klaren Ausstiegsplan; es ist keine Einladung zum blinden Gegenhandeln.',
+          'Läuft der Kurs später deutlich zum Kanalboden zurück, schließen viele dieser Bären ihre jüngeren Shorts mit Gewinn. Frühe Short-Einstiege liegen dabei womöglich nur nahe am Einstand. Zugleich kaufen Trendbullen erneut in dem Preisbereich, in dem der Kanal begann. Beides sind Kauforders: Short-Eindeckung und neue Long-Positionen.',
+          'Diese gebündelten Käufe erzeugen oft einen Bounce. Danach ist die ursprüngliche Spike-and-Channel-Dynamik weitgehend abgearbeitet: Der Markt kann ein Doppeltief bilden, länger seitwärts laufen oder nach einem schwachen Bounce doch in einen Bärentrend kippen.',
         ],
         callout:
-          'Der erste Pullback markiert häufig den Preisbereich, an dem Trendfolger und Gegenhändler später wieder gemeinsam aktiv werden.',
+          'Der erste Pullback markiert oft den Preisbereich, an dem Trendfolger und Gegenhändler später wieder gemeinsam aktiv werden.',
       },
       {
         id: 'chapter-03-03-diagram',
@@ -329,13 +329,13 @@ export const chapterThreeFoundationLessons = [
         eyebrow: 'Mehrdeutige Struktur',
         title: 'Der Kanal trägt seine spätere Korrektur bereits in sich',
         paragraphs: [
-          'Ein Trendkanal sieht gerichtet aus, enthält aber mehr zweiseitigen Handel als der vorangegangene Spike. Deshalb wird ein steigender Kanal irgendwann häufig vollständig oder zu großen Teilen zurückgenommen. Aus Sicht eines Bären kann derselbe Bullenkanal damit eine lang gezogene Bear Flag sein. Spiegelbildlich kann ein fallender Kanal als Bull Flag enden.',
-          'Das bedeutet nicht, dass jeder Kanal sofort gehandelt werden sollte. Ein starker Trend kann seitwärts pausieren und danach in derselben Richtung ausbrechen. Die Range ist dann eine Flag für die ursprüngliche Bewegung. Auf einem größeren Zeitrahmen wirken viele scheinbar eigenständige Intraday-Ranges genau so.',
-          'Manchmal überschreitet ein Bullenkanal seine obere Kanallinie und beschleunigt. Eine solche Trendbeschleunigung ist möglich, aber vergleichsweise selten. Häufiger verliert der Ausbruch innerhalb weniger Bars seinen Anschluss und der Markt kehrt in oder durch den Kanal zurück. Dasselbe gilt umgekehrt für einen Abwärtskanal.',
-          'Diese Mehrdeutigkeit erklärt zwei wichtige Grundsätze: Viele Trading Ranges lösen sich in Richtung des vorangegangenen Trends auf, und fast jede echte Trendwende verbringt zuvor Zeit in Balance. Eine Range ist deshalb weder bedeutungslos noch automatisch eine Umkehr – sie ist der Entscheidungsraum zwischen Fortsetzung und Richtungswechsel.',
+          'Ein Trendkanal sieht gerichtet aus, enthält aber mehr zweiseitigen Handel als der Spike davor. Deshalb wird ein steigender Kanal irgendwann oft ganz oder zu großen Teilen zurückgenommen. Aus Sicht eines Bären kann derselbe Bullenkanal damit eine lang gezogene Bear Flag sein. Spiegelbildlich kann ein fallender Kanal als Bull Flag enden.',
+          'Das heißt nicht, dass du jeden Kanal sofort handeln solltest. Ein starker Trend kann seitwärts pausieren und danach in derselben Richtung ausbrechen. Die Range ist dann eine Flag für die ursprüngliche Bewegung. Auf einem größeren Zeitrahmen sehen viele scheinbar eigenständige Intraday-Ranges genau so aus.',
+          'Manchmal überschreitet ein Bullenkanal seine obere Kanallinie und beschleunigt. Eine solche Trendbeschleunigung ist möglich, aber vergleichsweise selten. Häufiger verliert der Ausbruch binnen weniger Bars den Anschluss, und der Markt kehrt in oder durch den Kanal zurück. Für einen Abwärtskanal gilt dasselbe umgekehrt.',
+          'Diese Mehrdeutigkeit erklärt zwei wichtige Grundsätze: Viele Trading Ranges lösen sich in Richtung des vorherigen Trends auf, und fast jede echte Trendwende verbringt vorher Zeit in Balance. Eine Range ist deshalb weder bedeutungslos noch automatisch eine Umkehr – sie ist der Entscheidungsraum zwischen Fortsetzung und Richtungswechsel.',
         ],
         callout:
-          'Ein Kanal ist gleichzeitig Trendfortsetzung im kleinen Bild und mögliche Gegenflagge im nächsten Entwicklungsschritt.',
+          'Ein Kanal ist im kleinen Bild Trendfortsetzung und im nächsten Entwicklungsschritt womöglich die Gegenflagge.',
       },
       {
         id: 'chapter-03-04-diagram',
@@ -415,13 +415,13 @@ export const chapterThreeFoundationLessons = [
         eyebrow: 'Marktgedächtnis',
         title: 'Der Markt fragt: Gilt die alte Bewertung noch?',
         paragraphs: [
-          'Ein Test ist die Rückkehr in die Nähe eines Preises, an dem zuvor sichtbar gehandelt oder entschieden wurde. Der Markt muss den exakten Tick nicht treffen. Entscheidend ist, wie sich Käufer und Verkäufer verhalten, sobald der relevante Bereich wieder erreicht wird.',
-          'Getestet werden können Trendlinien und Kanallinien, ein Ziel aus einer gemessenen Bewegung, alte Swing-Hochs oder Swing-Tiefs sowie Hoch oder Tief eines Signal- oder Entry-Bars. Auch Eröffnung, Hoch, Tief und Schluss des Vortages dienen häufig als Referenzen. Mehrere Marken können in derselben Zone zusammenfallen und den Test bedeutender machen.',
-          'Am alten Hoch wollen Bullen sehen, dass der Markt den Preis nicht erneut ablehnt. Sie können auf einen starken Breakout über das Hoch oder auf einen Breakout-Pullback warten, der oberhalb des Bereichs hält. Bären suchen das Gegenteil: einen schwachen Anstieg, mangelnden Anschluss und einen überzeugenden bearischen Reversal-Bar in der Widerstandszone.',
-          'Für die bärische These ist es zweitrangig, ob der neue Wendepunkt minimal über, genau auf oder etwas unter dem alten Hoch liegt. Höheres Hoch, Doppeltop und tieferes Hoch sind Varianten derselben Information, wenn der Markt den teuren Bereich klar zurückweist.',
+          'Ein Test ist die Rückkehr in die Nähe eines Preises, an dem vorher sichtbar gehandelt oder entschieden wurde. Der Markt muss den exakten Tick nicht treffen. Entscheidend ist, wie sich Käufer und Verkäufer verhalten, sobald der relevante Bereich wieder erreicht wird.',
+          'Getestet werden können Trendlinien und Kanallinien, ein Ziel aus einer gemessenen Bewegung, alte Swing-Hochs oder Swing-Tiefs sowie Hoch oder Tief eines Signal- oder Entry-Bars. Auch Eröffnung, Hoch, Tief und Schluss des Vortages dienen oft als Referenzen. Mehrere Marken können in derselben Zone zusammenfallen und den Test bedeutender machen.',
+          'Am alten Hoch wollen Bullen sehen, dass der Markt den Preis nicht erneut abweist. Sie können auf einen starken Breakout über das Hoch warten oder auf einen Breakout-Pullback, der über dem Bereich hält. Bären suchen das Gegenteil: einen schwachen Anstieg, mangelnden Anschluss und einen überzeugenden bärischen Reversal-Bar in der Widerstandszone.',
+          'Für die bärische These ist es zweitrangig, ob der neue Wendepunkt minimal über, genau auf oder etwas unter dem alten Hoch liegt. Höheres Hoch, Doppeltop und tieferes Hoch sind Varianten derselben Information, wenn der Markt den teuren Bereich klar abweist.',
         ],
         callout:
-          'Ein Test ist eine Verhaltensprüfung in einer Zone: Akzeptanz führt weiter, Zurückweisung führt zurück.',
+          'Ein Test ist eine Verhaltensprüfung in einer Zone: Akzeptanz führt weiter, Abweisung führt zurück.',
       },
       {
         id: 'chapter-03-05-diagram',
@@ -525,13 +525,13 @@ export const chapterThreeFoundationLessons = [
         eyebrow: 'Begriffe sauber trennen',
         title: 'Richtung ist nur eine Form der Umkehr',
         paragraphs: [
-          'Im engsten Sinn beschreibt eine Umkehr den Wechsel von einem Bullen- zu einem Bärentrend oder umgekehrt. Der Markt, der zuvor höhere Preise akzeptierte, beginnt dann tiefere Preise dauerhaft durchzusetzen.',
-          'Praktisch ist der Begriff breiter. Wenn ein starker Trend seine Einseitigkeit verliert und in eine Trading Range übergeht, hat sich das Marktverhalten ebenfalls umgekehrt: aus gerichteter Kontrolle wurde zweiseitige Balance. Es gibt noch keinen Gegentrend, aber die frühere Trendannahme gilt nicht mehr unverändert.',
-          'Der spiegelbildliche Wechsel von einer Trading Range in einen Trend ist ebenfalls eine Verhaltensumkehr. Weil dabei eine sichtbare Grenze verlassen wird, nennen Trader diesen Fall gewöhnlich Breakout. Breakout und Reversal sind damit keine völlig getrennten Welten, sondern verschiedene Blickwinkel auf einen Regimewechsel.',
-          'Diese Definition schützt vor einer häufigen Fehleinschätzung: Ein Trend kann enden, ohne sofort in die Gegenrichtung zu laufen. Oft ist die erste echte Veränderung nur der Übergang in Balance.',
+          'Im engsten Sinn beschreibt eine Umkehr den Wechsel von einem Bullen- zu einem Bärentrend oder umgekehrt. Der Markt, der vorher höhere Preise akzeptiert hat, beginnt dann, tiefere Preise dauerhaft durchzusetzen.',
+          'In der Praxis fasst man den Begriff weiter. Verliert ein starker Trend seine Einseitigkeit und geht in eine Trading Range über, hat sich das Marktverhalten ebenfalls umgekehrt: Aus gerichteter Kontrolle wurde zweiseitige Balance. Einen Gegentrend gibt es noch nicht, aber die frühere Trendannahme gilt nicht mehr unverändert.',
+          'Der umgekehrte Wechsel von einer Trading Range in einen Trend ist ebenfalls eine Verhaltensumkehr. Weil dabei eine sichtbare Grenze verlassen wird, nennen Trader diesen Fall meist Breakout. Breakout und Reversal sind also keine völlig getrennten Welten, sondern verschiedene Blickwinkel auf einen Regimewechsel.',
+          'Diese Definition bewahrt dich vor einer häufigen Fehleinschätzung: Ein Trend kann enden, ohne sofort in die Gegenrichtung zu laufen. Oft ist die erste echte Veränderung nur der Übergang in Balance.',
         ],
         callout:
-          'Frage zuerst, welches Verhalten endete und welches begann – nicht nur, ob der letzte Bar seine Farbe wechselte.',
+          'Frag zuerst, welches Verhalten endete und welches begann – nicht nur, ob der letzte Bar die Farbe gewechselt hat.',
       },
       {
         id: 'chapter-03-06-diagram',
@@ -592,7 +592,7 @@ export const chapterThreeFoundationLessons = [
     id: 'price-action-trends.chapter-03.lesson-07',
     title: 'Die erste Umkehr wird meist nur eine Range',
     summary:
-      'Wie Marktträgheit frühe Gegenversuche absorbiert, Flags größer werden und Trader Gewinne vor der sicheren Trendwende schützen.',
+      'Wie Marktträgheit frühe Gegenversuche aufsaugt, Flags größer werden und Trader Gewinne schützen, bevor die Trendwende sicher ist.',
     durationMinutes: 14,
     xp: 50,
     sourceUnit: 'Kapitel 3 · Marktträgheit bei Umkehrversuchen',
@@ -611,10 +611,10 @@ export const chapterThreeFoundationLessons = [
         eyebrow: 'Trägheit',
         title: 'Ein Trend gibt seine Kontrolle selten beim ersten Versuch ab',
         paragraphs: [
-          'Die meisten bullischen oder bärischen Umkehrsignale starten keinen sauberen Gegentrend. Marktträgheit sorgt dafür, dass Teilnehmer der bisherigen Richtung einen ersten Rücklauf als günstigeren Einstieg behandeln. Der Gegenmove wird dadurch häufig gestoppt und die alte Richtung setzt sich noch einmal fort.',
-          'In einem starken Bullenmarkt werden frühe bearische Reversals daher oft zu Bull Flags. Mit jeder Wiederholung kann die Flag größer werden. Bullen sichern zunehmend Gewinne oder kaufen weniger aggressiv nach; Bären sehen mehr Beweise, halten ihre Shorts länger und erhöhen ihren Druck.',
-          'Irgendwann entsteht aus den wachsenden Pullbacks eine echte Trading Range. Erst wenn Verkäufer diese Balance überzeugend nach unten verlassen und die tieferen Preise halten, beginnt ein belastbarer Bärentrend. Vor diesem Erfolg können mehrere scheinbar gute Umkehrversuche gescheitert sein.',
-          'Auch ein Gegenmove, der nur eine Range erzeugt, kann groß genug für einen profitablen Swing sein. Deshalb ist Gewinnmanagement wichtig: An einem ersten realistischen Ziel kann ein Teil der Position gesichert werden. Der Rest kann weiterlaufen, falls aus der Balance doch eine vollständige Trendwende entsteht.',
+          'Die meisten bullischen oder bärischen Umkehrsignale starten keinen sauberen Gegentrend. Marktträgheit sorgt dafür, dass Teilnehmer der bisherigen Richtung einen ersten Rücklauf als günstigeren Einstieg nutzen. Der Gegenmove wird dadurch oft gestoppt, und die alte Richtung läuft noch einmal weiter.',
+          'In einem starken Bullenmarkt werden frühe bärische Reversals deshalb oft zu Bull Flags. Mit jeder Wiederholung kann die Flag größer werden. Bullen sichern zunehmend Gewinne oder kaufen weniger aggressiv nach; Bären sehen mehr Beweise, halten ihre Shorts länger und erhöhen den Druck.',
+          'Irgendwann entsteht aus den wachsenden Pullbacks eine echte Trading Range. Erst wenn die Verkäufer diese Balance überzeugend nach unten verlassen und die tieferen Preise halten, beginnt ein belastbarer Bärentrend. Davor können mehrere scheinbar gute Umkehrversuche gescheitert sein.',
+          'Auch ein Gegenmove, der nur eine Range erzeugt, kann für einen profitablen Swing groß genug sein. Gewinnmanagement ist deshalb wichtig: An einem ersten realistischen Ziel kannst du einen Teil der Position sichern. Der Rest kann weiterlaufen, falls aus der Balance doch eine komplette Trendwende wird.',
         ],
         callout:
           'Behandle das erste Reversal als möglichen Beginn eines Übergangs – nicht als Beweis für den fertigen Gegentrend.',
@@ -721,13 +721,13 @@ export const chapterThreeFoundationLessons = [
         eyebrow: 'Fraktale Struktur',
         title: 'Ein Bar kann innen eine vollständige Geschichte enthalten',
         paragraphs: [
-          'Ein großer bearischer Reversal-Bar auf dem Monatschart kann wie ein einzelnes, plötzliches Ereignis wirken. Wechselt man auf den Wochenchart, kann dieselbe Bewegung als Zwei-Bar-Umkehr erscheinen: erst ein kräftiger Anstieg, dann ein starker Gegenbar.',
+          'Ein großer bärischer Reversal-Bar auf dem Monatschart kann wie ein einzelnes, plötzliches Ereignis wirken. Wechselst du auf den Wochenchart, kann dieselbe Bewegung als Zwei-Bar-Umkehr erscheinen: erst ein kräftiger Anstieg, dann ein starker Gegenbar.',
           'Auf dem Tageschart wird die innere Struktur noch deutlicher. Der Aufwärtsabschnitt kann als bullischer Spike und Kaufklimax erscheinen. Danach folgen möglicherweise etwa zwei Handelswochen zweiseitiger Balance, bevor zwei starke Bärenbars aus dieser Range nach unten ausbrechen.',
-          'Keine dieser Darstellungen ist richtiger als die andere. Der Monatschart verdichtet das Ergebnis, der Wochenchart zeigt die grobe Übergabe, und der Tageschart macht die Auktion sichtbar, in der Trend, Range und neuer Breakout nacheinander entstanden.',
-          'Für die Analyse reicht jeder Zeitrahmen, auf dem du die Funktion erkennst. Kleinere Zeitebenen dürfen die Entscheidung erklären, sollen aber nicht zu einer endlosen Suche nach dem einzig perfekten Muster führen.',
+          'Keine dieser Darstellungen ist richtiger als die andere. Der Monatschart verdichtet das Ergebnis, der Wochenchart zeigt die grobe Übergabe, und der Tageschart macht die Auktion sichtbar, in der nacheinander Trend, Range und neuer Breakout entstanden.',
+          'Für die Analyse reicht jeder Zeitrahmen, in dem du die Funktion erkennst. Kleinere Zeitebenen dürfen die Entscheidung erklären, sollen aber nicht in eine endlose Suche nach dem einzig perfekten Muster führen.',
         ],
         callout:
-          'Zeitkompression verändert die Form, aber nicht die zugrunde liegende Abfolge von Überdehnung, Balance und neuem Kontrollgewinn.',
+          'Zeitkompression verändert die Form, aber nicht die zugrunde liegende Abfolge aus Überdehnung, Balance und neuem Kontrollgewinn.',
       },
       {
         id: 'chapter-03-08-diagram',

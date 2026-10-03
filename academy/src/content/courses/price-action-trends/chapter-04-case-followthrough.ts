@@ -5,7 +5,7 @@ export const chapterFourCaseFollowthroughLessons = [
     id: 'price-action-trends.chapter-04.lesson-25',
     title: 'Chartfall 4.1: Fill, Follow-through und die Setups 4–5',
     summary:
-      'Wie aus Bar 3 nach dem Fill ein Signal-Bar wird und ii sowie Breakout-Pullback das zweite Aufwärtsbein strukturieren.',
+      'Wie aus Bar 3 nach dem Fill ein Signal-Bar wird und ii sowie Breakout-Pullback das zweite Aufwärtsbein gliedern.',
     durationMinutes: 12,
     xp: 50,
     sourceUnit: 'Kapitel 4 · Chartfall 4.1 · Ausführung und Folge-Setups',
@@ -25,14 +25,14 @@ export const chapterFourCaseFollowthroughLessons = [
         eyebrow: 'Chartfall 4.1 · Was nach Bar 3 geschieht',
         title: 'Erst Ausführung und Anschluss machen aus der Idee eine belastbare Sequenz',
         paragraphs: [
-          'Der Buy-Stop über Bar 3 wird im nächsten Bar erreicht. In diesem Moment ändern sich die Rollen: Bar 3 wird rückblickend zum Signal-Bar, während der aktuelle Bar zum Entry-Bar wird. Der Markt hat die bullische Zurückweisung damit zumindest um einen kleinen Schritt bestätigt.',
-          'Zwei Bars später schließt ein ordentlicher Bull-Trendbar und liefert Follow-through. Dieser Anschluss ist wichtiger als ein bloßes kurzes Überschreiten des Signal-Bar-Hochs. Er zeigt, dass Käufer weitere Preise durchsetzen und der Ausbruch nicht sofort vollständig zurückgenommen wird.',
-          'Bar 4 gehört bereits zu einem neuen Setup. Eine ii-Kompression bereitet den Versuch eines zweiten Aufwärtsbeins vor. Der Einstieg entsteht damit nicht mehr direkt aus der ursprünglichen Trendwende, sondern aus einer Pause nach der ersten bullischen Bewegung.',
+          'Der Buy-Stop über Bar 3 wird im nächsten Bar erreicht. In diesem Moment ändern sich die Rollen: Bar 3 wird rückblickend zum Signal-Bar, und der aktuelle Bar wird zum Entry-Bar. Der Markt hat die bullische Abweisung damit zumindest um einen kleinen Schritt bestätigt.',
+          'Zwei Bars später schließt ein ordentlicher Bull-Trendbar und liefert Follow-through. Dieser Anschluss zählt mehr als ein bloß kurzes Überschreiten des Signal-Bar-Hochs. Er zeigt, dass die Käufer weitere Preise durchsetzen und der Ausbruch nicht sofort komplett zurückgenommen wird.',
+          'Bar 4 gehört schon zu einem neuen Setup. Eine ii-Kompression bereitet den Versuch eines zweiten Aufwärtsbeins vor. Der Einstieg kommt damit nicht mehr direkt aus der ursprünglichen Trendwende, sondern aus einer Pause nach der ersten bullischen Bewegung.',
           'Bar 5 folgt auf einen Inside-Bar-Breakout-Pullback. Der Markt überschreitet die Kompression zunächst nur knapp, zieht zurück und startet erneut. Die Körper der beiden Pause-Bars liegen jeweils innerhalb ihrer Vorgänger und verhalten sich dadurch funktional ähnlich wie ein ii.',
-          'Die Fallstudie zeigt, warum ein Chart mehrere Setups nacheinander enthält. Bar 3 handelt die mögliche Umkehr; Bars 4 und 5 handeln spätere Fortsetzungsversuche. Obwohl alle Long sind, beruhen sie auf unterschiedlichen Informationen und besitzen andere Risiken.',
+          'Die Fallstudie zeigt, warum ein Chart mehrere Setups nacheinander enthält. Bar 3 handelt die mögliche Umkehr; Bars 4 und 5 handeln spätere Fortsetzungsversuche. Alle sind Longs, beruhen aber auf unterschiedlichen Informationen und bringen andere Risiken mit.',
         ],
         callout:
-          'Ein guter Trade besteht nicht nur aus dem Signal-Bar: Fill, Follow-through und spätere Folge-Setups erzählen die vollständige Marktgeschichte.',
+          'Ein guter Trade besteht nicht nur aus dem Signal-Bar: Fill, Follow-through und spätere Folge-Setups erzählen die ganze Marktgeschichte.',
       },
       {
         id: 'chapter-04-25-diagram',

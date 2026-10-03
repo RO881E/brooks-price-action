@@ -17,7 +17,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein Umkehrtag beginnt mit einer gerichteten Bewegung und entwickelt später einen Trend in die Gegenrichtung. Ein kurzer Rücksetzer allein genügt für diese Einordnung noch nicht.",
       "Links zeigt das Beispiel den frühen Käuferabschnitt. Rechts kommt eine Verkäuferfolge hinzu, die bis zum Ende des dargestellten Tages anhält. Die spätere Tagesform war am Morgen noch unbekannt.",
-      "Suche im laufenden Verlauf nach neuer Gegenwirkung statt nach einem nachträglich passenden Namen. Die spiegelbildliche Entwicklung beginnt bearish und endet mit Käuferkontrolle."
+      "Such im laufenden Verlauf nach neuer Gegenwirkung statt nach einem nachträglich passenden Namen. Die spiegelbildliche Entwicklung beginnt bärisch und endet mit Käuferkontrolle."
     ],
     "callout": "Frühe Richtung und spätere Kontrolle getrennt prüfen.",
     "takeaways": [
@@ -85,7 +85,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Große Gegenbars mit wenig Überlappung können mehr sein als Gewinnmitnahmen im alten Trend. Besonders wichtig ist, ob weitere Bars in der neuen Richtung Raum gewinnen.",
       "Das linke Panel zeigt den Beginn der Gegenbewegung, das rechte zusätzlichen Anschluss. Die neue Verkäuferkontrolle wird damit deutlicher, ohne dass der gesamte spätere Tag bereits feststeht.",
-      "Die Begründung stammt aus der Preisreaktion. Ein Nachrichtenname allein erklärt weder die Auslösung einer Order noch die Dauer des neuen Trends."
+      "Die Begründung kommt aus der Preisreaktion. Ein Nachrichtenname allein erklärt weder die Auslösung einer Order noch die Dauer des neuen Trends."
     ],
     "callout": "Gegenspike und Anschluss zusammen beurteilen.",
     "takeaways": [
@@ -117,9 +117,9 @@ const drafts: Draft[] = [
     "section": "Umkehrtage lesen",
     "scenario": "c24-04",
     "paragraphs": [
-      "Wenn ein neuer Trend schnell läuft, kann ein Einstieg nach einem kleinen Rücksetzer sinnvoller zu prüfen sein als das Warten auf eine große Korrektur. Er kann aber auch weit von einem tragfähigen Schutzbezug entfernt liegen.",
+      "Läuft ein neuer Trend schnell, ist ein Einstieg nach einem kleinen Rücksetzer womöglich sinnvoller als das Warten auf eine große Korrektur. Er kann aber auch weit von einem tragfähigen Schutzbezug entfernt liegen.",
       "Die Diagramme zeigen denselben neuen Verkäufertrend mit einem früheren und einem späteren Entry-Bezug. Ein größerer Stopabstand bedeutet bei gleichem Verlustbudget eine kleinere Positionsgröße.",
-      "Lege vor der Order fest, welcher Preis die Idee entkräftet und welches Ziel noch genug Raum bietet. Eine kleine geplante Position ist eine Entscheidung; blindes Hinterherlaufen ist kein eigener Auslöser."
+      "Leg vor der Order fest, welcher Preis die Idee entkräftet und welches Ziel noch genug Raum bietet. Eine kleine geplante Position ist eine Entscheidung; blindes Hinterherlaufen ist kein eigener Auslöser."
     ],
     "callout": "Schutzabstand, Größe und Reststrecke zusammen planen.",
     "takeaways": [
@@ -151,9 +151,9 @@ const drafts: Draft[] = [
     "section": "Umkehrtage lesen",
     "scenario": "c24-05",
     "paragraphs": [
-      "Nach einer frühen Verkäuferstrecke beginnt eine Käuferreaktion mit einem kräftigen Spike. Wenn ihre Rückgaben klein bleiben, kann die vermeintliche Bearflag immer weiter wachsen.",
+      "Nach einer frühen Verkäuferstrecke beginnt eine Käuferreaktion mit einem kräftigen Spike. Bleiben ihre Rückgaben klein, kann die vermeintliche Bearflag immer weiter wachsen.",
       "Links ist die erste Käuferreaktion noch eine offene Korrekturidee. Rechts bildet die Folge höhere Tiefs und steigt schließlich über den ursprünglichen Start des Abverkaufs.",
-      "Die Größe und Dauer der Gegenbewegung verlangen eine Neubewertung. Ein ursprünglicher Zweibein-Plan darf nicht dazu führen, immer neue Shorts gegen einen inzwischen steigenden Kanal zu eröffnen."
+      "Größe und Dauer der Gegenbewegung verlangen eine Neubewertung. Ein ursprünglicher Zweibein-Plan darf nicht dazu führen, immer neue Shorts gegen einen inzwischen steigenden Kanal zu eröffnen."
     ],
     "callout": "Die Korrekturhypothese am tatsächlichen Verlauf prüfen.",
     "takeaways": [
@@ -186,8 +186,8 @@ const drafts: Draft[] = [
     "scenario": "c24-06",
     "paragraphs": [
       "Ein früher Trend kann überzeugend aussehen und trotzdem enden. Wiederholt scheiternde Fortsetzungsversuche sind ein Anlass, die bisherige Annahme neu zu prüfen.",
-      "Die Panels zeigen einen letzten Käuferanlauf und seine Rücknahme mit neuen tieferen Schlusskursen. Entscheidend ist diese Preiswirkung; eine Verlustserie des eigenen Handels ist allein keine Marktdefinition.",
-      "Ein bestehender Schutz und ein neuer Gegenplan bleiben getrennt. Die Positionsumkehr wird nach eigenem Trigger und Größe beurteilt, statt jeden Ausstieg automatisch in die Gegenposition zu verwandeln."
+      "Die Panels zeigen einen letzten Käuferanlauf und seine Rücknahme mit neuen tieferen Schlusskursen. Entscheidend ist diese Preiswirkung; eine Verlustserie deines eigenen Handels ist allein keine Marktdefinition.",
+      "Ein bestehender Schutz und ein neuer Gegenplan bleiben getrennt. Die Positionsumkehr beurteilst du nach eigenem Trigger und eigener Größe, statt jeden Ausstieg automatisch in die Gegenposition zu verwandeln."
     ],
     "callout": "Neue Information vor der alten Erwartung gewichten.",
     "takeaways": [
@@ -220,10 +220,10 @@ const drafts: Draft[] = [
     "scenario": "c24-07",
     "paragraphs": [
       "Ein neuer Verkäuferkanal kann wiederholt an frühere Entry-Preise zurücklaufen. Ein sehr enger Stop kann dadurch getroffen werden, obwohl die größeren Rücklaufhochs bestehen bleiben.",
-      "Das Beispiel trennt Entry-Bezug und strukturelles Swinghoch. Nach einem gehaltenen tieferen Hoch und einem neuen Tief kann der Schutzbezug anhand der bestätigten Struktur geprüft werden.",
-      "Ein Swingplan und ein kurzer Gewinnplan haben unterschiedliche Anforderungen. Der ursprünglich akzeptierte Verlust darf nicht erst nach einem Rücklauf vergrößert werden, um den Trade doch noch zu halten."
+      "Das Beispiel trennt Entry-Bezug und strukturelles Swinghoch. Nach einem gehaltenen tieferen Hoch und einem neuen Tief kannst du den Schutzbezug anhand der bestätigten Struktur prüfen.",
+      "Ein Swingplan und ein kurzer Gewinnplan haben unterschiedliche Anforderungen. Den ursprünglich akzeptierten Verlust darfst du nicht erst nach einem Rücklauf vergrößern, um den Trade doch noch zu halten."
     ],
-    "callout": "Schutzführung aus dem vorher gewählten Plan ableiten.",
+    "callout": "Die Schutzführung aus dem vorher gewählten Plan ableiten.",
     "takeaways": [
       "Ein enger Stop kann eine intakte Trendidee früh beenden.",
       "Das Beispiel trennt Entry-Bezug und strukturelles Swinghoch.",
@@ -254,10 +254,10 @@ const drafts: Draft[] = [
     "scenario": "c24-08",
     "paragraphs": [
       "Eine kräftige Umkehr gegen Ende der Sitzung kann Kontext für den nächsten Tag liefern. Auch dann bleibt offen, ob der neue Handel tatsächlich Anschluss bietet.",
-      "Links endet ein Verkäuferabschnitt, rechts beginnt ausdrücklich eine neue Sitzung mit Rücklauf und erneuter Verkäuferwirkung. Diese zweite Folge wird erst nach ihrer Entstehung beurteilt.",
-      "Es wird keine aktuelle Mehrtages-Trefferquote behauptet. Prüfe neue Eröffnung, Gegenstrecke, Auslösung und Schutz; eine Tagesposition wird nicht allein wegen des gestrigen Etiketts eröffnet."
+      "Links endet ein Verkäuferabschnitt, rechts beginnt ausdrücklich eine neue Sitzung mit Rücklauf und erneuter Verkäuferwirkung. Diese zweite Folge beurteilst du erst nach ihrer Entstehung.",
+      "Eine aktuelle Mehrtages-Trefferquote wird nicht behauptet. Prüf neue Eröffnung, Gegenstrecke, Auslösung und Schutz; eine Tagesposition eröffnest du nicht allein wegen des gestrigen Etiketts."
     ],
-    "callout": "Vortagesstärke ist Kontext, keine automatische neue Order.",
+    "callout": "Die Vortagesstärke ist Kontext, keine automatische neue Order.",
     "takeaways": [
       "Die nächste Sitzung bleibt eine neue Prüfung.",
       "Links endet ein Verkäuferabschnitt, rechts beginnt ausdrücklich eine neue Sitzung mit Rücklauf und erneuter Verkäuferwirkung.",
@@ -287,9 +287,9 @@ const drafts: Draft[] = [
     "section": "Lernfall 1",
     "scenario": "c24-09",
     "paragraphs": [
-      "Der höhere Start wird zunächst von Käufern weitergetragen. Ein langer oberer Docht am ersten Bar zeigt aber, dass höhere Preise nicht widerspruchslos angenommen werden.",
+      "Den höheren Start tragen zunächst die Käufer weiter. Ein langer oberer Docht am ersten Bar zeigt aber, dass höhere Preise nicht widerspruchslos angenommen werden.",
       "Später folgt ein großer Verkäuferbar zurück in den Eröffnungsbereich. Er ist stärker als eine gewöhnliche kleine Pause und verändert den Kontext für einen erneuten Käuferplan.",
-      "Der erste Rücksetzer kann weiterhin ein Longsetup liefern. Wegen der ungewöhnlichen Gegenstrecke wird seine Ausdauer aber erst an der späteren Auslösung und Käuferfolge beurteilt."
+      "Der erste Rücksetzer kann weiterhin ein Longsetup liefern. Wegen der ungewöhnlichen Gegenstrecke beurteilst du seine Ausdauer aber erst an der späteren Auslösung und Käuferfolge."
     ],
     "callout": "Gegenwirkung nicht wegen früher Käuferbars ausblenden.",
     "takeaways": [
@@ -321,7 +321,7 @@ const drafts: Draft[] = [
     "section": "Lernfall 1",
     "scenario": "c24-10",
     "paragraphs": [
-      "Ein Rücklauf testet im Beispiel das frühe Tief. Danach entsteht eine kompakte Folge mit zwei Inside-Bars; ihr oberer Ausbruch wird als eigener Käuferplan geprüft.",
+      "Ein Rücklauf testet im Beispiel das frühe Tief. Danach entsteht eine kompakte Folge mit zwei Inside-Bars; ihren oberen Ausbruch prüfst du als eigenen Käuferplan.",
       "Die Öffnungsrange reicht von dreißig bis vierundvierzig. Ihre Höhe vierzehn beträgt bei der angenommenen Referenzbreite vierzig genau fünfunddreißig Prozent.",
       "Die Rechnung beschreibt nur Breite. Eine schon größere Eröffnungsrange und der vorherige Gegenspike geben Anlass, auch begrenzten Anschluss und spätere Rangeentwicklung einzuplanen."
     ],
@@ -357,7 +357,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nach der ersten kräftigen Verkäuferbewegung steigt der Kurs erneut und erreicht ein höheres Hoch. Große Käuferbars am Ende dieses Anstiegs wirken stark, schließen eine anschließende Erschöpfung aber nicht aus.",
       "Rechts werden der Hochversuch zurückgenommen und tiefere Schlusskurse sichtbar. Der neue Gegenplan hat damit anderen Kontext als ein Short allein gegen den ersten Morgenanstieg.",
-      "Ein Low-2-Ansatz braucht zwei erkennbare Verkäuferversuche mit einem dazwischenliegenden Rücklauf. Hier steht zunächst die veränderte Gegenwirkung im Vordergrund; die Auslösung darf nicht aus dem späteren Tief erfunden werden."
+      "Ein Low-2-Ansatz braucht zwei erkennbare Verkäuferversuche mit einem dazwischenliegenden Rücklauf. Hier steht zunächst die veränderte Gegenwirkung im Vordergrund; die Auslösung darfst du nicht aus dem späteren Tief erfinden."
     ],
     "callout": "Vorherige Gegenstärke und neue Rücknahme gemeinsam lesen.",
     "takeaways": [
@@ -458,7 +458,7 @@ const drafts: Draft[] = [
     "scenario": "c24-14",
     "paragraphs": [
       "Nach dem Verkäuferausbruch gibt es kleine Aufwärtsbewegungen. Ein enger Stop nahe dem Entry kann dabei getroffen werden, obwohl das bekannte größere Rücklaufhoch nicht erreicht wird.",
-      "Links wird der enge Bezug tatsächlich überschritten. Rechts folgt später ein neues Tief, wodurch ein tieferes Swinghoch als neuer struktureller Bezug geprüft werden kann.",
+      "Links wird der enge Bezug tatsächlich überschritten. Rechts folgt später ein neues Tief, wodurch du ein tieferes Swinghoch als neuen strukturellen Bezug prüfen kannst.",
       "Wer den engen Plan gewählt hatte, zählt seine tatsächliche Ausführung. Das spätere Tief macht den früheren Ausstieg nicht ungeschehen und rechtfertigt kein nachträgliches Umdeuten des Stops."
     ],
     "callout": "Ausführung und späteres Trendbild getrennt bilanzieren.",
@@ -491,9 +491,9 @@ const drafts: Draft[] = [
     "section": "Lernfall 1",
     "scenario": "c24-15",
     "paragraphs": [
-      "Der dargestellte Tagesweg beginnt mit einem Anstieg, verliert später Höhe und schließt nahe seinem Open. Die Tageshülle besitzt dadurch einen kleinen Körper und einen langen oberen Docht.",
+      "Der dargestellte Tagesweg beginnt mit einem Anstieg, verliert später Höhe und schließt nahe seinem Open. Die Tageshülle hat dadurch einen kleinen Körper und einen langen oberen Docht.",
       "Das rechte Panel ist exakt aus denselben Intraday-Bars aggregiert: erstes Open, höchstes Hoch, tiefstes Tief und letzter Schluss. Die Reihenfolge der Swings ist im Tagesbar nicht mehr sichtbar.",
-      "Ein möglicher bearisher Tagesplan braucht zusätzlich Lage im größeren Chart und eine spätere Auslösung. Die Tagesform allein sagt nicht, dass jeder Intraday-Long falsch war."
+      "Ein möglicher bärischer Tagesplan braucht zusätzlich die Lage im größeren Chart und eine spätere Auslösung. Die Tagesform allein sagt nicht, dass jeder Intraday-Long falsch war."
     ],
     "callout": "Verdichtung und Handelsentscheidung auf Tagesbasis unterscheiden.",
     "takeaways": [
@@ -597,7 +597,7 @@ const drafts: Draft[] = [
       "Im Beispiel liegen die festen Projektionsanker bei sechzig und fünfzig. Zehn Einheiten ab fünfzig nach unten ergeben vierzig; die spätere Verkäuferfolge unterschreitet diesen Bezug.",
       "Der Zielüberlauf bestätigt die tatsächlich entstandene Gegenstärke. Ein zusätzliches Abwärtsbein bleibt eine Möglichkeit, aber kein verpflichtender nächster Schritt nach jeder gescheiterten Wedge."
     ],
-    "callout": "Musterform an Ausbruch und Anschluss messen.",
+    "callout": "Die Musterform an Ausbruch und Anschluss messen.",
     "takeaways": [
       "Ein vermeintliches Fortsetzungsmuster kann nach unten ausbrechen.",
       "Im Beispiel liegen die festen Projektionsanker bei sechzig und fünfzig.",
@@ -629,7 +629,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Der Verkäuferkanal erreicht im Beispiel drei nacheinander tiefere Preisbereiche. Nach dem dritten Tief bildet sich eine Käuferreaktion.",
       "Eine kurze erste Erholung kann im Verhältnis zur langen vorherigen Bewegung klein bleiben. Ein formal gezählter Zweibeiner genügt dann noch nicht, um einen tragfähigen Kontrollwechsel festzustellen.",
-      "Bewerte Rückgaben, weitere Anläufe und gewonnene Höhe. Es wird kein starrer Mindestanteil der Barzahl als Naturgesetz gesetzt; die zeitliche Ausdehnung ist ein zusätzlicher Kontextbezug."
+      "Bewerte Rückgaben, weitere Anläufe und gewonnene Höhe. Einen starren Mindestanteil der Barzahl setzen wir nicht als Naturgesetz; die zeitliche Ausdehnung ist ein zusätzlicher Kontextbezug."
     ],
     "callout": "Form, Dauer und Strecke der Erholung gemeinsam lesen.",
     "takeaways": [
@@ -697,7 +697,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Die Käufererholung enthält viele kleine Rückgaben, aber kein ausgeprägtes neues Verkäuferbein. Der erwartete tiefe Rücklauf zur Bearflag bleibt aus.",
       "Die längere Folge rechts zeigt höhere Tiefs und weiter steigende Preise. Das Fehlen eines klaren Rücksetzers macht die Zweibein-Zählung weniger eindeutig, kann aber zugleich wenig Verkäuferwirkung anzeigen.",
-      "Daraus folgt kein Kauf ohne begrenztes Risiko. Passe die alte Verkäuferannahme an die tatsächliche Struktur an und prüfe neue Käuferpausen als eigene Setups."
+      "Daraus folgt kein Kauf ohne begrenztes Risiko. Pass die alte Verkäuferannahme an die tatsächliche Struktur an und prüf neue Käuferpausen als eigene Setups."
     ],
     "callout": "Ausbleibende Gegenwirkung als Information verwenden.",
     "takeaways": [
@@ -731,7 +731,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nach dem steigenden Kanal beschleunigt der Markt in mehreren Käuferbars. Der Ausbruch erreicht den früheren oberen Preisbereich und hält im Beispiel bis zum Schluss.",
       "Die Panels trennen den Kanal vor der Beschleunigung und die spätere Strecke. Ein mögliches Ziel aus einem früheren Käuferbein bleibt eine getrennte Rechnung, deren Anker vor dem Besuch feststehen müssen.",
-      "Der Tag kann zugleich als Umkehrtag, als Rangeübergang und als Spike-and-Channel-Verlauf beschrieben werden. Der gewählte Name ersetzt keine tatsächliche Orderausführung."
+      "Den Tag kannst du zugleich als Umkehrtag, als Rangeübergang und als Spike-and-Channel-Verlauf beschreiben. Der gewählte Name ersetzt keine tatsächliche Orderausführung."
     ],
     "callout": "Neuen Anschluss vor das passende Tagesetikett stellen.",
     "takeaways": [
@@ -797,7 +797,7 @@ const drafts: Draft[] = [
     "section": "Lernfall 3",
     "scenario": "c24-24",
     "paragraphs": [
-      "Der längere Vergleich zeigt auf beiden Zeitfenstern einen späteren Gegenbar innerhalb der Käuferbewegung. Sein Schluss liegt jeweils unter dem Open, dennoch wird ein Käuferplan über seinem Hoch geprüft.",
+      "Der längere Vergleich zeigt auf beiden Zeitfenstern einen späteren Gegenbar innerhalb der Käuferbewegung. Sein Schluss liegt jeweils unter dem Open, dennoch prüfst du einen Käuferplan über seinem Hoch.",
       "In beiden Panels liegt das Signalhoch bei einundsechzig Komma vier. Der geplante Trigger zweiundsechzig wird erst nach Abschluss beider Signalbars im nächsten Aufwärtsabschnitt erreicht.",
       "Die Signalbars schließen wegen der verschiedenen Zeitgrenzen nicht gleichzeitig. Ein realer Plan muss zum ausgewählten Zeitfenster passen; die gemeinsame Preisreferenz macht die beiden Entscheidungszeitpunkte nicht identisch."
     ],

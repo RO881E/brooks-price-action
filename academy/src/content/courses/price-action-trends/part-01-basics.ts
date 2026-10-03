@@ -5,7 +5,7 @@ export const partOneBasicLessons = [
     id: 'price-action-trends.part-01.lesson-01',
     title: 'Price Action beginnt beim kleinsten Schritt',
     summary:
-      'Was mit Price Action und Tick gemeint ist und warum auch kleine Veränderungen Information tragen.',
+      'Was mit Price Action und Tick gemeint ist – und warum schon kleine Veränderungen etwas verraten.',
     durationMinutes: 9,
     xp: 30,
     sourceUnit: 'Teil I · Price Action',
@@ -22,13 +22,13 @@ export const partOneBasicLessons = [
         eyebrow: 'Grundbegriff',
         title: 'Jede Preisänderung gehört zur Price Action',
         paragraphs: [
-          'Price Action umfasst jede beobachtbare Veränderung des Preises – unabhängig davon, ob du einen Tick-Chart, einen Fünf-Minuten-Chart oder einen Monatschart betrachtest. Der Begriff bezeichnet damit nicht nur auffällige Formationen. Auch ein unscheinbarer einzelner Preisschritt ist Teil derselben laufenden Auktion.',
-          'Das Wort Tick wird in zwei Bedeutungen verwendet. Erstens ist ein Tick die kleinste zulässige Preisänderung eines Marktes. Beim ES entspricht sie beispielsweise 0,25 Indexpunkten. Zweitens kann Tick einen einzelnen ausgeführten Handel im Datenstrom bezeichnen, selbst wenn dessen Preis identisch mit dem vorherigen Handel ist.',
-          'Die breite Definition zwingt dich nicht dazu, jede minimale Bewegung zu handeln. Sie verhindert nur, dass du Information als bedeutungslos abhakst, bevor du ihren Kontext geprüft hast. Eine winzige Überschreitung eines markanten Hochs kann belanglos sein – oder als sofort gescheiterter Ausbruch eine wichtige Aussage liefern.',
-          'Price Action ist deshalb zunächst eine Beobachtungssprache. Erst Ort, Sequenz, Zeitebene und Folgebewegung verwandeln eine Preisänderung in eine mögliche Handelsentscheidung.',
+          'Price Action umfasst jede beobachtbare Veränderung des Preises – egal, ob du einen Tick-Chart, einen Fünf-Minuten-Chart oder einen Monatschart ansiehst. Gemeint sind also nicht nur auffällige Formationen. Auch ein unscheinbarer einzelner Preisschritt gehört zur selben laufenden Auktion.',
+          'Das Wort Tick hat zwei Bedeutungen. Erstens ist ein Tick die kleinste erlaubte Preisänderung eines Marktes; beim ES sind das zum Beispiel 0,25 Indexpunkte. Zweitens kann Tick einen einzelnen ausgeführten Handel im Datenstrom meinen – auch dann, wenn dessen Preis genauso hoch ist wie der des Handels davor.',
+          'Die weite Definition zwingt dich nicht, jede kleinste Bewegung zu handeln. Sie sorgt nur dafür, dass du eine Info nicht vorschnell als bedeutungslos abhakst, bevor du ihren Kontext geprüft hast. Eine winzige Überschreitung eines markanten Hochs kann belanglos sein – oder als sofort gescheiterter Ausbruch etwas Wichtiges sagen.',
+          'Price Action ist deshalb zuerst eine Beobachtungssprache. Erst Ort, Abfolge, Zeitebene und Folgebewegung machen aus einer Preisänderung eine mögliche Handelsentscheidung.',
         ],
         callout:
-          'Klein bedeutet nicht automatisch unwichtig. Die Bedeutung entsteht aus dem Verhältnis zum aktuellen Kontext.',
+          'Klein heißt nicht automatisch unwichtig. Die Bedeutung ergibt sich aus dem Verhältnis zum aktuellen Kontext.',
       },
       {
         id: 'part-01-01-diagram',
@@ -105,13 +105,13 @@ export const partOneBasicLessons = [
         eyebrow: 'Marktdynamik',
         title: 'Dieselbe Bewegung entsteht aus verschiedenen Aufträgen',
         paragraphs: [
-          'Jeder abgeschlossene Bar kann von verschiedenen Marktteilnehmern gegensätzlich gelesen werden. Ein Trader erkennt eine bullische Fortsetzung, ein anderer eine überdehnte Bewegung und sucht einen Short. Beide können gute Gründe haben, doch nur der weitere Verlauf zeigt, welche Seite zunächst Recht bekommt.',
-          'Fällt der Preis gegen bestehende Käufer, verändert sich ihre Rolle. Einige halten, andere kaufen nach, wieder andere schließen ihre Long-Position. Dieses Schließen geschieht durch einen Verkauf und verstärkt damit genau die Abwärtsbewegung, die den Verlust ausgelöst hat. Zu den Verkäufen der ausgestoppten Longs kommen neue Short-Einstiege hinzu.',
-          'Später kann sich derselbe Mechanismus umkehren. Short-Trader nehmen Gewinne mit und müssen dafür kaufen. Verlierende Shorts decken sich ebenfalls durch Käufe ein, während neue Longs hinzukommen. Eine Bewegung wird daher selten nur durch eine einzige Gruppe getragen.',
-          'Für das Chartlesen ist entscheidend, wann diese Rollenwechsel sichtbar werden: Verliert eine Seite ein wichtiges Niveau, kann ihre notwendige Positionsauflösung zusätzlichen Schub für die Gegenseite erzeugen.',
+          'Jeder abgeschlossene Bar kann von verschiedenen Marktteilnehmern gegensätzlich gelesen werden. Der eine sieht eine bullische Fortsetzung, der andere eine überdehnte Bewegung und sucht einen Short. Beide können gute Gründe haben – nur der weitere Verlauf zeigt, wer zunächst recht bekommt.',
+          'Fällt der Preis gegen bestehende Käufer, ändert sich deren Rolle. Ein paar halten, andere kaufen nach, wieder andere schließen ihre Long-Position. Dieses Schließen läuft über einen Verkauf und verstärkt damit genau die Abwärtsbewegung, die den Verlust ausgelöst hat. Zu den Verkäufen der ausgestoppten Longs kommen neue Short-Einstiege dazu.',
+          'Später kann sich derselbe Mechanismus umdrehen. Short-Trader nehmen Gewinne mit und müssen dafür kaufen. Auch verlierende Shorts decken sich durch Käufe ein, und neue Longs kommen dazu. Eine Bewegung wird deshalb selten von nur einer einzigen Gruppe getragen.',
+          'Fürs Chartlesen ist wichtig, wann diese Rollenwechsel sichtbar werden: Verliert eine Seite ein wichtiges Niveau, kann ihre nötige Positionsauflösung der Gegenseite zusätzlichen Schub geben.',
         ],
         callout:
-          'Ein ausgestoppter Käufer wird durch seine Exit-Order zum Verkäufer; ein ausgestoppter Short wird zum Käufer.',
+          'Ein ausgestoppter Käufer wird mit seiner Exit-Order zum Verkäufer; ein ausgestoppter Short wird zum Käufer.',
       },
       {
         id: 'part-01-02-diagram',
@@ -172,7 +172,7 @@ export const partOneBasicLessons = [
     id: 'price-action-trends.part-01.lesson-03',
     title: 'Die wichtigste Entscheidung: Trend oder Range?',
     summary:
-      'Warum das Marktregime bestimmt, ob Fortsetzung oder Gegenbewegung die passendere Grundidee ist.',
+      'Warum das Marktregime entscheidet, ob Fortsetzung oder Gegenbewegung die bessere Grundidee ist.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Teil I · Price Action',
@@ -189,13 +189,13 @@ export const partOneBasicLessons = [
         eyebrow: 'Regime',
         title: 'Dieselbe Preiszone verlangt je nach Regime eine andere Reaktion',
         paragraphs: [
-          'Die wiederkehrende Kernfrage lautet: Bewegt sich der Markt gerichtet oder handelt er zweiseitig? Schon ein einzelner Bar kann wie ein kleiner Trend wirken, wenn er nahe einem Ende eröffnet und nahe dem anderen schließt. Ein Bar mit kleinem Körper und deutlichen Tails ähnelt dagegen einer winzigen Trading Range.',
-          'Über mehrere Bars wird die Unterscheidung noch wichtiger. In einem klaren Aufwärtstrend kann ein Kauf nahe dem Hoch sinnvoll sein, weil Fortsetzung wahrscheinlicher bleibt. In einer Range ist derselbe Kauf häufig schlecht platziert: Dort wird die Oberkante eher verkauft und die Unterkante eher gekauft.',
-          'Dreiecke, Kopf-Schulter-Formationen und viele andere benannte Muster sind während ihrer Ausbildung vor allem Ranges. Der Name mag die Form beschreiben, aber für die unmittelbare Handelslogik zählt zuerst, dass beide Seiten wiederholt Erfolge haben und ein nachhaltiger Ausbruch noch fehlt.',
-          'Ein Trend kann auf einer betrachteten Ebene nur einen Bar dauern oder sich über einen ganzen Handelstag erstrecken. Die Einordnung ist daher immer an deinen Arbeitszeitrahmen gebunden.',
+          'Die Kernfrage kehrt immer wieder: Bewegt sich der Markt gerichtet, oder wird zweiseitig gehandelt? Schon ein einzelner Bar kann wie ein kleiner Trend wirken, wenn er nahe am einen Ende eröffnet und nahe am anderen schließt. Ein Bar mit kleinem Körper und deutlichen Tails sieht dagegen aus wie eine winzige Trading Range.',
+          'Über mehrere Bars wird die Unterscheidung noch wichtiger. In einem klaren Aufwärtstrend kann ein Kauf nahe am Hoch sinnvoll sein, weil die Fortsetzung wahrscheinlicher bleibt. In einer Range ist derselbe Kauf oft schlecht platziert: Dort wird eher am oberen Rand verkauft und am unteren gekauft.',
+          'Dreiecke, Kopf-Schulter-Formationen und viele andere benannte Muster sind, solange sie entstehen, vor allem Ranges. Der Name beschreibt vielleicht die Form. Für die Handelslogik zählt aber zuerst, dass beide Seiten immer wieder Erfolge haben und ein nachhaltiger Ausbruch noch fehlt.',
+          'Ein Trend kann auf der betrachteten Ebene nur einen Bar dauern oder einen ganzen Handelstag. Wie du ihn einordnest, hängt also immer von deinem Arbeitszeitrahmen ab.',
         ],
         callout:
-          'Trendlogik kauft oder verkauft Fortsetzung. Range-Logik handelt gegen die letzte Bewegung – besonders nahe den Rändern.',
+          'Trendlogik kauft oder verkauft die Fortsetzung. Range-Logik handelt gegen die letzte Bewegung – besonders nahe an den Rändern.',
       },
       {
         id: 'part-01-03-diagram',
@@ -282,7 +282,7 @@ export const partOneBasicLessons = [
     id: 'price-action-trends.part-01.lesson-04',
     title: 'Der Vorteil lebt in einer grauen Zone',
     summary:
-      'Warum Balance häufig ist, gute Chancen nur zeitweise entstehen und Wahrscheinlichkeit nie Gewissheit bedeutet.',
+      'Warum Balance der Normalfall ist, gute Chancen nur zeitweise entstehen und Wahrscheinlichkeit nie Gewissheit heißt.',
     durationMinutes: 13,
     xp: 40,
     sourceUnit: 'Teil I · Price Action',
@@ -299,13 +299,13 @@ export const partOneBasicLessons = [
         eyebrow: 'Wahrscheinlichkeit',
         title: 'Ein handelbarer Vorteil ist meistens klein und vorübergehend',
         paragraphs: [
-          'In einem liquiden, ausgeglichenen Markt liegt die Chance für zwei symmetrische Ergebnisse häufig nahe beieinander: Wird zuerst ein gleich weit entferntes Ziel oder ein gleich weit entfernter Stop erreicht? Ohne zusätzlichen Kontext besitzt weder Long noch Short automatisch einen großen Vorteil.',
-          'Gute Setups entstehen, wenn neue Evidenz dieses Gleichgewicht verschiebt. Ein starker Ausbruch, mehrere Trendbars und geringer Rücklauf können die Fortsetzung deutlich wahrscheinlicher machen. Solche Situationen lassen sich oft als ungefähr 60 zu 40 beschreiben; in einer seltenen starken Spike-Phase kann der Vorteil kurzfristig noch größer sein.',
-          'Diese Zahlen sind ein Denkmodell und keine für jeden Markt universell bewiesenen Konstanten. Ihre praktische Funktion ist klar: Du brauchst keine Sicherheit. Du brauchst eine wiederholbare Situation, in der Wahrscheinlichkeit, möglicher Gewinn und Risiko zusammen einen positiven Erwartungswert ergeben.',
-          'Wörter wie wahrscheinlich, meistens oder häufig sind deshalb keine Schwäche. Sie sind präziser als Versprechen. Auch das beste Setup enthält eine reale Gegenwahrscheinlichkeit und verlangt einen Plan für den Fall, dass genau diese eintritt.',
+          'In einem liquiden, ausgeglichenen Markt liegen die Chancen für zwei symmetrische Ergebnisse oft dicht beieinander: Wird zuerst ein gleich weit entferntes Ziel oder ein gleich weit entfernter Stop erreicht? Ohne zusätzlichen Kontext hat weder Long noch Short automatisch einen großen Vorteil.',
+          'Gute Setups entstehen, wenn neue Hinweise dieses Gleichgewicht verschieben. Ein starker Ausbruch, mehrere Trendbars und wenig Rücklauf können die Fortsetzung deutlich wahrscheinlicher machen. Man beschreibt solche Situationen oft mit ungefähr 60 zu 40; in einer seltenen, starken Spike-Phase kann der Vorteil kurzfristig sogar größer sein.',
+          'Diese Zahlen sind ein Denkmodell und keine Konstanten, die für jeden Markt bewiesen wären. Ihr praktischer Nutzen ist klar: Du brauchst keine Sicherheit. Du brauchst eine wiederholbare Situation, in der Wahrscheinlichkeit, möglicher Gewinn und Risiko zusammen einen positiven Erwartungswert ergeben.',
+          'Wörter wie wahrscheinlich, meistens oder häufig sind deshalb keine Schwäche. Sie sind ehrlicher als Versprechen. Auch das beste Setup hat eine echte Gegenwahrscheinlichkeit und braucht einen Plan für den Fall, dass genau die eintritt.',
         ],
         callout:
-          'Ein Vorteil sagt nicht, was dieser einzelne Trade tun muss. Er beschreibt, was über viele vergleichbare Entscheidungen günstiger sein sollte.',
+          'Ein Vorteil sagt nicht, was dieser eine Trade tun muss. Er beschreibt, was über viele vergleichbare Entscheidungen günstiger sein sollte.',
       },
       {
         id: 'part-01-04-diagram',
@@ -365,7 +365,7 @@ export const partOneBasicLessons = [
     id: 'price-action-trends.part-01.lesson-05',
     title: 'Nach vorn lesen statt den letzten Trade verteidigen',
     summary:
-      'Warum neue Information wichtiger ist als dein Tagesergebnis und ein Tick je nach Zeitebene anders wiegt.',
+      'Warum neue Infos wichtiger sind als dein Tagesergebnis und ein Tick je nach Zeitebene unterschiedlich viel wiegt.',
     durationMinutes: 10,
     xp: 35,
     sourceUnit: 'Teil I · Price Action',
@@ -382,13 +382,13 @@ export const partOneBasicLessons = [
         eyebrow: 'Neubewertung',
         title: 'Der nächste Tick kennt deinen letzten Verlust nicht',
         paragraphs: [
-          'Eine Markteinschätzung kann sich ändern, obwohl sich der Preis kaum bewegt. Vielleicht erkennst du erst jetzt eine nahe Trendlinie, einen höheren Zeitrahmen oder eine Struktur, die deiner ersten Lesart widerspricht. Die neue Information gehört sofort in die Analyse – auch wenn sie deine bisherige Meinung unbequem macht.',
-          'Dein Gewinn oder Verlust des Tages verändert die Wahrscheinlichkeiten des nächsten Bars nicht. Wer nach einem Verlust unbedingt Recht behalten oder Geld zurückholen will, liest nicht mehr den Chart, sondern die eigene Kontokurve. Die operative Frage lautet immer: Welche bullische und bärische Evidenz liegt jetzt vor?',
-          'Auch die Bedeutung eines einzelnen Ticks ist relativ. Auf einem Monatschart verschwindet er meist im Rauschen. Wenn ein durchschnittlicher Ein-Minuten-Bar aber nur wenige Ticks groß ist, kann derselbe Schritt einen erheblichen Anteil der aktuellen Struktur ausmachen.',
-          'Das Ziel ist keine hektische Meinungsänderung nach jeder Bewegung. Du aktualisierst nur dann, wenn neue Information deine vorher definierten Bedingungen bestätigt, schwächt oder ungültig macht.',
+          'Deine Markteinschätzung kann sich ändern, obwohl sich der Preis kaum bewegt. Vielleicht siehst du erst jetzt eine nahe Trendlinie, einen höheren Zeitrahmen oder eine Struktur, die deiner ersten Lesart widerspricht. Die neue Info gehört sofort in die Analyse – auch wenn sie deine bisherige Meinung unbequem macht.',
+          'Dein Gewinn oder Verlust des Tages ändert nichts an den Wahrscheinlichkeiten des nächsten Bars. Wer nach einem Verlust unbedingt recht behalten oder das Geld zurückholen will, liest nicht mehr den Chart, sondern die eigene Kontokurve. Die Frage in der Praxis lautet immer: Welche bullische und welche bärische Evidenz liegt jetzt vor?',
+          'Auch die Bedeutung eines einzelnen Ticks ist relativ. Auf einem Monatschart geht er meist im Rauschen unter. Ist ein durchschnittlicher Ein-Minuten-Bar aber nur wenige Ticks groß, kann derselbe Schritt einen erheblichen Teil der aktuellen Struktur ausmachen.',
+          'Du sollst deine Meinung nicht nach jeder Bewegung hektisch ändern. Aktualisiere nur dann, wenn neue Infos deine vorher festgelegten Bedingungen bestätigen, schwächen oder ungültig machen.',
         ],
         callout:
-          'Dein Trade ist Vergangenheit. Die nächste Entscheidung wird ausschließlich aus dem aktuellen Zustand abgeleitet.',
+          'Dein Trade ist Vergangenheit. Die nächste Entscheidung leitest du allein aus dem aktuellen Zustand ab.',
       },
       {
         id: 'part-01-05-diagram',
@@ -448,7 +448,7 @@ export const partOneBasicLessons = [
     id: 'price-action-trends.part-01.lesson-06',
     title: 'Der Ausbruch wird erst danach beurteilt',
     summary:
-      'Wie Folge-Bars zwischen Preisakzeptanz und einem schnell scheiternden Ausbruch unterscheiden.',
+      'Woran du an den Folge-Bars erkennst, ob der Preis akzeptiert wird oder ein Ausbruch schnell scheitert.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Teil I · Price Action',
@@ -465,13 +465,13 @@ export const partOneBasicLessons = [
         eyebrow: 'Follow-through',
         title: 'Nicht der Grenzübertritt, sondern die Reaktion entscheidet',
         paragraphs: [
-          'Ein Preis oberhalb eines alten Hochs beweist zunächst nur, dass dort gehandelt wurde. Ob der Markt das höhere Niveau akzeptiert, zeigt sich erst in den folgenden Bars. Bleiben deren Tiefs höher und entstehen weitere höhere Hochs, behalten Käufer die Kontrolle trotz möglicher kleiner Pullbacks.',
-          'Ein anderer Verlauf warnt früh vor einem Fehlausbruch: Auf einen großen bullischen Ausbruchsbar folgt nur ein kleiner Inside-Bar, danach fällt der Markt unter dessen Tief. Der Ausbruch hat dann keine neue Aufwärtsstruktur aufgebaut; Käufer oberhalb der Grenze können gefangen sein.',
-          'Das Prinzip gilt spiegelbildlich für bärische Ausbrüche. Ein Bruch braucht Anschluss, Distanz oder einen bestandenen Test. Ohne diese Bestätigung bleibt die alte Range weiterhin das stärkere Arbeitsmodell.',
-          'Du musst deshalb nicht jeden Ausbruch vorwegnehmen. Häufig ist es wertvoller, einen Teil der Bewegung zu verpassen und dafür zu sehen, ob die Gegenseite nach dem Grenzbruch noch wirksam zurückschlagen kann.',
+          'Ein Preis über einem alten Hoch beweist erst einmal nur, dass dort gehandelt wurde. Ob der Markt das höhere Niveau akzeptiert, zeigt sich in den folgenden Bars. Bleiben deren Tiefs höher und kommen weitere höhere Hochs, haben die Käufer trotz möglicher kleiner Pullbacks die Kontrolle.',
+          'Ein anderer Verlauf warnt früh vor einem Fehlausbruch: Auf einen großen bullischen Ausbruchsbar folgt nur ein kleiner Inside-Bar, danach fällt der Markt unter dessen Tief. Der Ausbruch hat dann keine neue Aufwärtsstruktur aufgebaut, und Käufer oberhalb der Grenze können in der Falle sitzen.',
+          'Das Prinzip gilt spiegelbildlich für bärische Ausbrüche. Ein Bruch braucht Anschluss, Distanz oder einen bestandenen Test. Ohne diese Bestätigung bleibt die alte Range das stärkere Arbeitsmodell.',
+          'Du musst deshalb nicht jeden Ausbruch vorwegnehmen. Oft ist es klüger, einen Teil der Bewegung zu verpassen und dafür zu sehen, ob die Gegenseite nach dem Grenzbruch noch wirksam zurückschlagen kann.',
         ],
         callout:
-          'Ein Ausbruch ist ein Ereignis. Erst Follow-through und Test entscheiden, ob daraus ein neues Regime entsteht.',
+          'Ein Ausbruch ist ein Ereignis. Erst Follow-through und Test zeigen, ob daraus ein neues Regime wird.',
       },
       {
         id: 'part-01-06-diagram',

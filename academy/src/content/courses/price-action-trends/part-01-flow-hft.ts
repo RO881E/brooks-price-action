@@ -5,7 +5,7 @@ export const partOneFlowAndHftLessons = [
     id: 'price-action-trends.part-01.lesson-13',
     title: 'Warum große Käufer auch am Hoch weiterkaufen',
     summary:
-      'Wie institutionelle Ausführung, Momentumprogramme und Serienlogik gerichtete Bewegungen aufrechterhalten.',
+      'Wie institutionelle Ausführung, Momentumprogramme und Serienlogik gerichtete Bewegungen am Laufen halten.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Teil I · Price Action',
@@ -22,13 +22,13 @@ export const partOneFlowAndHftLessons = [
         eyebrow: 'Institutionelle Ausführung',
         title: 'Ein großer Auftrag ist kein einzelner Klick',
         paragraphs: [
-          'Ein Fonds, der eine große Position aufbauen muss, kann seine gesamte Menge selten zu einem einzigen Preis kaufen. Er teilt den Auftrag in viele kleinere Ausführungen. Steigt der Markt währenddessen weiter, muss er entscheiden: auf einen Rücklauf hoffen oder höhere Preise akzeptieren, damit das gewünschte Volumen überhaupt gefüllt wird.',
-          'Andere Programme kaufen gezielt, solange Momentum und statistische Bedingungen bestehen. Sie hören nicht auf, nur weil der Kurs bereits gestiegen ist. Der Trend endet erst, wenn genügend Systeme ihr Ziel erreicht haben, die Bedingungen nicht mehr gelten oder Gegenseite an wichtigen Zonen stark genug wird.',
-          'Darum kann ein professionelles System sogar den höchsten Tick einer Bewegung kaufen. Dieser letzte Kauf verliert möglicherweise. Das macht das System nicht unprofitabel, wenn die vielen vorherigen Käufe der Serie ausreichend verdient haben. Professionelle Logik bewertet Verteilungen statt perfekte Einzeltreffer.',
-          'Für den kleineren Trader bedeutet das nicht, jedem Trend hinterherzuspringen. Es erklärt, warum „schon hoch“ allein kein Short-Signal ist und warum Pullbacks in starken Trends kleiner ausfallen können als erwartet.',
+          'Ein Fonds, der eine große Position aufbauen muss, kauft die ganze Menge selten zu einem einzigen Preis. Er teilt den Auftrag in viele kleine Ausführungen. Steigt der Markt währenddessen weiter, muss er sich entscheiden: auf einen Rücklauf hoffen oder höhere Preise akzeptieren, damit das gewünschte Volumen überhaupt zusammenkommt.',
+          'Andere Programme kaufen gezielt, solange Momentum und statistische Bedingungen passen. Dass der Kurs schon gestiegen ist, hält sie nicht auf. Der Trend endet erst, wenn genug Systeme ihr Ziel erreicht haben, die Bedingungen nicht mehr gelten oder die Gegenseite an wichtigen Zonen stark genug wird.',
+          'Deshalb kann ein professionelles System sogar den höchsten Tick einer Bewegung kaufen. Dieser letzte Kauf verliert vielleicht. Das macht das System nicht unprofitabel, wenn die vielen Käufe davor in der Serie genug verdient haben. Profis denken in Verteilungen, nicht in perfekten Einzeltreffern.',
+          'Für den kleineren Trader heißt das nicht, jedem Trend hinterherzulaufen. Es erklärt, warum „schon hoch“ allein kein Short-Signal ist und warum Pullbacks in starken Trends kleiner ausfallen können, als du erwartest.',
         ],
         callout:
-          'Ein hoher Preis ist keine eigenständige Umkehrbedingung. Erst sichtbarer Kontrollverlust verändert die Trendlogik.',
+          'Ein hoher Preis ist keine eigenständige Umkehrbedingung. Erst sichtbarer Kontrollverlust ändert die Trendlogik.',
       },
       {
         id: 'part-01-13-diagram',
@@ -89,7 +89,7 @@ export const partOneFlowAndHftLessons = [
     id: 'price-action-trends.part-01.lesson-14',
     title: 'Scalp oder Swing: Die Mathematik muss passen',
     summary:
-      'Wie Trefferquote, Stop, Ziel und Handelsstil gemeinsam den Erwartungswert bestimmen.',
+      'Wie Trefferquote, Stop, Ziel und Handelsstil zusammen den Erwartungswert bestimmen.',
     durationMinutes: 13,
     xp: 45,
     sourceUnit: 'Teil I · Price Action',
@@ -106,10 +106,10 @@ export const partOneFlowAndHftLessons = [
         eyebrow: 'Trade-Mathematik',
         title: 'Trefferquote allein sagt fast nichts',
         paragraphs: [
-          'Ein Scalper mit einem größeren durchschnittlichen Verlust als Gewinn benötigt eine sehr hohe Trefferquote. Gewinnt er beispielsweise häufig einen kleinen Betrag, verliert aber gelegentlich deutlich mehr, können wenige Fehltrades viele Erfolge auslöschen. Kosten und Slippage erhöhen die notwendige Quote zusätzlich.',
-          'Für die meisten Trader gilt: Den Stop wählt man nicht routinemäßig größer als das Ziel. Ein Setup mit mindestens ähnlich großem Gewinnpotenzial wie Risiko wird interessant, wenn zugleich ein belastbarer Wahrscheinlichkeitsvorteil besteht. Die konkreten Schwellenwerte sind Lernmodelle und müssen mit realen Daten des eigenen Setups geprüft werden.',
-          'Anfänger können von Swing-Ideen profitieren, bei denen der mögliche Gewinn etwa doppelt so groß wie das anfängliche Risiko ist. Die Trefferquote darf dann niedriger sein, solange Auswahl, Ausführung und Kosten den positiven Erwartungswert erhalten. Solche Chancen treten seltener auf und verlangen Geduld.',
-          'Starke Breakouts können zugleich eine erhöhte Fortsetzungswahrscheinlichkeit und großen Gewinnraum bieten. Sie sind psychologisch schwierig, weil Analysezeit knapp, Bars groß und Stops nominell weiter sind. Positionsgröße muss deshalb an das strukturelle Risiko angepasst werden.',
+          'Ein Scalper, dessen durchschnittlicher Verlust größer ist als sein durchschnittlicher Gewinn, braucht eine sehr hohe Trefferquote. Gewinnt er zum Beispiel oft einen kleinen Betrag, verliert aber gelegentlich deutlich mehr, können wenige Fehltrades viele Erfolge auslöschen. Kosten und Slippage erhöhen die nötige Quote zusätzlich.',
+          'Für die meisten Trader gilt: Den Stop wählt man nicht routinemäßig größer als das Ziel. Ein Setup mit mindestens ähnlich großem Gewinnpotenzial wie Risiko wird interessant, sobald zugleich ein belastbarer Wahrscheinlichkeitsvorteil dazukommt. Die konkreten Schwellenwerte sind Lernmodelle – prüfe sie mit echten Daten deines eigenen Setups.',
+          'Anfänger können von Swing-Ideen profitieren, bei denen der mögliche Gewinn etwa doppelt so groß ist wie das anfängliche Risiko. Die Trefferquote darf dann niedriger sein, solange Auswahl, Ausführung und Kosten den positiven Erwartungswert halten. Solche Chancen sind seltener und verlangen Geduld.',
+          'Starke Breakouts können eine höhere Fortsetzungswahrscheinlichkeit und viel Gewinnraum bieten. Psychologisch sind sie schwierig: Die Zeit zum Analysieren ist knapp, die Bars sind groß, und die Stops sind in Zahlen weiter weg. Pass deshalb die Positionsgröße an das strukturelle Risiko an.',
         ],
         callout:
           'Ein guter Trade ist keine hohe Trefferquote. Er ist eine tragfähige Kombination aus Wahrscheinlichkeit, Gewinn, Verlust und Kosten.',
@@ -173,7 +173,7 @@ export const partOneFlowAndHftLessons = [
     id: 'price-action-trends.part-01.lesson-15',
     title: 'Offensichtliche Stops und verteidigte Einstiege',
     summary:
-      'Wie Tests eines Entry-Bars und das Scheitern eines High 2 die Markterwartung verändern können.',
+      'Wie Tests eines Entry-Bars und das Scheitern eines High 2 die Erwartung des Marktes verändern können.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Teil I · Price Action',
@@ -190,13 +190,13 @@ export const partOneFlowAndHftLessons = [
         eyebrow: 'Preisverteidigung',
         title: 'Ein Test ist erst durch seine Reaktion informativ',
         paragraphs: [
-          'Nach einem Long-Einstieg liegt ein offensichtlicher Schutzstop häufig knapp unter einem markanten Tief oder unter dem Entry-Bar. Fällt ein Pullback genau bis an dieses Niveau und dreht, ohne die Stops auszulösen, zeigt die Reaktion reale Kaufbereitschaft an einer gut sichtbaren Stelle.',
-          'Das bedeutet nicht, dass eine einzelne Institution persönlich deinen Stop verteidigt. Viele unabhängige Trader und Systeme erkennen denselben Referenzpreis. Ihre gebündelten Käufe können das Niveau halten, solange die bullische These noch plausibel ist.',
-          'Ein High 2 entsteht vereinfacht nach einem zweiten Abwärtsbein innerhalb eines bullischen Kontextes, wenn der Markt wieder über das Hoch des vorherigen Bars steigt. Scheitert dieser Einstieg und fällt der Kurs unter das Tief des gesamten zweibeinigen Pullbacks, kippt die Information: Ein weiteres Abwärtsbein wird wahrscheinlicher.',
-          'Die praktische Lektion lautet nicht „jeder sichtbare Stop hält“. Beobachte stattdessen, ob der Markt vor dem Niveau reagiert, es nur testet oder mit Anschluss hindurchgeht. Diese Folge entscheidet zwischen Verteidigung und Fehlschlag.',
+          'Nach einem Long-Einstieg liegt ein offensichtlicher Schutzstop oft knapp unter einem markanten Tief oder unter dem Entry-Bar. Läuft ein Pullback genau bis dorthin und dreht, ohne die Stops auszulösen, zeigt die Reaktion echte Kaufbereitschaft an einer gut sichtbaren Stelle.',
+          'Das heißt nicht, dass eine einzelne Institution persönlich deinen Stop verteidigt. Viele unabhängige Trader und Systeme erkennen denselben Referenzpreis. Ihre gebündelten Käufe können das Niveau halten, solange die bullische These noch plausibel ist.',
+          'Ein High 2 entsteht vereinfacht nach einem zweiten Abwärtsbein in einem bullischen Kontext, wenn der Markt wieder über das Hoch des vorherigen Bars steigt. Scheitert dieser Einstieg und fällt der Kurs unter das Tief des gesamten zweibeinigen Pullbacks, kippt die Info: Ein weiteres Abwärtsbein wird wahrscheinlicher.',
+          'Die Lehre daraus ist nicht „jeder sichtbare Stop hält“. Beobachte lieber, ob der Markt schon vor dem Niveau reagiert, es nur antestet oder mit Anschluss durchgeht. Diese Abfolge entscheidet zwischen Verteidigung und Fehlschlag.',
         ],
         callout:
-          'Offensichtliche Niveaus sind Entscheidungszonen. Erst Halten oder Durchbruch mit Anschluss liefert das Signal.',
+          'Offensichtliche Niveaus sind Entscheidungszonen. Das Signal kommt erst, wenn sie halten oder mit Anschluss durchbrochen werden.',
       },
       {
         id: 'part-01-15-diagram',
@@ -257,7 +257,7 @@ export const partOneFlowAndHftLessons = [
     id: 'price-action-trends.part-01.lesson-16',
     title: 'Was Hochfrequenzhandel tatsächlich ist',
     summary:
-      'Horizonte, Modelle, winzige Vorteile und die historische Einordnung der genannten Größenordnungen.',
+      'Horizonte, Modelle, winzige Vorteile und wie du die genannten Größenordnungen historisch einordnest.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Teil I · Price Action · High-Frequency Trading',
@@ -274,13 +274,13 @@ export const partOneFlowAndHftLessons = [
         eyebrow: 'High-Frequency Trading',
         title: 'HFT ist eine Familie automatisierter Kurzfriststrategien',
         paragraphs: [
-          'Hochfrequenzhandel bezeichnet keine einzelne Strategie. Gemeint sind automatisierte Verfahren, die sehr viele Entscheidungen mit extrem geringer Verzögerung treffen. Manche Positionen existieren nur für Sekundenbruchteile, andere Modelle halten länger. Gemeinsam ist ihnen die systematische Ausführung durch Software.',
-          'Die Modelle können Preisdifferenzen, Orderfluss, Spreads, statistische Abweichungen, Beziehungen zwischen Märkten oder maschinenlesbare Nachrichten verarbeiten. Vor dem Einsatz werden Ideen getestet; während des Betriebs überwachen Teams, ob die erwartete kleine Edge noch besteht.',
-          'Geschwindigkeit ist besonders wichtig, wenn viele Firmen dieselbe kurzlebige Gelegenheit suchen. Rechenleistung, Datenleitung, Standortnähe zur Börse und effiziente Software verringern Latenz. Für diesen Wettbewerb besitzt ein manueller Trader keinen realistischen Geschwindigkeitsvorteil.',
-          'Hier erscheinen konkrete Prozentwerte und Firmenbeispiele aus der Zeit um 2010. Sie zeigen die damalige Größenordnung, dürfen aber nicht als aktuelle Marktstatistik gelesen werden. Dauerhaft relevant bleibt: Automatisierte Ausführung stellt einen großen Teil der Liquidität und prägt kurzfristige Preisbewegungen.',
+          'Hochfrequenzhandel ist keine einzelne Strategie. Gemeint sind automatisierte Verfahren, die sehr viele Entscheidungen mit extrem kurzer Verzögerung treffen. Manche Positionen existieren nur Sekundenbruchteile, andere Modelle halten länger. Gemeinsam ist ihnen, dass Software systematisch ausführt.',
+          'Die Modelle können Preisunterschiede, Orderfluss, Spreads, statistische Abweichungen, Beziehungen zwischen Märkten oder maschinenlesbare Nachrichten verarbeiten. Vor dem Einsatz werden die Ideen getestet; im Betrieb prüfen Teams laufend, ob der erwartete kleine Vorteil noch da ist.',
+          'Geschwindigkeit wird besonders wichtig, wenn viele Firmen dieselbe kurzlebige Chance suchen. Rechenleistung, Datenleitung, Nähe zur Börse und effiziente Software drücken die Latenz. In diesem Wettbewerb hat ein manueller Trader keinen realistischen Geschwindigkeitsvorteil.',
+          'Hier tauchen konkrete Prozentwerte und Firmenbeispiele aus der Zeit um 2010 auf. Sie zeigen die damalige Größenordnung, sind aber keine aktuelle Marktstatistik. Dauerhaft wichtig bleibt: Automatisierte Ausführung stellt einen großen Teil der Liquidität und prägt kurzfristige Preisbewegungen.',
         ],
         callout:
-          'Historische Zahlen liefern Kontext. Die zeitlose Lektion ist die strukturelle Geschwindigkeits- und Skalendifferenz.',
+          'Historische Zahlen geben dir Kontext. Zeitlos ist der strukturelle Unterschied bei Geschwindigkeit und Größenordnung.',
       },
       {
         id: 'part-01-16-comparison',
@@ -354,7 +354,7 @@ export const partOneFlowAndHftLessons = [
     id: 'price-action-trends.part-01.lesson-17',
     title: 'Kleine Edge, sehr viele Wiederholungen',
     summary:
-      'Warum statistische Sicherheit aus einer großen Stichprobe statt aus einem spektakulären Einzeltrade entsteht.',
+      'Warum statistische Sicherheit aus einer großen Stichprobe kommt und nicht aus einem spektakulären Einzeltrade.',
     durationMinutes: 11,
     xp: 35,
     sourceUnit: 'Teil I · Price Action · High-Frequency Trading',
@@ -371,13 +371,13 @@ export const partOneFlowAndHftLessons = [
         eyebrow: 'Serienlogik',
         title: 'Die Zuverlässigkeit liegt in der Stichprobe',
         paragraphs: [
-          'Ein statistisches System kann pro Trade nur einen winzigen Vorteil besitzen. Wird derselbe belastbare Vorteil jedoch über viele Instrumente und tausende Ausführungen wiederholt, nähert sich das Gesamtergebnis eher seinem Erwartungswert. Genau darin ähnelt die Logik einem Casino: Nicht jede Runde gewinnt das Haus, aber die große Zahl vergleichbarer Runden macht den kleinen strukturellen Vorteil wirtschaftlich nutzbar.',
-          'Beispielhaft werden breite Aktienkörbe und einfache relative Regeln beschrieben. Die konkrete Strategie ist nicht als Empfehlung gedacht. Entscheidend ist das Prinzip: Eine geringfügig bessere Verteilung von Gewinnern und Verlierern kann bei ausreichender Wiederholung und niedrigen Kosten relevant werden.',
-          'Eine getestete Edge bleibt nicht automatisch dauerhaft bestehen. Andere Marktteilnehmer entdecken sie, Kosten verändern sich oder das Marktverhalten wechselt. Systematische Firmen überwachen deshalb laufend, ob reale Ergebnisse noch zur getesteten Verteilung passen, und reduzieren oder beenden Modelle, deren Vorteil verschwindet.',
-          'Für einen manuellen Trader ist die Zahl der Wiederholungen kleiner. Umso wichtiger werden saubere Definitionen, ein Trade-Journal und Geduld: Ohne vergleichbare Stichprobe lässt sich nicht unterscheiden, ob ein Ergebnis aus Können, Pech oder Glück entstand.',
+          'Ein statistisches System hat pro Trade vielleicht nur einen winzigen Vorteil. Wird derselbe belastbare Vorteil aber über viele Instrumente und tausende Ausführungen wiederholt, nähert sich das Gesamtergebnis eher seinem Erwartungswert. Genau darin ähnelt die Logik einem Casino: Das Haus gewinnt nicht jede Runde, aber die große Zahl ähnlicher Runden macht den kleinen strukturellen Vorteil wirtschaftlich nutzbar.',
+          'Als Beispiel nutzt man breite Aktienkörbe und einfache relative Regeln. Die konkrete Strategie ist keine Empfehlung. Es geht um das Prinzip: Eine etwas bessere Verteilung von Gewinnern und Verlierern kann bei genug Wiederholungen und niedrigen Kosten relevant werden.',
+          'Eine getestete Edge bleibt nicht automatisch für immer bestehen. Andere Marktteilnehmer entdecken sie, Kosten ändern sich, oder das Marktverhalten wechselt. Systematische Firmen prüfen deshalb laufend, ob die realen Ergebnisse noch zur getesteten Verteilung passen, und fahren Modelle zurück oder stellen sie ein, wenn der Vorteil verschwindet.',
+          'Als manueller Trader hast du weniger Wiederholungen. Umso wichtiger sind saubere Definitionen, ein Trade-Journal und Geduld: Ohne vergleichbare Stichprobe kannst du nicht sagen, ob ein Ergebnis aus Können, Pech oder Glück kam.',
         ],
         callout:
-          'Eine Edge wird durch Wiederholung sichtbar. Ein einzelner Gewinner beweist ebenso wenig wie ein einzelner Verlust.',
+          'Eine Edge zeigt sich durch Wiederholung. Ein einzelner Gewinner beweist genauso wenig wie ein einzelner Verlust.',
       },
       {
         id: 'part-01-17-diagram',
@@ -455,13 +455,13 @@ export const partOneFlowAndHftLessons = [
         eyebrow: 'Maschinenmarkt',
         title: 'Daten werden verarbeitet, bevor ein Mensch die Überschrift gelesen hat',
         paragraphs: [
-          'Im kurzfristigsten Wettbewerb zählt jede Verzögerung. Firmen platzieren Infrastruktur nahe an Börsen, optimieren Datenwege und verwenden spezialisierte Software, damit Marktdaten früher verarbeitet und Orders schneller bestätigt werden. Schon kleine Zeitvorteile können bei sehr vielen Ausführungen wirtschaftlich relevant sein.',
-          'Nachrichten können maschinenlesbar übertragen werden. Algorithmen klassifizieren Zahlen, Abweichungen und Textmerkmale und reagieren, bevor ein Mensch den vollständigen Bericht verstanden hat. Andere Modelle verbinden die Meldung mit Kursverhalten, verwandten Märkten und bestehenden Positionen.',
-          'Auch langfristige Großaufträge werden algorithmisch ausgeführt. Software zerlegt sie in kleinere Teile, um Marktimpact zu begrenzen und die volle Absicht nicht sofort sichtbar zu machen. Gegenspieler versuchen wiederum, solche Muster zu erkennen und sich davor zu positionieren.',
-          'Der Chart zeigt das Nettoergebnis dieses Wettkampfs. Du musst die einzelnen Programme nicht entschlüsseln. Für deinen Horizont zählt, ob nach der schnellen Erstreaktion eine klare Richtung, Akzeptanz und ein kontrollierbarer Einstieg entstehen.',
+          'Im kurzfristigsten Wettbewerb zählt jede Verzögerung. Firmen bauen ihre Infrastruktur nahe an den Börsen auf, optimieren Datenwege und nutzen spezialisierte Software, damit Marktdaten früher verarbeitet und Orders schneller bestätigt werden. Schon kleine Zeitvorteile können bei sehr vielen Ausführungen wirtschaftlich ins Gewicht fallen.',
+          'Nachrichten lassen sich maschinenlesbar übertragen. Algorithmen sortieren Zahlen, Abweichungen und Textmerkmale und reagieren, bevor ein Mensch den ganzen Bericht verstanden hat. Andere Modelle verknüpfen die Meldung mit dem Kursverhalten, verwandten Märkten und bestehenden Positionen.',
+          'Auch große Langfristaufträge werden algorithmisch ausgeführt. Software zerlegt sie in kleinere Teile, um den Marktimpact zu begrenzen und die volle Absicht nicht sofort zu zeigen. Gegenspieler versuchen ihrerseits, solche Muster zu erkennen und sich davor zu positionieren.',
+          'Der Chart zeigt das Nettoergebnis dieses Wettkampfs. Die einzelnen Programme musst du nicht entschlüsseln. Für deinen Horizont zählt, ob nach der schnellen Erstreaktion eine klare Richtung, Akzeptanz und ein kontrollierbarer Einstieg entstehen.',
         ],
         callout:
-          'Du wirst die Nachricht nicht schneller lesen als die Maschine. Du kannst aber geduldiger beurteilen, was der Markt daraus macht.',
+          'Die Nachricht liest du nicht schneller als die Maschine. Aber du kannst in Ruhe beurteilen, was der Markt daraus macht.',
       },
       {
         id: 'part-01-18-diagram',

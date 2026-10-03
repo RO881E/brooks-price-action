@@ -23,13 +23,13 @@ export const chapterThreeCaseLessons = [
         eyebrow: 'Chartfall 3.1 · Bars 2 bis 4',
         title: 'Das neue Tief findet keine Akzeptanz',
         paragraphs: [
-          'Der Handel fällt unter das Tief des Vortages und erzeugt sogar ein neues Tief. Ein Grenzbruch allein wäre zunächst bärisch. Entscheidend ist jedoch die Reaktion: Der Markt kann die tieferen Preise nicht halten und dreht in einem scharfen bullischen Spike nach oben.',
-          'Dieses Scheitern zeigt ein vorübergehendes Einverständnis beider Seiten darüber, dass der neue Preisbereich zu niedrig war. Bären, die bereits Short sind, sichern Gewinne oder verkaufen nicht weiter. Bullen sehen einen günstigen Preis und kaufen aggressiv. Beide Veränderungen verschieben den Orderstrom nach oben.',
+          'Der Handel rutscht unter das Tief des Vortages und macht sogar ein neues Tief. Ein Grenzbruch allein wäre erst einmal bärisch. Entscheidend ist aber die Reaktion: Der Markt kann die tieferen Preise nicht halten und dreht in einem scharfen bullischen Spike nach oben.',
+          'Dieses Scheitern zeigt ein kurzes Einverständnis beider Seiten, dass der neue Preisbereich zu niedrig war. Bären, die schon Short sind, sichern Gewinne oder verkaufen nicht weiter. Bullen sehen einen günstigen Preis und kaufen aggressiv. Beides schiebt den Orderstrom nach oben.',
           'Die Rally bis in den Bereich von Bar 4 ist deshalb nicht einfach eine zufällige Gegenbewegung. Sie ist die Antwort auf einen misslungenen Versuch, unter dem Vortagestief einen neuen bärischen Bereich zu etablieren.',
-          'Sowohl erfolgreiche als auch gescheiterte Breakouts enden irgendwann in zweiseitigem Handel. Nach der schnellen Neubewertung braucht der Markt einen neuen Bereich, in dem Käufer und Verkäufer wieder genug Gegenseite finden. Die Frage ist nur, wie weit der Spike läuft, bevor diese Balance beginnt.',
+          'Erfolgreiche wie gescheiterte Breakouts enden irgendwann in zweiseitigem Handel. Nach der schnellen Neubewertung braucht der Markt einen neuen Bereich, in dem Käufer und Verkäufer wieder genug Gegenseite finden. Offen ist nur, wie weit der Spike läuft, bevor diese Balance beginnt.',
         ],
         callout:
-          'Ein neues Extrem ist keine Bestätigung. Erst die Fähigkeit, außerhalb der alten Grenze zu bleiben, zeigt Akzeptanz.',
+          'Ein neues Extrem ist keine Bestätigung. Erst wenn der Markt außerhalb der alten Grenze bleiben kann, zeigt sich Akzeptanz.',
       },
       {
         id: 'chapter-03-09-diagram',
@@ -109,13 +109,13 @@ export const chapterThreeCaseLessons = [
         eyebrow: 'Chartfall 3.1 · Referenzen verbinden',
         title: 'Jeder neue Swing beantwortet eine ältere Frage',
         paragraphs: [
-          'Bar 1 leitete am Tagesbeginn den frühen Selloff ein. Wären die Bären weiterhin klar in Kontrolle, sollte der Markt den Bereich über seinem Hoch nicht leicht zurückerobern. Nach dem Fehlausbruch am Tagestief wird genau diese Zone zur nächsten wichtigen Prüfung.',
-          'Bar 4 erreicht das Hoch von Bar 1 als höheres Hoch. Der bullische Weg dorthin besitzt jedoch so viel Momentum, dass eine einzige Zurückweisung kaum genügt, um die Käufer vollständig zu stoppen. Nach einem starken Test ist mindestens ein weiterer Versuch des Bereichs plausibel.',
-          'Der erste Rücklauf besteht nur aus einem Bar. Dadurch entsteht zwar ein unvollkommenes Doppeltop, aber keine tiefe bärische Umkehrstruktur. Der nächste bullische Angriff überschreitet den Bereich von Bar 1 und bestätigt, dass das frühere Verkaufssignal seine Kontrolle verloren hat.',
-          'Bar 5 bildet danach ein höheres Tief. Gleichzeitig prüft sie den oberen Bereich des bullischen Signal-Bars um Bar 2. Was zunächst Widerstand oder Einstiegsschwelle war, dient nun als Unterstützungstest innerhalb der neuen Aufwärtsstruktur.',
+          'Bar 1 hat am Tagesbeginn den frühen Selloff eingeleitet. Wären die Bären weiter klar in Kontrolle, dürfte der Markt den Bereich über seinem Hoch nicht leicht zurückerobern. Nach dem Fehlausbruch am Tagestief wird genau diese Zone zur nächsten wichtigen Prüfung.',
+          'Bar 4 erreicht als höheres Hoch das Hoch von Bar 1. Der bullische Weg dorthin hat aber so viel Momentum, dass eine einzelne Abweisung kaum reicht, um die Käufer ganz zu stoppen. Nach einem starken Test ist mindestens ein weiterer Versuch am Bereich plausibel.',
+          'Der erste Rücklauf besteht nur aus einem Bar. Das ergibt zwar ein unvollkommenes Doppeltop, aber keine tiefe bärische Umkehrstruktur. Der nächste bullische Angriff geht über den Bereich von Bar 1 hinaus und bestätigt, dass das frühere Verkaufssignal seine Kontrolle verloren hat.',
+          'Bar 5 bildet danach ein höheres Tief. Gleichzeitig prüft sie den oberen Bereich des bullischen Signal-Bars um Bar 2. Was erst Widerstand oder Einstiegsschwelle war, dient jetzt als Unterstützungstest in der neuen Aufwärtsstruktur.',
         ],
         callout:
-          'Lies einen Swing nicht allein: Frage immer, welchen früheren Einstieg, Signalbereich oder Extrempunkt er gerade überprüft.',
+          'Lies einen Swing nicht für sich allein: Frag immer, welchen früheren Einstieg, Signalbereich oder Extrempunkt er gerade prüft.',
       },
       {
         id: 'chapter-03-10-diagram',
@@ -220,13 +220,13 @@ export const chapterThreeCaseLessons = [
         eyebrow: 'Chartfall 3.1 · Struktur statt Etikett',
         title: 'Jeder scharfe Move bricht aus etwas aus',
         paragraphs: [
-          'Die kräftige Rally ab Bar 2 kann auf mehreren Ebenen als Breakout verstanden werden: Sie überschreitet eine kleine fallende Trendlinie, verlässt den Bereich des bullischen Reversal-Bars und beendet die Akzeptanz am neuen Tagestief. Der genaue Name ist weniger wichtig als die Aussage, dass der Markt die tiefen Preise schnell verlässt.',
-          'Der Spike transportiert den Kurs in einen Bereich, in dem wieder genügend Gegenseite vorhanden ist. Nach dem ersten Pullback bei Bar 5 setzt sich der Aufstieg fort, aber die Struktur verändert sich. Zwischen Bar 5 und Bar 6 entstehen mehr Überlappung, kleine Abwärtsbewegungen, Tails und sichtbares Zögern.',
-          'Bullen realisieren in diesem Kanal zunehmend Gewinne. Bären beginnen, oberhalb alter Hochs oder nach schwachen Fortsetzungsversuchen Shorts aufzubauen. Der Kurs steigt noch, doch der Anstieg ist nicht mehr so einseitig wie der Spike.',
-          'Bar 7 führt den Markt zurück zum Start dieses Kanals. Damit wird die Zone um Bar 5 getestet und die vorherige Prognose erfüllt: Der beginnende Kanal war bereits der Keim der späteren Trading Range.',
+          'Die kräftige Rally ab Bar 2 lässt sich auf mehreren Ebenen als Breakout verstehen: Sie durchbricht eine kleine fallende Trendlinie, verlässt den Bereich des bullischen Reversal-Bars und beendet die Akzeptanz am neuen Tagestief. Der genaue Name ist weniger wichtig als die Aussage, dass der Markt die tiefen Preise schnell verlässt.',
+          'Der Spike trägt den Kurs in einen Bereich, in dem wieder genug Gegenseite da ist. Nach dem ersten Pullback bei Bar 5 geht der Aufstieg weiter, aber die Struktur ändert sich. Zwischen Bar 5 und Bar 6 gibt es mehr Überlappung, kleine Abwärtsbewegungen, Tails und sichtbares Zögern.',
+          'Bullen nehmen in diesem Kanal zunehmend Gewinne mit. Bären fangen an, über alten Hochs oder nach schwachen Fortsetzungsversuchen Shorts aufzubauen. Der Kurs steigt noch, aber nicht mehr so einseitig wie im Spike.',
+          'Bar 7 führt den Markt zurück zum Start dieses Kanals. Damit wird die Zone um Bar 5 getestet und die frühere Prognose erfüllt: Der beginnende Kanal war schon der Keim der späteren Trading Range.',
         ],
         callout:
-          'Ein Kanal kann weiter in Trendrichtung laufen und gleichzeitig immer mehr Beweise für die kommende Balance sammeln.',
+          'Ein Kanal kann weiter in Trendrichtung laufen und trotzdem immer mehr Beweise für die kommende Balance sammeln.',
       },
       {
         id: 'chapter-03-11-diagram',
@@ -306,10 +306,10 @@ export const chapterThreeCaseLessons = [
         eyebrow: 'Chartfall 3.1 · Mehrfachreferenzen',
         title: 'Ein Swing kann mehrere alte Entscheidungen gleichzeitig testen',
         paragraphs: [
-          'Bar 7 ist ein höheres Tief gegenüber Bar 5 und zugleich der zweite größere Test des Vortagestiefs. Der Markt lehnt die tiefe Zone erneut ab. Dadurch entsteht eine Doppeltop-ähnliche Unterstützung auf der Unterseite – praktisch ein Doppeltief, aus dem die nächste Rally startet.',
-          'Bar 8 erreicht als tieferes Hoch den Bereich von Bar 6 und den Schluss des Vortages. Statt nach oben auszubrechen, reagiert der Markt dort bearisch. Zusätzlich testet die Rally das Hoch eines bearischen Inside-Bars, der zuvor den Selloff nach Bar 6 signalisiert hatte. Mehrere Referenzen bündeln sich damit in derselben Widerstandszone.',
-          'Der Rückgang von Bar 8 zu Bar 9 testet den gleitenden Durchschnitt. Weil danach ein neues Tageshoch gelingt, wird der Rücklauf im Nachhinein als Pullback innerhalb des bullischen Breakout-Versuchs bestätigt und nicht als Beginn eines nachhaltigen Bärentrends.',
-          'Bar 9 prüft außerdem den Long-Einstieg über einem früheren Bull-Bar nach Bar 7. Der Markt verfehlt einen typischen Breakeven-Stop knapp. Wenn Käufer ihren Einstand erfolgreich verteidigen und Verkäufer keine tiefere Akzeptanz erreichen, steigt die Chance, dass der nächste Schub ein neues Hoch erzeugt.',
+          'Bar 7 ist ein höheres Tief gegenüber Bar 5 und zugleich der zweite größere Test des Vortagestiefs. Der Markt weist die tiefe Zone erneut ab. So entsteht auf der Unterseite eine Unterstützung wie bei einem Doppeltief – praktisch ein Doppeltief, aus dem die nächste Rally startet.',
+          'Bar 8 erreicht als tieferes Hoch den Bereich von Bar 6 und den Schluss des Vortages. Statt nach oben auszubrechen, reagiert der Markt dort bärisch. Zusätzlich testet die Rally das Hoch eines bärischen Inside-Bars, der vorher den Selloff nach Bar 6 signalisiert hatte. Mehrere Referenzen bündeln sich damit in derselben Widerstandszone.',
+          'Der Rückgang von Bar 8 zu Bar 9 testet den gleitenden Durchschnitt. Weil danach ein neues Tageshoch gelingt, wird der Rücklauf im Nachhinein als Pullback im bullischen Breakout-Versuch bestätigt und nicht als Beginn eines nachhaltigen Bärentrends.',
+          'Bar 9 prüft außerdem den Long-Einstieg über einem früheren Bull-Bar nach Bar 7. Der Markt verfehlt einen typischen Breakeven-Stop knapp. Verteidigen die Käufer ihren Einstand erfolgreich und erreichen Verkäufer keine tiefere Akzeptanz, steigt die Chance, dass der nächste Schub ein neues Hoch erzeugt.',
         ],
         callout:
           'Je mehr unabhängige Referenzen in einer Zone zusammenfallen, desto genauer musst du die Reaktion beobachten – nicht desto sicherer ist die Richtung.',
@@ -418,13 +418,13 @@ export const chapterThreeCaseLessons = [
         eyebrow: 'Chartfall 3.1 · Dominante Richtung',
         title: 'Wenn eine Entscheidung erzwungen wäre: Long oder Short?',
         paragraphs: [
-          'Bar 3 ist ein großer bullischer Trendbar und macht aus dem Tief-Reversal einen klaren Bullenmove. Er kann als Breakout und zugleich als funktionale Breakout-Lücke gelesen werden: Der Markt durchquert den alten Bereich so schnell, dass dort kaum ausgeglichener Handel stattfindet.',
-          'Später fällt der Kurs unter die Begrenzung des Bullenkanals und zum Vortagesschluss zurück. Weil ein Bullenkanal auch als Bear Flag enden kann, verdient dieser Abwärtsversuch Aufmerksamkeit. Die Folgebars zeigen jedoch bullische Körper und deutliche Überlappung. Verkäufer schaffen keinen sauberen, einseitigen Fortschritt.',
-          'Auch der Bruch unter ein früheres Swing-Tief des Vortages scheitert und markiert schließlich das Tagestief. Die bärischen Versuche testen also wichtige Referenzen, können aber keine Akzeptanz darunter herstellen.',
-          'In dieser Situation ist der Markt „always-in up“: Wenn ein Trader gezwungen wäre, zu jedem Zeitpunkt nur Long oder Short zu sein, wäre Long die Seite mit der stärkeren Gesamtevidenz. Wer den Reversal-Einstieg bei Bar 2 verpasst hat, kann nach Bar 3 den Markt oder den nächsten Pullback handeln; Bar 5 und später das Doppeltief bei Bar 7 bieten strukturierte Folgechancen.',
+          'Bar 3 ist ein großer bullischer Trendbar und macht aus dem Tief-Reversal einen klaren Bullenmove. Man kann ihn als Breakout und zugleich als funktionale Breakout-Lücke lesen: Der Markt rast so schnell durch den alten Bereich, dass dort kaum ausgeglichener Handel stattfindet.',
+          'Später fällt der Kurs unter die Begrenzung des Bullenkanals und zurück zum Vortagesschluss. Weil ein Bullenkanal auch als Bear Flag enden kann, verdient dieser Abwärtsversuch Aufmerksamkeit. Die Folgebars zeigen aber bullische Körper und deutliche Überlappung. Die Verkäufer kommen nicht sauber und einseitig voran.',
+          'Auch der Bruch unter ein früheres Swing-Tief des Vortages scheitert und markiert am Ende das Tagestief. Die bärischen Versuche testen also wichtige Referenzen, schaffen darunter aber keine Akzeptanz.',
+          'In dieser Lage ist der Markt „always-in up“: Müsste ein Trader zu jedem Zeitpunkt entweder Long oder Short sein, wäre Long die Seite mit der stärkeren Gesamtevidenz. Wer den Reversal-Einstieg bei Bar 2 verpasst hat, kann nach Bar 3 den Markt oder den nächsten Pullback handeln; Bar 5 und später das Doppeltief bei Bar 7 bieten strukturierte Folgechancen.',
         ],
         callout:
-          'Always-in ist kein Dauerhaltebefehl. Es ist eine klare Antwort auf die Frage, welche Seite aktuell die bessere Gesamtevidenz besitzt.',
+          'Always-in ist kein Befehl, für immer zu halten. Es ist eine klare Antwort auf die Frage, welche Seite gerade die bessere Gesamtevidenz hat.',
       },
       {
         id: 'chapter-03-13-diagram',
@@ -506,11 +506,11 @@ export const chapterThreeCaseLessons = [
         eyebrow: 'Chartfall 3.1 · Synthese',
         title: 'Aus vielen Mustern wird eine einzige Auktionsgeschichte',
         paragraphs: [
-          'Je nach gewählter Auflösung kann Bar 3 allein als Spike gelten oder die gesamte Bewegung von Bar 2 bis Bar 4. Entscheidend ist die Funktion: schnelle bullische Neubewertung nach einem gescheiterten Tiefausbruch. Bar 5 liefert den ersten klaren Pullback; damit beginnt der weniger dringliche Kanal bis in den Bereich von Bar 6.',
-          'Einige Bären verkaufen bereits unter Bar 4 und staffeln weitere Shorts an späteren Pullbacks oder Hochs. Andere warten auf den keilförmigen oberen Bereich, in dem auch Bullen Gewinne realisieren. Sobald Spike, Pullback und Kanal sichtbar sind, wird ein späterer Test des Kanaltiefs oder Kanalbeginns zu einer vernünftigen Arbeitshypothese.',
-          'Der Rücklauf vom Keilhoch zum Bereich von Bar 7 besitzt zwei Beine. Dort sichern späte Shorts Gewinne; frühe Shorts können nahe ihrem durchschnittlichen Einstieg aussteigen. Gleichzeitig kaufen Bullen wieder in der Zone um Bar 5. Diese vereinten Kauforders erzeugen gewöhnlich einen Bounce. Er kann ein Doppeltief und neue Rally einleiten, eine längere Range beginnen oder nach schwachem Verlauf doch in einen Bärentrend übergehen.',
-          'Innerhalb dieser großen Geschichte liegen mehrere kleinere Strukturen: Das Tief bei Bar 2 beendet einen dritten Abwärtsschub und kann als Wedge-Reversal gelesen werden. Bar 6 bildet mit dem letzten Bar des Vortages eine Double-Top-Bear-Flag. Bars 5 und 7 formen eine Double-Bottom-Bull-Flag; Bar 9 ist ein weiterer Double-Bottom-Pullback. Die Sequenz 5 bis 9 kann wie ein Dreieck aussehen, doch die vorherige bullische Stärke gibt dem neutralen Umriss einen bullischen Kontext.',
-          'Bar 7 ist zugleich ein Wedge-Bull-Flag nach drei Abwärtsschüben ab Bar 6. Bar 8 kann als Final-Flag-Reversal nach der mehrbarigen bullischen Pause gelesen werden. Die vielen Namen widersprechen sich nicht. Sie beschreiben verschiedene Ausschnitte derselben Auktion. Priorität haben immer vorherige Stärke, Breakout-Qualität, Reaktion an Tests und Follow-through.',
+          'Je nach gewählter Auflösung kann Bar 3 allein als Spike gelten oder die ganze Bewegung von Bar 2 bis Bar 4. Entscheidend ist die Funktion: schnelle bullische Neubewertung nach einem gescheiterten Tiefausbruch. Bar 5 liefert den ersten klaren Pullback; damit beginnt der weniger dringliche Kanal bis in den Bereich von Bar 6.',
+          'Einige Bären verkaufen schon unter Bar 4 und staffeln weitere Shorts an späteren Pullbacks oder Hochs. Andere warten auf den keilförmigen oberen Bereich, in dem auch Bullen Gewinne mitnehmen. Sobald Spike, Pullback und Kanal sichtbar sind, ist ein späterer Test des Kanaltiefs oder Kanalbeginns eine vernünftige Arbeitshypothese.',
+          'Der Rücklauf vom Keilhoch in den Bereich von Bar 7 hat zwei Beine. Dort sichern späte Shorts Gewinne; frühe Shorts können nahe an ihrem durchschnittlichen Einstieg aussteigen. Gleichzeitig kaufen Bullen wieder in der Zone um Bar 5. Diese gemeinsamen Kauforders erzeugen gewöhnlich einen Bounce. Der kann ein Doppeltief und eine neue Rally einleiten, eine längere Range beginnen oder nach schwachem Verlauf doch in einen Bärentrend übergehen.',
+          'In dieser großen Geschichte stecken mehrere kleinere Strukturen: Das Tief bei Bar 2 beendet einen dritten Abwärtsschub und lässt sich als Wedge-Reversal lesen. Bar 6 bildet mit dem letzten Bar des Vortages eine Double-Top-Bear-Flag. Bars 5 und 7 formen eine Double-Bottom-Bull-Flag; Bar 9 ist ein weiterer Double-Bottom-Pullback. Die Abfolge 5 bis 9 kann wie ein Dreieck aussehen, doch die vorherige bullische Stärke gibt dem neutralen Umriss einen bullischen Kontext.',
+          'Bar 7 ist zugleich eine Wedge-Bull-Flag nach drei Abwärtsschüben ab Bar 6. Bar 8 lässt sich als Final-Flag-Reversal nach der mehrbarigen bullischen Pause lesen. Die vielen Namen widersprechen sich nicht. Sie beschreiben verschiedene Ausschnitte derselben Auktion. Vorrang haben immer die vorherige Stärke, die Breakout-Qualität, die Reaktion an Tests und das Follow-through.',
         ],
         callout:
           'Muster sind Ebenen einer Karte. Die Route bestimmt die Gesamtgeschichte aus Spike, nachlassender Effizienz, Test und Reaktion.',

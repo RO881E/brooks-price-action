@@ -23,9 +23,9 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Setup-Familie · Fortsetzung',
         title: 'Die Pause unterbricht den Trend, ohne ihn automatisch zu beenden',
         paragraphs: [
-          'In einer kräftigen Spike-Phase kann bereits ein kleiner Pause-Bar oder ein kurzer Pullback die nächste Fortsetzung vorbereiten. Die vorherige Initiative ist so deutlich, dass die Gegenseite zunächst nur wenig Raum gewinnt. Der Trade setzt darauf, dass die dominante Seite nach der Pause erneut aggressiv wird.',
-          'Ein starker Trendbar nahe dem aktuellen Extrem kann ebenfalls ein Fortsetzungssignal sein. Entscheidend ist nicht seine Größe allein, sondern ob er aus einer passenden Struktur ausbricht und der Markt außerhalb dieser Struktur weiterhandelt.',
-          'Im Kanal sind die Pullbacks meist größer und die Bars überlappen stärker. Erfahrene Trader können dort limitbasiert handeln: in einem Aufwärtskanal am oder unter einem vorherigen Bar kaufen und im Abwärtskanal am oder über einem vorherigen Bar verkaufen. Für Anfänger bleibt der Stop-Einstieg nach einem klaren Signal leichter kontrollierbar.',
+          'In einer kräftigen Spike-Phase kann schon ein kleiner Pause-Bar oder ein kurzer Pullback die nächste Fortsetzung vorbereiten. Die vorherige Initiative ist so deutlich, dass die Gegenseite zunächst kaum Raum gewinnt. Der Trade setzt darauf, dass die dominante Seite nach der Pause wieder aggressiv wird.',
+          'Auch ein starker Trendbar nahe dem aktuellen Extrem kann ein Fortsetzungssignal sein. Entscheidend ist nicht allein seine Größe, sondern ob er aus einer passenden Struktur ausbricht und der Markt außerhalb dieser Struktur weiterhandelt.',
+          'Im Kanal sind die Pullbacks meist größer und die Bars überlappen stärker. Erfahrene Trader können dort mit Limit-Orders arbeiten: im Aufwärtskanal am oder unter einem vorherigen Bar kaufen, im Abwärtskanal am oder über einem vorherigen Bar verkaufen. Für Anfänger lässt sich der Stop-Einstieg nach einem klaren Signal leichter kontrollieren.',
           'Auch ein Breakout-Pullback ist ein Fortsetzungs-Setup. Der Markt verlässt eine Grenze, kehrt zu ihr zurück und zeigt dort, dass die alte Range den Preis nicht dauerhaft zurückgewinnt. Erst die erneute Bewegung in Ausbruchsrichtung bestätigt den Test.',
         ],
         callout:
@@ -90,7 +90,7 @@ export const chapterFourPatternLessons = [
     id: 'price-action-trends.chapter-04.lesson-07',
     title: 'Der Ein-Bar-Reversal zeigt Ablehnung an einem Extrem',
     summary:
-      'Wie ein einzelner Bar eine Gegenbewegung vorbereitet und warum seine Lage wichtiger als seine Form ist.',
+      'Wie ein einzelner Bar eine Gegenbewegung vorbereitet und warum seine Lage wichtiger ist als seine Form.',
     durationMinutes: 8,
     xp: 35,
     sourceUnit: 'Kapitel 4 · Ein-Bar-Reversal',
@@ -108,10 +108,10 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Umkehr in einem Bar',
         title: 'Der Bar weist einen Preis zurück – mehr ist zunächst nicht bewiesen',
         paragraphs: [
-          'Ein bullischer Ein-Bar-Reversal handelt zunächst tiefer, wird anschließend gekauft und schließt deutlich über seinem Tief. Ein bearisher Reversal-Bar macht das Gegenteil: Er testet höhere Preise und schließt deutlich darunter. Körper, Tails und Schlussposition zeigen, welche Seite den letzten Teil des Bars kontrollierte.',
-          'Diese sichtbare Zurückweisung kann den Beginn einer großen Trendumkehr markieren. Häufiger beendet sie jedoch nur einen Pullback und führt den übergeordneten Trend fort. Ein bullischer Reversal-Bar in einem Bullenmarkt-Pullback ist deshalb funktional etwas anderes als derselbe Bar gegen einen starken Bärentrend.',
-          'Der Bar selbst eröffnet noch keinen Trade. Ein Buy-Stop über einem bullischen Reversal-Bar oder ein Sell-Stop unter einem bearischen Reversal-Bar verlangt einen kleinen Fortschritt in die erwartete Richtung. Wird die Grenze nicht erreicht, bleibt die Umkehridee unbestätigt.',
-          'Je stärker der Trade gegen den bestehenden Trend gerichtet ist, desto wichtiger werden eine überzeugende Zurückweisung, eine gute Testzone und nachfolgender Anschluss.',
+          'Ein bullischer Ein-Bar-Reversal handelt erst tiefer, wird dann gekauft und schließt deutlich über seinem Tief. Ein bärischer Reversal-Bar macht das Gegenteil: Er testet höhere Preise und schließt deutlich darunter. Körper, Tails und Schlussposition zeigen, welche Seite den letzten Teil des Bars kontrolliert hat.',
+          'Diese sichtbare Abweisung kann den Beginn einer großen Trendumkehr markieren. Häufiger beendet sie aber nur einen Pullback und führt den übergeordneten Trend fort. Ein bullischer Reversal-Bar in einem Pullback im Bullenmarkt bedeutet deshalb funktional etwas anderes als derselbe Bar gegen einen starken Bärentrend.',
+          'Der Bar selbst eröffnet noch keinen Trade. Ein Buy-Stop über einem bullischen Reversal-Bar oder ein Sell-Stop unter einem bärischen Reversal-Bar verlangt einen kleinen Fortschritt in die erwartete Richtung. Wird die Grenze nicht erreicht, bleibt die Umkehridee unbestätigt.',
+          'Je mehr der Trade gegen den bestehenden Trend läuft, desto wichtiger werden eine überzeugende Abweisung, eine gute Testzone und anschließender Anschluss.',
         ],
         callout:
           'Ein Reversal-Bar zeigt Ablehnung. Ob daraus ein Pullback-Ende oder eine echte Trendumkehr wird, entscheidet der größere Chart.',
@@ -175,7 +175,7 @@ export const chapterFourPatternLessons = [
     id: 'price-action-trends.chapter-04.lesson-08',
     title: 'Beim Zwei-Bar-Reversal wechselt die Kontrolle sichtbar',
     summary:
-      'Wie ein zweiter Bar den ersten nahezu zurücknimmt und daraus eine handelbare Kontrollübergabe entsteht.',
+      'Wie ein zweiter Bar den ersten fast zurücknimmt und daraus eine handelbare Kontrollübergabe entsteht.',
     durationMinutes: 8,
     xp: 35,
     sourceUnit: 'Kapitel 4 · Zwei-Bar-Reversal',
@@ -193,13 +193,13 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Umkehr in zwei Bars',
         title: 'Der zweite Bar beantwortet die Initiative des ersten',
         paragraphs: [
-          'Ein bullisches Zwei-Bar-Reversal beginnt mit einem deutlichen Bear-Bar. Der nächste Bar wird stark gekauft und nimmt einen großen Teil der vorherigen Abwärtsbewegung zurück. Bei der bearischen Variante folgt auf einen Bull-Bar eine kräftige Verkaufsantwort.',
-          'Die Sequenz zeigt mehr als ein einzelner Doji: Eine Seite erhält zunächst Raum, kann ihre Preise aber nicht verteidigen. Die Gegenseite antwortet innerhalb kurzer Zeit mit vergleichbarer oder größerer Initiative.',
-          'Perfekte Symmetrie ist nicht nötig. Die Bars können unterschiedliche Größen besitzen und sich überlappen. Wichtiger sind Lage, Schlusskurse und die Frage, ob der zweite Bar tatsächlich genug vom ersten zurückerobert.',
+          'Ein bullisches Zwei-Bar-Reversal beginnt mit einem deutlichen Bear-Bar. Der nächste Bar wird stark gekauft und nimmt einen großen Teil der vorherigen Abwärtsbewegung zurück. Bei der bärischen Variante folgt auf einen Bull-Bar eine kräftige Verkaufsantwort.',
+          'Die Abfolge zeigt mehr als ein einzelner Doji: Eine Seite bekommt zunächst Raum, kann ihre Preise aber nicht verteidigen. Die Gegenseite antwortet kurz darauf mit vergleichbarer oder größerer Initiative.',
+          'Perfekte Symmetrie brauchst du nicht. Die Bars dürfen unterschiedlich groß sein und sich überlappen. Wichtiger sind Lage, Schlusskurse und die Frage, ob der zweite Bar vom ersten wirklich genug zurückerobert.',
           'Auch dieses Muster kann einen ganzen Trend oder nur einen Pullback umkehren. Der Einstieg außerhalb der Zweierstruktur und der anschließende Follow-through bleiben entscheidend.',
         ],
         callout:
-          'Zwei-Bar-Reversal bedeutet: erste Initiative, schnelle Gegenantwort. Erst der Kontext sagt, welche Marktphase dadurch endet.',
+          'Zwei-Bar-Reversal heißt: erste Initiative, schnelle Gegenantwort. Erst der Kontext sagt, welche Marktphase dadurch endet.',
       },
       {
         id: 'chapter-04-08-diagram',
@@ -260,7 +260,7 @@ export const chapterFourPatternLessons = [
     id: 'price-action-trends.chapter-04.lesson-09',
     title: 'Der Drei-Bar-Reversal zeigt Abbremsen und Übernahme',
     summary:
-      'Wie drei Bars den Übergang von nachlassender Initiative zu einer kräftigen Gegenbewegung strukturieren.',
+      'Wie drei Bars den Übergang von nachlassender Initiative zu einer kräftigen Gegenbewegung gliedern.',
     durationMinutes: 8,
     xp: 35,
     sourceUnit: 'Kapitel 4 · Drei-Bar-Reversal',
@@ -279,12 +279,12 @@ export const chapterFourPatternLessons = [
         title: 'Der Markt benötigt einen zusätzlichen Übergangsschritt',
         paragraphs: [
           'Ein Drei-Bar-Reversal verteilt den Kontrollwechsel auf drei Abschnitte. Der erste Bar setzt die alte Richtung fort, der mittlere Bar zeigt weniger Fortschritt oder Balance, und der dritte Bar bricht kräftig in Gegenrichtung aus.',
-          'Bei einer bullischen Folge verlieren Verkäufer zunächst Effizienz, bevor Käufer deutlich übernehmen. Bei einer bearischen Folge lässt der Kaufdruck nach und ein starker Bear-Bar beendet die Sequenz. Der mittlere Bar muss kein perfekter Doji sein; seine Funktion ist die sichtbare Unterbrechung.',
-          'Die zusätzliche Bar macht das Muster nicht automatisch besser als ein Ein- oder Zwei-Bar-Reversal. Sie zeigt lediglich einen langsameren Übergang. In einem starken Trend können drei kleine Gegenbars weiterhin nur einen unbedeutenden Pullback bilden.',
-          'Die Auslösung jenseits der Struktur und Anschluss in der neuen Richtung entscheiden, ob der Übergang vom Markt akzeptiert wird.',
+          'Bei einer bullischen Folge verlieren die Verkäufer zuerst an Effizienz, bevor die Käufer deutlich übernehmen. Bei einer bärischen Folge lässt der Kaufdruck nach, und ein starker Bear-Bar beendet die Sequenz. Der mittlere Bar muss kein perfekter Doji sein; seine Aufgabe ist die sichtbare Unterbrechung.',
+          'Der zusätzliche Bar macht das Muster nicht automatisch besser als ein Ein- oder Zwei-Bar-Reversal. Er zeigt nur einen langsameren Übergang. In einem starken Trend können drei kleine Gegenbars trotzdem nur einen unbedeutenden Pullback bilden.',
+          'Die Auslösung jenseits der Struktur und der Anschluss in der neuen Richtung entscheiden, ob der Markt den Übergang akzeptiert.',
         ],
         callout:
-          'Zähle nicht bloß drei Kerzen. Suche die Funktionsfolge: alter Druck, Pause, überzeugende Gegeninitiative.',
+          'Zähl nicht bloß drei Kerzen. Such die Funktionsfolge: alter Druck, Pause, überzeugende Gegeninitiative.',
       },
       {
         id: 'chapter-04-09-diagram',
@@ -345,7 +345,7 @@ export const chapterFourPatternLessons = [
     id: 'price-action-trends.chapter-04.lesson-10',
     title: 'Kleine Bars werden erst durch ihre Lage interessant',
     summary:
-      'Warum ein kleiner oder innerer Bar am Rand einer großen Range wertvoller sein kann als derselbe Bar in ihrer Mitte.',
+      'Warum ein kleiner oder innerer Bar am Rand einer großen Range mehr wert sein kann als derselbe Bar in ihrer Mitte.',
     durationMinutes: 8,
     xp: 35,
     sourceUnit: 'Kapitel 4 · Kleine Bars und Inside-Bars',
@@ -363,13 +363,13 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Kleine Range, große Kontextfrage',
         title: 'Kompression besitzt ohne Standort keine feste Richtung',
         paragraphs: [
-          'Ein Inside-Bar bleibt mit Hoch und Tief innerhalb der Range seines Vorgängers. Ein kleiner Bar kann auch knapp außerhalb liegen, aber ebenfalls nur wenig neuen Raum schaffen. Beide zeigen kurzfristig weniger Bewegung und häufig mehr Balance.',
-          'Nahe dem oberen Rand eines großen Bars oder einer Trading Range kann diese Pause einen Breakout oder eine Zurückweisung vorbereiten. Am unteren Rand gilt dasselbe spiegelbildlich. In der Mitte fehlt dagegen oft ein klarer Preisvorteil für eine Seite.',
-          'Die kleine Range bietet einen nahen Auslöser und häufig einen klar definierbaren Stop. Das macht den Bar handelstechnisch interessant, beweist aber noch keinen positiven Erwartungswert. Enge Stops werden in zweiseitigen Märkten auch leicht ausgelöst.',
-          'Du beurteilst deshalb zuerst Trend und Lage, dann die kleine Barform und schließlich Breakout und Follow-through.',
+          'Ein Inside-Bar bleibt mit Hoch und Tief innerhalb der Range seines Vorgängers. Ein kleiner Bar kann auch knapp außerhalb liegen, schafft dann aber ebenfalls nur wenig neuen Raum. Beide zeigen kurzfristig weniger Bewegung und oft mehr Balance.',
+          'Nahe dem oberen Rand eines großen Bars oder einer Trading Range kann diese Pause einen Breakout oder eine Abweisung vorbereiten. Am unteren Rand gilt dasselbe spiegelbildlich. In der Mitte fehlt dagegen oft ein klarer Preisvorteil für eine Seite.',
+          'Die kleine Range bietet einen nahen Auslöser und oft einen klar definierbaren Stop. Das macht den Bar für den Handel interessant, beweist aber noch keinen positiven Erwartungswert. Enge Stops werden in zweiseitigen Märkten außerdem leicht ausgelöst.',
+          'Beurteile deshalb zuerst Trend und Lage, dann die kleine Barform und zuletzt Breakout und Follow-through.',
         ],
         callout:
-          'Klein bedeutet nur: wenig Range. Erst die Lage erklärt, ob daraus Pause, Reversal oder bedeutungsloses Rauschen wird.',
+          'Klein heißt nur: wenig Range. Erst die Lage erklärt, ob daraus Pause, Reversal oder bedeutungsloses Rauschen wird.',
       },
       {
         id: 'chapter-04-10-diagram',
@@ -448,10 +448,10 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Mehrfache Kompression',
         title: 'Die Grenzen rücken zusammen, die Richtung bleibt offen',
         paragraphs: [
-          'Bei einem ii folgen zwei Inside-Bars aufeinander, wobei jeder innerhalb seines relevanten Vorgängers bleibt. Ein iii fügt eine dritte verschachtelte Range hinzu. Hochs und Tiefs rücken dadurch sichtbar zusammen.',
-          'Die Folge zeigt, dass weder Käufer noch Verkäufer gerade weit kommen. Gleichzeitig können sich Stop-Orders knapp oberhalb und unterhalb der engsten Range sammeln. Der nächste Grenzbruch kann deshalb schnell beschleunigen.',
-          'Diese Beschleunigung ist nicht automatisch zuverlässig. In einer Trading Range kann der erste Breakout scheitern und die Gegenseite auslösen. Im starken Trend besitzt ein Ausbruch mit dem Trend meist den besseren Ausgangskontext.',
-          'Die saubere Lesart lautet daher: Kompression erkannt, beide Seiten geplant, Kontext gewichtet und erst nach Auslösung plus Anschluss bewertet.',
+          'Bei einem ii folgen zwei Inside-Bars aufeinander, und jeder bleibt innerhalb seines relevanten Vorgängers. Ein iii fügt eine dritte verschachtelte Range hinzu. Hochs und Tiefs rücken dadurch sichtbar zusammen.',
+          'Die Folge zeigt, dass weder Käufer noch Verkäufer gerade weit kommen. Gleichzeitig können sich Stop-Orders knapp über und unter der engsten Range sammeln. Der nächste Grenzbruch kann deshalb schnell beschleunigen.',
+          'Diese Beschleunigung ist nicht automatisch verlässlich. In einer Trading Range kann der erste Breakout scheitern und die Gegenseite auslösen. Im starken Trend hat ein Ausbruch mit dem Trend meist den besseren Ausgangskontext.',
+          'Die saubere Lesart lautet daher: Kompression erkannt, beide Seiten eingeplant, Kontext gewichtet und erst nach Auslösung plus Anschluss bewertet.',
         ],
         callout:
           'ii und iii sagen sicher etwas über die schrumpfende Range – aber nichts Sicheres über die spätere Ausbruchsrichtung.',
@@ -534,9 +534,9 @@ export const chapterFourPatternLessons = [
         title: 'Der Markt wird eng, breit und sofort wieder eng',
         paragraphs: [
           'Die ioi-Folge beginnt mit einem Inside-Bar. Danach überschreitet ein Outside-Bar sowohl dessen Hoch als auch dessen Tief. Der dritte Bar bleibt wieder innerhalb des Outside-Bars. Kompression, zweiseitige Expansion und erneute Kompression folgen direkt aufeinander.',
-          'Der Outside-Bar kann Stop-Orders beider Seiten auslösen. Wenn danach keine Seite Anschluss erhält, zeigt der letzte Inside-Bar, dass der Markt erneut in Balance fällt. Trader auf beiden Seiten können bereits schlechte Positionen besitzen.',
-          'Dadurch kann der nächste Ausbruch schnell werden, aber das Muster bleibt zweiseitig. In einem Trend wird die Trendrichtung bevorzugt; an einem Range-Rand kann auch eine Zurückweisung der Expansion sinnvoll sein.',
-          'Die Reihenfolge liefert eine kompakte Karte der jüngsten Auktion. Sie ersetzt nicht die Frage, wo das Muster liegt und welche Seite nach der Auslösung tatsächlich Follow-through erhält.',
+          'Der Outside-Bar kann Stop-Orders beider Seiten auslösen. Findet danach keine Seite Anschluss, zeigt der letzte Inside-Bar, dass der Markt wieder in Balance fällt. Trader auf beiden Seiten können dann schon schlechte Positionen haben.',
+          'Dadurch kann der nächste Ausbruch schnell werden, aber das Muster bleibt zweiseitig. In einem Trend ist die Trendrichtung im Vorteil; an einem Range-Rand kann auch eine Abweisung der Expansion sinnvoll sein.',
+          'Die Reihenfolge ergibt eine kompakte Karte der jüngsten Auktion. Sie ersetzt nicht die Frage, wo das Muster liegt und welche Seite nach der Auslösung tatsächlich Follow-through bekommt.',
         ],
         callout:
           'ioi ist kein Richtungsgeheimnis. Es zeigt einen schnellen Wechsel zwischen Balance und zweiseitiger Expansion.',
@@ -618,10 +618,10 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Range-Expansion',
         title: 'Mehr gehandelte Strecke kann mehr Unsicherheit bedeuten',
         paragraphs: [
-          'Ein Outside-Bar handelt über dem Hoch und unter dem Tief seines Vorgängers. Er erweitert damit beide Seiten der vorherigen Auktion. Buy-Stops und Sell-Stops können innerhalb desselben Bars ausgelöst werden.',
-          'Bei einem oo folgt ein zweiter Outside-Bar, der wiederum beide Grenzen überschreitet. Wird er noch größer, zeigt die Folge außergewöhnlich breite und aggressive Preisfindung. Das sieht dynamisch aus, kann aber beide Marktseiten mehrfach fangen.',
-          'Die Schlussposition bleibt wichtig. Ein großer Outside-Bar mit Schluss nahe seinem Hoch besitzt eine andere kurzfristige Kontrolle als einer mit Schluss in der Mitte. Trotzdem benötigt auch der starke Schluss einen passenden Standort und Anschluss.',
-          'Große Ranges vergrößern Stop-Distanzen und verschlechtern häufig das Chance-Risiko-Verhältnis. Die Formation kann handelbar sein, verlangt aber mehr Vorsicht als eine saubere, kleine Signal-Bar-Struktur.',
+          'Ein Outside-Bar handelt über dem Hoch und unter dem Tief seines Vorgängers. Er weitet damit beide Seiten der vorherigen Auktion aus. Buy-Stops und Sell-Stops können innerhalb desselben Bars ausgelöst werden.',
+          'Bei einem oo folgt ein zweiter Outside-Bar, der wieder beide Grenzen überschreitet. Wird er noch größer, zeigt die Folge eine außergewöhnlich breite und aggressive Preisfindung. Das sieht dynamisch aus, kann aber beide Marktseiten mehrfach in die Falle locken.',
+          'Die Schlussposition bleibt wichtig. Ein großer Outside-Bar mit Schluss nahe seinem Hoch hat eine andere kurzfristige Kontrolle als einer mit Schluss in der Mitte. Trotzdem braucht auch der starke Schluss einen passenden Standort und Anschluss.',
+          'Große Ranges vergrößern die Stop-Distanzen und verschlechtern oft das Chance-Risiko-Verhältnis. Die Formation kann handelbar sein, verlangt aber mehr Vorsicht als eine saubere, kleine Signal-Bar-Struktur.',
         ],
         callout:
           'Outside zeigt Expansion. Erst Schluss, Kontext und Follow-through zeigen, ob daraus gerichtete Kontrolle entsteht.',
@@ -685,7 +685,7 @@ export const chapterFourPatternLessons = [
     id: 'price-action-trends.chapter-04.lesson-14',
     title: 'Doppeltop und Doppeltief testen einen Bereich zweimal',
     summary:
-      'Wie ein zweiter Hoch- oder Tieftest zeigt, ob eine bekannte Zone erneut hält oder schließlich bricht.',
+      'Wie ein zweiter Hoch- oder Tieftest zeigt, ob eine bekannte Zone wieder hält oder am Ende bricht.',
     durationMinutes: 8,
     xp: 35,
     sourceUnit: 'Kapitel 4 · Doppeltop und Doppeltief',
@@ -703,10 +703,10 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Wiederholter Test',
         title: 'Die Zone zählt mehr als geometrische Perfektion',
         paragraphs: [
-          'Ein Doppeltop entsteht, wenn der Markt einen vorherigen Hochbereich erneut testet und dort wieder verkauft wird. Ein Doppeltief testet einen früheren Tiefbereich und findet erneut Käufer. Die beiden Preise müssen nicht exakt identisch sein.',
+          'Ein Doppeltop entsteht, wenn der Markt einen früheren Hochbereich erneut testet und dort wieder verkauft wird. Ein Doppeltief testet einen früheren Tiefbereich und findet wieder Käufer. Die beiden Preise müssen nicht exakt gleich sein.',
           'Der zweite Test liefert neue Information. Ein schwächerer Durchbruch, ein Reversal-Bar oder fehlender Follow-through kann zeigen, dass die angreifende Seite den Bereich weiterhin nicht akzeptiert. Ein kräftiger Breakout mit Anschluss widerlegt dagegen die Reversal-Idee.',
-          'In einer Trading Range gehören doppelte Tests zum normalen Verhalten an den Rändern. In einem Trend kann ein Doppeltief einen Pullback beenden oder ein Doppeltop lediglich eine kurze Korrektur auslösen. Wieder bestimmt die übergeordnete Struktur die Bedeutung.',
-          'Der Trade basiert daher nicht auf zwei hübschen Punkten, sondern auf Test, Zurückweisung, Auslösung und Folgebewegung.',
+          'In einer Trading Range gehören doppelte Tests zum normalen Verhalten an den Rändern. In einem Trend kann ein Doppeltief einen Pullback beenden oder ein Doppeltop nur eine kurze Korrektur auslösen. Auch hier entscheidet die übergeordnete Struktur über die Bedeutung.',
+          'Der Trade beruht daher nicht auf zwei hübschen Punkten, sondern auf Test, Abweisung, Auslösung und Folgebewegung.',
         ],
         callout:
           'Doppeltop und Doppeltief sind Preiszonen mit zwei Prüfungen – keine millimetergenauen Buchstabenformen.',
@@ -770,7 +770,7 @@ export const chapterFourPatternLessons = [
     id: 'price-action-trends.chapter-04.lesson-15',
     title: 'Ein gescheitertes Reversal wird zum Gegensignal',
     summary:
-      'Wie ausgelöste Umkehrtrader gefangen werden und ihre Ausstiege die ursprüngliche Richtung verstärken können.',
+      'Wie ausgelöste Umkehrtrader in die Falle laufen und ihre Ausstiege die ursprüngliche Richtung verstärken können.',
     durationMinutes: 9,
     xp: 40,
     sourceUnit: 'Kapitel 4 · Gescheiterte Reversals',
@@ -788,10 +788,10 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Failure als Information',
         title: 'Die falsche Seite liefert nach dem Fehlschlag zusätzliche Orders',
         paragraphs: [
-          'Ein Reversal-Setup kann zunächst korrekt ausgelöst werden und trotzdem sofort scheitern. Beispielsweise kaufen Trader über einem bullischen Reversal-Bar, doch der Markt schafft keinen weiteren Fortschritt und fällt unter die Struktur zurück.',
-          'Diese neuen Longs sitzen nun in einer schlechten Position. Ihre Schutzstops und manuellen Ausstiege werden zu Verkaufsorders. Gleichzeitig erkennen Bären den fehlenden Kaufanschluss und eröffnen neue Shorts. Beides kann die Bewegung nach unten beschleunigen.',
-          'Das Prinzip gilt spiegelbildlich für ein gescheitertes bearishes Reversal. Werden Shorts ausgelöst und der Markt dreht sofort über den Signalbereich, müssen sie zurückkaufen und können eine Rally verstärken.',
-          'Nicht jeder kleine Rücklauf ist bereits ein echter Fehlschlag. Du suchst eine klare Rückeroberung des Signalbereichs und idealerweise Anschluss der Gegenseite.',
+          'Ein Reversal-Setup kann zunächst korrekt ausgelöst werden und trotzdem sofort scheitern. Zum Beispiel kaufen Trader über einem bullischen Reversal-Bar, doch der Markt macht keinen weiteren Fortschritt und fällt unter die Struktur zurück.',
+          'Diese neuen Longs sitzen jetzt in einer schlechten Position. Ihre Schutzstops und manuellen Ausstiege werden zu Verkaufsorders. Gleichzeitig erkennen Bären den fehlenden Kaufanschluss und eröffnen neue Shorts. Beides kann die Bewegung nach unten beschleunigen.',
+          'Das Prinzip gilt spiegelbildlich für ein gescheitertes bärisches Reversal. Werden Shorts ausgelöst und der Markt dreht sofort über den Signalbereich, müssen sie zurückkaufen und können eine Rally verstärken.',
+          'Nicht jeder kleine Rücklauf ist schon ein echter Fehlschlag. Du suchst eine klare Rückeroberung des Signalbereichs und idealerweise Anschluss der Gegenseite.',
         ],
         callout:
           'Der Fehlschlag verändert die Orderlage: Aus den ursprünglichen Reversal-Tradern kann Treibstoff für die Gegenseite werden.',
@@ -873,13 +873,13 @@ export const chapterFourPatternLessons = [
         eyebrow: 'Späte Trendphase',
         title: 'Der Markt schafft noch ein Extrem, aber kaum noch Fortschritt',
         paragraphs: [
-          'In einem jungen, starken Trend sind gescheiterte Gegenbewegungen meist neue With-trend-Chancen. In einem bereits weit gelaufenen Trend kann dagegen der nächste Fortsetzungsversuch zeigen, dass die dominante Seite an Effizienz verliert.',
-          'Ein neues Hoch im Bullenmarkt oder ein neues Tief im Bärenmarkt reicht allein nicht. Wenn der Breakout sofort zurückkehrt, keinen Follow-through erhält und an einer wichtigen Zone liegt, können späte Trendtrader gefangen werden.',
-          'Auch einfache erste Versuche wie High 1 oder Low 1 können in einem reifen Markt scheitern. Entscheidend ist nicht das Kürzel, sondern dass eine erwartete Fortsetzung ausgelöst wird und anschließend keine Akzeptanz findet.',
-          'Ein solcher Fehlschlag kann eine größere Korrektur oder Umkehr vorbereiten. Er garantiert sie nicht. Ohne Trendalter, Testzone und klare Gegenreaktion bleibt die bestehende Trendträgheit relevant.',
+          'In einem jungen, starken Trend sind gescheiterte Gegenbewegungen meist neue With-trend-Chancen. In einem schon weit gelaufenen Trend kann dagegen der nächste Fortsetzungsversuch zeigen, dass die dominante Seite an Effizienz verliert.',
+          'Ein neues Hoch im Bullenmarkt oder ein neues Tief im Bärenmarkt reicht allein nicht. Kehrt der Breakout sofort zurück, findet er keinen Follow-through und liegt an einer wichtigen Zone, können späte Trendtrader in die Falle laufen.',
+          'Auch einfache erste Versuche wie High 1 oder Low 1 können in einem reifen Markt scheitern. Entscheidend ist nicht das Kürzel, sondern dass eine erwartete Fortsetzung ausgelöst wird und danach keine Akzeptanz findet.',
+          'Ein solcher Fehlschlag kann eine größere Korrektur oder Umkehr vorbereiten. Garantieren kann er sie nicht. Ohne Trendalter, Testzone und klare Gegenreaktion bleibt die bestehende Trendträgheit wichtig.',
         ],
         callout:
-          'Ein neues Extrem beweist Fortsetzung erst dann, wenn der Markt dort bleiben und weitere Preise durchsetzen kann.',
+          'Ein neues Extrem beweist die Fortsetzung erst, wenn der Markt dort bleiben und weitere Preise durchsetzen kann.',
       },
       {
         id: 'chapter-04-16-diagram',

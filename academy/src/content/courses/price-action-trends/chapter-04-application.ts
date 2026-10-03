@@ -5,7 +5,7 @@ export const chapterFourApplicationLessons = [
     id: 'price-action-trends.chapter-04.lesson-19',
     title: 'Der Anfängerfilter entfernt die gefährlichsten Trades',
     summary:
-      'Warum Einsteiger nur Trendbars in Trade-Richtung und ausschließlich mit dem bestehenden Trend handeln sollten.',
+      'Warum Einsteiger nur Trendbars in Trade-Richtung und nur mit dem bestehenden Trend handeln sollten.',
     durationMinutes: 12,
     xp: 45,
     sourceUnit: 'Kapitel 4 · Auswahlregeln für Einsteiger',
@@ -24,13 +24,13 @@ export const chapterFourApplicationLessons = [
         eyebrow: 'Sicherheitsfilter',
         title: 'Am Anfang müssen Trend, Signal und Trade dieselbe Richtung zeigen',
         paragraphs: [
-          'Ein erfahrener Trader kann schwache Signal-Bars, Limit-Einstiege und Fehlschläge gegeneinander abwägen. Ein Anfänger besitzt diese Geschwindigkeit und Erfahrung noch nicht. Er braucht deshalb einen engen Filter, der viele interessante, aber schwer zu bewertende Trades konsequent entfernt.',
-          'Für einen Short sollte der Markt bereits bärisch sein und der Signal-Bar als Bear-Trendbar schließen. Für einen Long sollte ein Bullenmarkt bestehen und der Signal-Bar einen bullischen Körper mit erkennbarem Kaufdruck zeigen. Trend, Bar und geplante Richtung stimmen dann überein.',
-          'Dieser Filter garantiert keinen Erfolg. Er erhöht aber die Chance, dass vor dem Einstieg bereits sichtbarer Druck auf deiner Seite vorhanden ist und nach der Auslösung Anschluss entsteht. Gleichzeitig verhindert er, dass du jede auffällige Kerze gegen einen starken Trend handelst.',
-          'Später kann der Filter erweitert werden. Zuerst sollst du jedoch lernen, saubere With-trend-Entscheidungen wiederholbar auszuführen. Komplexität ist keine Abkürzung zur Erfahrung.',
+          'Ein erfahrener Trader kann schwache Signal-Bars, Limit-Einstiege und Fehlschläge gegeneinander abwägen. Ein Anfänger hat diese Geschwindigkeit und Erfahrung noch nicht. Er braucht deshalb einen engen Filter, der viele interessante, aber schwer zu bewertende Trades konsequent aussortiert.',
+          'Für einen Short sollte der Markt schon bärisch sein und der Signal-Bar als Bear-Trendbar schließen. Für einen Long sollte ein Bullenmarkt laufen und der Signal-Bar einen bullischen Körper mit erkennbarem Kaufdruck zeigen. Trend, Bar und geplante Richtung passen dann zusammen.',
+          'Dieser Filter garantiert keinen Erfolg. Er erhöht aber die Chance, dass schon vor dem Einstieg sichtbarer Druck auf deiner Seite steht und nach der Auslösung Anschluss kommt. Gleichzeitig hält er dich davon ab, jede auffällige Kerze gegen einen starken Trend zu handeln.',
+          'Später kannst du den Filter erweitern. Zuerst sollst du aber lernen, saubere With-trend-Entscheidungen wiederholbar auszuführen. Komplexität ist keine Abkürzung zur Erfahrung.',
         ],
         callout:
-          'Anfängerregel: bullischer Signal-Bar im Bullenmarkt für Long – bearischer Signal-Bar im Bärenmarkt für Short.',
+          'Anfängerregel: bullischer Signal-Bar im Bullenmarkt für Long – bärischer Signal-Bar im Bärenmarkt für Short.',
       },
       {
         id: 'chapter-04-19-diagram',
@@ -116,7 +116,7 @@ export const chapterFourApplicationLessons = [
     id: 'price-action-trends.chapter-04.lesson-20',
     title: 'Trendstärke bestimmt, wie schön das Signal sein muss',
     summary:
-      'Warum starke Trends schlechte Signal-Bars erlauben, Countertrend-Einstiege dagegen außergewöhnlich viel Bestätigung brauchen.',
+      'Warum starke Trends auch schlechte Signal-Bars erlauben, Countertrend-Einstiege dagegen außergewöhnlich viel Bestätigung brauchen.',
     durationMinutes: 16,
     xp: 55,
     sourceUnit: 'Kapitel 4 · Asymmetrische Anforderungen an Signal-Bars',
@@ -139,14 +139,14 @@ export const chapterFourApplicationLessons = [
         eyebrow: 'Beweislast',
         title: 'Mit Trägheit darf das Signal hässlich sein – gegen Trägheit nicht',
         paragraphs: [
-          'In einem sehr starken Trend sind Trader bereit, kleine Pullbacks sofort zu handeln. Sie warten nicht darauf, dass ein perfekter Signal-Bar erscheint. Ein Bärentrend-Bar am gleitenden Durchschnitt kann deshalb ein guter Long-Setup-Bar sein, wenn zugleich ein früheres Swing-Tief, eine Trendlinie oder eine andere Unterstützungszone getestet wird.',
-          'Starke Trends halten viele Trader absichtlich draußen: Jeder Pullback sieht zu klein, jeder Einstieg zu spät und jeder Signal-Bar unattraktiv aus. Wer auf die perfekte Kerze wartet, muss dem Markt später hinterherlaufen. Je eindeutiger die Trendkontrolle, desto weniger Gewicht besitzt die isolierte Barform.',
-          'Ein Countertrend-Trade trägt die gegenteilige Beweislast. Die meisten frühen Umkehrversuche werden nur zu Pullbacks und erzeugen den nächsten Einstieg in Trendrichtung. Für eine Trendwende brauchst du deshalb einen unterstützenden Gesamtchart, einen kräftigen Bruch der Trendstruktur, einen anschließenden Test und einen starken Reversal-Bar. Selbst der Test darf noch ein neues Extrem bilden.',
-          'Zweite Umkehrversuche am oberen Range-Rand können einen bullischen Signal-Bar besitzen und trotzdem gute Shorts werden. Am unteren Rand kann ein Bear-Bar einen Long vorbereiten. Hier liefern Lage und wiederholtes Scheitern mehr Information als die Körperfarbe.',
-          'Sehr offensichtliche kleine Fehlbewertungen werden oft schnell geschlossen und liefern eher kurze Scalps. Größere Swing-Setups bleiben dagegen häufig unsicher und können zunächst wie eine fortgesetzte Range aussehen. Eine schöne Optik ist daher nicht gleichbedeutend mit hoher Trefferwahrscheinlichkeit.',
+          'In einem sehr starken Trend sind Trader bereit, kleine Pullbacks sofort zu handeln. Sie warten nicht darauf, dass ein perfekter Signal-Bar auftaucht. Ein Bärentrend-Bar am gleitenden Durchschnitt kann deshalb ein guter Long-Setup-Bar sein, wenn gleichzeitig ein früheres Swing-Tief, eine Trendlinie oder eine andere Unterstützungszone getestet wird.',
+          'Starke Trends halten viele Trader mit Absicht draußen: Jeder Pullback ist zu klein, jeder Einstieg zu spät und jeder Signal-Bar unattraktiv. Wer auf die perfekte Kerze wartet, läuft dem Markt später hinterher. Je eindeutiger die Trendkontrolle, desto weniger zählt die Form des einzelnen Bars.',
+          'Ein Countertrend-Trade trägt die umgekehrte Beweislast. Die meisten frühen Umkehrversuche werden nur zu Pullbacks und liefern den nächsten Einstieg in Trendrichtung. Für eine Trendwende brauchst du deshalb einen unterstützenden Gesamtchart, einen kräftigen Bruch der Trendstruktur, einen anschließenden Test und einen starken Reversal-Bar. Selbst der Test darf noch ein neues Extrem bilden.',
+          'Zweite Umkehrversuche am oberen Range-Rand können einen bullischen Signal-Bar haben und trotzdem gute Shorts werden. Am unteren Rand kann ein Bear-Bar einen Long vorbereiten. Hier sagen dir Lage und wiederholtes Scheitern mehr als die Farbe des Körpers.',
+          'Sehr offensichtliche kleine Fehlbewertungen werden oft schnell geschlossen und ergeben eher kurze Scalps. Größere Swing-Setups bleiben dagegen oft unsicher und können zunächst wie eine fortgesetzte Range aussehen. Schöne Optik heißt deshalb nicht hohe Trefferwahrscheinlichkeit.',
         ],
         callout:
-          'Je stärker der Trend, desto weniger wichtig ist die Signal-Bar-Optik. Je stärker der Trade gegen den Trend läuft, desto wichtiger werden perfekter Kontext und ein starkes Signal.',
+          'Je stärker der Trend, desto weniger wichtig ist die Optik des Signal-Bars. Je mehr der Trade gegen den Trend läuft, desto wichtiger werden perfekter Kontext und ein starkes Signal.',
       },
       {
         id: 'chapter-04-20-diagram',
@@ -234,7 +234,7 @@ export const chapterFourApplicationLessons = [
     id: 'price-action-trends.chapter-04.lesson-21',
     title: 'Eine nicht ausgelöste Order wird gestrichen',
     summary:
-      'Wie Stop-Einstiege außerhalb des Signal-Bars geplant, nach verpasster Auslösung gelöscht und gegen Ein-Tick-Fallen angepasst werden.',
+      'Wie du Stop-Einstiege außerhalb des Signal-Bars planst, nach verpasster Auslösung löschst und gegen Ein-Tick-Fallen anpasst.',
     durationMinutes: 14,
     xp: 50,
     sourceUnit: 'Kapitel 4 · Stop-Einstieg und Orderpflege',
@@ -255,14 +255,14 @@ export const chapterFourApplicationLessons = [
         eyebrow: 'Execution',
         title: 'Eine Order ist ein zeitlich begrenzter Plan',
         paragraphs: [
-          'Fast jeder Bar könnte theoretisch ein Signal werden, doch die meisten führen nie zu einem Einstieg. Professionelles Daytrading enthält deshalb viele vorbereitete Orders, die wieder gelöscht werden. Das ist keine verpasste Chance, sondern normale Selektion.',
-          'Für einen Long liegt der Buy-Stop häufig einen Tick über dem potenziellen Signal-Bar; für einen Short der Sell-Stop einen Tick darunter. Der Markt muss damit zuerst etwas Fortschritt in Trade-Richtung zeigen, bevor du beteiligt bist.',
-          'Wird die Order nicht zeitnah erreicht und verändert sich der Chart, streichst du sie. Ein neuer Bar schafft neue Informationen und möglicherweise einen besseren Ort. Eine alte Order darf nicht unsichtbar liegen bleiben und später in einem völlig anderen Kontext ausgelöst werden.',
-          'Bei einzelnen Aktien können minimale Grenzbrüche häufiger sofort zurückdrehen. Ein Einstieg mit etwas mehr Abstand jenseits des Signal-Bars kann solche Ein-Tick-Fallen reduzieren, erhöht aber den Einstiegspreis und verändert Stop-Distanz sowie Chance-Risiko-Verhältnis.',
-          'Manche Bars sind in beide Richtungen handelbar. Dann können Buy-Stop und Sell-Stop außerhalb beider Extreme vorbereitet werden. Erst der ausgelöste Breakout bestimmt den Trade; die andere Order muss nach Einstieg gelöscht oder als bewusst geplante Umkehrorder separat behandelt werden.',
+          'Fast jeder Bar könnte theoretisch ein Signal werden, aber die meisten führen nie zu einem Einstieg. Professionelles Daytrading besteht deshalb aus vielen vorbereiteten Orders, die wieder gelöscht werden. Das ist keine verpasste Chance, sondern ganz normale Auswahl.',
+          'Für einen Long liegt der Buy-Stop oft einen Tick über dem möglichen Signal-Bar; für einen Short der Sell-Stop einen Tick darunter. Der Markt muss also zuerst etwas Fortschritt in Trade-Richtung zeigen, bevor du dabei bist.',
+          'Wird die Order nicht zeitnah erreicht und der Chart verändert sich, streichst du sie. Ein neuer Bar bringt neue Informationen und vielleicht einen besseren Ort. Eine alte Order darf nicht unbemerkt liegen bleiben und später in einem völlig anderen Kontext auslösen.',
+          'Bei einzelnen Aktien drehen minimale Grenzbrüche öfter sofort wieder um. Ein Einstieg mit etwas mehr Abstand jenseits des Signal-Bars kann solche Ein-Tick-Fallen verringern, macht aber den Einstiegspreis schlechter und verändert Stop-Distanz und Chance-Risiko-Verhältnis.',
+          'Manche Bars kannst du in beide Richtungen handeln. Dann kannst du Buy-Stop und Sell-Stop außerhalb beider Extreme vorbereiten. Erst der ausgelöste Breakout bestimmt den Trade; die andere Order musst du nach dem Einstieg löschen oder als bewusst geplante Umkehrorder getrennt behandeln.',
         ],
         callout:
-          'Nicht ausgelöst heißt nicht verloren: Lösche die veraltete Order und bewerte den neuen Chart, statt einem alten Plan hinterherzulaufen.',
+          'Nicht ausgelöst heißt nicht verloren: Lösch die veraltete Order und bewerte den neuen Chart, statt einem alten Plan hinterherzulaufen.',
       },
       {
         id: 'chapter-04-21-diagram',
@@ -325,7 +325,7 @@ export const chapterFourApplicationLessons = [
     id: 'price-action-trends.chapter-04.lesson-22',
     title: 'Kerzennamen ersetzen keine Price Action',
     summary:
-      'Warum Trendbar, Doji, Körper und Tail meist ausreichen und exotische Candlestick-Namen vom Marktregime ablenken können.',
+      'Warum Trendbar, Doji, Körper und Tail meistens reichen und exotische Candlestick-Namen vom Marktregime ablenken können.',
     durationMinutes: 12,
     xp: 45,
     sourceUnit: 'Kapitel 4 · Candle Patterns ohne Mystik',
@@ -346,14 +346,14 @@ export const chapterFourApplicationLessons = [
         eyebrow: 'Weniger Vokabular, mehr Verständnis',
         title: 'Reduziere die Kerze auf Kontrolle, Balance und Lage',
         paragraphs: [
-          'Exotische Candlestick-Namen wirken präzise und versprechen eine geheime Bedeutung. Für die praktische Entscheidung können sie jedoch zusätzliche Denkarbeit erzeugen, ohne die Wahrscheinlichkeit zuverlässig zu verbessern.',
+          'Exotische Candlestick-Namen wirken präzise und versprechen eine geheime Bedeutung. Für die Entscheidung in der Praxis machen sie aber oft nur mehr Denkarbeit, ohne die Wahrscheinlichkeit verlässlich zu verbessern.',
           'Die wichtigste Chartfrage bleibt: Trend oder Trading Range? Beim einzelnen Bar lautet dieselbe Frage: gerichtete Kontrolle oder Balance? Ein sichtbarer Körper zeigt Fortschritt vom Open zum Close und damit relative Kontrolle. Ein sehr kleiner oder fehlender Körper zeigt, dass beide Seiten den Bar weitgehend ausgeglichen beendet haben.',
-          'Die Linien oberhalb und unterhalb des Körpers werden je nach Tradition Wick, Shadow oder Tail genannt. Für unsere Analyse ist „Tail“ nützlich, weil er sofort an eine Zurückweisung vom Bar-Extrem erinnert. Der Name ändert aber nicht die gehandelten Preise.',
-          'Ein Bar ist nur in Beziehung zu vorheriger Bewegung, Trend, Range-Rand, Unterstützung, Widerstand und Folgebars bedeutend. Dasselbe Kerzenmuster kann am richtigen Ort ein gutes Setup und wenige Bars später bedeutungslos sein.',
-          'Du brauchst daher kein Lexikon mystischer Formen. Trendbar oder Doji, Körper, Tails, Lage und Follow-through liefern eine klarere und schneller anwendbare Sprache.',
+          'Die Linien über und unter dem Körper heißen je nach Tradition Wick, Shadow oder Tail. Für uns ist „Tail“ praktisch, weil er sofort an eine Abweisung vom Bar-Extrem erinnert. Am Namen ändert sich nichts an den gehandelten Preisen.',
+          'Ein Bar bedeutet nur etwas im Verhältnis zur vorherigen Bewegung, zu Trend, Range-Rand, Unterstützung, Widerstand und Folgebars. Dasselbe Kerzenmuster kann am richtigen Ort ein gutes Setup sein und ein paar Bars später bedeutungslos.',
+          'Du brauchst deshalb kein Lexikon mystischer Formen. Trendbar oder Doji, Körper, Tails, Lage und Follow-through ergeben eine klarere Sprache, die du schneller anwenden kannst.',
         ],
         callout:
-          'Wenn ein Kerzenname nicht erklärt, wer Kontrolle hat, wo der Bar liegt und was danach bestätigt werden muss, hilft er der Entscheidung kaum.',
+          'Erklärt dir ein Kerzenname nicht, wer die Kontrolle hat, wo der Bar liegt und was danach bestätigt werden muss, hilft er der Entscheidung kaum.',
       },
       {
         id: 'chapter-04-22-diagram',
@@ -438,14 +438,14 @@ export const chapterFourApplicationLessons = [
         eyebrow: 'Bar-Schluss abwarten',
         title: 'Gute Form kann in wenigen Sekunden zu schlechter Lage werden',
         paragraphs: [
-          'Ein noch laufender Fünf-Minuten-Bar kann drei Minuten lang wie ein idealer bullischer Reversal-Bar aussehen. Wenn er in den letzten Sekunden mehrere Ticks wächst, bleibt seine Form vielleicht bullisch – sein Hoch liegt nun aber deutlich höher und dein Stop-Einstieg würde an einem viel schlechteren Preis erfolgen.',
-          'Besonders problematisch ist das nach einem Ausbruch aus einer letzten Bärenflagge. Der geplante Kauf lag zunächst nahe dem günstigen Tief, befindet sich nach der späten Expansion plötzlich am oberen Rand der alten Flag. Form und Richtung stimmen weiterhin, aber Lage, Stop-Distanz und verbleibender Zielraum haben sich verschlechtert.',
-          'Solange du noch nicht schnell und konstant profitabel liest, lässt du diesen Trade besser aus und wartest auf einen zweiten Einstieg. Ein erfahrener Trader kann ihn handeln, wenn viele Bären sichtbar gefangen sind. Mehrere große, stark überlappende Range-Bars erhöhen jedoch das Risiko und sprechen gegen blinde Aggressivität.',
-          'Die Sequenz hilft zugleich, Klimaxe sauber zu definieren. Jeder Trendbar kann als kleine Klimax oder Teil einer mehrbarigen Klimax gelesen werden. Die Klimaxphase endet mit dem ersten Pause-Bar: etwa einem kleinen Bar mit deutlichem Tail, einem Inside-Bar, Doji oder kräftigen Gegenbar.',
-          'Das Ende der Klimax ist noch keine bestätigte Trendwende. Es zeigt nur, dass die ununterbrochene Beschleunigung pausiert. Danach können Range, Pullback, Fortsetzung oder echte Umkehr folgen.',
+          'Ein noch laufender Fünf-Minuten-Bar kann drei Minuten lang wie ein idealer bullischer Reversal-Bar aussehen. Wächst er in den letzten Sekunden um mehrere Ticks, bleibt seine Form vielleicht bullisch – sein Hoch liegt aber deutlich höher, und dein Stop-Einstieg würde zu einem viel schlechteren Preis laufen.',
+          'Besonders heikel ist das nach einem Ausbruch aus einer letzten Bärenflagge. Der geplante Kauf lag zuerst nahe am günstigen Tief und sitzt nach der späten Expansion plötzlich am oberen Rand der alten Flag. Form und Richtung stimmen noch, aber Lage, Stop-Distanz und verbleibender Zielraum sind schlechter geworden.',
+          'Solange du noch nicht schnell und konstant profitabel liest, lässt du diesen Trade besser aus und wartest auf einen zweiten Einstieg. Ein erfahrener Trader kann ihn handeln, wenn viele Bären sichtbar in der Falle sitzen. Mehrere große, stark überlappende Range-Bars erhöhen aber das Risiko und sprechen gegen blinde Aggressivität.',
+          'Die Abfolge hilft auch, Klimaxe sauber zu definieren. Jeden Trendbar kannst du als kleinen Klimax oder als Teil eines mehrbarigen Klimax lesen. Die Klimaxphase endet mit dem ersten Pause-Bar: etwa einem kleinen Bar mit deutlichem Tail, einem Inside-Bar, Doji oder kräftigen Gegenbar.',
+          'Das Ende des Klimax ist noch keine bestätigte Trendwende. Es zeigt nur, dass die ununterbrochene Beschleunigung pausiert. Danach kann Range, Pullback, Fortsetzung oder eine echte Umkehr folgen.',
         ],
         callout:
-          'Entscheide mit dem abgeschlossenen Bar. Wenn späte Expansion den Einstieg verschlechtert, ist Auslassen oder ein zweiter Einstieg oft die bessere Wahl.',
+          'Entscheide mit dem abgeschlossenen Bar. Verschlechtert späte Expansion den Einstieg, ist Auslassen oder ein zweiter Einstieg oft die bessere Wahl.',
       },
       {
         id: 'chapter-04-23-diagram',
@@ -553,13 +553,13 @@ export const chapterFourApplicationLessons = [
         eyebrow: 'Chartfall 4.1 · Vorbereitung',
         title: 'Trendlinienbruch und Lower Low schaffen noch keine fertige Umkehr',
         paragraphs: [
-          'Der Fall beginnt mit einem bestehenden Bärentrend. Der Markt bricht zunächst über die fallende Trendlinie, verkauft anschließend jedoch in zwei Beinen erneut ab und erreicht ein tieferes Tief unter dem Vortagestief. Damit entsteht noch kein bestätigter Bullenmarkt, aber eine mögliche Umkehrzone.',
-          'Das erste Verkaufsbein endet in einer dreifachen Inside-Kompression bei Bar 2. Nach einer Zwischenreaktion folgt das zweite Bein zum neuen Tief. Bar 3 dreht kräftig bullisch und weist gleichzeitig den Bruch des Vortagestiefs sowie den Rücktest der zuvor gebrochenen Bärentrendlinie zurück.',
-          'Solange keine Order ausgeführt ist, bleibt Bar 3 ein Setup-Bar. Ein Buy-Stop knapp über seinem Hoch verlangt zumindest einen kleinen bullischen Fortschritt. Erst wenn diese Order im nächsten Bar erreicht wird, erhält Bar 3 rückblickend die Rolle des Signal-Bars.',
-          'Der Long arbeitet gegen den vorherigen Bärentrend. Deshalb ist der starke bullische Reversal-Bar an einer mehrfach bestätigten Testzone besonders wichtig. Mit einem schwachen Signal wäre die Wahrscheinlichkeit geringer, dass aus dem Countertrend-Versuch mehr als ein kurzer Bounce wird.',
+          'Der Fall beginnt mit einem bestehenden Bärentrend. Der Markt bricht zunächst über die fallende Trendlinie, verkauft dann aber in zwei Beinen erneut ab und erreicht ein tieferes Tief unter dem Vortagestief. Einen bestätigten Bullenmarkt gibt es damit noch nicht, wohl aber eine mögliche Umkehrzone.',
+          'Das erste Verkaufsbein endet in einer dreifachen Inside-Kompression bei Bar 2. Nach einer Zwischenreaktion folgt das zweite Bein zum neuen Tief. Bar 3 dreht kräftig bullisch und weist gleichzeitig den Bruch des Vortagestiefs und den Rücktest der zuvor gebrochenen Bärentrendlinie ab.',
+          'Solange keine Order ausgeführt ist, bleibt Bar 3 ein Setup-Bar. Ein Buy-Stop knapp über seinem Hoch verlangt zumindest einen kleinen bullischen Fortschritt. Erst wenn diese Order im nächsten Bar erreicht wird, bekommt Bar 3 rückblickend die Rolle des Signal-Bars.',
+          'Der Long läuft gegen den vorherigen Bärentrend. Deshalb ist der starke bullische Reversal-Bar an einer mehrfach bestätigten Testzone so wichtig. Mit einem schwachen Signal wäre die Chance geringer, dass aus dem Countertrend-Versuch mehr als ein kurzer Bounce wird.',
         ],
         callout:
-          'Bar 3 bündelt drei Dinge: Zurückweisung des Vortagestiefs, Test der gebrochenen Trendlinie und einen starken bullischen Schluss.',
+          'Bar 3 bündelt drei Dinge: Abweisung des Vortagestiefs, Test der gebrochenen Trendlinie und einen starken bullischen Schluss.',
       },
       {
         id: 'chapter-04-24-diagram',

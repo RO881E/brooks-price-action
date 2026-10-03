@@ -5,7 +5,7 @@ export const chapterThreeExpansionCaseLessons = {
     id: 'price-action-trends.chapter-03.lesson-every-swing-test',
     title: 'Chartfall 3.1: Jeder Swing testet eine alte Entscheidung',
     summary:
-      'Wie der Chartfall als Netz aus Vortageskursen, Swingpunkten, Signalbereichen und Referenzen anderer Zeitebenen gelesen wird.',
+      'Wie du den Chartfall als Netz aus Vortageskursen, Swingpunkten, Signalbereichen und Referenzen anderer Zeitebenen liest.',
     durationMinutes: 10,
     xp: 40,
     sourceUnit: 'Kapitel 3 · Chartfall 3.1 · Testnetz',
@@ -23,13 +23,13 @@ export const chapterThreeExpansionCaseLessons = {
         eyebrow: 'Chartfall 3.1 · Orientierung',
         title: 'Der sichtbare Wendepunkt ist meistens eine Antwort',
         paragraphs: [
-          'Ein Swinghoch oder Swingtief entsteht nicht im luftleeren Raum. Die Bewegung erreicht einen Bereich, an dem frühere Käufer, Verkäufer oder ausgestoppte Trader erneut entscheiden müssen. Deshalb lässt sich praktisch jeder Swing als Test einer älteren Marktfrage lesen.',
-          'Nicht jede Referenz ist auf dem gerade geöffneten Chart offensichtlich. Ein Niveau kann aus einer höheren Zeitebene, einer anderen Chartart, einem Durchschnitt, einer Projektionszone oder einer früheren Session stammen. Für die Price-Action-Lesart zählt weniger der Name als die beobachtete Reaktion.',
-          'Im Chartfall 3.1 verbinden sich das Vortagestief, das Hoch des frühen Signal-Bars, spätere Higher Lows und Lower Highs, der Vortagesschluss und ein verteidigter Long-Einstieg. Jeder neue Swing nimmt auf mindestens eine dieser Entscheidungen Bezug.',
-          'Wer nur nach einzelnen Mustern sucht, sieht viele zufällige Wendepunkte. Wer das Testnetz verfolgt, erkennt eine fortlaufende Auktion: Ein Bereich scheitert, der nächste wird angegriffen, zurückerobert und später erneut verteidigt.',
+          'Ein Swinghoch oder Swingtief entsteht nicht im luftleeren Raum. Die Bewegung erreicht einen Bereich, an dem frühere Käufer, Verkäufer oder ausgestoppte Trader wieder entscheiden müssen. Deshalb lässt sich praktisch jeder Swing als Test einer älteren Marktfrage lesen.',
+          'Nicht jede Referenz ist auf dem Chart, den du gerade offen hast, offensichtlich. Ein Niveau kann aus einer höheren Zeitebene, einer anderen Chartart, einem Durchschnitt, einer Projektionszone oder einer früheren Session stammen. Für die Price-Action-Lesart zählt weniger der Name als die beobachtete Reaktion.',
+          'Im Chartfall 3.1 greifen das Vortagestief, das Hoch des frühen Signal-Bars, spätere Higher Lows und Lower Highs, der Vortagesschluss und ein verteidigter Long-Einstieg ineinander. Jeder neue Swing bezieht sich auf mindestens eine dieser Entscheidungen.',
+          'Wer nur nach einzelnen Mustern sucht, sieht viele zufällige Wendepunkte. Wer dem Testnetz folgt, erkennt eine fortlaufende Auktion: Ein Bereich scheitert, der nächste wird angegriffen, zurückerobert und später wieder verteidigt.',
         ],
         callout:
-          'Frage bei jedem Swing nicht nur „Was ist hier passiert?“, sondern auch „Welche frühere Entscheidung wurde hier erneut geprüft?“',
+          'Frag bei jedem Swing nicht nur „Was ist hier passiert?“, sondern auch „Welche frühere Entscheidung wurde hier noch einmal geprüft?“',
       },
       {
         id: 'chapter-03-every-swing-test-diagram',
@@ -109,13 +109,13 @@ export const chapterThreeExpansionCaseLessons = {
         eyebrow: 'Chartfall 3.1 · Positionsverteidigung',
         title: 'Ein nicht erreichter Stop ist sichtbare Information',
         paragraphs: [
-          'Nach dem erneuten Aufwärtsversuch läuft der Markt zu Bar 9 zurück. Oberflächlich wirkt die Bewegung wie eine weitere Schwäche. Strukturell prüft sie jedoch mehrere Unterstützungen: den Durchschnitt, den vorherigen Breakout-Bereich und den Long-Einstieg über dem bullischen Bar nach Bar 7.',
-          'Trader, die dort Long sind, können ihren Stop am Einstand verwalten. Fällt der Markt bis zu diesem Preis, werden sie ohne Verlust aus der Position gedrängt. Im Chartfall bleibt der Rücklauf einen Tick darüber. Die Verkäufer schaffen es also nicht einmal, die frühen Bullen aus ihrem Trade zu lösen.',
-          'Diese knappe Verteidigung ist kein magischer Ein-Tick-Code. Ihre Bedeutung entsteht aus dem Kontext: vorherige bullische Stärke, ein gehaltener Unterstützungsbereich und fehlender Verkaufsanschluss. Zusammen zeigen sie, dass Käufer ihre Positionen noch kontrollieren.',
-          'Der anschließende Ausbruch zu einem neuen Tageshoch bestätigt diese Lesart. Bar 9 ist deshalb mehr als ein Tief am Durchschnitt; der Bar dokumentiert, dass der Markt den Preis der früheren Long-Entscheidung weiterhin verteidigt.',
+          'Nach dem erneuten Aufwärtsversuch läuft der Markt zurück zu Bar 9. Oberflächlich sieht das wie eine weitere Schwäche aus. Strukturell prüft die Bewegung aber gleich mehrere Unterstützungen: den Durchschnitt, den vorherigen Breakout-Bereich und den Long-Einstieg über dem bullischen Bar nach Bar 7.',
+          'Trader, die dort Long sind, können ihren Stop am Einstand führen. Fällt der Markt bis zu diesem Preis, werden sie ohne Verlust aus der Position gedrängt. Im Chartfall bleibt der Rücklauf einen Tick darüber. Die Verkäufer schaffen es also nicht einmal, die frühen Bullen aus ihrem Trade zu holen.',
+          'Diese knappe Verteidigung ist kein magischer Ein-Tick-Code. Ihre Bedeutung kommt aus dem Kontext: vorherige bullische Stärke, ein gehaltener Unterstützungsbereich und fehlender Verkaufsanschluss. Zusammen zeigen sie, dass die Käufer ihre Positionen noch im Griff haben.',
+          'Der Ausbruch danach zu einem neuen Tageshoch bestätigt diese Lesart. Bar 9 ist deshalb mehr als ein Tief am Durchschnitt; er belegt, dass der Markt den Preis der früheren Long-Entscheidung weiter verteidigt.',
         ],
         callout:
-          'Stops zeigen, wo eine These praktisch aufgegeben würde. Bleibt der Markt davor stehen, hat die verteidigende Seite noch Kontrolle.',
+          'Stops zeigen, wo eine These praktisch aufgegeben würde. Bleibt der Markt davor stehen, hat die verteidigende Seite noch die Kontrolle.',
       },
       {
         id: 'chapter-03-bar-nine-defense-diagram',
@@ -195,12 +195,12 @@ export const chapterThreeExpansionCaseLessons = {
         title: 'Eine Lücke kann gehandelt statt leer sein',
         paragraphs: [
           'Bar 3 ist ein großer Bull-Trendbar und markiert den Beginn des bullischen Trends im Chartfall. Der Markt verlässt den Bereich des gescheiterten Tiefausbruchs schnell und schließt deutlich höher. Käufer akzeptieren neue Preise, bevor Verkäufer eine stabile Gegenauktion aufbauen können.',
-          'In dünnen Märkten kann ein Breakout als sichtbare Kurslücke erscheinen. In liquiden Intraday-Märkten werden die Zwischenpreise oft gehandelt, aber nur sehr kurz und überwiegend in eine Richtung. Ein starker Trendbar erfüllt dann dieselbe Funktion: Der Markt überspringt keine Notierung, wohl aber längere zweiseitige Preisfindung.',
-          'Diese funktionale Lücke erklärt, warum spätere Pullbacks nicht automatisch bis zum Ausgangspunkt zurücklaufen. Solange der Markt den Bereich des Trendbars verteidigt und Gegenbewegungen schwach bleiben, prägt die schnelle Neubewertung weiterhin den Bias.',
-          'Die Bezeichnung ist kein eigener Einstieg. Sie beschreibt die Stärke des Breakouts. Für einen Trade bleiben Stop, Rücklauf und Follow-through notwendig.',
+          'In dünnen Märkten kann ein Breakout als sichtbare Kurslücke erscheinen. In liquiden Intraday-Märkten werden die Zwischenpreise oft gehandelt, aber nur ganz kurz und überwiegend in eine Richtung. Ein starker Trendbar erfüllt dann dieselbe Funktion: Der Markt überspringt keine Notierung, aber die längere zweiseitige Preisfindung.',
+          'Diese funktionale Lücke erklärt, warum spätere Pullbacks nicht automatisch bis zum Ausgangspunkt zurücklaufen. Solange der Markt den Bereich des Trendbars verteidigt und Gegenbewegungen schwach bleiben, prägt die schnelle Neubewertung weiter den Bias.',
+          'Die Bezeichnung ist kein eigener Einstieg. Sie beschreibt die Stärke des Breakouts. Für einen Trade brauchst du weiterhin Stop, Rücklauf und Follow-through.',
         ],
         callout:
-          'Eine funktionale Lücke bedeutet: Preise wurden zwar gedruckt, aber nicht lange genug zweiseitig akzeptiert.',
+          'Eine funktionale Lücke heißt: Preise wurden zwar gehandelt, aber nicht lange genug von beiden Seiten akzeptiert.',
       },
       {
         id: 'chapter-03-bar-three-gap-diagram',
@@ -261,7 +261,7 @@ export const chapterThreeExpansionCaseLessons = {
     id: 'price-action-trends.chapter-03.lesson-channel-positioning',
     title: 'Chartfall 3.1: Der Kanal erlaubt gestaffelte Gegenpositionen',
     summary:
-      'Wie frühe und späte Shorts im bullischen Kanal unterschiedliche Einstandspreise erhalten und beim zweibeinigen Rücklauf gemeinsam aussteigen.',
+      'Wie frühe und späte Shorts im bullischen Kanal unterschiedliche Einstandspreise bekommen und beim zweibeinigen Rücklauf gemeinsam aussteigen.',
     durationMinutes: 12,
     xp: 45,
     sourceUnit: 'Kapitel 3 · Chartfall 3.1 · Positionierung im Kanal',
@@ -281,13 +281,13 @@ export const chapterThreeExpansionCaseLessons = {
         eyebrow: 'Chartfall 3.1 · Durchschnitt statt perfektes Top',
         title: 'Gestaffelte Entries verändern das Ziel des Gegentrades',
         paragraphs: [
-          'Einige Bären verkaufen bereits unter Bar 4, obwohl der bullische Spike stark war. Dieser frühe Short hat geringe unmittelbare Erfolgswahrscheinlichkeit und kann zunächst weit gegen die Position laufen. Der Plan basiert deshalb nicht darauf, dass genau Bar 4 das Hoch sein muss.',
-          'Steigt der Kanal weiter, können die Bären an späteren Rückläufen oder oberhalb früherer Bars ergänzen. Andere warten ganz auf den reiferen, keilförmigen oberen Bereich. Durch die Staffelung liegt der durchschnittliche Short-Einstieg höher als der erste Einstieg.',
-          'Vom Keilhoch fällt der Markt in zwei Beinen zum Bereich des Kanalbeginns. Späte Shorts besitzen dort Gewinn; der frühe Short unter Bar 4 kann ungefähr seinen Einstand erreichen. Der Trade lebt also von der erwarteten Kanalrückverfolgung, nicht von einer sofortigen vollständigen Trendumkehr.',
+          'Einige Bären verkaufen schon unter Bar 4, obwohl der bullische Spike stark war. Dieser frühe Short hat geringe unmittelbare Erfolgswahrscheinlichkeit und kann zunächst weit gegen die Position laufen. Der Plan beruht deshalb nicht darauf, dass genau Bar 4 das Hoch sein muss.',
+          'Steigt der Kanal weiter, können die Bären an späteren Rückläufen oder über früheren Bars nachlegen. Andere warten ganz auf den reiferen, keilförmigen oberen Bereich. Durch die Staffelung liegt der durchschnittliche Short-Einstieg höher als der erste.',
+          'Vom Keilhoch fällt der Markt in zwei Beinen zum Bereich des Kanalbeginns. Späte Shorts sind dort im Gewinn; der frühe Short unter Bar 4 kann ungefähr seinen Einstand erreichen. Der Trade lebt also von der erwarteten Rückverfolgung des Kanals, nicht von einer sofortigen kompletten Trendumkehr.',
           'Am Ziel decken Bären ihre Positionen ein, während Bullen den früheren Pullback erneut kaufen. Der daraus entstehende Bounce beendet den Gegentrade. Ob danach Rally, Range oder Bärentrend folgt, ist eine neue Entscheidung.',
         ],
         callout:
-          'Skalierung ersetzt keinen Stop. Sie verändert Einstand und Ziel, erhöht aber zugleich das Gesamtrisiko und verlangt einen vorher festgelegten Plan.',
+          'Skalieren ersetzt keinen Stop. Es verändert Einstand und Ziel, erhöht aber auch das Gesamtrisiko und braucht einen Plan, den du vorher festlegst.',
       },
       {
         id: 'chapter-03-channel-positioning-diagram',
@@ -367,13 +367,13 @@ export const chapterThreeExpansionCaseLessons = {
         eyebrow: 'Chartfall 3.1 · Drei Schübe',
         title: 'Der dritte Versuch zeigt, ob die Gegenseite noch effizient ist',
         paragraphs: [
-          'Das Tief bei Bar 2 beendet den dritten Abwärtsschub. Ein Wedge-Reversal verlangt dabei keine geometrisch perfekte Keilform. Entscheidend ist die wiederholte Anstrengung der Verkäufer: drei Versuche zu tieferen Preisen, denen nach dem letzten Schub der Anschluss fehlt.',
-          'Der Fehlausbruch unter dem Vortagestief verstärkt die Aussage. Verkäufer erreichen zwar noch ein neues Tief, können es aber nicht halten. Short-Gewinnmitnahmen und aggressive Käufer drehen den Markt in den bullischen Spike.',
-          'Später entsteht ab Bar 6 erneut eine dreiteilige Abwärtskorrektur. Bar 7 beendet den dritten Schub, bleibt als Higher Low über der größeren bullischen Struktur und testet zugleich den Bereich von Bar 5. Dadurch funktioniert die Wedge hier als Bull Flag.',
-          'Die gleiche Zahl von Schüben kann also zwei Rollen besitzen: Am Tagestief bereitet sie eine Umkehr vor, innerhalb des neuen Bullenregimes beendet sie nur den Pullback. Der übergeordnete Kontext entscheidet, welche Bewegung tatsächlich dreht.',
+          'Das Tief bei Bar 2 beendet den dritten Abwärtsschub. Ein Wedge-Reversal braucht dabei keine geometrisch perfekte Keilform. Entscheidend ist die wiederholte Anstrengung der Verkäufer: drei Versuche zu tieferen Preisen, denen nach dem letzten Schub der Anschluss fehlt.',
+          'Der Fehlausbruch unter dem Vortagestief verstärkt die Aussage. Die Verkäufer erreichen zwar noch ein neues Tief, können es aber nicht halten. Short-Gewinnmitnahmen und aggressive Käufer drehen den Markt in den bullischen Spike.',
+          'Später entsteht ab Bar 6 wieder eine dreiteilige Abwärtskorrektur. Bar 7 beendet den dritten Schub, bleibt als Higher Low über der größeren bullischen Struktur und testet zugleich den Bereich von Bar 5. Dadurch funktioniert die Wedge hier als Bull Flag.',
+          'Dieselbe Zahl von Schüben kann also zwei Rollen haben: Am Tagestief bereitet sie eine Umkehr vor, im neuen Bullenregime beendet sie nur den Pullback. Der übergeordnete Kontext entscheidet, welche Bewegung tatsächlich dreht.',
         ],
         callout:
-          'Zähle Versuche, nicht hübsche Linien. Ein Wedge misst nachlassende Effizienz über mehrere Schübe.',
+          'Zähl Versuche, nicht hübsche Linien. Ein Wedge misst nachlassende Effizienz über mehrere Schübe.',
       },
       {
         id: 'chapter-03-wedge-pushes-diagram',
@@ -434,7 +434,7 @@ export const chapterThreeExpansionCaseLessons = {
     id: 'price-action-trends.chapter-03.lesson-flag-stack',
     title: 'Chartfall 3.1: Mehrere Flags liegen ineinander',
     summary:
-      'Wie Double-Top-Bear-Flag, Double-Bottom-Bull-Flag, Dreieck und Final Flag gleichzeitig gültig sein können, ohne die Gesamtlesart zu verwirren.',
+      'Wie Double-Top-Bear-Flag, Double-Bottom-Bull-Flag, Dreieck und Final Flag gleichzeitig gelten können, ohne dass die Gesamtlesart durcheinandergerät.',
     durationMinutes: 12,
     xp: 45,
     sourceUnit: 'Kapitel 3 · Chartfall 3.1 · Verschachtelte Muster',
@@ -455,13 +455,13 @@ export const chapterThreeExpansionCaseLessons = {
         title: 'Mehrere Namen beschreiben verschiedene Ausschnitte',
         paragraphs: [
           'Bar 6 erreicht ungefähr den Bereich des letzten Bars der Vorsession. Aus bärischer Sicht entsteht damit eine Double-Top-Bear-Flag: Der Markt testet einen früheren Hochbereich und könnte die Aufwärtsbewegung beenden.',
-          'Gleichzeitig formen Bars 5 und 7 einen Doppelboden innerhalb des bullischen Tagesverlaufs. Diese Double-Bottom-Bull-Flag unterstützt die Erwartung eines zweiten Aufwärtsbeins. Bar 9 liefert später einen weiteren Double-Bottom-Pullback und verteidigt zusätzlich den früheren Long-Einstieg.',
-          'Die Schwünge zwischen Bars 5 und 9 können außerdem als Dreieck gelesen werden. Ein Dreieck beschreibt zunächst nur engeren zweiseitigen Handel. Es löscht die vorherige bullische Stärke nicht. Deshalb bleibt der Breakout nach oben plausibler, solange Verkäufer keine eigene Distanz und keinen Anschluss schaffen.',
-          'Bar 8 wirkt als Final-Flag-Reversal nach der mehrbarigen bullischen Pause. Der Begriff markiert einen letzten kleinen Fortsetzungsversuch, der scheitert und die Gegenseite aktiviert. Auch dieses Detail liegt innerhalb derselben größeren bullischen Auktionsgeschichte.',
-          'Die Musternamen konkurrieren nicht um einen einzigen richtigen Titel. Sie organisieren verschiedene Zeitfenster und Tradeideen. Vorrang haben Regime, Breakout-Stärke, getestete Zone und Follow-through.',
+          'Gleichzeitig formen Bars 5 und 7 einen Doppelboden im bullischen Tagesverlauf. Diese Double-Bottom-Bull-Flag stützt die Erwartung eines zweiten Aufwärtsbeins. Bar 9 liefert später einen weiteren Double-Bottom-Pullback und verteidigt zusätzlich den früheren Long-Einstieg.',
+          'Die Schwünge zwischen Bars 5 und 9 lassen sich außerdem als Dreieck lesen. Ein Dreieck beschreibt zunächst nur einen engeren zweiseitigen Handel. Die vorherige bullische Stärke löscht es nicht. Der Breakout nach oben bleibt deshalb plausibler, solange Verkäufer keine eigene Distanz und keinen Anschluss schaffen.',
+          'Bar 8 wirkt als Final-Flag-Reversal nach der mehrbarigen bullischen Pause. Der Begriff meint einen letzten kleinen Fortsetzungsversuch, der scheitert und die Gegenseite aktiviert. Auch dieses Detail steckt in derselben größeren bullischen Auktionsgeschichte.',
+          'Die Musternamen konkurrieren nicht um einen einzigen richtigen Titel. Sie ordnen verschiedene Zeitfenster und Tradeideen. Vorrang haben Regime, Breakout-Stärke, getestete Zone und Follow-through.',
         ],
         callout:
-          'Wenn mehrere Muster gleichzeitig stimmen, ordne sie hierarchisch: Gesamtregime zuerst, getestete Zone danach, lokale Trigger zuletzt.',
+          'Stimmen mehrere Muster gleichzeitig, ordne sie nach Rangfolge: erst das Gesamtregime, dann die getestete Zone, zuletzt die lokalen Trigger.',
       },
       {
         id: 'chapter-03-flag-stack-diagram',

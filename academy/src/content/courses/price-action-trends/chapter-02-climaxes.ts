@@ -23,13 +23,13 @@ export const chapterTwoClimaxLessons = [
         eyebrow: 'Entscheidungsbar',
         title: 'Der Gegen-Spike stellt eine Frage – der Anschluss beantwortet sie',
         paragraphs: [
-          'Starke Pullbacks sehen oft wie beginnende Umkehrtrends aus. In einem Bullenmarkt können ein oder zwei große bearische Bars unter den gleitenden Durchschnitt und sogar unter eine kleine Range fallen. Dadurch wird ein Wechsel der Always-in-Richtung möglich, aber noch nicht bestätigt.',
-          'Alle beobachten nun die Folgebewegung. Ein weiterer großer bearischer Trendbar zeigt, dass Verkäufer nach dem ersten Schock weiter Druck ausüben; dann gewinnt die Umkehrthese deutlich an Gewicht. Schließt der nächste Bar hingegen bullisch, fehlt der entscheidende Anschluss. Der Abverkauf wird eher zu einer kurzen Preisreduktion innerhalb des Bullenmarkts.',
-          'Anfänger reagieren häufig nur auf die Größe des Gegen-Spikes und verkaufen spät. Erfahrene Bullen prüfen zuerst den dominanten Trend und kaufen, wenn die Verkäufer keinen Anschluss erreichen. Gleichzeitig decken erfahrene Bären ihre Shorts. Beide Kaufmotive können den fehlgeschlagenen Umkehrversuch zurück in Trendrichtung beschleunigen.',
-          'Die große Mehrheit früher Umkehrversuche endet als Fehlschlag. Die genaue Quote ist keine Naturkonstante für jeden Markt; die praktische Lehre lautet: Gegen einen starken Trend braucht eine Umkehr mehr als zwei überzeugende Bars. Ohne Fortsetzung wird sie häufig zur Flag für den alten Trend.',
+          'Starke Pullbacks sehen oft wie der Beginn eines Umkehrtrends aus. In einem Bullenmarkt können ein oder zwei große bärische Bars unter den gleitenden Durchschnitt und sogar unter eine kleine Range fallen. Ein Wechsel der Always-in-Richtung wird dadurch möglich, ist aber noch nicht bestätigt.',
+          'Jetzt schauen alle auf die Folgebewegung. Ein weiterer großer bärischer Trendbar zeigt, dass die Verkäufer nach dem ersten Schock weiter Druck machen – dann gewinnt die Umkehrthese deutlich an Gewicht. Schließt der nächste Bar dagegen bullisch, fehlt der entscheidende Anschluss. Der Abverkauf wird dann eher zu einem kurzen Preisabschlag innerhalb des Bullenmarkts.',
+          'Anfänger reagieren oft nur auf die Größe des Gegen-Spikes und verkaufen zu spät. Erfahrene Bullen prüfen zuerst den dominanten Trend und kaufen, wenn die Verkäufer keinen Anschluss schaffen. Gleichzeitig decken erfahrene Bären ihre Shorts ein. Beide Kaufmotive können den gescheiterten Umkehrversuch zurück in Trendrichtung beschleunigen.',
+          'Die große Mehrheit früher Umkehrversuche scheitert. Die genaue Quote ist keine Naturkonstante für jeden Markt; die Lehre für die Praxis: Gegen einen starken Trend braucht eine Umkehr mehr als zwei überzeugende Bars. Ohne Fortsetzung wird sie oft zur Flag für den alten Trend.',
         ],
         callout:
-          'Handle nicht die Schockwirkung des ersten Gegenbars. Prüfe, ob die Gegenseite im nächsten Bar weiter Strecke schafft.',
+          'Handle nicht die Schockwirkung des ersten Gegenbars. Prüfe, ob die Gegenseite im nächsten Bar weiter Strecke macht.',
       },
       {
         id: 'chapter-02-06-diagram',
@@ -108,10 +108,10 @@ export const chapterTwoClimaxLessons = [
         eyebrow: 'Zeitrahmendisziplin',
         title: 'Mehr Detail ist nicht automatisch mehr nutzbare Information',
         paragraphs: [
-          'Ein großer bearischer Bar kann am Tief schließen und kurz danach trotzdem stark nach oben drehen. Auf einem viel kleineren Chart findest du rückblickend häufig eine klassische Mikro-Umkehr: mehrere Schübe, ein Doppeltief oder einen fehlgeschlagenen Ausbruch. Das erklärt die größere Kerze, macht die Mikrostruktur aber nicht automatisch handelbar.',
-          'Wenn Dutzende Bars in einer Minute entstehen, muss ein Mensch Muster erkennen, Risiko berechnen, eine Order platzieren und auf Änderungen reagieren, während Algorithmen all das in Bruchteilen einer Sekunde tun. Die sichtbare Schönheit des Musters im Nachhinein verdeckt, dass die Entscheidung live zu schnell war.',
-          'Ein sinnvoller Arbeitszeitrahmen gibt dir genug Zeit, den Kontext zu verarbeiten. Der Fünf-Minuten-Chart ist ein Beispiel: nicht weil fünf Minuten magisch sind, sondern weil ein manueller Trader dort häufig den abgeschlossenen Bar, die Folgebewegung und ein vernünftiges Risiko beurteilen kann.',
-          'Du verzichtest dadurch bewusst auf den frühesten Preis. Im Gegenzug handelst du Information, die du tatsächlich wahrnehmen und zuverlässig ausführen kannst. Dieser Tausch ist ein Vorteil, kein Mangel.',
+          'Ein großer bärischer Bar kann am Tief schließen und kurz danach trotzdem kräftig nach oben drehen. Auf einem viel kleineren Chart findest du im Rückblick oft eine klassische Mikro-Umkehr: mehrere Schübe, ein Doppeltief oder einen gescheiterten Ausbruch. Das erklärt die größere Kerze, macht die Mikrostruktur aber nicht automatisch handelbar.',
+          'Wenn in einer Minute Dutzende Bars entstehen, muss ein Mensch Muster erkennen, Risiko berechnen, eine Order setzen und auf Änderungen reagieren – während Algorithmen all das in Sekundenbruchteilen erledigen. Dass das Muster hinterher so schön aussieht, verdeckt, dass die Entscheidung live zu schnell war.',
+          'Ein sinnvoller Arbeitszeitrahmen gibt dir genug Zeit, den Kontext zu verarbeiten. Der Fünf-Minuten-Chart ist ein Beispiel: nicht, weil fünf Minuten magisch wären, sondern weil ein manueller Trader dort oft den abgeschlossenen Bar, die Folgebewegung und ein vernünftiges Risiko beurteilen kann.',
+          'Du verzichtest damit bewusst auf den frühesten Preis. Dafür handelst du Information, die du wirklich wahrnehmen und verlässlich ausführen kannst. Dieser Tausch ist ein Vorteil, kein Mangel.',
         ],
         callout:
           'Wähle einen Zeitrahmen, in dem dein Entscheidungsprozess schneller ist als die nächste relevante Strukturänderung.',
@@ -194,10 +194,10 @@ export const chapterTwoClimaxLessons = [
         eyebrow: 'Begriffe trennen',
         title: 'Zu weit und zu schnell bedeutet Pause – nicht automatisch Richtungswechsel',
         paragraphs: [
-          'Ein Klimax ist eine schnelle einseitige Bewegung. Jeder Trendbar ist selbst ein kleiner Klimax oder Teil einer Folge von Trendbars. Diese Phase endet mit der ersten klaren Pause: einem Doji, Inside-Bar, Gegenbar oder einem Bar mit auffälligem Tail. Ab diesem Moment ist der Markt wieder stärker zweiseitig.',
-          'Nach drei kräftigen bullischen Bars kann die Pause bedeuten, dass frühe Bullen Gewinne nehmen, spätere Bullen nicht mehr jeden Preis akzeptieren und erste Bären Shorts testen. Das reicht für ein vorläufiges Gleichgewicht. Es beweist jedoch nicht, dass die Bären nun einen Abwärtstrend erzeugen.',
-          'Eine klimaktische Top-Umkehr benötigt zwei Bausteine: zuerst den bullischen Klimax, danach einen überzeugenden bearischen Breakout. Beide müssen nicht direkt nebeneinanderliegen; eine Seitwärtsphase kann sie trennen. Ohne den bearischen Ausbruch bleibt der Klimax lediglich eine überdehnte Trendphase, nach der der alte Trend erneut beginnen kann.',
-          'Auf einer kleineren Zeitebene findest du oft Spike und Gegenspike deutlicher, auf einer größeren erscheinen beide zusammen als einzelner Reversal-Bar. Du musst nicht jeden Zeitrahmen durchsuchen. Wenn du auf deinem Arbeitschart Pause, zweiseitigen Handel und späteren Gegen-Breakout erkennst, besitzt du die nötige Information.',
+          'Ein Klimax ist eine schnelle, einseitige Bewegung. Jeder Trendbar ist selbst ein kleiner Klimax oder Teil einer Folge von Trendbars. Diese Phase endet mit der ersten klaren Pause: einem Doji, Inside-Bar, Gegenbar oder einem Bar mit auffälligem Tail. Ab da wird wieder stärker zweiseitig gehandelt.',
+          'Nach drei kräftigen bullischen Bars kann die Pause bedeuten, dass frühe Bullen Gewinne mitnehmen, spätere Bullen nicht mehr jeden Preis zahlen und erste Bären Shorts testen. Das reicht für ein vorläufiges Gleichgewicht. Es beweist aber nicht, dass die Bären jetzt einen Abwärtstrend erzeugen.',
+          'Eine klimaktische Top-Umkehr braucht zwei Bausteine: erst den bullischen Klimax, dann einen überzeugenden bärischen Breakout. Beide müssen nicht direkt nebeneinanderliegen; eine Seitwärtsphase kann sie trennen. Ohne den bärischen Ausbruch bleibt der Klimax nur eine überdehnte Trendphase, nach der der alte Trend wieder losgehen kann.',
+          'Auf einer kleineren Zeitebene siehst du Spike und Gegenspike oft deutlicher, auf einer größeren erscheinen beide zusammen als einzelner Reversal-Bar. Du musst nicht jeden Zeitrahmen absuchen. Erkennst du auf deinem Arbeitschart Pause, zweiseitigen Handel und späteren Gegen-Breakout, hast du die nötige Information.',
         ],
         callout:
           'Klimax + Pause = Balance. Klimax + Gegen-Breakout = mögliche klimaktische Umkehr.',
@@ -295,7 +295,7 @@ export const chapterTwoClimaxLessons = [
     id: 'price-action-trends.chapter-02.lesson-09',
     title: 'Der ideale Trendbar – und wann Größe warnt',
     summary:
-      'Welche Merkmale echte Kontrolle zeigen und warum ein moderater Bar oft gesünder ist als die größte Kerze im Chart.',
+      'Woran du echte Kontrolle erkennst und warum ein moderater Bar oft gesünder ist als die größte Kerze im Chart.',
     durationMinutes: 13,
     xp: 45,
     sourceUnit: 'Kapitel 2 · Qualität eines Trendbars',
@@ -314,13 +314,13 @@ export const chapterTwoClimaxLessons = [
         eyebrow: 'Barqualität',
         title: 'Gesunde Kontrolle ist mehr als maximale Größe',
         paragraphs: [
-          'Ein hochwertiger bullischer Trendbar besitzt einen klaren, aber nicht zwingend extremen Körper. Als brauchbare Vergleichsbasis dient die typische Körpergröße der letzten fünf bis zehn Bars. Liegt sein Körper etwa auf oder über diesem Niveau, zeigt er relevanten Fortschritt, ohne allein durch Ausnahmedimension verdächtig zu werden.',
-          'Zusätzliche Stärkezeichen sind ein Open nahe dem Tief, ein Schluss nahe dem Hoch, kleine Tails sowie ein Hoch und Schluss oberhalb mehrerer vorheriger Bars. Die spiegelbildlichen Merkmale gelten für einen bearischen Trendbar. Gemeinsam zeigen sie, dass die kontrollierende Seite Rückläufe begrenzte und den Bar bis zum Ende dominierte.',
-          'Wird der Bar in einem bereits langen Trend ungewöhnlich groß, kann er spät eintretende Trader fangen. Ein scheinbar perfekter bullischer Bar kann dann innerhalb der nächsten ein oder zwei Bars vollständig zurückgenommen werden. Position im Trend und Folgeverhalten bleiben deshalb Teil der Qualitätsprüfung.',
-          'Jeder Trendbar versucht einen Ausbruch. Die meisten Ausbruchsversuche entwickeln keinen neuen Trend. Ein erfolgreicher Trend kann mit einem nur leicht überdurchschnittlichen Körper beginnen; mehrere gleichgerichtete Trendbars mit Anschluss sind meist aussagekräftiger als eine einzelne spektakuläre Kerze.',
+          'Ein hochwertiger bullischer Trendbar hat einen klaren, aber nicht zwingend extremen Körper. Als Vergleich taugt die typische Körpergröße der letzten fünf bis zehn Bars. Liegt sein Körper etwa auf oder über diesem Niveau, zeigt er echten Fortschritt, ohne allein durch seine Ausnahmegröße verdächtig zu werden.',
+          'Weitere Stärkezeichen sind ein Open nahe dem Tief, ein Schluss nahe dem Hoch, kleine Tails sowie ein Hoch und ein Schluss über mehreren vorherigen Bars. Für einen bärischen Trendbar gelten die spiegelbildlichen Merkmale. Zusammen zeigen sie, dass die kontrollierende Seite Rückläufe begrenzt und den Bar bis zum Ende dominiert hat.',
+          'Wird der Bar in einem schon langen Trend ungewöhnlich groß, kann er spät einsteigende Trader in die Falle locken. Ein scheinbar perfekter bullischer Bar kann dann innerhalb von ein oder zwei Bars komplett zurückgenommen werden. Position im Trend und Folgeverhalten gehören deshalb zur Qualitätsprüfung.',
+          'Jeder Trendbar ist ein Ausbruchsversuch. Die meisten Ausbruchsversuche entwickeln keinen neuen Trend. Ein erfolgreicher Trend kann mit einem nur leicht überdurchschnittlichen Körper beginnen; mehrere gleichgerichtete Trendbars mit Anschluss sagen meist mehr als eine einzelne spektakuläre Kerze.',
         ],
         callout:
-          'Suche kontrollierten Fortschritt und Anschluss – nicht den größten Bar des Bildschirms.',
+          'Such kontrollierten Fortschritt und Anschluss – nicht den größten Bar auf dem Bildschirm.',
       },
       {
         id: 'chapter-02-09-diagram',

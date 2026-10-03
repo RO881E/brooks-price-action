@@ -23,10 +23,10 @@ export const chapterThreeExpansionFoundationLessons = {
         eyebrow: 'Vom Impuls zur Verhandlung',
         title: 'Die Richtung bleibt, aber beide Seiten handeln wieder',
         paragraphs: [
-          'Im Spike schafft eine Seite schnell Distanz. Viele Bars schließen in Bewegungsrichtung, Rückläufe sind kurz und die Gegenseite bekommt kaum Zeit, einen stabilen Preisbereich aufzubauen. Nach dem ersten deutlicheren Pullback ändert sich gewöhnlich die Qualität der Bewegung.',
-          'Im anschließenden Bullenkanal überlappen sich mehr Bars. Untere und obere Tails werden häufiger, kleine Rückläufe entstehen, und einzelne Bear-Bars unterbrechen die Folge. Der Kurs kann weiter steigen, doch Käufer kontrollieren nicht mehr jeden Tick. Im Bärenkanal gilt dieselbe Logik spiegelbildlich.',
-          'Ein Teil der Trendtrader nimmt auf dem Weg Gewinne mit. Gleichzeitig beginnen Gegentrader, kleine Positionen aufzubauen und bei weiteren ungünstigen Preisen zu ergänzen. Diese Verkäufe in einem Bullenkanal sind noch kein bestätigter Bärentrend; sie erklären aber, warum die Auktion zunehmend zweiseitig wird.',
-          'Deshalb ist ein langsamerer Kanal weder automatisch schwach noch automatisch eine Umkehr. Er ist eine Übergangsphase: Die alte Richtung besitzt noch einen Vorteil, während die Grundlage für einen größeren Test oder eine Trading Range wächst.',
+          'Im Spike kommt eine Seite schnell voran. Viele Bars schließen in Bewegungsrichtung, Rückläufe sind kurz, und die Gegenseite hat kaum Zeit, einen stabilen Preisbereich aufzubauen. Nach dem ersten deutlicheren Pullback ändert sich meist die Qualität der Bewegung.',
+          'Im Bullenkanal danach überlappen sich mehr Bars. Untere und obere Tails werden häufiger, kleine Rückläufe entstehen, und einzelne Bear-Bars unterbrechen die Folge. Der Kurs kann weiter steigen, aber die Käufer kontrollieren nicht mehr jeden Tick. Im Bärenkanal gilt dasselbe spiegelbildlich.',
+          'Ein Teil der Trendtrader nimmt unterwegs Gewinne mit. Gleichzeitig fangen Gegentrader an, kleine Positionen aufzubauen und bei weiteren ungünstigen Preisen aufzustocken. Diese Verkäufe in einem Bullenkanal sind noch kein bestätigter Bärentrend; sie erklären aber, warum die Auktion immer zweiseitiger wird.',
+          'Ein langsamerer Kanal ist deshalb weder automatisch schwach noch automatisch eine Umkehr. Er ist eine Übergangsphase: Die alte Richtung hat noch einen Vorteil, während die Grundlage für einen größeren Test oder eine Trading Range wächst.',
         ],
         callout:
           'Überlappung zeigt nicht sofort eine Umkehr. Sie zeigt zuerst, dass die Gegenseite wieder handeln kann.',
@@ -90,7 +90,7 @@ export const chapterThreeExpansionFoundationLessons = {
     id: 'price-action-trends.chapter-03.lesson-channel-start-test',
     title: 'Der Kanalbeginn wird zur späteren Zielzone',
     summary:
-      'Warum der erste Pullback nach dem Spike häufig erneut getestet wird und dort Short-Eindeckungen sowie neue Longs denselben Kaufdruck erzeugen.',
+      'Warum der erste Pullback nach dem Spike oft noch einmal getestet wird und dort Short-Eindeckungen und neue Longs denselben Kaufdruck erzeugen.',
     durationMinutes: 11,
     xp: 40,
     sourceUnit: 'Kapitel 3 · Test des Kanalbeginns',
@@ -109,13 +109,13 @@ export const chapterThreeExpansionFoundationLessons = {
         eyebrow: 'Ein alter Entscheidungsbereich zieht an',
         title: 'Der erste Pullback hinterlässt eine offene Marktfrage',
         paragraphs: [
-          'Der erste größere Pullback nach einem Spike markiert den Übergang in die Kanalphase. Dort haben Trendtrader erneut gekauft oder verkauft und damit gezeigt, dass die ursprüngliche Richtung zunächst verteidigt wird. Dieser Bereich wird zu einer sichtbaren Referenz.',
-          'Während der Kanal weiterläuft, können Gegentrader Positionen staffeln. In einem Bullenkanal verkaufen sie beispielsweise bei späteren Hochs oder Pullbacks nach oben. Ihr Plan muss nicht verlangen, das endgültige Top zu treffen. Ein Rücklauf zum Kanalbeginn kann genügen, damit späte Einstiege Gewinn und frühe Einstiege ungefähr den Einstand erreichen.',
-          'Erreicht der Markt die Zone, kaufen zwei Gruppen gleichzeitig: Bären decken Shorts ein, und Bullen kaufen dort erneut, wo der erste Pullback bereits gehalten hatte. Beide Ordertypen sind Kauforders. Deshalb entsteht am Kanalbeginn häufig ein Bounce.',
-          'Der Bounce beweist noch keine neue Rally. Er kann in einen zweiten Test, eine breitere Range oder eine erneute Trendbewegung übergehen. Seine wichtigste Aussage ist, dass der alte Kanalbeginn weiterhin als akzeptierter Entscheidungsbereich funktioniert.',
+          'Der erste größere Pullback nach einem Spike markiert den Übergang in die Kanalphase. Dort haben Trendtrader wieder gekauft oder verkauft und damit gezeigt, dass die ursprüngliche Richtung zunächst verteidigt wird. Dieser Bereich wird zu einer sichtbaren Referenz.',
+          'Läuft der Kanal weiter, können Gegentrader ihre Positionen staffeln. In einem Bullenkanal verkaufen sie zum Beispiel an späteren Hochs oder bei Pullbacks nach oben. Ihr Plan muss nicht verlangen, das endgültige Top zu treffen. Ein Rücklauf zum Kanalbeginn kann reichen, damit späte Einstiege im Gewinn sind und frühe ungefähr ihren Einstand erreichen.',
+          'Erreicht der Markt die Zone, kaufen zwei Gruppen gleichzeitig: Bären decken Shorts ein, und Bullen kaufen dort erneut, wo der erste Pullback schon gehalten hatte. Beides sind Kauforders. Deshalb gibt es am Kanalbeginn oft einen Bounce.',
+          'Der Bounce beweist noch keine neue Rally. Er kann in einen zweiten Test, eine breitere Range oder eine neue Trendbewegung übergehen. Seine wichtigste Aussage: Der alte Kanalbeginn funktioniert weiterhin als akzeptierter Entscheidungsbereich.',
         ],
         callout:
-          'Short-Eindeckung und neuer Long sehen im Orderticket verschieden aus, wirken im Markt aber beide als Kaufdruck.',
+          'Short-Eindeckung und neuer Long sehen im Orderticket unterschiedlich aus, wirken im Markt aber beide als Kaufdruck.',
       },
       {
         id: 'chapter-03-channel-start-test-diagram',
@@ -177,7 +177,7 @@ export const chapterThreeExpansionFoundationLessons = {
     id: 'price-action-trends.chapter-03.lesson-channel-breakout-paths',
     title: 'Ein Kanalausbruch hat drei sehr verschiedene Wege',
     summary:
-      'Wie Rücklauf, seitliche Fortsetzung und seltene Beschleunigung unterschieden werden, ohne jeden Linienbruch zur neuen Trendphase zu erklären.',
+      'Wie du Rücklauf, seitliche Fortsetzung und seltene Beschleunigung unterscheidest, ohne jeden Linienbruch zur neuen Trendphase zu erklären.',
     durationMinutes: 10,
     xp: 40,
     sourceUnit: 'Kapitel 3 · Ausbrüche aus Trendkanälen',
@@ -195,13 +195,13 @@ export const chapterThreeExpansionFoundationLessons = {
         eyebrow: 'Nicht jeder Linienbruch bedeutet dasselbe',
         title: 'Rücklauf, Pause oder echte Beschleunigung',
         paragraphs: [
-          'Ein reifer Kanal wird häufig zumindest teilweise zurückverfolgt. Ein Bullenkanal kann dadurch wie eine Bear Flag wirken, ein Bärenkanal wie eine Bull Flag. Der Bruch gegen die alte Richtung ist jedoch zunächst nur ein Test der Kanalstruktur und nicht automatisch der Beginn eines stabilen Gegentrends.',
-          'Ist der übergeordnete Trend stark, kann der Markt statt eines tiefen Rücklaufs seitwärts gehen. Die Zeitkorrektur reduziert die Überdehnung, während der Preis einen Großteil der vorherigen Distanz hält. Danach kann die alte Richtung erneut ausbrechen.',
-          'Seltener bricht der Kurs in Trendrichtung über die äußere Kanallinie aus und beschleunigt. Diese Bewegung sieht überzeugend aus, kommt aber spät in einer bereits ausgedehnten Struktur. Ohne anhaltenden Anschluss kann sie innerhalb weniger Bars scheitern und scharf zurück in den Kanal fallen.',
-          'Die Linie allein trifft deshalb keine Entscheidung. Beurteile Distanz, Schlusskurse, Anschluss und den ersten Rücklauf. Erst die Reaktion nach dem Bruch zeigt, welcher der drei Pfade tatsächlich gehandelt wird.',
+          'Ein reifer Kanal wird oft zumindest teilweise zurückverfolgt. Ein Bullenkanal kann so wie eine Bear Flag wirken, ein Bärenkanal wie eine Bull Flag. Der Bruch gegen die alte Richtung ist aber zunächst nur ein Test der Kanalstruktur und nicht automatisch der Beginn eines stabilen Gegentrends.',
+          'Ist der übergeordnete Trend stark, kann der Markt statt eines tiefen Rücklaufs seitwärts gehen. Die Zeitkorrektur baut die Überdehnung ab, während der Preis einen Großteil der bisherigen Strecke hält. Danach kann die alte Richtung erneut ausbrechen.',
+          'Seltener bricht der Kurs in Trendrichtung über die äußere Kanallinie aus und beschleunigt. Das sieht überzeugend aus, passiert aber spät in einer ohnehin schon ausgedehnten Struktur. Ohne anhaltenden Anschluss kann es innerhalb weniger Bars scheitern und scharf zurück in den Kanal fallen.',
+          'Die Linie allein entscheidet deshalb nichts. Beurteile Distanz, Schlusskurse, Anschluss und den ersten Rücklauf. Erst die Reaktion nach dem Bruch zeigt, welcher der drei Pfade tatsächlich gespielt wird.',
         ],
         callout:
-          'Ein Kanallinienbruch ist ein Ereignis. Akzeptanz oder Zurückweisung machen daraus erst eine Aussage.',
+          'Ein Kanallinienbruch ist ein Ereignis. Akzeptanz oder Abweisung machen daraus erst eine Aussage.',
       },
       {
         id: 'chapter-03-channel-breakout-paths-diagram',
@@ -262,7 +262,7 @@ export const chapterThreeExpansionFoundationLessons = {
     id: 'price-action-trends.chapter-03.lesson-range-dual-role',
     title: 'Eine Trading Range ist Flag und Umkehrkeim zugleich',
     summary:
-      'Warum dieselbe Balance im größeren Trend eine Pause sein kann und dennoch die notwendige Vorstufe jeder belastbaren Trendwende bildet.',
+      'Warum dieselbe Balance im größeren Trend eine Pause sein kann und trotzdem die nötige Vorstufe jeder belastbaren Trendwende ist.',
     durationMinutes: 10,
     xp: 40,
     sourceUnit: 'Kapitel 3 · Doppelfunktion der Trading Range',
@@ -280,13 +280,13 @@ export const chapterThreeExpansionFoundationLessons = {
         eyebrow: 'Ein Zustand, zwei mögliche Rollen',
         title: 'Die Range pausiert den Trend und ermöglicht seinen Wechsel',
         paragraphs: [
-          'Auf einer höheren Zeitebene erscheinen viele Trading Ranges als einfache Pausen innerhalb eines Trends. Weil die alte Richtung bereits Marktträgheit besitzt, brechen solche Bereiche häufiger mit dem Trend aus als gegen ihn. In dieser Rolle ist die Range eine Flag.',
-          'Gleichzeitig benötigt eine große Umkehr fast immer eine Phase, in der die bisher dominante Seite Kontrolle verliert und beide Seiten wieder handeln können. Genau diese Balance liefert die Trading Range. Sie ist deshalb auch der mögliche Keim eines neuen Gegentrends.',
-          'Die beiden Aussagen widersprechen sich nicht. Vor dem Ausbruch ist die Fortsetzung wegen der Basisrate oft etwas wahrscheinlicher. Ein überzeugender Gegenbreakout mit Anschluss kann diese Erwartung jedoch drehen und aus der Pause einen Regimewechsel machen.',
-          'Behandle die Range daher als offene Auktion mit Vorgeschichte. Der alte Trend liefert den Ausgangsbias; Breakout, Pullback und Akzeptanz liefern die neue Entscheidung.',
+          'Auf einer höheren Zeitebene sehen viele Trading Ranges wie einfache Pausen in einem Trend aus. Weil die alte Richtung schon Trägheit mitbringt, brechen solche Bereiche öfter mit dem Trend aus als gegen ihn. In dieser Rolle ist die Range eine Flag.',
+          'Gleichzeitig braucht eine große Umkehr fast immer eine Phase, in der die bisher dominante Seite die Kontrolle verliert und beide Seiten wieder handeln können. Genau diese Balance liefert die Trading Range. Sie kann deshalb auch der Keim eines neuen Gegentrends sein.',
+          'Die beiden Aussagen widersprechen sich nicht. Vor dem Ausbruch ist die Fortsetzung wegen der Basisrate oft etwas wahrscheinlicher. Ein überzeugender Gegenbreakout mit Anschluss kann diese Erwartung aber drehen und aus der Pause einen Regimewechsel machen.',
+          'Behandle die Range deshalb als offene Auktion mit Vorgeschichte. Der alte Trend gibt dir den Ausgangsbias; Breakout, Pullback und Akzeptanz liefern die neue Entscheidung.',
         ],
         callout:
-          'Die Range ist nicht neutral ohne Vergangenheit: Sie trägt den alten Trend als Basisrate und den neuen Trend als Möglichkeit.',
+          'Die Range ist nicht neutral und ohne Vergangenheit: Sie trägt den alten Trend als Basisrate und den neuen Trend als Möglichkeit.',
       },
       {
         id: 'chapter-03-range-dual-role-diagram',
@@ -347,7 +347,7 @@ export const chapterThreeExpansionFoundationLessons = {
     id: 'price-action-trends.chapter-03.lesson-test-reference-map',
     title: 'Testzonen entstehen aus mehreren Erinnerungsebenen',
     summary:
-      'Wie Swingpunkte, Bar-Extrema, Trendlinien, Ziele und Vortageskurse denselben Bereich zu einer beobachteten Entscheidungszone verdichten.',
+      'Wie Swingpunkte, Bar-Extrema, Trendlinien, Ziele und Vortageskurse denselben Bereich zu einer Entscheidungszone verdichten, die du beobachten kannst.',
     durationMinutes: 11,
     xp: 40,
     sourceUnit: 'Kapitel 3 · Referenzen eines Tests',
@@ -366,13 +366,13 @@ export const chapterThreeExpansionFoundationLessons = {
         eyebrow: 'Der Chart besitzt ein Gedächtnis',
         title: 'Ein Test beantwortet eine frühere Handelsentscheidung',
         paragraphs: [
-          'Ein Test ist die Rückkehr zu einem Bereich, an dem zuvor sichtbar gehandelt oder geplant wurde. Das kann ein Swinghoch, ein Swingtief, eine Trendlinie, die gegenüberliegende Kanallinie oder das Ziel einer gemessenen Bewegung sein.',
+          'Ein Test ist die Rückkehr zu einem Bereich, an dem vorher sichtbar gehandelt oder geplant wurde. Das kann ein Swinghoch sein, ein Swingtief, eine Trendlinie, die gegenüberliegende Kanallinie oder das Ziel einer gemessenen Bewegung.',
           'Auch einzelne Bars hinterlassen Referenzen. Das Tief eines bullischen Entry-Bars, das Hoch eines bärischen Entry-Bars sowie Hoch oder Tief früherer Signal-Bars markieren Bereiche, an denen Trader Einstiege, Stops oder Einstandsschutz verwalten können.',
-          'Vortageshoch, Vortagestief, Schluss und Eröffnung werden von vielen Teilnehmern beobachtet. Fallen mehrere Referenzen ungefähr zusammen, entsteht keine magische Linie, sondern eine Zone mit besonders vielen unterschiedlichen Handelsplänen.',
-          'Auf anderen Zeitebenen oder mit anderen Darstellungen können in derselben Zone zusätzlich Durchschnitte, Bänder oder Projektionsziele liegen. Du musst nicht jedes Werkzeug verwenden. Entscheidend ist die sichtbare Reaktion: Wird der Bereich akzeptiert, verteidigt oder scharf zurückgewiesen?',
+          'Vortageshoch, Vortagestief, Schluss und Eröffnung beobachten viele Teilnehmer. Fallen mehrere Referenzen ungefähr zusammen, entsteht keine magische Linie, sondern eine Zone mit besonders vielen unterschiedlichen Handelsplänen.',
+          'Auf anderen Zeitebenen oder in anderen Darstellungen können in derselben Zone zusätzlich Durchschnitte, Bänder oder Projektionsziele liegen. Du musst nicht jedes Werkzeug nutzen. Entscheidend ist die sichtbare Reaktion: Wird der Bereich akzeptiert, verteidigt oder scharf abgewiesen?',
         ],
         callout:
-          'Konfluenz erklärt, warum viele Orders in einer Zone warten. Die Reaktion entscheidet, ob diese Orders tatsächlich Kontrolle gewinnen.',
+          'Konfluenz erklärt, warum in einer Zone viele Orders warten. Die Reaktion entscheidet, ob diese Orders tatsächlich die Kontrolle gewinnen.',
       },
       {
         id: 'chapter-03-test-reference-map-diagram',

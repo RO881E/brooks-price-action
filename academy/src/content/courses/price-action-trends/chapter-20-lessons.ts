@@ -16,7 +16,7 @@ const drafts: Draft[] = [
     "scenario": "c20-01",
     "paragraphs": [
       "Ein Bein, auch Leg genannt, ist ein gerichteter Abschnitt des Preisverlaufs. Es kann wenige Bars oder einen längeren Swing umfassen. Die Bezeichnung sagt zunächst nur, dass du eine Bewegung von ihrer anschließenden Gegenbewegung abgrenzt.",
-      "Lege deine Regel vor dem Zählen fest. Du kannst beispielsweise sichtbare Swingwechsel oder den Bruch einer zuvor eingezeichneten Trendlinie verwenden. Ein einzelner Gegenbar muss nach einer Swingregel noch kein neues größeres Bein sein.",
+      "Leg deine Regel vor dem Zählen fest. Du kannst zum Beispiel sichtbare Swingwechsel oder den Bruch einer zuvor eingezeichneten Trendlinie verwenden. Ein einzelner Gegenbar muss nach einer Swingregel noch kein neues größeres Bein sein.",
       "Links steigt unser Beispiel zunächst von 24 auf 50, fällt auf 39 und steigt erneut. Auf der größeren Ebene sind zwei Aufwärtsbeine sichtbar. Rechts zeigt ein anderes eigenes Beispiel mehrere kleinere Teilbewegungen: Mehr kleine Wechsel bedeuten keine nachträgliche Änderung einer vorher festgelegten größeren Zählung."
     ],
     "callout": "Die Zählung braucht eine benannte Ebene.",
@@ -50,8 +50,8 @@ const drafts: Draft[] = [
     "scenario": "c20-02",
     "paragraphs": [
       "Nach einem gerichteten ersten Schub kann der Markt pausieren und die Richtung noch einmal prüfen. Zwei getrennte Versuche sind deshalb eine hilfreiche Lesart für viele Verläufe. Sie beschreiben eine mögliche Entwicklung, keinen Fahrplan.",
-      "Der zweite Versuch braucht eine erkennbare Unterbrechung. Ein ungebremster langer Anstieg wird nicht allein durch eine Linie in der Mitte zu zwei unabhängigen Schüben. Notiere, welche Gegenbewegung die Trennung begründet.",
-      "Im Vergleich rechts wird der erste Aufwärtsschub kräftig zurückgenommen, ohne dass ein zweiter Käuferanschluss entsteht. Das ist eine zulässige Folge. Eine offene Erwartung darf nicht durch beliebiges Neuzählen als erfüllt dargestellt werden."
+      "Der zweite Versuch braucht eine erkennbare Unterbrechung. Ein ungebremster langer Anstieg wird nicht allein durch eine Linie in der Mitte zu zwei unabhängigen Schüben. Notier, welche Gegenbewegung die Trennung begründet.",
+      "Im Vergleich rechts wird der erste Aufwärtsschub kräftig zurückgenommen, ohne dass ein zweiter Käuferanschluss entsteht. Das ist eine zulässige Folge. Eine offene Erwartung darfst du nicht durch beliebiges Neuzählen als erfüllt darstellen."
     ],
     "callout": "Zwei Beine sind ein Modell, keine Garantie.",
     "takeaways": [
@@ -83,7 +83,7 @@ const drafts: Draft[] = [
     "section": "Zwei Schübe verstehen",
     "scenario": "c20-03",
     "paragraphs": [
-      "Ein Bullenabschnitt kann in zwei Aufwärtsbeinen laufen, getrennt durch einen kleinen Rücklauf. Innerhalb desselben größeren Trends kann der Rücklauf selbst zwei Abwärtsbeine enthalten. Die Richtung wird deshalb immer relativ zum gewählten Kontext beschrieben.",
+      "Ein Bullenabschnitt kann in zwei Aufwärtsbeinen laufen, getrennt durch einen kleinen Rücklauf. Innerhalb desselben größeren Trends kann der Rücklauf selbst zwei Abwärtsbeine enthalten. Die Richtung beschreibst du deshalb immer relativ zum gewählten Kontext.",
       "Unterscheide das größere Trendbein von den kleineren Rücklaufbeinen. Der Rücklauf kann lokal abwärtsgerichtet sein, obwohl das größere höhere Tief noch hält. Zwei Verkäuferbeine allein erklären den größeren Bullentrend nicht für beendet.",
       "Unsere beiden Panels zeigen einmal die Trendfortsetzung und einmal den Gegenabschnitt. Benenne jeweils Anfang, Unterbrechung und Ende. Erst danach prüfst du, ob die jüngsten Preise die bisherige größere Struktur verändern."
     ],
@@ -119,7 +119,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Im Bullentrend beschreibt A den ersten Rückgang. B ist die Erholung in Richtung des größeren Trends. C ist der erneute Rückgang. Die drei Abschnitte enthalten zwei Gegenbeine: A und C. B trennt sie.",
       "Die Zwischenbewegung B bleibt in einem typischen Rücklauf unter dem vorherigen Trendhoch. Sie muss nicht lang dauern. Entscheidend ist ein nach deiner Regel sichtbarer Richtungswechsel, der den ersten und zweiten Gegenversuch voneinander trennt.",
-      "Im Beispiel liegt das Ausgangshoch bei 78. A fällt auf 60, B erholt sich auf 69, C fällt auf 54. Damit ist der Rücklauf tiefer geworden. Aus dieser fertigen Form folgt noch kein ausgeführter Longtrade; eine Käuferreaktion ist gesondert zu prüfen."
+      "Im Beispiel liegt das Ausgangshoch bei 78. A fällt auf 60, B erholt sich auf 69, C fällt auf 54. Damit ist der Rücklauf tiefer geworden. Aus dieser fertigen Form folgt noch kein ausgeführter Longtrade; eine Käuferreaktion prüfst du gesondert."
     ],
     "callout": "ABC enthält zwei Gegenbeine und eine Zwischenbewegung.",
     "takeaways": [
@@ -153,9 +153,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein zweites Abwärtsbein muss das Tief des ersten nicht unterschreiten. Im Bullenrücklauf kann C oberhalb von A enden. Die Zählung hängt am getrennten Richtungsversuch, nicht an einem zwingend neuen Extrem.",
       "Vergleiche die Endpunkte, ohne sie mit der Zahl der Versuche zu verwechseln. Ein tieferes C, ein ungefähr gleiches Tief und ein höheres C liefern unterschiedliche Preisstruktur. Alle können zwei getrennte Gegenbeine enthalten.",
-      "Links erreicht C ein neues Rücklauftief. Rechts hält C oberhalb des ersten Tiefs. Die stärkere Käuferreaktion im rechten Beispiel ist zusätzliche Information. Die bloße Etikette C garantiert sie weder vorher noch in einem anderen Verlauf."
+      "Links erreicht C ein neues Rücklauftief. Rechts hält C oberhalb des ersten Tiefs. Die stärkere Käuferreaktion im rechten Beispiel ist zusätzliche Information. Das bloße Etikett C garantiert sie weder vorher noch in einem anderen Verlauf."
     ],
-    "callout": "Zweites Bein bedeutet nicht zwingend neues Tief.",
+    "callout": "Ein zweites Bein bedeutet nicht zwingend ein neues Tief.",
     "takeaways": [
       "Ein zweiter Versuch kann kürzer bleiben.",
       "Vergleiche die Endpunkte, ohne sie mit der Zahl der Versuche zu verwechseln.",
@@ -186,8 +186,8 @@ const drafts: Draft[] = [
     "scenario": "c20-06",
     "paragraphs": [
       "Im Bärentrend verläuft der ABC-Rücklauf spiegelbildlich: A steigt, B fällt wieder etwas, C steigt erneut. Die beiden Käuferbeine stehen hier gegen den größeren Abwärtstrend.",
-      "B bleibt im typischen Rücklauf oberhalb des vorherigen Trendtiefs. Das zweite Käuferbein kann das erste Hoch erreichen, übertreffen oder darunter bleiben. Welche Variante entsteht, muss aus den tatsächlichen Preisen gelesen werden.",
-      "Beide Panels nutzen gespiegelte erfundene Preise. Dadurch bleibt die Struktur vergleichbar, während die Richtung wechselt. Prüfe anschließend Verkäuferanschluss und größere Swingpunkte; eine fertige Gegenform ist noch kein bestätigter Short-Einstieg."
+      "B bleibt im typischen Rücklauf oberhalb des vorherigen Trendtiefs. Das zweite Käuferbein kann das erste Hoch erreichen, übertreffen oder darunter bleiben. Welche Variante entsteht, liest du aus den tatsächlichen Preisen.",
+      "Beide Panels nutzen gespiegelte erfundene Preise. Dadurch bleibt die Struktur vergleichbar, während die Richtung wechselt. Prüf anschließend Verkäuferanschluss und größere Swingpunkte; eine fertige Gegenform ist noch kein bestätigter Short-Einstieg."
     ],
     "callout": "Die Struktur bleibt, die Richtung wird gespiegelt.",
     "takeaways": [
@@ -255,7 +255,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein erster kräftiger Schub gewinnt schnell Raum und wird zunächst wenig zurückgenommen. Nach einer Pause ist ein erneuter Versuch in derselben Richtung plausibel. Beobachte, ob er die erste Spitze wieder erreicht und ob dort Anschluss entsteht.",
       "Unterscheide die Stärke des ersten Schubs von der Qualität des zweiten. Der zweite kann langsamer, stärker überlappend oder kürzer sein. Diese Veränderung ist ein Befund, obwohl die beiden Abschnitte dieselbe Richtung tragen.",
-      "Im Beispiel folgt auf den ersten Käuferimpuls ein Rücklauf und ein erneuter Anstieg. Links stoppt das Replay vor dem Test, rechts zeigt es die neuen Bars. Die spätere Spitze durfte im linken Zeitpunkt noch nicht als bekannt gelten."
+      "Im Beispiel folgt auf den ersten Käuferimpuls ein Rücklauf und ein erneuter Anstieg. Links stoppt das Replay vor dem Test, rechts zeigt es die neuen Bars. Die spätere Spitze durfte zum linken Zeitpunkt noch nicht als bekannt gelten."
     ],
     "callout": "Die zweite Folge erst bei ihrem Auftreten beurteilen.",
     "takeaways": [
@@ -283,13 +283,13 @@ const drafts: Draft[] = [
   {
     "number": 9,
     "title": "Zwei Versuche scheitern: Gegenrichtung beobachten",
-    "summary": "Scheitern benötigt einen Bezug und eine Reaktion.",
+    "summary": "Scheitern braucht einen Bezug und eine Reaktion.",
     "section": "Zwei Schübe verstehen",
     "scenario": "c20-09",
     "paragraphs": [
-      "Zwei Käuferversuche können an einem bekannten Widerstandsbereich begrenzt bleiben. Widerstand bezeichnet hier einen früheren Preisbereich, an dem Anschluss ausgeblieben ist. Eine erneute Zurückweisung macht die Gegenrichtung als nächste Möglichkeit interessant.",
-      "Ein Test allein ist noch kein Scheitern. Prüfe, ob der Ausbruch zurückgenommen wird und Verkäufer neue Strecke gewinnen. Bleibt der Markt nur am Hoch seitwärts, kann weiterhin ein späterer Käuferdurchbruch folgen.",
-      "Links werden beide Hochversuche zurückgenommen. Rechts gewinnt der zweite Versuch Anschluss oberhalb der Referenz. Das gleiche Zählmuster endet unterschiedlich. Trenne daher Versuchszahl, Testergebnis und einen tatsächlich ausgelösten eigenen Plan."
+      "Zwei Käuferversuche können an einem bekannten Widerstandsbereich begrenzt bleiben. Widerstand ist hier ein früherer Preisbereich, an dem Anschluss ausgeblieben ist. Eine erneute Zurückweisung macht die Gegenrichtung als nächste Möglichkeit interessant.",
+      "Ein Test allein ist noch kein Scheitern. Prüf, ob der Ausbruch zurückgenommen wird und die Verkäufer neue Strecke gewinnen. Bleibt der Markt nur am Hoch seitwärts, kann weiterhin ein späterer Käuferdurchbruch folgen.",
+      "Links werden beide Hochversuche zurückgenommen. Rechts gewinnt der zweite Versuch Anschluss oberhalb der Referenz. Dasselbe Zählmuster endet unterschiedlich. Trenne daher Versuchszahl, Testergebnis und einen tatsächlich ausgelösten eigenen Plan."
     ],
     "callout": "Zweimal getestet ist nicht zweimal gescheitert.",
     "takeaways": [
@@ -321,11 +321,11 @@ const drafts: Draft[] = [
     "section": "Tests und verschachtelte Bewegungen",
     "scenario": "c20-10",
     "paragraphs": [
-      "Erreicht das zweite Bein die erste Spitze und handelt anschließend weiter darüber, unterstützt das zunächst die Fortsetzung. Der Erfolg wird am Anschluss gemessen, nicht daran, dass ein einzelnes Hoch um einen kleinen Betrag höher liegt.",
-      "Eine bloße Überschreitung und ein gehaltener Ausbruch sind unterschiedliche Folgen. Kehrt der Preis rasch durch die Referenz zurück, ist die erste Fortsetzungslesart schwächer. Notiere vorab, welche Folge du dafür beobachten willst.",
+      "Erreicht das zweite Bein die erste Spitze und handelt anschließend weiter darüber, unterstützt das zunächst die Fortsetzung. Den Erfolg misst du am Anschluss, nicht daran, dass ein einzelnes Hoch um einen kleinen Betrag höher liegt.",
+      "Eine bloße Überschreitung und ein gehaltener Ausbruch sind unterschiedliche Folgen. Kehrt der Preis schnell durch die Referenz zurück, ist die erste Fortsetzungslesart schwächer. Notier vorab, welche Folge du dafür beobachten willst.",
       "Unsere Panels beginnen mit demselben ersten Schub und Rücklauf. Im rechten Verlauf folgen weitere höhere Preise. Das ist neue Bestätigung, aber keine Zusage unbegrenzter Strecke. Zielraum, Schutzabstand und zulässige Menge bleiben eigene Entscheidungen."
     ],
-    "callout": "Anschluss zählt mehr als das Musteretikett.",
+    "callout": "Der Anschluss zählt mehr als das Musteretikett.",
     "takeaways": [
       "Ein Test kann die bisherige Richtung verlängern.",
       "Eine bloße Überschreitung und ein gehaltener Ausbruch sind unterschiedliche Folgen.",
@@ -356,7 +356,7 @@ const drafts: Draft[] = [
     "scenario": "c20-11",
     "paragraphs": [
       "In einem größeren Bärenverlauf kann ein lokaler Anstieg kräftig wirken und dennoch nur einen Rücklauf bilden. Das zweite Käuferbein prüft die erste lokale Spitze. Vergleiche zusätzlich das größere vorherige tiefere Hoch.",
-      "Der lokale Test und die größere Trendstruktur sind getrennte Bezüge. Zwei steigende Beine unter einem alten größeren Hoch beweisen keinen vollständigen Bullentrend. Umgekehrt darf echter anhaltender Käuferanschluss nicht allein wegen des alten Bärennamens ignoriert werden.",
+      "Der lokale Test und die größere Trendstruktur sind getrennte Bezüge. Zwei steigende Beine unter einem alten größeren Hoch beweisen keinen vollständigen Bullentrend. Umgekehrt darfst du echten anhaltenden Käuferanschluss nicht allein wegen des alten Bärennamens ignorieren.",
       "Im Beispiel ist das größere Hoch bei 88 als bereits bekannt markiert. Der lokale Anstieg endet darunter, dann setzt Verkäuferfolge ein. Die Shortlesart gewinnt damit neue Unterstützung; die Orderauslösung war nicht schon beim Beginn des Rücklaufs sicher."
     ],
     "callout": "Lokale Stärke im größeren Kontext lesen.",
@@ -390,8 +390,8 @@ const drafts: Draft[] = [
     "scenario": "c20-12",
     "paragraphs": [
       "Am zweiten Käuferhoch könnten frühere Käufer Gewinne mitnehmen und Verkäufer neu aktiv werden. Frühere Shorts könnten ihre Position ergänzen. Solche Abläufe erklären plausibel, warum ein Test auf zusätzlichen Gegenhandel treffen kann.",
-      "Der OHLC-Chart zeigt Preise, keine vollständigen Positionen oder Absichten. Du kannst aus ihm nicht beweisen, welche Gruppe verkauft hat oder wie viele Orders noch warten. Beschreibe sichtbare Zurückweisung und Anschluss zuerst.",
-      "Links steht die gleiche Teststruktur wie rechts. Rechts wird ihre anschließende Verkäuferfolge hervorgehoben. Diese Folge ist beobachtbar. Die Erklärung mit Gewinnmitnahmen oder neuen Shorts bleibt eine Interpretation und darf nicht als sichere Information zur Positionsgröße verwendet werden."
+      "Der OHLC-Chart zeigt Preise, keine vollständigen Positionen oder Absichten. Du kannst aus ihm nicht beweisen, welche Gruppe verkauft hat oder wie viele Orders noch warten. Beschreib sichtbare Zurückweisung und Anschluss zuerst.",
+      "Links steht dieselbe Teststruktur wie rechts. Rechts wird ihre anschließende Verkäuferfolge hervorgehoben. Diese Folge ist beobachtbar. Die Erklärung mit Gewinnmitnahmen oder neuen Shorts bleibt eine Interpretation und darf nicht als sichere Information zur Positionsgröße dienen."
     ],
     "callout": "Sichtbare Preise von vermuteten Motiven trennen.",
     "takeaways": [
@@ -425,7 +425,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein größerer Schub kann mehrere kleine Rückläufe enthalten. Im Detail wirkt die Bewegung dadurch unruhig. Auf der gewählten größeren Swingebene können trotzdem ein erster Schub, eine deutlichere Gegenbewegung und ein zweiter Schub erkennbar bleiben.",
       "Vergleiche die kleinen Pausen mit der größeren Trennung. Stärke, Dauer und Form helfen bei dieser Einordnung. Es gibt keine Pflicht, dass beide größeren Beine gleich viele Bars oder gleich viele kleine Teilbewegungen enthalten.",
-      "Im eigenen Beispiel enthält das zweite größere Aufwärtsbein zwei kleine Anstiege. Die erste größere Strecke bleibt einfacher. Beschreibe beide Ebenen ausdrücklich, statt aus jeder kleinen Unterbrechung eine weitere große Welle zu machen."
+      "Im eigenen Beispiel enthält das zweite größere Aufwärtsbein zwei kleine Anstiege. Die erste größere Strecke bleibt einfacher. Beschreib beide Ebenen ausdrücklich, statt aus jeder kleinen Unterbrechung eine weitere große Welle zu machen."
     ],
     "callout": "Kleine Beine und große Beine getrennt zählen.",
     "takeaways": [
@@ -458,10 +458,10 @@ const drafts: Draft[] = [
     "scenario": "c20-14",
     "paragraphs": [
       "Ein Chart mit größeren Bars kann verschachtelte Bewegungen leichter sichtbar machen. Dabei müssen die größeren Bars tatsächlich dieselben kleineren Daten zusammenfassen. Ein anders erfundener Verlauf wäre kein Zeitebenenvergleich.",
-      "In unserem Beispiel werden jeweils drei kleine Bars zusammengefasst. Der neue Open ist der erste Open, das High das höchste High, das Low das niedrigste Low und der Close der letzte Close dieser Dreiergruppe. Keine Zwischenpreise werden dazuerfunden.",
-      "Links siehst du zwölf Bars, rechts vier aggregierte Bars. Ein Teil der kleinen Richtungswechsel wird im Körper oder Schatten eines größeren Bars verborgen. Ein einfacheres Bild liefert deshalb keine zusätzliche unabhängige Bestätigung derselben Bewegung."
+      "In unserem Beispiel werden jeweils drei kleine Bars zusammengefasst. Der neue Open ist der erste Open, das High das höchste High, das Low das niedrigste Low und der Close der letzte Close dieser Dreiergruppe. Zwischenpreise werden nicht dazuerfunden.",
+      "Links siehst du zwölf Bars, rechts vier aggregierte Bars. Ein Teil der kleinen Richtungswechsel verschwindet im Körper oder Schatten eines größeren Bars. Ein einfacheres Bild liefert deshalb keine zusätzliche unabhängige Bestätigung derselben Bewegung."
     ],
-    "callout": "Gleicher Preisweg ist keine zweite unabhängige Quelle.",
+    "callout": "Der gleiche Preisweg ist keine zweite unabhängige Quelle.",
     "takeaways": [
       "Aggregation verändert die Darstellung, nicht den Preisweg.",
       "In unserem Beispiel werden jeweils drei kleine Bars zusammengefasst.",
@@ -487,13 +487,13 @@ const drafts: Draft[] = [
   {
     "number": 15,
     "title": "Beim Zeitebenenwechsel den Ablauf behalten",
-    "summary": "Kontextprüfung braucht einen klaren Zweck.",
+    "summary": "Die Kontextprüfung braucht einen klaren Zweck.",
     "section": "Tests und verschachtelte Bewegungen",
     "scenario": "c20-15",
     "paragraphs": [
-      "Ein größerer Chart kann bei der Einordnung helfen, bindet aber Aufmerksamkeit. Wenn du während eines laufenden Ablaufs ständig zwischen vielen Ansichten wechselst, kannst du den gerade wichtigen Test oder die eigene geplante Auslösung verpassen.",
-      "Lege fest, wann du den größeren Kontext prüfst und zu welcher Frage. Ein Kontextblick vor dem Einstieg und ein ruhiger Replay-Vergleich sind andere Aufgaben als hektisches Umschalten bei jedem Gegenbar. Keine Zeitebene ist pauschal nutzlos.",
-      "Beide Panels zeigen denselben aggregierten Beispielweg. Notiere zuerst den größeren Bezug, kehre dann zum festgelegten Arbeitschart zurück und führe die Zählung dort weiter. Ein Zeitrahmenwechsel darf eine vorher klare Verlustgrenze nicht stillschweigend aufweichen."
+      "Ein größerer Chart kann bei der Einordnung helfen, bindet aber Aufmerksamkeit. Wechselst du während eines laufenden Ablaufs ständig zwischen vielen Ansichten, verpasst du womöglich den gerade wichtigen Test oder deine eigene geplante Auslösung.",
+      "Leg fest, wann du den größeren Kontext prüfst und zu welcher Frage. Ein Kontextblick vor dem Einstieg und ein ruhiger Replay-Vergleich sind andere Aufgaben als hektisches Umschalten bei jedem Gegenbar. Keine Zeitebene ist pauschal nutzlos.",
+      "Beide Panels zeigen denselben aggregierten Beispielweg. Notier zuerst den größeren Bezug, kehr dann zum festgelegten Arbeitschart zurück und führe die Zählung dort weiter. Ein Zeitrahmenwechsel darf eine vorher klare Verlustgrenze nicht stillschweigend aufweichen."
     ],
     "callout": "Die Ansicht dient einer Frage, nicht der Suche nach Zustimmung.",
     "takeaways": [
@@ -526,7 +526,7 @@ const drafts: Draft[] = [
     "scenario": "c20-16",
     "paragraphs": [
       "Ein Doppelhoch entsteht aus einem ersten Hoch, einer Gegenbewegung und einem erneuten Hoch im selben Bereich. Beim Doppeltief gilt die gespiegelte Struktur. Exakte Preisgleichheit ist für den Gedanken eines Tests nicht zwingend.",
-      "Das erste Extrem muss als möglicher Wendebereich erkennbar sein. Der zweite Besuch prüft diesen Bezug. Wenn dort erneut Zurückweisung folgt, ist ein Rücklauf oder Richtungswechsel plausibler; die spätere Größe bleibt offen.",
+      "Das erste Extrem muss als möglicher Wendebereich erkennbar sein. Der zweite Besuch prüft diesen Bezug. Folgt dort erneut Zurückweisung, ist ein Rücklauf oder Richtungswechsel plausibler; die spätere Größe bleibt offen.",
       "Links folgt nach dem zweiten Hoch eine Verkäuferbewegung, rechts nach dem zweiten Tief eine Käuferbewegung. Diese Beispiele sind gespiegelte eigene Konstruktionen. Ein kleiner Richtungswechsel am Test genügt nicht automatisch für eine große Umkehr."
     ],
     "callout": "Der zweite Besuch ist ein Test, die Reaktion entscheidet mit.",
@@ -561,7 +561,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nicht jede erste Spitze ist schon ein klarer Wendepunkt. Nach ihr kann eine Gegenbewegung entstehen, und der Markt kann das alte Extrem anschließend in zwei getrennten Schüben prüfen. Das Ausgangsextrem und diese beiden Testschübe sind unterschiedliche Teile des Ablaufs.",
       "Die Gesamtform kann drei Spitzen zeigen, obwohl der spätere Test aus zwei Beinen besteht. Benenne den Start deiner Zählung. Drei Hochpunkte im gesamten Bild widersprechen zwei Aufwärtsbeinen seit dem Beginn des Tests nicht.",
-      "Im Beispiel ist das alte Hoch bei 60 vor dem neuen Test bekannt. Nach dem Rücklauf steigen zwei getrennte Käuferabschnitte in seine Nähe. Zähle ihre Zwischenreaktion sichtbar mit. Erst danach prüfst du, ob die alte Zone hält oder Anschluss entsteht."
+      "Im Beispiel ist das alte Hoch bei 60 vor dem neuen Test bekannt. Nach dem Rücklauf steigen zwei getrennte Käuferabschnitte in seine Nähe. Zähl ihre Zwischenreaktion sichtbar mit. Erst danach prüfst du, ob die alte Zone hält oder Anschluss entsteht."
     ],
     "callout": "Der Zählstart bestimmt, welche Teile zur Testbewegung gehören.",
     "takeaways": [
@@ -595,7 +595,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nach einem alten Hoch kann der erste neue Käuferabschnitt bereits darüber handeln. Nach einer Gegenbewegung kann ein weiterer Käuferabschnitt noch höher steigen. Zusammen mit dem alten Ausgangsschub ist eine Dreischubform erkennbar.",
       "Die beiden späteren Schübe bilden zugleich einen zweibeinigen Test des alten Extrembereichs. Dieser Zusammenhang erklärt die Überschneidung der Musterbegriffe. Er entscheidet noch nicht, ob der dritte Schub scheitert oder der Trend weiterläuft.",
-      "Links endet der erste neue Testschub oberhalb der Referenz 60. Rechts kommt der zweite darüber liegende Test hinzu. Die Bars vor dem zweiten Test sind unverändert. Seine spätere Entstehung darf im frühen Panel nicht vorweggenommen werden."
+      "Links endet der erste neue Testschub oberhalb der Referenz 60. Rechts kommt der zweite darüber liegende Test hinzu. Die Bars vor dem zweiten Test sind unverändert. Seine spätere Entstehung darfst du im frühen Panel nicht vorwegnehmen."
     ],
     "callout": "Drei Schübe sind kein automatischer Umkehrbefehl.",
     "takeaways": [
@@ -628,8 +628,8 @@ const drafts: Draft[] = [
     "scenario": "c20-19",
     "paragraphs": [
       "Der erste spätere Testschub kann unter dem alten Hoch bleiben. Nach einem kleinen Rücklauf kann erst der zweite Schub die alte Spitze übertreffen. Der spätere Test ist weiterhin zweibeinig, obwohl nur ein neues höheres Hoch entsteht.",
-      "Vergleiche jeden Testschub mit derselben alten Referenz. Sonst kann ein lokales höheres Hoch irrtümlich als Überschreitung des größeren Extrempunkts beschrieben werden. Im gespiegelten Bärenfall gilt dieselbe Logik für ein neues tieferes Tief.",
-      "Links hält der erste neue Test unter 60. Rechts handelt der zweite darüber. Ob die Überschreitung hält oder zurückgenommen wird, ist eine zusätzliche Frage. Die Anzahl der Überschreitungen darf nicht mit der Anzahl der Versuche gleichgesetzt werden."
+      "Vergleiche jeden Testschub mit derselben alten Referenz. Sonst wird womöglich ein lokales höheres Hoch irrtümlich als Überschreitung des größeren Extrempunkts beschrieben. Im gespiegelten Bärenfall gilt dieselbe Logik für ein neues tieferes Tief.",
+      "Links hält der erste neue Test unter 60. Rechts handelt der zweite darüber. Ob die Überschreitung hält oder zurückgenommen wird, ist eine zusätzliche Frage. Die Anzahl der Überschreitungen darfst du nicht mit der Anzahl der Versuche gleichsetzen."
     ],
     "callout": "Versuche und neue Extrempunkte getrennt zählen.",
     "takeaways": [
@@ -663,9 +663,9 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Zwei größere Beine müssen weder gleich lang noch gleich schnell sein. Eines kann direkt laufen, das andere aus mehreren kleinen Abschnitten bestehen. Ihre Einordnung hängt am größeren Verlauf und der zuvor benannten Regel.",
       "Betrachte Dauer, gewonnene Strecke und Form gemeinsam. Eine winzige Gegenkerze innerhalb einer kräftigen Bewegung muss nicht denselben Rang haben wie ein langer Rücklauf. Es gibt trotzdem keinen objektiven Zwang, jede unsaubere Form perfekt zu etikettieren.",
-      "Im Beispiel ist ein größeres Bein kompakt, das andere enthält eine kleine innere Zweiteilung. Schreibe beide Beschreibungen auf: zwei größere Beine, innerhalb des zweiten zwei kleinere. Dadurch bleibt die Hierarchie sichtbar, ohne Gleichheit zu erfinden."
+      "Im Beispiel ist ein größeres Bein kompakt, das andere enthält eine kleine innere Zweiteilung. Schreib beide Beschreibungen auf: zwei größere Beine, innerhalb des zweiten zwei kleinere. Dadurch bleibt die Hierarchie sichtbar, ohne dass du Gleichheit erfindest."
     ],
-    "callout": "Vergleichbarer Rang verlangt keine identische Form.",
+    "callout": "Ein vergleichbarer Rang verlangt keine identische Form.",
     "takeaways": [
       "Dauer, Stärke und Form helfen bei der Größenwahl.",
       "Betrachte Dauer, gewonnene Strecke und Form gemeinsam.",
@@ -695,8 +695,8 @@ const drafts: Draft[] = [
     "section": "Tests und verschachtelte Bewegungen",
     "scenario": "c20-21",
     "paragraphs": [
-      "Manchmal sind die Gegenbewegungen so unruhig oder ähnlich groß, dass mehrere Zählungen plausibel bleiben. Du musst dann keine scheinbar perfekte Form herstellen. Schreibe die Unklarheit und den fehlenden Bezug ausdrücklich auf.",
-      "Ein Trade benötigt mehr als ein passendes Musterwort. Wenn die Zählung deinen Einstieg, die Verlustgrenze oder den Zielraum nicht klar unterstützt, kann Abwarten die sinnvollere Entscheidung sein. Ein ausgelassener Verlauf ist kein ausgeführter Verlust.",
+      "Manchmal sind die Gegenbewegungen so unruhig oder ähnlich groß, dass mehrere Zählungen plausibel bleiben. Du musst dann keine scheinbar perfekte Form herstellen. Schreib die Unklarheit und den fehlenden Bezug ausdrücklich auf.",
+      "Ein Trade braucht mehr als ein passendes Musterwort. Unterstützt die Zählung deinen Einstieg, die Verlustgrenze oder den Zielraum nicht klar, kann Abwarten die sinnvollere Entscheidung sein. Ein ausgelassener Verlauf ist kein ausgeführter Verlust.",
       "Links wechseln mehrere kleine Bewegungen ohne deutliche Hierarchie. Rechts ist eine spätere klare Zweiteilung sichtbar. Diese spätere Klarheit macht einen früheren ungeplanten Einstieg nicht rückwirkend korrekt. Dokumentiere den damaligen Informationsstand und entscheide erst mit neuen Bars erneut."
     ],
     "callout": "Unklarheit darf als Unklarheit stehen bleiben.",
@@ -729,8 +729,8 @@ const drafts: Draft[] = [
     "section": "Tests und verschachtelte Bewegungen",
     "scenario": "c20-22",
     "paragraphs": [
-      "Halte vor den nächsten Bars den größeren Kontext, den Zählstart und deine Trennregel fest. Benenne den ersten Schub, den sichtbaren Rücklauf und die bekannte Testreferenz. Schreibe auch auf, was einen zweiten Versuch erst erkennbar machen würde.",
-      "Decke anschließend Bars schrittweise auf. Unterscheide zweiten Versuch, Überschreitung, Zurückweisung und fortgesetzten Anschluss. Wenn du die Ebene wechselst, notiere den Grund und behalte den bisherigen Preisweg statt eine neue passende Geschichte zu erfinden.",
+      "Halte vor den nächsten Bars den größeren Kontext, den Zählstart und deine Trennregel fest. Benenne den ersten Schub, den sichtbaren Rücklauf und die bekannte Testreferenz. Schreib auch auf, was einen zweiten Versuch erst erkennbar machen würde.",
+      "Deck anschließend Bars schrittweise auf. Unterscheide zweiten Versuch, Überschreitung, Zurückweisung und fortgesetzten Anschluss. Wechselst du die Ebene, notier den Grund und behalte den bisherigen Preisweg, statt dir eine neue passende Geschichte zu erfinden.",
       "Bewerte zum Schluss die damalige Lesart und eine mögliche Order getrennt. Einstieg, begrenzter Verlust, Menge und Zielraum gehören in einen eigenen Plan. Zwei gezählte Beine liefern keine gemessene Trefferquote; auch nicht entstandene zweite Versuche und ausgelassene Fälle gehören ins Protokoll."
     ],
     "callout": "Zählen beschreibt den Verlauf; ein Trade braucht einen eigenen Plan.",

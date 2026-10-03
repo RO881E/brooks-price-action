@@ -5,7 +5,7 @@ export const chapterOneCountingLessons = [
     id: 'price-action-trends.chapter-01.lesson-05',
     title: 'Drei Namen für dieselben zwei Beine',
     summary:
-      'Warum ABC, Elliott 1–2–3 und AB=CD dieselbe Grundstruktur unterschiedlich beschriften.',
+      'Warum ABC, Elliott 1–2–3 und AB=CD dieselbe Grundstruktur nur unterschiedlich beschriften.',
     durationMinutes: 13,
     xp: 45,
     sourceUnit: 'Kapitel 1 · Zweibeinige Bewegungen',
@@ -22,13 +22,13 @@ export const chapterOneCountingLessons = [
         eyebrow: 'Zwei Beine, mehrere Sprachen',
         title: 'Die Kursstruktur bleibt gleich, die Buchstaben wechseln',
         paragraphs: [
-          'Zweibeinige Bewegungen treten häufig auf. Verwirrend wird es, weil verschiedene Analyseansätze dieselben Wendepunkte anders benennen. Die Bezeichnung sagt deshalb weniger über den sichtbaren Kurs aus als über die Theorie, mit der ein Trader ihn betrachtet.',
-          'Liegt die Bewegung als Pullback in einem Trend, wird sie oft als ABC-Korrektur bezeichnet: ein erstes Gegenbein endet bei A, eine Zwischenreaktion bei B und das zweite Gegenbein bei C. Elliott-Wave-Trader nennen die ersten beiden Schübe eines entstehenden Trends dagegen Welle 1 und Welle 3; die Unterbrechung dazwischen ist Welle 2.',
-          'Trader, die einen gemessenen Move suchen, markieren den ersten Schub als A nach B und den zweiten als C nach D. Sie prüfen, ob beide Beine ungefähr gleich groß werden und am Ende des zweiten Beins eine Reaktion entsteht. Dadurch kann derselbe Wendepunkt je nach System gleichzeitig A, B oder C heißen.',
-          'Die praktische Konsequenz: Beginne nicht mit dem Etikett. Beschreibe zuerst Richtung, Anzahl der Beine, Zwischenreaktion und Kontext. Erst danach kannst du die passende Fachsprache übersetzen.',
+          'Zweibeinige Bewegungen gibt es ständig. Verwirrend wird es, weil verschiedene Analyseansätze dieselben Wendepunkte anders benennen. Die Bezeichnung sagt deshalb weniger über den sichtbaren Kurs als über die Theorie, mit der jemand ihn betrachtet.',
+          'Ist die Bewegung ein Pullback in einem Trend, nennt man sie oft ABC-Korrektur: Das erste Gegenbein endet bei A, eine Zwischenreaktion bei B und das zweite Gegenbein bei C. Elliott-Wave-Trader nennen dagegen die ersten beiden Schübe eines entstehenden Trends Welle 1 und Welle 3; die Unterbrechung dazwischen ist Welle 2.',
+          'Trader, die einen gemessenen Move suchen, markieren den ersten Schub als A nach B und den zweiten als C nach D. Sie prüfen, ob beide Beine ungefähr gleich groß werden und am Ende des zweiten eine Reaktion entsteht. So kann derselbe Wendepunkt je nach System gleichzeitig A, B oder C heißen.',
+          'Für die Praxis heißt das: Fang nicht mit dem Etikett an. Beschreibe erst Richtung, Anzahl der Beine, Zwischenreaktion und Kontext. Danach kannst du das Ganze in die passende Fachsprache übersetzen.',
         ],
         callout:
-          'Drei Benennungen können denselben Kursverlauf meinen. Handelbar ist die Struktur, nicht ihr Buchstabe.',
+          'Drei Benennungen können denselben Kursverlauf meinen. Handelbar ist die Struktur, nicht der Buchstabe.',
       },
       {
         id: 'chapter-01-05-diagram',
@@ -138,13 +138,13 @@ export const chapterOneCountingLessons = [
         eyebrow: 'Zählweise',
         title: 'Nummern wachsen mit der tatsächlichen Bewegung mit',
         paragraphs: [
-          'Nicht jede Korrektur endet nach zwei Beinen. Manche entwickeln einen dritten oder vierten Schub. Eine einfache ABC-Beschriftung wird dann schnell unklar. Deshalb spricht man neutral von Leg 1, Leg 2 und weiteren Pushes. Die Zählung beschreibt, was der Markt getan hat, ohne vorzeitig ein Ende zu behaupten.',
-          'In einem Bullenmarkt oder einer Trading Range beginnt die High-Zählung während einer Abwärtskorrektur. Sobald ein Bar über das Hoch seines Vorgängerbars handelt, entsteht der erste Aufwärtsversuch: High 1. Folgt nach dessen Scheitern ein zweites Abwärtsbein und danach ein erneuter Bruch über ein Vorgängerhoch, ist das High 2. Dasselbe Prinzip kann bis High 3 und High 4 weiterlaufen.',
+          'Nicht jede Korrektur endet nach zwei Beinen. Manche bekommen einen dritten oder vierten Schub, und eine einfache ABC-Beschriftung wird schnell unklar. Deshalb spricht man neutral von Leg 1, Leg 2 und weiteren Pushes. Die Zählung beschreibt, was der Markt getan hat, ohne vorschnell ein Ende zu behaupten.',
+          'In einem Bullenmarkt oder einer Trading Range beginnt die High-Zählung während einer Abwärtskorrektur. Sobald ein Bar über das Hoch seines Vorgängerbars handelt, ist das der erste Aufwärtsversuch: High 1. Scheitert er, folgt ein zweites Abwärtsbein und danach ein erneuter Bruch über ein Vorgängerhoch, ist das High 2. Dasselbe Prinzip kann bis High 3 und High 4 weiterlaufen.',
           'Spiegelbildlich zählst du in einem Bärenbein oder in einer Range die Aufwärtsbeine. Der erste Bruch unter ein Vorgängertief ist Low 1, der Versuch nach zwei Aufwärtsbeinen Low 2. Beim Low-2-Setup ist der vorbereitende Bar der Signal- oder Setup-Bar; erst der folgende Bruch nach unten erzeugt den Entry-Bar und damit den tatsächlichen Einstieg.',
-          'Gemessene Bewegungen bleiben wichtig. Die Bezeichnung AB=CD wird lediglich vermieden, weil ihre Buchstaben mit der verbreiteten ABC-Zählung kollidieren. Strecke und Symmetrie darfst du weiter prüfen – du nennst die Abschnitte nur klarer erstes und zweites Bein.',
+          'Gemessene Bewegungen bleiben wichtig. Die Bezeichnung AB=CD vermeidet man nur, weil ihre Buchstaben mit der verbreiteten ABC-Zählung kollidieren. Strecke und Symmetrie darfst du weiter prüfen – du nennst die Abschnitte nur klarer erstes und zweites Bein.',
         ],
         callout:
-          'High und Low bezeichnen den Richtungsversuch, die Zahl bezeichnet seine Reihenfolge innerhalb der Korrektur.',
+          'High und Low bezeichnen den Richtungsversuch, die Zahl seine Reihenfolge innerhalb der Korrektur.',
       },
       {
         id: 'chapter-01-06-diagram',
@@ -248,13 +248,13 @@ export const chapterOneCountingLessons = [
         eyebrow: 'Vertiefung des Chartfalls',
         title: 'Ein neues Hoch ist erst durch Akzeptanz ein erfolgreicher Ausbruch',
         paragraphs: [
-          'Der betrachtete Handelstag eröffnete oberhalb des Hochs vom Vortag. Auf dem Papier war das ein bullischer Breakout. Der Markt konnte die höheren Preise jedoch nicht halten, fiel unter die alte Grenze zurück und verwandelte den Ausbruch damit in einen Fehlausbruch.',
-          'Aus dem frühen Verkaufsdruck entstand ein bearischer Trend-from-the-Open-Tag: Die dominante Richtung etablierte sich bereits kurz nach Handelsbeginn, statt erst nach einer langen neutralen Eröffnungsphase. Wer nur das Gap oder das neue Hoch sah, las Absicht; wer die sofortige Zurückweisung sah, las das tatsächliche Ergebnis.',
-          'Der Tag war zugleich ein Trend-Resumption-Tag. Nach dem ersten starken Abwärtsschub pausierte der Markt mehrere Stunden in einer engen Range und nahm später die bärische Richtung wieder auf. Die Begriffe beschreiben also zwei Ebenen desselben Tages: den frühen Trendbeginn und die Fortsetzung nach der mittleren Pause.',
-          'Vortageshoch, Gap und Eröffnung liefern Kontext, aber keine fertige Order. Entscheidend bleibt, ob Preise außerhalb der Grenze angenommen werden oder ob der Markt schnell wieder in den alten Bereich zurückkehrt.',
+          'Der Handelstag eröffnete über dem Hoch des Vortags. Auf dem Papier war das ein bullischer Breakout. Der Markt konnte die höheren Preise aber nicht halten, fiel unter die alte Grenze zurück und machte den Ausbruch damit zum Fehlausbruch.',
+          'Aus dem frühen Verkaufsdruck wurde ein bärischer Trend-from-the-Open-Tag: Die vorherrschende Richtung stand schon kurz nach Handelsbeginn fest, statt sich erst nach einer langen neutralen Eröffnungsphase zu bilden. Wer nur das Gap oder das neue Hoch sah, las Absicht; wer die sofortige Abweisung sah, las das tatsächliche Ergebnis.',
+          'Der Tag war zugleich ein Trend-Resumption-Tag. Nach dem ersten starken Abwärtsschub legte der Markt mehrere Stunden in einer engen Range eine Pause ein und nahm später die bärische Richtung wieder auf. Die Begriffe beschreiben also zwei Ebenen desselben Tages: den frühen Trendbeginn und die Fortsetzung nach der Pause in der Mitte.',
+          'Vortageshoch, Gap und Eröffnung liefern Kontext, aber keine fertige Order. Entscheidend bleibt, ob Preise außerhalb der Grenze angenommen werden oder der Markt schnell wieder in den alten Bereich zurückkehrt.',
         ],
         callout:
-          'Ein Breakout zeigt einen Versuch. Erst Halten und Follow-through zeigen Erfolg.',
+          'Ein Breakout zeigt einen Versuch. Erst Halten und Follow-through zeigen den Erfolg.',
       },
       {
         id: 'chapter-01-07-diagram',
@@ -315,7 +315,7 @@ export const chapterOneCountingLessons = [
     id: 'price-action-trends.chapter-01.lesson-08',
     title: 'Die Falle vor der Trendwiederaufnahme',
     summary:
-      'Wie starker Eröffnungstrend, stundenlange enge Range und Fehlausbruch ein Swing-Setup bis zum Schluss bilden können.',
+      'Wie ein starker Eröffnungstrend, eine stundenlange enge Range und ein Fehlausbruch zusammen ein Swing-Setup bis zum Schluss ergeben können.',
     durationMinutes: 14,
     xp: 50,
     sourceUnit: 'Kapitel 1 · Vertiefung des Chartfalls',
@@ -333,13 +333,13 @@ export const chapterOneCountingLessons = [
         eyebrow: 'Tagesstruktur zusammensetzen',
         title: 'Impuls, Kompression, Falle, Wiederaufnahme',
         paragraphs: [
-          'Ein starker Trend direkt nach der Eröffnung verändert die Bedeutung der folgenden Seitwärtsphase. Wenn der Markt danach mehrere Stunden in einer sehr engen Range verharrt, ist die frühe Richtung nicht automatisch ungültig. Die Range kann eine lange Pause innerhalb des Tagestrends sein.',
-          'In diesem Kontext steigt die Chance, dass der Markt den Eröffnungstrend später wieder aufnimmt. Das ist keine Gewissheit und keine Aufforderung, mitten in der Range zu raten. Der Trader wartet weiter darauf, welche Seite tatsächlich ausbricht und ob dieser Bruch Anschluss erhält.',
-          'Im historischen Chartfall kam ungefähr zwischen 11 und 12 Uhr US-Pazifikzeit ein kleiner Ausbruch gegen die frühe Trendrichtung. Er scheiterte sofort. Long-Trader, die den vermeintlichen Richtungswechsel kauften, mussten aussteigen; zugleich erhielten Verkäufer ein klares Signal für die Wiederaufnahme.',
-          'Ein solcher gescheiterter Gegen-Ausbruch gilt als starkes Swing-Setup bis in den Handelsschluss. Die Uhrzeit ist dabei Kontext aus diesem wiederkehrend beobachteten Muster, kein universelles Zeitsignal. Ohne frühen Trend, enge mehrstündige Range, Fehlausbruch und bearischen Anschluss gibt es dieses konkrete Setup nicht.',
+          'Ein starker Trend direkt nach der Eröffnung ändert die Bedeutung der Seitwärtsphase danach. Verharrt der Markt anschließend mehrere Stunden in einer sehr engen Range, ist die frühe Richtung nicht automatisch ungültig. Die Range kann einfach eine lange Pause mitten im Tagestrend sein.',
+          'In diesem Kontext steigt die Chance, dass der Markt den Eröffnungstrend später wieder aufnimmt. Das ist keine Gewissheit und auch keine Aufforderung, mitten in der Range zu raten. Der Trader wartet weiter ab, welche Seite tatsächlich ausbricht und ob dieser Bruch Anschluss findet.',
+          'Im historischen Chartfall kam ungefähr zwischen 11 und 12 Uhr US-Pazifikzeit ein kleiner Ausbruch gegen die frühe Trendrichtung. Er scheiterte sofort. Long-Trader, die den vermeintlichen Richtungswechsel gekauft hatten, mussten raus; gleichzeitig bekamen die Verkäufer ein klares Signal für die Wiederaufnahme.',
+          'So ein gescheiterter Gegen-Ausbruch gilt als starkes Swing-Setup bis zum Handelsschluss. Die Uhrzeit ist dabei Kontext aus diesem immer wieder beobachteten Muster, kein universelles Zeitsignal. Ohne frühen Trend, enge mehrstündige Range, Fehlausbruch und bärischen Anschluss gibt es dieses konkrete Setup nicht.',
         ],
         callout:
-          'Nicht die Uhrzeit handelt. Die vollständige Abfolge aus Trend, Kompression, Falle und Anschluss erzeugt die These.',
+          'Nicht die Uhrzeit handelt. Die ganze Abfolge aus Trend, Kompression, Falle und Anschluss ergibt die These.',
       },
       {
         id: 'chapter-01-08-diagram',

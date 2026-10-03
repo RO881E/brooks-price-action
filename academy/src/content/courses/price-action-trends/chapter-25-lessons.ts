@@ -17,7 +17,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein Trendwiederaufnahmetag beginnt mit einer deutlichen Bewegung, verbringt anschließend längere Zeit in einer Pause und bewegt sich später erneut in der ursprünglichen Richtung. Erst die spätere Folge macht diese Beschreibung vollständig. Während der Pause bleibt auch eine Umkehr möglich.",
       "Links steigt der erfundene Preis von 30 auf 63 und pendelt danach um 62. Rechts kommen neue Käuferbars hinzu. Die ersten Bars sind in beiden Panels identisch; der spätere Ausbruch darf den frühen Einstieg nicht nachträglich rechtfertigen.",
-      "Markiere Beginn, Pausenbereich und Zeitpunkt des erneuten Ausbruchs getrennt. Plane aus den sichtbaren Bars, statt schon am Vormittag einen fertigen Tagestyp zu behaupten."
+      "Markier Beginn, Pausenbereich und Zeitpunkt des erneuten Ausbruchs getrennt. Plane aus den sichtbaren Bars, statt schon am Vormittag einen fertigen Tagestyp zu behaupten."
     ],
     "callout": "Ein Tagestyp beschreibt den Verlauf; er garantiert ihn nicht.",
     "takeaways": [
@@ -51,7 +51,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Eine Korrektur kann einen großen Teil des Impulses zurückgeben oder vor allem Zeit verbrauchen. Viele seitliche Bars auf ähnlicher Höhe sind eine Zeitkorrektur. Das erklärt, wie ein früher Trend trotz einer langen Unterbrechung als Kontext erhalten bleiben kann.",
       "Links dauert die Pause acht Bars und bleibt nahe dem frühen Hoch. Rechts dauert die Gegenstrecke ebenfalls acht Bars, gibt aber deutlich mehr Preisraum zurück. Gleiche Dauer bedeutet deshalb keine gleiche Wirkung.",
-      "Beschreibe sowohl die Zahl der Bars als auch den Rücklauf vom Impulshoch. Eine lange Pause ist keine automatische Schwäche; eine tiefe Rückgabe verdient unabhängig von ihrer Dauer eine neue Bewertung."
+      "Beschreib sowohl die Zahl der Bars als auch den Rücklauf vom Impulshoch. Eine lange Pause ist keine automatische Schwäche; eine tiefe Rückgabe verdient unabhängig von ihrer Dauer eine neue Bewertung."
     ],
     "callout": "Dauer und Rückgabe messen verschiedene Eigenschaften.",
     "takeaways": [
@@ -84,8 +84,8 @@ const drafts: Draft[] = [
     "scenario": "c25-03",
     "paragraphs": [
       "Große gerichtete Bars und wenig Überschneidung zeigen einen frühen Kontrollvorteil. Dieser Vorteil kann später verloren gehen. Wer jede Pause automatisch in Trendrichtung handelt, behandelt vergangene Stärke wie eine noch offene Order.",
-      "Beide Panels besitzen denselben starken Beginn und dieselbe Balance. Links folgen höhere Preise; rechts bricht der Markt unter die Balance und gewinnt Raum nach unten. Die Frühphase allein unterscheidet die beiden Folgen nicht.",
-      "Prüfe die neue Ausbruchsrichtung, den Schluss relativ zur Grenze und die anschließende Rückgabe. Eine aktuelle Gegenbewegung gehört in den Plan, selbst wenn sie der anfänglichen Tagesidee widerspricht."
+      "Beide Panels haben denselben starken Beginn und dieselbe Balance. Links folgen höhere Preise; rechts bricht der Markt unter die Balance und gewinnt Raum nach unten. Die Frühphase allein unterscheidet die beiden Folgen nicht.",
+      "Prüf die neue Ausbruchsrichtung, den Schluss relativ zur Grenze und die anschließende Rückgabe. Eine aktuelle Gegenbewegung gehört in den Plan, selbst wenn sie der anfänglichen Tagesidee widerspricht."
     ],
     "callout": "Neue Bars dürfen die frühe Trendannahme entkräften.",
     "takeaways": [
@@ -119,7 +119,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Das gleiche Phasenmodell gilt für einen frühen Abwärtstrend: Verkäufer gewinnen zuerst Raum, danach entsteht eine Balance, später können neue Tiefs folgen. Ein tieferer Pausenbereich beweist allein noch keinen weiteren Abverkauf.",
       "Die linke Folge fällt von 70 auf 37 und pausiert. Rechts kommen neue Tiefs bis 20 hinzu. Unterkante, Ausbruch und Rücktest ersetzen dabei Hoch, Käuferausbruch und Rücksetzer der bullischen Variante.",
-      "Beschreibe den tatsächlichen Raumgewinn und die Verlustgrenze für einen Short. Die Struktur lässt sich spiegeln, während reale Abwärts- und Aufwärtsbewegungen nicht dieselben Häufigkeiten oder Ausführungskosten haben müssen."
+      "Beschreib den tatsächlichen Raumgewinn und die Verlustgrenze für einen Short. Die Struktur lässt sich spiegeln, während reale Abwärts- und Aufwärtsbewegungen nicht dieselben Häufigkeiten oder Ausführungskosten haben müssen."
     ],
     "callout": "Das Phasenmodell gilt für beide Richtungen.",
     "takeaways": [
@@ -147,13 +147,13 @@ const drafts: Draft[] = [
   {
     "number": 5,
     "title": "Das Gap braucht einen festen Bezug",
-    "summary": "Gap mit festen Ankern messen.",
+    "summary": "Ein Gap mit festen Ankern messen.",
     "section": "Gap und Test der Eröffnungslücke",
     "scenario": "c25-05",
     "paragraphs": [
       "Ein Gap ist ein Abstand zwischen zwei definierten Preisbereichen. Hier vergleichen wir den Vortagsschluss mit dem ersten Preis der neuen Sitzung. Bei Futures hängt dieser Bezug von der verwendeten Sitzung ab; ein anderer Tageszuschnitt kann ein anderes Gap zeigen.",
       "Der bekannte Schluss liegt bei 40, die neue Folge eröffnet bei 48. Der Abstand beträgt acht relative Einheiten. Die Markierung bleibt in beiden Panels bei 40, auch wenn der neue Markt zuerst steigt und später zurückläuft.",
-      "Notiere Sitzung, alten Referenzpreis und neuen Eröffnungspreis. Verwende denselben Bezug während des gesamten Tests; ein nachträglich verschobener Anker macht die Beobachtung unbrauchbar."
+      "Notier Sitzung, alten Referenzpreis und neuen Eröffnungspreis. Bleib während des gesamten Tests bei demselben Bezug; ein nachträglich verschobener Anker macht die Beobachtung unbrauchbar."
     ],
     "callout": "Ein Gap lässt sich nur mit benanntem Bezug prüfen.",
     "takeaways": [
@@ -181,13 +181,13 @@ const drafts: Draft[] = [
   {
     "number": 6,
     "title": "Ein Test muss das Gap nicht schließen",
-    "summary": "Unvollständiger Gap-Test.",
+    "summary": "Ein unvollständiger Gap-Test.",
     "section": "Gap und Test der Eröffnungslücke",
     "scenario": "c25-06",
     "paragraphs": [
       "Ein Rücklauf kann sich dem alten Schluss nähern und vorher drehen. Das ist ein Test des Bereichs, aber in unserer Definition noch kein vollständiges Schließen des Gaps. Eine Annäherung und eine tatsächliche Preisberührung sind unterschiedliche Beobachtungen.",
       "Links erreicht der tiefste Wick des Rücklaufs 50 und bleibt oberhalb der Schlussreferenz 40. Rechts dreht die Folge wieder aufwärts. Die Erholung folgt somit auf einen unvollständigen Test; eine Berührung von 40 hat nicht stattgefunden.",
-      "Halte die Definition fest und prüfe Tiefs beziehungsweise Hochs, nicht nur Schlusskurse. Ein ähnliches Bild rechtfertigt keine Aussage, dass alle offenen Preise bereits gehandelt wurden."
+      "Halte die Definition fest und prüf Tiefs beziehungsweise Hochs, nicht nur Schlusskurse. Ein ähnliches Bild rechtfertigt keine Aussage, dass alle offenen Preise bereits gehandelt wurden."
     ],
     "callout": "Annäherung, Berührung und Durchbruch getrennt benennen.",
     "takeaways": [
@@ -219,9 +219,9 @@ const drafts: Draft[] = [
     "section": "Gap und Test der Eröffnungslücke",
     "scenario": "c25-07",
     "paragraphs": [
-      "Wenn der Rücklauf den alten Schluss erreicht, ist die definierte Lücke geschlossen. Daraus folgt keine automatische Umkehr nach oben. Der Markt kann am Bezug reagieren, um ihn pendeln oder weiter darunter handeln.",
+      "Erreicht der Rücklauf den alten Schluss, ist die definierte Lücke geschlossen. Daraus folgt keine automatische Umkehr nach oben. Der Markt kann am Bezug reagieren, um ihn pendeln oder weiter darunter handeln.",
       "Der letzte linke Bar hat einen Schluss bei 41 und einen Wick bis 40. Rechts gewinnt eine neue Käuferfolge wieder Raum. Die Berührung ist bereits links bekannt; der Käuferanschluss erst rechts.",
-      "Trenne Referenzkontakt, Signalabschluss und Auslösung einer geplanten Order. Wenn eine gewünschte Reaktion ausbleibt, bleibt die Preisberührung trotzdem wahr und die Trendfortsetzung trotzdem unbestätigt."
+      "Trenn Referenzkontakt, Signalabschluss und Auslösung einer geplanten Order. Bleibt eine gewünschte Reaktion aus, bleibt die Preisberührung trotzdem wahr und die Trendfortsetzung trotzdem unbestätigt."
     ],
     "callout": "Das Schließen einer Lücke erzeugt keinen Pflichtanstieg.",
     "takeaways": [
@@ -255,7 +255,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein Gap nach oben mit frühem Anstieg kann anschließend so viel zurückgeben, dass die Käuferidee ihre Grundlage verliert. Ein Schluss unter dem alten Bezug und weitere tiefere Preise passen dann nicht mehr zu einem bloß flachen Test.",
       "Links wird die Referenz 40 berührt. Rechts folgen Schlusskurse bei 35 und 29. Der alte Schluss hält in dieser Folge nicht; die ursprüngliche Richtung bleibt deshalb kein überzeugender Grund für einen neuen Kauf.",
-      "Definiere vorab, welcher Verlust an Struktur deine Idee entkräftet. Ein persönlicher Stop und eine Marktinterpretation sind getrennte Größen, doch beide brauchen eine aktuelle Grundlage statt Hoffnung auf die Gaprichtung."
+      "Definier vorab, welcher Verlust an Struktur deine Idee entkräftet. Ein persönlicher Stop und eine Marktinterpretation sind getrennte Größen, doch beide brauchen eine aktuelle Grundlage statt Hoffnung auf die Gaprichtung."
     ],
     "callout": "Eine frühe Gaprichtung darf durch spätere Struktur ungültig werden.",
     "takeaways": [
@@ -287,11 +287,11 @@ const drafts: Draft[] = [
     "section": "Enge Range und Fehlausbruch",
     "scenario": "c25-09",
     "paragraphs": [
-      "Nach dem frühen Impuls können sich viele Bars in einem kleinen Bereich überschneiden. Diese Balance besitzt eigene Grenzen. Für einen späteren Ausbruch brauchst du die Hochs und Tiefs der Pause, nicht willkürlich den gesamten frühen Impuls.",
+      "Nach dem frühen Impuls können sich viele Bars in einem kleinen Bereich überschneiden. Diese Balance hat eigene Grenzen. Für einen späteren Ausbruch brauchst du die Hochs und Tiefs der Pause, nicht willkürlich den gesamten frühen Impuls.",
       "Die Pause beginnt im Beispiel nach dem Preis 73. Ihre OHLC-Hülle reicht von 71 bis 75; der frühe Impuls stammt aus dem Bereich 50. Die gepunkteten Linien beziehen sich auf die Pause und bleiben im zweiten Panel unverändert.",
-      "Markiere, ab welchem Bar die Balance zählt, und prüfe die Wicks. Neue Bars können eine Grenze erweitern; dokumentiere diese Erweiterung, statt rückwirkend den alten Ausbruch unsichtbar zu machen."
+      "Markier, ab welchem Bar die Balance zählt, und prüf die Wicks. Neue Bars können eine Grenze erweitern; dokumentiere diese Erweiterung, statt rückwirkend den alten Ausbruch unsichtbar zu machen."
     ],
-    "callout": "Rangegrenzen aus dem benannten Pausenabschnitt ableiten.",
+    "callout": "Die Rangegrenzen aus dem benannten Pausenabschnitt ableiten.",
     "takeaways": [
       "Rangegrenzen aus dem benannten Pausenabschnitt ableiten.",
       "Die Pause beginnt im Beispiel nach dem Preis 73.",
@@ -389,9 +389,9 @@ const drafts: Draft[] = [
     "section": "Enge Range und Fehlausbruch",
     "scenario": "c25-12",
     "paragraphs": [
-      "Eine schmale Balance sammelt keine Verpflichtung zur Fortsetzung. Wenn der Markt sie mit einem kräftigen Gegenausbruch verlässt und keine schnelle Rückkehr zeigt, verliert der frühe Trend als alleinige Handlungsgrundlage an Gewicht.",
-      "Beide Verläufe starten mit derselben engen Pause. Links folgt die Käuferwiederaufnahme; rechts entsteht ein Verkäuferbein bis 49. Das Gegenbeispiel verhindert, dass nur der erfolgreiche Ausgang im Gedächtnis bleibt.",
-      "Führe im Replay ein Protokoll aller passenden Ausgangslagen. Zähle auch Gegenläufe und ausbleibende Ausbrüche. Ohne eine definierte Stichprobe liefert ein anschauliches Muster keine verlässliche Trefferquote."
+      "Eine schmale Balance sammelt keine Verpflichtung zur Fortsetzung. Verlässt der Markt sie mit einem kräftigen Gegenausbruch und zeigt keine schnelle Rückkehr, verliert der frühe Trend als alleinige Handlungsgrundlage an Gewicht.",
+      "Beide Verläufe starten mit derselben engen Pause. Links folgt die Käuferwiederaufnahme; rechts entsteht ein Verkäuferbein bis 49. Das Gegenbeispiel verhindert, dass dir nur der erfolgreiche Ausgang im Gedächtnis bleibt.",
+      "Führe im Replay ein Protokoll aller passenden Ausgangslagen. Zähl auch Gegenläufe und ausbleibende Ausbrüche. Ohne eine definierte Stichprobe liefert ein anschauliches Muster keine verlässliche Trefferquote."
     ],
     "callout": "Eine enge Pause kann sich nach beiden Seiten auflösen.",
     "takeaways": [
@@ -423,11 +423,11 @@ const drafts: Draft[] = [
     "section": "Auslösung, Rücktest und Verlustgrenze",
     "scenario": "c25-13",
     "paragraphs": [
-      "Ein Käuferbar in der Balance kann eine Signalbar sein. Sein Abschluss bestätigt nur die Form dieser Bar. Eine geplante Stoporder über ihrem Hoch wird erst ausgelöst, wenn der spätere Preis den festgelegten Trigger erreicht.",
-      "Links endet die Rückkehrbar bei 74 und ihr Hoch liegt bei 75. Der Beispieltrigger liegt bei 76 und ist noch unberührt. Rechts überschreitet der nächste Bar 76. Die Darstellung trennt dadurch bekannte Signalform und spätere Triggerberührung.",
+      "Ein Käuferbar in der Balance kann ein Signalbar sein. Sein Abschluss bestätigt nur die Form dieses Bars. Eine geplante Stoporder über seinem Hoch wird erst ausgelöst, wenn der spätere Preis den festgelegten Trigger erreicht.",
+      "Links endet der Rückkehrbar bei 74 und sein Hoch liegt bei 75. Der Beispieltrigger liegt bei 76 und ist noch unberührt. Rechts überschreitet der nächste Bar 76. Die Darstellung trennt dadurch bekannte Signalform und spätere Triggerberührung.",
       "Ein erreichter Trigger beweist keine Füllung zu genau 76. Spread, verfügbare Liquidität und Ordertyp beeinflussen die Ausführung; für das Schema bleiben tatsächliche Handelskosten unbekannt."
     ],
-    "callout": "Signal fertig bedeutet noch nicht Order ausgelöst.",
+    "callout": "Signal fertig bedeutet noch nicht, dass die Order ausgelöst ist.",
     "takeaways": [
       "Signal fertig bedeutet noch nicht Order ausgelöst.",
       "Links endet die Rückkehrbar bei 74 und ihr Hoch liegt bei 75.",
@@ -453,7 +453,7 @@ const drafts: Draft[] = [
   {
     "number": 14,
     "title": "Rücktests unterscheiden: halten, eindringen, scheitern",
-    "summary": "Eindringender Rücktest mit neuer Fortsetzung.",
+    "summary": "Ein eindringender Rücktest mit neuer Fortsetzung.",
     "section": "Auslösung, Rücktest und Verlustgrenze",
     "scenario": "c25-14",
     "paragraphs": [
@@ -493,7 +493,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein Stop jenseits der Balance kann mehr Strukturraum geben als ein Stop unter der Ausbruchsbar. Dieser zusätzliche Abstand kostet Risiko pro Kontrakt. Bei gleichbleibendem Geldbudget muss deshalb die Stückzahl sinken oder der Einstieg entfallen.",
       "Im Beispiel liegt der gedachte Einstieg bei 78, der engere Stop bei 73 und der weitere Stop bei 69. Die Abstände betragen fünf und neun relative Einheiten. Die Linien zeigen Planpreise; sie behaupten keine garantierten Ausführungen.",
-      "Rechne Abstand mal Wert pro Preiseinheit und addiere Kostenreserven. Eine Kontraktzahl wird abgerundet. Wenn selbst ein einzelner Kontrakt das Budget überschreitet, löst ein kleineres Ziel das Risikoproblem nicht."
+      "Rechne Abstand mal Wert pro Preiseinheit und addiere Kostenreserven. Die Kontraktzahl rundest du ab. Überschreitet selbst ein einzelner Kontrakt das Budget, löst ein kleineres Ziel das Risikoproblem nicht."
     ],
     "callout": "Ein weiterer Stop erhöht das Risiko pro Einheit.",
     "takeaways": [
@@ -525,11 +525,11 @@ const drafts: Draft[] = [
     "section": "Auslösung, Rücktest und Verlustgrenze",
     "scenario": "c25-16",
     "paragraphs": [
-      "Die Struktur wird erst durch Positionsgröße zu einem begrenzten Geldrisiko. Für dieses reine Rechenbeispiel nehmen wir neun Punkte Stopabstand, fünf Dollar pro Punkt und fünf Dollar Kostenreserve je Kontrakt an. Diese Werte definieren das Beispiel und sind keine aktuellen Brokergebühren.",
+      "Die Struktur wird erst durch die Positionsgröße zu einem begrenzten Geldrisiko. Für dieses reine Rechenbeispiel nehmen wir neun Punkte Stopabstand, fünf Dollar pro Punkt und fünf Dollar Kostenreserve je Kontrakt an. Diese Werte definieren das Beispiel und sind keine aktuellen Brokergebühren.",
       "Damit beträgt das geplante Risiko je Kontrakt 9 × 5 + 5 = 50 Dollar. Bei 120 Dollar Gesamtbudget passen zwei Kontrakte: 100 Dollar Planrisiko. Drei würden 150 Dollar ergeben und das Budget überschreiten.",
-      "Runde die Anzahl ab und lass die ungenutzten 20 Dollar als Puffer. Ein Stop begrenzt den Plan, keine maximale tatsächliche Füllung; starke Slippage kann darüber hinausgehen. Passe die Reserve mit eigenen Ausführungsdaten an."
+      "Rund die Anzahl ab und lass die ungenutzten 20 Dollar als Puffer. Ein Stop begrenzt den Plan, keine maximale tatsächliche Füllung; starke Slippage kann darüber hinausgehen. Pass die Reserve mit eigenen Ausführungsdaten an."
     ],
-    "callout": "Das Risikobudget wird eingehalten, indem die Stückzahl abgerundet wird.",
+    "callout": "Das Risikobudget hältst du ein, indem du die Stückzahl abrundest.",
     "takeaways": [
       "Das Risikobudget wird eingehalten, indem die Stückzahl abgerundet wird.",
       "Damit beträgt das geplante Risiko je Kontrakt 9 × 5 + 5 = 50 Dollar.",
@@ -555,13 +555,13 @@ const drafts: Draft[] = [
   {
     "number": 17,
     "title": "Eine späte Auslösung hat weniger verbleibende Zeit",
-    "summary": "Zeit bis zum Schluss einplanen.",
+    "summary": "Die Zeit bis zum Schluss einplanen.",
     "section": "Späte Wiederaufnahme und Management",
     "scenario": "c25-17",
     "paragraphs": [
-      "Ein später Ausbruch kann den ursprünglichen Trend erneut aufnehmen. Trotzdem bleibt weniger Sitzungszeit, um ein fernes Ziel zu erreichen. Die gleiche Struktur besitzt kurz vor dem Schluss andere Rahmenbedingungen als am frühen Nachmittag.",
+      "Ein später Ausbruch kann den ursprünglichen Trend erneut aufnehmen. Trotzdem bleibt weniger Sitzungszeit, um ein fernes Ziel zu erreichen. Dieselbe Struktur hat kurz vor dem Schluss andere Rahmenbedingungen als am frühen Nachmittag.",
       "Links bleibt der Markt bis zur markierten späten Phase in seiner Balance. Rechts folgen nur noch zwei Bars mit Schluss 68 und 71. Die Zeitachse endet danach ausdrücklich; ein späteres Ziel oberhalb dieser Folge ist nicht gezeigt.",
-      "Lege vor dem Einstieg fest, wann du spätestens schließt und welche Orders danach gelöscht werden. Prüfe die Handelszeiten und Regeln deiner konkreten Umgebung separat; die erfundene Folge behauptet keine aktuelle Prop-Firm-Regel."
+      "Leg vor dem Einstieg fest, wann du spätestens schließt und welche Orders danach gelöscht werden. Prüf die Handelszeiten und Regeln deiner konkreten Umgebung separat; die erfundene Folge behauptet keine aktuelle Prop-Firm-Regel."
     ],
     "callout": "Verbleibende Zeit gehört ebenso zum Plan wie Preisraum.",
     "takeaways": [
@@ -593,9 +593,9 @@ const drafts: Draft[] = [
     "section": "Späte Wiederaufnahme und Management",
     "scenario": "c25-18",
     "paragraphs": [
-      "Eine Zielprojektion überträgt eine gemessene Strecke auf einen neuen Ansatzpunkt. Hier verwenden wir den frühen Schlusskursimpuls von 30 bis 63. Seine Länge beträgt 33 Einheiten. Dies ist bewusst eine Schlusskursstrecke, keine OHLC-Tagesrange.",
+      "Eine Zielprojektion überträgt eine gemessene Strecke auf einen neuen Ansatzpunkt. Hier verwenden wir den frühen Schlusskursimpuls von 30 bis 63. Seine Länge beträgt 33 Einheiten. Das ist bewusst eine Schlusskursstrecke, keine OHLC-Tagesrange.",
       "Der angenommene Ansatzpunkt liegt bei 60. Somit ergibt sich 60 + 33 = 93. Rechts erreicht die spätere Folge lediglich ein Hoch von 81. Das eingezeichnete Projektionsziel bleibt in diesem Beispiel unbesucht.",
-      "Prüfe vor dem Einstieg, ob zwischen Entry und Ziel andere Referenzen liegen. Ein berechnetes Ziel ist ein möglicher Plananker. Es beweist weder die künftige Weglänge noch, wie oft der Markt es tatsächlich erreicht."
+      "Prüf vor dem Einstieg, ob zwischen Entry und Ziel andere Referenzen liegen. Ein berechnetes Ziel ist ein möglicher Plananker. Es beweist weder die künftige Weglänge noch, wie oft der Markt es tatsächlich erreicht."
     ],
     "callout": "Eine Zielrechnung ist keine Aussage über ihre Erreichbarkeit.",
     "takeaways": [
@@ -627,7 +627,7 @@ const drafts: Draft[] = [
     "section": "Späte Wiederaufnahme und Management",
     "scenario": "c25-19",
     "paragraphs": [
-      "Ein guter Tageskontext kann mit einem ungünstigen Einstiegspreis zusammenfallen. Wenn nach einem späten Ausbruch kaum noch Raum zum Ziel bleibt, während die Verlustgrenze weit entfernt liegt, ist das Verhältnis für diesen Entry schwach.",
+      "Ein guter Tageskontext kann mit einem ungünstigen Einstiegspreis zusammenfallen. Bleibt nach einem späten Ausbruch kaum noch Raum zum Ziel, während die Verlustgrenze weit entfernt liegt, ist das Verhältnis für diesen Entry schwach.",
       "Der Beispielentry liegt bei 78, das Ziel bei 81 und der Stop bei 69. Damit stehen drei Einheiten möglichem Bruttogewinn neun Einheiten geplantem Preisrisiko gegenüber. Der Zielraum beträgt ein Drittel des Stopabstands.",
       "Bei exakt diesen festen Ergebnissen und ohne Kosten braucht der Plan mehr als 75 Prozent Gewinne für positiven Erwartungswert. Das ist eine rechnerische Schwelle, keine gemessene Trefferquote. Kosten und abweichende Füllungen erhöhen die Anforderungen."
     ],
@@ -661,9 +661,9 @@ const drafts: Draft[] = [
     "section": "Späte Wiederaufnahme und Management",
     "scenario": "c25-20",
     "paragraphs": [
-      "Eine neue Käufererweiterung kann unmittelbar scheitern. Wenn der Markt in die lange Pause zurückkehrt und dort weiter handelt, beschreibt das keine saubere neue Trendphase mehr. Der alte Impuls reicht dann nicht als Begründung für das Halten jeder Longposition.",
-      "Links bricht die Balance mit Schluss 68 nach oben. Rechts folgen 63, 60 und 62 zurück im alten Bereich. Der Käuferausbruch ist sichtbar, ebenso seine Rückgabe; das Signal muss deshalb im Verlauf neu beurteilt werden.",
-      "Führe deinen vorher definierten Exit aus und lösche überholte Folgeorders. Trenne den ursprünglichen Plan von einer neuen Rangeidee. Ein nachträglich weiter gesetzter Stop verwandelt eine schwache Fortsetzung nicht in einen besseren Einstieg."
+      "Eine neue Käufererweiterung kann sofort scheitern. Kehrt der Markt in die lange Pause zurück und handelt dort weiter, beschreibt das keine saubere neue Trendphase mehr. Der alte Impuls reicht dann nicht als Begründung, jede Longposition zu halten.",
+      "Links bricht die Balance mit Schluss 68 nach oben. Rechts folgen 63, 60 und 62 zurück im alten Bereich. Der Käuferausbruch ist sichtbar, ebenso seine Rückgabe; das Signal musst du deshalb im Verlauf neu beurteilen.",
+      "Führe deinen vorher definierten Exit aus und lösche überholte Folgeorders. Trenn den ursprünglichen Plan von einer neuen Rangeidee. Ein nachträglich weiter gesetzter Stop verwandelt eine schwache Fortsetzung nicht in einen besseren Einstieg."
     ],
     "callout": "Ein gescheiterter Ausbruch verlangt eine neue Beurteilung.",
     "takeaways": [
@@ -729,8 +729,8 @@ const drafts: Draft[] = [
     "section": "Mehrtägige Variante und Replay",
     "scenario": "c25-22",
     "paragraphs": [
-      "Ein Tagesbar fasst Eröffnung, Hoch, Tief und Schluss zusammen. Er enthält nicht die zeitliche Reihenfolge sämtlicher Zwischenbewegungen. Zwei unterschiedliche Intraday-Folgen können dieselbe Tageshülle besitzen und verschiedene Einstiegsmöglichkeiten bieten.",
-      "Links kommt der frühe Hochbereich vor der langen Pause. Rechts erreicht der Preis denselben Hochbereich erst nach einem tieferen Zwischenweg. Beide Folgen eröffnen bei 30, besitzen Hoch 81 und Tief 29 und schließen bei 80.",
+      "Ein Tagesbar fasst Eröffnung, Hoch, Tief und Schluss zusammen. Er enthält nicht die zeitliche Reihenfolge sämtlicher Zwischenbewegungen. Zwei unterschiedliche Intraday-Folgen können dieselbe Tageshülle haben und verschiedene Einstiegsmöglichkeiten bieten.",
+      "Links kommt der frühe Hochbereich vor der langen Pause. Rechts erreicht der Preis denselben Hochbereich erst nach einem tieferen Zwischenweg. Beide Folgen eröffnen bei 30, haben Hoch 81 und Tief 29 und schließen bei 80.",
       "Nutze Tagesbars für den größeren Bezug und Intraday-Daten für den Ablauf. Ein äußerlich passender Tagesbar beweist weder den konkreten Zeitpunkt einer Balance noch einen damals verfügbaren Trigger."
     ],
     "callout": "Eine OHLC-Hülle bewahrt Extreme, aber nicht den gesamten Weg.",
@@ -763,9 +763,9 @@ const drafts: Draft[] = [
     "section": "Mehrtägige Variante und Replay",
     "scenario": "c25-23",
     "paragraphs": [
-      "Ein Übungsfall wird realistischer, wenn du die spätere Wiederaufnahme zunächst ausblendest. Notiere nach dem frühen Impuls eine vorläufige Richtung. Aktualisiere sie während der Balance und nach jeder Grenzverletzung, bevor du die nächste Bar aufdeckst.",
+      "Ein Übungsfall wird realistischer, wenn du die spätere Wiederaufnahme zunächst ausblendest. Notier nach dem frühen Impuls eine vorläufige Richtung. Aktualisiere sie während der Balance und nach jeder Grenzverletzung, bevor du den nächsten Bar aufdeckst.",
       "Links endet der Verlauf mit dem Gegenausbruch auf 70. Rechts zeigt die längere Folge Rückkehr und Käuferausbruch. Das linke Präfix ist unverändert; die rechte Zukunft stand der linken Entscheidung nicht zur Verfügung.",
-      "Führe ein kurzes Log: bekannte Struktur, gewünschter Auslöser, Entkräftung und Orderstatus. Markiere auch eine Entscheidung ohne Trade. Späteres Wissen gehört in die Auswertung und darf den ursprünglichen Eintrag nicht überschreiben."
+      "Führe ein kurzes Log: bekannte Struktur, gewünschter Auslöser, Entkräftung und Orderstatus. Markier auch eine Entscheidung ohne Trade. Späteres Wissen gehört in die Auswertung und darf den ursprünglichen Eintrag nicht überschreiben."
     ],
     "callout": "Ein guter Replay-Eintrag erhält die damals bekannte Information.",
     "takeaways": [
