@@ -231,4 +231,49 @@ export const rangesGlossary: GlossaryEntry[] = [
     "firstUnit": "Kapitel 4"
   }
 
+,
+
+  {
+    "term": "Ausbruchstest",
+    "definition": "Rücklauf in die Nähe eines ausdrücklich benannten Ausbruchsbereichs. Ob er hält, zeigt erst die weitere Reaktion.",
+    "aliases": [
+      "Breakout Test"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Testzone",
+    "definition": "Vorab benannter Preisbereich um einen Bezug. Ermöglicht die Prüfung naher Kontakte ohne nachträgliches Verschieben der Grenze.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Break-even-Stop",
+    "definition": "Schutzstop am oder nahe dem Einstiegspreis. Kosten und abweichende Ausführung können trotzdem einen Nettoverlust erzeugen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Letzte Flagge",
+    "definition": "Eine Pause vor dem Ende eines Trends, die erst im weiteren Verlauf als letzte Fortsetzungspause erkennbar wird.",
+    "aliases": [
+      "Final Flag"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Doppeltief",
+    "definition": "Zwei getrennte Besuche eines ähnlichen Tiefbereichs mit einem Anstieg dazwischen. Exakte Gleichheit ist nicht erforderlich; eine Umkehr bleibt zu prüfen.",
+    "aliases": [
+      "Double Bottom"
+    ],
+    "firstUnit": "Kapitel 5"
+  },
+  {
+    "term": "Wiedereinstieg",
+    "definition": "Neue Position nach einem vorherigen Ausstieg. Braucht eine eigene erfüllte Regel; frühere Verluste und zusätzliche Kosten bleiben Teil der Bilanz.",
+    "aliases": [],
+    "firstUnit": "Kapitel 5"
+  }
+
 ];
