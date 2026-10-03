@@ -482,6 +482,7 @@ export const CHAPTER_THIRTEEN_SCENARIOS = [
 export type ChapterThirteenScenarioId = (typeof CHAPTER_THIRTEEN_SCENARIOS)[number];
 
 export type ChartScenarioId =
+  | 'par8-range' | 'par8-up' | 'par8-down' | 'par8-breakout' | 'par8-gap' | 'par8-follow' | 'par8-older' | 'par8-bar-mid' | 'par8-negative' | 'par8-negative-follow' | 'par8-profile' | 'par8-near' | 'par8-overshoot' | 'par8-reversal' | 'par8-failure' | 'par8-bear' | 'par8-late' | 'par8-spike' | 'par8-risk'
   | 'par7-leg' | 'par7-equal' | 'par7-midpoint' | 'par7-deeper' | 'par7-pause' | 'par7-spike' | 'par7-channel' | 'par7-risk' | 'par7-near' | 'par7-contact' | 'par7-failure' | 'par7-opposite' | 'par7-bear-spike' | 'par7-bear-leg' | 'par7-variant' | 'par7-nested' | 'par7-stop' | 'par7-symmetry'
   | 'par6-classic' | 'par6-classic-bear' | 'par6-classic-follow' | 'par6-overlap' | 'par6-fill' | 'par6-island' | 'par6-session' | 'par6-micro-start' | 'par6-micro' | 'par6-measure' | 'par6-retest' | 'par6-negative' | 'par6-zero' | 'par6-measure-bear' | 'par6-risk' | 'par6-average' | 'par6-average-follow' | 'par6-open-close'
   | 'par5-start' | 'par5-test' | 'par5-failure' | 'par5-open' | 'par5-levels' | 'par5-resume' | 'par5-risk' | 'par5-deep' | 'par5-stairs' | 'par5-reversal' | 'par5-double' | 'par5-delayed' | 'par5-near' | 'par5-bear' | 'par5-top'

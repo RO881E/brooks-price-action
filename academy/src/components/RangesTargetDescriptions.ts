@@ -1,0 +1,21 @@
+export const rangesTargetDescriptions={
+  "par8-range": "Vier abgeschlossene Minuten in der ausgewählten Range98 bis102. Höhe4. Spätere Preise verborgen; keine Richtung allein aus der Zielrechnung.",
+  "par8-up": "Range98 bis102, Höhe4. Bedingte Aufwärtsverlängerung ab102 ergibt106. Ausbruch noch nicht gezeigt.",
+  "par8-down": "Gespiegelte Range mit gleichen Grenzen98 bis102. Bedingte Verlängerung4 Punkte unter98 ergibt94. Ausbruch noch nicht gezeigt.",
+  "par8-breakout": "Nach Range: Minute5 O101,8 H105 L101,6 C104,6. Grenze102 überschritten; vorbereitetes Rangeziel106 noch nicht erreicht.",
+  "par8-gap": "Minute6 ist weiter kräftig mit L104,4 H106,2 C106. Erste kleine Pause7: O106 H106,1 L103 C105,9. Mitte von102 und103 ist102,5; Start98 ergibt107.",
+  "par8-follow": "Nach bekannter Pause folgen H8=106,8 und H9=107,2. Rangeziel106 und später berechnetes Lückenziel107 haben verschiedene Informationsstände.",
+  "par8-older": "Zusätzlicher bekannter Start96 aus früherem Ausschnitt. Gleiche Mitte102,5 liefert109 statt107 aus aktuellem Start98. Herkunft des alten Ankers separat benannt.",
+  "par8-bar-mid": "Nach Ausbruchskerze5: Hoch105 Tief101,6 → Spannenmitte103,3 → Ziel108,6 ab98. O101,8 C104,6 → Körpermitte103,2 → Ziel108,4.",
+  "par8-negative": "Gleiche ersten fünf Minuten; erste Pause6 bis101,5 unter Grenze102. Gerichteter Abstand minus0,5; Mitte101,75 und Start98 ergeben105,5. Zukunft verborgen.",
+  "par8-negative-follow": "Negativer Vergleich nach Pause: Minute7 erreicht105,6 über Ziel105,5. Direkte Rangeprojektion106 bleibt ein anderer vorab benannter Bezug.",
+  "par8-profile": "Eigene Zeitprofil-Besuche:98:8;99:12;100:10;101:4;102:2;103:3;104:9;105:11;106:8. Dünner Bereich101–103, geometrische Mitte102, häufigster Preis99. Keine Mengendaten.",
+  "par8-near": "Hoch8=106,8 bleibt0,2 unter Lückenziel107, also zwei Modellpreisstufen0,1. Vorab Zone und exakten Zielkontakt unterscheiden.",
+  "par8-overshoot": "Nach Kontakt H9=107,2 folgt H10=109. Überschreiten von107 beweist keine Umkehr und keinen eigenen Verkaufsauftrag.",
+  "par8-reversal": "H9=107,2, L10=104,9 unterschreitet vorab gewählte Linie durch L5=101,6/L7=103 (Linienwert105,1 in Minute10). H11=106,6 niedriger; C12=103,2 Gegenanschluss.",
+  "par8-failure": "Gleiche ersten sieben Minuten inklusive Pausenrand103. Danach C8=100,5 unter102 und L9=97,7. Lückenziel107 nicht erreicht; früheres Rangeziel106 separat auswerten.",
+  "par8-bear": "Spiegelung200−Preis: Start102, Abwärtsbezug98, Rücklaufhoch97. Mitte97,5 ergibt Ziel93; direkte Rangehöhe liefert94.",
+  "par8-late": "Abwärtsfall nach Pause mit C7=94,1, Projektion93. Separat vorgegebener Zeithorizont: noch2 Minuten bis geplantes Positionsende. Reststrecke1,1 Punkte.",
+  "par8-spike": "Separater Schub: O1=110, fünf fallende Schlusswerte108,106,104,102,100; Pause6. Direkte OC-Projektion90, später L7=90,1 verfehlt um0,1.",
+  "par8-risk": "Rangeplan als Ausführungsszenario: Einstieg102,1, Stop97,9, Ziel106. Abstand4,2, Reststrecke3,9. Sechs Einheiten plus2 Euro Kosten: Verlust27,2 / Gewinn21,4."
+};

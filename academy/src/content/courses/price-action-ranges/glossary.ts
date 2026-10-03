@@ -378,4 +378,45 @@ export const rangesGlossary: GlossaryEntry[] = [
     "firstUnit": "Kapitel 7"
   }
 
+,
+
+  {
+    "term": "Rangehöhenprojektion",
+    "definition": "Die Höhe einer benannten Range wird von der passenden oberen oder unteren Ausbruchsgrenze erneut abgetragen. Ein bedingter Zielbereich.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Zeitprofil",
+    "definition": "Zählung, in wie vielen gleich definierten Zeitabschnitten ein Preisbereich besucht wurde. Unterscheidet sich vom Volumenprofil.",
+    "aliases": [
+      "TPO-Profil"
+    ],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Volumenprofil",
+    "definition": "Verteilung der tatsächlich gehandelten Menge auf definierte Preisbereiche. Benötigt Mengendaten statt bloßer Kerzenspannen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Dünner Profilbereich",
+    "definition": "Ein im benannten Profil relativ wenig besuchter oder volumenarmer Bereich. Die jeweilige Profilart bestimmt, was dünn bedeutet.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Geometrische Mitte",
+    "definition": "Arithmetischer Mittelpunkt zweier benannter Grenzen. Nicht automatisch der am häufigsten besuchte oder volumenstärkste Preis.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  },
+  {
+    "term": "Zeithorizont",
+    "definition": "Vorab benannter Zeitraum für eine Beobachtung oder Position. Ein Preisziel allein bestimmt nicht, bis wann es erreicht wird.",
+    "aliases": [],
+    "firstUnit": "Kapitel 8"
+  }
+
 ];
