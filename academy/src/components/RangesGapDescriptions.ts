@@ -1,0 +1,20 @@
+export const rangesGapDescriptions={
+  "par6-classic": "Zwei abgeschlossene Tageskerzen: H1=100 L1=96 C1=99; L2=101 H2=104 C2=103,5. Klassischer Zwischenraum 1 Punkt; Folgetage verborgen.",
+  "par6-classic-bear": "Gespiegelte Tageskerzen: L1=100; H2=99 L2=96. Klassischer Abwärtszwischenraum 99 bis 100, Größe 1 Punkt.",
+  "par6-classic-follow": "Gleiche ersten zwei Tage, danach H3=106 L3=103 C3=105,5. Ursprünglicher Zwischenraum 100 bis 101 bleibt im Ausschnitt offen.",
+  "par6-overlap": "O2=101 über C1=99, aber L2=99,5 unter H1=100. Schluss-Eröffnungs-Abstand 2 Punkte; Tagesbereiche überlappen.",
+  "par6-fill": "Gleiche erste zwei Tage; Tag 3 fällt bis 99 und schließt 99,4. Die ursprüngliche Aufwärtslücke 100 bis 101 ist geschlossen.",
+  "par6-island": "Tagesinsel: H1=100 unter L2=101; L3=102 über H4=100,5. Aufwärts- und Abwärtslücke grenzen Tage 2 und 3 ab.",
+  "par6-session": "Letzte alte Minute H100, erste neue Minute L101. Bekanntes ganzes Vortagshoch 103. Minutenlücke beweist keine Tageslücke über dem Vortag.",
+  "par6-micro-start": "Minuten bis 2: H1=100 L1=96, große Minute 2 O99,8 H103 L99,7 C102,8. Nächste Minute und endgültiger Mikrolückenrand noch unbekannt.",
+  "par6-micro": "Drei Minuten: H1=100, große mittlere Schubkerze, L3=101. Abstand 1 Punkt zwischen erster und dritter Kerze; mittlere Kerze handelte dazwischen.",
+  "par6-measure": "Beginn 96; Ränder H1=100 und L3=101. Mitte 100,5, Strecke 4,5, Projektion 105. Bisheriges H3=104 erreicht Ziel noch nicht.",
+  "par6-retest": "Späterer Test L4=100,6 nach erstem L3=101. Mit Bezug 100 neue Mitte 100,3 und Projektion 104,6 bei gleichem Beginn 96.",
+  "par6-negative": "Test L4=99,8 unter Bezug 100. Gerichteter Abstand minus 0,2 beschreibt Überlappung. Mitte 99,9, Projektion 103,8 bei Beginn 96.",
+  "par6-zero": "Exakter Testkontakt L4=100 mit altem H1=100. Positive Lückenbreite null; Mitte 100 ergibt rechnerisch Ziel 104 bei Beginn 96.",
+  "par6-measure-bear": "Gespiegelter Minutenfall: Beginn 104, Ränder 100 und 99, Mitte 99,5. Strecke 4,5 abwärts, Projektion 95.",
+  "par6-risk": "Hypothetischer Longplan: Einstieg 101, Stop 99,7, Ziel 105 nur geplant. Zehn Einheiten, 1 Euro/Punkt/Einheit, 2 Euro Kosten: Verlustmodell 15, Gewinnmodell 38 Euro.",
+  "par6-average": "Schlüsse 100,98,96,97,99,101; SMA 3 nach Minute 6 ist 99. L6=100,4 liegt 1,4 darüber; erste vollständig darüber liegende Kerze. Zukunft verborgen.",
+  "par6-average-follow": "Wie erster Durchschnittsabstand, danach Minute 7 mit L98,6 C98,9. Shortschwelle unter L6 bei 100,3 ist ein eigener Modellplan.",
+  "par6-open-close": "Kleine Schluss-Eröffnungs-Abstände: C1=99,8 O2=99,9 C2=100,6 O3=100,7 C3=101,4. Zweimal plus 0,1 bei überlappenden ganzen Spannen."
+};

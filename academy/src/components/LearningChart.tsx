@@ -1,3 +1,5 @@
+import { rangesGapDescriptions } from './RangesGapDescriptions';
+const GapMarks = lazy(() => import('./RangesGapCharts').then(m=>({default:m.GapMarks})));
 import { rangesTestDescriptions } from './RangesTestDescriptions';
 const TestMarks = lazy(() => import('./RangesTestCharts').then(m=>({default:m.TestMarks})));
 import { rangesTrendDescriptions } from './RangesTrendDescriptions';
@@ -81,6 +83,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
   ...rangesInitialDescriptions,
   ...rangesTrendDescriptions,
   ...rangesTestDescriptions,
+  ...rangesGapDescriptions,
   ...groupingChartDescriptions,
   ...priceStepDescriptions,
   ...haDescriptions,
@@ -1525,6 +1528,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
       >
         <title id={`${id}-title`}>{title}</title>
         <desc id={`${id}-desc`}>{scenarioDescriptions[scenario]}</desc>
+        {scenario.startsWith('par6-') ? <Suspense fallback={null}><GapMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par5-') ? <Suspense fallback={null}><TestMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par4-') ? <Suspense fallback={null}><TrendMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par3-') ? <Suspense fallback={null}><InitialMarks scenario={scenario}/></Suspense> : null}
