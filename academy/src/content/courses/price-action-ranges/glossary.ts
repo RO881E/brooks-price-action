@@ -104,4 +104,47 @@ export const rangesGlossary: GlossaryEntry[] = [
     ],
     "firstUnit": "Kapitel 1"
   }
+,
+
+  {
+    "term": "Körperanteil",
+    "definition": "Die Körperhöhe geteilt durch die gesamte Hoch-Tief-Spanne einer Kerze.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Mikrolücke",
+    "definition": "Abstand zwischen nicht benachbarten Kerzen: etwa Tief der dritten Kerze oberhalb des Hochs der ersten. Die mittlere Kerze kann in diesem Bereich gehandelt haben.",
+    "aliases": [
+      "Micro Gap"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Überlappung",
+    "definition": "Der gemeinsame Preisbereich der Spannen zweier Kerzen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Volumenverhältnis",
+    "definition": "Gehandelte Menge eines Abschnitts geteilt durch eine benannte Vergleichsmenge aus gleichartigen Daten.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Erschöpfung",
+    "definition": "Mögliche Deutung einer späten Beschleunigung, nach der die bisherige Bewegung stockt oder zurückläuft. Kein Beweis allein aus Kerzengröße.",
+    "aliases": [
+      "Klimax"
+    ],
+    "firstUnit": "Kapitel 2"
+  },
+  {
+    "term": "Preisreferenz",
+    "definition": "Der ausdrücklich benannte Preis, gegenüber dem ein Abstand oder eine Veränderung berechnet wird.",
+    "aliases": [],
+    "firstUnit": "Kapitel 2"
+  }
+
 ];

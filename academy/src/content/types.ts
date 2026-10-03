@@ -482,6 +482,7 @@ export const CHAPTER_THIRTEEN_SCENARIOS = [
 export type ChapterThirteenScenarioId = (typeof CHAPTER_THIRTEEN_SCENARIOS)[number];
 
 export type ChartScenarioId =
+  | 'par2-strong' | 'par2-weak' | 'par2-small' | 'par2-pause' | 'par2-bear' | 'par2-gap' | 'par2-volume' | 'par2-paths' | 'par2-late'
   | 'par1-context' | 'par1-breakout' | 'par1-followthrough' | 'par1-pullback' | 'par1-failure' | 'par1-risk'
   | 'rc1-line' | 'rc1-bar' | 'rc1-candles'
   | 'rc3-time' | 'rc3-tick' | 'rc3-volume'

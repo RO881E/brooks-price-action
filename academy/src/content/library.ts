@@ -112,8 +112,8 @@ export const librarySubjects: LibrarySubject[] = [
       },
       {
         id: 'price-action-ranges', title: 'Price Action: Ranges',
-        description: 'Ausbrüche, Rücksetzer und Seitwärtsmärkte mit nachvollziehbarem Risikoplan verbinden. Einführung und Kapitel 1 sind verfügbar.',
-        status: 'available', label: 'Teil 2 von 3 · Einführung und Kapitel 1 verfügbar',
+        description: 'Ausbrüche, Rücksetzer und Seitwärtsmärkte mit nachvollziehbarem Risikoplan verbinden. Einführung und Kapitel 1–2 sind verfügbar.',
+        status: 'available', label: 'Teil 2 von 3 · Einführung und Kapitel 1–2 verfügbar',
         subtopics: ['Ausbrüche und ihr Anschluss', 'Kurslücken und Messbewegungen', 'Unterstützung, Widerstand und Kursziele', 'Pullbacks und Flaggen', 'Trading Ranges und ihre Ränder', 'Order- und Trade-Management', 'Wahrscheinlichkeit und Erwartungswert'],
       },
       planned(
