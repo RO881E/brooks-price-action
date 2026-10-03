@@ -192,4 +192,43 @@ export const rangesGlossary: GlossaryEntry[] = [
     "firstUnit": "Kapitel 3"
   }
 
+,
+
+  {
+    "term": "High 1",
+    "definition": "Erster erneuter Aufwärtsversuch nach Beginn einer Korrektur; hier erster Abschnitt mit Hoch über dem vorherigen Hoch. Kein automatischer Auftrag.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "High 2",
+    "definition": "Zweiter getrennter Aufwärtsversuch nach einer erneuten Gegenbewegung. Nicht einfach die zweite steigende Kerze.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Trendextrem",
+    "definition": "Ein ausdrücklich benanntes bisheriges Hoch oder Tief innerhalb eines Trendverlaufs.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Trendlinie",
+    "definition": "Eine Linie durch vorher festgelegte passende bekannte Punkte; ihre Auswahl beeinflusst die Deutung eines Bruchs.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Vortagshoch",
+    "definition": "Das höchste Preisniveau des vorherigen, nach benannten Sitzungsregeln abgegrenzten Handelstags.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  },
+  {
+    "term": "Durchschnittseinstieg",
+    "definition": "Der nach Menge gewichtete durchschnittliche Einstiegspreis mehrerer Teilpositionen. Ein günstigerer Durchschnitt begrenzt nicht automatisch das Geldrisiko.",
+    "aliases": [],
+    "firstUnit": "Kapitel 4"
+  }
+
 ];
