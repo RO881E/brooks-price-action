@@ -276,4 +276,65 @@ export const rangesGlossary: GlossaryEntry[] = [
     "firstUnit": "Kapitel 5"
   }
 
+,
+
+  {
+    "term": "Klassische Kurslücke",
+    "definition": "Nicht überlappende Spannen benachbarter Kerzen: neues Tief über altem Hoch oder neues Hoch unter altem Tief. Abhängig von Datenserie und Sitzung.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Eröffnungslücke",
+    "definition": "Abstand zwischen neuem Eröffnungspreis und vorherigem Schluss. Die späteren Hoch-Tief-Bereiche können trotzdem überlappen.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Ausbruchslücke",
+    "definition": "Lücke oder funktional als Lücke gelesener Schub beim Verlassen eines Preisbereichs. Der Name benötigt Kontext und spätere Prüfung.",
+    "aliases": [
+      "Breakaway Gap"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Messlücke",
+    "definition": "Lückenbezug, dessen Mittelpunkt als mögliche Mitte einer Bewegungsstrecke für eine Projektion verwendet wird. Kein garantiertes Ziel.",
+    "aliases": [
+      "Measuring Gap"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Erschöpfungslücke",
+    "definition": "Lücke, die nach einem späten Schub durch Rückfall und weitere Reaktion als mögliches Ende der bisherigen Bewegung eingeordnet wird.",
+    "aliases": [
+      "Exhaustion Gap"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Inselumkehr",
+    "definition": "Klassisch ein Kerzenbereich zwischen einer Lücke in die eine und einer späteren Lücke in die andere Richtung. Erst mit beiden Abständen bekannt.",
+    "aliases": [
+      "Island Reversal"
+    ],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "Negativer Lückenabstand",
+    "definition": "Gerichtete Differenz mit negativem Vorzeichen, weil ein Test den Ausbruchsbezug überschreitet. Beschreibt Überlappung statt positiven Zwischenraum.",
+    "aliases": [],
+    "firstUnit": "Kapitel 6"
+  },
+  {
+    "term": "SMA",
+    "definition": "Einfacher gleitender Durchschnitt einer festgelegten Anzahl von Werten; hier aus abgeschlossenen Schlusskursen berechnet.",
+    "aliases": [
+      "Simple Moving Average"
+    ],
+    "firstUnit": "Kapitel 6"
+  }
+
 ];

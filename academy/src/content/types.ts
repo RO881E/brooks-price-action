@@ -482,6 +482,7 @@ export const CHAPTER_THIRTEEN_SCENARIOS = [
 export type ChapterThirteenScenarioId = (typeof CHAPTER_THIRTEEN_SCENARIOS)[number];
 
 export type ChartScenarioId =
+  | 'par6-classic' | 'par6-classic-bear' | 'par6-classic-follow' | 'par6-overlap' | 'par6-fill' | 'par6-island' | 'par6-session' | 'par6-micro-start' | 'par6-micro' | 'par6-measure' | 'par6-retest' | 'par6-negative' | 'par6-zero' | 'par6-measure-bear' | 'par6-risk' | 'par6-average' | 'par6-average-follow' | 'par6-open-close'
   | 'par5-start' | 'par5-test' | 'par5-failure' | 'par5-open' | 'par5-levels' | 'par5-resume' | 'par5-risk' | 'par5-deep' | 'par5-stairs' | 'par5-reversal' | 'par5-double' | 'par5-delayed' | 'par5-near' | 'par5-bear' | 'par5-top'
   | 'par4-context' | 'par4-pullback' | 'par4-entries' | 'par4-follow' | 'par4-risk' | 'par4-second' | 'par4-failure' | 'par4-late' | 'par4-nextday' | 'par4-bear'
   | 'par3-first' | 'par3-pressure' | 'par3-risk' | 'par3-inside' | 'par3-resume' | 'par3-failure' | 'par3-range' | 'par3-pause' | 'par3-targets' | 'par3-bear' | 'par3-trap' | 'par3-recovery'
