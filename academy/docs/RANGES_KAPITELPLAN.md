@@ -1,6 +1,6 @@
 # Price Action: Ranges – Kapitelplan
 
-Verfügbar: Einführung (8 Lektionen) und Kapitel 1 (20 Lektionen) und Kapitel 2 (24 Lektionen). Die folgenden Kapitel sind geplant; sie werden erst mit vollständigem Inhalt in den Lernpfad aufgenommen. Grundlagen erklären Begriffe beim ersten Auftreten. Eigene Übungsdaten und Schaubilder, keine kopierten Texte oder Abbildungen. Keine festen Erfolgsquoten aus einzelnen Bildern ableiten.
+Verfügbar: Einführung (8 Lektionen) und Kapitel 1 (20 Lektionen) , Kapitel 2 (24 Lektionen) und Kapitel 3 (24 Lektionen). Die folgenden Kapitel sind geplant; sie werden erst mit vollständigem Inhalt in den Lernpfad aufgenommen. Grundlagen erklären Begriffe beim ersten Auftreten. Eigene Übungsdaten und Schaubilder, keine kopierten Texte oder Abbildungen. Keine festen Erfolgsquoten aus einzelnen Bildern ableiten.
 
 ## Einführung
 

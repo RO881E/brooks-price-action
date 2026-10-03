@@ -1,3 +1,5 @@
+import { rangesInitialDescriptions } from './RangesInitialDescriptions';
+const InitialMarks = lazy(() => import('./RangesInitialCharts').then(m=>({default:m.InitialMarks})));
 import { rangesStrengthDescriptions } from './RangesStrengthDescriptions';
 const StrengthMarks = lazy(() => import('./RangesStrengthCharts').then(m=>({default:m.StrengthMarks})));
 import { rangesDescriptions } from './RangesBreakoutDescriptions';
@@ -72,6 +74,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
   ...readingChartDescriptions,
   ...rangesDescriptions,
   ...rangesStrengthDescriptions,
+  ...rangesInitialDescriptions,
   ...groupingChartDescriptions,
   ...priceStepDescriptions,
   ...haDescriptions,
@@ -1516,6 +1519,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
       >
         <title id={`${id}-title`}>{title}</title>
         <desc id={`${id}-desc`}>{scenarioDescriptions[scenario]}</desc>
+        {scenario.startsWith('par3-') ? <Suspense fallback={null}><InitialMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par2-') ? <Suspense fallback={null}><StrengthMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par1-') ? <Suspense fallback={null}><RangesBreakoutMarks scenario={scenario}/></Suspense> : null}
         {scenario === 'auction-balance' || scenario === 'bar-anatomy' ? (

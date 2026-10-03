@@ -147,4 +147,49 @@ export const rangesGlossary: GlossaryEntry[] = [
     "firstUnit": "Kapitel 2"
   }
 
+,
+
+  {
+    "term": "Inside-Bar",
+    "definition": "Kerze, deren Hoch und Tief innerhalb der Spanne der vorherigen Kerze liegen. Sie legt die spätere Ausbruchsrichtung nicht fest.",
+    "aliases": [
+      "Innenkerze"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Outside-Bar",
+    "definition": "Kerze, deren Hoch über dem vorherigen Hoch und deren Tief unter dem vorherigen Tief liegt. Die Form allein beweist keine Umkehr.",
+    "aliases": [
+      "Außenkerze"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Spike",
+    "definition": "Ein rascher gerichteter Schub aus einer oder mehreren Kerzen.",
+    "aliases": [
+      "Schub"
+    ],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Kanalphase",
+    "definition": "Gerichtete Bewegung mit mehr Rückläufen, die einem raschen Schub folgen kann.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Auslöseschwelle",
+    "definition": "Der vorher benannte Preis, bei dem eine Bedingung für einen Auftrag oder ein Setup erreicht wird. Kein Ausführungsnachweis.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  },
+  {
+    "term": "Orderstatus",
+    "definition": "Bestätigter Bearbeitungsstand eines Auftrags, etwa offen, teilweise ausgeführt oder storniert.",
+    "aliases": [],
+    "firstUnit": "Kapitel 3"
+  }
+
 ];
