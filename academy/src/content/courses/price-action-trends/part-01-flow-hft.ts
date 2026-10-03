@@ -107,7 +107,7 @@ export const partOneFlowAndHftLessons = [
         title: 'Trefferquote allein sagt fast nichts',
         paragraphs: [
           'Ein Scalper mit einem größeren durchschnittlichen Verlust als Gewinn benötigt eine sehr hohe Trefferquote. Gewinnt er beispielsweise häufig einen kleinen Betrag, verliert aber gelegentlich deutlich mehr, können wenige Fehltrades viele Erfolge auslöschen. Kosten und Slippage erhöhen die notwendige Quote zusätzlich.',
-          'Die Quelle empfiehlt für die meisten Trader, einen Stop nicht routinemäßig größer als das Ziel zu wählen. Ein Setup mit mindestens ähnlich großem Gewinnpotenzial wie Risiko wird interessant, wenn zugleich ein belastbarer Wahrscheinlichkeitsvorteil besteht. Die konkreten Schwellenwerte sind Lernmodelle und müssen mit realen Daten des eigenen Setups geprüft werden.',
+          'Für die meisten Trader gilt: Den Stop wählt man nicht routinemäßig größer als das Ziel. Ein Setup mit mindestens ähnlich großem Gewinnpotenzial wie Risiko wird interessant, wenn zugleich ein belastbarer Wahrscheinlichkeitsvorteil besteht. Die konkreten Schwellenwerte sind Lernmodelle und müssen mit realen Daten des eigenen Setups geprüft werden.',
           'Anfänger können von Swing-Ideen profitieren, bei denen der mögliche Gewinn etwa doppelt so groß wie das anfängliche Risiko ist. Die Trefferquote darf dann niedriger sein, solange Auswahl, Ausführung und Kosten den positiven Erwartungswert erhalten. Solche Chancen treten seltener auf und verlangen Geduld.',
           'Starke Breakouts können zugleich eine erhöhte Fortsetzungswahrscheinlichkeit und großen Gewinnraum bieten. Sie sind psychologisch schwierig, weil Analysezeit knapp, Bars groß und Stops nominell weiter sind. Positionsgröße muss deshalb an das strukturelle Risiko angepasst werden.',
         ],
@@ -345,7 +345,7 @@ export const partOneFlowAndHftLessons = [
           'HFT umfasst viele automatisierte Strategien, nicht ein einziges Muster.',
           'Kleine statistische Vorteile werden mit Geschwindigkeit und hoher Frequenz genutzt.',
           'Ein manueller Trader sollte nicht im Latenzwettbewerb antreten.',
-          'Zeitgebundene Zahlen der Quelle werden als historischer Kontext, nicht als heutige Fakten behandelt.',
+          'Zeitgebundene Zahlen gelten als historischer Kontext, nicht als heutige Fakten.',
         ],
       },
     ],

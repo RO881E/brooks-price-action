@@ -9,7 +9,7 @@ import { barCases, transferCases } from './barCases';
 
 /* Sichtbare Texte dürfen weder den Autor noch Buchtitel oder Abbildungsnummern nennen (siehe docs/KEINE_BUCHVERWEISE.md). */
 const FORBIDDEN =
-  /Brooks|Trading Price Action|Buchfall|Buchfälle|Buchchart|Buchbeispiel|Buchabbildung|Buchgrafik|Buchquelle|Buchreihe|Buchkapitel|Buchkurs|Buchtag|Buchvorlage|Wiley|Abbildung \d|\bim Buch\b|\bdes Buches\b|\bBand [123]\b|\bBuch [123]\b|How to Read|Signs of Strength|Bar Counting Basics/;
+  /Brooks|Trading Price Action|Buchfall|Buchfälle|Buchchart|Buchbeispiel|Buchabbildung|Buchgrafik|Buchquelle|Buchreihe|Buchkapitel|Buchkurs|Buchtag|Buchvorlage|Wiley|Abbildung \d|\bim Buch\b|\bdes Buches\b|\bBand [123]\b|\bBuch [123]\b|How to Read|Signs of Strength|Bar Counting Basics|\bder Quelle\b|\bDie Quelle (?:beschreibt|empfiehlt|formuliert)|Quellenreihenfolge/;
 
 function collect(value: unknown, out: string[] = []): string[] {
   if (typeof value === 'string') out.push(value);

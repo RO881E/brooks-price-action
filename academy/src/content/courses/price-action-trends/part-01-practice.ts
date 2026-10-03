@@ -25,7 +25,7 @@ export const partOnePracticeLessons = [
           'Direkt nach einer wichtigen Veröffentlichung besitzen schnelle Systeme einen strukturellen Vorteil. Sie empfangen Daten, vergleichen sie mit Erwartungen, prüfen verwandte Märkte und senden Orders, bevor ein Mensch den Bericht vollständig lesen kann. In dieser ersten Phase fehlt dem manuellen Trader häufig jede belastbare Edge.',
           'Abwarten bedeutet nicht, die Chance vollständig aufzugeben. Die schnelle Reaktion fasst die Bewertung vieler Modelle sichtbar im Chart zusammen. Wenn danach ein Ausbruch hält, ein Pullback geordnet verläuft oder ein Fehlausbruch klar wird, kann ein späterer Trade mit definierbarem Risiko entstehen.',
           'Auch der eigene Zustand entscheidet, ob eine theoretische Edge praktisch vorhanden ist. Nach vielen Stunden sinken Aufmerksamkeit, Reaktionsfähigkeit und Bereitschaft, den Plan sauber auszuführen. Computer ermüden nicht. Ein mittelmäßiges Setup am späten Handelstag kann deshalb für dich schlechter sein als morgens, obwohl der Chart ähnlich aussieht.',
-          'Die Quelle formuliert dafür eine strenge Auswahlregel: Handle nur, wenn sowohl das Setup als auch deine eigene Ausführungsfähigkeit stark genug sind. Kein Trade ist immer besser als ein Trade ohne Vorteil.',
+          'Daraus folgt eine strenge Auswahlregel: Handle nur, wenn sowohl das Setup als auch deine eigene Ausführungsfähigkeit stark genug sind. Kein Trade ist immer besser als ein Trade ohne Vorteil.',
         ],
         callout:
           'Eine Edge gehört nicht nur dem Muster. Sie hängt auch vom Zeitpunkt und von deiner Fähigkeit ab, es korrekt umzusetzen.',
@@ -441,7 +441,7 @@ export const partOnePracticeLessons = [
         title: 'Das nimmst du mit',
         points: [
           'Kleine Kursziele können durch professionelles Kurzfristhandeln sichtbar beeinflusst werden.',
-          'Historische Volumenschwellen der Quelle sind keine zeitlosen Grenzwerte.',
+          'Historische Volumenschwellen sind keine zeitlosen Grenzwerte.',
           'Ein laufender Bar kann seine Aussage bis zum Schluss vollständig ändern.',
           'Countertrend-Trades verlangen abgeschlossenen Signalbar und tatsächliche Aktivierung.',
         ],
@@ -471,7 +471,7 @@ export const partOnePracticeLessons = [
         paragraphs: [
           'Wähle einen festen Markt, eine Zeitebene und ein realistisches Ziel. Gehe vergangene Charts Bar für Bar durch und markiere jede Bewegung, in der dieses Ziel grundsätzlich erreichbar war. Schaue anschließend rückwärts: Welche Information war vor Beginn sichtbar, wo hätte ein logisch ähnlich großer Stop gelegen und welche Fälle sahen nur im Nachhinein leicht aus?',
           'Nach mehreren Wochen entstehen wiederkehrende Familien von Situationen. Dokumentiere sie mit denselben Merkmalen, statt nur hübsche Gewinner zu sammeln. Prüfe Trefferquote, durchschnittliches Risiko, erreichbaren Gewinn, Kosten, Tageszeit und Regime. So wird aus subjektivem Wiedererkennen eine überprüfbare Übung.',
-          'Die Quelle empfiehlt, anfangs besonders Setups mit Raum über das erste Ziel hinaus zu suchen. Ein Teilgewinn kann den unmittelbaren Erfolg sichern, während ein Rest der Position – ein Runner – an größeren Bewegungen teilnimmt. Stop-Anpassungen müssen vorher definiert und statistisch geprüft werden; ein mechanischer Breakeven-Stop ist nicht automatisch optimal.',
+          'Gerade am Anfang lohnt es sich, Setups mit Raum über das erste Ziel hinaus zu suchen. Ein Teilgewinn kann den unmittelbaren Erfolg sichern, während ein Rest der Position – ein Runner – an größeren Bewegungen teilnimmt. Stop-Anpassungen müssen vorher definiert und statistisch geprüft werden; ein mechanischer Breakeven-Stop ist nicht automatisch optimal.',
           'Fibonacci-Retracements und Elliott-Wellen gehören zwar zur technischen Beschreibung von Preisbewegungen, liefern aber selten allein einen ausreichend klaren Intraday-Trade. Wenn ein Fibonacci-Niveau nützlich ist, sollte dort zusätzlich ein eigenständig belastbarer Price-Action-Kontext bestehen. Eine Wellenzählung, die erst lange nach dem Einstieg eindeutig wird, hilft der Echtzeitentscheidung kaum.',
         ],
         callout:

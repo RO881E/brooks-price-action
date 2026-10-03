@@ -1,6 +1,6 @@
 import { chapterTenLesson, type ChapterTenDraft } from './chapter-10-model';
 
-// Vertiefte Besprechung von Fall 10.2 in der Reihenfolge der Quelle.
+// Vertiefte Besprechung von Fall 10.2 in aufbauender Reihenfolge.
 const drafts: ChapterTenDraft[] = [
   {
     number: 14, title: 'Rückblick: Der Ausbruch aus dem alten Bärenkanal hielt nicht',

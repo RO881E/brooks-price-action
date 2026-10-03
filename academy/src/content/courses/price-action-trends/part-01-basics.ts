@@ -301,7 +301,7 @@ export const partOneBasicLessons = [
         paragraphs: [
           'In einem liquiden, ausgeglichenen Markt liegt die Chance für zwei symmetrische Ergebnisse häufig nahe beieinander: Wird zuerst ein gleich weit entferntes Ziel oder ein gleich weit entfernter Stop erreicht? Ohne zusätzlichen Kontext besitzt weder Long noch Short automatisch einen großen Vorteil.',
           'Gute Setups entstehen, wenn neue Evidenz dieses Gleichgewicht verschiebt. Ein starker Ausbruch, mehrere Trendbars und geringer Rücklauf können die Fortsetzung deutlich wahrscheinlicher machen. Solche Situationen lassen sich oft als ungefähr 60 zu 40 beschreiben; in einer seltenen starken Spike-Phase kann der Vorteil kurzfristig noch größer sein.',
-          'Diese Zahlen sind ein Denkmodell aus der Quelle und keine für jeden Markt universell bewiesenen Konstanten. Ihre praktische Funktion ist klar: Du brauchst keine Sicherheit. Du brauchst eine wiederholbare Situation, in der Wahrscheinlichkeit, möglicher Gewinn und Risiko zusammen einen positiven Erwartungswert ergeben.',
+          'Diese Zahlen sind ein Denkmodell und keine für jeden Markt universell bewiesenen Konstanten. Ihre praktische Funktion ist klar: Du brauchst keine Sicherheit. Du brauchst eine wiederholbare Situation, in der Wahrscheinlichkeit, möglicher Gewinn und Risiko zusammen einen positiven Erwartungswert ergeben.',
           'Wörter wie wahrscheinlich, meistens oder häufig sind deshalb keine Schwäche. Sie sind präziser als Versprechen. Auch das beste Setup enthält eine reale Gegenwahrscheinlichkeit und verlangt einen Plan für den Fall, dass genau diese eintritt.',
         ],
         callout:
@@ -355,7 +355,7 @@ export const partOneBasicLessons = [
         points: [
           'Symmetrische Bewegungen beginnen häufig nahe einer ausgeglichenen Erwartung.',
           'Setups verschieben Wahrscheinlichkeiten, sie beseitigen Unsicherheit nicht.',
-          'Quoten aus der Quelle sind Arbeitsmodelle und müssen in der eigenen Stichprobe geprüft werden.',
+          'Solche Quoten sind Arbeitsmodelle und müssen in der eigenen Stichprobe geprüft werden.',
           'Ein Plan für die Gegenrichtung gehört zu jedem Trade.',
         ],
       },
