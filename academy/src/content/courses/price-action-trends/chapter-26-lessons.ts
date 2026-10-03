@@ -17,7 +17,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Eine Treppe entsteht, wenn mehrere breite Bewegungen neue Extreme erreichen und ihre Rückläufe wieder in vorherige Preisbereiche eindringen. Dadurch verbindet die Struktur eine übergeordnete Richtung mit sichtbar zweiseitigem Handel. Eine einzelne Ausbruchsbar genügt für diese Einordnung nicht.",
       "Links liegen zunächst zwei Hochanläufe vor. Rechts kommen weitere höhere Hochs und höhere Rücklauftiefs hinzu. Die neue Folge ergänzt den früheren Stand, ohne dessen Bars zu verändern.",
-      "Zähle abgeschlossene Swingfolgen und benenne die überlappenden Bereiche. Während des Aufbaus bleibt die Einordnung vorläufig; erst spätere Bars zeigen, ob weitere Stufen oder eine Umkehr entstehen."
+      "Zähl abgeschlossene Swingfolgen und benenne die überlappenden Bereiche. Während des Aufbaus bleibt die Einordnung vorläufig; erst spätere Bars zeigen, ob weitere Stufen oder eine Umkehr entstehen."
     ],
     "callout": "Die Treppe entsteht aus einer Folge, nicht aus einer einzelnen Bar.",
     "takeaways": [
@@ -49,9 +49,9 @@ const drafts: Draft[] = [
     "section": "Treppen erkennen",
     "scenario": "c26-02",
     "paragraphs": [
-      "Im breiten Aufwärtskanal reicht ein Rücksetzer häufig unter das zuvor überschrittene Hoch. Er überlappt den vorherigen Swing. Das unterscheidet diese Struktur von einem sehr engen Trend, in dem Rückgaben wenig Raum bekommen.",
+      "Im breiten Aufwärtskanal reicht ein Rücksetzer oft unter das zuvor überschrittene Hoch. Er überlappt den vorherigen Swing. Das unterscheidet diese Struktur von einem sehr engen Trend, in dem Rückgaben wenig Raum bekommen.",
       "Das erste gezeigte Swinghoch liegt bei 43. Nach dem nächsten Hoch 52 fällt der Schluss auf 43 zurück und der Wick bis 42. Der alte Ausbruchspunkt wird damit unterschritten, während die Folge später neue Hochs erreicht.",
-      "Prüfe Ausbruchspunkt und vorheriges Rücklauftief getrennt. Ein Rücktest unter dem alten Hoch ist nicht automatisch ein Bruch der gesamten Folge höherer Tiefs."
+      "Prüf Ausbruchspunkt und vorheriges Rücklauftief getrennt. Ein Rücktest unter dem alten Hoch ist nicht automatisch ein Bruch der gesamten Folge höherer Tiefs."
     ],
     "callout": "Überlappung kann zu einem gerichteten Kanal gehören.",
     "takeaways": [
@@ -83,9 +83,9 @@ const drafts: Draft[] = [
     "section": "Treppen erkennen",
     "scenario": "c26-03",
     "paragraphs": [
-      "Ein breiter Abwärtskanal besitzt tiefere Tiefs und überwiegend tiefere Gegenhochs. Rückläufe über ein vorheriges Ausbruchstief sind darin möglich. Käufer können einzelne Aufwärtsbeine gewinnen, obwohl Verkäufer im größeren Ausschnitt weiter Raum erobern.",
+      "Ein breiter Abwärtskanal hat tiefere Tiefs und überwiegend tiefere Gegenhochs. Rückläufe über ein vorheriges Ausbruchstief sind darin möglich. Käufer können einzelne Aufwärtsbeine gewinnen, obwohl Verkäufer im größeren Ausschnitt weiter Raum erobern.",
       "Die Folge links fällt zunächst von 70 auf 58, steigt auf 65 und erreicht danach 49. Rechts folgen weitere tiefere Tiefs. Die Rally nach dem neuen Tief handelt wieder oberhalb der früheren Tiefreferenz 57.",
-      "Tausche in deiner Beschreibung Hochs und Tiefs sauber aus. Entscheidend bleibt, wie viel Raum die Gegenbewegung zurückgewinnt und ob nach ihr neue Verkäuferwirkung folgt."
+      "Vertausch in deiner Beschreibung Hochs und Tiefs sauber. Entscheidend bleibt, wie viel Raum die Gegenbewegung zurückgewinnt und ob nach ihr neue Verkäuferwirkung folgt."
     ],
     "callout": "Eine Gegenrally beendet den Abwärtstrend nicht allein.",
     "takeaways": [
@@ -117,9 +117,9 @@ const drafts: Draft[] = [
     "section": "Treppen erkennen",
     "scenario": "c26-04",
     "paragraphs": [
-      "Treppen und versetzte Handelsbereiche teilen eine Mischung aus Richtung und Balance. Die gezeichneten Kästen sind jedoch nur eine Art, die Bars zusammenzufassen. Eine breite Swingfolge muss keine sauberen rechteckigen Pausen besitzen.",
+      "Treppen und versetzte Handelsbereiche teilen eine Mischung aus Richtung und Balance. Die gezeichneten Kästen sind jedoch nur eine Art, die Bars zusammenzufassen. Eine breite Swingfolge muss keine sauberen rechteckigen Pausen haben.",
       "Links bewegen sich die Preise in kurzen versetzten Balancen. Rechts entsteht eine Folge breiter Rückläufe ohne längere horizontale Ruhe. Beide Varianten gewinnen nach oben Raum, aber ihr Ablauf ist verschieden.",
-      "Beschreibe zuerst die sichtbaren Extreme und Überlappungen. Ein Tagesname soll Beobachtungen ordnen und darf Unterschiede bei Entry, Stopabstand und Haltedauer nicht verdecken."
+      "Beschreib zuerst die sichtbaren Extreme und Überlappungen. Ein Tagesname soll Beobachtungen ordnen und darf Unterschiede bei Entry, Stopabstand und Haltedauer nicht verdecken."
     ],
     "callout": "Der Preisweg zählt mehr als ein sauberer Mustername.",
     "takeaways": [
@@ -185,9 +185,9 @@ const drafts: Draft[] = [
     "section": "Breite Kanäle lesen",
     "scenario": "c26-06",
     "paragraphs": [
-      "Eine Trendlinie folgt der Seite der Rückläufe, eine parallele Kanallinie der Seite der Erweiterungen. In einer breiten Struktur passen nicht alle Wicks exakt an diese Linien. Die Zeichnung ist eine Näherung, die an neuen Bars geprüft werden muss.",
+      "Eine Trendlinie folgt der Seite der Rückläufe, eine parallele Kanallinie der Seite der Erweiterungen. In einer breiten Struktur passen nicht alle Wicks exakt an diese Linien. Die Zeichnung ist eine Näherung, die du an neuen Bars prüfen musst.",
       "Beide Panels verwenden dieselben zwei Linien. Ihr Abstand beträgt an jedem gemeinsamen Index 18 Einheiten. Rechts kommen weitere Bars hinzu; die Linien werden für diese Vergleichsfolge nicht nachträglich verschoben.",
-      "Dokumentiere die Anker und die erlaubte Näherung. Wenn du Linien nach jedem unerwarteten Bar neu zeichnest, kannst du keinen vorher bekannten Kanalbruch mehr ehrlich auswerten."
+      "Dokumentiere die Anker und die erlaubte Näherung. Zeichnest du Linien nach jedem unerwarteten Bar neu, kannst du einen vorher bekannten Kanalbruch nicht mehr ehrlich auswerten."
     ],
     "callout": "Ein Kanal ist eine überprüfbare Näherung.",
     "takeaways": [
@@ -223,7 +223,7 @@ const drafts: Draft[] = [
       "Links liegen am markierten Index die Grenzen bei 40 und 58. Rechts liegen sie bei 40 und 70. Die Abstände betragen 18 beziehungsweise 30 relative Einheiten; die Zahlen beschreiben ausschließlich Geometrie.",
       "Halte Breite, tatsächlich gelaufene Gegenstrecke und Trefferquote getrennt. Eine Aussage zur Erfolgsquote braucht definierte Fälle, Ausführungskosten und eine ausreichende eigene Stichprobe."
     ],
-    "callout": "Kanalbreite misst Raum und nicht Erfolgswahrscheinlichkeit.",
+    "callout": "Die Kanalbreite misst Raum und nicht Erfolgswahrscheinlichkeit.",
     "takeaways": [
       "Kanalbreite misst Raum und nicht Erfolgswahrscheinlichkeit.",
       "Links liegen am markierten Index die Grenzen bei 40 und 58.",
@@ -253,9 +253,9 @@ const drafts: Draft[] = [
     "section": "Breite Kanäle lesen",
     "scenario": "c26-08",
     "paragraphs": [
-      "Eine aufwärts gerichtete Treppe kann innerhalb eines größeren Abwärtstrends nur eine Erholung sein. Die lokale Richtung und die Richtung des größeren Ausschnitts beantworten verschiedene Fragen. Beide müssen mit ihrem Zeitbezug benannt werden.",
+      "Eine aufwärts gerichtete Treppe kann innerhalb eines größeren Abwärtstrends nur eine Erholung sein. Die lokale Richtung und die Richtung des größeren Ausschnitts beantworten verschiedene Fragen. Beide musst du mit ihrem Zeitbezug benennen.",
       "Links ist nur die Käuferfolge von 30 bis 63 sichtbar. Rechts geht ihr ein Verkäuferimpuls von 90 bis 30 voraus, danach folgt ein Abwärtsbein. Die lokale Treppe ist im längeren Verlauf ein Rücklauf gegen die frühere Verkäuferbewegung.",
-      "Lege vor dem Entry fest, welche Zeitebene deine Auslöser und welche deinen Kontext liefert. Eine lokale Longidee darf die große Gegenreferenz nicht übersehen; ein großer Beartrend macht aber nicht jede kleine grüne Bar zum Shortsignal."
+      "Leg vor dem Entry fest, welche Zeitebene deine Auslöser und welche deinen Kontext liefert. Eine lokale Longidee darf die große Gegenreferenz nicht übersehen; ein großer Beartrend macht aber nicht jede kleine grüne Bar zum Shortsignal."
     ],
     "callout": "Lokale Richtung und größere Struktur können gegeneinander stehen.",
     "takeaways": [
@@ -289,7 +289,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Eine höhere Zeitebene fasst mehrere kleine Bars zu einer OHLC-Hülle zusammen. Dabei bleiben Eröffnung, höchster und tiefster Preis sowie letzter Schluss erhalten. Zwischenbewegungen verschwinden. Eine sichtbare Treppe kann im größeren Barbild dadurch wie eine kompakte Korrektur wirken.",
       "Links stehen zwölf erfundene kleine Bars. Rechts wird jeweils ein Dreierblock exakt verdichtet. Die vier großen Bars haben dieselben Block-Extreme und Schlusskurse; rechts werden keine neuen Kurse erfunden.",
-      "Prüfe den kleineren Verlauf für zeitliche Auslöser und den größeren für den Kontext. Ein verdichteter Bar beweist nicht, in welcher Reihenfolge seine einzelnen Tiefs und Hochs entstanden."
+      "Prüf den kleineren Verlauf für zeitliche Auslöser und den größeren für den Kontext. Ein verdichteter Bar beweist nicht, in welcher Reihenfolge seine einzelnen Tiefs und Hochs entstanden."
     ],
     "callout": "Aggregation bewahrt die Hülle und verliert Zwischenwege.",
     "takeaways": [
@@ -321,9 +321,9 @@ const drafts: Draft[] = [
     "section": "Breite Kanäle lesen",
     "scenario": "c26-10",
     "paragraphs": [
-      "Wenn eine Gegenbewegung bereits vor der angenommenen Kanalgrenze dreht, zeigt das eine frühere Reaktion. Daraus lässt sich eine neue Hypothese über Käufer- oder Verkäuferdruck ableiten. Die Identität und Motivation einzelner Teilnehmer bleiben aus OHLC-Bars jedoch unbekannt.",
+      "Dreht eine Gegenbewegung schon vor der angenommenen Kanalgrenze, zeigt das eine frühere Reaktion. Daraus lässt sich eine neue Hypothese über Käufer- oder Verkäuferdruck ableiten. Die Identität und Motivation einzelner Teilnehmer bleiben aus OHLC-Bars jedoch unbekannt.",
       "Links endet ein Verkäuferbein mit einem Wick bis 42 bei einer Referenz 40. Rechts folgt eine Käuferreaktion. Die Grenze wird in keinem der beiden Panels berührt; die Reaktion beginnt zwei Einheiten darüber.",
-      "Notiere den Nichtbesuch ausdrücklich. Eine vorgestellte perfekte Linienberührung würde den tatsächlichen Auslöser verfälschen und im Replay einen günstigeren Einstieg vortäuschen."
+      "Notier den Nichtbesuch ausdrücklich. Eine vorgestellte perfekte Linienberührung würde den tatsächlichen Auslöser verfälschen und im Replay einen günstigeren Einstieg vortäuschen."
     ],
     "callout": "Einen früheren Dreh nicht als perfekte Berührung umdeuten.",
     "takeaways": [
@@ -423,7 +423,7 @@ const drafts: Draft[] = [
     "section": "Zweiseitige Pläne begrenzen",
     "scenario": "c26-13",
     "paragraphs": [
-      "Wer einen Gegeneinstieg mit einer Limitorder plant, kann ohne Ausführung bleiben, wenn der Markt vorher dreht. Ein hypothetischer Gewinn aus dem späteren Rücklauf darf dann nicht als eigener Trade ins Journal. Bei einer Berührung sind zudem tatsächliche Füllung und Warteschlange getrennt zu prüfen.",
+      "Wer einen Gegeneinstieg mit einer Limitorder plant, kann ohne Ausführung bleiben, wenn der Markt vorher dreht. Einen hypothetischen Gewinn aus dem späteren Rücklauf darfst du dann nicht als eigenen Trade ins Journal schreiben. Bei einer Berührung musst du zudem tatsächliche Füllung und Warteschlange getrennt prüfen.",
       "Links liegt die Kaufgrenze bei 40, der Markt dreht aber schon mit Tief 43. Rechts unterschreitet ein anderer Verlauf 40. Nur im rechten Verlauf ist der gedachte Preis überhaupt besucht; auch dort liefert das Schema keinen Brokerbeleg.",
       "Erfasse geplant, preislich besucht und tatsächlich ausgeführt getrennt. Ausbleibende Füllungen gehören in die Bewertung des Ordertyps, statt nachträglich als perfekte Entries zu erscheinen."
     ],
@@ -492,8 +492,8 @@ const drafts: Draft[] = [
     "scenario": "c26-15",
     "paragraphs": [
       "Eine zusätzliche Position vergrößert das Gesamtrisiko. Beim Einstieg gegen eine laufende Bewegung kann ein Nachkauf zugleich eine inzwischen schwächere Handelsidee vergrößern. Ein niedrigerer Durchschnittspreis ist deshalb keine ausreichende Begründung.",
-      "Im gedachten Plan wird eine Einheit bei 50 und eine weitere bei 46 gekauft. Beide besitzen Stop 40. Bei einem angenommenen Dollar pro Preiseinheit beträgt das Bruttorisiko 10 + 6 = 16 Dollar, noch ohne Kosten oder Slippage.",
-      "Prüfe jede weitere Einheit gegen das vorher festgelegte Gesamtbudget und die aktuelle Struktur. Wenn das Budget 12 Dollar beträgt, passen die beiden geplanten Einheiten nicht zusammen in diesen Plan."
+      "Im gedachten Plan wird eine Einheit bei 50 und eine weitere bei 46 gekauft. Beide haben Stop 40. Bei einem angenommenen Dollar pro Preiseinheit beträgt das Bruttorisiko 10 + 6 = 16 Dollar, noch ohne Kosten oder Slippage.",
+      "Prüf jede weitere Einheit gegen das vorher festgelegte Gesamtbudget und die aktuelle Struktur. Beträgt das Budget 12 Dollar, passen die beiden geplanten Einheiten nicht zusammen in diesen Plan."
     ],
     "callout": "Ein besserer Durchschnittspreis kann trotzdem mehr Gesamtrisiko bedeuten.",
     "takeaways": [
@@ -521,13 +521,13 @@ const drafts: Draft[] = [
   {
     "number": 16,
     "title": "Eine Stufe kann den Rhythmus wechseln",
-    "summary": "Breiter Kanal wird schneller.",
+    "summary": "Ein breiter Kanal wird schneller.",
     "section": "Beschleunigung und Übertreibung",
     "scenario": "c26-16",
     "paragraphs": [
-      "Eine bisher überlappende Folge kann mit einem großen gerichteten Bein ihren Rhythmus verändern. Neue Bars geben dann wenig vom gewonnenen Raum zurück. Der alte breite Kanal ist als Kontext noch sichtbar, beschreibt aber die neue Bewegung nicht mehr allein.",
+      "Eine bisher überlappende Folge kann mit einem großen gerichteten Bein ihren Rhythmus verändern. Neue Bars geben dann wenig vom gewonnenen Raum zurück. Der alte breite Kanal ist als Kontext noch sichtbar, beschreibt die neue Bewegung aber nicht mehr allein.",
       "Links endet die bekannte Treppe bei 68. Rechts steigen die nächsten Schlusskurse auf 82 und 90; die folgende Rückgabe endet bei 87. Die neue Erweiterung ist größer als die bisherigen Hochschritte.",
-      "Prüfe die Größe des neuen Impulses und die tatsächliche Gegenreaktion. Eine frühe Beschleunigungsannahme bleibt vorläufig, solange noch keine ausreichende Folge vorliegt."
+      "Prüf die Größe des neuen Impulses und die tatsächliche Gegenreaktion. Eine frühe Beschleunigungsannahme bleibt vorläufig, solange noch keine ausreichende Folge vorliegt."
     ],
     "callout": "Neue Geschwindigkeit verlangt eine neue Beurteilung.",
     "takeaways": [
@@ -555,13 +555,13 @@ const drafts: Draft[] = [
   {
     "number": 17,
     "title": "Eine Gegenbar kann sichtbar und unausgelöst bleiben",
-    "summary": "Signal ohne Verkäufertrigger.",
+    "summary": "Ein Signal ohne Verkäufertrigger.",
     "section": "Beschleunigung und Übertreibung",
     "scenario": "c26-17",
     "paragraphs": [
       "Nach einem kräftigen Käuferausbruch kann eine rote Bar wie ein Umkehrsignal aussehen. Der geplante Verkäufertrigger unter ihrem Tief kann aber unberührt bleiben. Das sichtbare Signal und ein ausgeführter Short dürfen deshalb nicht gleichgesetzt werden.",
-      "Links besitzt die rote Gegenbar Tief 78; der Beispieltrigger liegt bei 77. Rechts folgt eine neue Käuferbar, deren Tief bei 78 bleibt, und anschließend höhere Preise. Der Trigger wird in dieser gesamten Folge nicht besucht.",
-      "Notiere den unausgelösten Plan. Eine spätere Käuferfortsetzung bedeutet hier keinen Verlust aus einem nie eröffneten Short, sondern ein entkräftetes oder gelöschtes Setup."
+      "Links hat die rote Gegenbar das Tief 78; der Beispieltrigger liegt bei 77. Rechts folgt eine neue Käuferbar, deren Tief bei 78 bleibt, und anschließend höhere Preise. Der Trigger wird in dieser gesamten Folge nicht besucht.",
+      "Notier den unausgelösten Plan. Eine spätere Käuferfortsetzung bedeutet hier keinen Verlust aus einem nie eröffneten Short, sondern ein entkräftetes oder gelöschtes Setup."
     ],
     "callout": "Eine rote Gegenbar ist noch kein ausgelöster Short.",
     "takeaways": [
@@ -629,7 +629,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Bei einer Beschleunigung kann eine weitere parallele Linie als Projektionsanker dienen. Dafür müssen Steigung und Abstand der vorhandenen Linien bekannt sein. Die Konstruktion beschreibt ein mögliches Zielband und keine Pflichtbewegung des Marktes.",
       "Am gemeinsamen letzten Index liegen die unteren beiden Linien bei 54 und 72. Die dritte Linie liegt bei 90. Jeder Abstand beträgt 18 Einheiten; die Steigung beträgt für alle Linien drei Einheiten pro Barindex.",
-      "Behalte die vorher gesetzten Anker bei und prüfe später, ob der Preis die Projektion tatsächlich besucht. Ein durch Zeichnung errechneter Zielpreis ist keine gemessene Erfolgsquote."
+      "Behalte die vorher gesetzten Anker bei und prüf später, ob der Preis die Projektion tatsächlich besucht. Ein durch Zeichnung errechneter Zielpreis ist keine gemessene Erfolgsquote."
     ],
     "callout": "Gleiche parallele Abstände sind Geometrie, keine Gewinnzusage.",
     "takeaways": [
@@ -663,7 +663,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Nach einer Übertreibung kann eine Korrektur aus zwei gerichteten Beinen mit einer Zwischenreaktion entstehen. Nicht jede kurze Pause bildet bereits einen abgeschlossenen zweiten Versuch. Die Zählung muss zur gewählten Zeitebene passen.",
       "Links stehen das erste Verkäuferbein von 82 auf 66 und ein Rücklauf auf 73. Rechts folgt ein zweites Verkäuferbein bis 55. Die Zwischenreaktion trennt beide Abschnitte; der zweite Abschnitt ist links noch unbekannt.",
-      "Markiere Beginn, Ende und Zwischenreaktion. Die Form in diesem Beispiel zeigt eine mögliche Korrektur und legt weder die Zahl aller künftigen Beine noch einen sicheren Endpunkt fest."
+      "Markier Beginn, Ende und Zwischenreaktion. Die Form in diesem Beispiel zeigt eine mögliche Korrektur und legt weder die Zahl aller künftigen Beine noch einen sicheren Endpunkt fest."
     ],
     "callout": "Ein zweites Gegenbein wird erst mit seinen Bars sichtbar.",
     "takeaways": [
@@ -695,7 +695,7 @@ const drafts: Draft[] = [
     "section": "Schrumpfende Stufen prüfen",
     "scenario": "c26-21",
     "paragraphs": [
-      "Schrumpfende Stufen beschreiben immer kleinere Erweiterungen jenseits des vorherigen Extrempunkts. Gemeint ist nicht einfach eine kleinere Kerze. Die ganze Strecke vom alten Swinghoch zum neuen Swinghoch muss verglichen werden.",
+      "Schrumpfende Stufen beschreiben immer kleinere Erweiterungen jenseits des vorherigen Extrempunkts. Gemeint ist nicht einfach eine kleinere Kerze. Verglichen werden muss die ganze Strecke vom alten Swinghoch zum neuen Swinghoch.",
       "Die gezeigten Hochs liegen bei 45, 55, 61 und 64. Die Erweiterungen betragen damit zehn, sechs und drei Einheiten. Zwischen den Hochpunkten bestehen weiterhin Rückläufe und überwiegend höhere Tiefs.",
       "Miss alle Erweiterungen mit demselben Bezug und derselben Preiseinheit. Ein neues Hoch kann trotz sinkender Extension entstehen; abnehmender Fortschritt und ein beendeter Trend sind verschiedene Aussagen."
     ],
@@ -729,9 +729,9 @@ const drafts: Draft[] = [
     "section": "Schrumpfende Stufen prüfen",
     "scenario": "c26-22",
     "paragraphs": [
-      "Im Abwärtskanal wird die Erweiterung als Abstand vom vorherigen Tief zum neuen tieferen Tief gemessen. Kleinere Tiefschritte zeigen weniger neuen Verkäuferraum. Ob daraus ein größerer Käuferlauf entsteht, bleibt eine eigene Frage.",
-      "Die gespiegelte Folge besitzt Tiefs bei 55, 45, 39 und 36. Die Erweiterungen betragen wieder zehn, sechs und drei Einheiten. Rechts kommt nach dem letzten Tief eine Käuferbewegung hinzu; sie ist eine neue Beobachtung und keine im Tief enthaltene Garantie.",
-      "Behandle die kleinere Extension als Warnhinweis für die bisherige Dynamik. Prüfe die Stärke der Gegenbars und den Bruch einer vorher bekannten Struktur, bevor du von einer größeren Umkehr sprichst."
+      "Im Abwärtskanal misst du die Erweiterung als Abstand vom vorherigen Tief zum neuen tieferen Tief. Kleinere Tiefschritte zeigen weniger neuen Verkäuferraum. Ob daraus ein größerer Käuferlauf entsteht, bleibt eine eigene Frage.",
+      "Die gespiegelte Folge hat Tiefs bei 55, 45, 39 und 36. Die Erweiterungen betragen wieder zehn, sechs und drei Einheiten. Rechts kommt nach dem letzten Tief eine Käuferbewegung hinzu; sie ist eine neue Beobachtung und keine im Tief enthaltene Garantie.",
+      "Behandle die kleinere Extension als Warnhinweis für die bisherige Dynamik. Prüf die Stärke der Gegenbars und den Bruch einer vorher bekannten Struktur, bevor du von einer größeren Umkehr sprichst."
     ],
     "callout": "Kleinere Tiefschritte und neue Käuferkontrolle getrennt prüfen.",
     "takeaways": [
@@ -759,13 +759,13 @@ const drafts: Draft[] = [
   {
     "number": 23,
     "title": "Drei Anläufe allein erzwingen keine Umkehr",
-    "summary": "Zählung braucht Gegenwirkung.",
+    "summary": "Die Zählung braucht Gegenwirkung.",
     "section": "Schrumpfende Stufen prüfen",
     "scenario": "c26-23",
     "paragraphs": [
       "Drei gerichtete Anläufe können nachlassenden Fortschritt oder eine mögliche Übertreibung zeigen. Sie sind für sich genommen kein Gegen-Entry. Ein weiterer Trendanlauf bleibt möglich, wenn die Gegenseite wenig Wirkung erzielt.",
       "Links stehen vier Hochpunkte mit kleiner werdender Extension. Rechts endet ein kurzer Rücklauf, danach folgen neue Hochs bis 80. Die Zählung war korrekt, doch die größere Verkäuferumkehr bleibt in dieser Folge aus.",
-      "Prüfe den tatsächlich gewonnenen Gegenraum und ein vorher festgelegtes Triggerniveau. Wer nur die Zahl der Anläufe handelt, überspringt die Frage, ob die Gegenseite überhaupt Kontrolle bekommt."
+      "Prüf den tatsächlich gewonnenen Gegenraum und ein vorher festgelegtes Triggerniveau. Wer nur die Zahl der Anläufe handelt, überspringt die Frage, ob die Gegenseite überhaupt Kontrolle bekommt."
     ],
     "callout": "Die Zahl der Anläufe ersetzt keine Gegenbestätigung.",
     "takeaways": [
@@ -797,7 +797,7 @@ const drafts: Draft[] = [
     "section": "Schrumpfende Stufen prüfen",
     "scenario": "c26-24",
     "paragraphs": [
-      "Ein Keil wird oft über zusammenlaufende Begrenzungen oder drei Anläufe beschrieben. Schrumpfende Stufen werden dagegen an den Erweiterungen jenseits alter Extreme gemessen. Die Begriffe können sich überschneiden, müssen aber nicht dasselbe Bild bezeichnen.",
+      "Einen Keil beschreibt man oft über zusammenlaufende Begrenzungen oder drei Anläufe. Schrumpfende Stufen misst du dagegen an den Erweiterungen jenseits alter Extreme. Die Begriffe können sich überschneiden, müssen aber nicht dasselbe Bild bezeichnen.",
       "Beide Panels erreichen dieselben Hochpunkte 45, 55, 61 und 64. Rechts liegen die Rücklauftiefs deutlich tiefer und unregelmäßiger. Die Hochfortschritte schrumpfen trotzdem; die untere Begrenzung passt nicht zur gleichen engen Zeichnung.",
       "Benenne genau, welche Eigenschaft du misst. Ein Mustername darf die tatsächliche Breite, Stopdistanz oder unordentliche Gegenbewegung nicht verstecken."
     ],
@@ -833,7 +833,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Kleinere Extensions können eine größere Korrektur vorbereiten. Der tatsächliche Strukturbruch ist ein weiteres Ereignis. Ein anschließender Rücktest mit schwacher Gegenwirkung liefert nochmals zusätzliche Information; diese drei Zustände dürfen im Replay nicht zusammenfallen.",
       "Links endet die Folge bei 55 nach dem letzten kleineren Hoch. Rechts fällt der Preis unter die Rücklauftiefreferenz 50, erholt sich auf 54 und fällt weiter auf 36. Erst rechts stehen Bruch, Rücktest und neuer Verkäuferanschluss gemeinsam zur Verfügung.",
-      "Notiere getrennt: Warnhinweis bekannt, Struktur gebrochen, Rücktest beendet. Auch danach bleibt eine Gegenreaktion möglich; deine Verlustgrenze gehört zu deinem konkreten Plan."
+      "Notier getrennt: Warnhinweis bekannt, Struktur gebrochen, Rücktest beendet. Auch danach bleibt eine Gegenreaktion möglich; deine Verlustgrenze gehört zu deinem konkreten Plan."
     ],
     "callout": "Warnhinweis, Bruch und Rücktest liefern nacheinander Information.",
     "takeaways": [
@@ -899,9 +899,9 @@ const drafts: Draft[] = [
     "section": "Entry, Schutz und Lernfälle",
     "scenario": "c26-27",
     "paragraphs": [
-      "Die Stückzahl ergibt sich aus dem verfügbaren Gesamtbudget und dem geplanten Risiko einer Einheit. Verwende den tatsächlich gewählten Strukturabstand. Eine engere Gegenbewegung in einem anderen Ausschnitt verkleinert diesen Abstand nicht nachträglich.",
+      "Die Stückzahl ergibt sich aus dem verfügbaren Gesamtbudget und dem geplanten Risiko einer Einheit. Nimm den tatsächlich gewählten Strukturabstand. Eine engere Gegenbewegung in einem anderen Ausschnitt verkleinert diesen Abstand nicht nachträglich.",
       "Für Entry 60 und Stop 47 beträgt die Strecke 13 Punkte. Mit dem ausdrücklich angenommenen Punktwert zwei Dollar und vier Dollar Kostenreserve ergibt das 30 Dollar Planrisiko je Einheit. In 80 Dollar Budget passen zwei Einheiten mit zusammen 60 Dollar.",
-      "Runde die Stückzahl ab und erfasse Slippage separat. Drei Einheiten würden hier 90 Dollar Planrisiko ergeben. Das Budget ist eine Vorgabe des Plans; der Stop garantiert keine maximale tatsächliche Ausführung."
+      "Rund die Stückzahl ab und erfass Slippage separat. Drei Einheiten würden hier 90 Dollar Planrisiko ergeben. Das Budget ist eine Vorgabe des Plans; der Stop garantiert keine maximale tatsächliche Ausführung."
     ],
     "callout": "Stopstrecke, Punktwert und Kostenreserve gehören in dieselbe Rechnung.",
     "takeaways": [
@@ -933,7 +933,7 @@ const drafts: Draft[] = [
     "section": "Entry, Schutz und Lernfälle",
     "scenario": "c26-28",
     "paragraphs": [
-      "Eine Teilgewinnmitnahme reduziert die Stückzahl, lässt die Restposition aber weiter schwanken. In einem breiten Kanal kann ein kurzer Zielanker für einen Teil und ein größeres Fortsetzungsziel für den Rest geplant werden. Beide Teile brauchen nachvollziehbare Ausstiegsregeln.",
+      "Eine Teilgewinnmitnahme reduziert die Stückzahl, lässt die Restposition aber weiter schwanken. In einem breiten Kanal kannst du einen kurzen Zielanker für einen Teil und ein größeres Fortsetzungsziel für den Rest planen. Beide Teile brauchen nachvollziehbare Ausstiegsregeln.",
       "Im Gedankenbeispiel starten zwei Einheiten bei 50. Eine wird bei 58 geschlossen, die andere bleibt mit Stop 44 offen. Ohne Kosten ergeben acht Einheiten realisierter Preisgewinn und sechs Einheiten verbleibendes Preisrisiko vom Entry zum Stop.",
       "Trenne realisierten Gewinn, offenen Positionswert und verbleibendes Stoprisiko. Ob du den Stop danach versetzt, muss zum Plan passen; ein breiter Rücklauf kann einen hastig enggezogenen Reststop erreichen."
     ],
@@ -969,7 +969,7 @@ const drafts: Draft[] = [
     "paragraphs": [
       "Ein früher Käuferimpuls kann an einer bekannten Gegenreferenz scheitern. Ein späterer Verkäuferimpuls kann ebenfalls zurücklaufen. Im breiten Kanal ist nicht jeder schnelle Abschnitt bereits ein neuer dauerhafter Trend; die Folge nach dem Impuls entscheidet mit.",
       "Links steigt der Preis kräftig von 38 auf 59, verliert den Raum aber bis 43. Rechts folgen nach einer Zwischenrally auf 52 neue Verkäufe bis 31. Eine lokale Käuferidee und die spätere größere Verkäuferkontrolle sind zeitlich verschiedene Zustände.",
-      "Beschreibe jeden Wechsel mit damals sichtbaren Bars. Ersetze den Blick auf die weitere Folge nicht durch Vermutungen darüber, welche Teilnehmer gerade gewinnen müssen."
+      "Beschreib jeden Wechsel mit damals sichtbaren Bars. Ersetze den Blick auf die weitere Folge nicht durch Vermutungen darüber, welche Teilnehmer gerade gewinnen müssen."
     ],
     "callout": "Ein einzelner Impuls beweist keine dauerhafte Kontrolle.",
     "takeaways": [
@@ -1001,7 +1001,7 @@ const drafts: Draft[] = [
     "section": "Entry, Schutz und Lernfälle",
     "scenario": "c26-30",
     "paragraphs": [
-      "Die gleiche überlappende Ausgangsfolge kann normal weiterlaufen, in eine schnelle Bewegung wechseln oder nachlassenden Fortschritt zeigen. Ein sauberer Lernvergleich behält die früheren Bars bei und variiert nur die danach hinzugekommenen Informationen.",
+      "Dieselbe überlappende Ausgangsfolge kann normal weiterlaufen, in eine schnelle Bewegung wechseln oder nachlassenden Fortschritt zeigen. Ein sauberer Lernvergleich behält die früheren Bars bei und variiert nur die danach hinzugekommenen Informationen.",
       "Links läuft die Ausgangsfolge in vergleichbaren breiten Swings weiter. In der Mitte ist eine Beschleunigung und rechts eine Folge kleinerer Hochfortschritte dargestellt. Alle drei beginnen mit exakt derselben bekannten frühen Treppe.",
       "Halte im Replay vor der Aufdeckung fest, was deine Annahme bestätigen und was sie entkräften würde. Bewerte die damalige Entscheidung getrennt vom später günstigen oder ungünstigen Ergebnis."
     ],
