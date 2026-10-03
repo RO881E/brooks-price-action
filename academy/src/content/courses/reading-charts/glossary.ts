@@ -611,5 +611,17 @@ export const chartsGlossary: GlossaryEntry[] = [
 {"term": "Fortlaufender Futures-Chart", "definition": "Verbindung ausgewählter Abschnitte mehrerer Futures-Kontrakte zu einer langen Datenreihe.", "aliases": [], "firstUnit": "Kapitel 9"},
 {"term": "Rollregel", "definition": "Regel, die festlegt, wann eine fortlaufende Reihe zum folgenden Kontrakt wechselt.", "aliases": [], "firstUnit": "Kapitel 9"},
 {"term": "Additive Rückbereinigung", "definition": "Historische Preise werden um einen festen Betrag verschoben; Punktdifferenzen innerhalb desselben angepassten Abschnitts bleiben erhalten.", "aliases": [], "firstUnit": "Kapitel 9"},
-{"term": "Verhältnisbereinigung", "definition": "Historische Preise werden mit einem erklärten positiven Faktor multipliziert; Verhältnisse innerhalb desselben angepassten Abschnitts bleiben erhalten.", "aliases": [], "firstUnit": "Kapitel 9"}
+{"term": "Verhältnisbereinigung", "definition": "Historische Preise werden mit einem erklärten positiven Faktor multipliziert; Verhältnisse innerhalb desselben angepassten Abschnitts bleiben erhalten.", "aliases": [], "firstUnit": "Kapitel 9"},
+{"term": "Chartbericht", "definition": "Beschreibung eines Chartbilds mit Datenherkunft, Darstellungsregeln, geprüften Aussagen und ihren Grenzen.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Prüffrage", "definition": "Die ausdrücklich genannte Frage, die eine Prüfung beantworten soll.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Datenzettel", "definition": "Kompakte Angaben zu Produkt, Quelle, Einheit, Zeitbasis, Datenstand und Bereinigung eines Bilds.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Beobachtung", "definition": "Eine durch die vorhandenen Daten direkt prüfbare Angabe, etwa ein benannter Schlusswert.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Deutung", "definition": "Eine Erklärung oder Bewertung, die über die unmittelbar beobachteten Angaben hinausgeht.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Prognose", "definition": "Aussage über eine noch unbekannte Zukunft; vergangene Chartdaten garantieren sie nicht.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Aussagegrenze", "definition": "Beschreibung dessen, was die vorhandenen Angaben nicht belegen oder offenlassen.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Gegenprobe", "definition": "Gezielter Test, ob eine Aussage bei passenden Daten tatsächlich gilt.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Gegenbeispiel", "definition": "Ein Fall, der eine behauptete allgemeine Regel widerlegt.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Dateninkonsistenz", "definition": "Widerspruch zwischen Angaben, etwa ein Schluss über dem Hoch desselben Abschnitts.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Reproduzierbarkeit", "definition": "Möglichkeit, mit denselben Eingaben und Regeln dieselbe Auswertung nachzuvollziehen.", "aliases": [], "firstUnit": "Kapitel 10"},
+{"term": "Ausführungsnachweis", "definition": "Bestätigung eines tatsächlich ausgeführten persönlichen Geschäfts mit Produkt, Preis und Menge. Chartwerte allein ersetzen ihn nicht.", "aliases": [], "firstUnit": "Kapitel 10"}
 ];

@@ -13,8 +13,8 @@ abgeschlossene andere Kurse; Sprache nach MARKTGRUNDLAGEN_SPRACHE.md.
 | 6 | Point & Figure und regelbasierte Verdichtung | 24 Lektionen verfügbar |
 | 7 | Zeitebenen und gemeinsame Daten | 24 Lektionen verfügbar |
 | 8 | Lineare und logarithmische Skalen | 24 Lektionen verfügbar |
-| 9 | Datenquellen, Bereinigungen und fortlaufende Kontrakte | Geplant |
-| 10 | Einen Chartbericht selbst prüfen | Geplant |
+| 9 | Datenquellen, Bereinigungen und fortlaufende Kontrakte | 24 Lektionen verfügbar |
+| 10 | Einen Chartbericht selbst prüfen | 24 Lektionen verfügbar |
 
 ## Quellenprüfung und Modellgrenzen – Kapitel 1
 
@@ -493,3 +493,60 @@ Modelle und Grafiken werden bei Bedarf geladen. Alle Bilder besitzen vollständi
 Textbeschreibungen und die vorhandene Tastatur-/Vergrößerungsansicht. Tests prüfen
 Werterhaltung, Anspruch/Geld-Trennung, Bereinigungsinvarianten und Kontraktpaare.
 Browserprüfungen bei fehlendem Chromium ausdrücklich nicht ausgeführt.
+
+## Quellenprüfung und Modellgrenzen – Kapitel 10
+
+„Einen Chartbericht selbst prüfen“ schließt den Kurs mit24 eigenen Lektionen,
+zwölf Glossarbegriffen und drei nativen SVGs ab. Alle zehn Kapitel sind verfügbar:
+232 Lektionen und116 Begriffe. Bestehende Kennungen und Fortschrittsregeln bleiben.
+
+Am03.10.2026 wurde die bereitgestellte Murphy-EPUB, Kapitel3, Chart Construction,
+erneut auf OHLC, Chartformen, Zeitaggregation, Mengen und Achsenregeln geprüft.
+Übernommen wird nur allgemeiner Begriffshintergrund. Keine Buchbeispiele, Bilder,
+Passagen, Prognosebehauptungen oder historischen Anbieter-/Datenfristen übernommen.
+Keine WQT-Fachbände verwendet. Das Abschlusskapitel prüft die vorher eingeführten
+Begriffe an neuen eigenen Daten; es führt keine aktuelle Handelsregel ein.
+
+### Hauptfall und separate Gegenproben
+
+Eigene Luma-Aktie, Euro je Aktie; erfundener D1, UTC, Geschäftspreise,
+keine Bereinigung, kein Produktwechsel. Vollständige Übungsliste nur im Ausschnitt:
+
+| UTC | Preis | Aktien |
+| --- | --- | --- |
+|09:00:05|30|2|
+|09:00:20|32|1|
+|09:00:35|29|4|
+|09:00:50|31|3|
+|09:01:05|31|1|
+|09:01:20|33|2|
+|09:01:35|30|2|
+|09:01:50|32|1|
+
+Fenster links einschließlich, rechts ausschließlich. Minute1:O30/H32/L29/C31,
+Volumen10, vier Meldungen, Spanne3, Körper1, Schatten1/1, Schlusslage2/3.
+Voriger Schluss ausdrücklich32: intern+1, Schlussvergleich−1 bzw.−3,125%.
+Minute2:O31/H33/L30/C32, Volumen6. Gemeinsam:O30/H33/L29/C32, Volumen16;
+Schluss ist kein Durchschnitt. Lineare Diagrammgrenzen28 bis34.
+
+Separate Zwischenansicht09:00:30 kennt nur die ersten beiden Geschäfte:
+O30/H32/L30/letzter32, Volumen3; der endgültige Schluss31 damals unbekannt.
+Widerspruch O30/H32/L29/C33 wird auf Grundlage der Liste beanstandet,
+nicht durch stille Erfindung eines höheren Hochs repariert.
+
+Separate Weg-Gegenprobe30/32/29/31 und30/29/32/31: gleiche OHLC bei
+unterschiedlicher Reihenfolge. Die Hauptliste belegt A; nur OHLC kann die
+Reihenfolge nicht entscheiden. Lineare Diagrammgrenzen28 bis33. Verbindung
+zeichnet eine mögliche Reihenfolge, keine Zwischenpreise oder persönlichen Fills.
+
+Separater HA-Fall O34/H35/L30/C31, vorher HA-O28/HA-C30:
+HA-O29, HA-C32,5, HA-H35, HA-L29. Originalkörper fällt, HA-Körper steigt;
+HA-Tief unter Originaltief kein belegter Geschäftspreis. Keine Menge vorgegeben,
+keine Nullmenge erfunden. Lineare gemeinsame Grenzen27 bis36.
+
+Alle Grafiken haben vollständige Beschreibungen und die gemeinsame Fokusansicht.
+Lazy Loading hält Diagrammcode außerhalb der Kursgliederung. Tests prüfen
+Meldungsreihenfolge, OHLC/Mengen, offene Abschnitte, Nullspannen, widersprüchliche
+Eingaben, HA-Rechnung, Freischaltung nach208 bisherigen Lektionen und Fokus.
+Bildprüfung ergänzt Strukturtests; Browserprüfungen bei fehlendem Chromium
+werden ausdrücklich als nicht ausgeführt dokumentiert.
