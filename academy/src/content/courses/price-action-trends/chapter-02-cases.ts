@@ -5,7 +5,7 @@ export const chapterTwoCaseLessons = [
     id: 'price-action-trends.chapter-02.lesson-15',
     title: 'Chartfall 2.3: Trendende Dojis auf zwei Zeitebenen',
     summary:
-      'Wie vier unscheinbare Fünf-Minuten-Dojis gemeinsam einen bullischen Reversal-Bar im Fünfzehn-Minuten-Chart bilden.',
+      'Wie vier unscheinbare Fünf-Minuten-Dojis zusammen einen bullischen Reversal-Bar im Fünfzehn-Minuten-Chart ergeben.',
     durationMinutes: 13,
     xp: 45,
     sourceUnit: 'Kapitel 2 · Chartfall 2.3',
@@ -23,13 +23,13 @@ export const chapterTwoCaseLessons = [
         eyebrow: 'Eigenständige Rekonstruktion · Fall 2.3',
         title: 'Mehrere kleine Patts können zusammen eine klare Umkehr zeigen',
         paragraphs: [
-          'Auf dem Fünf-Minuten-Chart entstehen am Tief vier Dojis nacheinander. Isoliert zeigt jeder nur geringe Kontrolle. Als Folge besitzen sie jedoch überwiegend höhere Tiefs, höhere Hochs und höhere Schlusskurse. Käufer gewinnen damit nicht explosiv, aber konsequent immer höheres Preisgebiet.',
-          'Wechselst du zur größeren Zeitebene, werden mehrere dieser kleinen Auktionen in einem Bar zusammengefasst. Aus dem anfänglichen Tief, der Ablehnung darunter und den anschließend höheren Schlusskursen entsteht dort ein bullischer Reversal-Bar an einem neuen Swing-Tief.',
-          'Beide Ansichten widersprechen sich nicht. Der kleine Chart zeigt den Entstehungsprozess: zäher Kaufdruck über mehrere scheinbar neutrale Bars. Der größere Chart zeigt das komprimierte Ergebnis: tiefere Preise wurden zurückgewiesen und der Zeitraum schloss deutlich höher.',
-          'Du musst nicht zwischen den Zeitebenen springen, um das Muster perfekt zu benennen. Wenn dein Arbeitschart die steigenden Extreme und Schlusskurse zeigt, besitzt du bereits den entscheidenden Hinweis. Der größere Chart erklärt lediglich, warum andere Teilnehmer dieselbe Bewegung als Reversal-Bar wahrnehmen.',
+          'Auf dem Fünf-Minuten-Chart entstehen am Tief nacheinander vier Dojis. Einzeln zeigt jeder nur wenig Kontrolle. Als Folge haben sie aber überwiegend höhere Tiefs, höhere Hochs und höhere Schlusskurse. Die Käufer gewinnen damit nicht explosiv, aber stetig immer höheres Preisgebiet.',
+          'Wechselst du auf die größere Zeitebene, werden mehrere dieser kleinen Auktionen in einem Bar zusammengefasst. Aus dem anfänglichen Tief, der Abweisung darunter und den danach höheren Schlusskursen wird dort ein bullischer Reversal-Bar an einem neuen Swing-Tief.',
+          'Beide Ansichten widersprechen sich nicht. Der kleine Chart zeigt, wie es entstanden ist: zäher Kaufdruck über mehrere scheinbar neutrale Bars. Der größere Chart zeigt das verdichtete Ergebnis: Tiefere Preise wurden abgewiesen, und der Zeitraum schloss deutlich höher.',
+          'Du musst nicht zwischen den Zeitebenen hin- und herspringen, um das Muster perfekt zu benennen. Zeigt dein Arbeitschart die steigenden Extreme und Schlusskurse, hast du den entscheidenden Hinweis schon. Der größere Chart erklärt nur, warum andere Teilnehmer dieselbe Bewegung als Reversal-Bar sehen.',
         ],
         callout:
-          'Kleine Zeitebene: Prozess. Große Zeitebene: verdichtetes Ergebnis. Beide beschreiben dieselbe Auktion.',
+          'Kleine Zeitebene: der Prozess. Große Zeitebene: das verdichtete Ergebnis. Beide beschreiben dieselbe Auktion.',
       },
       {
         id: 'chapter-02-15-diagram',
@@ -90,7 +90,7 @@ export const chapterTwoCaseLessons = [
     id: 'price-action-trends.chapter-02.lesson-16',
     title: 'Chartfall 2.3: Der Tageskontext bleibt bärisch',
     summary:
-      'Wie Gap, Bear-Spike, gescheiterte Bullenumkehr, Kanalüberschuss und ein Doji-Setup zu einem vollständigen Tagesplan werden.',
+      'Wie aus Gap, Bear-Spike, gescheiterter Bullenumkehr, Kanalüberschuss und einem Doji-Setup ein vollständiger Tagesplan wird.',
     durationMinutes: 17,
     xp: 60,
     sourceUnit: 'Kapitel 2 · Vertiefung Chartfall 2.3',
@@ -110,13 +110,13 @@ export const chapterTwoCaseLessons = [
         eyebrow: 'Tagesstruktur zusammensetzen',
         title: 'Ein bullischer Bar beendet einen Bärentag nicht automatisch',
         paragraphs: [
-          'Der Handelstag beginnt mit einem großen Gap nach unten und einem kräftigen bearischen Trendbar. Diese Kombination ist ein bärischer Breakout und macht einen Bärentrendtag wahrscheinlicher. Der Grundplan bleibt deshalb, Rallys auf Short-Gelegenheiten zu prüfen, statt jeden kleinen Boden sofort als Trendwende zu behandeln.',
-          'Ein früher bullischer Trendbar versucht die Umkehr, erhält aber keinen Anschluss. Käufer werden in einer falschen Hoffnung festgehalten, während Bären den ersten Short verpasst haben. Als der bullische Versuch selbst scheitert, entsteht eine zweite Chance für die Trendseite: ein Breakout-Pullback-Short unter dem bullischen Bar. Der Fehlschlag des Gegenversuchs stärkt die ursprüngliche bärische These.',
-          'Gleichzeitig beschleunigt der Markt kurz unter seine fallende Kanallinie. Solche Überschüsse scheitern häufig, weil reife Trends mit der Zeit an Kraft verlieren. Das ändert nicht sofort die Tagesrichtung, warnt aber davor, neue Tiefs gedankenlos zu verkaufen. Der folgende Test kann eine größere Erholung oder das Ende des letzten Abwärtsbeins einleiten.',
-          'Ein späterer Doji dient trotz seiner Ein-Bar-Balance als hochwertiger Setup-Bar: Er liegt im Bärentrend an einer Lücke zum gleitenden Durchschnitt, folgt auf ein gescheitertes kleines Flag und bietet einen Test des bisherigen Tiefs. Fällt der Test auf ein tieferes Tief, sind danach häufig mindestens zwei Aufwärtsbeine plausibel. Bei einem höheren Tief wäre die vorherige Rally bereits das erste Bein und ein weiteres bliebe zu erwarten.',
+          'Der Handelstag beginnt mit einem großen Gap nach unten und einem kräftigen bärischen Trendbar. Diese Kombination ist ein bärischer Breakout und macht einen Bärentrendtag wahrscheinlicher. Der Grundplan bleibt deshalb: Rallys auf Short-Chancen prüfen, statt jeden kleinen Boden sofort für eine Trendwende zu halten.',
+          'Ein früher bullischer Trendbar versucht die Umkehr, findet aber keinen Anschluss. Die Käufer stecken in einer falschen Hoffnung fest, während die Bären den ersten Short verpasst haben. Scheitert der bullische Versuch selbst, bekommt die Trendseite eine zweite Chance: ein Breakout-Pullback-Short unter dem bullischen Bar. Das Scheitern des Gegenversuchs stärkt die ursprüngliche bärische These.',
+          'Gleichzeitig beschleunigt der Markt kurz unter seine fallende Kanallinie. Solche Überschüsse scheitern oft, weil reife Trends mit der Zeit an Kraft verlieren. Das ändert nicht sofort die Tagesrichtung, warnt dich aber davor, neue Tiefs gedankenlos zu verkaufen. Der Test danach kann eine größere Erholung oder das Ende des letzten Abwärtsbeins einleiten.',
+          'Ein späterer Doji ist trotz seiner Ein-Bar-Balance ein hochwertiger Setup-Bar: Er liegt im Bärentrend in einer Lücke zum gleitenden Durchschnitt, folgt auf ein gescheitertes kleines Flag und testet das bisherige Tief. Fällt der Test auf ein tieferes Tief, sind danach oft mindestens zwei Aufwärtsbeine plausibel. Bei einem höheren Tief wäre die vorherige Rally schon das erste Bein, und ein weiteres wäre noch zu erwarten.',
         ],
         callout:
-          'Ein Bar erhält seine Qualität aus dem Tageskontext: Gap, Trend, Fehlschlag, Durchschnitt, Kanal und Ziel wirken zusammen.',
+          'Ein Bar bekommt seine Qualität aus dem Tageskontext: Gap, Trend, Fehlschlag, Durchschnitt, Kanal und Ziel wirken zusammen.',
       },
       {
         id: 'chapter-02-16-diagram',
@@ -231,13 +231,13 @@ export const chapterTwoCaseLessons = [
         eyebrow: 'Eigenständige Rekonstruktion · Fall 2.4',
         title: 'Das Aussehen des Bars kann das Gegenteil seiner späteren Funktion sein',
         paragraphs: [
-          'Nach mehreren Dojis bricht ein großer bullischer Trendbar nach oben aus. Ein Anfänger sieht einen neuen Bullenmarkt. Der nächste Bar handelt jedoch nur minimal höher und schließt nahe seinem Tief. Der Ausbruch bekommt damit keinen Anschluss, und Käufer verlassen ihre Position unter dem bearischen Pause-Bar. Neue Bären verkaufen denselben Bruch als Fehlausbruch.',
-          'Die Bullen versuchen anschließend, das Tief des Ausbruchsbars mit einem kleinen bullischen Setup zu verteidigen. Der geplante Breakout-Pullback-Long wird nicht ausgelöst; stattdessen fällt der Markt unter das Setup. Frühe Käufer müssen erneut verkaufen, während neue Shorts hinzukommen. Nach zwei gescheiterten Kaufversuchen sinkt die Bereitschaft der Bullen, ohne deutlich bessere Price Action zurückzukehren.',
-          'Aus dieser Abfolge entsteht die Erwartung von mindestens zwei Abwärtsbeinen. Nicht weil zwei Versuche eine mathematische Garantie liefern, sondern weil mehrere Gruppen von Käufern gefangen sind und Erholungen wahrscheinlich zum Ausstieg nutzen. Trendbars vor weiteren markanten Punkten des Falls erzeugen dieselbe bullische Falle im bärischen Kontext.',
-          'Später erscheint nach mehr als dreißig überwiegend bärischen Bars einer der größten Bear-Bars des Tages. Jetzt kann dieselbe Größe das Gegenteil bedeuten: Starke Bullen und Bären warten an Unterstützung auf den Sell Climax. Nach dem großen Bar decken Bären Gewinne und Bullen kaufen, sodass er den Anfang vom Ende des Abwärtstrends markieren kann.',
+          'Nach mehreren Dojis bricht ein großer bullischer Trendbar nach oben aus. Ein Anfänger sieht einen neuen Bullenmarkt. Der nächste Bar handelt aber nur minimal höher und schließt nahe seinem Tief. Der Ausbruch hat damit keinen Anschluss, und Käufer steigen unter dem bärischen Pause-Bar aus. Neue Bären verkaufen genau diesen Bruch als Fehlausbruch.',
+          'Die Bullen versuchen danach, das Tief des Ausbruchsbars mit einem kleinen bullischen Setup zu verteidigen. Der geplante Breakout-Pullback-Long wird nicht ausgelöst; stattdessen fällt der Markt unter das Setup. Frühe Käufer müssen erneut verkaufen, und neue Shorts kommen dazu. Nach zwei gescheiterten Kaufversuchen sinkt die Bereitschaft der Bullen, ohne deutlich bessere Price Action wiederzukommen.',
+          'Aus dieser Abfolge entsteht die Erwartung von mindestens zwei Abwärtsbeinen. Nicht, weil zwei Versuche eine mathematische Garantie sind, sondern weil mehrere Gruppen von Käufern in der Falle sitzen und Erholungen wahrscheinlich zum Ausstieg nutzen. Trendbars vor weiteren markanten Punkten des Falls erzeugen im bärischen Kontext dieselbe bullische Falle.',
+          'Später erscheint nach mehr als dreißig überwiegend bärischen Bars einer der größten Bear-Bars des Tages. Jetzt kann dieselbe Größe das Gegenteil bedeuten: Starke Bullen und Bären warten an der Unterstützung auf den Sell Climax. Nach dem großen Bar decken Bären Gewinne ein und Bullen kaufen, sodass er der Anfang vom Ende des Abwärtstrends sein kann.',
         ],
         callout:
-          'Früh aus Balance + Anschluss kann Größe einen Trend starten. Spät nach langem Trend + Unterstützung kann dieselbe Größe ihn beenden.',
+          'Früh, nach Balance und mit Anschluss, kann Größe einen Trend starten. Spät, nach langem Trend und an Unterstützung, kann dieselbe Größe ihn beenden.',
       },
       {
         id: 'chapter-02-17-diagram',
@@ -298,7 +298,7 @@ export const chapterTwoCaseLessons = [
     id: 'price-action-trends.chapter-02.lesson-18',
     title: 'Chartfall 2.4: Der Kollaps nach der Ruhe',
     summary:
-      'Wie zwei nicht überlappende Bear-Bars die Trendwiederaufnahme bestätigen und ein klarer Risikoplan die psychologisch schwere Ausführung ermöglicht.',
+      'Wie zwei nicht überlappende Bear-Bars die Trendwiederaufnahme bestätigen und ein klarer Risikoplan die psychologisch schwere Ausführung möglich macht.',
     durationMinutes: 15,
     xp: 55,
     sourceUnit: 'Kapitel 2 · Vertiefung Chartfall 2.4',
@@ -317,13 +317,13 @@ export const chapterTwoCaseLessons = [
         eyebrow: 'Trendwiederaufnahme handeln',
         title: 'Ruhe macht den guten Trade emotional schwer, nicht analytisch schwach',
         paragraphs: [
-          'Der Tag scheitert zunächst über dem Vortageshoch und entwickelt einen Bärentrend vom Open. Danach handelt er mehrere Stunden überwiegend seitwärts. Diese Ruhe gewöhnt Trader an kleine Bewegungen und macht sie unvorbereitet, obwohl die frühe bärische Richtung nie überzeugend widerlegt wurde.',
-          'Als der erste große Bear-Bar die Range verlässt, wird eine Trendwiederaufnahme möglich. Der nächste Bar besitzt einen noch größeren bearischen Körper und überlappt kaum. Spätestens diese Folge zeigt Spike plus Follow-through: Verkäufer schaffen schnell neuen Raum, und eine gemessene Fortsetzung aus dem Spike wird wahrscheinlicher.',
-          'Psychologisch fühlt sich der Short riskant an, weil der Markt plötzlich schnell läuft und der Stop über einem großen Signalbar weit entfernt ist. Die Lösung ist nicht, das Signal zu ignorieren oder den Stop willkürlich zu eng zu setzen. Eine kleinere Positionsgröße hält das Geldrisiko kontrollierbar und erlaubt die strukturell sinnvolle Stopposition über dem Signalbar.',
-          'Nach einem weiteren starken Bear-Bar kann der Stop auf Einstand oder über dessen Hoch nachgezogen werden. Das konkrete Management muss zur eigenen Strategie passen; der zentrale Gedanke lautet, Risiko über Positionsgröße und Struktur zu steuern, statt die Qualität des Breakouts aus Angst zu verleugnen.',
+          'Der Tag scheitert zuerst über dem Vortageshoch und entwickelt einen Bärentrend vom Open. Danach handelt er mehrere Stunden überwiegend seitwärts. Diese Ruhe gewöhnt Trader an kleine Bewegungen und macht sie unvorbereitet, obwohl die frühe bärische Richtung nie überzeugend widerlegt wurde.',
+          'Verlässt der erste große Bear-Bar die Range, wird eine Trendwiederaufnahme möglich. Der nächste Bar hat einen noch größeren bärischen Körper und überlappt kaum. Spätestens diese Folge zeigt Spike plus Follow-through: Die Verkäufer schaffen schnell neuen Raum, und eine gemessene Fortsetzung aus dem Spike wird wahrscheinlicher.',
+          'Psychologisch fühlt sich der Short riskant an, weil der Markt plötzlich schnell läuft und der Stop über einem großen Signalbar weit weg ist. Die Lösung ist weder, das Signal zu ignorieren, noch den Stop willkürlich zu eng zu setzen. Eine kleinere Positionsgröße hält das Geldrisiko im Griff und erlaubt dir den strukturell sinnvollen Stop über dem Signalbar.',
+          'Nach einem weiteren starken Bear-Bar kannst du den Stop auf Einstand oder über dessen Hoch nachziehen. Das genaue Management muss zu deiner Strategie passen. Der Kerngedanke: Steuere das Risiko über Positionsgröße und Struktur, statt die Qualität des Breakouts aus Angst zu leugnen.',
         ],
         callout:
-          'Wenn der notwendige Stop groß ist, verkleinere die Position – nicht die logische Distanz des Stops.',
+          'Wenn der nötige Stop groß ist, verkleinere die Position – nicht die logische Distanz des Stops.',
       },
       {
         id: 'chapter-02-18-diagram',
@@ -409,7 +409,7 @@ export const chapterTwoCaseLessons = [
     id: 'price-action-trends.chapter-02.lesson-19',
     title: 'Chartfall 2.5: Der stärkste Bear-Bar kann das Tief einleiten',
     summary:
-      'Wie zunehmende Bear-Körper, Unterstützung und ausbleibende Käufe ein Sell Vacuum erzeugen – und warum der perfekte Tickchart trotzdem keine Lösung ist.',
+      'Wie wachsende Bear-Körper, Unterstützung und ausbleibende Käufe ein Sell Vacuum erzeugen – und warum der perfekte Tickchart trotzdem keine Lösung ist.',
     durationMinutes: 17,
     xp: 60,
     sourceUnit: 'Kapitel 2 · Chartfall 2.5',
@@ -430,13 +430,13 @@ export const chapterTwoCaseLessons = [
         eyebrow: 'Eigenständige Rekonstruktion · Fall 2.5',
         title: 'Zunehmende Stärke wird an Unterstützung zur möglichen Erschöpfung',
         paragraphs: [
-          'In einem starken Fünf-Minuten-Bärentrend werden die letzten bearischen Körper immer größer. Das zeigt zunächst zunehmenden Verkaufsdruck. Nach einem langen Lauf von vielen Bars und an einem gemessenen Unterstützungsziel besitzt dieselbe Beschleunigung jedoch eine zweite Bedeutung: Sie kann der Sell Climax sein, auf den starke Teilnehmer gewartet haben.',
-          'Während der Preis auf die Unterstützung zufällt, halten sich potenzielle Käufer zurück. Auch Bären warten mit ihrer Gewinnmitnahme, weil sie einen letzten günstigen Schub erwarten. Das fehlende Kaufen erzeugt ein Sell Vacuum und lässt den letzten Bar besonders groß werden. Sobald er erscheint, decken Bären Shorts und Bullen kaufen neue Longs. Beide Orders sind Käufe und können eine scharfe Rally starten.',
-          'Auf dem kleineren Tickchart ist rückblickend ein klassisches Doppeltief mit gescheitertem Abwärtsausbruch erkennbar. Doch allein in der letzten Minute des großen Bars entstehen mehrere Dutzend Mikro-Bars. Ein Mensch kann diese Folge nicht zuverlässig analysieren und rechtzeitig ausführen. Der brauchbare Plan bleibt daher auf dem langsameren Chart: Reaktion am Klimax beobachten und einen strukturellen Entry wählen.',
-          'Nach einem ausgedehnten Trend und einem solchen Sell Vacuum erwarten erfahrene Trader keine winzige Ein-Bar-Reaktion. Eine sinnvolle Arbeitsthese ist eine Korrektur mit mindestens zwei Aufwärtsbeinen, ungefähr zehn oder mehr Bars und einem Test etwas oberhalb des gleitenden Durchschnitts. Ob daraus eine vollständige Trendwende wird, entscheidet erst die Stärke dieser Rally.',
+          'In einem starken Fünf-Minuten-Bärentrend werden die letzten bärischen Körper immer größer. Das zeigt zunächst wachsenden Verkaufsdruck. Nach einem langen Lauf über viele Bars und an einem gemessenen Unterstützungsziel hat dieselbe Beschleunigung aber eine zweite Bedeutung: Sie kann der Sell Climax sein, auf den starke Teilnehmer gewartet haben.',
+          'Während der Preis auf die Unterstützung zufällt, halten sich potenzielle Käufer zurück. Auch Bären zögern mit der Gewinnmitnahme, weil sie noch einen letzten günstigen Schub erwarten. Das fehlende Kaufen erzeugt ein Sell Vacuum und lässt den letzten Bar besonders groß werden. Sobald er erscheint, decken Bären ihre Shorts ein und Bullen kaufen neue Longs. Beides sind Käufe und können eine scharfe Rally starten.',
+          'Auf dem kleineren Tickchart siehst du rückblickend ein klassisches Doppeltief mit gescheitertem Abwärtsausbruch. Aber allein in der letzten Minute des großen Bars entstehen mehrere Dutzend Mikro-Bars. Ein Mensch kann diese Folge nicht verlässlich analysieren und rechtzeitig ausführen. Der brauchbare Plan bleibt daher auf dem langsameren Chart: die Reaktion am Klimax beobachten und einen strukturellen Entry wählen.',
+          'Nach einem langen Trend und einem solchen Sell Vacuum erwarten erfahrene Trader keine winzige Ein-Bar-Reaktion. Eine sinnvolle Arbeitsthese ist eine Korrektur mit mindestens zwei Aufwärtsbeinen, ungefähr zehn oder mehr Bars und einem Test etwas oberhalb des gleitenden Durchschnitts. Ob daraus eine vollständige Trendwende wird, entscheidet erst die Stärke dieser Rally.',
         ],
         callout:
-          'Der große Bear-Bar entsteht teilweise, weil Käufer warten. Wenn ihr Ziel erreicht ist, können Gewinnmitnahme und neue Longs gleichzeitig drehen.',
+          'Der große Bear-Bar entsteht teilweise, weil Käufer warten. Ist ihr Ziel erreicht, können Gewinnmitnahme und neue Longs gleichzeitig drehen.',
       },
       {
         id: 'chapter-02-19-diagram',
@@ -512,7 +512,7 @@ export const chapterTwoCaseLessons = [
     id: 'price-action-trends.chapter-02.lesson-20',
     title: 'Chartfall 2.6: Vom Trend in die Trading Range',
     summary:
-      'Wie wiederholte bullische Reaktionen an neuen Tiefs die Trendphase beenden und bearische Körper am späteren Hoch den nächsten Pullback ankündigen.',
+      'Wie wiederholte bullische Reaktionen an neuen Tiefs die Trendphase beenden und bärische Körper am späteren Hoch den nächsten Pullback ankündigen.',
     durationMinutes: 14,
     xp: 50,
     sourceUnit: 'Kapitel 2 · Chartfall 2.6',
@@ -531,13 +531,13 @@ export const chapterTwoCaseLessons = [
         eyebrow: 'Eigenständige Rekonstruktion · Fall 2.6',
         title: 'Der Trend endet schrittweise, wenn neue Tiefs keine sauberen Shorts mehr liefern',
         paragraphs: [
-          'Zu Beginn des Falls setzt ein Bärentrend zuverlässig neue Tiefs. Später folgt auf nahezu jeden Bruch eines Swing-Tiefs innerhalb von ein oder zwei Bars entweder ein bullischer Körper oder ein auffälliger unterer Tail. Verkäufer erzielen zwar noch neue Extrempreise, können diese aber immer seltener bis zum Schluss halten.',
-          'Das Verhalten zeigt einen Rollenwechsel. Bären betrachten neue Tiefs zunehmend als Ort für Gewinnmitnahmen statt als idealen neuen Short. Gleichzeitig sehen Bullen dort genügend Wert, um erste Longs aufzubauen. Beide Aktionen sind Käufe und nehmen dem Bärentrend seine einseitige Struktur.',
-          'Jede einzelne Reaktion kann klein bleiben. Zusammen bilden sie kumulativen Kaufdruck. Sobald genügend Druck vorhanden ist, kann der Markt eine große Bärenmarktrally starten oder vollständig in einen Bullenmarkt wechseln. Häufig kommt zuerst eine Trading Range, weil starke Bullen unten kaufen und starke Bären erst bei höheren Preisen wieder verkaufen.',
-          'Am späteren Rallyhoch sammelt sich die Gegeninformation: Mehrere bearische Körper erscheinen dicht beieinander. Nun baut sich Verkaufsdruck auf und warnt vor einem Pullback. Kapitel 2 endet damit bei derselben Grundregel, mit der es begann: Nicht ein einzelnes Etikett, sondern die fortlaufende Bilanz der Bars zeigt, welche Seite Kontrolle gewinnt oder verliert.',
+          'Zu Beginn des Falls setzt ein Bärentrend zuverlässig neue Tiefs. Später folgt auf fast jeden Bruch eines Swing-Tiefs innerhalb von ein oder zwei Bars entweder ein bullischer Körper oder ein auffälliger unterer Tail. Die Verkäufer erreichen zwar noch neue Extrempreise, können sie aber immer seltener bis zum Schluss halten.',
+          'Das Verhalten zeigt einen Rollenwechsel. Bären sehen neue Tiefs zunehmend als Ort für Gewinnmitnahmen statt als idealen neuen Short. Gleichzeitig finden Bullen dort genug Wert, um erste Longs aufzubauen. Beides sind Käufe, und sie nehmen dem Bärentrend seine Einseitigkeit.',
+          'Jede einzelne Reaktion kann klein bleiben. Zusammen ergeben sie kumulativen Kaufdruck. Ist genug Druck da, kann der Markt eine große Bärenmarktrally starten oder ganz in einen Bullenmarkt wechseln. Oft kommt zuerst eine Trading Range, weil starke Bullen unten kaufen und starke Bären erst bei höheren Preisen wieder verkaufen.',
+          'Am späteren Rallyhoch sammelt sich die Gegeninfo: Mehrere bärische Körper erscheinen dicht beieinander. Jetzt baut sich Verkaufsdruck auf und warnt vor einem Pullback. Kapitel 2 endet damit bei derselben Grundregel, mit der es angefangen hat: Nicht ein einzelnes Etikett, sondern die laufende Bilanz der Bars zeigt, welche Seite Kontrolle gewinnt oder verliert.',
         ],
         callout:
-          'Beobachte, was nach einem neuen Extrem geschieht. Schnelle Zurückweisung ist kumulative Information gegen den alten Trend.',
+          'Beobachte, was nach einem neuen Extrem passiert. Schnelle Abweisung ist kumulative Information gegen den alten Trend.',
       },
       {
         id: 'chapter-02-20-diagram',

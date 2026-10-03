@@ -5,7 +5,7 @@ export const chapterTwoFoundationLessons = [
     id: 'price-action-trends.chapter-02.lesson-01',
     title: 'Trendbar oder Ein-Bar-Range',
     summary:
-      'Wie du jeden Bar zuerst als gerichteten Kontrollgewinn oder als kurzfristige Balance einordnest.',
+      'Wie du jeden Bar zuerst entweder als gerichteten Kontrollgewinn oder als kurzfristige Balance einordnest.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Kapitel 2 · Trendbars, Dojis und Klimaxe',
@@ -22,13 +22,13 @@ export const chapterTwoFoundationLessons = [
         eyebrow: 'Kapitel 2',
         title: 'Beginne mit Kontrolle, nicht mit Musternamen',
         paragraphs: [
-          'Der Chart vor dir befindet sich entweder in einer gerichteten Phase oder in irgendeiner Form von Trading Range. Sobald zwei oder mehr Bars stark überlappen, handeln Käufer und Verkäufer wiederholt in demselben Preisgebiet. Ob diese Range später Flag, Dreieck oder Pennant genannt wird, ändert ihre Kerninformation nicht: Beide Seiten können handeln, ohne dass eine dauerhaft Abstand gewinnt.',
-          'Dieselbe Logik gilt auf der kleinsten sichtbaren Ebene. Ein einzelner Bar zeigt entweder einen erkennbaren Weg vom Open zum Close oder er endet ungefähr dort, wo er begann. Im ersten Fall hat eine Seite während dieses Zeitfensters messbar Kontrolle gewonnen. Im zweiten Fall ist der Bar eine sehr kurze Trading Range.',
-          'Ein bullischer Körper bedeutet nur, dass der Schluss über der Eröffnung liegt; ein bärischer Körper das Gegenteil. Wie viel Kontrolle daraus folgt, hängt von der relativen Körpergröße, den Tails, der Position des Schlusses und dem umgebenden Markt ab. Ein winziger Körper in einem großen Bar zeigt viel Bewegung, aber wenig dauerhaften Fortschritt.',
-          'Die erste Frage lautet daher nicht „Wie heißt diese Kerze?“, sondern: Hat eine Seite Preise vom Open weg bis zum Close durchgesetzt – oder wurde die Bewegung wieder ausgeglichen?',
+          'Der Chart vor dir ist entweder in einer gerichteten Phase oder in irgendeiner Form von Trading Range. Sobald zwei oder mehr Bars stark überlappen, handeln Käufer und Verkäufer wiederholt im selben Preisgebiet. Ob diese Range später Flag, Dreieck oder Pennant heißt, ändert ihre Kernaussage nicht: Beide Seiten können handeln, ohne dass eine sich dauerhaft absetzt.',
+          'Dieselbe Logik gilt auf der kleinsten sichtbaren Ebene. Ein einzelner Bar zeigt entweder einen erkennbaren Weg vom Open zum Close, oder er endet ungefähr dort, wo er angefangen hat. Im ersten Fall hat eine Seite in diesem Zeitfenster messbar Kontrolle gewonnen. Im zweiten ist der Bar eine sehr kurze Trading Range.',
+          'Ein bullischer Körper heißt nur, dass der Schluss über der Eröffnung liegt; ein bärischer Körper das Gegenteil. Wie viel Kontrolle daraus folgt, hängt von der relativen Körpergröße, den Tails, der Position des Schlusses und dem Markt drumherum ab. Ein winziger Körper in einem großen Bar zeigt viel Bewegung, aber wenig bleibenden Fortschritt.',
+          'Die erste Frage lautet daher nicht „Wie heißt diese Kerze?“, sondern: Hat eine Seite die Preise vom Open bis zum Close durchgesetzt – oder wurde die Bewegung wieder ausgeglichen?',
         ],
         callout:
-          'Trendbar bedeutet gerichteter Fortschritt im Bar. Doji bedeutet vorübergehende Balance im Bar.',
+          'Trendbar heißt: gerichteter Fortschritt im Bar. Doji heißt: vorübergehende Balance im Bar.',
       },
       {
         id: 'chapter-02-01-diagram',
@@ -107,13 +107,13 @@ export const chapterTwoFoundationLessons = [
         eyebrow: 'Zweiseitige Auktion',
         title: 'Ein starker Bar überzeugt nie alle großen Teilnehmer',
         paragraphs: [
-          'Jede Ausführung verbindet einen Käufer mit einem Verkäufer. Auf liquiden Märkten handeln auf beiden Seiten professionelle Teilnehmer mit getesteten Modellen. Wenn du von einer Richtung überzeugt bist, existiert deshalb sehr wahrscheinlich eine gut begründete Gegenposition. Das schützt dich vor der gefährlichen Annahme, ein auffälliger Bar könne nur eine Bedeutung haben.',
-          'Nahe dem Hoch eines bullischen Trendbars kaufen einige Bullen die Stärke, weil sie weitere höhere Preise erwarten. Andere Bullen warten auf einen Rücklauf an das Bartief. Gleichzeitig schließen frühe Bullen dort Gewinne, während Bären die Bewegung als überdehnt ansehen und Shorts eröffnen. Weitere Bären warten erst auf einen Bruch unter das Tief als Schwächesignal.',
-          'Am Ende eines starken bearischen Bars gilt die Spiegelung: Einige Bären verkaufen weiter, andere nehmen Gewinne mit; einige Bullen kaufen den vermeintlich günstigen Preis, andere warten auf einen Bruch über das Barhoch. Der sichtbare Körper verrät, welche Seite in diesem Bar Strecke machte. Er verrät noch nicht sicher, wer beim nächsten Bar Recht behält.',
-          'Darum ist eine der wichtigsten Fähigkeiten die Unterscheidung zwischen Start und Endphase. Derselbe große Trendbar kann einen neuen Impuls eröffnen oder die letzte Beschleunigung einer alten Bewegung darstellen.',
+          'Jede Ausführung verbindet einen Käufer mit einem Verkäufer. In liquiden Märkten handeln auf beiden Seiten Profis mit getesteten Modellen. Bist du von einer Richtung überzeugt, gibt es deshalb sehr wahrscheinlich eine gut begründete Gegenposition. Das schützt dich vor der gefährlichen Annahme, ein auffälliger Bar könne nur eine Bedeutung haben.',
+          'Nahe dem Hoch eines bullischen Trendbars kaufen manche Bullen die Stärke, weil sie noch höhere Preise erwarten. Andere Bullen warten auf einen Rücklauf zum Bartief. Gleichzeitig nehmen frühe Bullen dort Gewinne mit, während Bären die Bewegung für überdehnt halten und Shorts eröffnen. Weitere Bären warten erst auf einen Bruch unter das Tief als Schwächesignal.',
+          'Am Ende eines starken bärischen Bars sieht es spiegelbildlich aus: Manche Bären verkaufen weiter, andere nehmen Gewinne mit; manche Bullen kaufen den scheinbar günstigen Preis, andere warten auf einen Bruch über das Barhoch. Der sichtbare Körper verrät, welche Seite in diesem Bar vorankam. Wer beim nächsten Bar recht behält, verrät er noch nicht sicher.',
+          'Deshalb ist eine der wichtigsten Fähigkeiten, Anfang und Endphase zu unterscheiden. Derselbe große Trendbar kann einen neuen Impuls eröffnen oder die letzte Beschleunigung einer alten Bewegung sein.',
         ],
         callout:
-          'Lies einen starken Bar in zwei Sätzen: Was spricht für Fortsetzung – und wer könnte ihn als Ausstieg oder Gegenchance nutzen?',
+          'Lies einen starken Bar in zwei Sätzen: Was spricht für die Fortsetzung – und wer könnte ihn als Ausstieg oder als Chance gegen den Trend nutzen?',
       },
       {
         id: 'chapter-02-02-diagram',
@@ -199,7 +199,7 @@ export const chapterTwoFoundationLessons = [
     id: 'price-action-trends.chapter-02.lesson-03',
     title: 'Ein Doji ist relativ, nicht perfekt',
     summary:
-      'Warum ein kleiner Körper je nach Instrument und Zeitrahmen wichtiger ist als die mathematisch identische Eröffnung und der Schluss.',
+      'Warum ein kleiner Körper je nach Instrument und Zeitrahmen mehr zählt als die mathematisch identische Eröffnung und der Schluss.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Kapitel 2 · Relative Definition des Dojis',
@@ -217,13 +217,13 @@ export const chapterTwoFoundationLessons = [
         eyebrow: 'Relative Einordnung',
         title: 'Nahe genug kann dieselbe Information tragen',
         paragraphs: [
-          'Für die praktische Analyse fasst man Bars mit winzigem oder unsichtbarem Körper als Dojis zusammen. Entscheidend ist nicht, ob Open und Close exakt gleich sind. Entscheidend ist, dass der Körper relativ zum gesamten Bar und zu seiner Umgebung so klein ist, dass weder Bullen noch Bären einen klaren Schlussvorteil halten.',
-          'Auf einem liquiden Fünf-Minuten-Future kann bereits ein Körper von ein oder zwei Ticks die Grenze zwischen Doji und kleinem Trendbar bilden. Auf einem Wochen- oder Monatschart einer teuren Aktie kann der Schluss deutlich vom Open abweichen und der Körper im Verhältnis zum Kursmaßstab trotzdem wie ein Doji funktionieren.',
-          'Die Klassifizierung bleibt deshalb bewusst unscharf. Ein Bar kann in einer ruhigen Passage als kleiner Trendbar gelten und zwischen größeren Nachbarbars als Doji. Du suchst keine geometrische Perfektion, sondern eine schnelle Antwort auf die Frage: Kontrolle oder Patt?',
-          'Spezialnamen wie Hammer, Hanging Man oder Harami ändern diese Grundfrage nicht. Richtung, Stärke und Kontext liefern meist mehr verwertbare Information als ein immer feineres Vokabular für Kerzenformen.',
+          'In der praktischen Analyse fasst man Bars mit winzigem oder unsichtbarem Körper als Dojis zusammen. Entscheidend ist nicht, ob Open und Close exakt gleich sind. Entscheidend ist, dass der Körper im Verhältnis zum ganzen Bar und seiner Umgebung so klein ist, dass weder Bullen noch Bären einen klaren Vorteil beim Schluss haben.',
+          'Auf einem liquiden Fünf-Minuten-Future kann schon ein Körper von ein oder zwei Ticks die Grenze zwischen Doji und kleinem Trendbar sein. Auf einem Wochen- oder Monatschart einer teuren Aktie kann der Schluss deutlich vom Open abweichen, und der Körper wirkt im Verhältnis zum Kursmaßstab trotzdem wie ein Doji.',
+          'Die Einordnung bleibt deshalb bewusst unscharf. Ein Bar kann in einer ruhigen Passage als kleiner Trendbar gelten und zwischen größeren Nachbarbars als Doji. Du suchst keine geometrische Perfektion, sondern eine schnelle Antwort auf die Frage: Kontrolle oder Patt?',
+          'Spezialnamen wie Hammer, Hanging Man oder Harami ändern an dieser Grundfrage nichts. Richtung, Stärke und Kontext liefern meist mehr nutzbare Information als ein immer feineres Vokabular für Kerzenformen.',
         ],
         callout:
-          'Beurteile den Körper relativ zum Bar, zu den Nachbarbars, zum Instrument und zum Zeitrahmen.',
+          'Beurteile den Körper im Verhältnis zum Bar, zu den Nachbarbars, zum Instrument und zum Zeitrahmen.',
       },
       {
         id: 'chapter-02-03-diagram',
@@ -284,7 +284,7 @@ export const chapterTwoFoundationLessons = [
     id: 'price-action-trends.chapter-02.lesson-04',
     title: 'Ein Trendbar spielt vier Rollen',
     summary:
-      'Wie derselbe gerichtete Bar zugleich Spike, Breakout, funktionale Lücke und Teil eines Klimax sein kann.',
+      'Wie derselbe gerichtete Bar gleichzeitig Spike, Breakout, funktionale Lücke und Teil eines Klimax sein kann.',
     durationMinutes: 13,
     xp: 45,
     sourceUnit: 'Kapitel 2 · Funktionen eines Trendbars',
@@ -302,13 +302,13 @@ export const chapterTwoFoundationLessons = [
         eyebrow: 'Mehrfachfunktion',
         title: 'Vier Begriffe beschreiben vier Blickwinkel desselben Ereignisses',
         paragraphs: [
-          'Ein Körper zeigt, dass der Schluss vom Open weggetrieben wurde. Größere Körper stehen im Allgemeinen für mehr Stärke. Diese Regel ist jedoch nicht linear: Ein außergewöhnlich großer Bar nach einer langen Bewegung kann Erschöpfung statt frischer Kraft anzeigen. Mehrere kräftige Bars in Folge sind dagegen meist ein gesünderes Zeichen und erhöhen die Chance auf mindestens ein weiteres Extrem.',
-          'Jeder Trendbar lässt sich gleichzeitig aus vier Perspektiven betrachten. Als Spike erzeugt er schnelle Distanz. Als Breakout versucht er, den bisherigen Preisbereich zu verlassen. Als funktionale Lücke überspringt er Preise so entschieden, dass Teilnehmer später häufig zu diesem Bereich zurückkehren oder ihn verteidigen. Als Klimax ist er Teil einer Bewegung, die kurzfristig weit und schnell gelaufen ist.',
-          'Keine Rolle besitzt automatisch Vorrang. Ein früher großer Bar aus einer engen Range kann vor allem ein Breakout-Spike sein. Ein sehr großer Bar nach dreißig Trendbars an Unterstützung kann vor allem als Vakuum und Erschöpfungsklimax wirken. Der Kontext bestimmt, welche Funktion für die nächste Entscheidung dominiert.',
-          'Darum darfst du nicht aus dem Aussehen allein schließen. Benenne erst Position, Vorgeschichte und Anschluss; wähle dann die Rolle, die das aktuelle Verhalten am besten erklärt.',
+          'Ein Körper zeigt, dass der Schluss vom Open weggetrieben wurde. Größere Körper stehen im Allgemeinen für mehr Stärke. Linear ist das aber nicht: Ein außergewöhnlich großer Bar nach einer langen Bewegung kann Erschöpfung statt frischer Kraft zeigen. Mehrere kräftige Bars hintereinander sind dagegen meist ein gesünderes Zeichen und erhöhen die Chance auf mindestens ein weiteres Extrem.',
+          'Jeden Trendbar kannst du gleichzeitig aus vier Blickwinkeln sehen. Als Spike erzeugt er schnell Distanz. Als Breakout versucht er, den bisherigen Preisbereich zu verlassen. Als funktionale Lücke überspringt er Preise so entschieden, dass Teilnehmer später oft zu diesem Bereich zurückkehren oder ihn verteidigen. Als Klimax ist er Teil einer Bewegung, die kurzfristig weit und schnell gelaufen ist.',
+          'Keine dieser Rollen hat automatisch Vorrang. Ein früher großer Bar aus einer engen Range ist vor allem ein Breakout-Spike. Ein sehr großer Bar nach dreißig Trendbars an Unterstützung wirkt eher als Vakuum und Erschöpfungsklimax. Der Kontext entscheidet, welche Funktion für die nächste Entscheidung zählt.',
+          'Schließ deshalb nicht allein aus dem Aussehen. Benenne zuerst Position, Vorgeschichte und Anschluss und wähle dann die Rolle, die das aktuelle Verhalten am besten erklärt.',
         ],
         callout:
-          'Ein Bar verändert sein Aussehen nicht – aber seine dominante Funktion verändert sich mit dem Kontext.',
+          'Ein Bar ändert sein Aussehen nicht – aber seine wichtigste Funktion ändert sich mit dem Kontext.',
       },
       {
         id: 'chapter-02-04-diagram',
@@ -369,7 +369,7 @@ export const chapterTwoFoundationLessons = [
     id: 'price-action-trends.chapter-02.lesson-05',
     title: 'Vakuum oder echte Initiative?',
     summary:
-      'Wie eine schnelle Bewegung entstehen kann, weil die Gegenseite ausweicht – und wie Follow-through den Unterschied sichtbar macht.',
+      'Wie eine schnelle Bewegung entstehen kann, weil die Gegenseite ausweicht – und woran du mit Follow-through den Unterschied siehst.',
     durationMinutes: 14,
     xp: 50,
     sourceUnit: 'Kapitel 2 · Vakuumeffekt und Kontext',
@@ -387,10 +387,10 @@ export const chapterTwoFoundationLessons = [
         eyebrow: 'Liquiditätsvakuum',
         title: 'Manchmal bewegt fehlender Widerstand den Markt stärker als neue Überzeugung',
         paragraphs: [
-          'Ein schneller bullischer Spike muss nicht bedeuten, dass plötzlich unbegrenzt viele Käufer entstanden sind. Er kann auch entstehen, weil starke Bären vorübergehend nicht verkaufen und Bullen ihre Gewinnmitnahmen bis zu einem erwarteten Widerstand verschieben. Wenn dort beide Gruppen verkaufen, dreht der Spike scharf zurück. Die scheinbare Stärke war dann wesentlich durch ein Angebotsvakuum ermöglicht.',
-          'Erhält der Spike stattdessen weitere bullische Bars, ist die Interpretation anders. Starke Bullen kaufen weiter, und selbst starke Bären erwarten noch höhere Preise, bevor sie aggressiv verkaufen. Anschluss zeigt, dass der neue Bereich nicht nur kurz berührt, sondern zumindest vorläufig akzeptiert wird.',
-          'Dasselbe Prinzip wirkt abwärts. An einer bekannten Unterstützung können Käufer und Gewinnmitnehmer warten, bis ein besonders kräftiger bearischer Bar erscheint. Ihre Zurückhaltung lässt den Preis zuvor beschleunigen. Sobald der erwartete günstige Bereich erreicht ist, decken Bären Shorts und Bullen eröffnen Longs. So kann gerade der stärkste bearische Bar die Umkehr vorbereiten.',
-          'Langfristig orientierte Teilnehmer kaufen starke Abverkaufs-Spikes innerhalb intakter Bullenmärkte manchmal als Wertchance. Sie versuchen dabei nicht, den exakten Tiefpunkt zu treffen. Ihre These lautet, dass der Abschlag im größeren Kontext wahrscheinlich nicht dauerhaft bleibt.',
+          'Ein schneller bullischer Spike heißt nicht, dass plötzlich unbegrenzt viele Käufer aufgetaucht sind. Er kann auch entstehen, weil starke Bären vorübergehend nicht verkaufen und Bullen ihre Gewinnmitnahmen bis zu einem erwarteten Widerstand aufschieben. Verkaufen dort beide Gruppen, dreht der Spike scharf zurück. Die scheinbare Stärke war dann vor allem durch ein Angebotsvakuum möglich.',
+          'Bekommt der Spike dagegen weitere bullische Bars, ist die Deutung anders. Starke Bullen kaufen weiter, und selbst starke Bären erwarten noch höhere Preise, bevor sie aggressiv verkaufen. Anschluss zeigt, dass der neue Bereich nicht nur kurz berührt, sondern zumindest vorläufig akzeptiert wird.',
+          'Dasselbe Prinzip wirkt abwärts. An einer bekannten Unterstützung können Käufer und Gewinnmitnehmer warten, bis ein besonders kräftiger bärischer Bar erscheint. Ihre Zurückhaltung beschleunigt den Preis vorher. Ist der erwartete günstige Bereich erreicht, decken Bären ihre Shorts ein und Bullen eröffnen Longs. So kann gerade der stärkste bärische Bar die Umkehr vorbereiten.',
+          'Langfristig orientierte Teilnehmer kaufen starke Abverkaufs-Spikes in intakten Bullenmärkten manchmal als Gelegenheit. Sie versuchen dabei nicht, das exakte Tief zu treffen. Ihre These: Der Abschlag bleibt im größeren Kontext wahrscheinlich nicht dauerhaft.',
         ],
         callout:
           'Schnelligkeit kann aus aggressiven Orders entstehen – oder daraus, dass die Gegenseite bis zu einem Ziel einfach fehlt.',

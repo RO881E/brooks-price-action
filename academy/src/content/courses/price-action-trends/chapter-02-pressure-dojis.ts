@@ -5,7 +5,7 @@ export const chapterTwoPressureDojiLessons = [
     id: 'price-action-trends.chapter-02.lesson-10',
     title: 'Druck sammelt sich Bar für Bar',
     summary:
-      'Wie wiederkehrende bullische oder bearische Körper einen Regimewechsel vorbereiten, lange bevor der Ausbruch offensichtlich wird.',
+      'Wie wiederkehrende bullische oder bärische Körper einen Regimewechsel vorbereiten, lange bevor der Ausbruch offensichtlich wird.',
     durationMinutes: 14,
     xp: 50,
     sourceUnit: 'Kapitel 2 · Kumulativer Kauf- und Verkaufsdruck',
@@ -23,10 +23,10 @@ export const chapterTwoPressureDojiLessons = [
         eyebrow: 'Kumulative Evidenz',
         title: 'Ein Regimewechsel beginnt oft vor dem sichtbaren Breakout',
         paragraphs: [
-          'Wenn in einer Trading Range oder in einem Bärentrend immer mehr bullische Körper entstehen, sammeln Käufer kleine Erfolge. Sie kaufen Rückläufe innerhalb der Bars, akzeptieren Schlusskurse nahe den Hochs und werden mitunter sogar unter früheren Tiefs aktiv. Gleichzeitig verkaufen Bären an neuen Tiefs weniger aggressiv und nutzen sie häufiger zur Gewinnmitnahme.',
-          'Keiner dieser Bars muss allein den Trend drehen. Ihre Wirkung addiert sich. Mit jedem bullischen Schluss steigt der Beweis, dass tiefe Preise Nachfrage anziehen und dass die Verkäufer ihre bisherige Kontrolle nicht mehr vollständig durchsetzen können. Der Markt kann dadurch erst in ein bullisches Bein und später in einen vollständigen Bullenmarkt übergehen.',
-          'Im Bullenmarkt gilt die Spiegelung: Wiederkehrende oder zunehmend große bearische Körper zeigen, dass Verkäufer in Pullbacks und Schwüngen mehr Distanz gewinnen. Besonders in einer Range nach einem Trend kann diese wachsende Sequenz die spätere Abwärtsbewegung vorbereiten.',
-          'Druck ist daher kein einzelnes Signal, sondern eine Bilanz. Zähle, welche Seite Körper erzeugt, wie groß diese werden, wo sie auftreten und ob ihre Gegenseite an den Extremen noch Fortschritt erzielt.',
+          'Entstehen in einer Trading Range oder in einem Bärentrend immer mehr bullische Körper, sammeln Käufer kleine Erfolge. Sie kaufen Rückläufe innerhalb der Bars, akzeptieren Schlusskurse nahe den Hochs und werden mitunter sogar unter früheren Tiefs aktiv. Gleichzeitig verkaufen Bären an neuen Tiefs weniger aggressiv und nutzen sie öfter zur Gewinnmitnahme.',
+          'Keiner dieser Bars muss den Trend allein drehen. Ihre Wirkung summiert sich. Mit jedem bullischen Schluss wächst der Beweis, dass tiefe Preise Nachfrage anziehen und die Verkäufer ihre bisherige Kontrolle nicht mehr ganz durchsetzen können. Der Markt kann dadurch erst in ein bullisches Bein und später in einen kompletten Bullenmarkt übergehen.',
+          'Im Bullenmarkt gilt das Spiegelbild: Wiederkehrende oder zunehmend große bärische Körper zeigen, dass Verkäufer in Pullbacks und Schwüngen mehr Distanz gewinnen. Gerade in einer Range nach einem Trend kann diese wachsende Folge die spätere Abwärtsbewegung vorbereiten.',
+          'Druck ist deshalb kein einzelnes Signal, sondern eine Bilanz. Zähl, welche Seite Körper erzeugt, wie groß sie werden, wo sie auftreten und ob die Gegenseite an den Extremen noch vorankommt.',
         ],
         callout:
           'Ein Bar kann Zufall sein. Eine wiederkehrende Folge gleichartiger Erfolge verändert die Wahrscheinlichkeit.',
@@ -109,13 +109,13 @@ export const chapterTwoPressureDojiLessons = [
         eyebrow: 'Wer handelt wo?',
         title: 'Die Schlussposition verrät, welche Seite an einem Extrem noch handeln will',
         paragraphs: [
-          'In einem reifen Bärentrend zeigen untere Tails und bullische Schlusskurse, dass starke Bullen an neuen Tiefs kaufen. Sie besitzen genug Kapital und Überzeugung, bei noch tieferen Preisen weiter aufzubauen. Gleichzeitig sehen starke Bären dort weniger Wert für neue Shorts und warten lieber auf eine Rally, um höher zu verkaufen.',
-          'Würden genügend starke Bären weiterhin jedes Tief aggressiv verkaufen, könnten Käufer die Bars nicht regelmäßig vom Tief wegschließen. Genau deshalb ist die Schlussposition ein Hinweis auf die veränderte Bereitschaft beider Seiten.',
-          'Wenn starke Bullen unten kaufen und starke Bären erst oben verkaufen, entsteht zweiseitiger Handel: eine Trading Range. Schwache Teilnehmer reagieren häufig entgegengesetzt. Sie verkaufen am Tief aus Angst oder Stop-Zwang und kaufen am Hoch aus Angst, einen neuen Trend zu verpassen.',
-          'Diese Rollen sind keine festen Personenetiketten. Ein professioneller Teilnehmer kann je nach Preis und Kontext die Seite wechseln. Auch deine Markteinschätzung muss beweglich bleiben: Ein anfänglicher Vorteil kann sich über mehrere Bars zur Balance und später sogar zum Vorteil der Gegenseite drehen.',
+          'In einem reifen Bärentrend zeigen untere Tails und bullische Schlusskurse, dass starke Bullen an neuen Tiefs kaufen. Sie haben genug Kapital und Überzeugung, bei noch tieferen Preisen weiter aufzubauen. Gleichzeitig sehen starke Bären dort weniger Wert für neue Shorts und warten lieber auf eine Rally, um höher zu verkaufen.',
+          'Würden genug starke Bären weiterhin jedes Tief aggressiv verkaufen, könnten Käufer die Bars nicht regelmäßig vom Tief wegschließen. Genau deshalb ist die Schlussposition ein Hinweis darauf, wie sich die Bereitschaft beider Seiten verändert hat.',
+          'Kaufen starke Bullen unten und verkaufen starke Bären erst oben, entsteht zweiseitiger Handel: eine Trading Range. Schwache Teilnehmer reagieren oft entgegengesetzt. Sie verkaufen am Tief aus Angst oder wegen eines Stop-Zwangs und kaufen am Hoch aus Angst, einen neuen Trend zu verpassen.',
+          'Diese Rollen sind keine festen Personenetiketten. Ein Profi kann je nach Preis und Kontext die Seite wechseln. Auch deine Markteinschätzung muss beweglich bleiben: Ein anfänglicher Vorteil kann sich über mehrere Bars zur Balance und später sogar zum Vorteil der Gegenseite drehen.',
         ],
         callout:
-          'Stark bedeutet nicht „immer richtig“, sondern: mit Plan, ausreichendem Risiko-Spielraum und am passenden Preis handeln.',
+          'Stark heißt nicht „immer richtig“, sondern: mit Plan, genug Risiko-Spielraum und zum passenden Preis handeln.',
       },
       {
         id: 'chapter-02-11-diagram',
@@ -194,13 +194,13 @@ export const chapterTwoPressureDojiLessons = [
         eyebrow: 'Balance mit Richtung',
         title: 'Der einzelne Bar und die Sequenz können verschiedene Aussagen haben',
         paragraphs: [
-          'Während ein Doji entsteht, läuft auf einer kleineren Zeitebene meist erst eine Bewegung in eine Richtung und anschließend eine Gegenbewegung zurück. Innerhalb des Bars gab es also einen kleinen Kauf- oder Verkaufsklimax und danach den Versuch der Gegenseite. Das Ergebnis ist ein Schluss nahe der Eröffnung: zweiseitiger Handel.',
-          'Darum lässt sich ein Doji als Ein-Bar-Range behandeln. Er führt häufig zumindest kurz zu weiterer Balance, weil sowohl Käufer als auch Verkäufer gerade gezeigt haben, dass sie handeln können. Daraus folgt jedoch keine automatische Umkehr und auch keine Pflicht, dass der Markt längere Zeit seitwärts bleibt.',
-          'Mehrere Dojis können als Gruppe deutlich gerichtet sein. Steigen ihre Schlusskurse nacheinander, liegen die meisten Hochs höher und bleiben auch die Tiefs zunehmend höher, dann wandert die gesamte Balancezone nach oben. Jeder einzelne Bar ist umkämpft, aber die Käufer gewinnen von Auktion zu Auktion Preisgebiet.',
-          'Du analysierst deshalb auf zwei Ebenen: Kontrolle innerhalb des Bars und Fortschritt der ganzen Sequenz. „Dojis bedeuten keinen Trend“ ist nur auf die isolierte Kerze bezogen und wird falsch, sobald die Reihe klare Trendmerkmale besitzt.',
+          'Während ein Doji entsteht, läuft auf einer kleineren Zeitebene meist erst eine Bewegung in eine Richtung und danach eine Gegenbewegung zurück. Im Bar gab es also einen kleinen Kauf- oder Verkaufsklimax und danach den Versuch der Gegenseite. Das Ergebnis ist ein Schluss nahe der Eröffnung: zweiseitiger Handel.',
+          'Darum kannst du einen Doji als Ein-Bar-Range behandeln. Oft führt er zumindest kurz zu weiterer Balance, weil Käufer und Verkäufer gerade gezeigt haben, dass beide handeln können. Daraus folgt aber weder eine automatische Umkehr noch, dass der Markt länger seitwärts bleiben muss.',
+          'Mehrere Dojis können als Gruppe deutlich gerichtet sein. Steigen ihre Schlusskurse nacheinander, liegen die meisten Hochs höher und werden auch die Tiefs höher, wandert die ganze Balancezone nach oben. Jeder einzelne Bar ist umkämpft, aber die Käufer gewinnen von Auktion zu Auktion Preisgebiet.',
+          'Du analysierst deshalb auf zwei Ebenen: Kontrolle innerhalb des Bars und Fortschritt der ganzen Folge. „Dojis bedeuten keinen Trend“ gilt nur für die einzelne Kerze und wird falsch, sobald die Reihe klare Trendmerkmale zeigt.',
         ],
         callout:
-          'Ein Patt pro Runde kann trotzdem eine Mannschaft nach vorn tragen, wenn jedes neue Patt höher stattfindet.',
+          'Ein Unentschieden pro Runde kann trotzdem eine Mannschaft nach vorn tragen, wenn jedes neue Unentschieden höher stattfindet.',
       },
       {
         id: 'chapter-02-12-diagram',
@@ -261,7 +261,7 @@ export const chapterTwoPressureDojiLessons = [
     id: 'price-action-trends.chapter-02.lesson-13',
     title: 'Chartfall 2.1: Nahe genug ist handelbar',
     summary:
-      'Wie Dojis über verschiedene Märkte vergleichbar bleiben und ein riesiger später Bullenbar in eine Zwei-Bar-Umkehr kippen kann.',
+      'Wie Dojis über verschiedene Märkte hinweg vergleichbar bleiben und ein riesiger später Bullenbar in eine Zwei-Bar-Umkehr kippen kann.',
     durationMinutes: 14,
     xp: 50,
     sourceUnit: 'Kapitel 2 · Chartfall 2.1',
@@ -280,13 +280,13 @@ export const chapterTwoPressureDojiLessons = [
         eyebrow: 'Eigenständige Rekonstruktion · Fall 2.1',
         title: 'Der Marktmaßstab entscheidet – danach entscheidet die Folge',
         paragraphs: [
-          'Der erste Fallbeispiel stellt zwei sehr unterschiedliche Charts nebeneinander. In einem kurzfristigen Future-Chart entstehen selbst innerhalb eines Bullenmarkts zahlreiche Bars mit exakt gleichem Open und Close. Im langfristigen Aktienchart gibt es keinen einzigen mathematisch perfekten Doji, obwohl mehrere Kerzen optisch dieselbe Balancefunktion besitzen.',
-          'Ein besonders kleiner relativer Körper im Aktienchart funktioniert dort als Signalbar, obwohl zwischen Eröffnung und Schluss noch ein merklicher Geldbetrag liegt. Eine starre Definition würde die nützliche Information verwerfen: Der Markt hatte nach einer langen Bewegung keine klare Schlusskontrolle mehr.',
-          'Später erscheint in demselben größeren Kontext ein außergewöhnlich großer bullischer Bar. Er kann die letzten verspäteten Käufer und Short-Eindeckungen bündeln. Der direkt folgende große bearische Bar zeigt, dass oberhalb keine dauerhafte Nachfrage mehr übrig ist. Zusammen bilden beide Bars auf einer höheren Auflösung eine kompakte Umkehrstruktur.',
-          'Nach einem Spike aufwärts und einem Spike abwärts besitzen beide Seiten Beweise. Häufig folgt deshalb eine Trading Range, bis eine Seite erneut akzeptierte Distanz erzeugt. Im beschriebenen Fall entstand innerhalb dieser Balance ein tieferes Hoch über mehrere Bars.',
+          'Das erste Fallbeispiel stellt zwei ganz unterschiedliche Charts nebeneinander. Im kurzfristigen Future-Chart gibt es selbst im Bullenmarkt zahlreiche Bars mit exakt gleichem Open und Close. Im langfristigen Aktienchart gibt es keinen einzigen mathematisch perfekten Doji, obwohl mehrere Kerzen optisch dieselbe Balancefunktion haben.',
+          'Ein besonders kleiner relativer Körper im Aktienchart funktioniert dort als Signalbar, obwohl zwischen Eröffnung und Schluss noch ein spürbarer Geldbetrag liegt. Eine starre Definition würde diese nützliche Information wegwerfen: Der Markt hatte nach einer langen Bewegung keine klare Kontrolle über den Schluss mehr.',
+          'Später erscheint im selben größeren Kontext ein außergewöhnlich großer bullischer Bar. Er kann die letzten verspäteten Käufer und Short-Eindeckungen bündeln. Der direkt folgende große bärische Bar zeigt, dass oberhalb keine dauerhafte Nachfrage mehr übrig ist. Zusammen bilden beide Bars in höherer Auflösung eine kompakte Umkehrstruktur.',
+          'Nach einem Spike aufwärts und einem Spike abwärts haben beide Seiten Beweise vorzuweisen. Oft folgt deshalb eine Trading Range, bis eine Seite wieder akzeptierte Distanz aufbaut. Im beschriebenen Fall entstand innerhalb dieser Balance ein tieferes Hoch über mehrere Bars.',
         ],
         callout:
-          'Erst relativ klassifizieren, dann die Folge lesen: Balancebar, Klimaxbar und Umkehrbar sind Funktionen im Kontext.',
+          'Erst relativ einordnen, dann die Folge lesen: Balancebar, Klimaxbar und Umkehrbar sind Funktionen im Kontext.',
       },
       {
         id: 'chapter-02-13-diagram',
@@ -347,7 +347,7 @@ export const chapterTwoPressureDojiLessons = [
     id: 'price-action-trends.chapter-02.lesson-14',
     title: 'Chartfall 2.2: Der Kontext benennt den Bar',
     summary:
-      'Warum derselbe kleine Körper an einer Stelle als Doji und an einer anderen als kleiner Trendbar sinnvoll eingeordnet wird.',
+      'Warum derselbe kleine Körper an einer Stelle sinnvoll als Doji und an einer anderen als kleiner Trendbar eingeordnet wird.',
     durationMinutes: 10,
     xp: 35,
     sourceUnit: 'Kapitel 2 · Chartfall 2.2',
@@ -365,13 +365,13 @@ export const chapterTwoPressureDojiLessons = [
         eyebrow: 'Eigenständige Rekonstruktion · Fall 2.2',
         title: 'Die Grenze darf bewusst unscharf bleiben',
         paragraphs: [
-          'Der Intraday-Fall markiert zahlreiche Bars mit kleinen Körpern als Dojis. Einige davon könnten genauso gut kleine Trendbars heißen. Diese Mehrdeutigkeit ist kein Fehler des Systems, sondern eine Erinnerung daran, dass die Kategorien Werkzeuge und keine Naturgesetze sind.',
-          'In einer ruhigen Sequenz aus noch kleineren Bars kann ein bestimmter Körper merklichen Fortschritt zeigen und als Trendbar nützlich sein. Zwischen großen Bars mit kräftigen Körpern zeigt derselbe absolute Körper kaum Kontrolle und wird sinnvoller als Doji gelesen.',
-          'Die Unterscheidung verfolgt nur einen Zweck: schnell zu erkennen, ob eine Seite im betreffenden Zeitfenster Kontrolle durchsetzte oder ob ein Patt entstand. Wenn beide Begriffe zur fast gleichen Handelsentscheidung führen, musst du keine Scheingenauigkeit erzwingen.',
-          'Nützliche Sprache bleibt nah an der Entscheidung. „Kleiner bullischer Körper, aber viel Überlappung und kein Anschluss“ ist häufig wertvoller als die Behauptung, der Bar gehöre exakt in nur eine Schublade.',
+          'Der Intraday-Fall markiert zahlreiche Bars mit kleinen Körpern als Dojis. Manche davon könnten genauso gut kleine Trendbars heißen. Diese Mehrdeutigkeit ist kein Fehler im System, sondern eine Erinnerung daran, dass Kategorien Werkzeuge sind und keine Naturgesetze.',
+          'In einer ruhigen Folge noch kleinerer Bars kann ein bestimmter Körper spürbaren Fortschritt zeigen und als Trendbar nützlich sein. Zwischen großen Bars mit kräftigen Körpern zeigt derselbe absolute Körper kaum Kontrolle und liest sich besser als Doji.',
+          'Die Unterscheidung verfolgt nur einen Zweck: schnell zu erkennen, ob eine Seite im betreffenden Zeitfenster Kontrolle durchgesetzt hat oder ob es ein Patt gab. Führen beide Begriffe zu fast derselben Handelsentscheidung, musst du keine Scheingenauigkeit erzwingen.',
+          'Nützliche Sprache bleibt nah an der Entscheidung. „Kleiner bullischer Körper, aber viel Überlappung und kein Anschluss“ ist oft wertvoller als die Behauptung, der Bar gehöre genau in eine einzige Schublade.',
         ],
         callout:
-          'Wenn die Grenze knapp ist, beschreibe Stärke und Kontext – nicht die Sicherheit des Labels.',
+          'Ist die Grenze knapp, beschreibe Stärke und Kontext – nicht, wie sicher das Label ist.',
       },
       {
         id: 'chapter-02-14-diagram',

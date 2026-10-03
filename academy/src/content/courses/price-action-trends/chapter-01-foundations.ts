@@ -5,7 +5,7 @@ export const chapterOneFoundationLessons = [
     id: 'price-action-trends.chapter-01.lesson-01',
     title: 'Ein Spektrum, keine zwei Schubladen',
     summary:
-      'Wie sich Marktverhalten zwischen extrem gerichtet und extrem ausgeglichen abstufen lässt.',
+      'Wie du Marktverhalten zwischen extrem gerichtet und extrem ausgeglichen abstufen kannst.',
     durationMinutes: 11,
     xp: 35,
     sourceUnit: 'Kapitel 1 · Das Spektrum von Trend bis Range',
@@ -22,13 +22,13 @@ export const chapterOneFoundationLessons = [
         eyebrow: 'Kapitel 1',
         title: 'Die meisten Märkte liegen zwischen den Extremen',
         paragraphs: [
-          'Auf jedem Chart findest du gerichtete Abschnitte und Phasen, in denen der Markt seitwärts handelt. Diese Zustände sind keine starren Gegensätze. Sie bilden ein Spektrum: Am einen Ende liegt ein extremer Trend, in dem fast jeder neue Preisschritt die gleiche Richtung fortsetzt. Am anderen Ende liegt eine extrem enge Trading Range, in der kleinste Bewegungen sofort zurückgenommen werden.',
-          'Beide Reinformen sind selten und bleiben meist nur kurz bestehen. Viel häufiger siehst du einen klaren Trend mit kleinen Pullbacks, einen breiten Trendkanal mit starken Gegenbewegungen oder eine Range, deren einzelne Beine mehrere Bars lang gerichtet laufen. Trends erzeugen dabei leicht ein Gefühl von Gewissheit und Dringlichkeit; Ranges lassen Trader eher ratlos über die nächste Richtung zurück.',
-          'Die praktische Aufgabe lautet deshalb nicht nur „Trend oder Range?“. Schätze zusätzlich ab, wie weit der aktuelle Markt in Richtung eines Extrempunkts liegt. Größe und Richtung der Körper, Überlappung, Tails, Tiefe der Pullbacks und Qualität des Follow-through liefern dafür Hinweise.',
-          'Diese Abstufung verhindert zwei typische Fehler: einen schwachen Trend wie einen unaufhaltsamen Spike zu handeln oder eine fast richtungslose Range mit Breakout-Entries zu jagen.',
+          'Auf jedem Chart findest du gerichtete Abschnitte und Phasen, in denen der Markt seitwärts läuft. Das sind keine starren Gegensätze, sondern ein Spektrum: Am einen Ende liegt ein extremer Trend, in dem fast jeder neue Preisschritt dieselbe Richtung fortsetzt. Am anderen Ende liegt eine extrem enge Trading Range, in der selbst kleinste Bewegungen sofort zurückgenommen werden.',
+          'Beide Reinformen sind selten und halten meist nur kurz. Viel öfter siehst du einen klaren Trend mit kleinen Pullbacks, einen breiten Trendkanal mit starken Gegenbewegungen oder eine Range, deren einzelne Beine mehrere Bars lang gerichtet laufen. Trends vermitteln dabei leicht Gewissheit und Dringlichkeit; Ranges lassen Trader eher ratlos zurück, wohin es als Nächstes geht.',
+          'Die praktische Aufgabe lautet deshalb nicht nur „Trend oder Range?“. Schätze zusätzlich ab, wie weit der Markt gerade in Richtung eines der beiden Extreme liegt. Hinweise dafür sind Größe und Richtung der Körper, Überlappung, Tails, die Tiefe der Pullbacks und die Qualität des Follow-through.',
+          'Diese Abstufung bewahrt dich vor zwei typischen Fehlern: einen schwachen Trend wie einen unaufhaltsamen Spike zu handeln – oder eine fast richtungslose Range mit Breakout-Entries zu jagen.',
         ],
         callout:
-          'Trend und Range sind die Endpunkte der Sprache. Der reale Markt spricht meistens in Zwischenstufen.',
+          'Trend und Range sind die Endpunkte der Sprache. Der echte Markt spricht meistens in Zwischenstufen.',
       },
       {
         id: 'chapter-01-01-diagram',
@@ -89,7 +89,7 @@ export const chapterOneFoundationLessons = [
     id: 'price-action-trends.chapter-01.lesson-02',
     title: 'Trend und Range stecken ineinander',
     summary:
-      'Warum dieselbe Bewegung auf einer Zeitebene Trend und auf einer anderen nur Pullback oder Range sein kann.',
+      'Warum dieselbe Bewegung auf einer Zeitebene ein Trend und auf einer anderen nur ein Pullback oder eine Range sein kann.',
     durationMinutes: 11,
     xp: 35,
     sourceUnit: 'Kapitel 1 · Das Spektrum von Trend bis Range',
@@ -106,13 +106,13 @@ export const chapterOneFoundationLessons = [
         eyebrow: 'Verschachtelte Struktur',
         title: 'Die Antwort hängt vom betrachteten Maßstab ab',
         paragraphs: [
-          'Jeder Trend enthält kleinere Pausen und Seitwärtsphasen. Jeder Range-Schenkel besteht wiederum aus kleineren gerichteten Bewegungen. Trend und Range schließen sich deshalb nicht absolut aus – sie können gleichzeitig auf verschiedenen Ebenen wahr sein.',
-          'Ein starker Abwärtstrend auf dem Fünf-Minuten-Chart kann im Stundenchart nur ein Pullback innerhalb eines Aufwärtstrends sein. Umgekehrt kann eine mehrstündige Trading Range aus mehreren sauberen Ein-Minuten-Trends bestehen, die jeweils am Range-Rand enden.',
-          'Auch die großen Aktienmarkt-Abverkäufe von 1987 und 2009 lassen sich auf dem Monatschart als Rückläufe zu einer langfristigen bullischen Trendlinie einordnen. Diese Beobachtung verharmlost nicht ihre kurzfristige Gewalt. Sie zeigt, dass Richtung und Bedeutung immer an Zeitraum, Stop und geplante Haltedauer gebunden sind.',
-          'Die folgenden Kapitel sind entlang dieses Spektrums geordnet: von starken Trends zu engeren Ranges. Pullbacks sind dabei Übergänge vom Trend in vorübergehende Balance; Breakouts sind mögliche Übergänge von Balance zurück in einen Trend.',
+          'Jeder Trend enthält kleinere Pausen und Seitwärtsphasen. Jeder Range-Schenkel besteht wiederum aus kleineren gerichteten Bewegungen. Trend und Range schließen sich also nicht absolut aus – sie können gleichzeitig auf verschiedenen Ebenen stimmen.',
+          'Ein starker Abwärtstrend auf dem Fünf-Minuten-Chart kann im Stundenchart nur ein Pullback in einem Aufwärtstrend sein. Umgekehrt kann eine mehrstündige Trading Range aus mehreren sauberen Ein-Minuten-Trends bestehen, die jeweils am Rand der Range enden.',
+          'Auch die großen Aktienmarkt-Abverkäufe von 1987 und 2009 lassen sich auf dem Monatschart als Rückläufe zu einer langfristigen bullischen Trendlinie einordnen. Das verharmlost ihre kurzfristige Wucht nicht. Es zeigt, dass Richtung und Bedeutung immer von Zeitraum, Stop und geplanter Haltedauer abhängen.',
+          'Die folgenden Kapitel sind entlang dieses Spektrums geordnet: von starken Trends zu engeren Ranges. Pullbacks sind dabei Übergänge vom Trend in eine vorübergehende Balance; Breakouts sind mögliche Übergänge aus der Balance zurück in einen Trend.',
         ],
         callout:
-          'Frage immer: Trend oder Range – auf welcher Zeitebene und für welchen Trade?',
+          'Frag dich immer: Trend oder Range – auf welcher Zeitebene und für welchen Trade?',
       },
       {
         id: 'chapter-01-02-diagram',
@@ -173,7 +173,7 @@ export const chapterOneFoundationLessons = [
     id: 'price-action-trends.chapter-01.lesson-03',
     title: 'Marktträgheit praktisch lesen',
     summary:
-      'Warum Trends Fortsetzung und Trading Ranges die Rückkehr in ihre Balance begünstigen.',
+      'Warum Trends die Fortsetzung begünstigen und Trading Ranges die Rückkehr in ihre Balance.',
     durationMinutes: 12,
     xp: 40,
     sourceUnit: 'Kapitel 1 · Das Spektrum von Trend bis Range',
@@ -190,13 +190,13 @@ export const chapterOneFoundationLessons = [
         eyebrow: 'Inertia',
         title: 'Der aktuelle Zustand bleibt die Ausgangshypothese',
         paragraphs: [
-          'Märkte zeigen Trägheit: Was gerade zuverlässig funktioniert, neigt zunächst dazu, weiter zu funktionieren. In einem Trend kaufen oder verkaufen viele Teilnehmer Pullbacks in Trendrichtung. Deshalb scheitern frühe Umkehrversuche häufig und werden selbst zu Flags für die Fortsetzung.',
-          'In einer Trading Range gilt die spiegelbildliche Logik. Käufer werden nahe der Oberkante vorsichtiger, Verkäufer nahe der Unterkante. Ausbruchsversuche treffen auf Gegenorders und kehren oft in den akzeptierten Bereich zurück.',
-          'Trägheit ist keine Garantie und kein Grund, spät jede Bewegung zu jagen. Sie bestimmt nur die Ausgangsannahme: Ein intakter Trend bleibt Trend, bis ausreichende Gegenbeweise entstehen. Eine intakte Range bleibt Range, bis ein Ausbruch mit Anschluss und Akzeptanz ein neues Verhalten etabliert.',
-          'Das spart mentale Energie. Du musst nicht nach jedem Bar ein völlig neues Regime erfinden. Du aktualisierst die bestehende Hypothese anhand klarer Beweise.',
+          'Märkte haben Trägheit: Was gerade zuverlässig funktioniert, funktioniert zunächst tendenziell weiter. In einem Trend kaufen oder verkaufen viele Teilnehmer Pullbacks in Trendrichtung. Deshalb scheitern frühe Umkehrversuche häufig und werden selbst zu Flags für die Fortsetzung.',
+          'In einer Trading Range gilt die spiegelbildliche Logik. Käufer werden nahe der Oberkante vorsichtiger, Verkäufer nahe der Unterkante. Ausbruchsversuche treffen auf Gegenorders und laufen oft zurück in den akzeptierten Bereich.',
+          'Trägheit ist keine Garantie und kein Grund, spät noch jede Bewegung zu jagen. Sie legt nur die Ausgangsannahme fest: Ein intakter Trend bleibt Trend, bis genug Gegenbeweise auftauchen. Eine intakte Range bleibt Range, bis ein Ausbruch mit Anschluss und Akzeptanz ein neues Verhalten etabliert.',
+          'Das spart dir mentale Energie. Du musst nicht nach jedem Bar ein völlig neues Regime erfinden. Du aktualisierst die bestehende Hypothese anhand klarer Beweise.',
         ],
         callout:
-          'Behalte das aktuelle Regime bei, bis der Markt durch sein Verhalten einen Wechsel verdient.',
+          'Behalte das aktuelle Regime bei, bis der Markt durch sein Verhalten einen Wechsel verdient hat.',
       },
       {
         id: 'chapter-01-03-diagram',
@@ -257,7 +257,7 @@ export const chapterOneFoundationLessons = [
     id: 'price-action-trends.chapter-01.lesson-04',
     title: 'Extremtrend, enge Range, Trendfortsetzung',
     summary:
-      'Der zentrale Chartfall des Kapitels als eigenständig rekonstruierte Abfolge dreier Marktphasen.',
+      'Der zentrale Chartfall des Kapitels – eigenständig rekonstruiert als Abfolge von drei Marktphasen.',
     durationMinutes: 13,
     xp: 45,
     sourceUnit: 'Kapitel 1 · Chartfall 1.1',
@@ -274,13 +274,13 @@ export const chapterOneFoundationLessons = [
         eyebrow: 'Eigenständiger Chartfall',
         title: 'Drei Phasen zeigen fast das gesamte Spektrum',
         paragraphs: [
-          'Der Fallbeispiel beginnt mit einem sehr starken Abwärtstrend. Verkäufer erzielen schnell Strecke, Pullbacks bleiben klein und die Bewegung erreicht ihren ersten markanten Punkt mit klarer Richtung.',
-          'Danach wechselt der Markt in eine ungewöhnlich enge Trading Range. Die Bars überlappen stark, kleine Bewegungen werden zurückgenommen und beide Seiten verlieren kurzfristig die Fähigkeit, Distanz aufzubauen. Dieser Abschnitt liegt nahe dem Range-Extrem des Spektrums.',
-          'Später überschreitet der Markt die Oberkante nur minimal. Der bullische Bruch erhält keinen Anschluss, dreht um und fällt unter die Range. Der anschließende Abwärtstrend ist erneut außergewöhnlich stark und führt bis zum dritten markanten Punkt.',
-          'Das Entscheidende ist nicht die exakte historische Form. Der Fall zeigt einen vollständigen Regimezyklus: gerichteter Impuls, extreme Balance, gescheiterter Ausbruch und erneute gerichtete Expansion.',
+          'Das Fallbeispiel beginnt mit einem sehr starken Abwärtstrend. Verkäufer kommen schnell voran, Pullbacks bleiben klein, und die Bewegung erreicht ihren ersten markanten Punkt mit klarer Richtung.',
+          'Danach geht der Markt in eine ungewöhnlich enge Trading Range über. Die Bars überlappen stark, kleine Bewegungen werden zurückgenommen, und beide Seiten können kurzfristig keine Distanz mehr aufbauen. Dieser Abschnitt liegt nah am Range-Extrem des Spektrums.',
+          'Später überschreitet der Markt die Oberkante nur minimal. Der bullische Bruch findet keinen Anschluss, dreht um und fällt unter die Range. Der anschließende Abwärtstrend ist wieder außergewöhnlich stark und läuft bis zum dritten markanten Punkt.',
+          'Es kommt nicht auf die exakte historische Form an. Der Fall zeigt einen kompletten Regimezyklus: gerichteter Impuls, extreme Balance, gescheiterter Ausbruch und erneute gerichtete Expansion.',
         ],
         callout:
-          'Eine sehr enge Range löscht den vorherigen Trend nicht. Sie komprimiert den Markt, bis eine Seite wieder akzeptierte Distanz erzeugt.',
+          'Eine sehr enge Range löscht den vorherigen Trend nicht. Sie drückt den Markt zusammen, bis eine Seite wieder akzeptierte Distanz aufbaut.',
       },
       {
         id: 'chapter-01-04-diagram',

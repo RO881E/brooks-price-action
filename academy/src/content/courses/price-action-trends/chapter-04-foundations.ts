@@ -5,7 +5,7 @@ export const chapterFourFoundationLessons = [
     id: 'price-action-trends.chapter-04.lesson-01',
     title: 'Ein Setup ist eine Möglichkeit, noch kein Signal',
     summary:
-      'Wie aus einem Chartmuster eine geplante Orderidee entsteht und warum Trendrichtung den ersten Qualitätsfilter liefert.',
+      'Wie aus einem Chartmuster eine geplante Orderidee wird und warum die Trendrichtung der erste Qualitätsfilter ist.',
     durationMinutes: 12,
     xp: 45,
     sourceUnit: 'Kapitel 4 · Setup, Trendrichtung und Gegenrichtung',
@@ -23,13 +23,13 @@ export const chapterFourFoundationLessons = [
         eyebrow: 'Kapitel 4 · Begriffe',
         title: 'Das Muster erlaubt eine Order – es verspricht keinen Gewinn',
         paragraphs: [
-          'Ein Setup ist eine sichtbare Kursstruktur, aus der du eine handelbare Hypothese ableitest. Es kann nur aus einem Bar bestehen oder sich über mehrere Bars entwickeln. Sein Zweck ist praktisch: Es nennt dir einen Bereich, an dem eine Order sinnvoll vorbereitet werden könnte.',
-          'Fast jeder abgeschlossene Bar kann zum Setup werden, weil der nächste Bar einen kräftigen Move nach oben oder unten beginnen kann. Das macht aber nicht jeden Bar gleich wertvoll. Erst Lage, Trend, vorherige Stärke, Tests und mögliche Folgereaktion bestimmen, ob eine Order einen kleinen statistischen Vorteil besitzt.',
+          'Ein Setup ist eine sichtbare Kursstruktur, aus der du eine handelbare Hypothese ableitest. Es kann aus einem einzigen Bar bestehen oder sich über mehrere Bars entwickeln. Sein Zweck ist praktisch: Es nennt dir einen Bereich, in dem eine Order sinnvoll sein könnte.',
+          'Fast jeder abgeschlossene Bar kann zum Setup werden, weil der nächste Bar einen kräftigen Move nach oben oder unten starten kann. Wertvoll ist deshalb aber nicht jeder Bar gleich. Erst Lage, Trend, vorherige Stärke, Tests und mögliche Folgereaktion entscheiden, ob eine Order einen kleinen statistischen Vorteil hat.',
           'Liegt die geplante Richtung auf derselben Seite wie der jüngste oder übergeordnete Trend, ist es ein With-trend-Setup. Du nutzt dann die Marktträgheit: In einem Bullenmarkt suchst du überwiegend Longs, in einem Bärenmarkt Shorts.',
-          'Willst du gegen die dominante Bewegung handeln, planst du einen Countertrend-Trade. Damit verlangst du vom Markt einen echten Kontrollwechsel. Die Anforderungen an Kontext und Bestätigung müssen deshalb deutlich höher sein.',
+          'Willst du gegen die vorherrschende Bewegung handeln, planst du einen Countertrend-Trade. Dann verlangst du vom Markt einen echten Kontrollwechsel. Die Anforderungen an Kontext und Bestätigung müssen deshalb deutlich höher sein.',
         ],
         callout:
-          'Setup bedeutet: Hier könnte eine Order Sinn ergeben. Erst Auslösung und Folgebewegung zeigen, ob daraus ein Trade mit Anschluss wird.',
+          'Setup heißt: Hier könnte eine Order Sinn ergeben. Erst Auslösung und Folgebewegung zeigen, ob daraus ein Trade mit Anschluss wird.',
       },
       {
         id: 'chapter-04-01-diagram',
@@ -115,7 +115,7 @@ export const chapterFourFoundationLessons = [
     id: 'price-action-trends.chapter-04.lesson-02',
     title: 'Barrollen entstehen erst durch den Trade',
     summary:
-      'Wie derselbe Bar rückblickend vom Setup-Bar zum Signal-Bar wird und anschließend Entry- und Follow-through-Bar folgen.',
+      'Wie derselbe Bar rückblickend vom Setup-Bar zum Signal-Bar wird und danach Entry- und Follow-through-Bar folgen.',
     durationMinutes: 12,
     xp: 45,
     sourceUnit: 'Kapitel 4 · Setup-, Signal-, Entry- und Follow-through-Bar',
@@ -134,13 +134,13 @@ export const chapterFourFoundationLessons = [
         eyebrow: 'Rollen statt feste Kerzentypen',
         title: 'Der Markt vergibt die Namen erst im Nachhinein',
         paragraphs: [
-          'Während ein Bar entsteht, kann er eine interessante Form und Lage besitzen. Zu diesem Zeitpunkt ist er nur Teil eines Setups. Du kannst auf seiner Grundlage eine Order vorbereiten, aber noch ist nicht entschieden, ob der Markt diese Order überhaupt erreicht.',
-          'Wird deine Entry-Order im nächsten Bar ausgeführt, erhält der vorherige Bar rückblickend die Rolle des Signal-Bars. Er war die sichtbare Grundlage, auf der du den Einstieg geplant hast. Ohne Ausführung bleibt er lediglich ein potenzieller Setup-Bar.',
-          'Der Bar, in dem deine Order ausgeführt wird, ist der Entry-Bar. Der darauffolgende Bar sollte idealerweise weiteren Fortschritt in Trade-Richtung zeigen. Dann ist er der Follow-through-Bar und liefert die erste Bestätigung, dass der Markt den Ausbruch nicht sofort zurückweist.',
-          'Follow-through muss nicht zwingend im allerersten Bar erscheinen. Manchmal pausiert der Markt ein oder zwei Bars seitwärts und setzt sich danach fort. Solange die Gegenseite den Einstieg nicht deutlich zurückerobert und später Anschluss entsteht, bleibt die These intakt. Schneller Anschluss ist dennoch qualitativ stärker.',
+          'Während ein Bar entsteht, kann er eine interessante Form und Lage haben. In diesem Moment ist er nur Teil eines Setups. Du kannst auf seiner Grundlage eine Order vorbereiten, aber noch steht nicht fest, ob der Markt diese Order überhaupt erreicht.',
+          'Wird deine Entry-Order im nächsten Bar ausgeführt, bekommt der vorherige Bar rückblickend die Rolle des Signal-Bars. Er war die sichtbare Grundlage, auf der du den Einstieg geplant hast. Ohne Ausführung bleibt er nur ein möglicher Setup-Bar.',
+          'Der Bar, in dem deine Order ausgeführt wird, ist der Entry-Bar. Der Bar danach sollte idealerweise weiteren Fortschritt in Trade-Richtung zeigen. Dann ist er der Follow-through-Bar und liefert die erste Bestätigung, dass der Markt den Ausbruch nicht sofort abweist.',
+          'Follow-through muss nicht zwingend im allerersten Bar kommen. Manchmal pausiert der Markt ein oder zwei Bars seitwärts und läuft dann weiter. Solange die Gegenseite den Einstieg nicht deutlich zurückerobert und später Anschluss entsteht, bleibt die These intakt. Schneller Anschluss ist trotzdem das stärkere Zeichen.',
         ],
         callout:
-          'Setup-Bar beschreibt eine Möglichkeit. Signal-Bar, Entry-Bar und Follow-through-Bar beschreiben, was tatsächlich danach geschah.',
+          'Der Setup-Bar beschreibt eine Möglichkeit. Signal-Bar, Entry-Bar und Follow-through-Bar beschreiben, was danach tatsächlich passiert ist.',
       },
       {
         id: 'chapter-04-02-diagram',
@@ -202,7 +202,7 @@ export const chapterFourFoundationLessons = [
     id: 'price-action-trends.chapter-04.lesson-03',
     title: 'Jeder Bar bietet beiden Seiten einen Plan',
     summary:
-      'Warum oberhalb und unterhalb desselben Bars Stop- und Limit-Trader mit gegensätzlichen, aber rationalen Erwartungen warten.',
+      'Warum über und unter demselben Bar Stop- und Limit-Trader mit gegensätzlichen, aber vernünftigen Erwartungen warten.',
     durationMinutes: 14,
     xp: 50,
     sourceUnit: 'Kapitel 4 · Jeder Bar als zweiseitige Trading Range',
@@ -221,14 +221,14 @@ export const chapterFourFoundationLessons = [
         eyebrow: 'Orderlogik',
         title: 'Über dem Hoch warten nicht nur Käufer',
         paragraphs: [
-          'Über dem Hoch des vorherigen Bars liegen Buy-Stops von Bullen, die einen Aufwärtsbreakout handeln wollen. Unter seinem Tief liegen Sell-Stops von Bären, die auf einen Abwärtsbreakout setzen. Diese Orders reagieren auf Momentum und werden erst aktiv, wenn der Markt die jeweilige Grenze überschreitet.',
-          'An denselben Grenzen wartet aber die Gegenseite. Bären können am Hoch oder darüber mit Sell-Limits verkaufen, weil sie einen Fehlausbruch erwarten. Bullen können am Tief oder darunter mit Buy-Limits kaufen. Der Markt ist deshalb nicht in einfache Käufer- und Verkäuferzonen geteilt; an jeder Grenze treffen Fortsetzungs- und Umkehrthesen aufeinander.',
-          'Ein einzelner Bar kann wie eine sehr kleine Trading Range betrachtet werden. Breakout-Trader erwarten nach dem Verlassen genug Anschluss für zumindest einen kleinen Gewinn. Fade-Trader erwarten, dass der Grenzbruch scheitert und der Preis in den Bar zurückkehrt.',
-          'Steigt der nächste Bar knapp über das alte Hoch, können Buy-Stops ausgelöst und gleichzeitig neue Shorts eröffnet werden. Fällt der Markt anschließend unter das Tief dieses Entry-Bars, wird derselbe Bar wiederum zur Grundlage eines Short-Signals. Rollen und Kontrolle können sich schnell verschieben.',
-          'Deine Überzeugung ist daher kein Beweis. Jede Ausführung benötigt eine intelligente Gegenseite, die denselben Preis mit einer anderen Erwartung handelt. Dein Vorteil entsteht nur, wenn Kontext und Folgebewegung deine Seite etwas wahrscheinlicher machen.',
+          'Über dem Hoch des vorherigen Bars liegen die Buy-Stops von Bullen, die einen Aufwärtsbreakout handeln wollen. Unter seinem Tief liegen die Sell-Stops von Bären, die auf einen Abwärtsbreakout setzen. Diese Orders reagieren auf Momentum und werden erst aktiv, wenn der Markt die jeweilige Grenze überschreitet.',
+          'An denselben Grenzen wartet aber auch die Gegenseite. Bären können am Hoch oder darüber mit Sell-Limits verkaufen, weil sie einen Fehlausbruch erwarten. Bullen können am Tief oder darunter mit Buy-Limits kaufen. Der Markt ist also nicht in einfache Käufer- und Verkäuferzonen geteilt; an jeder Grenze treffen Fortsetzungs- und Umkehrthesen aufeinander.',
+          'Einen einzelnen Bar kannst du wie eine sehr kleine Trading Range betrachten. Breakout-Trader erwarten nach dem Verlassen genug Anschluss für zumindest einen kleinen Gewinn. Fade-Trader erwarten, dass der Grenzbruch scheitert und der Preis in den Bar zurückkehrt.',
+          'Steigt der nächste Bar knapp über das alte Hoch, können Buy-Stops ausgelöst und gleichzeitig neue Shorts eröffnet werden. Fällt der Markt danach unter das Tief dieses Entry-Bars, wird derselbe Bar wiederum zur Grundlage eines Short-Signals. Rollen und Kontrolle können schnell wechseln.',
+          'Deine Überzeugung ist deshalb kein Beweis. Jede Ausführung braucht eine kluge Gegenseite, die denselben Preis mit einer anderen Erwartung handelt. Dein Vorteil entsteht nur, wenn Kontext und Folgebewegung deine Seite etwas wahrscheinlicher machen.',
         ],
         callout:
-          'Stop-Trader handeln den Ausbruch; Limit-Trader handeln sein mögliches Scheitern. Beide können am exakt gleichen Preis aktiv sein.',
+          'Stop-Trader handeln den Ausbruch; Limit-Trader handeln sein mögliches Scheitern. Beide können am genau gleichen Preis aktiv sein.',
       },
       {
         id: 'chapter-04-03-diagram',
@@ -316,7 +316,7 @@ export const chapterFourFoundationLessons = [
     id: 'price-action-trends.chapter-04.lesson-04',
     title: 'Kontext erzeugt das kleine Ungleichgewicht',
     summary:
-      'Wie du abschätzt, ob oberhalb oder unterhalb des Signal-Bars wahrscheinlich mehr entschlossene Käufer oder Verkäufer auftreten.',
+      'Wie du abschätzt, ob über oder unter dem Signal-Bar wahrscheinlich mehr entschlossene Käufer oder Verkäufer auftreten.',
     durationMinutes: 13,
     xp: 50,
     sourceUnit: 'Kapitel 4 · Kontext und Edge',
@@ -335,10 +335,10 @@ export const chapterFourFoundationLessons = [
         eyebrow: 'Der eigentliche Edge',
         title: 'Nicht die Form, sondern die erwartete Orderbalance zählt',
         paragraphs: [
-          'Die wichtigste Fähigkeit besteht darin abzuschätzen, an welchen Bar-Grenzen eine Seite wahrscheinlich entschlossener ist. Du willst nicht nur sehen, dass ein Hoch überschritten werden kann. Du willst einen Grund haben, warum oberhalb dieses Hochs die Nachfrage eher stärker sein dürfte als das neue Angebot.',
-          'Ein bullischer Signal-Bar in einem Pullback eines intakten Bullenmarktes ist ein gutes Beispiel. Trend, Lage und Reaktion am Pullback stützen dieselbe Richtung. Oberhalb des Bars warten wahrscheinlich genügend Käufer, während viele Bären dort nicht aggressiv gegen den Trend verkaufen wollen.',
-          'Dieses Ungleichgewicht ist niemals absolut. Ohne Verkäufer könnten Käufer keine Ausführung erhalten. Auch am besten aussehenden Setup sitzen informierte Teilnehmer auf der Gegenseite. Der Vorteil liegt daher nicht in Gewissheit, sondern in einer leicht verschobenen Wahrscheinlichkeit bei kontrolliertem Risiko.',
-          'Je besser du Price Action als Sequenz liest, desto häufiger erkennst du solche kleinen Verschiebungen. Einzelne Gewinne beweisen keinen Edge. Erst wiederholbare Entscheidungen, bei denen Kontext, Einstieg, Stop, Ziel und Kosten zusammenpassen, können langfristig profitabel werden.',
+          'Die wichtigste Fähigkeit ist abzuschätzen, an welchen Bar-Grenzen eine Seite wahrscheinlich entschlossener ist. Du willst nicht nur sehen, dass ein Hoch überschritten werden kann. Du willst einen Grund haben, warum über diesem Hoch die Nachfrage eher stärker sein dürfte als das neue Angebot.',
+          'Ein bullischer Signal-Bar im Pullback eines intakten Bullenmarktes ist ein gutes Beispiel. Trend, Lage und Reaktion am Pullback stützen dieselbe Richtung. Über dem Bar warten wahrscheinlich genug Käufer, während viele Bären dort nicht aggressiv gegen den Trend verkaufen wollen.',
+          'Dieses Ungleichgewicht ist nie absolut. Ohne Verkäufer bekämen Käufer keine Ausführung. Auch beim bestaussehenden Setup sitzen informierte Teilnehmer auf der Gegenseite. Dein Vorteil liegt deshalb nicht in Gewissheit, sondern in einer leicht verschobenen Wahrscheinlichkeit bei kontrolliertem Risiko.',
+          'Je besser du Price Action als Abfolge liest, desto öfter erkennst du solche kleinen Verschiebungen. Einzelne Gewinne beweisen keinen Edge. Erst wiederholbare Entscheidungen, bei denen Kontext, Einstieg, Stop, Ziel und Kosten zusammenpassen, können langfristig profitabel werden.',
         ],
         callout:
           'Ein Signal-Bar ist nützlich, wenn sein Ausbruch im aktuellen Kontext wahrscheinlich auf mehr Initiative als Gegenwehr trifft.',
@@ -421,10 +421,10 @@ export const chapterFourFoundationLessons = [
         eyebrow: 'Musterfamilien',
         title: 'Viele Namen lassen sich auf zwei Funktionen reduzieren',
         paragraphs: [
-          'Ein Fortsetzungssignal versucht, eine bereits dominante Bewegung weiterzuhandeln. In der Spike-Phase eines starken Bullenmarktes kann das bedeuten, oberhalb eines kräftigen Bull-Bars zu kaufen. Im bärischen Spiegelbild kann ein neuer Short unter einem starken Bear-Bar entstehen. Der Einstieg wirkt spät, folgt aber hoher Dringlichkeit und braucht schnellen Anschluss.',
-          'Ein Reversal-Signal versucht, eine laufende Bewegung zu beenden. Das kann eine vollständige Trendwende sein, muss es aber nicht. Häufiger endet lediglich ein Pullback und der Markt dreht zurück in Richtung des übergeordneten Trends. Funktional ist auch das eine Umkehr: Die kurzfristige Gegenbewegung verliert Kontrolle.',
-          'Die Umkehr kann in einem einzelnen Reversal-Bar sichtbar werden oder sich über zwei beziehungsweise drei Bars entwickeln. Mehr Bars sind nicht automatisch besser. Entscheidend ist, ob die Sequenz tatsächlich Zurückweisung, Kontrollübergabe und sinnvolle Lage zeigt.',
-          'Statt jede Form isoliert zu merken, ordnest du sie deshalb zuerst nach ihrer Aufgabe: Soll sie aktuelle Kontrolle fortsetzen oder eine laufende Bewegung zurückweisen? Danach prüfst du, ob der größere Kontext diese Aufgabe unterstützt.',
+          'Ein Fortsetzungssignal versucht, eine schon dominante Bewegung weiterzuhandeln. In der Spike-Phase eines starken Bullenmarktes kann das heißen, über einem kräftigen Bull-Bar zu kaufen. Spiegelbildlich kann ein neuer Short unter einem starken Bear-Bar entstehen. Der Einstieg wirkt spät, folgt aber hoher Dringlichkeit und braucht schnellen Anschluss.',
+          'Ein Reversal-Signal versucht, eine laufende Bewegung zu beenden. Das kann eine komplette Trendwende sein, muss aber nicht. Häufiger endet nur ein Pullback, und der Markt dreht zurück in Richtung des übergeordneten Trends. Funktional ist auch das eine Umkehr: Die kurzfristige Gegenbewegung verliert die Kontrolle.',
+          'Die Umkehr kann in einem einzelnen Reversal-Bar sichtbar werden oder sich über zwei bzw. drei Bars entwickeln. Mehr Bars sind nicht automatisch besser. Entscheidend ist, ob die Folge tatsächlich Abweisung, Kontrollübergabe und eine sinnvolle Lage zeigt.',
+          'Statt dir jede Form einzeln zu merken, ordnest du sie deshalb zuerst nach ihrer Aufgabe: Soll sie die aktuelle Kontrolle fortsetzen oder eine laufende Bewegung abweisen? Danach prüfst du, ob der größere Kontext diese Aufgabe unterstützt.',
         ],
         callout:
           'Fortsetzung handelt vorhandene Initiative. Reversal handelt das Ende einer Bewegung – oft nur das Ende eines Pullbacks.',
@@ -532,10 +532,10 @@ export const chapterFourFoundationLessons = [
         eyebrow: 'Muster zusammenführen',
         title: 'Alle Kürzel beschreiben nur die Veränderung der Bar-Range',
         paragraphs: [
-          'Nach den einzelnen Mustern lässt sich die gemeinsame Logik klarer sehen. i, ii und iii beschreiben zunehmende Kompression. o und oo beschreiben Expansion. ioi zeigt den schnellen Wechsel zwischen beiden Zuständen.',
-          'Diese Kürzel bewerten weder Trend noch Standort. Ein ii am Ende eines Pullbacks im starken Trend besitzt einen anderen Ausgangskontext als dasselbe ii mitten in einer Trading Range. Ein oo am Range-Rand kann Zurückweisung anzeigen, im Breakout aber auch eine neue Trendphase beginnen.',
-          'Kompression bietet engere Grenzen und damit klarere Auslöser. Expansion zeigt größere Bewegung, erhöht jedoch meist Stop-Distanz und zweiseitiges Risiko. Keine der beiden Eigenschaften ist automatisch gut oder schlecht.',
-          'Die praktische Reihenfolge bleibt immer gleich: Range-Beziehung benennen, Trend und Lage bestimmen, Ausbruchsseite beobachten und Follow-through verlangen.',
+          'Nach den einzelnen Mustern erkennst du die gemeinsame Logik klarer. i, ii und iii beschreiben zunehmende Kompression. o und oo beschreiben Expansion. ioi zeigt den schnellen Wechsel zwischen beiden Zuständen.',
+          'Diese Kürzel bewerten weder Trend noch Standort. Ein ii am Ende eines Pullbacks im starken Trend hat einen anderen Ausgangskontext als dasselbe ii mitten in einer Trading Range. Ein oo am Range-Rand kann Abweisung anzeigen, im Breakout aber auch eine neue Trendphase einleiten.',
+          'Kompression bietet engere Grenzen und damit klarere Auslöser. Expansion zeigt mehr Bewegung, erhöht aber meist die Stop-Distanz und das zweiseitige Risiko. Keine der beiden Eigenschaften ist automatisch gut oder schlecht.',
+          'Die praktische Reihenfolge bleibt immer gleich: Range-Beziehung benennen, Trend und Lage bestimmen, die Ausbruchsseite beobachten und Follow-through verlangen.',
         ],
         callout:
           'Die Kürzel sind eine Kurzschrift für Range-Beziehungen. Die Trade-Idee entsteht erst aus Kontext, Auslösung und Anschluss.',
@@ -601,7 +601,7 @@ export const chapterFourFoundationLessons = [
     id: 'price-action-trends.chapter-04.lesson-18',
     title: 'Shaved Bars und Swing-Struktur ergänzen die Setups',
     summary:
-      'Wie Schlusskontrolle ohne Tail, gegengerichtete Trendbars, Kanal-Pullbacks sowie Higher Lows und Lower Highs gelesen werden.',
+      'Wie du Schlusskontrolle ohne Tail, gegengerichtete Trendbars, Kanal-Pullbacks sowie Higher Lows und Lower Highs liest.',
     durationMinutes: 10,
     xp: 40,
     sourceUnit: 'Kapitel 4 · Shaved Bars und strukturelle Setups',
@@ -620,13 +620,13 @@ export const chapterFourFoundationLessons = [
         eyebrow: 'Weitere Setup-Bausteine',
         title: 'Schlusskontrolle und Swing-Struktur ergänzen die Muster',
         paragraphs: [
-          'Ein shaved Bar besitzt an mindestens einem Ende keinen sichtbaren Tail. Bei einem bullischen Bar ohne oberen Tail fällt der Schluss mit dem Hoch zusammen; bei einem bearischen Bar ohne unteren Tail liegt der Schluss am Tief. Das zeigt klare Schlusskontrolle, bleibt aber ohne Kontext nur eine Bar-Eigenschaft.',
-          'Selbst ein Bull-Trendbar kann im Rallyabschnitt eines starken Bärenmarktes oder am oberen Range-Rand ein Short-Setup sein. Ein Bear-Trendbar kann entsprechend im Pullback eines starken Bullenmarktes oder am unteren Range-Rand ein Kaufsetup bilden. Lage und übergeordnete Kontrolle können die Barfarbe überwiegen.',
-          'In der Spike-Phase kann fast jede kleine Pause oder jeder Pullback eine Fortsetzungschance sein. In einem Kanal handeln erfahrene Teilnehmer oft limitbasiert: im Aufwärtskanal am oder unter dem vorherigen Bar kaufen, im Abwärtskanal am oder über dem vorherigen Bar verkaufen. Diese Logik lebt von kleinen Rückläufen innerhalb der dominanten Richtung.',
-          'Strukturell einfache Referenzen bleiben ebenfalls wertvoll: Ein höheres Tief im Bullenmarkt und ein tieferes Hoch im Bärenmarkt zeigen, dass der Trend nach einem Pullback wieder Kontrolle übernehmen könnte.',
+          'Ein shaved Bar hat an mindestens einem Ende keinen sichtbaren Tail. Bei einem bullischen Bar ohne oberen Tail fällt der Schluss mit dem Hoch zusammen; bei einem bärischen Bar ohne unteren Tail liegt der Schluss am Tief. Das zeigt klare Kontrolle beim Schluss, bleibt aber ohne Kontext nur eine Eigenschaft des Bars.',
+          'Selbst ein Bull-Trendbar kann im Rallyabschnitt eines starken Bärenmarktes oder am oberen Range-Rand ein Short-Setup sein. Ein Bear-Trendbar kann entsprechend im Pullback eines starken Bullenmarktes oder am unteren Range-Rand ein Kaufsetup sein. Lage und übergeordnete Kontrolle können die Barfarbe überwiegen.',
+          'In der Spike-Phase kann fast jede kleine Pause oder jeder Pullback eine Fortsetzungschance sein. In einem Kanal handeln erfahrene Teilnehmer oft mit Limit-Orders: im Aufwärtskanal am oder unter dem vorherigen Bar kaufen, im Abwärtskanal am oder über dem vorherigen Bar verkaufen. Diese Logik lebt von kleinen Rückläufen in der dominanten Richtung.',
+          'Strukturell einfache Referenzen bleiben ebenfalls wertvoll: Ein höheres Tief im Bullenmarkt und ein tieferes Hoch im Bärenmarkt zeigen, dass der Trend nach einem Pullback wieder die Kontrolle übernehmen könnte.',
         ],
         callout:
-          'Bar-Schluss, Trendlage und Swing-Struktur beantworten verschiedene Fragen und sollten gemeinsam gelesen werden.',
+          'Bar-Schluss, Trendlage und Swing-Struktur beantworten verschiedene Fragen und gehören zusammen gelesen.',
       },
       {
         id: 'chapter-04-18-diagram',
