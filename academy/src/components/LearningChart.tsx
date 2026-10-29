@@ -1,3 +1,5 @@
+import { rangesCountingDescriptions } from './RangesCountingDescriptions';
+const CountingMarks = lazy(() => import('./RangesCountingCharts').then(m=>({default:m.CountingMarks})));
 import { rangesTimingDescriptions } from './RangesTimingDescriptions';
 const TimingMarks = lazy(() => import('./RangesTimingCharts').then(m=>({default:m.TimingMarks})));
 import { rangesAverageGapDescriptions } from './RangesAverageGapDescriptions';
@@ -103,6 +105,7 @@ const scenarioDescriptions: Record<ChartScenarioId, string> = {
   ...rangesTestDescriptions,
   ...rangesGapDescriptions,
   ...rangesLegDescriptions,
+  ...rangesCountingDescriptions,
   ...rangesTimingDescriptions,
   ...rangesAverageGapDescriptions,
   ...rangesAwayDescriptions,
@@ -1555,6 +1558,7 @@ export function LearningChart({ scenario, title, viewBox }: LearningChartProps) 
       >
         <title id={`${id}-title`}>{title}</title>
         <desc id={`${id}-desc`}>{scenarioDescriptions[scenario]}</desc>
+        {scenario.startsWith('par16-') ? <Suspense fallback={null}><CountingMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par15-') ? <Suspense fallback={null}><TimingMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par14-') ? <Suspense fallback={null}><AverageGapMarks scenario={scenario}/></Suspense> : null}
         {scenario.startsWith('par13-') ? <Suspense fallback={null}><AwayMarks scenario={scenario}/></Suspense> : null}
