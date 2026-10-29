@@ -1,7 +1,7 @@
 import type { CourseDefinition } from '../../registry';
 import { rangesGlossary } from './glossary';
 export const rangesDefinition: CourseDefinition = {
- info: {id:'price-action-ranges',eyebrow:'Teil 2 von 3 · Einführung und Kapitel 1–12 verfügbar',title:'Price Action: Ranges',subtitle:'Ausbrüche, Rücksetzer und Seitwärtsmärkte verstehen und mit einem nachvollziehbaren Risikoplan verbinden.',sourceOrderNotice:'Einführung und Kapitel 1–12 sind verfügbar. Weitere Kapitel folgen schrittweise. Neue Begriffe werden direkt erklärt.'},
+ info: {id:'price-action-ranges',eyebrow:'Teil 2 von 3 · Einführung und Kapitel 1–13 verfügbar',title:'Price Action: Ranges',subtitle:'Ausbrüche, Rücksetzer und Seitwärtsmärkte verstehen und mit einem nachvollziehbaren Risikoplan verbinden.',sourceOrderNotice:'Einführung und Kapitel 1–13 sind verfügbar. Weitere Kapitel folgen schrittweise. Neue Begriffe werden direkt erklärt.'},
  units:[
   {id:'price-action-ranges.introduction',order:1,kind:'introduction',label:'Einleitung',title:'Ausbrüche und Seitwärtsmärkte',description:'Marktzustand, Kontext, Wahrscheinlichkeit und geplantes Risiko verständlich verbinden.',estimatedLessonCount:8,load:()=>import('./introduction').then(m=>m.rangesIntroductionLessons)},
   {id:'price-action-ranges.chapter-01',order:2,kind:'chapter',label:'Kapitel 1',title:'Einen Ausbruch Schritt für Schritt verstehen',description:'Einen eigenen Chartfall mit Anschluss, Rücksetzer, Scheitern, Stop, Messziel und Kosten prüfen.',estimatedLessonCount:20,load:()=>import('./chapter-01').then(m=>m.rangesChapterOneLessons)},
@@ -16,6 +16,7 @@ export const rangesDefinition: CourseDefinition = {
   {id:'price-action-ranges.chapter-10',order:11,kind:'chapter',label:'Kapitel 10',title:'Weitere Preisbereiche mit Anziehungskraft',description:'Tagespreise, Swingpunkte, Linien, Range- und Lückenbezüge, große Kerzenränder sowie runde Zahlen mit Gegenfällen und gerechneten Risikoplänen prüfen.',estimatedLessonCount:37,load:()=>import('./chapter-10').then(m=>m.rangesChapterTenLessons)},
   {id:'price-action-ranges.chapter-11',order:12,kind:'chapter',label:'Kapitel 11',title:'Die erste Rücksetzerfolge verstehen',description:'Kerzenpausen, Zählregeln, kleine und große Linienbrüche, erste EMA-Kontakte, alte Extremtests und Risiko mit eigenen Fortsetzungs- und Gegenfällen unterscheiden.',estimatedLessonCount:35,load:()=>import('./chapter-11').then(m=>m.rangesChapterElevenLessons)},
   {id:'price-action-ranges.chapter-12',order:13,kind:'chapter',label:'Kapitel 12',title:'Doppelhochs und Doppeltiefs als Fortsetzungsversuche',description:'Doppeltests im Trend, konkurrierende Muster, Unterläufe, Fehlausbrüche, dritte Stöße und Messziele mit zeitlich getrennten eigenen Fällen und Geldplänen prüfen.',estimatedLessonCount:43,load:()=>import('./chapter-12').then(m=>m.rangesChapterTwelveLessons)},
+  {id:'price-action-ranges.chapter-13',order:14,kind:'chapter',label:'Kapitel 13',title:'Lange Bewegungen ohne Kontakt zum Durchschnitt',description:'Kontaktfreie Kerzenfolgen, EMA20, erste Kontakte, starke Gegenbewegungen, zweite Versuche und Climax-Gegenfälle mit kausalen Durchschnittswerten und Geldplänen prüfen.',estimatedLessonCount:33,load:()=>import('./chapter-13').then(m=>m.rangesChapterThirteenLessons)},
  ],
  glossary:{title:'Ranges-Glossar',entries:rangesGlossary},
 };
