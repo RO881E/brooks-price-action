@@ -6,7 +6,7 @@ import {chartDescription,chartScenarioIds} from '../../../components/LearningCha
 import {pullbackBars,pullbackEma,pullbackEma20,pullbackAggregate,pullbackMirror,pullbackMinorLine,pullbackMajorLine,pullbackScenarioBars,pullbackH2Bars,pullbackMajor,PullbackMarks} from '../../../components/RangesPullbackCharts';
 describe('Ranges chapter 11: known information and scoped pullbacks',()=>{
  it('loads the chapter and registers every diagram',async()=>{
-  const unit=rangesDefinition.units.at(-1)!;expect(await unit.load()).toEqual(lessons);expect(unit.estimatedLessonCount).toBe(35);
+  const unit=rangesDefinition.units.find(u=>u.id==='price-action-ranges.chapter-11')!;expect(await unit.load()).toEqual(lessons);expect(unit.estimatedLessonCount).toBe(35);
   const d=lessons.flatMap(l=>l.steps.filter(s=>s.type==='diagram'));expect(new Set(d.map(s=>s.scenario)).size).toBe(28);
   for(const s of d){expect(chartScenarioIds()).toContain(s.scenario);expect(chartDescription(s.scenario).length).toBeGreaterThan(70);}
   expect(d.find(s=>s.scenario==='par11-higher')!.caption).toContain('Drei-Minuten');
